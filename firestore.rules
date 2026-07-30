@@ -1,0 +1,56 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAuthorizedEditor() {
+      return isSignedIn() && 
+        (request.auth.token.email == "aleksandrasabasz@gmail.com" || 
+         request.auth.token.email == "kuta.dominik@gmail.com");
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_.\\-]+$');
+    }
+
+    function isValidPrayer(data) {
+      return data.keys().hasAll(['title', 'text', 'updatedBy']) &&
+             data.keys().size() <= 5 &&
+             data.title is string && data.title.size() <= 200 &&
+             data.text is string && data.text.size() <= 10000 &&
+             data.updatedBy is string && data.updatedBy.size() <= 200;
+    }
+
+    function isValidBlogEntry(data) {
+      return data.keys().hasAll(['title', 'text', 'dayIndex', 'updatedBy']) &&
+             data.keys().size() <= 7 &&
+             data.title is string && data.title.size() <= 300 &&
+             data.text is string && data.text.size() <= 50000 &&
+             data.dayIndex is int &&
+             data.updatedBy is string && data.updatedBy.size() <= 200;
+    }
+
+    match /prayers/{prayerId} {
+      allow get: if true;
+      allow list: if true;
+      allow create, update: if isAuthorizedEditor() && isValidId(prayerId) && isValidPrayer(request.resource.data);
+      allow delete: if isAuthorizedEditor() && isValidId(prayerId);
+    }
+
+    match /blog_entries/{entryId} {
+      allow get: if true;
+      allow list: if true;
+      allow create, update: if isAuthorizedEditor() && isValidId(entryId) && isValidBlogEntry(request.resource.data);
+      allow delete: if isAuthorizedEditor() && isValidId(entryId);
+    }
+
+    // Global Safety Net — blokuje wszystko inne
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

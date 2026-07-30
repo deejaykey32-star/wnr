@@ -1,0 +1,6 @@
+{
+  "name": "RHZ365 & WnR365 - eMBiK",
+  "description": "Różaniec Historii Zbawienia przez 365 dni (RHZ365) oraz blog Widoki na Raj (WnR365) - elementy elektronicznej Misji Barw i Kolorów (eMBiK) poprzez duchowe pielgrzymowanie przez Jezusa Chrystusa w Duchu Świętym dzięki Bogu Ojcu i Maryi zawsze dziewicy.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,39 @@
+{
+  "entities": {
+    "Prayer": {
+      "title": "Prayer",
+      "description": "Rosary prayer content editable by authorized users",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "The title of the prayer or decade" },
+        "text": { "type": "string", "description": "The text of the prayer" },
+        "updatedBy": { "type": "string", "description": "Email of the user who edited the prayer" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Timestamp of the last edit" }
+      },
+      "required": ["title", "text", "updatedBy"]
+    },
+    "BlogEntry": {
+      "title": "BlogEntry",
+      "description": "Inspired blog entry written for the glory of Jesus in God the Father",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Title of the blog entry" },
+        "text": { "type": "string", "description": "Content text of the blog entry" },
+        "dayIndex": { "type": "integer", "description": "Day index from December 25th (0 to 365)" },
+        "updatedBy": { "type": "string", "description": "Email of the editor" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Timestamp of the last edit" }
+      },
+      "required": ["title", "text", "dayIndex", "updatedBy"]
+    }
+  },
+  "firestore": {
+    "/prayers/{prayerId}": {
+      "schema": "Prayer",
+      "description": "Collection of rosary prayers and decade names"
+    },
+    "/blog_entries/{entryId}": {
+      "schema": "BlogEntry",
+      "description": "Collection of inspired blog entries"
+    }
+  }
+}
