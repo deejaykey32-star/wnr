@@ -9,6 +9,7 @@ import { RosaryRenderer } from './components/RosaryRenderer';
 import { PrayerEditor } from './components/PrayerEditor';
 import { BlogSection } from './components/BlogSection';
 import { RichTextRenderer } from './utils/richTextHelper';
+import { parseDayText } from './utils/rhzParser';
 import { playBeadChime } from './utils/audio';
 import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechPaused, isSpeechSpeaking, isTtsSupported } from './utils/tts';
 import { 
@@ -531,6 +532,25 @@ export default function App() {
       );
     }
 
+    if (cycleInfo.cycleType === 'cycle1' && activeStep.decadeIndex) {
+      const decIdx = activeStep.decadeIndex;
+      const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
+      const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
+
+      if (parsed.success && parsed.data) {
+        if (activeStep.prayerType === 'mystery') {
+          return `${mysteryData.rgba.title}. ${parsed.data.reflectionText}.`;
+        } else if (activeStep.prayerType === 'ourFather') {
+          return parsed.data.ourFatherText;
+        } else if (activeStep.prayerType === 'hailMary' && activeStep.beadNumber) {
+          const idx = activeStep.beadNumber - 1;
+          return parsed.data.hailMaryTexts[idx] || (prayers['hailMary'] || DEFAULT_PRAYERS['hailMary']).text;
+        } else if (activeStep.prayerType === 'gloryBe') {
+          return parsed.data.gloryBeFatimaText;
+        }
+      }
+    }
+
     if (activeStep.prayerType === 'mystery') {
       const decIdx = activeStep.decadeIndex || 1;
       const mysteryData = getActiveDecadeMystery(cycleInfo.cycleType, cycleInfo.dayOfCycle, decIdx, prayers);
@@ -589,7 +609,34 @@ export default function App() {
         );
       }
 
-      // Cykl I: Traditional RHZ365 Prayer Presentation
+      // Cykl I: Traditional RHZ365 Prayer Presentation (22-step structured view)
+      if (activeStep.decadeIndex) {
+        const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
+        if (parsed.success && parsed.data) {
+          return (
+            <div className="mt-3">
+              <div className={`p-5 sm:p-6 rounded-2xl border shadow-md transition-all duration-300 ${
+                isLight ? 'bg-white border-slate-200' : 'bg-slate-900/70 border-slate-800'
+              }`}>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className={`text-xs border px-3 py-1 rounded-full font-bold uppercase tracking-wider font-mono ${
+                    isLight ? 'bg-indigo-50 text-indigo-700 border-indigo-200' : 'bg-indigo-950/60 text-indigo-300 border-indigo-800/60'
+                  }`}>
+                    Rozważanie Tajemnicy
+                  </span>
+                </div>
+                <h4 className={`text-xl sm:text-2xl font-bold font-serif tracking-tight ${isLight ? 'text-slate-900' : 'text-white'}`}>
+                  {mysteryData.rgba.title}
+                </h4>
+                <div className={`text-base sm:text-lg leading-relaxed mt-4 font-serif text-justify ${isLight ? 'text-slate-700' : 'text-slate-200'}`}>
+                  <RichTextRenderer text={parsed.data.reflectionText} />
+                </div>
+              </div>
+            </div>
+          );
+        }
+      }
+
       return (
         <div className="mt-3">
           <div className={`p-5 sm:p-6 rounded-2xl border shadow-md transition-all duration-300 ${
@@ -626,6 +673,15 @@ export default function App() {
         }
       }
 
+      let textToDisplay = ourFather.text;
+      if (cycleInfo.cycleType === 'cycle1' && decIdx) {
+        const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
+        const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
+        if (parsed.success && parsed.data) {
+          textToDisplay = parsed.data.ourFatherText;
+        }
+      }
+
       return (
         <div className="space-y-4 mt-3">
           {largeBeadRefl && (
@@ -644,7 +700,7 @@ export default function App() {
               {ourFather.title}
             </h4>
             <div className={`text-base sm:text-lg leading-relaxed font-sans text-justify ${isLight ? 'text-slate-800' : 'text-slate-100'}`}>
-              <RichTextRenderer text={ourFather.text} />
+              <RichTextRenderer text={textToDisplay} />
             </div>
           </div>
         </div>
@@ -654,22 +710,52 @@ export default function App() {
     if (activeStep.prayerType === 'gloryBe') {
       const glory = prayers['gloryBe'] || DEFAULT_PRAYERS['gloryBe'];
       const fatima = prayers['fatima'] || DEFAULT_PRAYERS['fatima'];
+      const decIdx = activeStep.decadeIndex;
+
+      let textToDisplay = `${glory.text}\n\n${fatima.text}`;
+      if (cycleInfo.cycleType === 'cycle1' && decIdx) {
+        const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
+        const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
+        if (parsed.success && parsed.data) {
+          textToDisplay = parsed.data.gloryBeFatimaText;
+        }
+      }
+
       return (
         <div className="space-y-4 mt-3">
           <div className={`p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/40 border-slate-800/50'}`}>
-            <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 border-b pb-1.5 ${isLight ? 'text-slate-600 border-slate-200' : 'text-slate-400 border-slate-800'}`}>{glory.title}</h4>
+            <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 border-b pb-1.5 ${isLight ? 'text-slate-600 border-slate-200' : 'text-slate-400 border-slate-800'}`}>{glory.title} & {fatima.title}</h4>
             <div className={`text-base sm:text-lg leading-relaxed text-justify ${isLight ? 'text-slate-800' : 'text-slate-100'}`}>
-              <RichTextRenderer text={glory.text} />
-            </div>
-          </div>
-          <div className={`p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/40 border-slate-800/50'}`}>
-            <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 border-b pb-1.5 ${isLight ? 'text-slate-600 border-slate-200' : 'text-slate-400 border-slate-800'}`}>{fatima.title}</h4>
-            <div className={`text-base sm:text-lg leading-relaxed text-justify ${isLight ? 'text-slate-800' : 'text-slate-100'}`}>
-              <RichTextRenderer text={fatima.text} />
+              <RichTextRenderer text={textToDisplay} />
             </div>
           </div>
         </div>
       );
+    }
+
+    if (activeStep.prayerType === 'hailMary' && activeStep.beadNumber && activeStep.decadeIndex && cycleInfo.cycleType === 'cycle1') {
+      const decIdx = activeStep.decadeIndex;
+      const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
+      const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
+
+      if (parsed.success && parsed.data && parsed.data.hailMaryTexts[activeStep.beadNumber - 1]) {
+        const specificHailText = parsed.data.hailMaryTexts[activeStep.beadNumber - 1];
+        return (
+          <div className={`mt-3 p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/40 border-slate-800/50'}`}>
+            <div className="flex items-center justify-between border-b pb-2 mb-3">
+              <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                Zdrowaś Maryjo ({activeStep.beadNumber} z 10)
+              </h4>
+              <span className={`text-[10px] font-mono font-bold px-2.5 py-1 rounded-full ${isLight ? 'bg-indigo-100 text-indigo-800' : 'bg-indigo-950 text-indigo-300'}`}>
+                Zdrowaś Maryjo #{activeStep.beadNumber}
+              </span>
+            </div>
+            <div className={`text-base sm:text-lg leading-relaxed font-serif text-justify ${isLight ? 'text-slate-800' : 'text-slate-100'}`}>
+              <RichTextRenderer text={specificHailText} />
+            </div>
+          </div>
+        );
+      }
     }
 
     const currentPrayer = prayers[activeStep.prayerType] || DEFAULT_PRAYERS[activeStep.prayerType];
