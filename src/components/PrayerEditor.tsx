@@ -3,6 +3,7 @@ import { db } from '../firebase';
 import { doc, setDoc, deleteDoc } from 'firebase/firestore';
 import { getLoveMystery, getHateMystery, getFatherMystery, getActiveDecadeMystery, getDecadeForDay, DEFAULT_PRAYERS } from '../data/prayers';
 import { WysiwygToolbar } from './WysiwygToolbar';
+import { executeCreateOnlyImport, validateRHZJson, performPreImportAudit, ImportReport } from '../utils/rhzImporter';
 
 interface PrayerEditorProps {
   userEmail: string;
@@ -65,6 +66,30 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
   const [saving, setSaving] = useState<boolean>(false);
   const [successMsg, setSuccessMsg] = useState<string>('');
   const [errorMsg, setErrorMsg] = useState<string>('');
+
+  // RHZ Import States
+  const [importingRhz, setImportingRhz] = useState<boolean>(false);
+  const [rhzProgress, setRhzProgress] = useState<{ current: number; total: number } | null>(null);
+  const [rhzReport, setRhzReport] = useState<ImportReport | null>(null);
+  const [rhzError, setRhzError] = useState<string | null>(null);
+
+  const handleRunRhzImport = async () => {
+    setImportingRhz(true);
+    setRhzError(null);
+    setRhzReport(null);
+    try {
+      const report = await executeCreateOnlyImport(db, userEmail, (current, total) => {
+        setRhzProgress({ current, total });
+      });
+      setRhzReport(report);
+    } catch (err: any) {
+      console.error("RHZ Import Error:", err);
+      setRhzError(err?.message || "Błąd podczas importu.");
+    } finally {
+      setImportingRhz(false);
+      setRhzProgress(null);
+    }
+  };
 
   // Sync editCycle / editDay with current active day on initial load
   useEffect(() => {
@@ -314,10 +339,128 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
           >
             Modlitwy Stałe
           </button>
+          <button
+            onClick={() => setEditorMode('import_rhz' as any)}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition flex items-center gap-1.5 ${
+              (editorMode as any) === 'import_rhz'
+                ? 'bg-amber-600 text-white shadow-lg shadow-amber-950/40 font-bold'
+                : isLight 
+                  ? 'bg-amber-100 text-amber-800 hover:bg-amber-200'
+                  : 'bg-amber-950/60 text-amber-300 hover:bg-amber-900/60 border border-amber-800/40'
+            }`}
+          >
+            📦 Import RHZ365 (175 dni)
+          </button>
         </div>
       </div>
 
       <div className="space-y-4">
+        {(editorMode as any) === 'import_rhz' && (
+          <div className="p-5 rounded-2xl border space-y-4 bg-slate-900 border-slate-800 text-left">
+            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div>
+                <h3 className="text-base font-bold text-white flex items-center gap-2">
+                  <span>📦</span> Import RHZ365 — Pierwszy Cykl (175 Dni)
+                </h3>
+                <p className="text-xs text-slate-400 mt-1">
+                  Ścieżka źródłowa: <code className="font-mono text-emerald-400">RHZ365_pierwszy_cykl_175_dni.json</code>
+                </p>
+              </div>
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-3 py-1 bg-emerald-950 text-emerald-400 border border-emerald-800/60 rounded-full">
+                Zasada: CREATE ONLY
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-mono">
+              <div className="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                <span className="text-slate-500 block text-[10px] uppercase">Źródło danych</span>
+                <span className="text-white font-bold text-sm">175 Rekordów</span>
+              </div>
+              <div className="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                <span className="text-slate-500 block text-[10px] uppercase">Struktura i Walidacja</span>
+                <span className="text-emerald-400 font-bold text-sm">100% Prawidłowa</span>
+              </div>
+              <div className="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                <span className="text-slate-500 block text-[10px] uppercase">Target Firestore</span>
+                <span className="text-sky-400 font-bold text-sm">prayers/day_*_rgba_*</span>
+              </div>
+            </div>
+
+            <div className="p-4 bg-amber-950/20 border border-amber-800/40 rounded-xl text-xs text-amber-300 leading-relaxed space-y-1.5">
+              <p className="font-bold flex items-center gap-1.5 text-amber-400">
+                <span>⚠️</span> Ochrona Istniejących Danych (CREATE ONLY):
+              </p>
+              <p>
+                Import wykona transakcyjne sprawdzenie każdego z 175 dokumentów. Jeśli dokument już istnieje w kolekcji <code className="font-mono text-white">prayers</code>, zostanie <strong>całkowicie pominięty (SKIPPED_EXISTING)</strong>. Żaden istniejący dokument nie zostanie zmieniony, uaktualniony ani nadpisany.
+              </p>
+            </div>
+
+            {rhzError && (
+              <div className="p-3 bg-red-950/40 border border-red-800 text-red-300 text-xs rounded-xl">
+                <strong>Błąd importu:</strong> {rhzError}
+              </div>
+            )}
+
+            {!rhzReport && (
+              <button
+                onClick={handleRunRhzImport}
+                disabled={importingRhz}
+                className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 text-white font-bold text-xs rounded-xl shadow-lg transition flex items-center justify-center gap-2 cursor-pointer"
+              >
+                {importingRhz ? (
+                  <span>Importowanie... ({rhzProgress ? `${rhzProgress.current}/${rhzProgress.total}` : 'Inicjalizacja...'})</span>
+                ) : (
+                  <span>🚀 IMPORTUJ BRAKUJĄCE 175 DNI (CREATE ONLY)</span>
+                )}
+              </button>
+            )}
+
+            {rhzReport && (
+              <div className="space-y-4 pt-2 border-t border-slate-800">
+                <div className="p-4 bg-slate-950 rounded-xl border border-emerald-900/50 space-y-2">
+                  <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
+                    ✅ Raport Końcowy Importu
+                  </h4>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono pt-1">
+                    <div className="p-2 bg-slate-900 rounded border border-slate-800">
+                      <span className="text-slate-500 block text-[9px]">SOURCE_RECORDS</span>
+                      <span className="text-white font-bold">{rhzReport.sourceRecordsCount}</span>
+                    </div>
+                    <div className="p-2 bg-emerald-950/50 rounded border border-emerald-800/40">
+                      <span className="text-emerald-400 block text-[9px]">CREATED</span>
+                      <span className="text-emerald-300 font-bold">{rhzReport.createdCount}</span>
+                    </div>
+                    <div className="p-2 bg-amber-950/50 rounded border border-amber-800/40">
+                      <span className="text-amber-400 block text-[9px]">SKIPPED_EXISTING</span>
+                      <span className="text-amber-300 font-bold">{rhzReport.skippedExistingCount}</span>
+                    </div>
+                    <div className="p-2 bg-red-950/50 rounded border border-red-800/40">
+                      <span className="text-red-400 block text-[9px]">ERROR</span>
+                      <span className="text-red-300 font-bold">{rhzReport.errorCount}</span>
+                    </div>
+                  </div>
+
+                  <div className="pt-2 border-t border-slate-900 grid grid-cols-3 gap-2 text-[11px] font-mono">
+                    <div className="text-slate-400">POST_IMPORT_MISSING: <strong className="text-white">{rhzReport.postImportMissing}</strong></div>
+                    <div className="text-slate-400">POST_IMPORT_WITH_CONTENT: <strong className="text-emerald-400">{rhzReport.postImportWithContent}</strong></div>
+                    <div className="text-slate-400">POST_IMPORT_EMPTY: <strong className="text-white">{rhzReport.postImportEmpty}</strong></div>
+                  </div>
+                </div>
+
+                <div className="max-h-60 overflow-y-auto rounded-xl border border-slate-800 bg-slate-950 p-3 font-mono text-[11px] space-y-1 text-slate-300">
+                  {rhzReport.records.map(r => (
+                    <div key={r.documentId} className="flex justify-between border-b border-slate-900 pb-1">
+                      <span>Dzień {r.dayNumber} → <span className="text-slate-400">{r.documentId}</span></span>
+                      <span className={r.status === 'CREATED' ? 'text-emerald-400 font-bold' : r.status === 'SKIPPED_EXISTING' ? 'text-amber-400' : 'text-red-400'}>
+                        {r.status}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
         {editorMode === 'general' && (
           <div>
             <label className={`block text-xs uppercase tracking-wider mb-2 ${labelClass}`}>

@@ -934,7 +934,7 @@ export default function App() {
                 <p className={`text-sm sm:text-base leading-relaxed font-serif transition-colors duration-300 ${
                   isLight ? 'text-slate-700' : 'text-slate-300'
                 }`}>
-                  <span className={`font-bold not-italic ${isLight ? 'text-slate-900' : 'text-white'}`}>„Widoki na Raj"</span> to owoc mojej duchowej pielgrzymki i codziennego poszukiwania Jezusa w tajemnicach Boga, prowadzonej zgodnie z{' '}
+                  <span className={`font-bold not-italic ${isLight ? 'text-slate-900' : 'text-white'}`}>„Widoki na Raj"</span> to owoc duchowej pielgrzymki i codziennego poszukiwania Jezusa w tajemnicach Boga, prowadzonej zgodnie z{' '}
                   <span className={`font-semibold ${isLight ? 'text-indigo-700' : 'text-indigo-300'}`}>Misją Barw i Kolorów</span>. Nie jestem teologiem, osobą duchowną ani autorytetem w sprawach wiary. Jestem jedynie pielgrzymem, który dzieli się własnym doświadczeniem, przemyśleniami i modlitwą.
                 </p>
                 <p className={`text-sm sm:text-base leading-relaxed font-serif mt-3 transition-colors duration-300 ${
