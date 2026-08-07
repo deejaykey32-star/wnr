@@ -244,8 +244,6 @@ export default function App() {
         const customLargeBead = prayers[largeBeadKey] || prayers[`large_bead_reflection_dec_${decIdx}`];
         const largeBeadText = customLargeBead ? `${customLargeBead.title}. ${customLargeBead.text}` : "";
         mystText = `${mystText}. ${largeBeadText}`;
-      } else {
-        mystText = `${mystText}\n\nPokuta i zadośćuczynienie (CMYK):\n${mysteryData.cmyk.title}. ${mysteryData.cmyk.text}`;
       }
 
       const { generateEmbikPdf } = await import('./utils/pdfGenerator');
@@ -349,7 +347,7 @@ export default function App() {
         const largeBeadText = customLargeBead ? `${customLargeBead.title}. ${customLargeBead.text}` : "";
         return `${mysteryData.rgba.title}. ${mysteryData.rgba.text}. ${largeBeadText}`;
       } else {
-        return `${mysteryData.rgba.title}. ${mysteryData.rgba.text}. ${mysteryData.cmyk.title}. ${mysteryData.cmyk.text}.`;
+        return `${mysteryData.rgba.title}. ${mysteryData.rgba.text}.`;
       }
     } else if (activeStep.prayerType === 'ourFather') {
       const decIdx = activeStep.decadeIndex;
@@ -591,25 +589,24 @@ export default function App() {
         );
       }
 
-      // Cykl I: Traditional
+      // Cykl I: Traditional RHZ365 Prayer Presentation
       return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 mt-3">
-          <div className={`p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-red-50 border-red-200' : 'bg-zinc-900/60 border-zinc-800'}`}>
-            <span className={`text-xs border px-2.5 py-1 rounded-full font-semibold font-mono uppercase tracking-wide ${isLight ? 'bg-red-100 text-red-700 border-red-200' : 'bg-red-950 text-red-400 border-red-800/60'}`}>
-              Rozważanie RGBA (Miłość Boża)
-            </span>
-            <h4 className={`text-base sm:text-lg font-bold mt-3 ${isLight ? 'text-slate-900' : 'text-white'}`}>{mysteryData.rgba.title}</h4>
-            <div className={`text-sm sm:text-base mt-2.5 leading-relaxed text-justify ${isLight ? 'text-slate-700' : 'text-slate-200'}`}>
-              <RichTextRenderer text={mysteryData.rgba.text} />
+        <div className="mt-3">
+          <div className={`p-5 sm:p-6 rounded-2xl border shadow-md transition-all duration-300 ${
+            isLight ? 'bg-white border-slate-200' : 'bg-slate-900/70 border-slate-800'
+          }`}>
+            <div className="flex items-center gap-2 mb-3">
+              <span className={`text-xs border px-3 py-1 rounded-full font-bold uppercase tracking-wider font-mono ${
+                isLight ? 'bg-indigo-50 text-indigo-700 border-indigo-200' : 'bg-indigo-950/60 text-indigo-300 border-indigo-800/60'
+              }`}>
+                Rozważanie
+              </span>
             </div>
-          </div>
-          <div className={`p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-cyan-50 border-cyan-200' : 'bg-zinc-900/60 border-zinc-800'}`}>
-            <span className={`text-xs border px-2.5 py-1 rounded-full font-semibold font-mono uppercase tracking-wide ${isLight ? 'bg-cyan-100 text-cyan-700 border-cyan-200' : 'bg-cyan-950 text-cyan-400 border-cyan-800/60'}`}>
-              Rozważanie CMYK (Pokuta za Nienawiść)
-            </span>
-            <h4 className={`text-base sm:text-lg font-bold mt-3 ${isLight ? 'text-slate-900' : 'text-white'}`}>{mysteryData.cmyk.title}</h4>
-            <div className={`text-sm sm:text-base mt-2.5 leading-relaxed text-justify ${isLight ? 'text-slate-700' : 'text-slate-200'}`}>
-              <RichTextRenderer text={mysteryData.cmyk.text} />
+            <h4 className={`text-xl sm:text-2xl font-bold font-serif tracking-tight ${isLight ? 'text-slate-900' : 'text-white'}`}>
+              {mysteryData.rgba.title}
+            </h4>
+            <div className={`text-base sm:text-lg leading-relaxed mt-4 font-serif text-justify ${isLight ? 'text-slate-700' : 'text-slate-200'}`}>
+              <RichTextRenderer text={mysteryData.rgba.text} />
             </div>
           </div>
         </div>
@@ -1352,11 +1349,11 @@ export default function App() {
                     <Sliders className="w-4 h-4 text-indigo-500" />
                     Specyfikacja Paciorka i Reprezentacja Barwna
                   </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                    <div className={`p-3.5 rounded-xl border transition-colors duration-300 ${
+                  <div className="text-xs">
+                    <div className={`p-4 rounded-xl border transition-colors duration-300 ${
                       isLight ? 'bg-slate-50 border-slate-200/80 text-slate-800' : 'bg-slate-950/60 border-slate-800/60 text-slate-200'
                     }`}>
-                      <span className="text-[10px] text-slate-500 font-mono tracking-wider uppercase block mb-1">RÓŻANIEC RGBA (Światło)</span>
+                      <span className="text-[10px] text-slate-500 font-mono tracking-wider uppercase block mb-1">RÓŻANIEC — SYMBOLIKA PACIORKA</span>
                       <div className="flex items-center gap-2 mt-2">
                         <span className={`w-3.5 h-3.5 rounded-full border ${isLight ? 'border-slate-300' : 'border-slate-700'}`} style={{
                           backgroundColor: rgbaBead?.colorType === 'transparent' ? 'transparent' : rgbaBead?.colorType,
@@ -1367,35 +1364,12 @@ export default function App() {
                         </span>
                       </div>
                       <p className={`mt-2 leading-relaxed ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
-                        {rgbaBead?.colorType === 'black' && "Czerń / Alpha: Reprezentuje nicość, brak światła, stan przed stworzeniem formy."}
-                        {rgbaBead?.colorType === 'red' && "Czerwień: Długość fali światła odpowiadająca pasji, miłości oraz ofierze."}
-                        {rgbaBead?.colorType === 'green' && "Zieleń: Światło kreacji, wzrostu duchowego i życiodajnej nadziei."}
-                        {rgbaBead?.colorType === 'blue' && "Niebieski: Głębia boska, kolor niebios, transcendencji i kontemplacji."}
-                        {rgbaBead?.colorType === 'white' && "Biel: Pełna synteza addytywna światła, czystość i zmartwychwstanie."}
-                        {rgbaBead?.colorType === 'transparent' && "Przezroczysty: Czas ciszy, przejścia, skupienia między dziesiątkami."}
-                      </p>
-                    </div>
-
-                    <div className={`p-3.5 rounded-xl border transition-colors duration-300 ${
-                      isLight ? 'bg-slate-50 border-slate-200/80 text-slate-800' : 'bg-slate-950/60 border-slate-800/60 text-slate-200'
-                    }`}>
-                      <span className="text-[10px] text-slate-500 font-mono tracking-wider uppercase block mb-1">RÓŻANIEC CMYK (Pigment)</span>
-                      <div className="flex items-center gap-2 mt-2">
-                        <span className={`w-3.5 h-3.5 rounded-full border ${isLight ? 'border-slate-300' : 'border-slate-700'}`} style={{
-                          backgroundColor: cmykBead?.colorType === 'transparent' ? 'transparent' : cmykBead?.colorType === 'white' ? '#FFFFFF' : cmykBead?.colorType,
-                          boxShadow: cmykBead?.colorType !== 'transparent' && cmykBead?.colorType !== 'black' && cmykBead?.colorType !== 'white' ? `0 0 8px ${cmykBead?.colorType}` : 'none'
-                        }}></span>
-                        <span className={`font-semibold capitalize ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
-                          {cmykBead?.colorType === 'transparent' ? 'Przezroczysty (Separator)' : `Kolor: ${cmykBead?.colorType}`}
-                        </span>
-                      </div>
-                      <p className={`mt-2 leading-relaxed ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
-                        {cmykBead?.colorType === 'white' && "Biel: Czystość papieru, pokorne przyjęcie pigmentu boskiego słowa."}
-                        {cmykBead?.colorType === 'cyan' && "Cyan: Pigment błękitu niebieskiego, oceaniczny spokój i oddanie."}
-                        {cmykBead?.colorType === 'magenta' && "Magenta: Pigment purpury królewskiej, godność, ofiarność i dostojeństwo."}
-                        {cmykBead?.colorType === 'yellow' && "Żółty: Pigment złota, chwała niebieska i światłość wiekuista."}
-                        {cmykBead?.colorType === 'black' && "Czerń (Key): Pełne nasycenie pigmentu, ostateczna prawda, cisza i śmierć dla świata."}
-                        {cmykBead?.colorType === 'transparent' && "Przezroczysty: Medytacyjny łącznik pomiędzy stopniami dopełnienia."}
+                        {rgbaBead?.colorType === 'black' && "Czerń: Reprezentuje nicość, pokorę i stan przed stworzeniem światła."}
+                        {rgbaBead?.colorType === 'red' && "Czerwień: Pasja, miłość oraz ofiara Chrystusa."}
+                        {rgbaBead?.colorType === 'green' && "Zieleń: Światło kreacji, wzrost duchowy i życiodajna nadzieja."}
+                        {rgbaBead?.colorType === 'blue' && "Niebieski: Głębia boska, pokój Maryi, niebiosa i kontemplacja."}
+                        {rgbaBead?.colorType === 'white' && "Biel: Czystość, zmartwychwstanie i chwała Boża."}
+                        {rgbaBead?.colorType === 'transparent' && "Przezroczysty: Czas ciszy i skupienia między dziesiątkami."}
                       </p>
                     </div>
                   </div>

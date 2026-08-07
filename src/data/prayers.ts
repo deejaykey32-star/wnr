@@ -462,7 +462,7 @@ export const getPrayerSteps = (
       const bIdx = start + h;
       steps.push({
         id: `step-hailmary-dec-${decNum}-${h + 1}`,
-        label: `Tajemnica ${decNum}, Zdrowaś Maryjo ${h + 1}/10 (RGBA: ${colors.rgba}, CMYK: ${colors.cmyk})`,
+        label: `Tajemnica ${decNum}, Zdrowaś Maryjo ${h + 1}/10`,
         beadIndex: bIdx,
         prayerType: 'hailMary',
         rgbaBeadId: getRGBAId(bIdx),

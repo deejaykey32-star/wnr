@@ -495,7 +495,7 @@ export const RosaryRenderer: React.FC<RosaryRendererProps> = ({
           }`}
         >
           <span className="w-2.5 h-2.5 rounded-full bg-sky-400 animate-pulse"></span>
-          ŚWIATŁO (RGBA)
+          RÓŻANIEC HISTORII ZBAWIENIA
         </button>
         <button
           id="btn-select-cmyk"
@@ -509,7 +509,7 @@ export const RosaryRenderer: React.FC<RosaryRendererProps> = ({
           }`}
         >
           <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
-          PIGMENT (CMYK)
+          POKUTA I ZADOŚĆUCZYNIENIE
         </button>
         <button
           id="btn-select-both"
@@ -524,7 +524,7 @@ export const RosaryRenderer: React.FC<RosaryRendererProps> = ({
                 : 'text-slate-400 hover:text-slate-200'
           }`}
         >
-          OBA SYSTEMY
+          PEŁNA WIZUALIZACJA
         </button>
       </div>
 
@@ -634,7 +634,7 @@ export const RosaryRenderer: React.FC<RosaryRendererProps> = ({
                 textAnchor="middle"
                 opacity={0.9}
               >
-                RÓŻANIEC RGBA
+                RÓŻANIEC HISTORII ZBAWIENIA
               </text>
               <text
                 x={cxRgba}
@@ -645,7 +645,7 @@ export const RosaryRenderer: React.FC<RosaryRendererProps> = ({
                 textAnchor="middle"
                 opacity={0.7}
               >
-                [Additive Color Model - Światło]
+                [RHZ365]
               </text>
 
               {/* Draw RGBA chains */}

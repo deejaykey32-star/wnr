@@ -543,8 +543,7 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
                   onChange={(e) => setEditTarget(e.target.value as 'rgba' | 'cmyk' | 'large_bead')}
                   className={`w-full rounded-lg px-3 py-2 text-xs focus:outline-none transition border ${inputBgClass}`}
                 >
-                  <option value="rgba">Rozważanie RGBA (Miłość)</option>
-                  {editCycle === 'cycle1' && <option value="cmyk">Rozważanie CMYK (Pokuta)</option>}
+                  <option value="rgba">Rozważanie RHZ365</option>
                   <option value="large_bead">Duży Paciorek (Rozważanie)</option>
                 </select>
               </div>
