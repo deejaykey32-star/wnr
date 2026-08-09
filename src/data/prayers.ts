@@ -913,27 +913,32 @@ export const getActiveDecadeMystery = (
   }
 
   const keyRgba = `day_${dayOfCycle}_decade_rgba_${decIdx}`;
-  const keyCmyk = `day_${dayOfCycle}_decade_cmyk_${decIdx}`;
+  const customRgba = prayers[keyRgba];
+
+  const jsonRecord = (rhzData as any[]).find(r => r.dayNumber === dayOfCycle) || rhzData[(dayOfCycle - 1) % rhzData.length];
 
   if (cycleType === 'cycle2') {
     // Cykl II: Różaniec do Boga Ojca
     const defaultRgba = getFatherMystery(dayOfCycle, decIdx);
-    const customRgba = prayers[keyRgba];
     return {
       rgba: customRgba || defaultRgba,
       cmyk: { title: "Różaniec do Boga Ojca", text: "W tym cyklu rozważamy nieskończoną miłość i opatrzność Boga Ojca na wszystkich paciorkach." }
     };
   }
 
-  // Cykl I or Break: Traditional Rosary (Love / Hate)
-  const defaultRgba = getLoveMystery(dayOfCycle, decIdx);
-  const defaultCmyk = getHateMystery(dayOfCycle, decIdx);
+  // Cykl I or Break: Traditional Rosary (RHZ365)
+  const authenticTitle = jsonRecord ? jsonRecord.title : `RHZ365 — Dzień ${dayOfCycle}`;
+  const authenticText = (customRgba && customRgba.text && customRgba.text.length > 50) 
+    ? customRgba.text 
+    : (jsonRecord ? jsonRecord.text : '');
 
-  const customRgba = prayers[keyRgba];
-  const customCmyk = prayers[keyCmyk];
+  const rgbaResult = {
+    title: authenticTitle,
+    text: authenticText
+  };
 
   return {
-    rgba: customRgba || defaultRgba,
-    cmyk: customCmyk || defaultCmyk
+    rgba: rgbaResult,
+    cmyk: rgbaResult
   };
 };
