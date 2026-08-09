@@ -149,6 +149,13 @@ export const DIVINE_MERCY_DEC_17 = {
   defaultText: `Koronka do Miłosierdzia Bożego (Dzień 17 Grudnia)\n\nModlitwa podyktowana przez Pana Jezusa św. Siostrze Faustynie w Wilnie w dniach 13–14 września 1935 roku jako modlitwa o przebłaganie i uśmierzenie gniewu Bożego za grzechy całego świata.\n\nStruktura Modlitwy Koronki:\n1. Znak Krzyża Świętego\n2. Modlitwa Wstępna (Ojcze Nasz, Zdrowaś Maryjo, Wierzę w Boga)\n3. Na dużych paciorkach (5 razy):\n   „Ojcze Przedwieczny, ofiaruję Ci Ciało i Krew, Duszę i Bóstwo najmilszego Syna Twojego, a Pana naszego Jezusa Chrystusa, na przebłaganie za grzechy nasze i całego świata.”\n4. Na 10 małych paciorkach (50 razy):\n   „Dla Jego bolesnej męki, miej miłosierdzie dla nas i całego świata.”\n5. Zakończenie (3 razy):\n   „Święty Boże, Święty Mocny, Święty Nieśmiertelny, zmiłuj się nad nami i nad całym światem.”\n6. Modlitwa Końcowa:\n   „O Krew i Wodo, któraś wypłynęła z Najświętszego Serca Jezusowego jako zdrój miłosierdzia dla nas — ufam Tobie!”\n\nRozważanie i Intencja:\nW tym dniu modlimy się o zdanie się na nieskończone Miłosierdzie Boże dla nas, naszych rodzin, Kościoła i całego świata, prosząc o łaskę nawrócenia grzeszników i pokój dla świata.`
 };
 
+export const SILENT_CONTEMPLATION_DEC_25 = {
+  dateStr: "25 Grudnia",
+  title: "Kontemplacja w ciszy (25 Grudnia — Narodzenie Pańskie)",
+  scripture: "(Święta Noc Narodzenia Pańskiego)",
+  defaultText: `Kontemplacja w ciszy (25 Grudnia — Narodzenie Pańskie)\n\nKontempluj ciszę.\n\nW cichości i świętej nocy Narodzenia Pańskiego zamilknijmy przed Bożą Tajemnicą Wcielenia. Trwamy na cichej adoracji, dziękczynieniu i kontemplacji Bożej Obecności.`
+};
+
 // Calculate the cycle details starting from December 25th of the current or previous year
 export const getCycleDayInfo = (selectedDate: Date) => {
   const d = new Date(selectedDate);
@@ -170,6 +177,19 @@ export const getCycleDayInfo = (selectedDate: Date) => {
   // Calculate difference in days (using Math.round to avoid DST timezone hour shifts)
   const diffTime = d.getTime() - cycleStart.getTime();
   const dayIndex = Math.round(diffTime / (1000 * 60 * 60 * 24)); // 0 to 364/365
+
+  // 25 December: Kontemplacja w ciszy (zamiast zawartości pliku JSON)
+  if (month === 11 && day === 25) {
+    return {
+      dayIndex,
+      dayOfCycle: 1,
+      cycleType: 'silent_contemplation' as CycleType,
+      stationNumber: 0,
+      cycleName: `Kontemplacja w ciszy (25 Grudnia — Narodzenie Pańskie)`,
+      startYear,
+      endYear: startYear + 1
+    };
+  }
 
   // 18 June - 24 June: 7 Stations of Droga Życia (Stations 1 to 7)
   if (month === 5 && day >= 18 && day <= 24) {
@@ -634,6 +654,90 @@ export const getPrayerSteps = (
     return steps;
   }
 
+  if (cycleType === 'silent_contemplation') {
+    steps.push({
+      id: 'step-sign-1',
+      label: "Rozpoczęcie — W imię Ojca...",
+      beadIndex: 0,
+      prayerType: 'signOfCross',
+      rgbaBeadId: getRGBAId(0),
+      cmykBeadId: getCMYKId(0)
+    });
+
+    steps.push({
+      id: 'step-creed',
+      label: "Krzyż — Skład Apostolski (Wierzę w Boga)",
+      beadIndex: 0,
+      prayerType: 'creed',
+      rgbaBeadId: getRGBAId(0),
+      cmykBeadId: getCMYKId(0)
+    });
+
+    steps.push({
+      id: 'step-silence-main',
+      label: "25 Grudnia — Kontemplacja w ciszy",
+      beadIndex: 1,
+      prayerType: 'mystery',
+      rgbaBeadId: getRGBAId(1),
+      cmykBeadId: getCMYKId(1),
+      decadeIndex: 1
+    });
+
+    steps.push({
+      id: 'step-silence-father',
+      label: "Paciorek 2 — Ojcze Nasz",
+      beadIndex: 2,
+      prayerType: 'ourFather',
+      rgbaBeadId: getRGBAId(2),
+      cmykBeadId: getCMYKId(2)
+    });
+
+    steps.push({
+      id: 'step-silence-hailmary-1',
+      label: "Paciorek 3 — Zdrowaś Maryjo (O Wiarę)",
+      beadIndex: 3,
+      prayerType: 'hailMary',
+      rgbaBeadId: getRGBAId(3),
+      cmykBeadId: getCMYKId(3)
+    });
+    steps.push({
+      id: 'step-silence-hailmary-2',
+      label: "Paciorek 4 — Zdrowaś Maryjo (O Nadzieję)",
+      beadIndex: 4,
+      prayerType: 'hailMary',
+      rgbaBeadId: getRGBAId(4),
+      cmykBeadId: getCMYKId(4)
+    });
+    steps.push({
+      id: 'step-silence-hailmary-3',
+      label: "Paciorek 5 — Zdrowaś Maryjo (O Miłość)",
+      beadIndex: 5,
+      prayerType: 'hailMary',
+      rgbaBeadId: getRGBAId(5),
+      cmykBeadId: getCMYKId(5)
+    });
+
+    steps.push({
+      id: 'step-silence-glory',
+      label: "Łącznik — Uwielbienie w ciszy & Chwała Ojcu",
+      beadIndex: 6,
+      prayerType: 'gloryBe',
+      rgbaBeadId: getRGBAId(6),
+      cmykBeadId: getCMYKId(6)
+    });
+
+    steps.push({
+      id: 'step-final-sign',
+      label: "Zakończenie — W imię Ojca...",
+      beadIndex: 0,
+      prayerType: 'signOfCross',
+      rgbaBeadId: getRGBAId(0),
+      cmykBeadId: getCMYKId(0)
+    });
+
+    return steps;
+  }
+
   // Determine which single decade this day is assigned to
   const activeDecadeNum = getDecadeForDay(dayOfCycle);
 
@@ -846,6 +950,15 @@ export const getActiveDecadeMystery = (
     return {
       rgba: custom || { title: DIVINE_MERCY_DEC_17.title, text: DIVINE_MERCY_DEC_17.defaultText },
       cmyk: { title: "Koronka do Miłosierdzia Bożego", text: DIVINE_MERCY_DEC_17.defaultText }
+    };
+  }
+
+  if (cycleType === 'silent_contemplation') {
+    const key = `silent_contemplation_dec_25`;
+    const custom = prayers[key];
+    return {
+      rgba: custom || { title: SILENT_CONTEMPLATION_DEC_25.title, text: SILENT_CONTEMPLATION_DEC_25.defaultText },
+      cmyk: { title: "Kontemplacja w ciszy", text: SILENT_CONTEMPLATION_DEC_25.defaultText }
     };
   }
 
