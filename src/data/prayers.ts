@@ -1,4 +1,5 @@
 import { BeadData, PrayerStep } from '../types';
+import rhzData from '../../RHZ365_pierwszy_cykl_175_dni.json';
 
 export const DEFAULT_PRAYERS: Record<string, { title: string; text: string }> = {
   signOfCross: {
@@ -294,34 +295,18 @@ export const getCycleDayInfo = (
   };
 };
 
-// Algorithmic generator for Cykl I Love Contemplations (RGBA)
-export const getLoveMystery = (dayNum: number, decIdx: number) => {
-  const themes = [
-    "Przymierza Miłości", "Serca Jezusowego", "Ofiary Krzyża", "Ducha Pocieszyciela", "Maryi Królowej Pokoju",
-    "Miłosierdzia Bożego", "Wieczności w Bogu", "Stworzenia Świata", "Łaski Uświęcającej", "Jedności Chrześcijan",
-    "Służby Pokornej", "Zwycięstwa nad Złem", "Prawdy Objawionej", "Nadziei Chrześcijańskiej", "Mądrości Bożej"
-  ];
-  const theme = themes[(dayNum - 1) % themes.length];
-  
-  const titles = [
-    `Kontemplacja Miłości Stwórczej w Duchu ${theme} (Alpha/Czerń)`,
-    `Rozpalenie Ognia Miłości Bożej w Tajemnicy ${theme} (Czerwień)`,
-    `Zjednoczenie z Ofiarą Miłości Chrystusa w Duchu ${theme} (Zieleń)`,
-    `Ożywcze Tchnienie Miłości Ducha Świętego w ${theme} (Niebieski)`,
-    `Pełnia Wiecznej Miłości i Chwały Bożej w ${theme} (Biel)`
-  ];
-  
-  const texts = [
-    `Rozważamy bezwarunkową Miłość Boga Ojca (Dzień ${dayNum} cyklu I), który powołuje nas ze stanu czerni i nicości do pełnego światła łaski. Doświadczamy radości z bycia dzieckiem Bożym, wybranym i ukochanym przed stworzeniem świata.`,
-    `Kontemplujemy miłość Chrystusa (Dzień ${dayNum} cyklu I), która rozlewa się jako zbawcza czerwień na krzyżu. Uczymy się pasji, ofiarności oraz przebaczania nieprzyjaciołom, naśladując gorejące miłością Serce Zbawiciela.`,
-    `Otwieramy się na zielone tchnienie nadziei i życia duchowego (Dzień ${dayNum} cyklu I), które przynosi Duch Święty. Prosimy o owoce miłości, pokoju i cierpliwości, aby nasze codzienne życie stawało się świadectwem Ewangelii.`,
-    `Wpatrujemy się w błękitną głębię niebios (Dzień ${dayNum} cyklu I), która symbolizuje pokój Maryi i całego Kościoła. Prosimy o łaskę cichego oddania i zaufania Bożej Opatrzności we wszelkich przeciwnościach życia.`,
-    `Radujemy się chwałą zmartwychwstania i wiecznego zjednoczenia (Dzień ${dayNum} cyklu I), reprezentowaną przez czyste białe światło. Wierzymy, że miłość nigdy nie ustaje i doprowadzi nas do wiecznej komunii z Bogiem.`
-  ];
-  
+// Authentic RHZ365 Record retriever for Cykl I (RGBA)
+export const getLoveMystery = (dayNum: number, decIdx?: number) => {
+  const jsonRecord = (rhzData as any[]).find(r => r.dayNumber === dayNum) || rhzData[(dayNum - 1) % rhzData.length];
+  if (jsonRecord) {
+    return {
+      title: jsonRecord.title,
+      text: jsonRecord.text
+    };
+  }
   return {
-    title: titles[decIdx - 1] || `Tajemnica Miłości - Dziesiątek ${decIdx}`,
-    text: texts[decIdx - 1] || `Rozważanie Miłości Bożej.`
+    title: `RHZ365 — Dzień ${dayNum}`,
+    text: `Rozważanie RHZ365.`
   };
 };
 
