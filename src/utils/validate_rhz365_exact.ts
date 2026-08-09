@@ -1,9 +1,10 @@
 import { readFileSync } from 'fs';
 import { createHash } from 'crypto';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, getDoc, collection, getDocs } from 'firebase/firestore';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import firebaseConfig from '../../firebase-applet-config.json';
 import { parseDayText } from './rhzParser';
+import { getCycleDayInfo } from '../data/prayers';
 
 const jsonPath = 'RHZ365_pierwszy_cykl_175_dni.json';
 const rawJson = readFileSync(jsonPath, 'utf-8');
@@ -19,6 +20,8 @@ export interface ValidationSummary {
   exactMatches: number;
   hashMatches: number;
   metadataPass: number;
+  routingPass: number;
+  silentOverridesCount: number;
   missingInDb: number;
   hashMismatches: number;
   hailMaryCountPass: number;
@@ -28,7 +31,7 @@ export interface ValidationSummary {
 
 export async function validateRHZ365Exact(): Promise<ValidationSummary> {
   console.log('============================================================');
-  console.log('RHZ365 EXACT VALIDATOR — JSON vs FIRESTORE COMPREHENSIVE AUDIT');
+  console.log('RHZ365 COMPLETE 1–175 EXACT VALIDATOR & ROUTING AUDIT');
   console.log('============================================================\n');
 
   const requiredFields = ['dayNumber', 'dayMonth', 'cycle', 'stage', 'part', 'mystery', 'title', 'sourcePage', 'text', 'sourceText'];
@@ -36,11 +39,15 @@ export async function validateRHZ365Exact(): Promise<ValidationSummary> {
   let exactMatches = 0;
   let hashMatches = 0;
   let metadataPass = 0;
+  let routingPass = 0;
+  let silentOverridesCount = 0;
   let missingInDb = 0;
   let hashMismatches = 0;
   let hailMaryCountPass = 0;
   let clauseCountPass = 0;
   const errors: string[] = [];
+
+  const cycleStart = new Date(2025, 11, 25, 12, 0, 0, 0);
 
   for (let d = 1; d <= 175; d++) {
     const jsonRec = rhzRecords.find((r: any) => r.dayNumber === d);
@@ -49,6 +56,21 @@ export async function validateRHZ365Exact(): Promise<ValidationSummary> {
       continue;
     }
 
+    // 1. ROUTING VALIDATION FOR DAY d
+    const targetDate = new Date(cycleStart.getTime() + (d - 1) * 86400000);
+    const info = getCycleDayInfo(targetDate, { isExplicitRhzRoute: true });
+    
+    if (info.dayOfCycle === d && info.cycleType === 'cycle1') {
+      routingPass++;
+    } else {
+      errors.push(`Routing FAIL for day ${d}: otrzymano cycleType '${info.cycleType}', dayOfCycle ${info.dayOfCycle}`);
+    }
+
+    if (info.cycleType === 'silent_contemplation') {
+      silentOverridesCount++;
+    }
+
+    // 2. FIRESTORE DOCUMENT & FIELD VALIDATION FOR DAY d
     const decIdx = ((d - 1) % 5) + 1;
     const docId = `day_${d}_decade_rgba_${decIdx}`;
     const docRef = doc(db, 'prayers', docId);
@@ -133,21 +155,24 @@ export async function validateRHZ365Exact(): Promise<ValidationSummary> {
   }
 
   const total = rhzRecords.length;
-  console.log(`TOTAL RECORDS CHECKED : ${total}`);
-  console.log(`EXACT FIELD COMPARISON: ${exactMatches} / ${total} PASS`);
-  console.log(`TEXT SHA256 HASH MATCH : ${hashMatches} / ${total} PASS`);
-  console.log(`METADATA SCHEMA PASS  : ${metadataPass} / ${total} PASS`);
-  console.log(`10 HAIL MARYS PASS    : ${hailMaryCountPass} / ${total} PASS`);
-  console.log(`DLA KTÓREGO CLAUSE    : ${clauseCountPass} / ${total} PASS`);
-  console.log(`MISSING IN DB         : ${missingInDb}`);
-  console.log(`HASH MISMATCHES       : ${hashMismatches}`);
-  console.log(`TOTAL ERRORS COUNT    : ${errors.length}`);
+  console.log(`JSON RECORDS            : ${total}`);
+  console.log(`FIRESTORE RECORDS       : ${total - missingInDb}`);
+  console.log(`DAYS PASS               : ${exactMatches} / ${total}`);
+  console.log(`DAYS FAIL               : ${total - exactMatches} / ${total}`);
+  console.log(`EXACT FIELD COMPARISON  : ${exactMatches} / ${total} PASS`);
+  console.log(`TEXT SHA256 HASH MATCH  : ${hashMatches} / ${total} PASS`);
+  console.log(`METADATA SCHEMA PASS    : ${metadataPass} / ${total} PASS`);
+  console.log(`ROUTING PASS (1–175)    : ${routingPass} / ${total} PASS`);
+  console.log(`SILENT CONTEMPLATION OVERRIDES : ${silentOverridesCount} / ${total}`);
+  console.log(`10 HAIL MARYS PASS (10/10)    : ${hailMaryCountPass} / ${total} PASS`);
+  console.log(`DLA KTÓREGO CLAUSE PASS (10/10): ${clauseCountPass} / ${total} PASS`);
+  console.log(`TOTAL ERRORS COUNT      : ${errors.length}`);
 
   if (errors.length > 0) {
     console.log('\n--- BŁĘDY / RÓŻNICE ---');
     errors.forEach(e => console.log(` - ${e}`));
   } else {
-    console.log('\n✅ SUKCES: 100% ZGODNOŚĆ DANYCH FIRESTORE Z PLIKIEM JSON RHZ365!');
+    console.log('\n✅ SUKCES: 100% ZGODNOŚĆ CAŁEGO RHZ365 (DNI 1–175) W FIRESTORE I ROUTINGU Z PLIEM JSON!');
   }
 
   return {
@@ -155,6 +180,8 @@ export async function validateRHZ365Exact(): Promise<ValidationSummary> {
     exactMatches,
     hashMatches,
     metadataPass,
+    routingPass,
+    silentOverridesCount,
     missingInDb,
     hashMismatches,
     hailMaryCountPass,
