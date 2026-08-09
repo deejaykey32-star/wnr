@@ -100,6 +100,118 @@ export interface ImportReport {
   }[];
 }
 
+// Full Automated Validation Report for RHZ365 (Requirement 4)
+export interface RHZValidationFullReport {
+  totalDays: number;            // Must be 175
+  daysWith22Steps: number;      // Must be 175
+  totalSteps: number;           // Must be 3850 (175 * 22)
+  daysWith10HailMarys: number;  // Must be 175
+  badDays: number;              // Must be 0
+  missingSteps: number;         // Must be 0
+  duplicates: number;           // Must be 0
+  invalidIds: number;           // Must be 0
+  validClausesCount: number;    // Must be 1750 (10 per day * 175 days)
+  isValid: boolean;
+  errors: string[];
+}
+
+export function validateRHZ365FullReport(): RHZValidationFullReport {
+  const records = rhzData as RHZRecord[];
+  const errors: string[] = [];
+
+  let daysCount = records.length;
+  let daysWith22Steps = 0;
+  let totalSteps = 0;
+  let daysWith10HailMarys = 0;
+  let badDays = 0;
+  let missingSteps = 0;
+  let duplicates = 0;
+  let invalidIds = 0;
+  let validClausesCount = 0;
+
+  const stepIdSet = new Set<string>();
+
+  // Dynamically import or reference parseDayText and getPrayerSteps
+  const { parseDayText } = require('./rhzParser');
+  const { getPrayerSteps } = require('../data/prayers');
+
+  for (let i = 0; i < records.length; i++) {
+    const r = records[i];
+    const dayNumber = r.dayNumber;
+
+    const steps = getPrayerSteps('cycle1', dayNumber, {});
+    if (steps.length === 22) {
+      daysWith22Steps++;
+    } else {
+      badDays++;
+      errors.push(`Dzień ${dayNumber}: Liczba kroków to ${steps.length} zamiast 22.`);
+    }
+
+    totalSteps += steps.length;
+
+    steps.forEach((s: any) => {
+      const uniqueId = `day_${dayNumber}_${s.id}`;
+      if (stepIdSet.has(uniqueId)) {
+        duplicates++;
+        errors.push(`Dzień ${dayNumber}: Wykryto duplikat ID kroku ${uniqueId}`);
+      } else {
+        stepIdSet.add(uniqueId);
+      }
+
+      if (!s.id || s.id.length === 0) {
+        invalidIds++;
+        errors.push(`Dzień ${dayNumber}: Niepoprawne ID kroku`);
+      }
+    });
+
+    const parsed = parseDayText(dayNumber, r.text);
+    if (parsed.success && parsed.data) {
+      if (parsed.data.hailMaryTexts.length === 10) {
+        daysWith10HailMarys++;
+      } else {
+        badDays++;
+        errors.push(`Dzień ${dayNumber}: Znaleziono ${parsed.data.hailMaryTexts.length} Zdrowaś Maryjo zamiast 10.`);
+      }
+
+      parsed.data.hailMaryTexts.forEach((hm: string, hmIdx: number) => {
+        if (/dla któreg/i.test(hm) || /dla której/i.test(hm)) {
+          validClausesCount++;
+        } else {
+          errors.push(`Dzień ${dayNumber}, Zdrowaś Maryjo ${hmIdx + 1}: Brak klauzuli 'dla którego/której'.`);
+        }
+      });
+    } else {
+      badDays++;
+      errors.push(`Dzień ${dayNumber}: Błąd parsowania tekstu — ${parsed.error}`);
+    }
+  }
+
+  const isValid = 
+    daysCount === 175 &&
+    daysWith22Steps === 175 &&
+    totalSteps === 3850 &&
+    daysWith10HailMarys === 175 &&
+    badDays === 0 &&
+    missingSteps === 0 &&
+    duplicates === 0 &&
+    invalidIds === 0 &&
+    validClausesCount === 1750;
+
+  return {
+    totalDays: daysCount,
+    daysWith22Steps,
+    totalSteps,
+    daysWith10HailMarys,
+    badDays,
+    missingSteps,
+    duplicates,
+    invalidIds,
+    validClausesCount,
+    isValid,
+    errors
+  };
+}
+
 // Step A: Validate entire JSON dataset in memory
 export function validateRHZJson(): { isValid: boolean; errors: string[]; records: RHZRecord[] } {
   const records = rhzData as RHZRecord[];

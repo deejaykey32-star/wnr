@@ -12,10 +12,12 @@ import { RichTextRenderer } from './utils/richTextHelper';
 import { parseDayText } from './utils/rhzParser';
 import { playBeadChime } from './utils/audio';
 import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechPaused, isSpeechSpeaking, isTtsSupported } from './utils/tts';
+import { SearchModal } from './components/SearchModal';
+import { ExportModal } from './components/ExportModal';
 import { 
   Play, Pause, ChevronLeft, ChevronRight, RotateCcw, 
   LogIn, LogOut, Video, Edit3, Sliders, Volume2, Info, BookOpen, Mic, MicOff, Calendar, FileDown,
-  Sun, Moon, ShieldAlert, Key, X, ExternalLink
+  Sun, Moon, ShieldAlert, Key, X, ExternalLink, Search, Share2, Check
 } from 'lucide-react';
 
 export default function App() {
@@ -146,6 +148,78 @@ export default function App() {
   const [isExportingPdf, setIsExportingPdf] = useState<boolean>(false);
   const [pdfProgress, setPdfProgress] = useState<string>('');
   const [showExportModal, setShowExportModal] = useState<boolean>(false);
+
+  // Search & Custom Export & Share Modals
+  const [showSearchModal, setShowSearchModal] = useState<boolean>(false);
+  const [showCustomExportModal, setShowCustomExportModal] = useState<boolean>(false);
+  const [copiedLink, setCopiedLink] = useState<boolean>(false);
+
+  // Helper to map activeTab and date to URL slug
+  const getSlugForTabAndDate = (tab: 'rosary' | 'blog', date: Date) => {
+    const info = getCycleDayInfo(date);
+    const prefix = tab === 'rosary' ? 'rhz365-day' : 'wnr365-day';
+    return `/${prefix}-${info.dayOfCycle}`;
+  };
+
+  // URL Initialization on Page Load and Browser Back/Forward navigation
+  useEffect(() => {
+    const handleUrlRoute = () => {
+      const path = window.location.pathname;
+      const match = path.match(/^\/(rhz365-day|wnr365-day)-(\d+)/i);
+      if (match) {
+        const type = match[1].toLowerCase();
+        const dayNum = parseInt(match[2], 10);
+        if (dayNum >= 1 && dayNum <= 175) {
+          const cycleStart = new Date(2025, 11, 25, 12, 0, 0, 0);
+          const targetDate = new Date(cycleStart.getTime() + (dayNum - 1) * 86400000);
+          setSelectedDate(targetDate);
+          setActiveTab(type === 'wnr365-day' ? 'blog' : 'rosary');
+        }
+      }
+    };
+
+    handleUrlRoute();
+    window.addEventListener('popstate', handleUrlRoute);
+    return () => window.removeEventListener('popstate', handleUrlRoute);
+  }, []);
+
+  // Sync browser URL slug when activeTab or selectedDate changes
+  useEffect(() => {
+    const newSlug = getSlugForTabAndDate(activeTab, selectedDate);
+    if (window.location.pathname !== newSlug) {
+      window.history.pushState(null, '', newSlug);
+    }
+  }, [activeTab, selectedDate]);
+
+  // Share entry URL handler
+  const handleShare = async () => {
+    const slug = getSlugForTabAndDate(activeTab, selectedDate);
+    const shareUrl = `${window.location.origin}${slug}`;
+    const shareTitle = activeTab === 'rosary' 
+      ? `RHZ365 — Dzień ${cycleInfo.dayOfCycle}: ${cycleInfo.cycleName}`
+      : `WnR365 — Dzień ${cycleInfo.dayOfCycle}: Widoki na Raj`;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: shareTitle,
+          text: `Zobacz rozważanie na widokinaraj.pl: ${shareTitle}`,
+          url: shareUrl
+        });
+        return;
+      } catch (e) {
+        // Fallback to clipboard copy
+      }
+    }
+
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopiedLink(true);
+      setTimeout(() => setCopiedLink(false), 3000);
+    } catch (err) {
+      console.error("Błąd kopiowania linku:", err);
+    }
+  };
 
   const activeStep = steps[activeStepIndex] || steps[0] || {
     id: 'empty',
@@ -366,6 +440,15 @@ export default function App() {
       const glory = prayers['gloryBe'] || DEFAULT_PRAYERS['gloryBe'];
       const fatima = prayers['fatima'] || DEFAULT_PRAYERS['fatima'];
       return `${glory.text}. ${fatima.text}.`;
+    } else if (activeStep.prayerType === 'hailMary' && activeStep.beadNumber && activeStep.decadeIndex && cycleInfo.cycleType === 'cycle1') {
+      const decIdx = activeStep.decadeIndex;
+      const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
+      const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
+      if (parsed.success && parsed.data && parsed.data.hailMaryTexts[activeStep.beadNumber - 1]) {
+        return parsed.data.hailMaryTexts[activeStep.beadNumber - 1];
+      }
+      const currentPrayer = prayers[activeStep.prayerType] || DEFAULT_PRAYERS[activeStep.prayerType];
+      return `${currentPrayer?.text || ''}.`;
     } else {
       const currentPrayer = prayers[activeStep.prayerType] || DEFAULT_PRAYERS[activeStep.prayerType];
       return `${currentPrayer?.text || ''}.`;
@@ -914,7 +997,51 @@ export default function App() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Search Button (Lupa) */}
+            <button
+              onClick={() => setShowSearchModal(true)}
+              title="Wyszukaj w RHZ365 & WnR365"
+              className={`px-3 py-1.5 rounded-full border transition cursor-pointer flex items-center gap-1.5 text-xs font-semibold ${
+                isLight 
+                  ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200 shadow-sm' 
+                  : 'bg-indigo-950/60 text-indigo-300 border-indigo-800/60 hover:bg-indigo-900/60'
+              }`}
+            >
+              <Search className="w-4 h-4 text-indigo-400" />
+              <span className="hidden xs:inline">Wyszukaj...</span>
+            </button>
+
+            {/* Share Button */}
+            <button
+              onClick={handleShare}
+              title="Udostępnij bezpośredni link do tego wpisu"
+              className={`px-3 py-1.5 rounded-full border transition cursor-pointer flex items-center gap-1.5 text-xs font-semibold ${
+                copiedLink
+                  ? 'bg-emerald-600 text-white border-emerald-500 shadow-md'
+                  : isLight
+                    ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
+                    : 'bg-slate-800/80 text-slate-300 border-slate-700 hover:bg-slate-700'
+              }`}
+            >
+              {copiedLink ? <Check className="w-4 h-4 text-white" /> : <Share2 className="w-4 h-4 text-sky-400" />}
+              <span className="hidden sm:inline">{copiedLink ? 'Link skopiowany' : 'Udostępnij'}</span>
+            </button>
+
+            {/* Export PDF/JSON Button */}
+            <button
+              onClick={() => setShowCustomExportModal(true)}
+              title="Eksport PDF & JSON"
+              className={`px-3 py-1.5 rounded-full border transition cursor-pointer flex items-center gap-1.5 text-xs font-semibold ${
+                isLight
+                  ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
+                  : 'bg-slate-800/80 text-amber-300 border-slate-700 hover:bg-slate-700'
+              }`}
+            >
+              <FileDown className="w-4 h-4 text-amber-400" />
+              <span className="hidden md:inline">Eksport</span>
+            </button>
+
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
@@ -1861,6 +1988,32 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* Search Modal (Requirement 6 & 7) */}
+      <SearchModal
+        isOpen={showSearchModal}
+        onClose={() => setShowSearchModal(false)}
+        onSelectResult={(section, dayNum, targetDate) => {
+          setSelectedDate(targetDate);
+          setActiveTab(section === 'WnR365' ? 'blog' : 'rosary');
+        }}
+        prayers={prayers}
+        blogEntries={blogEntries}
+        theme={theme}
+      />
+
+      {/* Custom Export Modal (Requirement 11, 12, 13, 14, 15) */}
+      <ExportModal
+        isOpen={showCustomExportModal}
+        onClose={() => setShowCustomExportModal(false)}
+        selectedDate={selectedDate}
+        dayOfCycle={cycleInfo.dayOfCycle}
+        isAuthorized={isAuthorized}
+        userEmail={userEmail}
+        prayers={prayers}
+        blogEntries={blogEntries}
+        theme={theme}
+      />
     </div>
   );
 }

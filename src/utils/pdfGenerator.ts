@@ -758,3 +758,249 @@ export const generateYearlyEmbikPdf = async (
   
   if (onProgress) onProgress("Pobieranie zakończone pomyślnie!");
 };
+
+export interface CustomPdfOptions {
+  scope: 'rhz365' | 'wnr365' | 'both';
+  includeCover: boolean;
+  selectedDate: Date;
+  dayOfCycle: number;
+  prayers: Record<string, { title: string; text: string }>;
+  blogEntries: Record<string, { title: string; text: string; dayIndex: number }>;
+}
+
+export const generateCustomScopePdf = async (options: CustomPdfOptions, onProgress?: (msg: string) => void) => {
+  const { scope, includeCover, selectedDate, dayOfCycle, prayers, blogEntries } = options;
+
+  if (onProgress) onProgress("Inicjalizacja generatora PDF...");
+
+  const doc = new jsPDF({
+    orientation: 'portrait',
+    unit: 'mm',
+    format: 'a4'
+  });
+
+  const hasCustomFont = await loadRobotoFonts(doc);
+  const fontName = hasCustomFont ? 'Roboto' : 'Helvetica';
+
+  const pageWidth = 210;
+  const pageHeight = 297;
+  const margin = 20;
+  const contentWidth = pageWidth - (margin * 2);
+
+  const drawHeaderFooter = (pageNum: number, titleText: string) => {
+    doc.setDrawColor(226, 232, 240);
+    doc.setLineWidth(0.3);
+    doc.rect(margin - 5, margin - 5, pageWidth - (margin * 2) + 10, pageHeight - (margin * 2) + 10);
+
+    doc.setFont(fontName, 'bold');
+    doc.setFontSize(8);
+    doc.setTextColor(100, 116, 139);
+    doc.text(titleText, margin, margin - 10);
+
+    doc.setFont(fontName, 'normal');
+    doc.text(`Strona ${pageNum}`, pageWidth - margin - 15, pageHeight - margin + 10);
+    doc.text("eMBiK365 — widokinaraj.pl", margin, pageHeight - margin + 10);
+  };
+
+  let currentPage = 1;
+
+  // Cover Page handling
+  if (includeCover) {
+    if (onProgress) onProgress("Tworzenie strony okładkowej...");
+
+    let coverTitle = "Widoki na Raj i Różaniec Historii Zbawienia — eMBiK365";
+    let coverSubtitle = "Cykl I — Pielgrzymka Duchowa w Duchu Świętym";
+
+    if (scope === 'rhz365') {
+      coverTitle = "Różaniec Historii Zbawienia — RHZ365";
+      coverSubtitle = "175 Dni Tradycyjnej Modlitwy Różańcowej z Dopowiedzeniami";
+    } else if (scope === 'wnr365') {
+      coverTitle = "Widoki na Raj — WnR365";
+      coverSubtitle = "Elektroniczna Misja Barw i Kolorów (Rozważania Słowa)";
+    }
+
+    doc.setDrawColor(79, 70, 229);
+    doc.setLineWidth(2);
+    doc.line(margin, 35, pageWidth - margin, 35);
+
+    doc.setFont(fontName, 'bold');
+    doc.setFontSize(26);
+    doc.setTextColor(15, 23, 42);
+    const splitTitle = doc.splitTextToSize(coverTitle, contentWidth);
+    doc.text(splitTitle, margin, 55);
+
+    const titleOffset = splitTitle.length * 10 + 55;
+
+    doc.setFont(fontName, 'normal');
+    doc.setFontSize(12);
+    doc.setTextColor(71, 85, 105);
+    doc.text(coverSubtitle, margin, titleOffset);
+
+    doc.setDrawColor(226, 232, 240);
+    doc.setLineWidth(0.5);
+    doc.line(margin, titleOffset + 8, pageWidth - margin, titleOffset + 8);
+
+    doc.setFillColor(248, 250, 252);
+    doc.rect(margin, titleOffset + 16, contentWidth, 30, 'FD');
+
+    doc.setFont(fontName, 'bold');
+    doc.setFontSize(10);
+    doc.setTextColor(15, 23, 42);
+    doc.text(`Dzień Cyklu: Dzień ${dayOfCycle} z 175`, margin + 6, titleOffset + 26);
+    doc.text(`Data Liturgiczna: ${selectedDate.toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' })}`, margin + 6, titleOffset + 34);
+
+    doc.setFont(fontName, 'normal');
+    doc.setFontSize(8.5);
+    doc.setTextColor(100, 116, 139);
+    doc.text("Pobrano z serwisu widokinaraj.pl — Wszystkie prawa zastrzeżone", margin, 270);
+
+    doc.addPage();
+    currentPage++;
+  }
+
+  // Export Content
+  const decIdx = ((dayOfCycle - 1) % 5) + 1;
+  const firestoreKey = `day_${dayOfCycle}_decade_rgba_${decIdx}`;
+  const rhzDoc = prayers[firestoreKey];
+  const rawRhzText = rhzDoc?.text || rhzData[dayOfCycle - 1]?.text || '';
+  const rhzTitle = rhzDoc?.title || rhzData[dayOfCycle - 1]?.title || `Dzień ${dayOfCycle}`;
+
+  const { parseDayText } = await import('./rhzParser');
+  const parsedRHZ = parseDayText(dayOfCycle, rawRhzText);
+
+  const wnrKey = `blog_day_${dayOfCycle - 1}`;
+  const wnrDoc = blogEntries[wnrKey] || {
+    title: `Widoki na Raj — Dzień ${dayOfCycle}`,
+    text: "Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu Świętym."
+  };
+
+  let y = margin + 5;
+  const headerText = scope === 'rhz365' ? "Różaniec Historii Zbawienia — RHZ365" : scope === 'wnr365' ? "Widoki na Raj — WnR365" : "eMBiK365 — RHZ365 & WnR365";
+
+  drawHeaderFooter(currentPage, headerText);
+
+  if (scope === 'rhz365' || scope === 'both') {
+    if (onProgress) onProgress("Dodawanie kroków RHZ365...");
+
+    doc.setFont(fontName, 'bold');
+    doc.setFontSize(16);
+    doc.setTextColor(79, 70, 229);
+    doc.text(`RHZ365 — Dzień ${dayOfCycle}: ${rhzTitle}`, margin, y + 5);
+    y += 14;
+
+    if (parsedRHZ.success && parsedRHZ.data) {
+      // 1. Rozważanie
+      doc.setFont(fontName, 'bold');
+      doc.setFontSize(11);
+      doc.setTextColor(15, 23, 42);
+      doc.text("Rozważanie Tajemnicy:", margin, y);
+      y += 6;
+
+      doc.setFont(fontName, 'normal');
+      doc.setFontSize(9);
+      doc.setTextColor(51, 65, 85);
+      const splitRefl = doc.splitTextToSize(parsedRHZ.data.reflectionText, contentWidth);
+      doc.text(splitRefl, margin, y);
+      y += (splitRefl.length * 4.5) + 6;
+
+      // 2. Ojcze Nasz
+      doc.setFont(fontName, 'bold');
+      doc.setFontSize(10);
+      doc.setTextColor(15, 23, 42);
+      doc.text("Modlitwa Pańska (Ojcze Nasz):", margin, y);
+      y += 5;
+
+      doc.setFont(fontName, 'normal');
+      doc.setFontSize(8.5);
+      const splitFather = doc.splitTextToSize(parsedRHZ.data.ourFatherText, contentWidth);
+      doc.text(splitFather, margin, y);
+      y += (splitFather.length * 4.2) + 6;
+
+      // 3. 10 Zdrowaś Maryjo
+      doc.setFont(fontName, 'bold');
+      doc.setFontSize(10);
+      doc.setTextColor(15, 23, 42);
+      doc.text("10 Osobnych Modlitw Zdrowaś Maryjo (z dopowiedzeniami):", margin, y);
+      y += 6;
+
+      parsedRHZ.data.hailMaryTexts.forEach((hmText, idx) => {
+        if (y > pageHeight - margin - 20) {
+          doc.addPage();
+          currentPage++;
+          drawHeaderFooter(currentPage, headerText);
+          y = margin + 5;
+        }
+
+        doc.setFont(fontName, 'bold');
+        doc.setFontSize(8.5);
+        doc.setTextColor(79, 70, 229);
+        doc.text(`Zdrowaś Maryjo #${idx + 1}:`, margin, y);
+        y += 4.5;
+
+        doc.setFont(fontName, 'normal');
+        doc.setFontSize(8);
+        doc.setTextColor(30, 41, 59);
+        const splitHm = doc.splitTextToSize(hmText, contentWidth - 4);
+        doc.text(splitHm, margin + 4, y);
+        y += (splitHm.length * 4) + 4;
+      });
+
+      // 4. Chwała Ojcu
+      if (y > pageHeight - margin - 20) {
+        doc.addPage();
+        currentPage++;
+        drawHeaderFooter(currentPage, headerText);
+        y = margin + 5;
+      }
+
+      doc.setFont(fontName, 'bold');
+      doc.setFontSize(9.5);
+      doc.setTextColor(15, 23, 42);
+      doc.text("Chwała Ojcu & O mój Jezu:", margin, y);
+      y += 5;
+
+      doc.setFont(fontName, 'normal');
+      doc.setFontSize(8.5);
+      doc.setTextColor(51, 65, 85);
+      const splitGlory = doc.splitTextToSize(parsedRHZ.data.gloryBeFatimaText, contentWidth);
+      doc.text(splitGlory, margin, y);
+      y += (splitGlory.length * 4.2) + 8;
+    } else {
+      doc.setFont(fontName, 'normal');
+      doc.setFontSize(9);
+      const splitRaw = doc.splitTextToSize(rawRhzText, contentWidth);
+      doc.text(splitRaw, margin, y);
+      y += (splitRaw.length * 4.5) + 8;
+    }
+  }
+
+  if (scope === 'wnr365' || scope === 'both') {
+    if (onProgress) onProgress("Dodawanie treści WnR365...");
+
+    if (y > pageHeight - margin - 40 || scope === 'both') {
+      doc.addPage();
+      currentPage++;
+      drawHeaderFooter(currentPage, headerText);
+      y = margin + 5;
+    }
+
+    doc.setFont(fontName, 'bold');
+    doc.setFontSize(16);
+    doc.setTextColor(217, 119, 6);
+    doc.text(`WnR365 — ${wnrDoc.title || `Widoki na Raj (Dzień ${dayOfCycle})`}`, margin, y + 5);
+    y += 14;
+
+    doc.setFont(fontName, 'normal');
+    doc.setFontSize(9);
+    doc.setTextColor(51, 65, 85);
+    const splitWnr = doc.splitTextToSize(wnrDoc.text || '', contentWidth);
+    doc.text(splitWnr, margin, y);
+  }
+
+  if (onProgress) onProgress("Generowanie pliku PDF...");
+  const fileNameScope = scope === 'rhz365' ? 'RHZ365' : scope === 'wnr365' ? 'WnR365' : 'eMBiK365_RHZ365_WnR365';
+  doc.save(`${fileNameScope}_Dzien_${dayOfCycle}.pdf`);
+
+  if (onProgress) onProgress("Pobieranie zakończone!");
+};
+
