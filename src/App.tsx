@@ -416,7 +416,13 @@ export default function App() {
       const decIdx = activeStep.decadeIndex || 1;
       const mysteryData = getActiveDecadeMystery(cycleInfo.cycleType, cycleInfo.dayOfCycle, decIdx, prayers);
       
-      if (cycleInfo.cycleType === 'cycle2') {
+      if (cycleInfo.cycleType === 'cycle1') {
+        const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
+        if (parsed.success && parsed.data) {
+          return `${mysteryData.rgba.title}. ${parsed.data.reflectionText}.`;
+        }
+        return `${mysteryData.rgba.title}. ${mysteryData.rgba.text}.`;
+      } else if (cycleInfo.cycleType === 'cycle2') {
         const largeBeadKey = `day_${cycleInfo.dayOfCycle}_large_bead_reflection_dec_${decIdx}`;
         const customLargeBead = prayers[largeBeadKey] || prayers[`large_bead_reflection_dec_${decIdx}`];
         const largeBeadText = customLargeBead ? `${customLargeBead.title}. ${customLargeBead.text}` : "";
@@ -426,6 +432,13 @@ export default function App() {
       }
     } else if (activeStep.prayerType === 'ourFather') {
       const decIdx = activeStep.decadeIndex;
+      if (cycleInfo.cycleType === 'cycle1' && decIdx) {
+        const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
+        const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
+        if (parsed.success && parsed.data) {
+          return parsed.data.ourFatherText;
+        }
+      }
       let extraText = "";
       if (decIdx) {
         const largeBeadKey = `day_${cycleInfo.dayOfCycle}_large_bead_reflection_dec_${decIdx}`;
@@ -437,6 +450,14 @@ export default function App() {
       const ourFather = prayers['ourFather'] || DEFAULT_PRAYERS['ourFather'];
       return `${extraText}${ourFather.text}`;
     } else if (activeStep.prayerType === 'gloryBe') {
+      const decIdx = activeStep.decadeIndex;
+      if (cycleInfo.cycleType === 'cycle1' && decIdx) {
+        const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
+        const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
+        if (parsed.success && parsed.data) {
+          return parsed.data.gloryBeFatimaText;
+        }
+      }
       const glory = prayers['gloryBe'] || DEFAULT_PRAYERS['gloryBe'];
       const fatima = prayers['fatima'] || DEFAULT_PRAYERS['fatima'];
       return `${glory.text}. ${fatima.text}.`;
@@ -613,25 +634,6 @@ export default function App() {
           </div>
         </div>
       );
-    }
-
-    if (cycleInfo.cycleType === 'cycle1' && activeStep.decadeIndex) {
-      const decIdx = activeStep.decadeIndex;
-      const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
-      const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
-
-      if (parsed.success && parsed.data) {
-        if (activeStep.prayerType === 'mystery') {
-          return `${mysteryData.rgba.title}. ${parsed.data.reflectionText}.`;
-        } else if (activeStep.prayerType === 'ourFather') {
-          return parsed.data.ourFatherText;
-        } else if (activeStep.prayerType === 'hailMary' && activeStep.beadNumber) {
-          const idx = activeStep.beadNumber - 1;
-          return parsed.data.hailMaryTexts[idx] || (prayers['hailMary'] || DEFAULT_PRAYERS['hailMary']).text;
-        } else if (activeStep.prayerType === 'gloryBe') {
-          return parsed.data.gloryBeFatimaText;
-        }
-      }
     }
 
     if (activeStep.prayerType === 'mystery') {
