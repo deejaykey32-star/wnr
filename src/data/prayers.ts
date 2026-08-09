@@ -207,19 +207,6 @@ export const getCycleDayInfo = (
     };
   }
 
-  // 25 December: Kontemplacja w ciszy (wyłącznie gdy brak bezpośredniej ścieżki RHZ365)
-  if (month === 11 && day === 25 && !options?.isExplicitRhzRoute) {
-    return {
-      dayIndex,
-      dayOfCycle: 1,
-      cycleType: 'silent_contemplation' as CycleType,
-      stationNumber: 0,
-      cycleName: `Kontemplacja w ciszy (25 Grudnia — Narodzenie Pańskie)`,
-      startYear,
-      endYear: startYear + 1
-    };
-  }
-
   // 18 June - 24 June: 7 Stations of Droga Życia (Stations 1 to 7)
   if (month === 5 && day >= 18 && day <= 24) {
     const stationNumber = day - 17; // 1..7
