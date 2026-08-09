@@ -156,7 +156,7 @@ export default function App() {
 
   // Helper to map activeTab and date to URL slug
   const getSlugForTabAndDate = (tab: 'rosary' | 'blog', date: Date) => {
-    const info = getCycleDayInfo(date);
+    const info = getCycleDayInfo(date, { isExplicitRhzRoute: tab === 'rosary' });
     const prefix = tab === 'rosary' ? 'rhz365-day' : 'wnr365-day';
     return `/${prefix}-${info.dayOfCycle}`;
   };
@@ -714,6 +714,14 @@ export default function App() {
                 <div className={`text-base sm:text-lg leading-relaxed mt-4 font-serif text-justify ${isLight ? 'text-slate-700' : 'text-slate-200'}`}>
                   <RichTextRenderer text={parsed.data.reflectionText} />
                 </div>
+                <details className={`mt-6 pt-4 border-t ${isLight ? 'border-slate-200' : 'border-slate-800'}`}>
+                  <summary className={`cursor-pointer text-xs font-bold uppercase font-mono tracking-wider ${isLight ? 'text-slate-500 hover:text-indigo-600' : 'text-slate-400 hover:text-indigo-400'}`}>
+                    Pokaż pełny tekst źródłowy wpisu z RHZ365 (Dzień {cycleInfo.dayOfCycle})
+                  </summary>
+                  <div className={`text-sm sm:text-base leading-relaxed mt-3 font-serif text-justify ${isLight ? 'text-slate-600' : 'text-slate-300'}`}>
+                    <RichTextRenderer text={mysteryData.rgba.text} />
+                  </div>
+                </details>
               </div>
             </div>
           );
