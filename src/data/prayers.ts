@@ -311,63 +311,13 @@ export const getLoveMystery = (dayNum: number, decIdx?: number) => {
 };
 
 // Algorithmic generator for Cykl I Pokuta / Hate Contemplations (CMYK)
-export const getHateMystery = (dayNum: number, decIdx: number) => {
-  const penanceThemes = [
-    "pychy i egoizmu", "braku miłosierdzia", "podziałów i gniewu", "obojętności i chłodu", "kłamstwa i zdrady",
-    "zatwardziałości serca", "zazdrości i kłótni", "odrzucenia łaski", "pogardy dla słabych", "zaniedbania dobra"
-  ];
-  const theme = penanceThemes[(dayNum - 1) % penanceThemes.length];
-  
-  const titles = [
-    `Pokuta za grzechy ${theme} (Biel skruchy)`,
-    `Przebłaganie za oziębłość i brak miłości (Cyan)`,
-    `Zadośćuczynienie za rany zadane nienawiścią (Magenta)`,
-    `Przeproszenie za odejście od prawdy i pokoju (Yellow)`,
-    `Błaganie o ocalenie przed mrokami zatwardziałości (Czerń Key)`
-  ];
-  
-  const texts = [
-    `Pragniemy obmyć nasze serca w bieli pokuty (Dzień ${dayNum} cyklu I), przepraszając za wszelką pychę i egoizm, które niszczą miłość i oddalają nas od Boga. Stajemy w prawdzie i uniżeniu przed Panem.`,
-    `Rozważamy chłód serca i brak miłosierdzia (Cyan) (Dzień ${dayNum} cyklu I). Wynagradzamy Bogu za wszelkie chwile obojętności wobec cierpiących, ubogich i opuszczonych, prosząc o serce wrażliwe na bliźnich.`,
-    `Wpatrujemy się w rany Chrystusa zadane przez ludzki gniew i przemoc (Magenta) (Dzień ${dayNum} cyklu I). Pokutujemy za wszelkie słowa nienawiści, osądy i kłótnie, błagając o łaskę pojednania i przebaczenia.`,
-    `Przepraszamy za grzechy zazdrości, kłamstwa i siania niezgody (Yellow) (Dzień ${dayNum} cyklu I). Prosimy o oczyszczenie naszych intencji, abyśmy zawsze poszukiwali prawdy i budowali pokój w naszych rodzinach.`,
-    `Stajemy w obliczu powagi grzechu i ostatecznego odrzucenia miłości (Czerń Key) (Dzień ${dayNum} cyklu I). Błagamy o miłosierdzie nad światem i o łaskę nawrócenia dla zatwardziałych grzeszników, aby nienawiść została pokonana przez miłość.`
-  ];
-  
-  return {
-    title: titles[decIdx - 1] || `Tajemnica Pokuty - Dziesiątek ${decIdx}`,
-    text: texts[decIdx - 1] || `Rozważanie Pokutne.`
-  };
+export const getHateMystery = (dayNum: number, decIdx?: number) => {
+  return getLoveMystery(dayNum, decIdx);
 };
 
 // Algorithmic generator for Cykl II Father Mysteries (Bóg Ojciec)
-export const getFatherMystery = (dayNum: number, decIdx: number) => {
-  const fatherThemes = [
-    "Ojcowskiego Przymierza", "Opatrzności Bożej", "Nieskończonego Miłosierdzia", "Darów Ducha", "Chwały Niebiańskiej",
-    "Ukochanego Stworzenia", "Troski o Słabych", "Przebaczającego Serca", "Wskazywania Drogi Prawdy", "Kojenia Wszelkiego Bólu"
-  ];
-  const theme = fatherThemes[(dayNum - 1) % fatherThemes.length];
-  
-  const titles = [
-    `Ojcostwo Boże jako Źródło Życia w Duchu ${theme}`,
-    `Ojcowskie Miłosierdzie i Przebaczenie w Duchu ${theme}`,
-    `Prowadzenie Ojcowskie przez Syna w Duchu ${theme}`,
-    `Ojcowskie Pocieszenie w Każdym Cierpieniu w Duchu ${theme}`,
-    `Dziedzictwo Królestwa Ojca i Obietnica Nieba w Duchu ${theme}`
-  ];
-  
-  const texts = [
-    `Bądź uwielbiony, Ojcze (Dzień ${dayNum} cyklu II), w Twojej stwórczej potędze i ojcowskiej opiece. Dziękujemy Ci za dar istnienia i ufnie oddajemy się pod Twoją Opatrzność, która czuwa nad każdym naszym krokiem.`,
-    `Uwielbiamy Cię, Ojcze pełen miłosierdzia (Dzień ${dayNum} cyklu II), który z miłością wybiegasz na spotkanie marnotrawnego dziecka. Dziękujemy za sakrament przebaczenia i łaskę, która podnosi nas z każdego upadku.`,
-    `Składamy Ci dziękczynienie, Ojcze (Dzień ${dayNum} cyklu II), za posłanie Twojego Syna Jezusa Chrystusa jako Drogi, Prawdy i Życia. W Duchu Świętym wołamy z miłością: Abba, Ojcze!`,
-    `Wychwalamy Cię, Ojcze pocieszenia (Dzień ${dayNum} cyklu II), który ocierasz wszelką łzę i jesteś blisko skruszonych w sercu. W Twoich ojcowskich ramionach znajdujemy pokój, ukojenie i męstwo w chwilach doświadczeń.`,
-    `Tęsknimy za Twoim Królestwem, Ojcze (Dzień ${dayNum} cyklu II), które przygotowałeś dla nas od założenia świata. Prosimy o łaskę wytrwania w miłości do końca, abyśmy mogli zamieszkać w Twoim domu na wieki.`
-  ];
-  
-  return {
-    title: titles[decIdx - 1] || `Tajemnica Boga Ojca - Dziesiątek ${decIdx}`,
-    text: texts[decIdx - 1] || `Rozważanie Ojcowskie.`
-  };
+export const getFatherMystery = (dayNum: number, decIdx?: number) => {
+  return getLoveMystery(dayNum, decIdx);
 };
 
 // Maps a dayOfCycle (1-175) to the active decade number (1-5)
