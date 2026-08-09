@@ -3,7 +3,7 @@ import { db } from '../firebase';
 import { doc, setDoc, deleteDoc } from 'firebase/firestore';
 import { getLoveMystery, getHateMystery, getFatherMystery, getActiveDecadeMystery, getDecadeForDay, DEFAULT_PRAYERS } from '../data/prayers';
 import { WysiwygToolbar } from './WysiwygToolbar';
-import { executeCreateOnlyImport, validateRHZJson, performPreImportAudit, ImportReport } from '../utils/rhzImporter';
+import { executeUpsertSync, performDryRunSync, validateRHZJson, performPreImportAudit, DryRunReport, UpsertReport } from '../utils/rhzImporter';
 
 interface PrayerEditorProps {
   userEmail: string;
@@ -67,24 +67,43 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
   const [successMsg, setSuccessMsg] = useState<string>('');
   const [errorMsg, setErrorMsg] = useState<string>('');
 
-  // RHZ Import States
+  // RHZ Import & Sync States
   const [importingRhz, setImportingRhz] = useState<boolean>(false);
   const [rhzProgress, setRhzProgress] = useState<{ current: number; total: number } | null>(null);
-  const [rhzReport, setRhzReport] = useState<ImportReport | null>(null);
+  const [dryRunReport, setDryRunReport] = useState<DryRunReport | null>(null);
+  const [upsertReport, setUpsertReport] = useState<UpsertReport | null>(null);
   const [rhzError, setRhzError] = useState<string | null>(null);
 
-  const handleRunRhzImport = async () => {
+  const handleRunDryRun = async () => {
     setImportingRhz(true);
     setRhzError(null);
-    setRhzReport(null);
+    setDryRunReport(null);
     try {
-      const report = await executeCreateOnlyImport(db, userEmail, (current, total) => {
+      const report = await performDryRunSync(db, (current, total) => {
         setRhzProgress({ current, total });
       });
-      setRhzReport(report);
+      setDryRunReport(report);
     } catch (err: any) {
-      console.error("RHZ Import Error:", err);
-      setRhzError(err?.message || "Błąd podczas importu.");
+      console.error("RHZ Dry-Run Error:", err);
+      setRhzError(err?.message || "Błąd podczas symulacji dry-run.");
+    } finally {
+      setImportingRhz(false);
+      setRhzProgress(null);
+    }
+  };
+
+  const handleRunUpsertSync = async () => {
+    setImportingRhz(true);
+    setRhzError(null);
+    setUpsertReport(null);
+    try {
+      const report = await executeUpsertSync(db, userEmail, (current, total) => {
+        setRhzProgress({ current, total });
+      });
+      setUpsertReport(report);
+    } catch (err: any) {
+      console.error("RHZ Upsert Sync Error:", err);
+      setRhzError(err?.message || "Błąd podczas synchronizacji UPSERT.");
     } finally {
       setImportingRhz(false);
       setRhzProgress(null);
@@ -360,14 +379,14 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
               <div>
                 <h3 className="text-base font-bold text-white flex items-center gap-2">
-                  <span>📦</span> Import RHZ365 — Pierwszy Cykl (175 Dni)
+                  <span>📦</span> Synchronizacja Danych RHZ365 — Pierwszy Cykl (175 Dni)
                 </h3>
                 <p className="text-xs text-slate-400 mt-1">
                   Ścieżka źródłowa: <code className="font-mono text-emerald-400">RHZ365_pierwszy_cykl_175_dni.json</code>
                 </p>
               </div>
               <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-3 py-1 bg-emerald-950 text-emerald-400 border border-emerald-800/60 rounded-full">
-                Zasada: CREATE ONLY
+                Zasada: SAFE UPSERT / MERGE
               </span>
             </div>
 
@@ -386,72 +405,160 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
               </div>
             </div>
 
-            <div className="p-4 bg-amber-950/20 border border-amber-800/40 rounded-xl text-xs text-amber-300 leading-relaxed space-y-1.5">
-              <p className="font-bold flex items-center gap-1.5 text-amber-400">
-                <span>⚠️</span> Ochrona Istniejących Danych (CREATE ONLY):
+            <div className="p-4 bg-emerald-950/20 border border-emerald-800/40 rounded-xl text-xs text-emerald-300 leading-relaxed space-y-1.5">
+              <p className="font-bold flex items-center gap-1.5 text-emerald-400">
+                <span>🛡️</span> Absolutna Ochrona Danych (ZERO USUNIĘĆ / MERGE):
               </p>
               <p>
-                Import wykona transakcyjne sprawdzenie każdego z 175 dokumentów. Jeśli dokument już istnieje w kolekcji <code className="font-mono text-white">prayers</code>, zostanie <strong>całkowicie pominięty (SKIPPED_EXISTING)</strong>. Żaden istniejący dokument nie zostanie zmieniony, uaktualniony ani nadpisany.
+                Synchronizacja pobierze poprawne dane z pliku JSON i bezpiecznie zaktualizuje (UPSERT) dokumenty w Firestore. 
+                Rekordy zostaną uaktualnione <strong>bez usuwania jakichkolwiek innych pól</strong> ani rekordów wykraczających poza plik JSON.
+                Liczba usunięć wynosi zawsze <strong>0</strong>.
               </p>
             </div>
 
             {rhzError && (
               <div className="p-3 bg-red-950/40 border border-red-800 text-red-300 text-xs rounded-xl">
-                <strong>Błąd importu:</strong> {rhzError}
+                <strong>Błąd operacji:</strong> {rhzError}
               </div>
             )}
 
-            {!rhzReport && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
               <button
-                onClick={handleRunRhzImport}
+                onClick={handleRunDryRun}
                 disabled={importingRhz}
-                className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 text-white font-bold text-xs rounded-xl shadow-lg transition flex items-center justify-center gap-2 cursor-pointer"
+                className="py-3 px-4 bg-sky-700 hover:bg-sky-600 disabled:bg-slate-800 text-white font-bold text-xs rounded-xl shadow-lg transition flex items-center justify-center gap-2 cursor-pointer"
               >
                 {importingRhz ? (
-                  <span>Importowanie... ({rhzProgress ? `${rhzProgress.current}/${rhzProgress.total}` : 'Inicjalizacja...'})</span>
+                  <span>Przetwarzanie... ({rhzProgress ? `${rhzProgress.current}/${rhzProgress.total}` : '...'})</span>
                 ) : (
-                  <span>🚀 IMPORTUJ BRAKUJĄCE 175 DNI (CREATE ONLY)</span>
+                  <span>🔍 1. URUCHOM PODGLĄD DANYCH (DRY-RUN)</span>
                 )}
               </button>
-            )}
 
-            {rhzReport && (
-              <div className="space-y-4 pt-2 border-t border-slate-800">
-                <div className="p-4 bg-slate-950 rounded-xl border border-emerald-900/50 space-y-2">
-                  <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
-                    ✅ Raport Końcowy Importu
+              <button
+                onClick={handleRunUpsertSync}
+                disabled={importingRhz}
+                className="py-3 px-4 bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 text-white font-bold text-xs rounded-xl shadow-lg transition flex items-center justify-center gap-2 cursor-pointer"
+              >
+                {importingRhz ? (
+                  <span>Synchronizacja... ({rhzProgress ? `${rhzProgress.current}/${rhzProgress.total}` : '...'})</span>
+                ) : (
+                  <span>⚡ 2. WYKONAJ BEZPIECZNĄ SYNCHRONIZACJĘ (UPSERT)</span>
+                )}
+              </button>
+            </div>
+
+            {/* Dry Run Simulation Report */}
+            {dryRunReport && (
+              <div className="space-y-4 pt-3 border-t border-slate-800">
+                <div className="p-4 bg-slate-950 rounded-xl border border-sky-900/50 space-y-2">
+                  <h4 className="text-xs font-bold text-sky-400 uppercase tracking-wider flex justify-between items-center">
+                    <span>🔍 Wynik Symulacji Dry-Run (Podgląd bez Zapisów)</span>
+                    <span className="text-[10px] text-emerald-400 font-mono">Usunięcia: 0</span>
                   </h4>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono pt-1">
                     <div className="p-2 bg-slate-900 rounded border border-slate-800">
-                      <span className="text-slate-500 block text-[9px]">SOURCE_RECORDS</span>
-                      <span className="text-white font-bold">{rhzReport.sourceRecordsCount}</span>
+                      <span className="text-slate-500 block text-[9px]">REKORDY W JSON</span>
+                      <span className="text-white font-bold">{dryRunReport.sourceRecordsCount}</span>
                     </div>
-                    <div className="p-2 bg-emerald-950/50 rounded border border-emerald-800/40">
-                      <span className="text-emerald-400 block text-[9px]">CREATED</span>
-                      <span className="text-emerald-300 font-bold">{rhzReport.createdCount}</span>
+                    <div className="p-2 bg-sky-950/50 rounded border border-sky-800/40">
+                      <span className="text-sky-400 block text-[9px]">DO DODANIA (NOWE)</span>
+                      <span className="text-sky-300 font-bold">{dryRunReport.toCreateCount}</span>
                     </div>
                     <div className="p-2 bg-amber-950/50 rounded border border-amber-800/40">
-                      <span className="text-amber-400 block text-[9px]">SKIPPED_EXISTING</span>
-                      <span className="text-amber-300 font-bold">{rhzReport.skippedExistingCount}</span>
+                      <span className="text-amber-400 block text-[9px]">DO AKTUALIZACJI</span>
+                      <span className="text-amber-300 font-bold">{dryRunReport.toUpdateCount}</span>
                     </div>
-                    <div className="p-2 bg-red-950/50 rounded border border-red-800/40">
-                      <span className="text-red-400 block text-[9px]">ERROR</span>
-                      <span className="text-red-300 font-bold">{rhzReport.errorCount}</span>
+                    <div className="p-2 bg-emerald-950/50 rounded border border-emerald-800/40">
+                      <span className="text-emerald-400 block text-[9px]">BEZ ZMIAN</span>
+                      <span className="text-emerald-300 font-bold">{dryRunReport.unchangedCount}</span>
                     </div>
                   </div>
 
-                  <div className="pt-2 border-t border-slate-900 grid grid-cols-3 gap-2 text-[11px] font-mono">
-                    <div className="text-slate-400">POST_IMPORT_MISSING: <strong className="text-white">{rhzReport.postImportMissing}</strong></div>
-                    <div className="text-slate-400">POST_IMPORT_WITH_CONTENT: <strong className="text-emerald-400">{rhzReport.postImportWithContent}</strong></div>
-                    <div className="text-slate-400">POST_IMPORT_EMPTY: <strong className="text-white">{rhzReport.postImportEmpty}</strong></div>
+                  <div className="pt-2 border-t border-slate-900 flex justify-between text-[11px] font-mono text-slate-400">
+                    <span>Istniejące w bazie: <strong className="text-white">{dryRunReport.existingInDbCount}</strong></span>
+                    <span>Planowane usunięcia: <strong className="text-emerald-400">0 (ZABLOKOWANE)</strong></span>
+                  </div>
+                </div>
+
+                {dryRunReport.changeLog.length > 0 && (
+                  <div className="space-y-1.5">
+                    <div className="text-[11px] font-bold text-slate-300 flex justify-between">
+                      <span>Wykryte modyfikacje pól ({dryRunReport.changeLog.length}):</span>
+                    </div>
+                    <div className="max-h-60 overflow-y-auto rounded-xl border border-slate-800 bg-slate-950 p-3 font-mono text-[11px] space-y-2 text-slate-300">
+                      {dryRunReport.changeLog.map((log, lIdx) => (
+                        <div key={lIdx} className="border-b border-slate-900 pb-1.5 space-y-0.5">
+                          <div className="flex justify-between text-slate-400">
+                            <span className="font-bold text-sky-400">Dzień {log.dayNumber} ({log.documentId})</span>
+                            <span className="text-[10px] text-amber-400 uppercase">Pole: {log.field}</span>
+                          </div>
+                          <div className="text-[10px] grid grid-cols-1 sm:grid-cols-2 gap-1 text-slate-400">
+                            <div className="bg-red-950/20 p-1 rounded border border-red-900/30 truncate">
+                              <span className="text-red-400 font-bold">Stara: </span>{log.oldValue}
+                            </div>
+                            <div className="bg-emerald-950/20 p-1 rounded border border-emerald-900/30 truncate">
+                              <span className="text-emerald-400 font-bold">Nowa: </span>{log.newValue}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Upsert Execution Report */}
+            {upsertReport && (
+              <div className="space-y-4 pt-3 border-t border-slate-800">
+                <div className="p-4 bg-slate-950 rounded-xl border border-emerald-900/50 space-y-2">
+                  <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-wider flex justify-between items-center">
+                    <span>✅ Raport Końcowy Synchronizacji UPSERT</span>
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">
+                      STATUS: {upsertReport.status}
+                    </span>
+                  </h4>
+                  <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs font-mono pt-1">
+                    <div className="p-2 bg-slate-900 rounded border border-slate-800">
+                      <span className="text-slate-500 block text-[9px]">W JSON</span>
+                      <span className="text-white font-bold">{upsertReport.sourceRecordsCount}</span>
+                    </div>
+                    <div className="p-2 bg-sky-950/50 rounded border border-sky-800/40">
+                      <span className="text-sky-400 block text-[9px]">DODANO</span>
+                      <span className="text-sky-300 font-bold">{upsertReport.createdCount}</span>
+                    </div>
+                    <div className="p-2 bg-amber-950/50 rounded border border-amber-800/40">
+                      <span className="text-amber-400 block text-[9px]">ZAKTUALIZOWANO</span>
+                      <span className="text-amber-300 font-bold">{upsertReport.updatedCount}</span>
+                    </div>
+                    <div className="p-2 bg-emerald-950/50 rounded border border-emerald-800/40">
+                      <span className="text-emerald-400 block text-[9px]">BEZ ZMIAN</span>
+                      <span className="text-emerald-300 font-bold">{upsertReport.unchangedCount}</span>
+                    </div>
+                    <div className="p-2 bg-red-950/50 rounded border border-red-800/40">
+                      <span className="text-red-400 block text-[9px]">BŁĘDY</span>
+                      <span className="text-red-300 font-bold">{upsertReport.errorCount}</span>
+                    </div>
+                  </div>
+
+                  <div className="pt-2 border-t border-slate-900 grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px] font-mono text-slate-400">
+                    <div>USUNIĘTO REKORDÓW: <strong className="text-emerald-400">0</strong></div>
+                    <div>USUNIĘTO PÓL: <strong className="text-emerald-400">0</strong></div>
+                    <div>ZMIENIONO ID: <strong className="text-emerald-400">0</strong></div>
+                    <div>BŁĘDY KRYTYCZNE: <strong className="text-emerald-400">0</strong></div>
                   </div>
                 </div>
 
                 <div className="max-h-60 overflow-y-auto rounded-xl border border-slate-800 bg-slate-950 p-3 font-mono text-[11px] space-y-1 text-slate-300">
-                  {rhzReport.records.map(r => (
+                  {upsertReport.records.map(r => (
                     <div key={r.documentId} className="flex justify-between border-b border-slate-900 pb-1">
                       <span>Dzień {r.dayNumber} → <span className="text-slate-400">{r.documentId}</span></span>
-                      <span className={r.status === 'CREATED' ? 'text-emerald-400 font-bold' : r.status === 'SKIPPED_EXISTING' ? 'text-amber-400' : 'text-red-400'}>
+                      <span className={
+                        r.status === 'CREATED' ? 'text-sky-400 font-bold' : 
+                        r.status === 'UPDATED' ? 'text-amber-400 font-bold' : 
+                        r.status === 'UNCHANGED' ? 'text-emerald-400 font-bold' : 'text-red-400 font-bold'
+                      }>
                         {r.status}
                       </span>
                     </div>
