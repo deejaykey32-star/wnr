@@ -131,7 +131,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
     }
 
     // 2. Search WnR365 (Blog entries)
-    Object.entries(blogEntries).forEach(([docId, entry]) => {
+    Object.entries(blogEntries).forEach(([docId, entry]: [string, any]) => {
       if (searchHits.length >= maxResults) return;
       const dayIndex = entry.dayIndex ?? 0;
       const dayNum = (dayIndex % 175) + 1;

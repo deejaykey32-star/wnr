@@ -31,7 +31,7 @@ export const DEFAULT_PRAYERS: Record<string, { title: string; text: string }> = 
   }
 };
 
-export type CycleType = 'cycle1' | 'cycle2' | 'break' | 'break2' | 'life_way' | 'divine_mercy';
+export type CycleType = 'cycle1' | 'cycle2' | 'break' | 'break2' | 'life_way' | 'divine_mercy' | 'silent_contemplation';
 
 export interface LifeWayStation {
   stationNumber: number;
@@ -157,7 +157,10 @@ export const SILENT_CONTEMPLATION_DEC_25 = {
 };
 
 // Calculate the cycle details starting from December 25th of the current or previous year
-export const getCycleDayInfo = (selectedDate: Date) => {
+export const getCycleDayInfo = (
+  selectedDate: Date,
+  options?: { explicitRhzDay?: number; isExplicitRhzRoute?: boolean }
+) => {
   const d = new Date(selectedDate);
   d.setHours(12, 0, 0, 0); // avoid timezone shifts
   const year = d.getFullYear();
@@ -178,8 +181,33 @@ export const getCycleDayInfo = (selectedDate: Date) => {
   const diffTime = d.getTime() - cycleStart.getTime();
   const dayIndex = Math.round(diffTime / (1000 * 60 * 60 * 24)); // 0 to 364/365
 
-  // 25 December: Kontemplacja w ciszy (zamiast zawartości pliku JSON)
-  if (month === 11 && day === 25) {
+  // Direct RHZ365 explicit route or day override (/rhz365-day-X) MUST ALWAYS open RHZ365 Cykl I
+  if (options?.explicitRhzDay && options.explicitRhzDay >= 1 && options.explicitRhzDay <= 175) {
+    const dayNum = options.explicitRhzDay;
+    return {
+      dayIndex: dayNum - 1,
+      dayOfCycle: dayNum,
+      cycleType: 'cycle1' as CycleType,
+      cycleName: `Cykl I - Dzień ${dayNum} z 175 (Różaniec Tradycyjny)`,
+      startYear,
+      endYear: startYear + 1
+    };
+  }
+
+  if (options?.isExplicitRhzRoute && dayIndex >= 0 && dayIndex < 175) {
+    const dayOfCycle = dayIndex + 1;
+    return {
+      dayIndex,
+      dayOfCycle,
+      cycleType: 'cycle1' as CycleType,
+      cycleName: `Cykl I - Dzień ${dayOfCycle} z 175 (Różaniec Tradycyjny)`,
+      startYear,
+      endYear: startYear + 1
+    };
+  }
+
+  // 25 December: Kontemplacja w ciszy (wyłącznie gdy brak bezpośredniej ścieżki RHZ365)
+  if (month === 11 && day === 25 && !options?.isExplicitRhzRoute) {
     return {
       dayIndex,
       dayOfCycle: 1,

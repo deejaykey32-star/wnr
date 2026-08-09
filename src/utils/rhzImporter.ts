@@ -494,32 +494,38 @@ export async function executeUpsertSync(
         const newTitle = r.title.trim();
         const newText = r.text.trim();
 
+        const fullPayload = {
+          dayNumber: r.dayNumber,
+          dayMonth: r.dayMonth,
+          cycle: r.cycle,
+          stage: r.stage,
+          part: r.part,
+          mystery: r.mystery,
+          title: newTitle,
+          sourcePage: r.sourcePage,
+          sourceText: newText,
+          text: newText,
+          updatedBy: userEmail,
+          updatedAt: new Date().toISOString()
+        };
+
         if (!snap.exists()) {
-          // CREATE: set title, text, updatedBy, updatedAt
-          transaction.set(docRef, {
-            title: newTitle,
-            text: newText,
-            updatedBy: userEmail,
-            updatedAt: new Date().toISOString()
-          });
+          // CREATE with complete JSON metadata payload
+          transaction.set(docRef, fullPayload);
           return { status: 'CREATED' as const, oldTitle: '', oldText: '' };
         }
 
         const existingData = snap.data() || {};
         const existingTitle = (existingData.title || '').trim();
         const existingText = (existingData.text || '').trim();
+        const existingDayNumber = existingData.dayNumber;
 
-        if (existingTitle === newTitle && existingText === newText) {
+        if (existingTitle === newTitle && existingText === newText && existingDayNumber === r.dayNumber && existingData.sourcePage === r.sourcePage) {
           return { status: 'UNCHANGED' as const, oldTitle: existingTitle, oldText: existingText };
         }
 
-        // UPDATE (MERGE): only set title, text, updatedBy, updatedAt with merge: true (preserves any additional fields!)
-        transaction.set(docRef, {
-          title: newTitle,
-          text: newText,
-          updatedBy: userEmail,
-          updatedAt: new Date().toISOString()
-        }, { merge: true });
+        // UPDATE (MERGE): set full JSON fields with merge: true (non-destructive)
+        transaction.set(docRef, fullPayload, { merge: true });
 
         return { status: 'UPDATED' as const, oldTitle: existingTitle, oldText: existingText };
       });

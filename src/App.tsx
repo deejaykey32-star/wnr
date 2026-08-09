@@ -120,8 +120,8 @@ export default function App() {
 
   // Calculate cycle info
   const cycleInfo = useMemo(() => {
-    return getCycleDayInfo(selectedDate);
-  }, [selectedDate]);
+    return getCycleDayInfo(selectedDate, { isExplicitRhzRoute: activeTab === 'rosary' });
+  }, [selectedDate, activeTab]);
 
   // Rosary structure (static definitions)
   const rgbaBeads = getRGBABeads();
@@ -697,15 +697,15 @@ export default function App() {
         const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
         if (parsed.success && parsed.data) {
           return (
-            <div className="mt-3">
+            <div className="mt-3 space-y-4">
               <div className={`p-5 sm:p-6 rounded-2xl border shadow-md transition-all duration-300 ${
                 isLight ? 'bg-white border-slate-200' : 'bg-slate-900/70 border-slate-800'
               }`}>
-                <div className="flex items-center gap-2 mb-3">
+                <div className="flex items-center justify-between gap-2 mb-3">
                   <span className={`text-xs border px-3 py-1 rounded-full font-bold uppercase tracking-wider font-mono ${
                     isLight ? 'bg-indigo-50 text-indigo-700 border-indigo-200' : 'bg-indigo-950/60 text-indigo-300 border-indigo-800/60'
                   }`}>
-                    Rozważanie Tajemnicy
+                    Rozważanie Tajemnicy (Dzień {cycleInfo.dayOfCycle})
                   </span>
                 </div>
                 <h4 className={`text-xl sm:text-2xl font-bold font-serif tracking-tight ${isLight ? 'text-slate-900' : 'text-white'}`}>

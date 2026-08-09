@@ -1,4 +1,5 @@
 import { jsPDF } from 'jspdf';
+import rhzData from '../../RHZ365_pierwszy_cykl_175_dni.json';
 
 // Dynamic Font Fetcher supporting Polish Characters
 const loadRobotoFonts = async (doc: jsPDF): Promise<boolean> => {

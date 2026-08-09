@@ -19,9 +19,9 @@ service cloud.firestore {
 
     function isValidPrayer(data) {
       return data.keys().hasAll(['title', 'text', 'updatedBy']) &&
-             data.keys().size() <= 5 &&
-             data.title is string && data.title.size() <= 200 &&
-             data.text is string && data.text.size() <= 10000 &&
+             data.keys().size() <= 15 &&
+             data.title is string && data.title.size() <= 300 &&
+             data.text is string && data.text.size() <= 20000 &&
              data.updatedBy is string && data.updatedBy.size() <= 200;
     }
 
