@@ -1691,55 +1691,59 @@ export default function App() {
                 <div className={`border rounded-2xl p-5 shadow-xl transition-all duration-300 ${
                   isLight ? 'bg-white border-slate-200 shadow-slate-100' : 'bg-slate-900/40 border-slate-800/50'
                 }`}>
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className={`text-xs font-bold uppercase tracking-wider ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
-                      Nawigacja i Autoodtwarzanie
-                    </h3>
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => setSoundEnabled(!soundEnabled)}
-                        title={soundEnabled ? "Wyłącz dźwięk dzwonka" : "Włącz dźwięk dzwonka"}
-                        className={`p-1.5 rounded-lg border transition cursor-pointer ${
-                          soundEnabled 
-                            ? isLight
-                              ? 'bg-indigo-50 text-indigo-600 border-indigo-200 hover:bg-indigo-100/60'
-                              : 'bg-indigo-950/40 text-indigo-400 border-indigo-850/50 hover:bg-indigo-900/30' 
-                            : isLight
-                              ? 'bg-slate-50 text-slate-400 border-slate-200 hover:text-slate-600'
-                              : 'bg-slate-950 text-slate-500 border-slate-800 hover:text-slate-400'
-                        }`}
-                      >
-                        <Volume2 className="w-4 h-4" />
-                      </button>
-                      <button
-                        onClick={() => setTtsEnabled(!ttsEnabled)}
-                        title={ttsEnabled ? "Wyłącz lektora AI TTS" : "Włącz lektora AI TTS"}
-                        className={`p-1.5 rounded-lg border transition cursor-pointer flex items-center gap-1.5 text-xs font-semibold ${
-                          ttsEnabled 
-                            ? isLight
-                              ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100/60'
-                              : 'bg-emerald-950/40 text-emerald-400 border-emerald-850/50 hover:bg-emerald-900/30' 
-                            : isLight
-                              ? 'bg-slate-50 text-slate-400 border-slate-200 hover:text-slate-600'
-                              : 'bg-slate-950 text-slate-500 border-slate-800 hover:text-slate-400'
-                        }`}
-                      >
-                        {ttsEnabled ? <Mic className="w-3.5 h-3.5" /> : <MicOff className="w-3.5 h-3.5" />}
-                        <span>Lektor AI</span>
-                      </button>
-                      <button
-                        onClick={() => setIsYoutubeMode(true)}
-                        className={`p-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition cursor-pointer border ${
-                          isLight
-                            ? 'bg-indigo-50 border-indigo-200 text-indigo-700 hover:bg-indigo-100'
-                            : 'bg-indigo-950/40 hover:bg-indigo-900/30 text-indigo-400 border border-indigo-800/50'
-                        }`}
-                        title="Uruchom wersję minimalistyczną w formacie 16:9"
-                      >
-                        <Video className="w-3.5 h-3.5" />
-                        Wersja Minimalistyczna 16:9
-                      </button>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 w-full max-w-full overflow-hidden">
+                    <div className="flex items-center justify-between gap-2 w-full sm:w-auto">
+                      <h3 className={`text-xs font-bold uppercase tracking-wider ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                        Nawigacja i Autoodtwarzanie
+                      </h3>
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        <button
+                          onClick={() => setSoundEnabled(!soundEnabled)}
+                          title={soundEnabled ? "Wyłącz dźwięk dzwonka" : "Włącz dźwięk dzwonka"}
+                          className={`p-1.5 rounded-lg border transition cursor-pointer ${
+                            soundEnabled 
+                              ? isLight
+                                ? 'bg-indigo-50 text-indigo-600 border-indigo-200 hover:bg-indigo-100/60'
+                                : 'bg-indigo-950/40 text-indigo-400 border-indigo-850/50 hover:bg-indigo-900/30' 
+                              : isLight
+                                ? 'bg-slate-50 text-slate-400 border-slate-200 hover:text-slate-600'
+                                : 'bg-slate-950 text-slate-500 border-slate-800 hover:text-slate-400'
+                          }`}
+                        >
+                          <Volume2 className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={() => setTtsEnabled(!ttsEnabled)}
+                          title={ttsEnabled ? "Wyłącz lektora AI TTS" : "Włącz lektora AI TTS"}
+                          className={`p-1.5 rounded-lg border transition cursor-pointer flex items-center gap-1 text-xs font-semibold ${
+                            ttsEnabled 
+                              ? isLight
+                                ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100/60'
+                                : 'bg-emerald-950/40 text-emerald-400 border-emerald-850/50 hover:bg-emerald-900/30' 
+                              : isLight
+                                ? 'bg-slate-50 text-slate-400 border-slate-200 hover:text-slate-600'
+                                : 'bg-slate-950 text-slate-500 border-slate-800 hover:text-slate-400'
+                          }`}
+                        >
+                          {ttsEnabled ? <Mic className="w-3.5 h-3.5" /> : <MicOff className="w-3.5 h-3.5" />}
+                          <span>Lektor AI</span>
+                        </button>
+                      </div>
                     </div>
+
+                    {/* PRZYCISK WERSJI MINIMALISTYCZNEJ 16:9 W DEDYKOWANEJ NOWEJ LINII NA SMARTFONIE */}
+                    <button
+                      onClick={() => setIsYoutubeMode(true)}
+                      className={`w-full sm:w-auto px-3 py-2 sm:py-1.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition cursor-pointer border shadow-sm ${
+                        isLight
+                          ? 'bg-indigo-50 border-indigo-200 text-indigo-700 hover:bg-indigo-100'
+                          : 'bg-indigo-950/40 hover:bg-indigo-900/30 text-indigo-400 border border-indigo-800/50'
+                      }`}
+                      title="Uruchom wersję minimalistyczną w formacie 16:9"
+                    >
+                      <Video className="w-4 h-4 text-indigo-400 shrink-0" />
+                      <span>Wersja Minimalistyczna 16:9</span>
+                    </button>
                   </div>
 
                   {/* Main buttons */}
