@@ -36,17 +36,24 @@ const escapeXml = (unsafe: string): string => {
     .replace(/'/g, '&apos;');
 };
 
+const extractUrlsFromText = (text: string): string[] => {
+  if (!text) return [];
+  const urlRegex = /(https?:\/\/[^\s<>"'\(\)]+)/gi;
+  const matches = text.match(urlRegex) || [];
+  return Array.from(new Set(matches));
+};
+
 export const generateEpubBook = async (
   options: EpubExportOptions,
   onProgress?: (msg: string) => void
 ): Promise<void> => {
   const { scope, range, includeCover, dayOfCycle, prayers, blogEntries } = options;
 
-  if (onProgress) onProgress("Inicjalizacja generatora EPUB i pakietu ZIP...");
+  if (onProgress) onProgress("Inicjalizacja generatora EPUB (skład e-book 12pt)...");
 
   const zip = new JSZip();
 
-  // 1. mimetype (Uncompressed, must be first file)
+  // 1. mimetype
   zip.file("mimetype", "application/epub+zip", { compression: "STORE" });
 
   // 2. META-INF/container.xml
@@ -58,12 +65,13 @@ export const generateEpubBook = async (
 </container>`;
   zip.file("META-INF/container.xml", containerXml);
 
-  // 3. OEBPS/style.css
+  // 3. OEBPS/style.css (12pt font size, line-height 1.5)
   const styleCss = `
 body {
-  font-family: serif;
-  margin: 5%;
-  line-height: 1.6;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12pt;
+  line-height: 1.5;
+  margin: 4%;
   color: #1e293b;
   background-color: #ffffff;
 }
@@ -71,18 +79,19 @@ h1, h2, h3, h4 {
   font-family: sans-serif;
   color: #0f172a;
   text-align: center;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
+  margin-top: 1.2em;
+  margin-bottom: 0.4em;
+  line-height: 1.3;
 }
-h1 { font-size: 1.8em; border-bottom: 2px solid #4f46e5; padding-bottom: 0.3em; }
-h2 { font-size: 1.4em; color: #4f46e5; }
+h1 { font-size: 1.6em; border-bottom: 2px solid #4f46e5; padding-bottom: 0.3em; }
+h2 { font-size: 1.3em; color: #4f46e5; }
 h3 { font-size: 1.1em; color: #d97706; }
 p {
-  margin-bottom: 1em;
+  font-size: 12pt;
+  line-height: 1.5;
+  margin-bottom: 0.8em;
   text-align: justify;
-  text-indent: 1em;
 }
-p.no-indent { text-indent: 0; }
 .cover-img {
   max-width: 100%;
   height: auto;
@@ -94,19 +103,19 @@ p.no-indent { text-indent: 0; }
   border: 1px solid #cbd5e1;
   border-radius: 8px;
   padding: 12px;
-  margin: 16px 0;
+  margin: 14px 0;
 }
 .qr-container {
   text-align: center;
-  margin: 20px 0;
+  margin: 16px 0;
   padding: 10px;
   border: 1px dashed #cbd5e1;
   background: #fafafa;
 }
 .qr-img {
-  width: 160px;
-  height: 160px;
-  margin: 0 auto 8px auto;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 6px auto;
   display: block;
 }
 .qr-url {
@@ -130,14 +139,10 @@ p.no-indent { text-indent: 0; }
   font-weight: bold;
   text-decoration: underline;
 }
-.toc-link:hover {
-  color: #2563eb;
-  background-color: #e0e7ff;
-}
 `;
   zip.file("OEBPS/style.css", styleCss);
 
-  // Extract raw base64 data for cover image
+  // Cover Handling
   const coverBase64Data = COVER_IMAGE_BASE64.replace(/^data:image\/png;base64,/, '');
   if (includeCover) {
     zip.file("OEBPS/cover.png", coverBase64Data, { base64: true });
@@ -183,7 +188,7 @@ p.no-indent { text-indent: 0; }
     if (onProgress) {
       const current = i - startDayIdx + 1;
       const total = endDayIdx - startDayIdx;
-      onProgress(`Generowanie rozdziału dla Dnia ${dayNum} (${current}/${total})...`);
+      onProgress(`Generowanie EPUB dla Dnia ${dayNum} (${current}/${total})...`);
     }
 
     const date = getDateFromDayIndex(i);
@@ -223,9 +228,10 @@ p.no-indent { text-indent: 0; }
       text: "Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu Świętym."
     };
 
-    // QR code generation
+    // Extract all URLs
     const dayUrl = `https://widokinaraj.pl/day/${dayNum}`;
-    const qrDataBase64 = await generateQrCodeDataUri(dayUrl);
+    const embeddedUrls = extractUrlsFromText(`${rawRhzText} ${wnrDoc.text || ''}`);
+    const allUrls = Array.from(new Set([dayUrl, ...embeddedUrls]));
 
     let chapterHtml = `<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
@@ -237,44 +243,48 @@ p.no-indent { text-indent: 0; }
 <body>
   <h1>Dzień ${dayNum} — ${escapeXml(dayLabel.toUpperCase())}</h1>
   <h3>${escapeXml(cycleName)}</h3>
-  <div class="qr-container">
-    <img src="${qrDataBase64}" class="qr-img" alt="Kod QR Dnia" />
-    <br/>
-    <a href="${dayUrl}" class="qr-url" target="_blank">${escapeXml(dayUrl)}</a>
-  </div>
 `;
+
+    for (const urlItem of allUrls) {
+      const qrDataBase64 = await generateQrCodeDataUri(urlItem);
+      chapterHtml += `  <div class="qr-container">
+    <img src="${qrDataBase64}" class="qr-img" alt="Kod QR" />
+    <br/>
+    <a href="${escapeXml(urlItem)}" class="qr-url" target="_blank">${escapeXml(urlItem)}</a>
+  </div>\n`;
+    }
 
     if (scope === 'rhz365' || scope === 'both') {
       chapterHtml += `<h2>Różaniec Historii Zbawienia (RHZ365)</h2>`;
       chapterHtml += `<h3>${escapeXml(rhzTitle)}</h3>`;
 
       if (parsedRHZ.success && parsedRHZ.data) {
-        chapterHtml += `<div class="box"><h4>Rozważanie Tajemnicy</h4><p class="no-indent">${escapeXml(parsedRHZ.data.reflectionText).replace(/\n/g, '<br/>')}</p></div>`;
-        chapterHtml += `<div class="box"><h4>Modlitwa Pańska (Ojcze Nasz)</h4><p class="no-indent">${escapeXml(parsedRHZ.data.ourFatherText).replace(/\n/g, '<br/>')}</p></div>`;
+        chapterHtml += `<div class="box"><h4>Rozważanie Tajemnicy</h4><p>${escapeXml(parsedRHZ.data.reflectionText).replace(/\n/g, '<br/>')}</p></div>`;
+        chapterHtml += `<div class="box"><h4>Modlitwa Pańska (Ojcze Nasz)</h4><p>${escapeXml(parsedRHZ.data.ourFatherText).replace(/\n/g, '<br/>')}</p></div>`;
 
         chapterHtml += `<h4>10 Osobnych Modlitw Zdrowaś Maryjo:</h4><ol>`;
         parsedRHZ.data.hailMaryTexts.forEach((hmText) => {
-          chapterHtml += `<li><p class="no-indent">${escapeXml(hmText)}</p></li>`;
+          chapterHtml += `<li><p>${escapeXml(hmText)}</p></li>`;
         });
         chapterHtml += `</ol>`;
 
-        chapterHtml += `<div class="box"><h4>Chwała Ojcu &amp; O mój Jezu</h4><p class="no-indent">${escapeXml(parsedRHZ.data.gloryBeFatimaText).replace(/\n/g, '<br/>')}</p></div>`;
+        chapterHtml += `<div class="box"><h4>Chwała Ojcu &amp; O mój Jezu</h4><p>${escapeXml(parsedRHZ.data.gloryBeFatimaText).replace(/\n/g, '<br/>')}</p></div>`;
       } else {
-        chapterHtml += `<p class="no-indent">${escapeXml(rawRhzText).replace(/\n/g, '<br/>')}</p>`;
+        chapterHtml += `<p>${escapeXml(rawRhzText).replace(/\n/g, '<br/>')}</p>`;
       }
     }
 
     if (scope === 'wnr365' || scope === 'both') {
       chapterHtml += `<h2>Widoki na Raj (WnR365)</h2>`;
       chapterHtml += `<h3>${escapeXml(wnrDoc.title || `Rozważanie Słowa - Dzień ${dayNum}`)}</h3>`;
-      chapterHtml += `<p class="no-indent">${escapeXml(wnrDoc.text || '').replace(/\n/g, '<br/>')}</p>`;
+      chapterHtml += `<p>${escapeXml(wnrDoc.text || '').replace(/\n/g, '<br/>')}</p>`;
     }
 
     chapterHtml += `</body>\n</html>`;
     zip.file(`OEBPS/${chapterHref}`, chapterHtml);
   }
 
-  // Add Table of Contents chapter at the end
+  // Table of Contents chapter
   const tocId = "toc_end";
   const tocHref = "toc.xhtml";
   manifestItems.push(`<item id="${tocId}" href="${tocHref}" media-type="application/xhtml+xml"/>`);
@@ -289,7 +299,7 @@ p.no-indent { text-indent: 0; }
 </head>
 <body>
   <h1>Spis Treści</h1>
-  <p class="no-indent">Kliknij w wybrany odsyłacz, aby przejść do danego dnia rozważań:</p>
+  <p>Kliknij w wybrany odsyłacz, aby przejść do danego dnia rozważań:</p>
   <ul class="toc-list">
 `;
   tocEntries.forEach((entry) => {

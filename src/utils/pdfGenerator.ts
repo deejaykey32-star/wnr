@@ -42,7 +42,7 @@ const loadRobotoFonts = async (doc: jsPDF): Promise<boolean> => {
 
     return true;
   } catch (error) {
-    console.warn("Could not load Unicode Roboto font dynamically. Falling back to Helvetica.", error);
+    console.warn("Could not load Unicode Roboto font dynamically. Falling back to Times.", error);
     return false;
   }
 };
@@ -58,6 +58,13 @@ const getDateFromDayIndex = (dayIndex: number): Date => {
   } else {
     return new Date(2026, 0, 1 + (dayIndex - 7), 12, 0, 0, 0);
   }
+};
+
+const extractUrlsFromText = (text: string): string[] => {
+  if (!text) return [];
+  const urlRegex = /(https?:\/\/[^\s<>"'\(\)]+)/gi;
+  const matches = text.match(urlRegex) || [];
+  return Array.from(new Set(matches));
 };
 
 export interface CustomPdfOptions {
@@ -76,36 +83,40 @@ export const generateCustomScopePdf = async (
 ): Promise<void> => {
   const { scope, range, includeCover, dayOfCycle, prayers, blogEntries } = options;
 
-  if (onProgress) onProgress("Inicjalizacja generatora PDF i pobieranie czcionek...");
+  if (onProgress) onProgress("Inicjalizacja generatora PDF A5 (skład książkowy)...");
 
+  // Format A5: 148 mm x 210 mm
   const doc = new jsPDF({
     orientation: 'portrait',
     unit: 'mm',
-    format: 'a4'
+    format: 'a5'
   });
 
   const hasCustomFont = await loadRobotoFonts(doc);
-  const fontName = hasCustomFont ? 'Roboto' : 'Helvetica';
+  const fontName = hasCustomFont ? 'Roboto' : 'Times-Roman';
 
-  const pageWidth = 210;
-  const pageHeight = 297;
-  const margin = 18;
-  const contentWidth = pageWidth - (margin * 2);
+  const pageWidth = 148;
+  const pageHeight = 210;
+  const margin = 12; // 12mm margins
+  const contentWidth = pageWidth - (margin * 2); // 124mm printable width
+
+  // 12pt font size with 1.5 line height spacing = 6.35 mm per line
+  const lineSpacing15 = 6.35;
 
   const drawHeaderFooter = (pageNum: number, titleText: string) => {
-    doc.setDrawColor(226, 232, 240); // slate-200
-    doc.setLineWidth(0.3);
-    doc.rect(margin - 4, margin - 4, pageWidth - (margin * 2) + 8, pageHeight - (margin * 2) + 8);
+    doc.setDrawColor(203, 213, 225); // slate-300
+    doc.setLineWidth(0.2);
+    doc.rect(margin - 3, margin - 3, pageWidth - (margin * 2) + 6, pageHeight - (margin * 2) + 6);
 
     doc.setFont(fontName, 'bold');
-    doc.setFontSize(8);
-    doc.setTextColor(100, 116, 139); // slate-500
-    doc.text(titleText, margin, margin - 8);
+    doc.setFontSize(7.5);
+    doc.setTextColor(100, 116, 139);
+    doc.text(titleText, margin, margin - 5);
 
     doc.setFont(fontName, 'normal');
-    doc.setFontSize(8);
-    doc.text(`Strona ${pageNum}`, pageWidth - margin - 15, pageHeight - margin + 8);
-    doc.text("eMBiK365 — widokinaraj.pl", margin, pageHeight - margin + 8);
+    doc.setFontSize(7.5);
+    doc.text(`str. ${pageNum}`, pageWidth - margin - 10, pageHeight - margin + 5);
+    doc.text("eMBiK365 — widokinaraj.pl", margin, pageHeight - margin + 5);
   };
 
   let currentPage = 1;
@@ -118,33 +129,31 @@ export const generateCustomScopePdf = async (
     if (onProgress) onProgress("Dodawanie okładki książkowej...");
     
     try {
-      // Draw cover image full size on page 1
       doc.addImage(COVER_IMAGE_BASE64, 'PNG', 0, 0, pageWidth, pageHeight);
     } catch (err) {
-      console.error("Błąd rysowania okładki z obrazka, generowanie ramki tekstu...", err);
-      // Fallback elegant cover
+      console.error("Błąd rysowania okładki:", err);
       doc.setFillColor(15, 23, 42);
       doc.rect(0, 0, pageWidth, pageHeight, 'F');
       
       doc.setFont(fontName, 'bold');
-      doc.setFontSize(28);
+      doc.setFontSize(22);
       doc.setTextColor(248, 250, 252);
-      doc.text("Widoki na Raj", pageWidth / 2, 70, { align: 'center' });
+      doc.text("Widoki na Raj", pageWidth / 2, 50, { align: 'center' });
       
-      doc.setFontSize(14);
+      doc.setFontSize(11);
       doc.setTextColor(245, 158, 11);
-      doc.text("Misja barw i kolorów", pageWidth / 2, 85, { align: 'center' });
-      doc.text("Duchowa pielgrzymka przez 365 dni w roku", pageWidth / 2, 95, { align: 'center' });
+      doc.text("Misja barw i kolorów", pageWidth / 2, 62, { align: 'center' });
+      doc.text("Duchowa pielgrzymka przez 365 dni w roku", pageWidth / 2, 70, { align: 'center' });
 
-      doc.setFontSize(12);
+      doc.setFontSize(10);
       doc.setTextColor(148, 163, 184);
-      doc.text("Dominik Jan Kuta", pageWidth / 2, 130, { align: 'center' });
-      doc.text("pod redakcją dr Aleksandry Sabasz-Kuta", pageWidth / 2, 140, { align: 'center' });
+      doc.text("Dominik Jan Kuta", pageWidth / 2, 100, { align: 'center' });
+      doc.text("pod redakcją dr Aleksandry Sabasz-Kuta", pageWidth / 2, 108, { align: 'center' });
 
       doc.setFont(fontName, 'bold');
-      doc.setFontSize(16);
+      doc.setFontSize(14);
       doc.setTextColor(224, 231, 255);
-      doc.text("eMBiK", pageWidth / 2, 230, { align: 'center' });
+      doc.text("eMBiK", pageWidth / 2, 170, { align: 'center' });
     }
 
     doc.addPage();
@@ -161,11 +170,14 @@ export const generateCustomScopePdf = async (
       ? "Widoki na Raj — WnR365" 
       : "eMBiK365 — RHZ365 & WnR365";
 
+  let y = margin + 5;
+  drawHeaderFooter(currentPage, headerTitle);
+
   for (let currentDayNum = startDay; currentDayNum <= endDay; currentDayNum++) {
     if (onProgress) {
       const progressCount = currentDayNum - startDay + 1;
       const totalCount = endDay - startDay + 1;
-      onProgress(`Generowanie treści Dnia ${currentDayNum} (${progressCount}/${totalCount})...`);
+      onProgress(`Składanie Dnia ${currentDayNum} (${progressCount}/${totalCount}) w formacie A5...`);
     }
 
     const dayIdx = currentDayNum - 1;
@@ -183,9 +195,12 @@ export const generateCustomScopePdf = async (
       cycleName = `Okres Przygotowania — Dzień ${dayIdx - 356}`;
     }
 
-    if (currentDayNum > startDay) {
+    // Continuous flow check: only add page if near bottom
+    if (y > pageHeight - margin - 35) {
       doc.addPage();
       currentPage++;
+      drawHeaderFooter(currentPage, headerTitle);
+      y = margin + 5;
     }
 
     // Register TOC item
@@ -195,73 +210,100 @@ export const generateCustomScopePdf = async (
       pageNum: currentPage
     });
 
-    drawHeaderFooter(currentPage, headerTitle);
-    let y = margin + 5;
-
-    // Day Header Box
+    // Day Section Divider & Header
     doc.setFillColor(248, 250, 252);
     doc.setDrawColor(226, 232, 240);
-    doc.setLineWidth(0.4);
-    doc.rect(margin, y, contentWidth, 12, 'FD');
+    doc.setLineWidth(0.3);
+    doc.rect(margin, y, contentWidth, 10, 'FD');
 
     doc.setFont(fontName, 'bold');
-    doc.setFontSize(11);
+    doc.setFontSize(10);
     doc.setTextColor(15, 23, 42);
-    doc.text(`DZIEŃ ${currentDayNum} — ${dayLabel.toUpperCase()}`, margin + 4, y + 8);
+    doc.text(`DZIEŃ ${currentDayNum} — ${dayLabel.toUpperCase()}`, margin + 3, y + 6.5);
 
     doc.setFont(fontName, 'normal');
-    doc.setFontSize(9);
+    doc.setFontSize(8);
     doc.setTextColor(79, 70, 229);
-    doc.text(cycleName, margin + contentWidth - 4, y + 8, { align: 'right' });
+    doc.text(cycleName, margin + contentWidth - 3, y + 6.5, { align: 'right' });
 
-    y += 18;
+    y += 14;
 
-    // QR Code & URL Section
+    // Direct entry URL QR Code
     const dayUrl = `https://widokinaraj.pl/day/${currentDayNum}`;
-    try {
-      const qrDataUri = await generateQrCodeDataUri(dayUrl);
-      const qrSize = 22; // 22mm x 22mm
-      const qrX = margin + contentWidth - qrSize;
-      const qrY = y;
+    
+    // Fetch RHZ and WnR content to scan for additional embedded URLs
+    const decIdx = ((currentDayNum - 1) % 5) + 1;
+    const firestoreKey = `day_${currentDayNum}_decade_rgba_${decIdx}`;
+    const rhzDoc = prayers[firestoreKey];
+    const rawRhzText = rhzDoc?.text || rhzData[Math.min(currentDayNum - 1, rhzData.length - 1)]?.text || '';
+    const rhzTitle = rhzDoc?.title || rhzData[Math.min(currentDayNum - 1, rhzData.length - 1)]?.title || `Dzień ${currentDayNum}`;
 
-      doc.addImage(qrDataUri, 'PNG', qrX, qrY, qrSize, qrSize);
+    const parsedRHZ = parseDayText(currentDayNum, rawRhzText);
 
-      doc.setFont(fontName, 'bold');
-      doc.setFontSize(7.5);
-      doc.setTextColor(37, 99, 235); // blue-600
-      doc.text("Zeskanuj lub kliknij poniższy URL:", margin, y + 5);
+    const wnrKey = `blog_day_${dayIdx}`;
+    const wnrDoc = blogEntries[wnrKey] || {
+      title: `Widoki na Raj — Dzień ${currentDayNum}`,
+      text: "Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu Świętym."
+    };
 
-      doc.setFont(fontName, 'normal');
-      doc.setFontSize(8);
-      doc.setTextColor(30, 41, 59);
-      doc.text(dayUrl, margin, y + 11);
+    // Extract all embedded URLs in content text
+    const embeddedUrls = extractUrlsFromText(`${rawRhzText} ${wnrDoc.text || ''}`);
+    const allUrls = Array.from(new Set([dayUrl, ...embeddedUrls]));
 
-      // Make URL text clickable
-      doc.link(margin, y + 7, 70, 6, { url: dayUrl });
+    // Render QR Codes and URLs below them
+    for (const urlItem of allUrls) {
+      if (y > pageHeight - margin - 35) {
+        doc.addPage();
+        currentPage++;
+        drawHeaderFooter(currentPage, headerTitle);
+        y = margin + 5;
+      }
 
-      y += 26;
-    } catch (e) {
-      console.warn("Nie udało się dodać kodu QR:", e);
+      try {
+        const qrDataUri = await generateQrCodeDataUri(urlItem);
+        const qrSize = 18; // 18mm x 18mm
+        const qrX = margin + contentWidth - qrSize;
+        const qrY = y;
+
+        doc.addImage(qrDataUri, 'PNG', qrX, qrY, qrSize, qrSize);
+
+        doc.setFont(fontName, 'bold');
+        doc.setFontSize(7);
+        doc.setTextColor(37, 99, 235);
+        doc.text("Kod QR odnośnika:", margin, y + 4);
+
+        doc.setFont(fontName, 'bold');
+        doc.setFontSize(7.5);
+        doc.setTextColor(30, 41, 59);
+
+        const splitUrl = doc.splitTextToSize(urlItem, contentWidth - qrSize - 4);
+        doc.text(splitUrl, margin, y + 9);
+
+        doc.link(margin, y + 5, contentWidth - qrSize - 4, splitUrl.length * 4 + 2, { url: urlItem });
+
+        y += Math.max(qrSize + 3, (splitUrl.length * 4) + 10);
+      } catch (e) {
+        console.warn("Błąd generowania QR:", e);
+      }
     }
 
     // 1. RHZ365 Section
     if (scope === 'rhz365' || scope === 'both') {
-      const decIdx = ((currentDayNum - 1) % 5) + 1;
-      const firestoreKey = `day_${currentDayNum}_decade_rgba_${decIdx}`;
-      const rhzDoc = prayers[firestoreKey];
-      const rawRhzText = rhzDoc?.text || rhzData[Math.min(currentDayNum - 1, rhzData.length - 1)]?.text || '';
-      const rhzTitle = rhzDoc?.title || rhzData[Math.min(currentDayNum - 1, rhzData.length - 1)]?.title || `Dzień ${currentDayNum}`;
-
-      const parsedRHZ = parseDayText(currentDayNum, rawRhzText);
+      if (y > pageHeight - margin - 25) {
+        doc.addPage();
+        currentPage++;
+        drawHeaderFooter(currentPage, headerTitle);
+        y = margin + 5;
+      }
 
       doc.setFont(fontName, 'bold');
-      doc.setFontSize(14);
+      doc.setFontSize(12); // Header 12pt bold
       doc.setTextColor(79, 70, 229);
       doc.text(`RHZ365 — Dzień ${currentDayNum}: ${rhzTitle}`, margin, y);
-      y += 8;
+      y += 7;
 
       if (parsedRHZ.success && parsedRHZ.data) {
-        // Reflection
+        // Reflection (12pt font, 1.5 line spacing)
         doc.setFont(fontName, 'bold');
         doc.setFontSize(10);
         doc.setTextColor(15, 23, 42);
@@ -269,28 +311,47 @@ export const generateCustomScopePdf = async (
         y += 5;
 
         doc.setFont(fontName, 'normal');
-        doc.setFontSize(8.5);
+        doc.setFontSize(12); // 12pt book font
         doc.setTextColor(51, 65, 85);
         const splitRefl = doc.splitTextToSize(parsedRHZ.data.reflectionText, contentWidth);
-        doc.text(splitRefl, margin, y);
-        y += (splitRefl.length * 4) + 6;
+        
+        for (let l = 0; l < splitRefl.length; l++) {
+          if (y > pageHeight - margin - 10) {
+            doc.addPage();
+            currentPage++;
+            drawHeaderFooter(currentPage, headerTitle);
+            y = margin + 5;
+          }
+          doc.text(splitRefl[l], margin, y);
+          y += lineSpacing15; // 1.5 interlinia
+        }
+        y += 3;
 
         // Our Father
         doc.setFont(fontName, 'bold');
-        doc.setFontSize(9.5);
+        doc.setFontSize(10);
         doc.setTextColor(15, 23, 42);
         doc.text("Modlitwa Pańska (Ojcze Nasz):", margin, y);
         y += 5;
 
         doc.setFont(fontName, 'normal');
-        doc.setFontSize(8.5);
+        doc.setFontSize(12); // 12pt font
         const splitFather = doc.splitTextToSize(parsedRHZ.data.ourFatherText, contentWidth);
-        doc.text(splitFather, margin, y);
-        y += (splitFather.length * 4) + 6;
+        for (let l = 0; l < splitFather.length; l++) {
+          if (y > pageHeight - margin - 10) {
+            doc.addPage();
+            currentPage++;
+            drawHeaderFooter(currentPage, headerTitle);
+            y = margin + 5;
+          }
+          doc.text(splitFather[l], margin, y);
+          y += lineSpacing15;
+        }
+        y += 3;
 
         // 10 Hail Marys
         doc.setFont(fontName, 'bold');
-        doc.setFontSize(9.5);
+        doc.setFontSize(10);
         doc.setTextColor(15, 23, 42);
         doc.text("10 Osobnych Modlitw Zdrowaś Maryjo (z dopowiedzeniami):", margin, y);
         y += 5;
@@ -304,17 +365,26 @@ export const generateCustomScopePdf = async (
           }
 
           doc.setFont(fontName, 'bold');
-          doc.setFontSize(8.5);
+          doc.setFontSize(9.5);
           doc.setTextColor(79, 70, 229);
           doc.text(`Zdrowaś Maryjo #${idx + 1}:`, margin, y);
-          y += 4;
+          y += 4.5;
 
           doc.setFont(fontName, 'normal');
-          doc.setFontSize(8);
+          doc.setFontSize(12); // 12pt
           doc.setTextColor(30, 41, 59);
-          const splitHm = doc.splitTextToSize(hmText, contentWidth - 4);
-          doc.text(splitHm, margin + 4, y);
-          y += (splitHm.length * 3.8) + 3.5;
+          const splitHm = doc.splitTextToSize(hmText, contentWidth - 3);
+          for (let l = 0; l < splitHm.length; l++) {
+            if (y > pageHeight - margin - 10) {
+              doc.addPage();
+              currentPage++;
+              drawHeaderFooter(currentPage, headerTitle);
+              y = margin + 5;
+            }
+            doc.text(splitHm[l], margin + 3, y);
+            y += lineSpacing15;
+          }
+          y += 2;
         });
 
         // Glory Be
@@ -326,35 +396,47 @@ export const generateCustomScopePdf = async (
         }
 
         doc.setFont(fontName, 'bold');
-        doc.setFontSize(9.5);
+        doc.setFontSize(10);
         doc.setTextColor(15, 23, 42);
         doc.text("Chwała Ojcu & O mój Jezu:", margin, y);
         y += 5;
 
         doc.setFont(fontName, 'normal');
-        doc.setFontSize(8.5);
+        doc.setFontSize(12); // 12pt
         doc.setTextColor(51, 65, 85);
         const splitGlory = doc.splitTextToSize(parsedRHZ.data.gloryBeFatimaText, contentWidth);
-        doc.text(splitGlory, margin, y);
-        y += (splitGlory.length * 4) + 8;
+        for (let l = 0; l < splitGlory.length; l++) {
+          if (y > pageHeight - margin - 10) {
+            doc.addPage();
+            currentPage++;
+            drawHeaderFooter(currentPage, headerTitle);
+            y = margin + 5;
+          }
+          doc.text(splitGlory[l], margin, y);
+          y += lineSpacing15;
+        }
+        y += 4;
       } else {
         doc.setFont(fontName, 'normal');
-        doc.setFontSize(8.5);
+        doc.setFontSize(12);
         const splitRaw = doc.splitTextToSize(rawRhzText, contentWidth);
-        doc.text(splitRaw, margin, y);
-        y += (splitRaw.length * 4) + 8;
+        for (let l = 0; l < splitRaw.length; l++) {
+          if (y > pageHeight - margin - 10) {
+            doc.addPage();
+            currentPage++;
+            drawHeaderFooter(currentPage, headerTitle);
+            y = margin + 5;
+          }
+          doc.text(splitRaw[l], margin, y);
+          y += lineSpacing15;
+        }
+        y += 4;
       }
     }
 
     // 2. WnR365 Section
     if (scope === 'wnr365' || scope === 'both') {
-      const wnrKey = `blog_day_${dayIdx}`;
-      const wnrDoc = blogEntries[wnrKey] || {
-        title: `Widoki na Raj — Dzień ${currentDayNum}`,
-        text: "Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu Świętym."
-      };
-
-      if (y > pageHeight - margin - 35 || scope === 'both') {
+      if (y > pageHeight - margin - 25) {
         doc.addPage();
         currentPage++;
         drawHeaderFooter(currentPage, headerTitle);
@@ -362,101 +444,98 @@ export const generateCustomScopePdf = async (
       }
 
       doc.setFont(fontName, 'bold');
-      doc.setFontSize(14);
-      doc.setTextColor(217, 119, 6); // amber-600
+      doc.setFontSize(12); // Header 12pt bold
+      doc.setTextColor(217, 119, 6);
       doc.text(`WnR365 — ${wnrDoc.title || `Widoki na Raj (Dzień ${currentDayNum})`}`, margin, y);
-      y += 8;
+      y += 7;
 
       doc.setFont(fontName, 'normal');
-      doc.setFontSize(8.5);
+      doc.setFontSize(12); // 12pt book font
       doc.setTextColor(51, 65, 85);
       const splitWnr = doc.splitTextToSize(wnrDoc.text || '', contentWidth);
       
-      // Print lines with auto page break if long
+      // Continuous line-by-line printing with 1.5 line height
       for (let l = 0; l < splitWnr.length; l++) {
-        if (y > pageHeight - margin - 12) {
+        if (y > pageHeight - margin - 10) {
           doc.addPage();
           currentPage++;
           drawHeaderFooter(currentPage, headerTitle);
           y = margin + 5;
         }
         doc.text(splitWnr[l], margin, y);
-        y += 4.2;
+        y += lineSpacing15; // 1.5 interlinia
       }
+      y += 6;
     }
   }
 
   // ==========================================
   // FINAL PAGES: TABLE OF CONTENTS (SPIS TREŚCI)
   // ==========================================
-  if (onProgress) onProgress("Generowanie aktywnego Spisu Treści na końcu pliku...");
+  if (onProgress) onProgress("Generowanie aktywnego Spisu Treści na końcu pliku A5...");
 
-  doc.addPage();
-  currentPage++;
-  drawHeaderFooter(currentPage, "Spis Treści — Interaktywne Odsyłacze");
-
-  let tocY = margin + 5;
+  if (y > pageHeight - margin - 30) {
+    doc.addPage();
+    currentPage++;
+    drawHeaderFooter(currentPage, "Spis Treści — Interaktywne Odsyłacze");
+    y = margin + 5;
+  }
 
   doc.setFont(fontName, 'bold');
-  doc.setFontSize(18);
+  doc.setFontSize(15);
   doc.setTextColor(15, 23, 42);
-  doc.text("Spis Treści", margin, tocY);
-  tocY += 8;
+  doc.text("Spis Treści", margin, y);
+  y += 7;
 
   doc.setFont(fontName, 'normal');
-  doc.setFontSize(9);
+  doc.setFontSize(8.5);
   doc.setTextColor(71, 85, 105);
-  doc.text("Kliknij w podświetlony odsyłacz, aby natychmiast przejść do strony danego dnia:", margin, tocY);
-  tocY += 10;
+  doc.text("Kliknij w podświetlony odsyłacz, aby natychmiast przejść do strony danego dnia:", margin, y);
+  y += 8;
 
   for (let t = 0; t < tocMap.length; t++) {
     const item = tocMap[t];
 
-    if (tocY > pageHeight - margin - 12) {
+    if (y > pageHeight - margin - 10) {
       doc.addPage();
       currentPage++;
       drawHeaderFooter(currentPage, "Spis Treści — Interaktywne Odsyłacze");
-      tocY = margin + 5;
+      y = margin + 5;
     }
 
-    // Zebra background
     if (t % 2 === 1) {
       doc.setFillColor(248, 250, 252);
-      doc.rect(margin, tocY - 3.5, contentWidth, 6, 'F');
+      doc.rect(margin, y - 3, contentWidth, 5.5, 'F');
     }
 
-    // Title text (Highlighted link style)
     doc.setFont(fontName, 'bold');
-    doc.setFontSize(8.5);
-    doc.setTextColor(79, 70, 229); // indigo-600
-    doc.text(item.title, margin + 2, tocY);
+    doc.setFontSize(8);
+    doc.setTextColor(79, 70, 229);
+    doc.text(item.title, margin + 1.5, y);
 
-    // Page Number
     doc.setFont(fontName, 'normal');
-    doc.setFontSize(8.5);
+    doc.setFontSize(8);
     doc.setTextColor(15, 23, 42);
-    doc.text(`str. ${item.pageNum}`, margin + contentWidth - 2, tocY, { align: 'right' });
+    doc.text(`str. ${item.pageNum}`, margin + contentWidth - 1.5, y, { align: 'right' });
 
-    // Underline effect
     doc.setDrawColor(199, 210, 254);
     doc.setLineWidth(0.2);
-    doc.line(margin + 2, tocY + 1, margin + contentWidth - 2, tocY + 1);
+    doc.line(margin + 1.5, y + 1, margin + contentWidth - 1.5, y + 1);
 
-    // Create interactive internal PDF page link
-    doc.link(margin, tocY - 3.5, contentWidth, 6, { pageNumber: item.pageNum });
+    doc.link(margin, y - 3, contentWidth, 5.5, { pageNumber: item.pageNum });
 
-    tocY += 6.5;
+    y += 5.5;
   }
 
-  if (onProgress) onProgress("Zapisywanie pliku PDF...");
+  if (onProgress) onProgress("Zapisywanie pliku PDF A5...");
 
   const fileNameScope = scope === 'rhz365' ? 'RHZ365' : scope === 'wnr365' ? 'WnR365' : 'eMBiK365_RHZ365_WnR365';
   const fileNameRange = range === 'single' ? `Dzien_${dayOfCycle}` : 'Calosc_Ksiega';
-  const pdfFilename = `${fileNameScope}_${fileNameRange}.pdf`;
+  const pdfFilename = `${fileNameScope}_${fileNameRange}_A5.pdf`;
 
   doc.save(pdfFilename);
 
-  if (onProgress) onProgress("Pobieranie pliku PDF zakończone pomyślnie!");
+  if (onProgress) onProgress("Pobieranie pliku PDF A5 zakończone pomyślnie!");
 };
 
 export const generateEmbikPdf = async (data: any, onProgress?: (msg: string) => void) => {
@@ -486,4 +565,3 @@ export const generateYearlyEmbikPdf = async (
     blogEntries
   }, onProgress);
 };
-
