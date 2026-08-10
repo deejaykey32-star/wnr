@@ -6,7 +6,7 @@ import { playBeadChime } from '../utils/audio';
 import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechPaused, isSpeechSpeaking } from '../utils/tts';
 import { 
   Play, Pause, ChevronLeft, ChevronRight, RotateCcw, 
-  Edit3, Volume2, Mic, MicOff, Calendar, Save, BookOpen, AlertCircle, Sparkles, FileDown
+  Edit3, Volume2, Mic, MicOff, Calendar, Save, BookOpen, AlertCircle, Sparkles, FileDown, Video
 } from 'lucide-react';
 import { RichTextRenderer } from '../utils/richTextHelper';
 import { WysiwygToolbar } from './WysiwygToolbar';
