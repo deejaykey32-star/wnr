@@ -16,6 +16,9 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
   let inList = false;
   let listItems: string[] = [];
   let currentAlignment: 'left' | 'center' | 'right' | 'justify' | null = null;
+  let currentFont: string | null = null;
+  let currentColor: string | null = null;
+  let currentBg: string | null = null;
 
   const flushList = () => {
     if (listItems.length > 0) {
@@ -23,7 +26,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       elements.push(
         <ul key={`list-${keyIndex++}`} className={`list-disc pl-5 my-3 space-y-1 ${listColorClass} text-sm`}>
           {listItems.map((item, idx) => (
-            <li key={`li-${idx}`} dangerouslySetInnerHTML={{ __html: parseInlineStyles(item, theme) }} />
+            <li key={`li-${idx}`} dangerouslySetInnerHTML={{ __html: parseInlineStyles(item, theme, { font: currentFont, color: currentColor, bg: currentBg }) }} />
           ))}
         </ul>
       );
@@ -73,6 +76,31 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
     if (line.includes('</div>') || line.includes('</p>') || line.includes('</center>')) {
       closedAlignmentThisLine = true;
       line = line.replace(/<\/div>|<\/p>|<\/center>/g, '');
+    }
+
+    // Persistent Font, Color, and Background Tag State Tracking
+    const fontMatch = line.match(/\[font:([^\]]+)\]/);
+    if (fontMatch) currentFont = fontMatch[1];
+    
+    const colorMatch = line.match(/\[color:([^\]]+)\]/);
+    if (colorMatch) currentColor = colorMatch[1];
+
+    const bgMatch = line.match(/\[bg:([^\]]+)\]/);
+    if (bgMatch) currentBg = bgMatch[1];
+
+    let closedFontThisLine = false;
+    if (line.includes('[/font]')) {
+      closedFontThisLine = true;
+    }
+
+    let closedColorThisLine = false;
+    if (line.includes('[/color]')) {
+      closedColorThisLine = true;
+    }
+
+    let closedBgThisLine = false;
+    if (line.includes('[/bg]')) {
+      closedBgThisLine = true;
     }
 
     const alignClass = currentAlignment === 'center' ? 'text-center' :
@@ -177,9 +205,10 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
             i++;
           }
         }
-        if (closedAlignmentThisLine) {
-          currentAlignment = null;
-        }
+        if (closedAlignmentThisLine) currentAlignment = null;
+        if (closedFontThisLine) currentFont = null;
+        if (closedColorThisLine) currentColor = null;
+        if (closedBgThisLine) currentBg = null;
         continue;
       }
     }
@@ -242,9 +271,10 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
             i++;
           }
         }
-        if (closedAlignmentThisLine) {
-          currentAlignment = null;
-        }
+        if (closedAlignmentThisLine) currentAlignment = null;
+        if (closedFontThisLine) currentFont = null;
+        if (closedColorThisLine) currentColor = null;
+        if (closedBgThisLine) currentBg = null;
         continue;
       }
     }
@@ -259,9 +289,10 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
           {content}
         </h3>
       );
-      if (closedAlignmentThisLine) {
-        currentAlignment = null;
-      }
+      if (closedAlignmentThisLine) currentAlignment = null;
+      if (closedFontThisLine) currentFont = null;
+      if (closedColorThisLine) currentColor = null;
+      if (closedBgThisLine) currentBg = null;
       continue;
     }
     if (line.startsWith('##') || line.startsWith('<h2>')) {
@@ -275,9 +306,10 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
           {content}
         </h2>
       );
-      if (closedAlignmentThisLine) {
-        currentAlignment = null;
-      }
+      if (closedAlignmentThisLine) currentAlignment = null;
+      if (closedFontThisLine) currentFont = null;
+      if (closedColorThisLine) currentColor = null;
+      if (closedBgThisLine) currentBg = null;
       continue;
     }
 
@@ -293,9 +325,10 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
           {content}
         </blockquote>
       );
-      if (closedAlignmentThisLine) {
-        currentAlignment = null;
-      }
+      if (closedAlignmentThisLine) currentAlignment = null;
+      if (closedFontThisLine) currentFont = null;
+      if (closedColorThisLine) currentColor = null;
+      if (closedBgThisLine) currentBg = null;
       continue;
     }
 
@@ -304,9 +337,10 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       const content = line.replace(/^[-*]\s*/, '').replace(/<\/?li[^>]*>/g, '').trim();
       inList = true;
       listItems.push(content);
-      if (closedAlignmentThisLine) {
-        currentAlignment = null;
-      }
+      if (closedAlignmentThisLine) currentAlignment = null;
+      if (closedFontThisLine) currentFont = null;
+      if (closedColorThisLine) currentColor = null;
+      if (closedBgThisLine) currentBg = null;
       continue;
     } else {
       // If was in list and line is empty/different, flush list
@@ -324,14 +358,15 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
         <p 
           key={`p-${keyIndex++}`} 
           className={`text-sm leading-relaxed mb-3 ${pClass} ${alignClass}`}
-          dangerouslySetInnerHTML={{ __html: parseInlineStyles(line, theme) }}
+          dangerouslySetInnerHTML={{ __html: parseInlineStyles(line, theme, { font: currentFont, color: currentColor, bg: currentBg }) }}
         />
       );
     }
 
-    if (closedAlignmentThisLine) {
-      currentAlignment = null;
-    }
+    if (closedAlignmentThisLine) currentAlignment = null;
+    if (closedFontThisLine) currentFont = null;
+    if (closedColorThisLine) currentColor = null;
+    if (closedBgThisLine) currentBg = null;
   }
 
   // Flush any remaining list items at the end
@@ -346,7 +381,11 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
  * *italic* -> <em>italic</em>
  * <u>underline</u> -> <span class="underline">underline</span>
  */
-const parseInlineStyles = (html: string, theme: string = 'dark'): string => {
+const parseInlineStyles = (
+  html: string, 
+  theme: string = 'dark',
+  activeState?: { font?: string | null; color?: string | null; bg?: string | null }
+): string => {
   let text = html;
   
   // Custom Color Tags: [color:#hex]text[/color]
@@ -365,6 +404,20 @@ const parseInlineStyles = (html: string, theme: string = 'dark'): string => {
       return `<span style="background-color: ${bgValue}; padding: 1px 4px; border-radius: 3px; display: inline;">${content}</span>`;
     });
   }
+
+  // Unclosed or single-line active tag handling
+  text = text.replace(/\[font:([^\]]+)\](.*)$/g, (match, fontName, content) => {
+    return `<span style="font-family: '${fontName}', sans-serif;">${content}</span>`;
+  });
+  text = text.replace(/\[color:([^\]]+)\](.*)$/g, (match, colorValue, content) => {
+    return `<span style="color: ${colorValue};">${content}</span>`;
+  });
+  text = text.replace(/\[bg:([^\]]+)\](.*)$/g, (match, bgValue, content) => {
+    return `<span style="background-color: ${bgValue}; padding: 1px 4px; border-radius: 3px; display: inline;">${content}</span>`;
+  });
+
+  // Strip standalone closing tags if leftover
+  text = text.replace(/\[\/font\]|\[\/color\]|\[\/bg\]/g, '');
   
   // Bold **text**
   const boldClass = theme === 'light' ? 'text-slate-950 font-bold' : 'text-white font-semibold';
@@ -381,5 +434,17 @@ const parseInlineStyles = (html: string, theme: string = 'dark'): string => {
   const underlineClass = theme === 'light' ? 'underline text-indigo-700' : 'underline text-indigo-200';
   text = text.replace(/<u>(.*?)<\/u>/g, `<span class="${underlineClass}">$1</span>`);
 
+  // Wrap in activeState styles if present and not already styled
+  if (activeState && (activeState.font || activeState.color || activeState.bg)) {
+    let styles = '';
+    if (activeState.font && !html.includes('[font:')) styles += `font-family: '${activeState.font}', sans-serif; `;
+    if (activeState.color && !html.includes('[color:')) styles += `color: ${activeState.color}; `;
+    if (activeState.bg && !html.includes('[bg:')) styles += `background-color: ${activeState.bg}; padding: 1px 4px; border-radius: 3px; `;
+    
+    if (styles) {
+      text = `<span style="${styles}">${text}</span>`;
+    }
+  }
+
   return text;
-};
+};;

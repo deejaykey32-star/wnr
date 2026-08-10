@@ -1,4 +1,4 @@
-const CACHE_NAME = 'embik365-v1';
+const CACHE_NAME = 'embik365-v3-mobile-fix';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',

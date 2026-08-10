@@ -994,163 +994,167 @@ export default function App() {
   const isLight = theme === 'light';
 
   return (
-    <div className={`min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-300 ${
+    <div className={`min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-300 w-full max-w-full overflow-x-hidden ${
       isLight ? 'bg-slate-50 text-slate-900' : 'bg-slate-950 text-slate-100'
     }`}>
       {/* HEADER BAR (Hidden in strict YouTube Record Mode) */}
       {!isYoutubeMode && (
-        <header id="main-header" className={`h-16 border-b backdrop-blur-md sticky top-0 z-50 flex items-center justify-between px-6 sm:px-8 shrink-0 transition-colors duration-300 ${
-          isLight ? 'border-slate-200 bg-white/85 text-slate-900 shadow-sm' : 'border-slate-800 bg-slate-900/50 text-white'
+        <header id="main-header" className={`border-b backdrop-blur-md sticky top-0 z-50 py-2.5 px-2.5 sm:px-6 w-full max-w-full overflow-hidden shrink-0 transition-colors duration-300 ${
+          isLight ? 'border-slate-200 bg-white/95 text-slate-900 shadow-sm' : 'border-slate-800 bg-slate-950/90 text-white'
         }`}>
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-sky-400 via-indigo-500 to-amber-400 flex items-center justify-center font-black text-xs text-slate-950">
-              M
-            </div>
-            <div>
-              <h1 className={`text-sm sm:text-base font-bold tracking-tight flex items-center gap-2 ${
-                isLight ? 'text-slate-900' : 'text-white'
-              }`}>
-                <span className="bg-gradient-to-r from-sky-400 via-indigo-500 to-amber-500 bg-clip-text text-transparent font-black tracking-wide">eMBiK365</span>
-                <span className={`${isLight ? 'text-slate-300' : 'text-slate-600'} text-xs hidden xs:inline`}>•</span>
-                <span className={`text-xs font-bold ${isLight ? 'text-slate-600' : 'text-slate-300'}`}>RHZ365 & WnR365</span>
-                <span className={`text-[10px] font-normal hidden sm:inline ${isLight ? 'text-slate-400' : 'text-slate-500'}`}>v2.5</span>
-              </h1>
+          {/* LINE 0: LOGOTYP Z NAZWĄ STRONY NA SAMEJ GÓRZE */}
+          <div className="flex items-center justify-center sm:justify-between w-full border-b pb-2 mb-2 border-slate-200/50 dark:border-slate-800/50">
+            <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-sky-400 via-indigo-500 to-amber-400 flex items-center justify-center font-black text-xs text-slate-950 shrink-0 shadow-md">
+                M
+              </div>
+              <div className="min-w-0 truncate">
+                <h1 className={`text-sm sm:text-lg font-bold tracking-tight flex items-center gap-1.5 sm:gap-2 truncate ${
+                  isLight ? 'text-slate-900' : 'text-white'
+                }`}>
+                  <span className="bg-gradient-to-r from-sky-400 via-indigo-500 to-amber-500 bg-clip-text text-transparent font-black tracking-wide">eMBiK365</span>
+                  <span className={`${isLight ? 'text-slate-300' : 'text-slate-600'} text-xs`}>•</span>
+                  <span className={`text-xs sm:text-sm font-bold ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>RHZ365 & WnR365</span>
+                  <span className={`text-[10px] font-normal hidden xs:inline ${isLight ? 'text-slate-400' : 'text-slate-500'}`}>v2.5</span>
+                </h1>
+              </div>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-3">
-            {/* Search Button (Lupa) */}
-            <button
-              onClick={() => setShowSearchModal(true)}
-              title="Wyszukaj w RHZ365 & WnR365"
-              className={`px-3 py-1.5 rounded-full border transition cursor-pointer flex items-center gap-1.5 text-xs font-semibold ${
-                isLight 
-                  ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200 shadow-sm' 
-                  : 'bg-indigo-950/60 text-indigo-300 border-indigo-800/60 hover:bg-indigo-900/60'
-              }`}
-            >
-              <Search className="w-4 h-4 text-indigo-400" />
-              <span className="hidden xs:inline">Wyszukaj...</span>
-            </button>
-
-            {/* Share Button */}
-            <button
-              onClick={handleShare}
-              title="Udostępnij bezpośredni link do tego wpisu"
-              className={`px-3 py-1.5 rounded-full border transition cursor-pointer flex items-center gap-1.5 text-xs font-semibold ${
-                copiedLink
-                  ? 'bg-emerald-600 text-white border-emerald-500 shadow-md'
-                  : isLight
-                    ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
-                    : 'bg-slate-800/80 text-slate-300 border-slate-700 hover:bg-slate-700'
-              }`}
-            >
-              {copiedLink ? <Check className="w-4 h-4 text-white" /> : <Share2 className="w-4 h-4 text-sky-400" />}
-              <span className="hidden sm:inline">{copiedLink ? 'Link skopiowany' : 'Udostępnij'}</span>
-            </button>
-
-            {/* Export PDF/JSON Button */}
-            <button
-              onClick={() => setShowCustomExportModal(true)}
-              title="Eksport PDF & JSON"
-              className={`px-3 py-1.5 rounded-full border transition cursor-pointer flex items-center gap-1.5 text-xs font-semibold ${
-                isLight
-                  ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
-                  : 'bg-slate-800/80 text-amber-300 border-slate-700 hover:bg-slate-700'
-              }`}
-            >
-              <FileDown className="w-4 h-4 text-amber-400" />
-              <span className="hidden md:inline">Eksport</span>
-            </button>
-
-            {/* PWA Install Trigger Button */}
-            <button
-              onClick={() => setShowPwaPromptModal(true)}
-              title="Zainstaluj aplikację eMBiK365 na telefonie lub komputerze (PWA)"
-              className={`px-3 py-1.5 rounded-full border transition cursor-pointer flex items-center gap-1.5 text-xs font-semibold ${
-                isLight
-                  ? 'bg-sky-50 text-sky-700 border-sky-200 hover:bg-sky-100'
-                  : 'bg-sky-950/60 text-sky-300 border-sky-800/60 hover:bg-sky-900/60'
-              }`}
-            >
-              <Smartphone className="w-4 h-4 text-sky-400" />
-              <span className="hidden sm:inline">PWA App</span>
-            </button>
-
-            {/* Theme Toggle Button */}
-            <button
-              onClick={toggleTheme}
-              title={isLight ? "Przełącz na tryb ciemny" : "Przełącz na tryb jasny"}
-              className={`p-2 rounded-full border transition cursor-pointer flex items-center justify-center ${
-                isLight 
-                  ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200' 
-                  : 'bg-slate-800/80 text-yellow-400 border-slate-700 hover:bg-slate-700'
-              }`}
-            >
-              {isLight ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
-            </button>
-
-            {isAuthorized ? (
-              <div className={`flex items-center gap-2.5 p-1 pl-2.5 sm:p-1.5 sm:pl-3 rounded-full border transition-colors ${
-                isLight ? 'bg-slate-100 border-slate-200 text-slate-700' : 'bg-slate-800/50 border-slate-700 text-slate-300'
-              }`}>
-                <div className="flex flex-col text-right hidden sm:flex">
-                  <span className={`text-xs font-medium ${isLight ? 'text-slate-800' : 'text-slate-300'}`}>
-                    {user?.displayName || 'Zalogowany Edytor'}
-                  </span>
-                  <span className={`text-[10px] font-mono ${isLight ? 'text-slate-500' : 'text-slate-500'}`}>
-                    {userEmail}
-                  </span>
-                </div>
-                {user?.photoURL ? (
-                  <img src={user.photoURL} alt="Avatar" className={`w-6 h-6 rounded-full border ${isLight ? 'border-slate-300' : 'border-slate-600'}`} referrerPolicy="no-referrer" />
-                ) : (
-                  <div className="w-6 h-6 rounded-full bg-indigo-600/20 text-indigo-400 flex items-center justify-center font-bold text-xs">
-                    {(userEmail || 'E').charAt(0).toUpperCase()}
-                  </div>
-                )}
-                {isAuthorized && (
-                  <button
-                    onClick={() => setShowEditor(!showEditor)}
-                    className={`px-3 py-1 rounded-full transition flex items-center justify-center gap-1.5 text-xs font-semibold cursor-pointer ${
-                      showEditor 
-                        ? 'bg-emerald-600/80 text-white hover:bg-emerald-500/90' 
-                        : isLight
-                          ? 'bg-slate-200 text-slate-700 hover:bg-slate-350 border border-slate-300'
-                          : 'bg-slate-700/50 text-slate-300 hover:bg-slate-700 border border-slate-600'
-                    }`}
-                  >
-                    <Edit3 className="w-3 h-3" />
-                    {showEditor ? 'Podgląd' : 'Edytor'}
-                  </button>
-                )}
-                <button
-                  onClick={handleLogout}
-                  title="Wyloguj się"
-                  className="p-1.5 bg-indigo-600/10 text-indigo-500 hover:bg-indigo-600/20 rounded-md transition-colors cursor-pointer"
-                >
-                  <LogOut className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            ) : (
+          {/* NAWIGACJA W DWÓCH LINIACH DLA MOBILNYCH (ZARAZ POD LOGOTYPEM) */}
+          <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-end gap-1.5 sm:gap-2 w-full max-w-full">
+            
+            {/* LINIA 1 NAWIGACJI: Wyszukaj, Udostępnij, Eksport */}
+            <div className="grid grid-cols-3 sm:flex items-center justify-center gap-1.5 w-full sm:w-auto max-w-full">
+              {/* Search Button (Lupa) */}
               <button
-                onClick={handleLogin}
-                className={`flex items-center gap-2 border text-xs font-semibold px-4 py-1.5 rounded-full transition active:scale-95 cursor-pointer ${
-                  isLight
-                    ? 'bg-white hover:bg-slate-550 border-slate-300 text-slate-700 shadow-sm'
-                    : 'bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-slate-200'
+                onClick={() => setShowSearchModal(true)}
+                title="Wyszukaj w RHZ365 & WnR365"
+                className={`px-2 py-1.5 rounded-full border transition cursor-pointer flex items-center justify-center gap-1 text-[11px] sm:text-xs font-semibold w-full sm:w-auto min-w-0 ${
+                  isLight 
+                    ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200 shadow-sm' 
+                    : 'bg-indigo-950/60 text-indigo-300 border-indigo-800/60 hover:bg-indigo-900/60'
                 }`}
               >
-                <LogIn className="w-3.5 h-3.5 text-indigo-500" />
-                Logowanie Google (Edytor)
+                <Search className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+                <span className="truncate">Szukaj</span>
               </button>
-            )}
+
+              {/* Share Button */}
+              <button
+                onClick={handleShare}
+                title="Udostępnij bezpośredni link do tego wpisu"
+                className={`px-2 py-1.5 rounded-full border transition cursor-pointer flex items-center justify-center gap-1 text-[11px] sm:text-xs font-semibold w-full sm:w-auto min-w-0 ${
+                  copiedLink
+                    ? 'bg-emerald-600 text-white border-emerald-500 shadow-md'
+                    : isLight
+                      ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
+                      : 'bg-slate-800/80 text-slate-300 border-slate-700 hover:bg-slate-700'
+                }`}
+              >
+                {copiedLink ? <Check className="w-3.5 h-3.5 text-white shrink-0" /> : <Share2 className="w-3.5 h-3.5 text-sky-400 shrink-0" />}
+                <span className="truncate">{copiedLink ? 'OK' : 'Link'}</span>
+              </button>
+
+              {/* Export PDF/JSON Button */}
+              <button
+                onClick={() => setShowCustomExportModal(true)}
+                title="Eksport PDF & JSON"
+                className={`px-2 py-1.5 rounded-full border transition cursor-pointer flex items-center justify-center gap-1 text-[11px] sm:text-xs font-semibold w-full sm:w-auto min-w-0 ${
+                  isLight
+                    ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
+                    : 'bg-slate-800/80 text-amber-300 border-slate-700 hover:bg-slate-700'
+                }`}
+              >
+                <FileDown className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <span className="truncate">Eksport</span>
+              </button>
+            </div>
+
+            {/* LINIA 2 NAWIGACJI: PWA App, Motyw, Logowanie Google / Edytor */}
+            <div className="grid grid-cols-3 sm:flex items-center justify-center gap-1.5 w-full sm:w-auto max-w-full">
+              {/* PWA Install Trigger Button */}
+              <button
+                onClick={() => setShowPwaPromptModal(true)}
+                title="Zainstaluj aplikację eMBiK365 na telefonie lub komputerze (PWA)"
+                className={`px-2 py-1.5 rounded-full border transition cursor-pointer flex items-center justify-center gap-1 text-[11px] sm:text-xs font-semibold w-full sm:w-auto min-w-0 ${
+                  isLight
+                    ? 'bg-sky-50 text-sky-700 border-sky-200 hover:bg-sky-100'
+                    : 'bg-sky-950/60 text-sky-300 border-sky-800/60 hover:bg-sky-900/60'
+                }`}
+              >
+                <Smartphone className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+                <span className="truncate">PWA</span>
+              </button>
+
+              {/* Theme Toggle Button */}
+              <button
+                onClick={toggleTheme}
+                title={isLight ? "Przełącz na tryb ciemny" : "Przełącz na tryb jasny"}
+                className={`px-2 py-1.5 rounded-full border transition cursor-pointer flex items-center justify-center gap-1 text-[11px] sm:text-xs font-semibold w-full sm:w-auto min-w-0 ${
+                  isLight 
+                    ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200' 
+                    : 'bg-slate-800/80 text-yellow-400 border-slate-700 hover:bg-slate-700'
+                }`}
+              >
+                {isLight ? <Moon className="w-3.5 h-3.5 shrink-0" /> : <Sun className="w-3.5 h-3.5 shrink-0" />}
+                <span className="truncate">{isLight ? 'Ciemny' : 'Jasny'}</span>
+              </button>
+
+              {isAuthorized ? (
+                <div className={`flex items-center justify-center gap-1 p-1 px-1.5 rounded-full border transition-colors w-full sm:w-auto min-w-0 ${
+                  isLight ? 'bg-slate-100 border-slate-200 text-slate-700' : 'bg-slate-800/50 border-slate-700 text-slate-300'
+                }`}>
+                  {user?.photoURL ? (
+                    <img src={user.photoURL} alt="Avatar" className={`w-4 h-4 rounded-full border shrink-0 ${isLight ? 'border-slate-300' : 'border-slate-600'}`} referrerPolicy="no-referrer" />
+                  ) : (
+                    <div className="w-4 h-4 rounded-full bg-indigo-600/20 text-indigo-400 flex items-center justify-center font-bold text-[10px] shrink-0">
+                      {(userEmail || 'E').charAt(0).toUpperCase()}
+                    </div>
+                  )}
+                  {isAuthorized && (
+                    <button
+                      onClick={() => setShowEditor(!showEditor)}
+                      className={`px-1.5 py-0.5 rounded-full transition flex items-center justify-center gap-0.5 text-[10px] font-semibold cursor-pointer shrink-0 ${
+                        showEditor 
+                          ? 'bg-emerald-600/80 text-white hover:bg-emerald-500/90' 
+                          : isLight
+                            ? 'bg-slate-200 text-slate-700 hover:bg-slate-350 border border-slate-300'
+                            : 'bg-slate-700/50 text-slate-300 hover:bg-slate-700 border border-slate-600'
+                      }`}
+                    >
+                      <Edit3 className="w-2.5 h-2.5" />
+                      <span>{showEditor ? 'Podgląd' : 'Edytor'}</span>
+                    </button>
+                  )}
+                  <button
+                    onClick={handleLogout}
+                    title="Wyloguj się"
+                    className="p-0.5 bg-indigo-600/10 text-indigo-500 hover:bg-indigo-600/20 rounded transition-colors cursor-pointer shrink-0"
+                  >
+                    <LogOut className="w-3 h-3" />
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={handleLogin}
+                  className={`px-2 py-1.5 border text-[11px] sm:text-xs font-semibold rounded-full transition active:scale-95 cursor-pointer flex items-center justify-center gap-1 w-full sm:w-auto min-w-0 ${
+                    isLight
+                      ? 'bg-white hover:bg-slate-100 border-slate-300 text-slate-700 shadow-sm'
+                      : 'bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-slate-200'
+                  }`}
+                >
+                  <LogIn className="w-3.5 h-3.5 text-indigo-500 shrink-0" />
+                  <span className="truncate">Zaloguj</span>
+                </button>
+              )}
+            </div>
           </div>
         </header>
       )}
 
       {/* DETAILED CONTENT AREA */}
-      <main className={`flex-1 flex flex-col items-center justify-center p-4 sm:p-6 transition-colors duration-300 ${
+      <main className={`flex-1 flex flex-col items-center justify-center p-3 sm:p-6 w-full max-w-full overflow-x-hidden transition-colors duration-300 ${
         isLight ? 'bg-slate-50' : 'bg-slate-950'
       }`}>
 
@@ -1288,13 +1292,13 @@ export default function App() {
 
         {/* TAB SWITCHER (Only in standard mode) */}
         {!isYoutubeMode && (
-          <div id="app-tab-navigation" className={`w-full max-w-7xl mb-6 p-1.5 rounded-2xl flex gap-2 border transition-all duration-300 ${
+          <div id="app-tab-navigation" className={`w-full max-w-7xl mb-6 p-1 sm:p-1.5 rounded-2xl flex flex-col sm:flex-row gap-1.5 sm:gap-2 border transition-all duration-300 w-full max-w-full overflow-hidden ${
             isLight ? 'bg-slate-100 border-slate-200' : 'bg-slate-900/40 border-slate-800/60'
           }`}>
             <button
               id="tab-rosary-trigger"
               onClick={() => setActiveTab('rosary')}
-              className={`flex-1 py-3 rounded-xl text-xs sm:text-sm font-semibold tracking-wide transition-all cursor-pointer flex items-center justify-center gap-2 ${
+              className={`flex-1 py-2.5 sm:py-3 px-2 sm:px-3 rounded-xl text-xs sm:text-sm font-semibold tracking-wide transition-all cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 min-w-0 w-full max-w-full ${
                 activeTab === 'rosary'
                   ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg font-black'
                   : isLight 
@@ -1304,12 +1308,12 @@ export default function App() {
             >
               <Volume2 className="w-4 h-4 shrink-0 text-sky-500" />
               <span className="hidden sm:inline">RHZ365 — RÓŻANIEC HISTORII ZBAWIENIA (365 DNI)</span>
-              <span className="inline sm:hidden">RHZ365 RÓŻANIEC</span>
+              <span className="inline sm:hidden truncate">RHZ365 RÓŻANIEC</span>
             </button>
             <button
               id="tab-blog-trigger"
               onClick={() => setActiveTab('blog')}
-              className={`flex-1 py-3 rounded-xl text-xs sm:text-sm font-semibold tracking-wide transition-all cursor-pointer flex items-center justify-center gap-2 ${
+              className={`flex-1 py-2.5 sm:py-3 px-2 sm:px-3 rounded-xl text-xs sm:text-sm font-semibold tracking-wide transition-all cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 min-w-0 w-full max-w-full ${
                 activeTab === 'blog'
                   ? 'bg-gradient-to-r from-amber-600 to-orange-600 text-white shadow-lg font-black'
                   : isLight 
@@ -1319,7 +1323,7 @@ export default function App() {
             >
               <BookOpen className="w-4 h-4 shrink-0 text-amber-500" />
               <span className="hidden sm:inline">WnR365 — BLOG WIDOKI NA RAJ</span>
-              <span className="inline sm:hidden">WnR365 BLOG</span>
+              <span className="inline sm:hidden truncate">WnR365 BLOG</span>
             </button>
           </div>
         )}

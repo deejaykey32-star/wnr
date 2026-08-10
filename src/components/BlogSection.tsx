@@ -611,38 +611,40 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         /* STANDARD WORKSPACE LAYOUT FOR BLOG */
         <>
           {/* Liturgical Day Selector & Cycle Information */}
-          <div className={`border rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-stretch justify-between gap-6 shadow-xl text-left transition-all duration-300 ${
+          <div className={`border rounded-2xl p-3.5 sm:p-5 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 shadow-xl text-left transition-all duration-300 w-full max-w-full overflow-hidden ${
             isLight ? 'bg-white border-slate-200 shadow-slate-100' : 'bg-slate-900/40 border-slate-800/60'
           }`}>
-            <div className="flex items-center gap-4">
-              <div className={`p-3 rounded-xl shrink-0 flex items-center justify-center border ${
+            <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+              <div className={`p-2.5 sm:p-3 rounded-xl shrink-0 flex items-center justify-center border ${
                 isLight ? 'bg-indigo-50 border-indigo-100 text-indigo-600' : 'bg-indigo-950/50 border-indigo-900/50 text-indigo-400'
               }`}>
-                <BookOpen className="w-6 h-6" />
+                <BookOpen className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <div>
-                <span className="text-[10px] text-indigo-400 font-mono tracking-widest uppercase block">CYKL LITURGICZNY BLOGA WIDOKI NA RAJ (WnR365)</span>
-                <h2 className={`text-base sm:text-lg font-serif font-bold leading-tight mt-0.5 ${
+              <div className="min-w-0 truncate">
+                <span className="text-[10px] text-indigo-400 font-mono tracking-widest uppercase block truncate">CYKL LITURGICZNY BLOGA WIDOKI NA RAJ (WnR365)</span>
+                <h2 className={`text-base sm:text-lg font-serif font-bold leading-tight mt-0.5 truncate ${
                   isLight ? 'text-slate-800' : 'text-white'
                 }`}>
                   {cycleInfo.cycleName}
                 </h2>
-                <p className={`text-xs mt-1 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                  Okres powszechny: od 25 grudnia do 24 grudnia (niezależny od roku)
+                <p className={`text-xs mt-0.5 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
+                  Okres powszechny: od 25 grudnia do 24 grudnia
                 </p>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 justify-end w-full md:w-auto">
-              <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
-                <Calendar className="w-4 h-4 text-slate-500 shrink-0" />
-                <span className={`text-xs font-mono ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>WYBÓR DNIA:</span>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 justify-end w-full lg:w-auto max-w-full">
+              <div className="flex items-center gap-1.5 flex-wrap xs:flex-nowrap w-full sm:w-auto">
+                <div className="flex items-center gap-1 shrink-0">
+                  <Calendar className="w-4 h-4 text-slate-500 shrink-0" />
+                  <span className={`text-[11px] sm:text-xs font-mono ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>WYBÓR:</span>
+                </div>
                 
                 {/* Day selector dropdown */}
                 <select
                   value={selectedDate.getDate()}
                   onChange={(e) => handleDayChange(Number(e.target.value))}
-                  className={`border text-xs px-2.5 py-2 rounded-xl focus:outline-none cursor-pointer transition ${
+                  className={`flex-1 sm:flex-initial border text-xs px-2 py-1.5 sm:px-2.5 sm:py-2 rounded-xl focus:outline-none cursor-pointer transition min-w-0 ${
                     isLight 
                       ? 'bg-white border-slate-300 text-slate-800 hover:border-slate-400 shadow-sm' 
                       : 'bg-slate-950 border-slate-850 hover:border-slate-700 text-slate-200'
@@ -657,7 +659,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                 <select
                   value={selectedDate.getMonth()}
                   onChange={(e) => handleMonthChange(Number(e.target.value))}
-                  className={`border text-xs px-2.5 py-2 rounded-xl focus:outline-none cursor-pointer transition ${
+                  className={`flex-1 sm:flex-initial border text-xs px-2 py-1.5 sm:px-2.5 sm:py-2 rounded-xl focus:outline-none cursor-pointer transition min-w-0 ${
                     isLight 
                       ? 'bg-white border-slate-300 text-slate-800 hover:border-slate-400 shadow-sm' 
                       : 'bg-slate-950 border-slate-850 hover:border-slate-700 text-slate-200'
@@ -668,38 +670,41 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                   ))}
                 </select>
               </div>
-              <button
-                onClick={() => {
-                  const today = new Date();
-                  let month = today.getMonth();
-                  let day = today.getDate();
-                  if (month === 1 && day === 29) day = 28;
-                  let year = 2026;
-                  if (month === 11 && day >= 25) year = 2025;
-                  setSelectedDate(new Date(year, month, day, 12, 0, 0, 0));
-                }}
-                className={`px-3 py-2 border text-xs rounded-xl font-semibold transition cursor-pointer text-center ${
-                  isLight
-                    ? 'bg-indigo-50 border-indigo-200 text-indigo-600 hover:bg-indigo-100'
-                    : 'bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-400 border border-indigo-800/40'
-                }`}
-              >
-                Dzisiaj
-              </button>
-              {onOpenExportModal && (
+
+              <div className="flex items-center gap-2">
                 <button
-                  onClick={onOpenExportModal}
-                  className={`px-3 py-2 border text-xs rounded-xl font-semibold transition cursor-pointer flex items-center justify-center gap-1.5 ${
+                  onClick={() => {
+                    const today = new Date();
+                    let month = today.getMonth();
+                    let day = today.getDate();
+                    if (month === 1 && day === 29) day = 28;
+                    let year = 2026;
+                    if (month === 11 && day >= 25) year = 2025;
+                    setSelectedDate(new Date(year, month, day, 12, 0, 0, 0));
+                  }}
+                  className={`flex-1 sm:flex-initial px-3 py-1.5 sm:py-2 border text-xs rounded-xl font-semibold transition cursor-pointer text-center ${
                     isLight
-                      ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border-emerald-200'
-                      : 'bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-400 border border-emerald-800/40'
+                      ? 'bg-indigo-50 border-indigo-200 text-indigo-600 hover:bg-indigo-100'
+                      : 'bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-400 border border-indigo-800/40'
                   }`}
-                  title="Eksportuj rozważania i schemat eMBiK365 do pliku PDF lub EPUB"
                 >
-                  <FileDown className="w-4 h-4" />
-                  <span>Eksport PDF & EPUB</span>
+                  Dzisiaj
                 </button>
-              )}
+                {onOpenExportModal && (
+                  <button
+                    onClick={onOpenExportModal}
+                    className={`flex-1 sm:flex-initial px-3 py-1.5 sm:py-2 border text-xs rounded-xl font-semibold transition cursor-pointer flex items-center justify-center gap-1.5 ${
+                      isLight
+                        ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border-emerald-200'
+                        : 'bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-400 border border-emerald-800/40'
+                    }`}
+                    title="Eksportuj rozważania i schemat eMBiK365 do pliku PDF lub EPUB"
+                  >
+                    <FileDown className="w-4 h-4 shrink-0" />
+                    <span>Eksport</span>
+                  </button>
+                )}
+              </div>
             </div>
           </div>
 

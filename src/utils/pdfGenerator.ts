@@ -178,6 +178,22 @@ export const generateCustomScopePdf = async (
   let y = margin + 5;
   drawHeaderFooter(currentPage, headerTitle);
 
+  const checkAndBreakPage = (requiredSpace: number = 10, fontState?: { style?: 'normal' | 'bold'; size?: number; color?: [number, number, number] }) => {
+    if (y > pageHeight - margin - requiredSpace) {
+      doc.addPage();
+      currentPage++;
+      drawHeaderFooter(currentPage, headerTitle);
+      y = margin + 5;
+      if (fontState) {
+        if (fontState.style) doc.setFont(fontName, fontState.style);
+        if (fontState.size) doc.setFontSize(fontState.size);
+        if (fontState.color) doc.setTextColor(fontState.color[0], fontState.color[1], fontState.color[2]);
+      }
+      return true;
+    }
+    return false;
+  };
+
   for (let currentDayNum = startDay; currentDayNum <= endDay; currentDayNum++) {
     if (onProgress) {
       const progressCount = currentDayNum - startDay + 1;
@@ -201,12 +217,7 @@ export const generateCustomScopePdf = async (
     }
 
     // Continuous flow check
-    if (y > pageHeight - margin - 35) {
-      doc.addPage();
-      currentPage++;
-      drawHeaderFooter(currentPage, headerTitle);
-      y = margin + 5;
-    }
+    checkAndBreakPage(35);
 
     // Register TOC item
     tocMap.push({
@@ -257,12 +268,7 @@ export const generateCustomScopePdf = async (
 
     // Render QR Codes and URLs below them inside a tidy box
     for (const urlItem of allUrls) {
-      if (y > pageHeight - margin - 32) {
-        doc.addPage();
-        currentPage++;
-        drawHeaderFooter(currentPage, headerTitle);
-        y = margin + 5;
-      }
+      checkAndBreakPage(32);
 
       try {
         const qrDataUri = await generateQrCodeDataUri(urlItem);
@@ -300,12 +306,7 @@ export const generateCustomScopePdf = async (
 
     // 1. RHZ365 Section
     if (scope === 'rhz365' || scope === 'both') {
-      if (y > pageHeight - margin - 25) {
-        doc.addPage();
-        currentPage++;
-        drawHeaderFooter(currentPage, headerTitle);
-        y = margin + 5;
-      }
+      checkAndBreakPage(25);
 
       doc.setFont(fontName, 'bold');
       doc.setFontSize(11);
@@ -327,18 +328,14 @@ export const generateCustomScopePdf = async (
         const splitRefl = doc.splitTextToSize(parsedRHZ.data.reflectionText, contentWidth);
         
         for (let l = 0; l < splitRefl.length; l++) {
-          if (y > pageHeight - margin - 10) {
-            doc.addPage();
-            currentPage++;
-            drawHeaderFooter(currentPage, headerTitle);
-            y = margin + 5;
-          }
+          checkAndBreakPage(10, { style: 'normal', size: 12, color: [51, 65, 85] });
           doc.text(splitRefl[l], margin, y);
           y += lineSpacing15; // 1.5 interlinia
         }
         y += 3;
 
         // Our Father
+        checkAndBreakPage(15);
         doc.setFont(fontName, 'bold');
         doc.setFontSize(9.5);
         doc.setTextColor(15, 23, 42);
@@ -347,20 +344,17 @@ export const generateCustomScopePdf = async (
 
         doc.setFont(fontName, 'normal');
         doc.setFontSize(12); // 12pt font
+        doc.setTextColor(51, 65, 85);
         const splitFather = doc.splitTextToSize(parsedRHZ.data.ourFatherText, contentWidth);
         for (let l = 0; l < splitFather.length; l++) {
-          if (y > pageHeight - margin - 10) {
-            doc.addPage();
-            currentPage++;
-            drawHeaderFooter(currentPage, headerTitle);
-            y = margin + 5;
-          }
+          checkAndBreakPage(10, { style: 'normal', size: 12, color: [51, 65, 85] });
           doc.text(splitFather[l], margin, y);
           y += lineSpacing15;
         }
         y += 3;
 
         // 10 Hail Marys
+        checkAndBreakPage(15);
         doc.setFont(fontName, 'bold');
         doc.setFontSize(9.5);
         doc.setTextColor(15, 23, 42);
@@ -368,12 +362,7 @@ export const generateCustomScopePdf = async (
         y += 5;
 
         parsedRHZ.data.hailMaryTexts.forEach((hmText, idx) => {
-          if (y > pageHeight - margin - 15) {
-            doc.addPage();
-            currentPage++;
-            drawHeaderFooter(currentPage, headerTitle);
-            y = margin + 5;
-          }
+          checkAndBreakPage(15);
 
           doc.setFont(fontName, 'bold');
           doc.setFontSize(9);
@@ -386,12 +375,7 @@ export const generateCustomScopePdf = async (
           doc.setTextColor(30, 41, 59);
           const splitHm = doc.splitTextToSize(hmText, contentWidth - 3);
           for (let l = 0; l < splitHm.length; l++) {
-            if (y > pageHeight - margin - 10) {
-              doc.addPage();
-              currentPage++;
-              drawHeaderFooter(currentPage, headerTitle);
-              y = margin + 5;
-            }
+            checkAndBreakPage(10, { style: 'normal', size: 12, color: [30, 41, 59] });
             doc.text(splitHm[l], margin + 3, y);
             y += lineSpacing15;
           }
@@ -399,12 +383,7 @@ export const generateCustomScopePdf = async (
         });
 
         // Glory Be
-        if (y > pageHeight - margin - 20) {
-          doc.addPage();
-          currentPage++;
-          drawHeaderFooter(currentPage, headerTitle);
-          y = margin + 5;
-        }
+        checkAndBreakPage(20);
 
         doc.setFont(fontName, 'bold');
         doc.setFontSize(9.5);
@@ -417,12 +396,7 @@ export const generateCustomScopePdf = async (
         doc.setTextColor(51, 65, 85);
         const splitGlory = doc.splitTextToSize(parsedRHZ.data.gloryBeFatimaText, contentWidth);
         for (let l = 0; l < splitGlory.length; l++) {
-          if (y > pageHeight - margin - 10) {
-            doc.addPage();
-            currentPage++;
-            drawHeaderFooter(currentPage, headerTitle);
-            y = margin + 5;
-          }
+          checkAndBreakPage(10, { style: 'normal', size: 12, color: [51, 65, 85] });
           doc.text(splitGlory[l], margin, y);
           y += lineSpacing15;
         }
@@ -430,14 +404,10 @@ export const generateCustomScopePdf = async (
       } else {
         doc.setFont(fontName, 'normal');
         doc.setFontSize(12);
+        doc.setTextColor(51, 65, 85);
         const splitRaw = doc.splitTextToSize(rawRhzText, contentWidth);
         for (let l = 0; l < splitRaw.length; l++) {
-          if (y > pageHeight - margin - 10) {
-            doc.addPage();
-            currentPage++;
-            drawHeaderFooter(currentPage, headerTitle);
-            y = margin + 5;
-          }
+          checkAndBreakPage(10, { style: 'normal', size: 12, color: [51, 65, 85] });
           doc.text(splitRaw[l], margin, y);
           y += lineSpacing15;
         }
@@ -447,12 +417,7 @@ export const generateCustomScopePdf = async (
 
     // 2. WnR365 Section
     if (scope === 'wnr365' || scope === 'both') {
-      if (y > pageHeight - margin - 25) {
-        doc.addPage();
-        currentPage++;
-        drawHeaderFooter(currentPage, headerTitle);
-        y = margin + 5;
-      }
+      checkAndBreakPage(25);
 
       doc.setFont(fontName, 'bold');
       doc.setFontSize(11);
@@ -467,12 +432,7 @@ export const generateCustomScopePdf = async (
       
       // Continuous line-by-line printing with 1.5 line height
       for (let l = 0; l < splitWnr.length; l++) {
-        if (y > pageHeight - margin - 10) {
-          doc.addPage();
-          currentPage++;
-          drawHeaderFooter(currentPage, headerTitle);
-          y = margin + 5;
-        }
+        checkAndBreakPage(10, { style: 'normal', size: 12, color: [51, 65, 85] });
         doc.text(splitWnr[l], margin, y);
         y += lineSpacing15; // 1.5 interlinia
       }
