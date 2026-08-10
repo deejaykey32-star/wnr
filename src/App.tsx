@@ -1554,7 +1554,7 @@ export default function App() {
                   Dzisiaj
                 </button>
                 <button
-                  onClick={() => setShowExportModal(true)}
+                  onClick={() => setShowCustomExportModal(true)}
                   disabled={isExportingPdf}
                   className={`px-3 py-2 border text-xs rounded-xl font-semibold transition cursor-pointer flex items-center gap-1.5 ${
                     isExportingPdf
@@ -1565,10 +1565,10 @@ export default function App() {
                         ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border-emerald-200'
                         : 'bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-400 border-emerald-800/40'
                   }`}
-                  title="Eksportuj rozważania i schemat eMBiK365 do pliku PDF"
+                  title="Eksportuj rozważania i schemat eMBiK365 do pliku PDF lub EPUB"
                 >
                   <FileDown className="w-4 h-4" />
-                  {isExportingPdf ? 'Eksport...' : 'Eksport PDF'}
+                  <span>Eksport PDF & EPUB</span>
                 </button>
               </div>
             </div>
@@ -1848,7 +1848,7 @@ export default function App() {
             setSelectedDate={setSelectedDate}
             blogEntries={blogEntries}
             theme={theme}
-            onThemeToggle={toggleTheme}
+            onOpenExportModal={() => setShowCustomExportModal(true)}
           />
         )}
       </main>

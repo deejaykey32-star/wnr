@@ -126,12 +126,12 @@ export const PwaInstallPrompt: React.FC<PwaInstallPromptProps> = ({
           </div>
         </div>
 
-        {/* iOS Instruction vs Android/Desktop Install Button */}
+        {/* iOS Instruction vs Native Install Button vs Desktop/General Instruction */}
         <div className="mt-4">
           {isIos ? (
             <div className="p-3 bg-indigo-950/50 border border-indigo-800/60 rounded-xl text-xs text-indigo-200 space-y-1">
               <p className="font-bold flex items-center gap-1.5">
-                <Share className="w-3.5 h-3.5 text-sky-400" /> Instrukcja dla iPhone / iPad:
+                <Share className="w-3.5 h-3.5 text-sky-400" /> Instrukcja instalacji dla iPhone / iPad:
               </p>
               <p className="opacity-90">
                 1. Stuknij ikonę <strong className="text-white font-mono">Udostępnij <Share className="inline w-3 h-3" /></strong> w dolnym pasku Safari.
@@ -140,16 +140,29 @@ export const PwaInstallPrompt: React.FC<PwaInstallPromptProps> = ({
                 2. Wybierz opcję <strong className="text-white font-mono">Do ekranu początkowego <PlusSquare className="inline w-3 h-3" /></strong>.
               </p>
             </div>
-          ) : (
+          ) : deferredPrompt ? (
             <button
               type="button"
               onClick={handleInstallClick}
-              disabled={!deferredPrompt}
-              className="w-full py-2.5 px-4 bg-gradient-to-r from-indigo-600 to-sky-600 hover:from-indigo-500 hover:to-sky-500 disabled:opacity-50 text-white font-bold text-xs rounded-xl shadow-lg transition flex items-center justify-center gap-2 cursor-pointer min-h-[44px]"
+              className="w-full py-2.5 px-4 bg-gradient-to-r from-indigo-600 to-sky-600 hover:from-indigo-500 hover:to-sky-500 text-white font-bold text-xs rounded-xl shadow-lg transition flex items-center justify-center gap-2 cursor-pointer min-h-[44px]"
             >
               <Download className="w-4 h-4" />
               <span>Zainstaluj Aplikację PWA</span>
             </button>
+          ) : (
+            <div className="space-y-2">
+              <div className="p-3 bg-slate-950/70 border border-indigo-800/60 rounded-xl text-xs text-indigo-200 space-y-1 text-left">
+                <p className="font-bold text-slate-200 flex items-center gap-1.5">
+                  <Smartphone className="w-3.5 h-3.5 text-indigo-400" /> Jak zainstalować PWA na tym urządzeniu:
+                </p>
+                <p className="opacity-90">
+                  • <strong>Chrome / Edge / Brave:</strong> Kliknij ikonę instalacji <strong className="text-sky-300 font-mono">[⊕]</strong> po prawej stronie paska adresu przeglądarki lub otwórz <strong className="text-sky-300 font-mono">Menu (⋮) ➔ Zainstaluj eMBiK365</strong>.
+                </p>
+                <p className="opacity-90">
+                  • <strong>Android / Mobile:</strong> Wybierz <strong className="text-sky-300 font-mono">Menu (⋮) ➔ Dodaj do ekranu głównego / Zainstaluj aplikację</strong>.
+                </p>
+              </div>
+            </div>
           )}
         </div>
       </div>

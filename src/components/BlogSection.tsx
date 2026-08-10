@@ -6,7 +6,7 @@ import { playBeadChime } from '../utils/audio';
 import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechPaused, isSpeechSpeaking } from '../utils/tts';
 import { 
   Play, Pause, ChevronLeft, ChevronRight, RotateCcw, 
-  Edit3, Volume2, Mic, MicOff, Calendar, Save, BookOpen, AlertCircle, Sparkles
+  Edit3, Volume2, Mic, MicOff, Calendar, Save, BookOpen, AlertCircle, Sparkles, FileDown
 } from 'lucide-react';
 import { RichTextRenderer } from '../utils/richTextHelper';
 import { WysiwygToolbar } from './WysiwygToolbar';
@@ -18,6 +18,7 @@ interface BlogSectionProps {
   setSelectedDate: (d: Date) => void;
   blogEntries: Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>;
   theme?: string;
+  onOpenExportModal?: () => void;
 }
 
 export const BlogSection: React.FC<BlogSectionProps> = ({ 
@@ -26,7 +27,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   selectedDate, 
   setSelectedDate, 
   blogEntries,
-  theme = 'dark'
+  theme = 'dark',
+  onOpenExportModal
 }) => {
   const isLight = theme === 'light';
   const [editing, setEditing] = useState<boolean>(false);
@@ -684,6 +686,20 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
               >
                 Dzisiaj
               </button>
+              {onOpenExportModal && (
+                <button
+                  onClick={onOpenExportModal}
+                  className={`px-3 py-2 border text-xs rounded-xl font-semibold transition cursor-pointer flex items-center justify-center gap-1.5 ${
+                    isLight
+                      ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border-emerald-200'
+                      : 'bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-400 border border-emerald-800/40'
+                  }`}
+                  title="Eksportuj rozważania i schemat eMBiK365 do pliku PDF lub EPUB"
+                >
+                  <FileDown className="w-4 h-4" />
+                  <span>Eksport PDF & EPUB</span>
+                </button>
+              )}
             </div>
           </div>
 
