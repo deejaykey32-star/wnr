@@ -14,10 +14,11 @@ import { playBeadChime } from './utils/audio';
 import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechPaused, isSpeechSpeaking, isTtsSupported } from './utils/tts';
 import { SearchModal } from './components/SearchModal';
 import { ExportModal } from './components/ExportModal';
+import { PwaInstallPrompt } from './components/PwaInstallPrompt';
 import { 
   Play, Pause, ChevronLeft, ChevronRight, RotateCcw, 
   LogIn, LogOut, Video, Edit3, Sliders, Volume2, Info, BookOpen, Mic, MicOff, Calendar, FileDown,
-  Sun, Moon, ShieldAlert, Key, X, ExternalLink, Search, Share2, Check
+  Sun, Moon, ShieldAlert, Key, X, ExternalLink, Search, Share2, Check, Smartphone
 } from 'lucide-react';
 
 export default function App() {
@@ -152,7 +153,17 @@ export default function App() {
   // Search & Custom Export & Share Modals
   const [showSearchModal, setShowSearchModal] = useState<boolean>(false);
   const [showCustomExportModal, setShowCustomExportModal] = useState<boolean>(false);
+  const [showPwaPromptModal, setShowPwaPromptModal] = useState<boolean>(false);
   const [copiedLink, setCopiedLink] = useState<boolean>(false);
+
+  // Register PWA Service Worker
+  useEffect(() => {
+    if ('serviceWorker' in navigator && process.env.NODE_ENV !== 'development') {
+      navigator.serviceWorker.register('/sw.js').catch((err) => {
+        console.warn('Service Worker registration failed:', err);
+      });
+    }
+  }, []);
 
   // Helper to map activeTab and date to URL slug
   const getSlugForTabAndDate = (tab: 'rosary' | 'blog', date: Date) => {
@@ -1052,6 +1063,20 @@ export default function App() {
               <span className="hidden md:inline">Eksport</span>
             </button>
 
+            {/* PWA Install Trigger Button */}
+            <button
+              onClick={() => setShowPwaPromptModal(true)}
+              title="Zainstaluj aplikację eMBiK365 na telefonie lub komputerze (PWA)"
+              className={`px-3 py-1.5 rounded-full border transition cursor-pointer flex items-center gap-1.5 text-xs font-semibold ${
+                isLight
+                  ? 'bg-sky-50 text-sky-700 border-sky-200 hover:bg-sky-100'
+                  : 'bg-sky-950/60 text-sky-300 border-sky-800/60 hover:bg-sky-900/60'
+              }`}
+            >
+              <Smartphone className="w-4 h-4 text-sky-400" />
+              <span className="hidden sm:inline">PWA App</span>
+            </button>
+
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
@@ -1302,7 +1327,7 @@ export default function App() {
         {activeTab === 'rosary' ? (
           /* WERSJA MINIMALISTYCZNA FRAME */
           isYoutubeMode ? (
-          <div id="youtube-frame" className="w-full max-w-5xl aspect-video bg-slate-950 border-4 border-slate-800 rounded-2xl shadow-2xl relative flex flex-col justify-between overflow-hidden">
+          <div id="youtube-frame" className="w-full max-w-5xl min-h-[480px] sm:min-h-0 sm:aspect-video bg-slate-950 border-2 sm:border-4 border-slate-800 rounded-2xl shadow-2xl relative flex flex-col justify-between overflow-hidden">
             {/* Top status bar of minimalist view */}
             <div className="bg-slate-900/90 backdrop-blur-md px-6 py-3 flex items-center justify-between border-b border-slate-800">
               <div className="flex items-center gap-3">
@@ -2022,6 +2047,13 @@ export default function App() {
         userEmail={userEmail}
         prayers={prayers}
         blogEntries={blogEntries}
+        theme={theme}
+      />
+
+      {/* PWA Install Prompt Banner */}
+      <PwaInstallPrompt
+        isOpenForce={showPwaPromptModal}
+        onCloseForce={() => setShowPwaPromptModal(false)}
         theme={theme}
       />
     </div>

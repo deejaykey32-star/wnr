@@ -169,8 +169,8 @@ export const SearchModal: React.FC<SearchModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/75 backdrop-blur-md z-50 flex items-start justify-center p-4 pt-12 sm:pt-20 overflow-y-auto">
-      <div className={`w-full max-w-2xl rounded-2xl border shadow-2xl overflow-hidden transition-all text-left ${
+    <div className="fixed inset-0 bg-black/75 backdrop-blur-md z-50 flex items-start justify-center p-3 sm:p-4 pt-8 sm:pt-20 overflow-y-auto">
+      <div className={`w-full max-w-full sm:max-w-2xl rounded-2xl border shadow-2xl overflow-hidden transition-all text-left ${
         isLight ? 'bg-white border-slate-200' : 'bg-slate-900 border-slate-800'
       }`}>
         {/* Search Input Header */}

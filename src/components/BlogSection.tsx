@@ -482,7 +482,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     <div className="w-full flex flex-col gap-8">
       {/* WERSJA MINIMALISTYCZNA FRAME VIEW */}
       {isYoutubeMode ? (
-        <div id="youtube-frame-blog" className="w-full max-w-5xl aspect-auto min-h-[500px] md:aspect-video bg-slate-950 border-4 border-slate-800 rounded-2xl shadow-2xl relative flex flex-col justify-between overflow-hidden mx-auto">
+        <div id="youtube-frame-blog" className="w-full max-w-5xl min-h-[480px] sm:min-h-0 sm:aspect-video bg-slate-950 border-2 sm:border-4 border-slate-800 rounded-2xl shadow-2xl relative flex flex-col justify-between overflow-hidden mx-auto">
           {/* Top Header */}
           <div className="bg-slate-900/90 backdrop-blur-md px-4 sm:px-6 py-3 flex flex-col sm:flex-row items-center justify-between border-b border-slate-800 gap-2">
             <div className="flex items-center gap-3">
