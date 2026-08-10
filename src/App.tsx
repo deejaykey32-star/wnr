@@ -167,11 +167,14 @@ export default function App() {
     }
   }, []);
 
-  // Helper to map activeTab and date to URL slug
+  // Helper to map activeTab and date to 1-365 sequential URL slug
   const getSlugForTabAndDate = (tab: 'rosary' | 'blog', date: Date) => {
-    const info = getCycleDayInfo(date, { isExplicitRhzRoute: tab === 'rosary' });
+    const cycleStart = new Date(2025, 11, 25, 12, 0, 0, 0); // Dec 25, 2025
+    const diffMs = date.getTime() - cycleStart.getTime();
+    const dayIndex = Math.max(0, Math.min(364, Math.floor(diffMs / 86400000)));
+    const totalDayNum = dayIndex + 1; // 1 to 365
     const prefix = tab === 'rosary' ? 'rhz365-day' : 'wnr365-day';
-    return `/${prefix}-${info.dayOfCycle}`;
+    return `/${prefix}-${totalDayNum}`;
   };
 
   // URL Initialization on Page Load and Browser Back/Forward navigation
@@ -184,24 +187,17 @@ export default function App() {
         return;
       }
 
-      const match = path.match(/^\/(rhz365-day|wnr365-day)-(\d+)/i);
+      // Supports /wnr365-day-X, /rhz365-day-X, /day-X, /day/X (from 1 to 365)
+      const match = path.match(/^\/(rhz365-day|wnr365-day|day)[-\/]?(\d+)/i);
       if (match) {
-        const type = match[1].toLowerCase();
-        const dayNum = parseInt(match[2], 10);
-        if (dayNum >= 1 && dayNum <= 175) {
-          const today = new Date();
-          const cycle2Start = new Date(2026, 5, 25, 12, 0, 0, 0); // Jun 25, 2026
-          const cycle1Start = new Date(2025, 11, 25, 12, 0, 0, 0); // Dec 25, 2025
-
-          let targetDate: Date;
-          if (today >= cycle2Start) {
-            targetDate = new Date(cycle2Start.getTime() + (dayNum - 1) * 86400000);
-          } else {
-            targetDate = new Date(cycle1Start.getTime() + (dayNum - 1) * 86400000);
-          }
-
+        const routeType = match[1].toLowerCase();
+        const totalDayNum = parseInt(match[2], 10);
+        if (totalDayNum >= 1 && totalDayNum <= 365) {
+          const dayIndex = totalDayNum - 1; // 0 to 364
+          const cycleStart = new Date(2025, 11, 25, 12, 0, 0, 0);
+          const targetDate = new Date(cycleStart.getTime() + dayIndex * 86400000);
           setSelectedDate(targetDate);
-          setActiveTab(type === 'wnr365-day' ? 'blog' : 'rosary');
+          setActiveTab(routeType === 'rhz365-day' ? 'rosary' : 'blog');
         }
       }
     };
