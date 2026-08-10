@@ -42,7 +42,7 @@ const loadRobotoFonts = async (doc: jsPDF): Promise<boolean> => {
 
     return true;
   } catch (error) {
-    console.warn("Could not load Unicode Roboto font dynamically. Falling back to Times.", error);
+    console.warn("Could not load Unicode Roboto font dynamically. Falling back to Helvetica.", error);
     return false;
   }
 };
@@ -83,7 +83,7 @@ export const generateCustomScopePdf = async (
 ): Promise<void> => {
   const { scope, range, includeCover, dayOfCycle, prayers, blogEntries } = options;
 
-  if (onProgress) onProgress("Inicjalizacja generatora PDF A5 (skład książkowy)...");
+  if (onProgress) onProgress("Inicjalizacja generatora PDF A5 (czcionka Unicode 12pt)...");
 
   // Format A5: 148 mm x 210 mm
   const doc = new jsPDF({
@@ -93,30 +93,35 @@ export const generateCustomScopePdf = async (
   });
 
   const hasCustomFont = await loadRobotoFonts(doc);
-  const fontName = hasCustomFont ? 'Roboto' : 'Times-Roman';
+  const fontName = hasCustomFont ? 'Roboto' : 'Helvetica';
 
   const pageWidth = 148;
   const pageHeight = 210;
-  const margin = 12; // 12mm margins
+  const margin = 12; // 12mm left/right margin
   const contentWidth = pageWidth - (margin * 2); // 124mm printable width
 
   // 12pt font size with 1.5 line height spacing = 6.35 mm per line
   const lineSpacing15 = 6.35;
 
   const drawHeaderFooter = (pageNum: number, titleText: string) => {
+    // Top running header line
     doc.setDrawColor(203, 213, 225); // slate-300
-    doc.setLineWidth(0.2);
-    doc.rect(margin - 3, margin - 3, pageWidth - (margin * 2) + 6, pageHeight - (margin * 2) + 6);
+    doc.setLineWidth(0.3);
+    doc.line(margin, margin - 2, pageWidth - margin, margin - 2);
 
     doc.setFont(fontName, 'bold');
-    doc.setFontSize(7.5);
-    doc.setTextColor(100, 116, 139);
-    doc.text(titleText, margin, margin - 5);
+    doc.setFontSize(8);
+    doc.setTextColor(100, 116, 139); // slate-500
+    doc.text(titleText, margin, margin - 4);
+
+    // Bottom running footer line
+    doc.line(margin, pageHeight - margin + 2, pageWidth - margin, pageHeight - margin + 2);
 
     doc.setFont(fontName, 'normal');
-    doc.setFontSize(7.5);
-    doc.text(`str. ${pageNum}`, pageWidth - margin - 10, pageHeight - margin + 5);
-    doc.text("eMBiK365 — widokinaraj.pl", margin, pageHeight - margin + 5);
+    doc.setFontSize(8);
+    doc.setTextColor(100, 116, 139);
+    doc.text("eMBiK365 — widokinaraj.pl", margin, pageHeight - margin + 6);
+    doc.text(`str. ${pageNum}`, pageWidth - margin, pageHeight - margin + 6, { align: 'right' });
   };
 
   let currentPage = 1;
@@ -177,7 +182,7 @@ export const generateCustomScopePdf = async (
     if (onProgress) {
       const progressCount = currentDayNum - startDay + 1;
       const totalCount = endDay - startDay + 1;
-      onProgress(`Składanie Dnia ${currentDayNum} (${progressCount}/${totalCount}) w formacie A5...`);
+      onProgress(`Składanie Dnia ${currentDayNum} (${progressCount}/${totalCount}) z czcionką 12pt...`);
     }
 
     const dayIdx = currentDayNum - 1;
@@ -195,7 +200,7 @@ export const generateCustomScopePdf = async (
       cycleName = `Okres Przygotowania — Dzień ${dayIdx - 356}`;
     }
 
-    // Continuous flow check: only add page if near bottom
+    // Continuous flow check
     if (y > pageHeight - margin - 35) {
       doc.addPage();
       currentPage++;
@@ -210,23 +215,23 @@ export const generateCustomScopePdf = async (
       pageNum: currentPage
     });
 
-    // Day Section Divider & Header
+    // Day Header Box with two clear separate rows (no text overlap!)
     doc.setFillColor(248, 250, 252);
     doc.setDrawColor(226, 232, 240);
     doc.setLineWidth(0.3);
-    doc.rect(margin, y, contentWidth, 10, 'FD');
+    doc.rect(margin, y, contentWidth, 12, 'FD');
 
     doc.setFont(fontName, 'bold');
     doc.setFontSize(10);
     doc.setTextColor(15, 23, 42);
-    doc.text(`DZIEŃ ${currentDayNum} — ${dayLabel.toUpperCase()}`, margin + 3, y + 6.5);
+    doc.text(`DZIEŃ ${currentDayNum} — ${dayLabel.toUpperCase()}`, margin + 3, y + 4.5);
 
     doc.setFont(fontName, 'normal');
     doc.setFontSize(8);
     doc.setTextColor(79, 70, 229);
-    doc.text(cycleName, margin + contentWidth - 3, y + 6.5, { align: 'right' });
+    doc.text(cycleName, margin + 3, y + 9.5);
 
-    y += 14;
+    y += 16;
 
     // Direct entry URL QR Code
     const dayUrl = `https://widokinaraj.pl/day/${currentDayNum}`;
@@ -250,9 +255,9 @@ export const generateCustomScopePdf = async (
     const embeddedUrls = extractUrlsFromText(`${rawRhzText} ${wnrDoc.text || ''}`);
     const allUrls = Array.from(new Set([dayUrl, ...embeddedUrls]));
 
-    // Render QR Codes and URLs below them
+    // Render QR Codes and URLs below them inside a tidy box
     for (const urlItem of allUrls) {
-      if (y > pageHeight - margin - 35) {
+      if (y > pageHeight - margin - 32) {
         doc.addPage();
         currentPage++;
         drawHeaderFooter(currentPage, headerTitle);
@@ -261,27 +266,33 @@ export const generateCustomScopePdf = async (
 
       try {
         const qrDataUri = await generateQrCodeDataUri(urlItem);
-        const qrSize = 18; // 18mm x 18mm
-        const qrX = margin + contentWidth - qrSize;
-        const qrY = y;
+        const qrSize = 16; // 16mm x 16mm
+        const qrX = margin + contentWidth - qrSize - 3;
+        const qrY = y + 2;
+
+        const maxTextWidth = contentWidth - qrSize - 8;
+
+        doc.setFillColor(250, 250, 250);
+        doc.setDrawColor(226, 232, 240);
+        doc.rect(margin, y, contentWidth, qrSize + 4, 'FD');
 
         doc.addImage(qrDataUri, 'PNG', qrX, qrY, qrSize, qrSize);
 
         doc.setFont(fontName, 'bold');
-        doc.setFontSize(7);
+        doc.setFontSize(7.5);
         doc.setTextColor(37, 99, 235);
-        doc.text("Kod QR odnośnika:", margin, y + 4);
+        doc.text("Kod QR odnośnika:", margin + 3, y + 4.5);
 
-        doc.setFont(fontName, 'bold');
+        doc.setFont(fontName, 'normal');
         doc.setFontSize(7.5);
         doc.setTextColor(30, 41, 59);
 
-        const splitUrl = doc.splitTextToSize(urlItem, contentWidth - qrSize - 4);
-        doc.text(splitUrl, margin, y + 9);
+        const splitUrl = doc.splitTextToSize(urlItem, maxTextWidth);
+        doc.text(splitUrl, margin + 3, y + 9);
 
-        doc.link(margin, y + 5, contentWidth - qrSize - 4, splitUrl.length * 4 + 2, { url: urlItem });
+        doc.link(margin + 3, y + 5, maxTextWidth, splitUrl.length * 4 + 2, { url: urlItem });
 
-        y += Math.max(qrSize + 3, (splitUrl.length * 4) + 10);
+        y += qrSize + 7;
       } catch (e) {
         console.warn("Błąd generowania QR:", e);
       }
@@ -297,15 +308,15 @@ export const generateCustomScopePdf = async (
       }
 
       doc.setFont(fontName, 'bold');
-      doc.setFontSize(12); // Header 12pt bold
+      doc.setFontSize(11);
       doc.setTextColor(79, 70, 229);
       doc.text(`RHZ365 — Dzień ${currentDayNum}: ${rhzTitle}`, margin, y);
-      y += 7;
+      y += 6.5;
 
       if (parsedRHZ.success && parsedRHZ.data) {
         // Reflection (12pt font, 1.5 line spacing)
         doc.setFont(fontName, 'bold');
-        doc.setFontSize(10);
+        doc.setFontSize(9.5);
         doc.setTextColor(15, 23, 42);
         doc.text("Rozważanie Tajemnicy:", margin, y);
         y += 5;
@@ -329,7 +340,7 @@ export const generateCustomScopePdf = async (
 
         // Our Father
         doc.setFont(fontName, 'bold');
-        doc.setFontSize(10);
+        doc.setFontSize(9.5);
         doc.setTextColor(15, 23, 42);
         doc.text("Modlitwa Pańska (Ojcze Nasz):", margin, y);
         y += 5;
@@ -351,7 +362,7 @@ export const generateCustomScopePdf = async (
 
         // 10 Hail Marys
         doc.setFont(fontName, 'bold');
-        doc.setFontSize(10);
+        doc.setFontSize(9.5);
         doc.setTextColor(15, 23, 42);
         doc.text("10 Osobnych Modlitw Zdrowaś Maryjo (z dopowiedzeniami):", margin, y);
         y += 5;
@@ -365,7 +376,7 @@ export const generateCustomScopePdf = async (
           }
 
           doc.setFont(fontName, 'bold');
-          doc.setFontSize(9.5);
+          doc.setFontSize(9);
           doc.setTextColor(79, 70, 229);
           doc.text(`Zdrowaś Maryjo #${idx + 1}:`, margin, y);
           y += 4.5;
@@ -396,7 +407,7 @@ export const generateCustomScopePdf = async (
         }
 
         doc.setFont(fontName, 'bold');
-        doc.setFontSize(10);
+        doc.setFontSize(9.5);
         doc.setTextColor(15, 23, 42);
         doc.text("Chwała Ojcu & O mój Jezu:", margin, y);
         y += 5;
@@ -444,10 +455,10 @@ export const generateCustomScopePdf = async (
       }
 
       doc.setFont(fontName, 'bold');
-      doc.setFontSize(12); // Header 12pt bold
+      doc.setFontSize(11);
       doc.setTextColor(217, 119, 6);
       doc.text(`WnR365 — ${wnrDoc.title || `Widoki na Raj (Dzień ${currentDayNum})`}`, margin, y);
-      y += 7;
+      y += 6.5;
 
       doc.setFont(fontName, 'normal');
       doc.setFontSize(12); // 12pt book font
@@ -482,16 +493,16 @@ export const generateCustomScopePdf = async (
   }
 
   doc.setFont(fontName, 'bold');
-  doc.setFontSize(15);
+  doc.setFontSize(14);
   doc.setTextColor(15, 23, 42);
   doc.text("Spis Treści", margin, y);
-  y += 7;
+  y += 6.5;
 
   doc.setFont(fontName, 'normal');
   doc.setFontSize(8.5);
   doc.setTextColor(71, 85, 105);
   doc.text("Kliknij w podświetlony odsyłacz, aby natychmiast przejść do strony danego dnia:", margin, y);
-  y += 8;
+  y += 7.5;
 
   for (let t = 0; t < tocMap.length; t++) {
     const item = tocMap[t];
