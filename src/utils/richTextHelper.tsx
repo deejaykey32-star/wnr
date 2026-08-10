@@ -103,10 +103,10 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       closedBgThisLine = true;
     }
 
-    const alignClass = currentAlignment === 'center' ? 'text-center' :
-                       currentAlignment === 'right' ? 'text-right' :
-                       currentAlignment === 'justify' ? 'text-justify' :
-                       currentAlignment === 'left' ? 'text-left' : '';
+    const alignClass = currentAlignment === 'center' ? 'text-center [text-align-last:center]' :
+                       currentAlignment === 'right' ? 'text-right [text-align-last:right]' :
+                       currentAlignment === 'justify' ? 'text-justify [text-align-last:left]' :
+                       currentAlignment === 'left' ? 'text-left [text-align-last:left]' : 'text-justify [text-align-last:left]';
 
     // 1. Detect QR code block (custom HTML or clean markup)
     // Looking for qr-block patterns or specialized tags
@@ -351,13 +351,13 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
 
     // 6. Normal line / paragraph
     if (line === '') {
-      elements.push(<div key={`space-${keyIndex++}`} className="h-2" />);
+      elements.push(<div key={`space-${keyIndex++}`} className="h-3" />);
     } else {
-      const pClass = theme === 'light' ? 'text-slate-800' : 'text-slate-300';
+      const pClass = theme === 'light' ? 'text-slate-800' : 'text-slate-200';
       elements.push(
         <p 
           key={`p-${keyIndex++}`} 
-          className={`text-sm leading-relaxed mb-3 ${pClass} ${alignClass}`}
+          className={`text-sm sm:text-base leading-relaxed mb-4 tracking-normal ${pClass} ${alignClass}`}
           dangerouslySetInnerHTML={{ __html: parseInlineStyles(line, theme, { font: currentFont, color: currentColor, bg: currentBg }) }}
         />
       );
