@@ -6,3 +6,6 @@ coverage/
 *.log
 .env*
 !.env.example
+*.pdf
+*.zip
+scratch/

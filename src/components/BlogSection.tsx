@@ -6,10 +6,13 @@ import { playBeadChime } from '../utils/audio';
 import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechPaused, isSpeechSpeaking } from '../utils/tts';
 import { 
   Play, Pause, ChevronLeft, ChevronRight, RotateCcw, 
-  Edit3, Volume2, Mic, MicOff, Calendar, Save, BookOpen, AlertCircle, Sparkles, FileDown, Video
+  Edit3, Volume2, Mic, MicOff, Calendar, Save, BookOpen, AlertCircle, Sparkles, FileDown, Video, RefreshCw
 } from 'lucide-react';
 import { RichTextRenderer } from '../utils/richTextHelper';
 import { WysiwygToolbar } from './WysiwygToolbar';
+import { getWnrDefaultBlogEntry } from '../utils/wnrBlogDefaults';
+import { restoreAllWnrBlogEntries } from '../utils/wnrImporter';
+import { saveLocalBlogEntry } from '../utils/localNoSqlDb';
 
 interface BlogSectionProps {
   user: any;
@@ -17,6 +20,7 @@ interface BlogSectionProps {
   selectedDate: Date;
   setSelectedDate: (d: Date) => void;
   blogEntries: Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>;
+  prayers?: Record<string, any>;
   theme?: string;
   onOpenExportModal?: () => void;
 }
@@ -27,6 +31,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   selectedDate, 
   setSelectedDate, 
   blogEntries,
+  prayers = {},
   theme = 'dark',
   onOpenExportModal
 }) => {
@@ -36,6 +41,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   const [editText, setEditText] = useState<string>('');
   const [saving, setSaving] = useState<boolean>(false);
   const [saveStatus, setSaveStatus] = useState<{ success?: boolean; message?: string } | null>(null);
+  const [restoringCloud, setRestoringCloud] = useState<boolean>(false);
+  const [restoreProgress, setRestoreProgress] = useState<string>('');
 
   // Reader / Playback State
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -144,11 +151,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
 
   const docId = `blog_day_${cycleInfo.dayIndex}`;
   const activeEntry = useMemo(() => {
-    return blogEntries[docId] || {
-      title: `Widoki na Raj - Dzień ${cycleInfo.dayOfCycle} (${cycleInfo.cycleName})`,
-      text: `Chwała Jezusowi w Bogu Ojcu!\n\nTo jest Twój wpis blogowy Widoki na Raj (WnR365) pisany pod natchnieniem Ducha Świętego, stanowiący element eMBiK (elektronicznej Misji Barw i Kolorów) poprzez duchowe pielgrzymowanie przez Jezusa Chrystusa w Duchu Świętym dzięki Bogu Ojcu i Maryi zawsze dziewicy.\n\nKliknij przycisk „Edytuj Wpis” powyżej, aby zapisać tutaj swoje słowa, rozważania lub orędzia. Twoje wpisy będą trwale zachowane w chmurze i zsynchronizowane dla wszystkich użytkowników.\n\nNiech ten dzień w cyklu liturgicznym (${cycleInfo.cycleName}) obfituje w łaski i pokój Boży.`
-    };
-  }, [blogEntries, docId, cycleInfo]);
+    return getWnrDefaultBlogEntry(cycleInfo.dayIndex, prayers, blogEntries);
+  }, [blogEntries, docId, cycleInfo, prayers]);
 
   // Sync edit form fields when active entry changes
   useEffect(() => {
@@ -356,6 +360,15 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     setSaveStatus(null);
 
     try {
+      // 1. Always persist to local IndexedDB NoSQL store
+      await saveLocalBlogEntry(docId, {
+        title: editTitle.trim(),
+        text: editText.trim(),
+        dayIndex: cycleInfo.dayIndex,
+        updatedBy: user?.email || 'Dominik'
+      });
+
+      // 2. Try persisting to Cloud Firestore
       await setDoc(doc(db, 'blog_entries', docId), {
         title: editTitle.trim(),
         text: editText.trim(),
@@ -363,14 +376,38 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         updatedBy: user?.email || 'Dominik',
         updatedAt: new Date().toISOString()
       });
-      setSaveStatus({ success: true, message: "Wpis blogowy zapisany pomyślnie!" });
+      setSaveStatus({ success: true, message: "Wpis blogowy zapisany w bazie lokalnej oraz chmurze!" });
       setEditing(false);
       setTimeout(() => setSaveStatus(null), 3000);
     } catch (err: any) {
-      console.error("Failed to save blog entry:", err);
-      setSaveStatus({ success: false, message: `Błąd zapisu: ${err.message || 'Brak uprawnień.'}` });
+      console.error("Failed to save to Cloud Firestore (saved in local NoSQL database):", err);
+      setSaveStatus({ success: true, message: `Zapisano pomyślnie w lokalnej bazie NoSQL IndexedDB! (Chmura niedostępna)` });
+      setEditing(false);
+      setTimeout(() => setSaveStatus(null), 4000);
     } finally {
       setSaving(false);
+    }
+  };
+
+  // Restore all 366 WnR365 blog entries into Cloud Firestore based on JSON and corrections
+  const handleRestoreAllCloudEntries = async () => {
+    if (!window.confirm("Czy na pewno chcesz przywrócić i zaktualizować wszystkie 366 wpisów WnR365 w chmurze Firestore na podstawie pliku JSON i poprawek?")) {
+      return;
+    }
+    setRestoringCloud(true);
+    setRestoreProgress("Przygotowywanie wpisów z pliku JSON...");
+    try {
+      const res = await restoreAllWnrBlogEntries(db, user?.email || 'Dominik', prayers, blogEntries, (curr, total) => {
+        setRestoreProgress(`Zapisywanie w chmurze: ${curr} z ${total} wpisów...`);
+      });
+      setSaveStatus({ success: true, message: `Pomyślnie zaktualizowano i przywrócono ${res.restoredCount} wpisów WnR365 w bazie Firestore!` });
+      setTimeout(() => setSaveStatus(null), 6000);
+    } catch (err: any) {
+      console.error("Cloud restore failed:", err);
+      setSaveStatus({ success: false, message: `Błąd przywracania chmury: ${err.message || 'Nieznany błąd.'}` });
+    } finally {
+      setRestoringCloud(false);
+      setRestoreProgress('');
     }
   };
 
@@ -494,7 +531,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
               </span>
             </div>
             <div className="text-[10px] sm:text-xs font-serif font-black text-amber-400 px-3 py-1 rounded bg-slate-950 border border-amber-500/20 truncate max-w-full">
-              Chwała Jezusowi w Bogu Ojcu
+              Widoki na Raj — WnR365
             </div>
             <button
               onClick={() => setIsYoutubeMode(false)}
@@ -825,17 +862,32 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
 
                     <div className="mt-8 pt-6 border-t border-slate-850 flex flex-col md:flex-row md:items-center justify-between gap-4">
                       {isAuthorized ? (
-                        <button
-                          onClick={() => setEditing(true)}
-                          className={`px-4 py-2.5 border font-bold text-xs rounded-xl active:scale-95 transition flex items-center justify-center gap-1.5 cursor-pointer self-start md:self-auto ${
-                            isLight
-                              ? 'bg-slate-50 hover:bg-slate-100 border-slate-200 text-slate-700'
-                              : 'bg-slate-800/80 hover:bg-slate-750 border border-slate-700/80 text-slate-300'
-                          }`}
-                        >
-                          <Edit3 className="w-3.5 h-3.5 text-slate-400" />
-                          EDYTUJ WPIS
-                        </button>
+                        <div className="flex flex-wrap items-center gap-2">
+                          <button
+                            onClick={() => setEditing(true)}
+                            className={`px-4 py-2.5 border font-bold text-xs rounded-xl active:scale-95 transition flex items-center justify-center gap-1.5 cursor-pointer ${
+                              isLight
+                                ? 'bg-slate-50 hover:bg-slate-100 border-slate-200 text-slate-700'
+                                : 'bg-slate-800/80 hover:bg-slate-750 border border-slate-700/80 text-slate-300'
+                            }`}
+                          >
+                            <Edit3 className="w-3.5 h-3.5 text-slate-400" />
+                            EDYTUJ WPIS
+                          </button>
+                          <button
+                            onClick={handleRestoreAllCloudEntries}
+                            disabled={restoringCloud}
+                            className={`px-4 py-2.5 border font-bold text-xs rounded-xl active:scale-95 transition flex items-center justify-center gap-1.5 cursor-pointer ${
+                              isLight
+                                ? 'bg-amber-50 hover:bg-amber-100 border-amber-200 text-amber-800'
+                                : 'bg-amber-950/40 hover:bg-amber-900/40 border border-amber-800/50 text-amber-400'
+                            }`}
+                            title="Przywróć wszystkie 366 wpisów WnR365 w chmurze Firestore"
+                          >
+                            <RefreshCw className={`w-3.5 h-3.5 ${restoringCloud ? 'animate-spin' : ''}`} />
+                            {restoringCloud ? restoreProgress : 'PRZYWRÓĆ WSZYSTKIE WPISY W CHMURZE'}
+                          </button>
+                        </div>
                       ) : (
                         <div />
                       )}

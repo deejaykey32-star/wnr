@@ -3,6 +3,7 @@ import { COVER_IMAGE_BASE64 } from '../assets/coverBase64';
 import { generateQrCodeDataUri } from './qrCodeGenerator';
 import rhzData from '../../RHZ365_pierwszy_cykl_175_dni.json';
 import { parseDayText } from './rhzParser';
+import { getWnrDefaultBlogEntry } from './wnrBlogDefaults';
 
 // Dynamic Font Fetcher supporting Polish Characters
 const loadRobotoFonts = async (doc: jsPDF): Promise<boolean> => {
@@ -257,10 +258,7 @@ export const generateCustomScopePdf = async (
     const parsedRHZ = parseDayText(currentDayNum, rawRhzText);
 
     const wnrKey = `blog_day_${dayIdx}`;
-    const wnrDoc = blogEntries[wnrKey] || {
-      title: `Widoki na Raj — Dzień ${currentDayNum}`,
-      text: "Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu Świętym."
-    };
+    const wnrDoc = getWnrDefaultBlogEntry(dayIdx, prayers, blogEntries);
 
     // Extract all embedded URLs in content text
     const embeddedUrls = extractUrlsFromText(`${rawRhzText} ${wnrDoc.text || ''}`);

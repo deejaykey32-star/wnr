@@ -3,6 +3,7 @@ import { COVER_IMAGE_BASE64 } from '../assets/coverBase64';
 import { generateQrCodeDataUri } from './qrCodeGenerator';
 import rhzData from '../../RHZ365_pierwszy_cykl_175_dni.json';
 import { parseDayText } from './rhzParser';
+import { getWnrDefaultBlogEntry } from './wnrBlogDefaults';
 
 export interface EpubExportOptions {
   scope: 'rhz365' | 'wnr365' | 'both';
@@ -223,10 +224,7 @@ p {
     const parsedRHZ = parseDayText(dayNum, rawRhzText);
 
     const wnrKey = `blog_day_${i}`;
-    const wnrDoc = blogEntries[wnrKey] || {
-      title: `Widoki na Raj — Dzień ${dayNum}`,
-      text: "Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu Świętym."
-    };
+    const wnrDoc = getWnrDefaultBlogEntry(i, prayers, blogEntries);
 
     // Extract all URLs
     const dayUrl = `https://widokinaraj.pl/day/${dayNum}`;

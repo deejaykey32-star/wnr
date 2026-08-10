@@ -5,6 +5,8 @@ import {
   DEFAULT_PRAYERS, getRGBABeads, getCMYKBeads, getPrayerSteps, 
   getCycleDayInfo, getActiveDecadeMystery, getDecadeForDay 
 } from './data/prayers';
+import { getAllWnrDefaultBlogEntries, getWnrDefaultBlogEntry } from './utils/wnrBlogDefaults';
+import { initLocalNoSqlDb, getAllLocalBlogEntries, saveLocalBlogEntry } from './utils/localNoSqlDb';
 import { RosaryRenderer } from './components/RosaryRenderer';
 import { PrayerEditor } from './components/PrayerEditor';
 import { BlogSection } from './components/BlogSection';
@@ -142,8 +144,8 @@ export default function App() {
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
   const [ttsEnabled, setTtsEnabled] = useState<boolean>(true);
 
-  // Blog entries synced from Firestore
-  const [blogEntries, setBlogEntries] = useState<Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>>({});
+  // Blog entries synced from Firestore (pre-populated with complete authentic 365 defaults)
+  const [blogEntries, setBlogEntries] = useState<Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>>(() => getAllWnrDefaultBlogEntries());
   
   // PDF Exporting States
   const [isExportingPdf, setIsExportingPdf] = useState<boolean>(false);
@@ -284,39 +286,51 @@ export default function App() {
     });
 
     const unsubBlog = onSnapshot(collection(db, 'blog_entries'), (snapshot) => {
-      const updated: Record<string, any> = {};
+      const updated: Record<string, any> = getAllWnrDefaultBlogEntries(prayers);
       snapshot.forEach((doc) => {
         const data = doc.data();
-        if (data) {
-          updated[doc.id] = {
-            title: data.title || '',
-            text: data.text || '',
-            dayIndex: data.dayIndex ?? 0,
-            updatedBy: data.updatedBy,
-            updatedAt: data.updatedAt
-          };
+        if (data && data.title && data.text) {
+          const isGeneric = data.text.includes("Chwała Jezusowi w Bogu Ojcu!") || 
+                            data.text.includes("To jest Twój wpis blogowy Widoki na Raj") ||
+                            data.text.includes("Kliknij przycisk „Edytuj Wpis” powyżej");
+          if (!isGeneric) {
+            updated[doc.id] = {
+              title: data.title,
+              text: data.text,
+              dayIndex: data.dayIndex ?? 0,
+              updatedBy: data.updatedBy,
+              updatedAt: data.updatedAt
+            };
+          }
         }
       });
       setBlogEntries(updated);
     }, (error) => {
-      console.warn("Firestore blog entries listener failed:", error);
+      console.warn("Firestore blog entries listener failed (Quota/Offline). Using local NoSQL store (IndexedDB):", error);
+      getAllLocalBlogEntries().then(localEntries => {
+        setBlogEntries(localEntries);
+      });
+    });
+
+    // Seed & load local NoSQL store (IndexedDB)
+    initLocalNoSqlDb().then(() => {
+      getAllLocalBlogEntries().then(localEntries => {
+        setBlogEntries(prev => ({ ...localEntries, ...prev }));
+      });
     });
 
     return () => {
       unsubPrayers();
       unsubBlog();
     };
-  }, []);
+  }, [prayers]);
 
   const handleExportPdf = async () => {
     setIsExportingPdf(true);
     setPdfProgress("Pobieranie rozważań i przygotowywanie dokumentu...");
     try {
       const docId = `blog_day_${cycleInfo.dayIndex}`;
-      const activeEntry = blogEntries[docId] || {
-        title: `Widoki na Raj - Dzień ${cycleInfo.dayOfCycle} (${cycleInfo.cycleName})`,
-        text: `Chwała Jezusowi w Bogu Ojcu!\n\nTo jest Twój wpis blogowy Widoki na Raj (WnR365) pisany pod natchnieniem Ducha Świętego, stanowiący element eMBiK365 (elektronicznej Misji Barw i Kolorów) poprzez duchowe pielgrzymowanie przez Jezusa Chrystusa w Duchu Świętym dzięki Bogu Ojcu i Maryi zawsze dziewicy.`
-      };
+      const activeEntry = blogEntries[docId] || getWnrDefaultBlogEntry(cycleInfo.dayIndex);
 
       const decIdx = activeStep.decadeIndex || 1;
       const mysteryData = getActiveDecadeMystery(cycleInfo.cycleType, cycleInfo.dayOfCycle, decIdx, prayers);
@@ -1853,6 +1867,7 @@ export default function App() {
             selectedDate={selectedDate} 
             setSelectedDate={setSelectedDate}
             blogEntries={blogEntries}
+            prayers={prayers}
             theme={theme}
             onOpenExportModal={() => setShowCustomExportModal(true)}
           />
