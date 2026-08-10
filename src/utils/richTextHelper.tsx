@@ -19,6 +19,26 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
   let currentFont: string | null = null;
   let currentColor: string | null = null;
   let currentBg: string | null = null;
+  // Buffer for accumulating lines into a single justified paragraph
+  let paragraphBuffer: string[] = [];
+
+  const flushParagraph = () => {
+    if (paragraphBuffer.length === 0) return;
+    const combined = paragraphBuffer.join(' ');
+    paragraphBuffer = [];
+    const pClass = theme === 'light' ? 'text-slate-800' : 'text-slate-200';
+    const ac = currentAlignment === 'center' ? 'text-center [text-align-last:center]' :
+               currentAlignment === 'right' ? 'text-right [text-align-last:right]' :
+               currentAlignment === 'justify' ? 'text-justify [text-align-last:left]' :
+               currentAlignment === 'left' ? 'text-left [text-align-last:left]' : 'text-justify [text-align-last:left]';
+    elements.push(
+      <p
+        key={`p-${keyIndex++}`}
+        className={`text-sm sm:text-base leading-relaxed mb-5 tracking-normal ${pClass} ${ac}`}
+        dangerouslySetInnerHTML={{ __html: parseInlineStyles(combined, theme, { font: currentFont, color: currentColor, bg: currentBg }) }}
+      />
+    );
+  };
 
   const flushList = () => {
     if (listItems.length > 0) {
@@ -111,6 +131,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
     // 1. Detect QR code block (custom HTML or clean markup)
     // Looking for qr-block patterns or specialized tags
     if (line.includes('qr-block') || line.includes('api.qrserver.com') || line.includes('[qr:')) {
+      flushParagraph();
       flushList();
       
       // Attempt to extract URL and Caption
@@ -215,6 +236,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
 
     // 2. Detect Image block (custom HTML or Markdown syntax)
     if (line.includes('<img') || line.startsWith('![') || line.includes('image-block')) {
+      flushParagraph();
       flushList();
 
       let imgSrc = '';
@@ -281,6 +303,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
 
     // 3. Headings (Markdown & HTML)
     if (line.startsWith('###') || line.startsWith('<h3>')) {
+      flushParagraph();
       flushList();
       const content = line.startsWith('###') ? line.slice(3).trim() : line.replace(/<\/?h3[^>]*>/g, '').trim();
       const h3Class = theme === 'light' ? 'text-indigo-600 font-bold' : 'text-amber-400 font-bold';
@@ -296,6 +319,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       continue;
     }
     if (line.startsWith('##') || line.startsWith('<h2>')) {
+      flushParagraph();
       flushList();
       const content = line.startsWith('##') ? line.slice(2).trim() : line.replace(/<\/?h2[^>]*>/g, '').trim();
       const h2Class = theme === 'light'
@@ -315,6 +339,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
 
     // 4. Blockquotes
     if (line.startsWith('>') || line.startsWith('<blockquote>')) {
+      flushParagraph();
       flushList();
       const content = line.startsWith('>') ? line.slice(1).trim() : line.replace(/<\/?blockquote[^>]*>/g, '').trim();
       const quoteClass = theme === 'light'
@@ -334,6 +359,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
 
     // 5. Bullet Lists
     if (line.startsWith('-') || line.startsWith('* ') || line.startsWith('<li>')) {
+      flushParagraph();
       const content = line.replace(/^[-*]\s*/, '').replace(/<\/?li[^>]*>/g, '').trim();
       inList = true;
       listItems.push(content);
@@ -349,18 +375,28 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       }
     }
 
+
     // 6. Normal line / paragraph
+    // Lines are accumulated into paragraphs — empty line = paragraph boundary
     if (line === '') {
-      elements.push(<div key={`space-${keyIndex++}`} className="h-3" />);
+      // Flush any accumulated paragraph text
+      if (paragraphBuffer.length > 0) {
+        const combined = paragraphBuffer.join(' ');
+        const pClass = theme === 'light' ? 'text-slate-800' : 'text-slate-200';
+        elements.push(
+          <p
+            key={`p-${keyIndex++}`}
+            className={`text-sm sm:text-base leading-relaxed mb-5 tracking-normal ${pClass} ${alignClass}`}
+            dangerouslySetInnerHTML={{ __html: parseInlineStyles(combined, theme, { font: currentFont, color: currentColor, bg: currentBg }) }}
+          />
+        );
+        paragraphBuffer = [];
+      } else {
+        // Extra spacing between paragraphs
+        elements.push(<div key={`space-${keyIndex++}`} className="h-2" />);
+      }
     } else {
-      const pClass = theme === 'light' ? 'text-slate-800' : 'text-slate-200';
-      elements.push(
-        <p 
-          key={`p-${keyIndex++}`} 
-          className={`text-sm sm:text-base leading-relaxed mb-4 tracking-normal ${pClass} ${alignClass}`}
-          dangerouslySetInnerHTML={{ __html: parseInlineStyles(line, theme, { font: currentFont, color: currentColor, bg: currentBg }) }}
-        />
-      );
+      paragraphBuffer.push(line);
     }
 
     if (closedAlignmentThisLine) currentAlignment = null;
@@ -369,10 +405,11 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
     if (closedBgThisLine) currentBg = null;
   }
 
-  // Flush any remaining list items at the end
+  // Flush remaining buffer and lists at the end
+  flushParagraph();
   flushList();
 
-  return <div className="space-y-1">{elements}</div>;
+  return <div className="space-y-0">{elements}</div>;
 };
 
 /**
