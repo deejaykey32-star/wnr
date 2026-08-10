@@ -486,28 +486,28 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
       {isYoutubeMode ? (
         <div id="youtube-frame-blog" className="w-full max-w-5xl min-h-[480px] sm:min-h-0 sm:aspect-video bg-slate-950 border-2 sm:border-4 border-slate-800 rounded-2xl shadow-2xl relative flex flex-col justify-between overflow-hidden mx-auto">
           {/* Top Header */}
-          <div className="bg-slate-900/90 backdrop-blur-md px-4 sm:px-6 py-3 flex flex-col sm:flex-row items-center justify-between border-b border-slate-800 gap-2">
-            <div className="flex items-center gap-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 animate-pulse"></span>
-              <span className="text-[10px] sm:text-xs font-mono tracking-widest text-slate-300 uppercase">
+          <div className="bg-slate-900/90 backdrop-blur-md px-3 sm:px-6 py-2.5 sm:py-3 flex flex-col sm:flex-row items-center justify-between border-b border-slate-800 gap-2 w-full max-w-full overflow-hidden text-center sm:text-left">
+            <div className="flex items-center justify-center gap-2 min-w-0 max-w-full">
+              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 animate-pulse shrink-0"></span>
+              <span className="text-[10px] sm:text-xs font-mono tracking-widest text-slate-300 uppercase truncate">
                 {formattedPolishDate} • {cycleInfo.cycleName}
               </span>
             </div>
-            <div className="text-[10px] sm:text-xs font-serif font-black text-amber-400 px-3 py-1 rounded bg-slate-950 border border-amber-500/20">
+            <div className="text-[10px] sm:text-xs font-serif font-black text-amber-400 px-3 py-1 rounded bg-slate-950 border border-amber-500/20 truncate max-w-full">
               Chwała Jezusowi w Bogu Ojcu
             </div>
             <button
               onClick={() => setIsYoutubeMode(false)}
-              className="text-[9px] sm:text-[10px] bg-slate-950 hover:bg-slate-800 text-slate-400 border border-slate-850 px-2.5 py-1 rounded font-mono transition cursor-pointer"
+              className="text-[9px] sm:text-[10px] bg-slate-950 hover:bg-slate-800 text-slate-400 border border-slate-850 px-2.5 py-1 rounded font-mono transition cursor-pointer shrink-0"
             >
               WYJDŹ Z WERSJI MINIMALISTYCZNEJ (ESC)
             </button>
           </div>
 
           {/* YT Content Row (Unrolled Beads + Auto scrolling text) */}
-          <div className="flex-1 grid grid-cols-12 items-stretch px-6 relative bg-slate-950 h-full overflow-hidden">
-            {/* RGBA Bead Strip */}
-            <div className="col-span-2 flex flex-col items-center justify-center relative py-6 border-r border-slate-900/40">
+          <div className="flex-1 grid grid-cols-12 items-stretch px-2 sm:px-6 relative bg-slate-950 h-full overflow-hidden">
+            {/* RGBA Bead Strip (Hidden on mobile < 640px) */}
+            <div className="hidden sm:flex col-span-2 flex-col items-center justify-center relative py-6 border-r border-slate-900/40">
               <div className="absolute top-2 text-[8px] font-mono font-bold tracking-widest text-sky-400">RGBA</div>
               <div className="absolute top-8 bottom-8 w-[1.5px] bg-gradient-to-b from-transparent via-sky-500/20 to-transparent z-0 border-r border-dashed border-sky-400/20" />
               <div className="flex flex-col items-center justify-between h-[80%] max-h-[300px] relative z-10 w-full">
@@ -520,7 +520,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
             </div>
 
             {/* Central Scrolling Blog Segments */}
-            <div className="col-span-8 flex flex-col justify-center px-6 py-4 h-full text-center relative overflow-hidden">
+            <div className="col-span-12 sm:col-span-8 flex flex-col justify-center px-2 sm:px-6 py-4 h-full text-center relative overflow-hidden">
               <div 
                 ref={scrollContainerRef}
                 className="flex-1 overflow-y-auto max-h-[190px] pr-2 custom-scrollbar flex flex-col items-center gap-4 scroll-smooth py-16"
@@ -532,7 +532,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                     <p
                       key={sIdx}
                       ref={el => { sentenceRefs.current[sIdx] = el; }}
-                      className={`text-base transition-all duration-500 text-center leading-relaxed font-sans max-w-2xl px-2 ${
+                      className={`text-sm sm:text-base transition-all duration-500 text-center leading-relaxed font-sans max-w-2xl px-2 ${
                         isCurrent 
                           ? "text-yellow-400 font-bold scale-105 drop-shadow-[0_2px_6px_rgba(234,179,8,0.4)]" 
                           : "text-slate-400 opacity-25 hover:opacity-50"
@@ -545,8 +545,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
               </div>
             </div>
 
-            {/* CMYK Bead Strip */}
-            <div className="col-span-2 flex flex-col items-center justify-center relative py-6 border-l border-slate-900/40">
+            {/* CMYK Bead Strip (Hidden on mobile < 640px) */}
+            <div className="hidden sm:flex col-span-2 flex-col items-center justify-center relative py-6 border-l border-slate-900/40">
               <div className="absolute top-2 text-[8px] font-mono font-bold tracking-widest text-amber-400">CMYK</div>
               <div className="absolute top-8 bottom-8 w-[1.5px] bg-gradient-to-b from-transparent via-amber-500/20 to-transparent z-0 border-r border-dashed border-amber-400/20" />
               <div className="flex flex-col items-center justify-between h-[80%] max-h-[300px] relative z-10 w-full">
@@ -560,33 +560,30 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
           </div>
 
           {/* YT Player Controls Bar */}
-          <div className="bg-slate-900/80 backdrop-blur-md px-4 sm:px-6 py-4 flex flex-col md:flex-row items-center justify-between border-t border-slate-800 gap-4">
-            <div className="flex items-center gap-2">
+          <div className="bg-slate-900/80 backdrop-blur-md px-3 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between border-t border-slate-800 gap-3 w-full max-w-full overflow-hidden">
+            <div className="flex items-center justify-center gap-2">
               <button
                 onClick={handlePrev}
-                className="p-2 text-slate-400 hover:text-white rounded-full hover:bg-slate-800 transition active:scale-90 cursor-pointer"
+                className="p-1.5 sm:p-2 text-slate-400 hover:text-white rounded-full hover:bg-slate-800 transition active:scale-90 cursor-pointer"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={handlePlayToggle}
-                className="p-2.5 bg-indigo-600 text-white hover:bg-indigo-500 rounded-full transition active:scale-95 shadow-md flex items-center justify-center cursor-pointer"
+                className="p-2 sm:p-2.5 bg-indigo-600 text-white hover:bg-indigo-500 rounded-full transition active:scale-95 shadow-md flex items-center justify-center cursor-pointer"
               >
                 {isPlaying ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current ml-0.5" />}
               </button>
               <button
                 onClick={handleNext}
-                className="p-2 text-slate-400 hover:text-white rounded-full hover:bg-slate-800 transition active:scale-90 cursor-pointer"
+                className="p-1.5 sm:p-2 text-slate-400 hover:text-white rounded-full hover:bg-slate-800 transition active:scale-90 cursor-pointer"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
               <button
                 onClick={() => setTtsEnabled(!ttsEnabled)}
                 title={ttsEnabled ? "Wyłącz lektora AI" : "Włącz lektora AI"}
-                className={`p-2 rounded-full border transition cursor-pointer flex items-center justify-center ${
+                className={`p-1.5 sm:p-2 rounded-full border transition cursor-pointer flex items-center justify-center ml-2 ${
                   ttsEnabled 
                     ? 'bg-emerald-950/40 text-emerald-400 border-emerald-800/50 hover:bg-emerald-900/30' 
                     : 'bg-slate-800 text-slate-500 border-slate-700 hover:text-slate-400'
@@ -594,14 +591,16 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
               >
                 {ttsEnabled ? <Mic className="w-4 h-4" /> : <MicOff className="w-4 h-4" />}
               </button>
+            </div>
 
-              <div className="h-2 w-24 sm:w-32 bg-slate-800 rounded-full overflow-hidden">
+            <div className="flex items-center justify-center gap-3 w-full sm:w-auto">
+              <div className="h-2 flex-1 sm:w-32 bg-slate-800 rounded-full overflow-hidden min-w-[80px]">
                 <div
                   className="h-full bg-indigo-500 transition-all duration-300"
                   style={{ width: `${((activeSegmentIndex + 1) / blogSegments.length) * 100}%` }}
                 ></div>
               </div>
-              <span className="text-xs font-mono text-slate-400">
+              <span className="text-xs font-mono text-slate-400 shrink-0">
                 Segment {activeSegmentIndex + 1} / {blogSegments.length}
               </span>
             </div>

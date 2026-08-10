@@ -1331,30 +1331,30 @@ export default function App() {
         {activeTab === 'rosary' ? (
           /* WERSJA MINIMALISTYCZNA FRAME */
           isYoutubeMode ? (
-          <div id="youtube-frame" className="w-full max-w-5xl min-h-[480px] sm:min-h-0 sm:aspect-video bg-slate-950 border-2 sm:border-4 border-slate-800 rounded-2xl shadow-2xl relative flex flex-col justify-between overflow-hidden">
+          <div id="youtube-frame" className="w-full max-w-5xl min-h-[480px] sm:min-h-0 sm:aspect-video bg-slate-950 border-2 sm:border-4 border-slate-800 rounded-2xl shadow-2xl relative flex flex-col justify-between overflow-hidden mx-auto">
             {/* Top status bar of minimalist view */}
-            <div className="bg-slate-900/90 backdrop-blur-md px-6 py-3 flex items-center justify-between border-b border-slate-800">
-              <div className="flex items-center gap-3">
-                <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 animate-pulse"></span>
-                <span className="text-xs font-mono tracking-widest text-slate-300 uppercase">
+            <div className="bg-slate-900/90 backdrop-blur-md px-3 sm:px-6 py-2.5 sm:py-3 flex flex-col sm:flex-row items-center justify-between border-b border-slate-800 gap-2 w-full max-w-full overflow-hidden text-center sm:text-left">
+              <div className="flex items-center justify-center gap-2 min-w-0 max-w-full">
+                <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 animate-pulse shrink-0"></span>
+                <span className="text-[10px] sm:text-xs font-mono tracking-widest text-slate-300 uppercase truncate">
                   {cycleInfo.cycleName}
                 </span>
               </div>
-              <div className="text-xs font-bold text-slate-300 bg-slate-800 px-3 py-1 rounded-full font-mono">
+              <div className="text-[10px] sm:text-xs font-bold text-slate-300 bg-slate-800 px-3 py-1 rounded-full font-mono truncate max-w-full">
                 {activeStep.label}
               </div>
               <button
                 onClick={() => setIsYoutubeMode(false)}
-                className="text-[10px] bg-slate-950 hover:bg-slate-800 text-slate-400 border border-slate-800 px-2.5 py-0.5 rounded font-mono transition cursor-pointer"
+                className="text-[9px] sm:text-[10px] bg-slate-950 hover:bg-slate-800 text-slate-400 border border-slate-800 px-2.5 py-1 rounded font-mono transition cursor-pointer shrink-0"
               >
                 WYJDŹ Z WERSJI MINIMALISTYCZNEJ (ESC)
               </button>
             </div>
 
             {/* Inner row containing the unrolled bead strips and centered scrolling prayer text */}
-            <div className="flex-1 grid grid-cols-12 items-stretch px-6 relative bg-slate-950 h-full overflow-hidden">
-              {/* LEFT COLUMN: RGBA Vertical Strip */}
-              <div className="col-span-2 flex flex-col items-center justify-center relative py-6 border-r border-slate-900/40">
+            <div className="flex-1 grid grid-cols-12 items-stretch px-2 sm:px-6 relative bg-slate-950 h-full overflow-hidden">
+              {/* LEFT COLUMN: RGBA Vertical Strip (Hidden on mobile < 640px) */}
+              <div className="hidden sm:flex col-span-2 flex-col items-center justify-center relative py-6 border-r border-slate-900/40">
                 <div className="absolute top-2 text-[8px] font-mono font-bold tracking-widest text-sky-400">
                   RGBA
                 </div>
@@ -1372,13 +1372,13 @@ export default function App() {
               </div>
 
               {/* MIDDLE COLUMN: Auto-scrolling Prayer Text */}
-              <div className="col-span-8 flex flex-col justify-center px-6 py-4 h-full text-center relative overflow-hidden">
+              <div className="col-span-12 sm:col-span-8 flex flex-col justify-center px-2 sm:px-6 py-4 h-full text-center relative overflow-hidden">
                 {/* Active step details / header */}
                 <div className="mb-2 text-center shrink-0">
                   <span className="text-[9px] text-indigo-400 uppercase tracking-widest font-mono font-black mb-0.5 block">
                     {activeStep.label}
                   </span>
-                  <h3 className="text-xl font-serif text-white tracking-tight">
+                  <h3 className="text-base sm:text-xl font-serif text-white tracking-tight leading-tight">
                     {activeStep.prayerType === 'mystery' 
                       ? `TAJEMNICA ${activeStep.decadeIndex}`
                       : prayers[activeStep.prayerType]?.title || DEFAULT_PRAYERS[activeStep.prayerType]?.title}
@@ -1397,7 +1397,7 @@ export default function App() {
                       <p
                         key={sIdx}
                         ref={el => { sentenceRefs.current[sIdx] = el; }}
-                        className={`text-base transition-all duration-500 text-center leading-relaxed font-sans max-w-2xl px-2 ${
+                        className={`text-sm sm:text-base transition-all duration-500 text-center leading-relaxed font-sans max-w-2xl px-2 ${
                           isCurrent 
                             ? "text-yellow-400 font-bold scale-105 drop-shadow-[0_2px_6px_rgba(234,179,8,0.4)]" 
                             : "text-slate-400 opacity-30 hover:opacity-50"
@@ -1410,8 +1410,8 @@ export default function App() {
                 </div>
               </div>
 
-              {/* RIGHT COLUMN: CMYK Vertical Strip */}
-              <div className="col-span-2 flex flex-col items-center justify-center relative py-6 border-l border-slate-900/40">
+              {/* RIGHT COLUMN: CMYK Vertical Strip (Hidden on mobile < 640px) */}
+              <div className="hidden sm:flex col-span-2 flex-col items-center justify-center relative py-6 border-l border-slate-900/40">
                 <div className="absolute top-2 text-[8px] font-mono font-bold tracking-widest text-amber-400">
                   CMYK
                 </div>
@@ -1430,35 +1430,30 @@ export default function App() {
             </div>
 
             {/* Bottom playback control bar of YouTube Frame */}
-            <div className="bg-slate-900/80 backdrop-blur-md px-6 py-4 flex items-center justify-between border-t border-slate-800">
-              <div className="flex items-center gap-2">
+            <div className="bg-slate-900/80 backdrop-blur-md px-3 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between border-t border-slate-800 gap-3 w-full max-w-full overflow-hidden">
+              <div className="flex items-center justify-center gap-2">
                 <button
                   onClick={handlePrev}
-                  className="p-2 text-slate-400 hover:text-white rounded-full hover:bg-slate-800 transition active:scale-90 cursor-pointer"
+                  className="p-1.5 sm:p-2 text-slate-400 hover:text-white rounded-full hover:bg-slate-800 transition active:scale-90 cursor-pointer"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={() => setIsPlaying(!isPlaying)}
-                  className="p-2.5 bg-indigo-600 text-white hover:bg-indigo-500 rounded-full transition active:scale-95 shadow-md flex items-center justify-center cursor-pointer"
+                  className="p-2 sm:p-2.5 bg-indigo-600 text-white hover:bg-indigo-500 rounded-full transition active:scale-95 shadow-md flex items-center justify-center cursor-pointer"
                 >
                   {isPlaying ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current ml-0.5" />}
                 </button>
                 <button
                   onClick={handleNext}
-                  className="p-2 text-slate-400 hover:text-white rounded-full hover:bg-slate-800 transition active:scale-90 cursor-pointer"
+                  className="p-1.5 sm:p-2 text-slate-400 hover:text-white rounded-full hover:bg-slate-800 transition active:scale-90 cursor-pointer"
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>
-              </div>
-
-              {/* Delay and Progress Indicators */}
-              <div className="flex items-center gap-6">
-                {/* YouTube Mode Lektor Toggle */}
                 <button
                   onClick={() => setTtsEnabled(!ttsEnabled)}
                   title={ttsEnabled ? "Wyłącz lektora AI TTS" : "Włącz lektora AI TTS"}
-                  className={`p-2 rounded-full border transition cursor-pointer flex items-center justify-center ${
+                  className={`p-1.5 sm:p-2 rounded-full border transition cursor-pointer flex items-center justify-center ml-2 ${
                     ttsEnabled 
                       ? 'bg-emerald-950/40 text-emerald-400 border-emerald-800/50 hover:bg-emerald-900/30' 
                       : 'bg-slate-800 text-slate-500 border-slate-700 hover:text-slate-400'
@@ -1466,14 +1461,17 @@ export default function App() {
                 >
                   {ttsEnabled ? <Mic className="w-4 h-4" /> : <MicOff className="w-4 h-4" />}
                 </button>
+              </div>
 
-                <div className="h-2 w-32 bg-slate-800 rounded-full overflow-hidden">
+              {/* Delay and Progress Indicators */}
+              <div className="flex items-center justify-center gap-3 w-full sm:w-auto">
+                <div className="h-2 flex-1 sm:w-32 bg-slate-800 rounded-full overflow-hidden min-w-[80px]">
                   <div
                     className="h-full bg-indigo-500 transition-all duration-300"
                     style={{ width: `${((activeStepIndex + 1) / steps.length) * 100}%` }}
                   ></div>
                 </div>
-                <span className="text-xs font-mono text-slate-400">
+                <span className="text-xs font-mono text-slate-400 shrink-0">
                   {activeStepIndex + 1} / {steps.length}
                 </span>
               </div>
