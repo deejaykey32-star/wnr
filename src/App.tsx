@@ -178,13 +178,28 @@ export default function App() {
   useEffect(() => {
     const handleUrlRoute = () => {
       const path = window.location.pathname;
+      if (!path || path === '/' || path === '/index.html') {
+        const today = getInitialUniversalDate();
+        setSelectedDate(today);
+        return;
+      }
+
       const match = path.match(/^\/(rhz365-day|wnr365-day)-(\d+)/i);
       if (match) {
         const type = match[1].toLowerCase();
         const dayNum = parseInt(match[2], 10);
         if (dayNum >= 1 && dayNum <= 175) {
-          const cycleStart = new Date(2025, 11, 25, 12, 0, 0, 0);
-          const targetDate = new Date(cycleStart.getTime() + (dayNum - 1) * 86400000);
+          const today = new Date();
+          const cycle2Start = new Date(2026, 5, 25, 12, 0, 0, 0); // Jun 25, 2026
+          const cycle1Start = new Date(2025, 11, 25, 12, 0, 0, 0); // Dec 25, 2025
+
+          let targetDate: Date;
+          if (today >= cycle2Start) {
+            targetDate = new Date(cycle2Start.getTime() + (dayNum - 1) * 86400000);
+          } else {
+            targetDate = new Date(cycle1Start.getTime() + (dayNum - 1) * 86400000);
+          }
+
           setSelectedDate(targetDate);
           setActiveTab(type === 'wnr365-day' ? 'blog' : 'rosary');
         }
