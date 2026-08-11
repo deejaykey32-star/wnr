@@ -127,12 +127,13 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       const entries = Object.entries(prayers);
       let count = 0;
       for (const [prayerId, prayer] of entries) {
-        if (prayer.text && prayer.title) {
+        const typedPrayer = prayer as { title?: string; text?: string; updatedBy?: string; updatedAt?: string };
+        if (typedPrayer && typedPrayer.text && typedPrayer.title) {
           await setDoc(doc(db, 'prayers', prayerId), {
-            title: prayer.title,
-            text: prayer.text,
-            updatedBy: prayer.updatedBy || 'Admin Sync',
-            updatedAt: prayer.updatedAt || new Date().toISOString()
+            title: typedPrayer.title,
+            text: typedPrayer.text,
+            updatedBy: typedPrayer.updatedBy || 'Admin Sync',
+            updatedAt: typedPrayer.updatedAt || new Date().toISOString()
           });
           count++;
         }

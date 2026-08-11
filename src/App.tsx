@@ -26,14 +26,20 @@ import {
 export default function App() {
   // Theme state (global)
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-    return (localStorage.getItem('theme') as 'dark' | 'light') || 'dark';
+    try {
+      return (localStorage.getItem('theme') as 'dark' | 'light') || 'dark';
+    } catch {
+      return 'dark';
+    }
   });
 
   const toggleTheme = () => {
     setTheme(prev => {
       const next = prev === 'light' ? 'dark' : 'light';
-      localStorage.setItem('theme', next);
-      localStorage.setItem('prayer-editor-theme', next);
+      try {
+        localStorage.setItem('theme', next);
+        localStorage.setItem('prayer-editor-theme', next);
+      } catch {}
       return next;
     });
   };
@@ -41,7 +47,11 @@ export default function App() {
   // Auth state
   const [user, setUser] = useState<User | null>(null);
   const [localAuth, setLocalAuth] = useState<boolean>(() => {
-    return localStorage.getItem('local_editor_auth') === 'true';
+    try {
+      return localStorage.getItem('local_editor_auth') === 'true';
+    } catch {
+      return false;
+    }
   });
   const [showAuthModal, setShowAuthModal] = useState<boolean>(false);
   const [authErrorMsg, setAuthErrorMsg] = useState<string | null>(null);

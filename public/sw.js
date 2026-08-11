@@ -1,4 +1,4 @@
-const CACHE_NAME = 'embik365-v4-nosql-fresh';
+const CACHE_NAME = 'embik365-v5-spa-fix';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
@@ -33,13 +33,34 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch event: Network first for HTML/JS/CSS, offline fallback
+// Fetch event: Navigation SPA fallback + Network-first strategy
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET' || !event.request.url.startsWith('http')) {
     return;
   }
 
-  // Network-first strategy for navigation and assets
+  // Handle SPA Page Navigations (e.g. /wnr365-day-1, /rhz365-day-150)
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.ok) {
+            return networkResponse;
+          }
+          // If server responded with non-200 (e.g. 404), fallback to index.html
+          return caches.match('/index.html').then((cached) => cached || networkResponse);
+        })
+        .catch(() => {
+          // Offline fallback
+          return caches.match('/index.html').then((cached) => {
+            return cached || new Response('Offline', { status: 503, statusText: 'Offline' });
+          });
+        })
+    );
+    return;
+  }
+
+  // Assets and static requests: Network first with cache fallback
   event.respondWith(
     fetch(event.request)
       .then((networkResponse) => {
@@ -55,9 +76,6 @@ self.addEventListener('fetch', (event) => {
         return caches.match(event.request).then((cachedResponse) => {
           if (cachedResponse) {
             return cachedResponse;
-          }
-          if (event.request.mode === 'navigate') {
-            return caches.match('/index.html');
           }
           return new Response('Offline', { status: 503, statusText: 'Offline' });
         });
