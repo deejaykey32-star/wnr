@@ -113,7 +113,8 @@ export const generateCustomScopePdf = async (
     doc.setFont(fontName, 'bold');
     doc.setFontSize(8);
     doc.setTextColor(100, 116, 139); // slate-500
-    doc.text(titleText, margin, margin - 4);
+    const safeHeaderTitle = doc.splitTextToSize(titleText, contentWidth)[0] || titleText;
+    doc.text(safeHeaderTitle, margin, margin - 4);
 
     // Bottom running footer line
     doc.line(margin, pageHeight - margin + 2, pageWidth - margin, pageHeight - margin + 2);
@@ -309,11 +310,17 @@ export const generateCustomScopePdf = async (
       doc.setFont(fontName, 'bold');
       doc.setFontSize(11);
       doc.setTextColor(79, 70, 229);
-      doc.text(`RHZ365 — Dzień ${currentDayNum}: ${rhzTitle}`, margin, y);
-      y += 6.5;
+      const rhzSectionTitle = `RHZ365 — Dzień ${currentDayNum}: ${rhzTitle}`;
+      const splitRhzTitle = doc.splitTextToSize(rhzSectionTitle, contentWidth);
+      for (let l = 0; l < splitRhzTitle.length; l++) {
+        checkAndBreakPage(10, { style: 'bold', size: 11, color: [79, 70, 229] });
+        doc.text(splitRhzTitle[l], margin, y);
+        y += 5.5;
+      }
+      y += 1;
 
       if (parsedRHZ.success && parsedRHZ.data) {
-        // Reflection (12pt font, 1.5 line spacing)
+        // Reflection (12pt font, 1.5 line spacing, text-justify)
         doc.setFont(fontName, 'bold');
         doc.setFontSize(9.5);
         doc.setTextColor(15, 23, 42);
@@ -323,14 +330,20 @@ export const generateCustomScopePdf = async (
         doc.setFont(fontName, 'normal');
         doc.setFontSize(12); // 12pt book font
         doc.setTextColor(51, 65, 85);
-        const splitRefl = doc.splitTextToSize(parsedRHZ.data.reflectionText, contentWidth);
         
-        for (let l = 0; l < splitRefl.length; l++) {
-          checkAndBreakPage(10, { style: 'normal', size: 12, color: [51, 65, 85] });
-          doc.text(splitRefl[l], margin, y);
-          y += lineSpacing15; // 1.5 interlinia
+        // Split into paragraphs by newline
+        const reflParagraphs = parsedRHZ.data.reflectionText.split('\n').filter(p => p.trim());
+        for (const para of reflParagraphs) {
+          const splitRefl = doc.splitTextToSize(para, contentWidth);
+          for (let l = 0; l < splitRefl.length; l++) {
+            checkAndBreakPage(10, { style: 'normal', size: 12, color: [51, 65, 85] });
+            const isLastLine = (l === splitRefl.length - 1);
+            doc.text(splitRefl[l], margin, y, { align: isLastLine ? 'left' : 'justify', maxWidth: contentWidth });
+            y += lineSpacing15;
+          }
+          y += 2; // Extra space between paragraphs
         }
-        y += 3;
+        y += 2;
 
         // Our Father
         checkAndBreakPage(15);
@@ -341,12 +354,13 @@ export const generateCustomScopePdf = async (
         y += 5;
 
         doc.setFont(fontName, 'normal');
-        doc.setFontSize(12); // 12pt font
+        doc.setFontSize(12);
         doc.setTextColor(51, 65, 85);
         const splitFather = doc.splitTextToSize(parsedRHZ.data.ourFatherText, contentWidth);
         for (let l = 0; l < splitFather.length; l++) {
           checkAndBreakPage(10, { style: 'normal', size: 12, color: [51, 65, 85] });
-          doc.text(splitFather[l], margin, y);
+          const isLastLine = (l === splitFather.length - 1);
+          doc.text(splitFather[l], margin, y, { align: isLastLine ? 'left' : 'justify', maxWidth: contentWidth });
           y += lineSpacing15;
         }
         y += 3;
@@ -369,12 +383,14 @@ export const generateCustomScopePdf = async (
           y += 4.5;
 
           doc.setFont(fontName, 'normal');
-          doc.setFontSize(12); // 12pt
+          doc.setFontSize(12);
           doc.setTextColor(30, 41, 59);
-          const splitHm = doc.splitTextToSize(hmText, contentWidth - 3);
+          const hmWidth = contentWidth - 3;
+          const splitHm = doc.splitTextToSize(hmText, hmWidth);
           for (let l = 0; l < splitHm.length; l++) {
             checkAndBreakPage(10, { style: 'normal', size: 12, color: [30, 41, 59] });
-            doc.text(splitHm[l], margin + 3, y);
+            const isLastLine = (l === splitHm.length - 1);
+            doc.text(splitHm[l], margin + 3, y, { align: isLastLine ? 'left' : 'justify', maxWidth: hmWidth });
             y += lineSpacing15;
           }
           y += 2;
@@ -390,12 +406,13 @@ export const generateCustomScopePdf = async (
         y += 5;
 
         doc.setFont(fontName, 'normal');
-        doc.setFontSize(12); // 12pt
+        doc.setFontSize(12);
         doc.setTextColor(51, 65, 85);
         const splitGlory = doc.splitTextToSize(parsedRHZ.data.gloryBeFatimaText, contentWidth);
         for (let l = 0; l < splitGlory.length; l++) {
           checkAndBreakPage(10, { style: 'normal', size: 12, color: [51, 65, 85] });
-          doc.text(splitGlory[l], margin, y);
+          const isLastLine = (l === splitGlory.length - 1);
+          doc.text(splitGlory[l], margin, y, { align: isLastLine ? 'left' : 'justify', maxWidth: contentWidth });
           y += lineSpacing15;
         }
         y += 4;
@@ -403,11 +420,16 @@ export const generateCustomScopePdf = async (
         doc.setFont(fontName, 'normal');
         doc.setFontSize(12);
         doc.setTextColor(51, 65, 85);
-        const splitRaw = doc.splitTextToSize(rawRhzText, contentWidth);
-        for (let l = 0; l < splitRaw.length; l++) {
-          checkAndBreakPage(10, { style: 'normal', size: 12, color: [51, 65, 85] });
-          doc.text(splitRaw[l], margin, y);
-          y += lineSpacing15;
+        const rawParagraphs = rawRhzText.split('\n').filter(p => p.trim());
+        for (const para of rawParagraphs) {
+          const splitRaw = doc.splitTextToSize(para, contentWidth);
+          for (let l = 0; l < splitRaw.length; l++) {
+            checkAndBreakPage(10, { style: 'normal', size: 12, color: [51, 65, 85] });
+            const isLastLine = (l === splitRaw.length - 1);
+            doc.text(splitRaw[l], margin, y, { align: isLastLine ? 'left' : 'justify', maxWidth: contentWidth });
+            y += lineSpacing15;
+          }
+          y += 2;
         }
         y += 4;
       }
@@ -420,19 +442,31 @@ export const generateCustomScopePdf = async (
       doc.setFont(fontName, 'bold');
       doc.setFontSize(11);
       doc.setTextColor(217, 119, 6);
-      doc.text(`WnR365 — ${wnrDoc.title || `Widoki na Raj (Dzień ${currentDayNum})`}`, margin, y);
-      y += 6.5;
+      
+      const wnrTitleFull = `WnR365 — ${wnrDoc.title || `Widoki na Raj (Dzień ${currentDayNum})`}`;
+      const splitWnrTitle = doc.splitTextToSize(wnrTitleFull, contentWidth);
+      for (let l = 0; l < splitWnrTitle.length; l++) {
+        checkAndBreakPage(10, { style: 'bold', size: 11, color: [217, 119, 6] });
+        doc.text(splitWnrTitle[l], margin, y);
+        y += 5.5;
+      }
+      y += 1.5;
 
       doc.setFont(fontName, 'normal');
       doc.setFontSize(12); // 12pt book font
       doc.setTextColor(51, 65, 85);
-      const splitWnr = doc.splitTextToSize(wnrDoc.text || '', contentWidth);
-      
-      // Continuous line-by-line printing with 1.5 line height
-      for (let l = 0; l < splitWnr.length; l++) {
-        checkAndBreakPage(10, { style: 'normal', size: 12, color: [51, 65, 85] });
-        doc.text(splitWnr[l], margin, y);
-        y += lineSpacing15; // 1.5 interlinia
+
+      // Split into paragraphs for proper justified paragraph rendering
+      const wnrParagraphs = (wnrDoc.text || '').split('\n').filter(p => p.trim());
+      for (const para of wnrParagraphs) {
+        const splitWnr = doc.splitTextToSize(para, contentWidth);
+        for (let l = 0; l < splitWnr.length; l++) {
+          checkAndBreakPage(10, { style: 'normal', size: 12, color: [51, 65, 85] });
+          const isLastLine = (l === splitWnr.length - 1);
+          doc.text(splitWnr[l], margin, y, { align: isLastLine ? 'left' : 'justify', maxWidth: contentWidth });
+          y += lineSpacing15;
+        }
+        y += 2; // Extra spacing between paragraphs
       }
       y += 6;
     }
