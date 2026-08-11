@@ -349,7 +349,7 @@ export default function App() {
         blogTitle: activeEntry.title,
         blogText: activeEntry.text,
         prayers: prayers as any
-      }, (msg) => setPdfProgress(msg));
+      }, (msg, pct) => setPdfProgress(typeof pct === 'number' ? `${msg} (${pct}%)` : msg));
     } catch (err) {
       console.error("PDF Export Error: ", err);
       alert("Wystąpił błąd podczas generowania pliku PDF. Spróbuj ponownie.");
@@ -367,7 +367,7 @@ export default function App() {
       await generateYearlyEmbikPdf(
         prayers,
         blogEntries,
-        (msg) => setPdfProgress(msg)
+        (msg, pct) => setPdfProgress(typeof pct === 'number' ? `${msg} (${pct}%)` : msg)
       );
     } catch (err) {
       console.error("Yearly PDF Export Error: ", err);

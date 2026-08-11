@@ -56,11 +56,11 @@ export interface CustomPdfOptions {
 
 export const generateCustomScopePdf = async (
   options: CustomPdfOptions,
-  onProgress?: (msg: string) => void
+  onProgress?: (msg: string, percent?: number) => void
 ): Promise<void> => {
   const { scope, range, includeCover, dayOfCycle, prayers, blogEntries } = options;
 
-  if (onProgress) onProgress("Inicjalizacja generatora PDF A5 (czcionka Unicode 12pt)...");
+  if (onProgress) onProgress("Inicjalizacja generatora PDF A5 (czcionka Unicode 12pt)...", 0);
 
   // Format A5: 148 mm x 210 mm
   const doc = new jsPDF({
@@ -360,11 +360,16 @@ export const generateCustomScopePdf = async (
   };
 
   for (let currentDayNum = startDay; currentDayNum <= endDay; currentDayNum++) {
+    const progressCount = currentDayNum - startDay + 1;
+    const totalCount = endDay - startDay + 1;
+    const pct = Math.round((progressCount / totalCount) * 95);
+
     if (onProgress) {
-      const progressCount = currentDayNum - startDay + 1;
-      const totalCount = endDay - startDay + 1;
-      onProgress(`Składanie Dnia ${currentDayNum} (${progressCount}/${totalCount}) z czcionką 12pt...`);
+      onProgress(`Składanie pliku PDF: Dzień ${currentDayNum} (${progressCount}/${totalCount})...`, pct);
     }
+
+    // Yield control to browser main loop so UI progress bar updates smoothly without freezing
+    await new Promise((r) => setTimeout(r, 0));
 
     const dayIdx = currentDayNum - 1;
     const date = getDateFromDayIndex(dayIdx);
@@ -623,10 +628,10 @@ export const generateCustomScopePdf = async (
 
   doc.save(pdfFilename);
 
-  if (onProgress) onProgress("Pobieranie pliku PDF A5 zakończone pomyślnie!");
+  if (onProgress) onProgress("Pobieranie pliku PDF A5 zakończone pomyślnie!", 100);
 };
 
-export const generateEmbikPdf = async (data: any, onProgress?: (msg: string) => void) => {
+export const generateEmbikPdf = async (data: any, onProgress?: (msg: string, percent?: number) => void) => {
   return generateCustomScopePdf({
     scope: 'both',
     range: 'single',
@@ -641,7 +646,7 @@ export const generateEmbikPdf = async (data: any, onProgress?: (msg: string) => 
 export const generateYearlyEmbikPdf = async (
   prayers: Record<string, { title: string; text: string }>,
   blogEntries: Record<string, { title: string; text: string; dayIndex: number }>,
-  onProgress?: (msg: string) => void
+  onProgress?: (msg: string, percent?: number) => void
 ) => {
   return generateCustomScopePdf({
     scope: 'both',

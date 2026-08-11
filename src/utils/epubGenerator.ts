@@ -46,11 +46,11 @@ const extractUrlsFromText = (text: string): string[] => {
 
 export const generateEpubBook = async (
   options: EpubExportOptions,
-  onProgress?: (msg: string) => void
+  onProgress?: (msg: string, percent?: number) => void
 ): Promise<void> => {
   const { scope, range, includeCover, dayOfCycle, prayers, blogEntries } = options;
 
-  if (onProgress) onProgress("Inicjalizacja generatora EPUB (skład e-book 12pt)...");
+  if (onProgress) onProgress("Inicjalizacja generatora EPUB (skład e-book 12pt)...", 0);
 
   const zip = new JSZip();
 
@@ -66,7 +66,7 @@ export const generateEpubBook = async (
 </container>`;
   zip.file("META-INF/container.xml", containerXml);
 
-  // 3. OEBPS/style.css (12pt font size, line-height 1.5)
+  // 3. OEBPS/style.css
   const styleCss = `
 body {
   font-family: Georgia, "Times New Roman", serif;
@@ -201,11 +201,16 @@ p {
 
   for (let i = startDayIdx; i < endDayIdx; i++) {
     const dayNum = i + 1;
+    const current = i - startDayIdx + 1;
+    const total = endDayIdx - startDayIdx;
+    const pct = Math.round((current / total) * 85);
+
     if (onProgress) {
-      const current = i - startDayIdx + 1;
-      const total = endDayIdx - startDayIdx;
-      onProgress(`Generowanie EPUB dla Dnia ${dayNum} (${current}/${total})...`);
+      onProgress(`Generowanie rozdziałów EPUB: Dzień ${dayNum} (${current}/${total})...`, pct);
     }
+
+    // Yield control to browser main loop so progress bar updates smoothly without UI lag
+    await new Promise((r) => setTimeout(r, 0));
 
     const date = getDateFromDayIndex(i);
     const dayLabel = `${date.getDate()} ${MONTH_NAMES_GENITIVE[date.getMonth()]}`;
@@ -404,9 +409,17 @@ const formatParagraphsHtml = (rawText: string): string => {
 </package>`;
   zip.file("OEBPS/content.opf", opfContent);
 
-  if (onProgress) onProgress("Pakowanie pliku EPUB...");
+  if (onProgress) onProgress("Pakowanie archiwum EPUB...", 90);
 
-  const blob = await zip.generateAsync({ type: "blob", mimeType: "application/epub+zip" });
+  const blob = await zip.generateAsync(
+    { type: "blob", mimeType: "application/epub+zip" },
+    (metadata) => {
+      if (onProgress) {
+        const zipPct = 90 + Math.round((metadata.percent / 100) * 10);
+        onProgress(`Pakowanie archiwum EPUB (${Math.round(metadata.percent)}%)...`, Math.min(99, zipPct));
+      }
+    }
+  );
 
   const fileNameScope = scope === 'rhz365' ? 'RHZ365' : scope === 'wnr365' ? 'WnR365' : 'eMBiK365_RHZ365_WnR365';
   const fileNameRange = range === 'single' ? `Dzien_${dayOfCycle}` : 'Calosc_Ksiega';
@@ -421,5 +434,5 @@ const formatParagraphsHtml = (rawText: string): string => {
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 
-  if (onProgress) onProgress("Pobieranie pliku EPUB zakończone pomyślnie!");
+  if (onProgress) onProgress("Pobieranie pliku EPUB zakończone pomyślnie!", 100);
 };

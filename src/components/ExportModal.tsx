@@ -38,6 +38,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
   // Status & Progress
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
   const [progressMsg, setProgressMsg] = useState<string>('');
+  const [progressPercent, setProgressPercent] = useState<number>(0);
 
   // Admin JSON Backup
   const [jsonRhz, setJsonRhz] = useState<boolean>(true);
@@ -49,7 +50,16 @@ export const ExportModal: React.FC<ExportModalProps> = ({
 
   const handleBookExport = async () => {
     setIsGenerating(true);
-    setProgressMsg('Przygotowywanie pliku publikacji...');
+    setProgressPercent(0);
+    setProgressMsg('Przygotowywanie danych do eksportu...');
+
+    const onProgressCallback = (msg: string, percent?: number) => {
+      setProgressMsg(msg);
+      if (typeof percent === 'number') {
+        setProgressPercent(percent);
+      }
+    };
+
     try {
       if (exportFormat === 'pdf') {
         await generateCustomScopePdf({
@@ -60,7 +70,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
           dayOfCycle,
           prayers,
           blogEntries
-        }, (msg) => setProgressMsg(msg));
+        }, onProgressCallback);
       } else {
         await generateEpubBook({
           scope: exportScope,
@@ -70,7 +80,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
           dayOfCycle,
           prayers,
           blogEntries
-        }, (msg) => setProgressMsg(msg));
+        }, onProgressCallback);
       }
     } catch (err) {
       console.error('Błąd eksportu publikacji:', err);
@@ -78,6 +88,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
     } finally {
       setIsGenerating(false);
       setProgressMsg('');
+      setProgressPercent(0);
     }
   };
 
@@ -304,11 +315,26 @@ export const ExportModal: React.FC<ExportModalProps> = ({
             </span>
           </label>
 
-          {/* Progress Message Box */}
-          {progressMsg && (
-            <div className="p-3 bg-indigo-950/60 border border-indigo-800/80 text-indigo-300 rounded-xl text-xs font-mono animate-pulse flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-indigo-400 shrink-0" />
-              <span>{progressMsg}</span>
+          {/* Animated Progress Bar Box */}
+          {isGenerating && (
+            <div className={`p-4 rounded-xl border space-y-2.5 transition-all ${
+              isLight ? 'bg-indigo-50 border-indigo-200 text-indigo-900' : 'bg-indigo-950/80 border-indigo-800 text-indigo-200'
+            }`}>
+              <div className="flex items-center justify-between text-xs font-bold font-mono">
+                <div className="flex items-center gap-2 overflow-hidden">
+                  <Sparkles className="w-4 h-4 text-indigo-400 animate-spin shrink-0" />
+                  <span className="truncate max-w-[260px] sm:max-w-[360px]">{progressMsg || 'Generowanie publikacji...'}</span>
+                </div>
+                <span className="text-indigo-400 font-extrabold shrink-0 ml-2">{progressPercent}%</span>
+              </div>
+
+              {/* Progress Bar Track */}
+              <div className="w-full bg-slate-900/60 rounded-full h-3 overflow-hidden p-0.5 border border-indigo-700/50">
+                <div 
+                  className="bg-gradient-to-r from-indigo-500 via-sky-400 to-emerald-400 h-full rounded-full transition-all duration-200 ease-out shadow-sm"
+                  style={{ width: `${Math.max(2, Math.min(100, progressPercent))}%` }}
+                />
+              </div>
             </div>
           )}
 
@@ -321,7 +347,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
           >
             <Download className="w-4 h-4 sm:w-5 sm:h-5" />
             {isGenerating 
-              ? 'Generowanie Publikacji...' 
+              ? `Generowanie Publikacji (${progressPercent}%)...` 
               : `Generuj i Pobierz Plik ${exportFormat.toUpperCase()} (${exportRange === 'single' ? `Dzień ${dayOfCycle}` : 'Całość 365 Dni'})`}
           </button>
 
