@@ -46,42 +46,75 @@ function openDb(): Promise<IDBDatabase> {
   return dbPromise;
 }
 
+// Increment this version whenever wnr365_pdf_entries.json content changes significantly.
+// This forces a full IndexedDB reseed on next app load, clearing stale cached data.
+const DATA_VERSION = '2026-08-11-v3';
+const DATA_VERSION_KEY = 'wnr365_db_data_version';
+
 /**
- * Initializes local IndexedDB NoSQL database and seeds all 365 WnR365 entries from PDF JSON if empty.
+ * Initializes local IndexedDB NoSQL database.
+ * Seeds / re-seeds all 365 WnR365 entries from the bundled PDF JSON whenever
+ * DATA_VERSION changes — ensuring users always get the latest clean data.
  */
 export async function initLocalNoSqlDb(): Promise<void> {
   try {
+    const storedVersion = localStorage.getItem(DATA_VERSION_KEY);
+    const needsReseed = storedVersion !== DATA_VERSION;
+
     const db = await openDb();
     const tx = db.transaction(BLOG_STORE, 'readwrite');
     const store = tx.objectStore(BLOG_STORE);
 
-    const countReq = store.count();
-    countReq.onsuccess = () => {
-      if (countReq.result === 0) {
-        console.log('[NoSQL] Seeding IndexedDB with 365 entries from PDF JSON...');
-        Object.entries(wnrPdfMap).forEach(([docId, entry]) => {
-          store.put({
-            docId,
-            dayIndex: entry.dayIndex,
-            title: entry.title,
-            text: entry.text,
-            updatedBy: entry.updatedBy || 'eMBiK365 Księga A5 PDF',
-            updatedAt: entry.updatedAt || new Date().toISOString()
-          });
+    if (needsReseed) {
+      console.log(`[NoSQL] Data version changed (${storedVersion} → ${DATA_VERSION}). Re-seeding IndexedDB with fresh PDF data...`);
+      // Clear old data so stale entries don't persist
+      store.clear();
+      Object.entries(wnrPdfMap).forEach(([docId, entry]) => {
+        store.put({
+          docId,
+          dayIndex: entry.dayIndex,
+          title: entry.title,
+          text: entry.text,
+          updatedBy: entry.updatedBy || 'eMBiK365 Księga A5 PDF',
+          updatedAt: entry.updatedAt || new Date().toISOString()
         });
-      }
-    };
+      });
+      // Wait for transaction to complete before saving version
+      tx.oncomplete = () => {
+        localStorage.setItem(DATA_VERSION_KEY, DATA_VERSION);
+        console.log(`[NoSQL] Re-seed complete. Version set to ${DATA_VERSION}.`);
+      };
+    } else {
+      const countReq = store.count();
+      countReq.onsuccess = () => {
+        if (countReq.result === 0) {
+          console.log('[NoSQL] Empty IndexedDB — seeding with PDF JSON...');
+          Object.entries(wnrPdfMap).forEach(([docId, entry]) => {
+            store.put({
+              docId,
+              dayIndex: entry.dayIndex,
+              title: entry.title,
+              text: entry.text,
+              updatedBy: entry.updatedBy || 'eMBiK365 Księga A5 PDF',
+              updatedAt: entry.updatedAt || new Date().toISOString()
+            });
+          });
+        }
+      };
+    }
   } catch (err) {
     console.warn('[NoSQL] Failed to initialize IndexedDB:', err);
   }
 }
 
+
 /**
- * Gets all local blog entries: starts from PDF JSON seed, overlaid with IndexedDB user edits.
+ * Gets all local blog entries: starts from bundled PDF JSON, overlaid ONLY with
+ * admin-edited entries from IndexedDB (not seeded PDF data).
  * NEVER fetches from Firestore.
  */
 export async function getAllLocalBlogEntries(): Promise<Record<string, LocalBlogEntry>> {
-  // Start from the bundled PDF JSON (always available)
+  // Always start from the fresh bundled PDF JSON
   const result: Record<string, LocalBlogEntry> = {};
   Object.entries(wnrPdfMap).forEach(([docId, entry]) => {
     result[docId] = {
@@ -90,11 +123,11 @@ export async function getAllLocalBlogEntries(): Promise<Record<string, LocalBlog
       title: entry.title,
       text: entry.text,
       updatedBy: entry.updatedBy || 'eMBiK365 Księga A5 PDF',
-      updatedAt: entry.updatedAt || '2026-08-10T00:00:00.000Z'
+      updatedAt: entry.updatedAt || '2026-08-11T00:00:00.000Z'
     };
   });
 
-  // Overlay with IndexedDB user edits (if any)
+  // Overlay with IndexedDB entries ONLY if they were admin-edited (not seed data)
   try {
     const db = await openDb();
     return new Promise((resolve) => {
@@ -105,12 +138,14 @@ export async function getAllLocalBlogEntries(): Promise<Record<string, LocalBlog
       req.onsuccess = () => {
         if (req.result && Array.isArray(req.result)) {
           req.result.forEach((item: LocalBlogEntry) => {
-            if (item && item.docId) {
+            // Only overlay entries that were genuinely admin-edited, not seeded entries
+            if (item && item.docId && item.updatedBy && item.updatedBy !== 'eMBiK365 Księga A5 PDF') {
               result[item.docId] = item;
             }
           });
         }
         resolve(result);
+
       };
 
       req.onerror = () => resolve(result);
