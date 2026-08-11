@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { db } from '../firebase';
-import { collection, doc, onSnapshot, setDoc } from 'firebase/firestore';
+// Firestore is no longer auto-synced. Use AdminSyncPanel for manual Firestore operations.
+// import { db } from '../firebase';
+// import { collection, doc, onSnapshot, setDoc } from 'firebase/firestore';
 import { getRGBABeads, getCMYKBeads } from '../data/prayers';
 import { playBeadChime } from '../utils/audio';
 import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechPaused, isSpeechSpeaking } from '../utils/tts';
@@ -349,7 +350,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isYoutubeMode]);
 
-  // Save changes to Firestore
+  // Save changes to LOCAL IndexedDB only. Use AdminSyncPanel to push to Firestore.
   const handleSave = async () => {
     if (!editTitle.trim() || !editText.trim()) {
       setSaveStatus({ success: false, message: "Tytuł i treść nie mogą być puste!" });
@@ -360,30 +361,19 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     setSaveStatus(null);
 
     try {
-      // 1. Always persist to local IndexedDB NoSQL store
+      // Save to local IndexedDB NoSQL store (primary source)
       await saveLocalBlogEntry(docId, {
         title: editTitle.trim(),
         text: editText.trim(),
         dayIndex: cycleInfo.dayIndex,
-        updatedBy: user?.email || 'Dominik'
+        updatedBy: user?.email || 'Edytor'
       });
-
-      // 2. Try persisting to Cloud Firestore
-      await setDoc(doc(db, 'blog_entries', docId), {
-        title: editTitle.trim(),
-        text: editText.trim(),
-        dayIndex: cycleInfo.dayIndex,
-        updatedBy: user?.email || 'Dominik',
-        updatedAt: new Date().toISOString()
-      });
-      setSaveStatus({ success: true, message: "Wpis blogowy zapisany w bazie lokalnej oraz chmurze!" });
+      setSaveStatus({ success: true, message: "Wpis zapisany w lokalnej bazie NoSQL! Aby wysłać do Firestore, użyj panelu synchronizacji." });
       setEditing(false);
-      setTimeout(() => setSaveStatus(null), 3000);
+      setTimeout(() => setSaveStatus(null), 5000);
     } catch (err: any) {
-      console.error("Failed to save to Cloud Firestore (saved in local NoSQL database):", err);
-      setSaveStatus({ success: true, message: `Zapisano pomyślnie w lokalnej bazie NoSQL IndexedDB! (Chmura niedostępna)` });
-      setEditing(false);
-      setTimeout(() => setSaveStatus(null), 4000);
+      console.error("Failed to save locally:", err);
+      setSaveStatus({ success: false, message: `Błąd zapisu lokalnego: ${err.message}` });
     } finally {
       setSaving(false);
     }

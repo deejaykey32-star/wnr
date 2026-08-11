@@ -1,15 +1,15 @@
 import { useEffect, useState, useRef, useMemo } from 'react';
-import { db, auth, loginWithGoogle, logout, onAuthStateChanged, handleRedirectLogin, User } from './firebase';
-import { collection, onSnapshot } from 'firebase/firestore';
+import { auth, loginWithGoogle, logout, onAuthStateChanged, handleRedirectLogin, User } from './firebase';
 import { 
   DEFAULT_PRAYERS, getRGBABeads, getCMYKBeads, getPrayerSteps, 
   getCycleDayInfo, getActiveDecadeMystery, getDecadeForDay 
 } from './data/prayers';
-import { getAllWnrDefaultBlogEntries, getWnrDefaultBlogEntry } from './utils/wnrBlogDefaults';
-import { initLocalNoSqlDb, getAllLocalBlogEntries, saveLocalBlogEntry } from './utils/localNoSqlDb';
+import { getWnrDefaultBlogEntry } from './utils/wnrBlogDefaults';
+import { initLocalNoSqlDb, getAllLocalBlogEntries, saveLocalBlogEntry, getLocalPrayers } from './utils/localNoSqlDb';
 import { RosaryRenderer } from './components/RosaryRenderer';
 import { PrayerEditor } from './components/PrayerEditor';
 import { BlogSection } from './components/BlogSection';
+import { AdminSyncPanel } from './components/AdminSyncPanel';
 import { RichTextRenderer } from './utils/richTextHelper';
 import { parseDayText } from './utils/rhzParser';
 import { playBeadChime } from './utils/audio';
@@ -20,7 +20,7 @@ import { PwaInstallPrompt } from './components/PwaInstallPrompt';
 import { 
   Play, Pause, ChevronLeft, ChevronRight, RotateCcw, 
   LogIn, LogOut, Video, Edit3, Sliders, Volume2, Info, BookOpen, Mic, MicOff, Calendar, FileDown,
-  Sun, Moon, ShieldAlert, Key, X, ExternalLink, Search, Share2, Check, Smartphone
+  Sun, Moon, ShieldAlert, Key, X, ExternalLink, Search, Share2, Check, Smartphone, RefreshCw
 } from 'lucide-react';
 
 export default function App() {
@@ -144,9 +144,12 @@ export default function App() {
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
   const [ttsEnabled, setTtsEnabled] = useState<boolean>(true);
 
-  // Blog entries synced from Firestore (pre-populated with complete authentic 365 defaults)
-  const [blogEntries, setBlogEntries] = useState<Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>>(() => getAllWnrDefaultBlogEntries());
-  
+  // Blog entries: local-first from PDF JSON + IndexedDB. NEVER auto-synced from Firestore.
+  const [blogEntries, setBlogEntries] = useState<Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>>({});
+
+  // Admin Sync Panel
+  const [showAdminSync, setShowAdminSync] = useState<boolean>(false);
+
   // PDF Exporting States
   const [isExportingPdf, setIsExportingPdf] = useState<boolean>(false);
   const [pdfProgress, setPdfProgress] = useState<string>('');
@@ -276,65 +279,21 @@ export default function App() {
     return () => unsub();
   }, []);
 
-  // Sync Prayers and Blog Entries in Realtime from Firestore
+  // LOCAL-FIRST: Load blog entries and prayers from local NoSQL (PDF JSON + IndexedDB).
+  // Firestore is NEVER auto-synced. Use AdminSyncPanel for manual Firestore operations.
   useEffect(() => {
-    const unsubPrayers = onSnapshot(collection(db, 'prayers'), (snapshot) => {
-      const updatedPrayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }> = { ...DEFAULT_PRAYERS };
-      snapshot.forEach((doc) => {
-        const data = doc.data();
-        if (data && data.title && data.text) {
-          updatedPrayers[doc.id] = {
-            title: data.title,
-            text: data.text,
-            updatedBy: data.updatedBy,
-            updatedAt: data.updatedAt
-          };
-        }
-      });
-      setPrayers(updatedPrayers);
-    }, (error) => {
-      console.warn("Firestore listener failed or permissions missing. Using local defaults:", error);
-    });
+    initLocalNoSqlDb().then(async () => {
+      const localEntries = await getAllLocalBlogEntries();
+      setBlogEntries(localEntries);
+      console.log('[App] Loaded', Object.keys(localEntries).length, 'blog entries from local NoSQL');
 
-    const unsubBlog = onSnapshot(collection(db, 'blog_entries'), (snapshot) => {
-      const updated: Record<string, any> = getAllWnrDefaultBlogEntries(prayers);
-      snapshot.forEach((doc) => {
-        const data = doc.data();
-        if (data && data.title && data.text) {
-          const isGeneric = data.text.includes("Chwała Jezusowi w Bogu Ojcu!") || 
-                            data.text.includes("To jest Twój wpis blogowy Widoki na Raj") ||
-                            data.text.includes("Kliknij przycisk „Edytuj Wpis” powyżej");
-          if (!isGeneric) {
-            updated[doc.id] = {
-              title: data.title,
-              text: data.text,
-              dayIndex: data.dayIndex ?? 0,
-              updatedBy: data.updatedBy,
-              updatedAt: data.updatedAt
-            };
-          }
-        }
-      });
-      setBlogEntries(updated);
-    }, (error) => {
-      console.warn("Firestore blog entries listener failed (Quota/Offline). Using local NoSQL store (IndexedDB):", error);
-      getAllLocalBlogEntries().then(localEntries => {
-        setBlogEntries(localEntries);
-      });
+      const localPrayers = await getLocalPrayers();
+      if (localPrayers && Object.keys(localPrayers).length > 0) {
+        setPrayers(prev => ({ ...DEFAULT_PRAYERS, ...localPrayers }));
+        console.log('[App] Loaded', Object.keys(localPrayers).length, 'prayers from IndexedDB');
+      }
     });
-
-    // Seed & load local NoSQL store (IndexedDB)
-    initLocalNoSqlDb().then(() => {
-      getAllLocalBlogEntries().then(localEntries => {
-        setBlogEntries(prev => ({ ...localEntries, ...prev }));
-      });
-    });
-
-    return () => {
-      unsubPrayers();
-      unsubBlog();
-    };
-  }, [prayers]);
+  }, []);
 
   const handleExportPdf = async () => {
     setIsExportingPdf(true);
@@ -1153,6 +1112,13 @@ export default function App() {
                     </button>
                   )}
                   <button
+                    onClick={() => setShowAdminSync(true)}
+                    title="Panel synchronizacji danych (Firestore ↔ Lokalny)"
+                    className="p-0.5 bg-amber-600/10 text-amber-500 hover:bg-amber-600/20 rounded transition-colors cursor-pointer shrink-0"
+                  >
+                    <RefreshCw className="w-3 h-3" />
+                  </button>
+                  <button
                     onClick={handleLogout}
                     title="Wyloguj się"
                     className="p-0.5 bg-indigo-600/10 text-indigo-500 hover:bg-indigo-600/20 rounded transition-colors cursor-pointer shrink-0"
@@ -1176,6 +1142,17 @@ export default function App() {
             </div>
           </div>
         </header>
+      )}
+      {/* Admin Sync Panel Modal */}
+      {showAdminSync && isAuthorized && (
+        <AdminSyncPanel
+          onClose={() => setShowAdminSync(false)}
+          theme={theme}
+          blogEntries={blogEntries}
+          prayers={prayers}
+          onBlogEntriesUpdated={setBlogEntries}
+          onPrayersUpdated={setPrayers}
+        />
       )}
 
       {/* DETAILED CONTENT AREA */}

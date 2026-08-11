@@ -29,7 +29,7 @@ function openDb(): Promise<IDBDatabase> {
 
     const request = indexedDB.open(DB_NAME, DB_VERSION);
 
-    request.onupgradeneeded = (event) => {
+    request.onupgradeneeded = () => {
       const db = request.result;
       if (!db.objectStoreNames.contains(BLOG_STORE)) {
         db.createObjectStore(BLOG_STORE, { keyPath: 'docId' });
@@ -47,8 +47,7 @@ function openDb(): Promise<IDBDatabase> {
 }
 
 /**
- * Initializes local IndexedDB NoSQL database and seeds all 365 WnR365 entries
- * extracted from eMBiK365_RHZ365_WnR365_Calosc_Ksiega_A5 (1).pdf if empty.
+ * Initializes local IndexedDB NoSQL database and seeds all 365 WnR365 entries from PDF JSON if empty.
  */
 export async function initLocalNoSqlDb(): Promise<void> {
   try {
@@ -59,7 +58,7 @@ export async function initLocalNoSqlDb(): Promise<void> {
     const countReq = store.count();
     countReq.onsuccess = () => {
       if (countReq.result === 0) {
-        console.log('Seeding local NoSQL database (IndexedDB) with 365 entries from PDF...');
+        console.log('[NoSQL] Seeding IndexedDB with 365 entries from PDF JSON...');
         Object.entries(wnrPdfMap).forEach(([docId, entry]) => {
           store.put({
             docId,
@@ -73,14 +72,29 @@ export async function initLocalNoSqlDb(): Promise<void> {
       }
     };
   } catch (err) {
-    console.warn('Failed to initialize local IndexedDB NoSQL database:', err);
+    console.warn('[NoSQL] Failed to initialize IndexedDB:', err);
   }
 }
 
 /**
- * Gets all local blog entries from IndexedDB NoSQL store, falling back to PDF entries dataset.
+ * Gets all local blog entries: starts from PDF JSON seed, overlaid with IndexedDB user edits.
+ * NEVER fetches from Firestore.
  */
 export async function getAllLocalBlogEntries(): Promise<Record<string, LocalBlogEntry>> {
+  // Start from the bundled PDF JSON (always available)
+  const result: Record<string, LocalBlogEntry> = {};
+  Object.entries(wnrPdfMap).forEach(([docId, entry]) => {
+    result[docId] = {
+      docId,
+      dayIndex: entry.dayIndex,
+      title: entry.title,
+      text: entry.text,
+      updatedBy: entry.updatedBy || 'eMBiK365 Księga A5 PDF',
+      updatedAt: entry.updatedAt || '2026-08-10T00:00:00.000Z'
+    };
+  });
+
+  // Overlay with IndexedDB user edits (if any)
   try {
     const db = await openDb();
     return new Promise((resolve) => {
@@ -89,21 +103,6 @@ export async function getAllLocalBlogEntries(): Promise<Record<string, LocalBlog
       const req = store.getAll();
 
       req.onsuccess = () => {
-        const result: Record<string, LocalBlogEntry> = {};
-        
-        // Populate from seed PDF entries first
-        Object.entries(wnrPdfMap).forEach(([docId, entry]) => {
-          result[docId] = {
-            docId,
-            dayIndex: entry.dayIndex,
-            title: entry.title,
-            text: entry.text,
-            updatedBy: entry.updatedBy || 'eMBiK365 Księga A5 PDF',
-            updatedAt: entry.updatedAt || '2026-08-10T00:00:00.000Z'
-          };
-        });
-
-        // Overlay user modifications from IndexedDB
         if (req.result && Array.isArray(req.result)) {
           req.result.forEach((item: LocalBlogEntry) => {
             if (item && item.docId) {
@@ -111,21 +110,19 @@ export async function getAllLocalBlogEntries(): Promise<Record<string, LocalBlog
             }
           });
         }
-
         resolve(result);
       };
 
-      req.onerror = () => {
-        resolve(getFallbackPdfEntries());
-      };
+      req.onerror = () => resolve(result);
     });
   } catch {
-    return getFallbackPdfEntries();
+    return result;
   }
 }
 
 /**
- * Saves a blog entry to local NoSQL IndexedDB store.
+ * Saves a blog entry to local IndexedDB.
+ * NEVER saves to Firestore automatically.
  */
 export async function saveLocalBlogEntry(docId: string, entry: { title: string; text: string; dayIndex: number; updatedBy?: string }): Promise<void> {
   try {
@@ -143,22 +140,87 @@ export async function saveLocalBlogEntry(docId: string, entry: { title: string; 
     };
 
     store.put(record);
+    console.log(`[NoSQL] Saved locally: ${docId}`);
   } catch (err) {
-    console.warn('Failed to save to local IndexedDB NoSQL store:', err);
+    console.warn('[NoSQL] Failed to save to IndexedDB:', err);
   }
 }
 
-function getFallbackPdfEntries(): Record<string, LocalBlogEntry> {
-  const result: Record<string, LocalBlogEntry> = {};
-  Object.entries(wnrPdfMap).forEach(([docId, entry]) => {
-    result[docId] = {
-      docId,
-      dayIndex: entry.dayIndex,
-      title: entry.title,
-      text: entry.text,
-      updatedBy: entry.updatedBy || 'eMBiK365 Księga A5 PDF',
-      updatedAt: entry.updatedAt || '2026-08-10T00:00:00.000Z'
-    };
-  });
-  return result;
+/**
+ * Resets IndexedDB back to the bundled PDF JSON seed data.
+ * Admin only.
+ */
+export async function resetLocalToSeedData(): Promise<void> {
+  try {
+    const db = await openDb();
+    const tx = db.transaction(BLOG_STORE, 'readwrite');
+    const store = tx.objectStore(BLOG_STORE);
+    store.clear();
+
+    Object.entries(wnrPdfMap).forEach(([docId, entry]) => {
+      store.put({
+        docId,
+        dayIndex: entry.dayIndex,
+        title: entry.title,
+        text: entry.text,
+        updatedBy: entry.updatedBy || 'eMBiK365 Księga A5 PDF',
+        updatedAt: entry.updatedAt || new Date().toISOString()
+      });
+    });
+
+    console.log('[NoSQL] Reset to PDF seed data complete.');
+  } catch (err) {
+    console.warn('[NoSQL] Failed to reset IndexedDB:', err);
+    throw err;
+  }
+}
+
+/**
+ * Saves all prayers to local IndexedDB.
+ */
+export async function saveLocalPrayers(prayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>): Promise<void> {
+  try {
+    const db = await openDb();
+    const tx = db.transaction(PRAYERS_STORE, 'readwrite');
+    const store = tx.objectStore(PRAYERS_STORE);
+
+    Object.entries(prayers).forEach(([docId, prayer]) => {
+      store.put({ docId, ...prayer });
+    });
+  } catch (err) {
+    console.warn('[NoSQL] Failed to save prayers to IndexedDB:', err);
+  }
+}
+
+/**
+ * Gets locally stored prayers from IndexedDB.
+ */
+export async function getLocalPrayers(): Promise<Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }> | null> {
+  try {
+    const db = await openDb();
+    return new Promise((resolve) => {
+      const tx = db.transaction(PRAYERS_STORE, 'readonly');
+      const store = tx.objectStore(PRAYERS_STORE);
+      const req = store.getAll();
+
+      req.onsuccess = () => {
+        if (!req.result || req.result.length === 0) {
+          resolve(null);
+          return;
+        }
+        const result: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }> = {};
+        req.result.forEach((item: { docId: string; title: string; text: string; updatedBy?: string; updatedAt?: string }) => {
+          if (item && item.docId) {
+            const { docId, ...rest } = item;
+            result[docId] = rest;
+          }
+        });
+        resolve(result);
+      };
+
+      req.onerror = () => resolve(null);
+    });
+  } catch {
+    return null;
+  }
 }
