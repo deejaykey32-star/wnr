@@ -5,7 +5,7 @@ import {
   getCycleDayInfo, getActiveDecadeMystery, getDecadeForDay 
 } from './data/prayers';
 import { getWnrDefaultBlogEntry } from './utils/wnrBlogDefaults';
-import { initLocalNoSqlDb, getAllLocalBlogEntries, saveLocalBlogEntry, getLocalPrayers } from './utils/localNoSqlDb';
+import { initLocalNoSqlDb, getAllLocalBlogEntries, getAllLocalBlogEntriesSync, saveLocalBlogEntry, getLocalPrayers } from './utils/localNoSqlDb';
 import { RosaryRenderer } from './components/RosaryRenderer';
 import { PrayerEditor } from './components/PrayerEditor';
 import { BlogSection } from './components/BlogSection';
@@ -144,8 +144,14 @@ export default function App() {
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
   const [ttsEnabled, setTtsEnabled] = useState<boolean>(true);
 
-  // Blog entries: local-first from PDF JSON + IndexedDB. NEVER auto-synced from Firestore.
-  const [blogEntries, setBlogEntries] = useState<Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>>({});
+  // Blog entries: local-first pre-populated with bundled PDF JSON entries.
+  const [blogEntries, setBlogEntries] = useState<Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>>(() => {
+    try {
+      return getAllLocalBlogEntriesSync();
+    } catch {
+      return {};
+    }
+  });
 
   // Admin Sync Panel
   const [showAdminSync, setShowAdminSync] = useState<boolean>(false);
@@ -283,15 +289,20 @@ export default function App() {
   // Firestore is NEVER auto-synced. Use AdminSyncPanel for manual Firestore operations.
   useEffect(() => {
     initLocalNoSqlDb().then(async () => {
-      const localEntries = await getAllLocalBlogEntries();
-      setBlogEntries(localEntries);
-      console.log('[App] Loaded', Object.keys(localEntries).length, 'blog entries from local NoSQL');
-
-      const localPrayers = await getLocalPrayers();
-      if (localPrayers && Object.keys(localPrayers).length > 0) {
-        setPrayers(prev => ({ ...DEFAULT_PRAYERS, ...localPrayers }));
-        console.log('[App] Loaded', Object.keys(localPrayers).length, 'prayers from IndexedDB');
+      try {
+        const localEntries = await getAllLocalBlogEntries();
+        if (localEntries && Object.keys(localEntries).length > 0) {
+          setBlogEntries(localEntries);
+        }
+        const localPrayers = await getLocalPrayers();
+        if (localPrayers && Object.keys(localPrayers).length > 0) {
+          setPrayers(prev => ({ ...DEFAULT_PRAYERS, ...localPrayers }));
+        }
+      } catch (err) {
+        console.warn('[App] Local NoSQL loading fallback:', err);
       }
+    }).catch(err => {
+      console.warn('[App] initLocalNoSqlDb failed, using bundled defaults:', err);
     });
   }, []);
 

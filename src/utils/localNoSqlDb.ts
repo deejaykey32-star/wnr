@@ -109,12 +109,10 @@ export async function initLocalNoSqlDb(): Promise<void> {
 
 
 /**
- * Gets all local blog entries: starts from bundled PDF JSON, overlaid ONLY with
- * admin-edited entries from IndexedDB (not seeded PDF data).
- * NEVER fetches from Firestore.
+ * Synchronously returns all bundled PDF JSON entries.
+ * Used for instant zero-delay state initialization in React to prevent white screen.
  */
-export async function getAllLocalBlogEntries(): Promise<Record<string, LocalBlogEntry>> {
-  // Always start from the fresh bundled PDF JSON
+export function getAllLocalBlogEntriesSync(): Record<string, LocalBlogEntry> {
   const result: Record<string, LocalBlogEntry> = {};
   Object.entries(wnrPdfMap).forEach(([docId, entry]) => {
     result[docId] = {
@@ -126,6 +124,16 @@ export async function getAllLocalBlogEntries(): Promise<Record<string, LocalBlog
       updatedAt: entry.updatedAt || '2026-08-11T00:00:00.000Z'
     };
   });
+  return result;
+}
+
+/**
+ * Gets all local blog entries: starts from bundled PDF JSON, overlaid ONLY with
+ * admin-edited entries from IndexedDB (not seeded PDF data).
+ * NEVER fetches from Firestore.
+ */
+export async function getAllLocalBlogEntries(): Promise<Record<string, LocalBlogEntry>> {
+  const result = getAllLocalBlogEntriesSync();
 
   // Overlay with IndexedDB entries ONLY if they were admin-edited (not seed data)
   try {
