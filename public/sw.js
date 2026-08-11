@@ -1,4 +1,4 @@
-const CACHE_NAME = 'embik365-v6-icons-v2';
+const CACHE_NAME = 'embik365-v7-pwa-maskable';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
@@ -10,7 +10,10 @@ const PRECACHE_ASSETS = [
   '/apple-touch-icon.png',
   '/app-logo.png',
   '/icon-192.png',
-  '/icon-512.png'
+  '/icon-512.png',
+  '/icon-144.png',
+  '/icon-maskable-192.png',
+  '/icon-maskable-512.png'
 ];
 
 // Install event: Pre-cache core files & immediate skip waiting
