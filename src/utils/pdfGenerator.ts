@@ -211,6 +211,7 @@ export const generateCustomScopePdf = async (
     doc.setFontSize(fontSize);
     doc.setTextColor(color[0], color[1], color[2]);
 
+    // Split raw paragraph into lines fitting contentWidth
     const lines: string[] = doc.splitTextToSize(text.trim(), width);
 
     for (let l = 0; l < lines.length; l++) {
@@ -219,25 +220,11 @@ export const generateCustomScopePdf = async (
       const isLastLine = (l === lines.length - 1);
 
       if (isLastLine) {
-        doc.text(lineStr, xMargin, y);
+        // Last line of paragraph is left-aligned as per standard book typography
+        doc.text(lineStr, xMargin, y, { align: 'left' });
       } else {
-        const words = lineStr.split(/\s+/).filter(Boolean);
-        if (words.length <= 1) {
-          doc.text(lineStr, xMargin, y);
-        } else {
-          // Calculate exact spacing between words so line fills width from left margin to right margin
-          let totalWordsWidth = 0;
-          for (const w of words) {
-            totalWordsWidth += doc.getTextWidth(w);
-          }
-          const spaceWidth = (width - totalWordsWidth) / (words.length - 1);
-          
-          let curX = xMargin;
-          for (let wIdx = 0; wIdx < words.length; wIdx++) {
-            doc.text(words[wIdx], curX, y);
-            curX += doc.getTextWidth(words[wIdx]) + spaceWidth;
-          }
-        }
+        // Non-last lines fill the full width (justified to both margins)
+        doc.text(lineStr, xMargin, y, { align: 'justify', maxWidth: width });
       }
       y += lineSpacing15;
     }
