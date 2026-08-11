@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": ["/assets/*", "/manifest.json", "/icon-192.png", "/icon-512.png", "/wnr365_pdf_entries.json", "/sw.js", "/_redirects"]
+}
