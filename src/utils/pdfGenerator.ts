@@ -215,26 +215,24 @@ export const generateCustomScopePdf = async (
 
       let lineBlock: string[] = [];
       for (let l = 0; l < lines.length; l++) {
-        lineBlock.push(lines[l]);
-        const spaceLeft = pageHeight - margin - y;
-        const isPageFull = spaceLeft < lineSpacing15 + 5;
-        const isEnd = (l === lines.length - 1);
-
-        if (isPageFull || isEnd) {
-          if (isEnd) {
-            doc.text(lineBlock, xMargin, y, { align: 'justify', maxWidth: width });
-            y += lineBlock.length * lineSpacing15;
-            lineBlock = [];
-          } else {
-            const blockToRender = lineBlock.slice(0, lineBlock.length - 1);
-            if (blockToRender.length > 0) {
-              doc.text(blockToRender, xMargin, y, { align: 'justify', maxWidth: width });
-              y += blockToRender.length * lineSpacing15;
-            }
-            checkAndBreakPage(15, { style: fontStyle, size: fontSize, color });
-            lineBlock = [lines[l]];
-          }
+        // Check if adding this line exceeds the printable bottom boundary (192 mm)
+        const projectedY = y + (lineBlock.length + 1) * lineSpacing15;
+        if (projectedY > pageHeight - margin - 6 && lineBlock.length > 0) {
+          doc.text(lineBlock, xMargin, y, { align: 'justify', maxWidth: width });
+          y += lineBlock.length * lineSpacing15;
+          lineBlock = [];
+          checkAndBreakPage(15, { style: fontStyle, size: fontSize, color });
         }
+
+        lineBlock.push(lines[l]);
+      }
+
+      if (lineBlock.length > 0) {
+        if (y + lineBlock.length * lineSpacing15 > pageHeight - margin - 6) {
+          checkAndBreakPage(lineBlock.length * lineSpacing15 + 4, { style: fontStyle, size: fontSize, color });
+        }
+        doc.text(lineBlock, xMargin, y, { align: 'justify', maxWidth: width });
+        y += lineBlock.length * lineSpacing15;
       }
       y += 2; // Spacing after paragraph
     }

@@ -72,9 +72,19 @@ body {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 12pt;
   line-height: 1.5;
-  margin: 4%;
+  margin: 5% 4%;
+  padding: 0;
   color: #1e293b;
   background-color: #ffffff;
+  box-sizing: border-box;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+img, iframe, table, div, pre, p, blockquote {
+  max-width: 100% !important;
+  box-sizing: border-box;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 h1, h2, h3, h4 {
   font-family: sans-serif;
@@ -83,6 +93,7 @@ h1, h2, h3, h4 {
   margin-top: 1.2em;
   margin-bottom: 0.4em;
   line-height: 1.3;
+  word-break: break-word;
 }
 h1 { font-size: 1.6em; border-bottom: 2px solid #4f46e5; padding-bottom: 0.3em; }
 h2 { font-size: 1.3em; color: #4f46e5; }
@@ -105,6 +116,8 @@ p {
   border-radius: 8px;
   padding: 12px;
   margin: 14px 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .qr-container {
   text-align: center;
@@ -112,6 +125,8 @@ p {
   padding: 10px;
   border: 1px dashed #cbd5e1;
   background: #fafafa;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .qr-img {
   width: 150px;

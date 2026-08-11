@@ -1,4 +1,4 @@
-const CACHE_NAME = 'embik365-v10-balanced-paragraphs';
+const CACHE_NAME = 'embik365-v11-strict-margins';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
