@@ -1,5 +1,72 @@
 import React from 'react';
 
+export const normalizeTextParagraphs = (rawText: string): string => {
+  if (!rawText) return '';
+  const text = rawText.replace(/\r\n/g, '\n').trim();
+  const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
+
+  const isHeader = (line: string): boolean => {
+    if (
+      line.startsWith('#') || 
+      line.startsWith('Etap') || 
+      line.startsWith('Część') || 
+      line.startsWith('Tajemnica') || 
+      line.startsWith('Rozdział') || 
+      line.startsWith('Wstęp') || 
+      line.startsWith('Zakończenie') ||
+      line.startsWith('Dodatek') ||
+      line.startsWith('Modlitwa') ||
+      line.startsWith('Dzień')
+    ) {
+      return true;
+    }
+    if (
+      line.length <= 60 && 
+      !/[.,;!?:]$/.test(line) && 
+      !line.startsWith('-') && 
+      !line.startsWith('*') && 
+      !line.startsWith('>') && 
+      !line.startsWith('[') && 
+      !line.startsWith('«') &&
+      !line.startsWith('»')
+    ) {
+      return true;
+    }
+    return false;
+  };
+
+  const blocks: string[] = [];
+  let currentPara: string[] = [];
+
+  for (const line of lines) {
+    if (line.startsWith('[qr:') || line.startsWith('![')) {
+      if (currentPara.length > 0) {
+        blocks.push(currentPara.join(' '));
+        currentPara = [];
+      }
+      blocks.push(line);
+      continue;
+    }
+
+    if (isHeader(line)) {
+      if (currentPara.length > 0) {
+        blocks.push(currentPara.join(' '));
+        currentPara = [];
+      }
+      blocks.push(line.startsWith('#') ? line : `### ${line}`);
+      continue;
+    }
+
+    currentPara.push(line);
+  }
+
+  if (currentPara.length > 0) {
+    blocks.push(currentPara.join(' '));
+  }
+
+  return blocks.join('\n\n');
+};
+
 /**
  * A robust, safe lightweight helper to format plain text / Markdown / HTML tags
  * into structured React elements with Tailwind CSS styling.
@@ -8,8 +75,9 @@ import React from 'react';
 export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light' }> = ({ text, theme = 'dark' }) => {
   if (!text) return null;
 
-  // Split text by lines to parse blocks
-  const lines = text.split('\n');
+  const normalizedText = normalizeTextParagraphs(text);
+  // Split normalized text by lines to parse blocks
+  const lines = normalizedText.split('\n');
   const elements: React.ReactNode[] = [];
   
   let keyIndex = 0;

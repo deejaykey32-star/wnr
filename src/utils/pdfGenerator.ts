@@ -4,6 +4,7 @@ import { generateQrCodeDataUri } from './qrCodeGenerator';
 import rhzData from '../../RHZ365_pierwszy_cykl_175_dni.json';
 import { parseDayText } from './rhzParser';
 import { getWnrDefaultBlogEntry } from './wnrBlogDefaults';
+import { normalizeTextParagraphs } from './richTextHelper';
 
 import { ROBOTO_REGULAR_BASE64, ROBOTO_BOLD_BASE64 } from '../assets/robotoBase64';
 
@@ -183,11 +184,10 @@ export const generateCustomScopePdf = async (
   const splitIntoCleanParagraphs = (rawText: string): string[] => {
     if (!rawText) return [];
     const cleaned = stripQrTags(rawText);
-    const normalized = cleaned.replace(/\r\n/g, '\n').trim();
-    // Double newlines (or blank lines) define true paragraph boundaries
+    const normalized = normalizeTextParagraphs(cleaned);
     const blocks = normalized.split(/\n\s*\n+/);
     return blocks
-      .map(block => block.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim())
+      .map(block => block.replace(/^###\s*/, '').replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim())
       .filter(Boolean);
   };
 

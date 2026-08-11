@@ -1,4 +1,4 @@
-const CACHE_NAME = 'embik365-v8-spa-routing';
+const CACHE_NAME = 'embik365-v9-thematic-paragraphs';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
