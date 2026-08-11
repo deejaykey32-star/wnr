@@ -1,4 +1,4 @@
-const CACHE_NAME = 'embik365-v7-pwa-maskable';
+const CACHE_NAME = 'embik365-v8-spa-routing';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
