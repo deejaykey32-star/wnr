@@ -35,36 +35,43 @@ export const normalizeTextParagraphs = (rawText: string): string => {
     return false;
   };
 
-  const blocks: string[] = [];
-  let currentPara: string[] = [];
+  const finalBlocks: string[] = [];
+  let currentParaSentences: string[] = [];
+  let currentLength = 0;
+
+  const flushPara = () => {
+    if (currentParaSentences.length > 0) {
+      finalBlocks.push(currentParaSentences.join(' '));
+      currentParaSentences = [];
+      currentLength = 0;
+    }
+  };
 
   for (const line of lines) {
     if (line.startsWith('[qr:') || line.startsWith('![')) {
-      if (currentPara.length > 0) {
-        blocks.push(currentPara.join(' '));
-        currentPara = [];
-      }
-      blocks.push(line);
+      flushPara();
+      finalBlocks.push(line);
       continue;
     }
 
     if (isHeader(line)) {
-      if (currentPara.length > 0) {
-        blocks.push(currentPara.join(' '));
-        currentPara = [];
-      }
-      blocks.push(line.startsWith('#') ? line : `### ${line}`);
+      flushPara();
+      finalBlocks.push(line.startsWith('#') ? line : `### ${line}`);
       continue;
     }
 
-    currentPara.push(line);
+    currentParaSentences.push(line);
+    currentLength += line.length;
+
+    // Form balanced thematic paragraphs (~300 chars or 4 sentences per paragraph)
+    if (currentLength >= 300 || currentParaSentences.length >= 4) {
+      flushPara();
+    }
   }
 
-  if (currentPara.length > 0) {
-    blocks.push(currentPara.join(' '));
-  }
+  flushPara();
 
-  return blocks.join('\n\n');
+  return finalBlocks.join('\n\n');
 };
 
 /**

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'embik365-v9-thematic-paragraphs';
+const CACHE_NAME = 'embik365-v10-balanced-paragraphs';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
