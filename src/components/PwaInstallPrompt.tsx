@@ -94,9 +94,11 @@ export const PwaInstallPrompt: React.FC<PwaInstallPromptProps> = ({
 
         <div className="flex items-start gap-3.5 pt-1">
           {/* App Icon */}
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-500 via-indigo-600 to-amber-500 flex items-center justify-center shrink-0 shadow-lg text-white font-black text-lg">
-            M
-          </div>
+          <img
+            src="/icon-192.png"
+            alt="eMBiK365 Logo"
+            className="w-12 h-12 rounded-2xl object-cover shrink-0 shadow-lg border border-amber-400/40"
+          />
 
           <div className="flex-1 pr-4">
             <div className="flex items-center gap-1.5">

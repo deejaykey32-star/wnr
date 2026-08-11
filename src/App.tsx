@@ -1010,9 +1010,11 @@ export default function App() {
           {/* LINE 0: LOGOTYP Z NAZWĄ STRONY NA SAMEJ GÓRZE */}
           <div className="flex items-center justify-center sm:justify-between w-full border-b pb-2 mb-2 border-slate-200/50 dark:border-slate-800/50">
             <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-sky-400 via-indigo-500 to-amber-400 flex items-center justify-center font-black text-xs text-slate-950 shrink-0 shadow-md">
-                M
-              </div>
+              <img
+                src="/icon-192.png"
+                alt="eMBiK365 Logo"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl object-cover shrink-0 shadow-md border border-amber-400/40"
+              />
               <div className="min-w-0 truncate">
                 <h1 className={`text-sm sm:text-lg font-bold tracking-tight flex items-center gap-1.5 sm:gap-2 truncate ${
                   isLight ? 'text-slate-900' : 'text-white'
