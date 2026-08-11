@@ -1,4 +1,4 @@
-const CACHE_NAME = 'embik365-v12-export-progressbar';
+const CACHE_NAME = 'embik365-v13-full-release';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
