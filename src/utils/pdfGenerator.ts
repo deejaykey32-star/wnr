@@ -196,6 +196,53 @@ export const generateCustomScopePdf = async (
     return false;
   };
 
+  // Custom Typography Engine for 100% Guaranteed Book Justification (both left and right margins aligned)
+  const renderJustifiedParagraph = (
+    text: string, 
+    xMargin: number = margin, 
+    width: number = contentWidth, 
+    fontStyle: 'normal' | 'bold' = 'normal', 
+    fontSize: number = 12, 
+    color: [number, number, number] = [51, 65, 85]
+  ) => {
+    if (!text || !text.trim()) return;
+
+    doc.setFont(fontName, fontStyle);
+    doc.setFontSize(fontSize);
+    doc.setTextColor(color[0], color[1], color[2]);
+
+    const lines: string[] = doc.splitTextToSize(text.trim(), width);
+
+    for (let l = 0; l < lines.length; l++) {
+      checkAndBreakPage(10, { style: fontStyle, size: fontSize, color });
+      const lineStr = lines[l].trim();
+      const isLastLine = (l === lines.length - 1);
+
+      if (isLastLine) {
+        doc.text(lineStr, xMargin, y);
+      } else {
+        const words = lineStr.split(/\s+/).filter(Boolean);
+        if (words.length <= 1) {
+          doc.text(lineStr, xMargin, y);
+        } else {
+          // Calculate exact spacing between words so line fills width from left margin to right margin
+          let totalWordsWidth = 0;
+          for (const w of words) {
+            totalWordsWidth += doc.getTextWidth(w);
+          }
+          const spaceWidth = (width - totalWordsWidth) / (words.length - 1);
+          
+          let curX = xMargin;
+          for (let wIdx = 0; wIdx < words.length; wIdx++) {
+            doc.text(words[wIdx], curX, y);
+            curX += doc.getTextWidth(words[wIdx]) + spaceWidth;
+          }
+        }
+      }
+      y += lineSpacing15;
+    }
+  };
+
   for (let currentDayNum = startDay; currentDayNum <= endDay; currentDayNum++) {
     if (onProgress) {
       const progressCount = currentDayNum - startDay + 1;
@@ -320,33 +367,17 @@ export const generateCustomScopePdf = async (
       y += 1;
 
       if (parsedRHZ.success && parsedRHZ.data) {
-        // Reflection (12pt font, 1.5 line spacing, full text-justify)
+        // Reflection (12pt font, 1.5 line spacing, 100% justified)
         doc.setFont(fontName, 'bold');
         doc.setFontSize(9.5);
         doc.setTextColor(15, 23, 42);
         doc.text("Rozważanie Tajemnicy:", margin, y);
         y += 5;
 
-        doc.setFont(fontName, 'normal');
-        doc.setFontSize(12); // 12pt book font
-        doc.setTextColor(51, 65, 85);
-        
-        // Render paragraphs with native jsPDF text-justify
         const reflParagraphs = parsedRHZ.data.reflectionText.split('\n').filter(p => p.trim());
         for (const para of reflParagraphs) {
-          const lines = doc.splitTextToSize(para, contentWidth);
-          for (let l = 0; l < lines.length; l++) {
-            checkAndBreakPage(10, { style: 'normal', size: 12, color: [51, 65, 85] });
-            const lineText = lines[l];
-            const isLastLine = (l === lines.length - 1);
-            if (isLastLine) {
-              doc.text(lineText, margin, y, { align: 'left' });
-            } else {
-              doc.text(lineText, margin, y, { align: 'justify', maxWidth: contentWidth });
-            }
-            y += lineSpacing15;
-          }
-          y += 2; // Space between paragraphs
+          renderJustifiedParagraph(para, margin, contentWidth, 'normal', 12, [51, 65, 85]);
+          y += 2;
         }
         y += 2;
 
@@ -358,21 +389,7 @@ export const generateCustomScopePdf = async (
         doc.text("Modlitwa Pańska (Ojcze Nasz):", margin, y);
         y += 5;
 
-        doc.setFont(fontName, 'normal');
-        doc.setFontSize(12);
-        doc.setTextColor(51, 65, 85);
-        const fatherLines = doc.splitTextToSize(parsedRHZ.data.ourFatherText, contentWidth);
-        for (let l = 0; l < fatherLines.length; l++) {
-          checkAndBreakPage(10, { style: 'normal', size: 12, color: [51, 65, 85] });
-          const lineText = fatherLines[l];
-          const isLastLine = (l === fatherLines.length - 1);
-          if (isLastLine) {
-            doc.text(lineText, margin, y, { align: 'left' });
-          } else {
-            doc.text(lineText, margin, y, { align: 'justify', maxWidth: contentWidth });
-          }
-          y += lineSpacing15;
-        }
+        renderJustifiedParagraph(parsedRHZ.data.ourFatherText, margin, contentWidth, 'normal', 12, [51, 65, 85]);
         y += 3;
 
         // 10 Hail Marys
@@ -392,22 +409,7 @@ export const generateCustomScopePdf = async (
           doc.text(`Zdrowaś Maryjo #${idx + 1}:`, margin, y);
           y += 4.5;
 
-          doc.setFont(fontName, 'normal');
-          doc.setFontSize(12);
-          doc.setTextColor(30, 41, 59);
-          const hmWidth = contentWidth - 3;
-          const hmLines = doc.splitTextToSize(hmText, hmWidth);
-          for (let l = 0; l < hmLines.length; l++) {
-            checkAndBreakPage(10, { style: 'normal', size: 12, color: [30, 41, 59] });
-            const lineText = hmLines[l];
-            const isLastLine = (l === hmLines.length - 1);
-            if (isLastLine) {
-              doc.text(lineText, margin + 3, y, { align: 'left' });
-            } else {
-              doc.text(lineText, margin + 3, y, { align: 'justify', maxWidth: hmWidth });
-            }
-            y += lineSpacing15;
-          }
+          renderJustifiedParagraph(hmText, margin + 3, contentWidth - 3, 'normal', 12, [30, 41, 59]);
           y += 2;
         });
 
@@ -420,40 +422,12 @@ export const generateCustomScopePdf = async (
         doc.text("Chwała Ojcu & O mój Jezu:", margin, y);
         y += 5;
 
-        doc.setFont(fontName, 'normal');
-        doc.setFontSize(12);
-        doc.setTextColor(51, 65, 85);
-        const gloryLines = doc.splitTextToSize(parsedRHZ.data.gloryBeFatimaText, contentWidth);
-        for (let l = 0; l < gloryLines.length; l++) {
-          checkAndBreakPage(10, { style: 'normal', size: 12, color: [51, 65, 85] });
-          const lineText = gloryLines[l];
-          const isLastLine = (l === gloryLines.length - 1);
-          if (isLastLine) {
-            doc.text(lineText, margin, y, { align: 'left' });
-          } else {
-            doc.text(lineText, margin, y, { align: 'justify', maxWidth: contentWidth });
-          }
-          y += lineSpacing15;
-        }
+        renderJustifiedParagraph(parsedRHZ.data.gloryBeFatimaText, margin, contentWidth, 'normal', 12, [51, 65, 85]);
         y += 4;
       } else {
-        doc.setFont(fontName, 'normal');
-        doc.setFontSize(12);
-        doc.setTextColor(51, 65, 85);
         const rawParagraphs = rawRhzText.split('\n').filter(p => p.trim());
         for (const para of rawParagraphs) {
-          const rawLines = doc.splitTextToSize(para, contentWidth);
-          for (let l = 0; l < rawLines.length; l++) {
-            checkAndBreakPage(10, { style: 'normal', size: 12, color: [51, 65, 85] });
-            const lineText = rawLines[l];
-            const isLastLine = (l === rawLines.length - 1);
-            if (isLastLine) {
-              doc.text(lineText, margin, y, { align: 'left' });
-            } else {
-              doc.text(lineText, margin, y, { align: 'justify', maxWidth: contentWidth });
-            }
-            y += lineSpacing15;
-          }
+          renderJustifiedParagraph(para, margin, contentWidth, 'normal', 12, [51, 65, 85]);
           y += 2;
         }
         y += 4;
@@ -477,25 +451,10 @@ export const generateCustomScopePdf = async (
       }
       y += 1.5;
 
-      doc.setFont(fontName, 'normal');
-      doc.setFontSize(12); // 12pt book font
-      doc.setTextColor(51, 65, 85);
-
       // Split into paragraphs for proper justified paragraph rendering
       const wnrParagraphs = (wnrDoc.text || '').split('\n').filter(p => p.trim());
       for (const para of wnrParagraphs) {
-        const wnrLines = doc.splitTextToSize(para, contentWidth);
-        for (let l = 0; l < wnrLines.length; l++) {
-          checkAndBreakPage(10, { style: 'normal', size: 12, color: [51, 65, 85] });
-          const lineText = wnrLines[l];
-          const isLastLine = (l === wnrLines.length - 1);
-          if (isLastLine) {
-            doc.text(lineText, margin, y, { align: 'left' });
-          } else {
-            doc.text(lineText, margin, y, { align: 'justify', maxWidth: contentWidth });
-          }
-          y += lineSpacing15;
-        }
+        renderJustifiedParagraph(para, margin, contentWidth, 'normal', 12, [51, 65, 85]);
         y += 2; // Extra spacing between paragraphs
       }
       y += 6;
