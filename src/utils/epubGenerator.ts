@@ -252,30 +252,52 @@ p {
   </div>\n`;
     }
 
+const stripQrTags = (str: string): string => {
+  if (!str) return '';
+  return str
+    .replace(/\[qr:[^\]]+\]/gi, '')
+    .replace(/\[caption:[^\]]+\]/gi, '')
+    .trim();
+};
+
+const formatParagraphsHtml = (rawText: string): string => {
+  if (!rawText) return '';
+  const cleaned = stripQrTags(rawText);
+  const normalized = cleaned.replace(/\r\n/g, '\n').trim();
+  const blocks = normalized.split(/\n\s*\n+/);
+  return blocks
+    .map(block => {
+      const paraText = block.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
+      return paraText ? `<p>${escapeXml(paraText)}</p>` : '';
+    })
+    .filter(Boolean)
+    .join('\n');
+};
+
     if (scope === 'rhz365' || scope === 'both') {
       chapterHtml += `<h2>Różaniec Historii Zbawienia (RHZ365)</h2>`;
       chapterHtml += `<h3>${escapeXml(rhzTitle)}</h3>`;
 
       if (parsedRHZ.success && parsedRHZ.data) {
-        chapterHtml += `<div class="box"><h4>Rozważanie Tajemnicy</h4><p>${escapeXml(parsedRHZ.data.reflectionText).replace(/\n/g, '<br/>')}</p></div>`;
-        chapterHtml += `<div class="box"><h4>Modlitwa Pańska (Ojcze Nasz)</h4><p>${escapeXml(parsedRHZ.data.ourFatherText).replace(/\n/g, '<br/>')}</p></div>`;
+        chapterHtml += `<div class="box"><h4>Rozważanie Tajemnicy</h4>${formatParagraphsHtml(parsedRHZ.data.reflectionText)}</div>`;
+        chapterHtml += `<div class="box"><h4>Modlitwa Pańska (Ojcze Nasz)</h4>${formatParagraphsHtml(parsedRHZ.data.ourFatherText)}</div>`;
 
         chapterHtml += `<h4>10 Osobnych Modlitw Zdrowaś Maryjo:</h4><ol>`;
         parsedRHZ.data.hailMaryTexts.forEach((hmText) => {
-          chapterHtml += `<li><p>${escapeXml(hmText)}</p></li>`;
+          chapterHtml += `<li>${formatParagraphsHtml(hmText)}</li>`;
         });
         chapterHtml += `</ol>`;
 
-        chapterHtml += `<div class="box"><h4>Chwała Ojcu &amp; O mój Jezu</h4><p>${escapeXml(parsedRHZ.data.gloryBeFatimaText).replace(/\n/g, '<br/>')}</p></div>`;
+        chapterHtml += `<div class="box"><h4>Chwała Ojcu &amp; O mój Jezu</h4>${formatParagraphsHtml(parsedRHZ.data.gloryBeFatimaText)}</div>`;
       } else {
-        chapterHtml += `<p>${escapeXml(rawRhzText).replace(/\n/g, '<br/>')}</p>`;
+        chapterHtml += formatParagraphsHtml(rawRhzText);
       }
     }
 
     if (scope === 'wnr365' || scope === 'both') {
       chapterHtml += `<h2>Widoki na Raj (WnR365)</h2>`;
       chapterHtml += `<h3>${escapeXml(wnrDoc.title || `Rozważanie Słowa - Dzień ${dayNum}`)}</h3>`;
-      chapterHtml += `<p>${escapeXml(wnrDoc.text || '').replace(/\n/g, '<br/>')}</p>`;
+      chapterHtml += formatParagraphsHtml(wnrDoc.text || '');
     }
 
     chapterHtml += `</body>\n</html>`;

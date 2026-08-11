@@ -5,45 +5,20 @@ import rhzData from '../../RHZ365_pierwszy_cykl_175_dni.json';
 import { parseDayText } from './rhzParser';
 import { getWnrDefaultBlogEntry } from './wnrBlogDefaults';
 
-// Dynamic Font Fetcher supporting Polish Characters
-const loadRobotoFonts = async (doc: jsPDF): Promise<boolean> => {
+import { ROBOTO_REGULAR_BASE64, ROBOTO_BOLD_BASE64 } from '../assets/robotoBase64';
+
+// Pre-bundled Font Loader supporting Polish Characters (100% offline & instant)
+const loadRobotoFonts = (doc: jsPDF): boolean => {
   try {
-    const fontUrlRegular = 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Regular.ttf';
-    const fontUrlBold = 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Medium.ttf';
-
-    const [resReg, resBold] = await Promise.all([
-      fetch(fontUrlRegular),
-      fetch(fontUrlBold)
-    ]);
-
-    if (!resReg.ok || !resBold.ok) {
-      throw new Error("Failed to fetch Roboto fonts from CDN");
-    }
-
-    const [bufReg, bufBold] = await Promise.all([
-      resReg.arrayBuffer(),
-      resBold.arrayBuffer()
-    ]);
-
-    const base64Reg = btoa(
-      new Uint8Array(bufReg)
-        .reduce((data, byte) => data + String.fromCharCode(byte), '')
-    );
-    
-    const base64Bold = btoa(
-      new Uint8Array(bufBold)
-        .reduce((data, byte) => data + String.fromCharCode(byte), '')
-    );
-
-    doc.addFileToVFS('Roboto-Regular.ttf', base64Reg);
+    doc.addFileToVFS('Roboto-Regular.ttf', ROBOTO_REGULAR_BASE64);
     doc.addFont('Roboto-Regular.ttf', 'Roboto', 'normal');
 
-    doc.addFileToVFS('Roboto-Medium.ttf', base64Bold);
+    doc.addFileToVFS('Roboto-Medium.ttf', ROBOTO_BOLD_BASE64);
     doc.addFont('Roboto-Medium.ttf', 'Roboto', 'bold');
 
     return true;
   } catch (error) {
-    console.warn("Could not load Unicode Roboto font dynamically. Falling back to Helvetica.", error);
+    console.warn("Could not load bundled Unicode Roboto font. Falling back to Helvetica.", error);
     return false;
   }
 };
@@ -93,7 +68,7 @@ export const generateCustomScopePdf = async (
     format: 'a5'
   });
 
-  const hasCustomFont = await loadRobotoFonts(doc);
+  const hasCustomFont = loadRobotoFonts(doc);
   const fontName = hasCustomFont ? 'Roboto' : 'Helvetica';
 
   const pageWidth = 148;
@@ -196,6 +171,26 @@ export const generateCustomScopePdf = async (
     return false;
   };
 
+  const stripQrTags = (str: string): string => {
+    if (!str) return '';
+    return str
+      .replace(/\[qr:[^\]]+\]/gi, '')
+      .replace(/\[caption:[^\]]+\]/gi, '')
+      .trim();
+  };
+
+  // Helper to split raw text into clean continuous paragraphs (merging soft linebreaks within paragraphs)
+  const splitIntoCleanParagraphs = (rawText: string): string[] => {
+    if (!rawText) return [];
+    const cleaned = stripQrTags(rawText);
+    const normalized = cleaned.replace(/\r\n/g, '\n').trim();
+    // Double newlines (or blank lines) define true paragraph boundaries
+    const blocks = normalized.split(/\n\s*\n+/);
+    return blocks
+      .map(block => block.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim())
+      .filter(Boolean);
+  };
+
   // Custom Typography Engine for 100% Guaranteed Book Justification (both left and right margins aligned)
   const renderJustifiedParagraph = (
     text: string, 
@@ -211,22 +206,158 @@ export const generateCustomScopePdf = async (
     doc.setFontSize(fontSize);
     doc.setTextColor(color[0], color[1], color[2]);
 
-    // Split raw paragraph into lines fitting contentWidth
-    const lines: string[] = doc.splitTextToSize(text.trim(), width);
+    const paragraphs = splitIntoCleanParagraphs(text);
 
-    for (let l = 0; l < lines.length; l++) {
-      checkAndBreakPage(10, { style: fontStyle, size: fontSize, color });
-      const lineStr = lines[l].trim();
-      const isLastLine = (l === lines.length - 1);
+    for (const para of paragraphs) {
+      // Split continuous paragraph into lines fitting contentWidth
+      const lines: string[] = doc.splitTextToSize(para, width);
+      if (lines.length === 0) continue;
 
-      if (isLastLine) {
-        // Last line of paragraph is left-aligned as per standard book typography
-        doc.text(lineStr, xMargin, y, { align: 'left' });
-      } else {
-        // Non-last lines fill the full width (justified to both margins)
-        doc.text(lineStr, xMargin, y, { align: 'justify', maxWidth: width });
+      let lineBlock: string[] = [];
+      for (let l = 0; l < lines.length; l++) {
+        lineBlock.push(lines[l]);
+        const spaceLeft = pageHeight - margin - y;
+        const isPageFull = spaceLeft < lineSpacing15 + 5;
+        const isEnd = (l === lines.length - 1);
+
+        if (isPageFull || isEnd) {
+          if (isEnd) {
+            doc.text(lineBlock, xMargin, y, { align: 'justify', maxWidth: width });
+            y += lineBlock.length * lineSpacing15;
+            lineBlock = [];
+          } else {
+            const blockToRender = lineBlock.slice(0, lineBlock.length - 1);
+            if (blockToRender.length > 0) {
+              doc.text(blockToRender, xMargin, y, { align: 'justify', maxWidth: width });
+              y += blockToRender.length * lineSpacing15;
+            }
+            checkAndBreakPage(15, { style: fontStyle, size: fontSize, color });
+            lineBlock = [lines[l]];
+          }
+        }
       }
-      y += lineSpacing15;
+      y += 2; // Spacing after paragraph
+    }
+  };
+
+  interface QrTagMatch {
+    url: string;
+    caption: string;
+    fullMatch: string;
+    index: number;
+  }
+
+  const findQrTagsInText = (text: string): QrTagMatch[] => {
+    if (!text) return [];
+    const matches: QrTagMatch[] = [];
+
+    // Pattern 1: [qr: URL][caption: CAPTION]
+    const p1 = /\[qr:\s*([^\]]+)\]\s*\[caption:\s*([^\]]+)\]/gi;
+    let m: RegExpExecArray | null;
+    while ((m = p1.exec(text)) !== null) {
+      matches.push({
+        url: m[1].trim(),
+        caption: m[2].trim(),
+        fullMatch: m[0],
+        index: m.index
+      });
+    }
+
+    // Pattern 2: [qr: URL | CAPTION]
+    const p2 = /\[qr:\s*([^|\]]+)\|\s*([^\]]+)\]/gi;
+    while ((m = p2.exec(text)) !== null) {
+      if (!matches.some(existing => existing.index === m!.index || existing.fullMatch.includes(m![0]))) {
+        matches.push({
+          url: m[1].trim(),
+          caption: m[2].trim(),
+          fullMatch: m[0],
+          index: m.index
+        });
+      }
+    }
+
+    // Pattern 3: Standalone [qr: URL]
+    const p3 = /\[qr:\s*([^\]]+)\]/gi;
+    while ((m = p3.exec(text)) !== null) {
+      if (!matches.some(existing => existing.index <= m!.index && m!.index < existing.index + existing.fullMatch.length)) {
+        matches.push({
+          url: m[1].trim(),
+          caption: 'Kod QR / Odnośnik',
+          fullMatch: m[0],
+          index: m.index
+        });
+      }
+    }
+
+    return matches.sort((a, b) => a.index - b.index);
+  };
+
+  const renderRichContentWithEmbeddedQr = async (
+    text: string,
+    xMargin: number = margin,
+    width: number = contentWidth,
+    fontStyle: 'normal' | 'bold' = 'normal',
+    fontSize: number = 12,
+    color: [number, number, number] = [51, 65, 85]
+  ) => {
+    if (!text || !text.trim()) return;
+
+    const qrMatches = findQrTagsInText(text);
+
+    if (qrMatches.length === 0) {
+      renderJustifiedParagraph(text, xMargin, width, fontStyle, fontSize, color);
+      return;
+    }
+
+    let currentIndex = 0;
+    for (const qr of qrMatches) {
+      const textBefore = text.substring(currentIndex, qr.index);
+      if (textBefore.trim()) {
+        renderJustifiedParagraph(textBefore, xMargin, width, fontStyle, fontSize, color);
+      }
+      currentIndex = qr.index + qr.fullMatch.length;
+
+      // Render Inline Styled QR Box in PDF
+      checkAndBreakPage(30);
+      try {
+        const qrDataUri = await generateQrCodeDataUri(qr.url);
+        const boxHeight = 22;
+        const qrSize = 16;
+        const qrX = xMargin + width - qrSize - 3;
+        const qrY = y + 3;
+        const maxTextWidth = width - qrSize - 10;
+
+        doc.setFillColor(248, 250, 252);
+        doc.setDrawColor(226, 232, 240);
+        doc.setLineWidth(0.3);
+        doc.rect(xMargin, y, width, boxHeight, 'FD');
+
+        doc.addImage(qrDataUri, 'PNG', qrX, qrY, qrSize, qrSize);
+
+        doc.setFont(fontName, 'bold');
+        doc.setFontSize(8.5);
+        doc.setTextColor(79, 70, 229); // indigo-600
+        const displayCaption = qr.caption.replace(/^caption:\s*/i, '').trim();
+        doc.text(displayCaption || "Kod QR Odnośnika", xMargin + 4, y + 6);
+
+        doc.setFont(fontName, 'normal');
+        doc.setFontSize(7.5);
+        doc.setTextColor(37, 99, 235); // blue-600
+
+        const splitUrl = doc.splitTextToSize(qr.url, maxTextWidth);
+        doc.text(splitUrl, xMargin + 4, y + 11);
+
+        doc.link(xMargin + 3, y + 3, maxTextWidth, boxHeight - 6, { url: qr.url });
+
+        y += boxHeight + 5;
+      } catch (err) {
+        console.warn("Błąd rysowania osadzonego kodu QR:", err);
+      }
+    }
+
+    const remainingText = text.substring(currentIndex);
+    if (remainingText.trim()) {
+      renderJustifiedParagraph(remainingText, xMargin, width, fontStyle, fontSize, color);
     }
   };
 
@@ -295,46 +426,38 @@ export const generateCustomScopePdf = async (
     const wnrKey = `blog_day_${dayIdx}`;
     const wnrDoc = getWnrDefaultBlogEntry(dayIdx, prayers, blogEntries);
 
-    // Extract all embedded URLs in content text
-    const embeddedUrls = extractUrlsFromText(`${rawRhzText} ${wnrDoc.text || ''}`);
-    const allUrls = Array.from(new Set([dayUrl, ...embeddedUrls]));
+    // Top-of-day Portal QR Code Box
+    checkAndBreakPage(26);
+    try {
+      const qrDataUri = await generateQrCodeDataUri(dayUrl);
+      const qrSize = 16;
+      const qrX = margin + contentWidth - qrSize - 3;
+      const qrY = y + 2;
+      const maxTextWidth = contentWidth - qrSize - 8;
 
-    // Render QR Codes and URLs below them inside a tidy box
-    for (const urlItem of allUrls) {
-      checkAndBreakPage(32);
+      doc.setFillColor(250, 250, 250);
+      doc.setDrawColor(226, 232, 240);
+      doc.rect(margin, y, contentWidth, qrSize + 4, 'FD');
 
-      try {
-        const qrDataUri = await generateQrCodeDataUri(urlItem);
-        const qrSize = 16; // 16mm x 16mm
-        const qrX = margin + contentWidth - qrSize - 3;
-        const qrY = y + 2;
+      doc.addImage(qrDataUri, 'PNG', qrX, qrY, qrSize, qrSize);
 
-        const maxTextWidth = contentWidth - qrSize - 8;
+      doc.setFont(fontName, 'bold');
+      doc.setFontSize(8);
+      doc.setTextColor(37, 99, 235);
+      doc.text("Portal Widoki na Raj — Dzień " + currentDayNum, margin + 3, y + 4.5);
 
-        doc.setFillColor(250, 250, 250);
-        doc.setDrawColor(226, 232, 240);
-        doc.rect(margin, y, contentWidth, qrSize + 4, 'FD');
+      doc.setFont(fontName, 'normal');
+      doc.setFontSize(7.5);
+      doc.setTextColor(30, 41, 59);
 
-        doc.addImage(qrDataUri, 'PNG', qrX, qrY, qrSize, qrSize);
+      const splitUrl = doc.splitTextToSize(dayUrl, maxTextWidth);
+      doc.text(splitUrl, margin + 3, y + 9.5);
 
-        doc.setFont(fontName, 'bold');
-        doc.setFontSize(7.5);
-        doc.setTextColor(37, 99, 235);
-        doc.text("Kod QR odnośnika:", margin + 3, y + 4.5);
+      doc.link(margin + 3, y + 3, maxTextWidth, 14, { url: dayUrl });
 
-        doc.setFont(fontName, 'normal');
-        doc.setFontSize(7.5);
-        doc.setTextColor(30, 41, 59);
-
-        const splitUrl = doc.splitTextToSize(urlItem, maxTextWidth);
-        doc.text(splitUrl, margin + 3, y + 9);
-
-        doc.link(margin + 3, y + 5, maxTextWidth, splitUrl.length * 4 + 2, { url: urlItem });
-
-        y += qrSize + 7;
-      } catch (e) {
-        console.warn("Błąd generowania QR:", e);
-      }
+      y += qrSize + 7;
+    } catch (e) {
+      console.warn("Błąd generowania głowicowego QR:", e);
     }
 
     // 1. RHZ365 Section
@@ -354,18 +477,14 @@ export const generateCustomScopePdf = async (
       y += 1;
 
       if (parsedRHZ.success && parsedRHZ.data) {
-        // Reflection (12pt font, 1.5 line spacing, 100% justified)
+        // Reflection (12pt font, 1.5 line spacing, 100% justified with embedded QR)
         doc.setFont(fontName, 'bold');
         doc.setFontSize(9.5);
         doc.setTextColor(15, 23, 42);
         doc.text("Rozważanie Tajemnicy:", margin, y);
         y += 5;
 
-        const reflParagraphs = parsedRHZ.data.reflectionText.split('\n').filter(p => p.trim());
-        for (const para of reflParagraphs) {
-          renderJustifiedParagraph(para, margin, contentWidth, 'normal', 12, [51, 65, 85]);
-          y += 2;
-        }
+        await renderRichContentWithEmbeddedQr(parsedRHZ.data.reflectionText, margin, contentWidth, 'normal', 12, [51, 65, 85]);
         y += 2;
 
         // Our Father
@@ -387,7 +506,8 @@ export const generateCustomScopePdf = async (
         doc.text("10 Osobnych Modlitw Zdrowaś Maryjo (z dopowiedzeniami):", margin, y);
         y += 5;
 
-        parsedRHZ.data.hailMaryTexts.forEach((hmText, idx) => {
+        for (let idx = 0; idx < parsedRHZ.data.hailMaryTexts.length; idx++) {
+          const hmText = parsedRHZ.data.hailMaryTexts[idx];
           checkAndBreakPage(15);
 
           doc.setFont(fontName, 'bold');
@@ -398,7 +518,7 @@ export const generateCustomScopePdf = async (
 
           renderJustifiedParagraph(hmText, margin + 3, contentWidth - 3, 'normal', 12, [30, 41, 59]);
           y += 2;
-        });
+        }
 
         // Glory Be
         checkAndBreakPage(20);
@@ -412,11 +532,7 @@ export const generateCustomScopePdf = async (
         renderJustifiedParagraph(parsedRHZ.data.gloryBeFatimaText, margin, contentWidth, 'normal', 12, [51, 65, 85]);
         y += 4;
       } else {
-        const rawParagraphs = rawRhzText.split('\n').filter(p => p.trim());
-        for (const para of rawParagraphs) {
-          renderJustifiedParagraph(para, margin, contentWidth, 'normal', 12, [51, 65, 85]);
-          y += 2;
-        }
+        await renderRichContentWithEmbeddedQr(rawRhzText, margin, contentWidth, 'normal', 12, [51, 65, 85]);
         y += 4;
       }
     }
@@ -438,12 +554,7 @@ export const generateCustomScopePdf = async (
       }
       y += 1.5;
 
-      // Split into paragraphs for proper justified paragraph rendering
-      const wnrParagraphs = (wnrDoc.text || '').split('\n').filter(p => p.trim());
-      for (const para of wnrParagraphs) {
-        renderJustifiedParagraph(para, margin, contentWidth, 'normal', 12, [51, 65, 85]);
-        y += 2; // Extra spacing between paragraphs
-      }
+      await renderRichContentWithEmbeddedQr(wnrDoc.text || '', margin, contentWidth, 'normal', 12, [51, 65, 85]);
       y += 6;
     }
   }
