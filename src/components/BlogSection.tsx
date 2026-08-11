@@ -12,7 +12,7 @@ import {
 import { RichTextRenderer } from '../utils/richTextHelper';
 import { WysiwygToolbar } from './WysiwygToolbar';
 import { getWnrDefaultBlogEntry } from '../utils/wnrBlogDefaults';
-import { restoreAllWnrBlogEntries } from '../utils/wnrImporter';
+// restoreAllWnrBlogEntries removed — use AdminSyncPanel for Firestore operations
 import { saveLocalBlogEntry } from '../utils/localNoSqlDb';
 
 interface BlogSectionProps {
@@ -42,8 +42,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   const [editText, setEditText] = useState<string>('');
   const [saving, setSaving] = useState<boolean>(false);
   const [saveStatus, setSaveStatus] = useState<{ success?: boolean; message?: string } | null>(null);
-  const [restoringCloud, setRestoringCloud] = useState<boolean>(false);
-  const [restoreProgress, setRestoreProgress] = useState<string>('');
+  const [restoringCloud, setRestoringCloud] = useState<boolean>(false); // kept for UI compat
+  const [restoreProgress, setRestoreProgress] = useState<string>(''); // kept for UI compat
 
   // Reader / Playback State
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -380,26 +380,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   };
 
   // Restore all 366 WnR365 blog entries into Cloud Firestore based on JSON and corrections
-  const handleRestoreAllCloudEntries = async () => {
-    if (!window.confirm("Czy na pewno chcesz przywrócić i zaktualizować wszystkie 366 wpisów WnR365 w chmurze Firestore na podstawie pliku JSON i poprawek?")) {
-      return;
-    }
-    setRestoringCloud(true);
-    setRestoreProgress("Przygotowywanie wpisów z pliku JSON...");
-    try {
-      const res = await restoreAllWnrBlogEntries(db, user?.email || 'Dominik', prayers, blogEntries, (curr, total) => {
-        setRestoreProgress(`Zapisywanie w chmurze: ${curr} z ${total} wpisów...`);
-      });
-      setSaveStatus({ success: true, message: `Pomyślnie zaktualizowano i przywrócono ${res.restoredCount} wpisów WnR365 w bazie Firestore!` });
-      setTimeout(() => setSaveStatus(null), 6000);
-    } catch (err: any) {
-      console.error("Cloud restore failed:", err);
-      setSaveStatus({ success: false, message: `Błąd przywracania chmury: ${err.message || 'Nieznany błąd.'}` });
-    } finally {
-      setRestoringCloud(false);
-      setRestoreProgress('');
-    }
-  };
+  // handleRestoreAllCloudEntries removed — use AdminSyncPanel (sync icon in header) for Firestore push/pull operations.
 
   // Quick cycle navigation helper
   const navigateToCycleDay = (cycleType: 'cycle1' | 'break' | 'cycle2' | 'break2', day: number) => {
@@ -864,19 +845,12 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                             <Edit3 className="w-3.5 h-3.5 text-slate-400" />
                             EDYTUJ WPIS
                           </button>
-                          <button
-                            onClick={handleRestoreAllCloudEntries}
-                            disabled={restoringCloud}
-                            className={`px-4 py-2.5 border font-bold text-xs rounded-xl active:scale-95 transition flex items-center justify-center gap-1.5 cursor-pointer ${
-                              isLight
-                                ? 'bg-amber-50 hover:bg-amber-100 border-amber-200 text-amber-800'
-                                : 'bg-amber-950/40 hover:bg-amber-900/40 border border-amber-800/50 text-amber-400'
-                            }`}
-                            title="Przywróć wszystkie 366 wpisów WnR365 w chmurze Firestore"
-                          >
-                            <RefreshCw className={`w-3.5 h-3.5 ${restoringCloud ? 'animate-spin' : ''}`} />
-                            {restoringCloud ? restoreProgress : 'PRZYWRÓĆ WSZYSTKIE WPISY W CHMURZE'}
-                          </button>
+                          <div className={`px-3 py-2 rounded-xl border text-xs flex items-center gap-1.5 ${
+                            isLight ? 'bg-amber-50 border-amber-200 text-amber-700' : 'bg-amber-950/30 border-amber-800/40 text-amber-400'
+                          }`}>
+                            <RefreshCw className="w-3 h-3" />
+                            Synchronizacja z Firestore: użyj ikony ⟳ w nagłówku
+                          </div>
                         </div>
                       ) : (
                         <div />
