@@ -1,8 +1,14 @@
-const CACHE_NAME = 'embik365-v5-spa-fix';
+const CACHE_NAME = 'embik365-v6-icons-v2';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
   '/manifest.json',
+  '/favicon.ico',
+  '/favicon.png',
+  '/favicon-32x32.png',
+  '/favicon-16x16.png',
+  '/apple-touch-icon.png',
+  '/app-logo.png',
   '/icon-192.png',
   '/icon-512.png'
 ];
