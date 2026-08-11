@@ -1,4 +1,4 @@
-const CACHE_NAME = 'embik365-v3-mobile-fix';
+const CACHE_NAME = 'embik365-v4-nosql-fresh';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
@@ -7,22 +7,24 @@ const PRECACHE_ASSETS = [
   '/icon-512.png'
 ];
 
-// Install event: Pre-cache core files
+// Install event: Pre-cache core files & immediate skip waiting
 self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(PRECACHE_ASSETS);
-    }).then(() => self.skipWaiting())
+    })
   );
 });
 
-// Activate event: Clean up old caches
+// Activate event: Instantly purge all old caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cache) => {
           if (cache !== CACHE_NAME) {
+            console.log('[SW] Deleting old cache:', cache);
             return caches.delete(cache);
           }
         })
@@ -31,18 +33,17 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch event: Network first with Cache fallback
+// Fetch event: Network first for HTML/JS/CSS, offline fallback
 self.addEventListener('fetch', (event) => {
-  // Skip non-GET requests or browser extension URLs
   if (event.request.method !== 'GET' || !event.request.url.startsWith('http')) {
     return;
   }
 
+  // Network-first strategy for navigation and assets
   event.respondWith(
     fetch(event.request)
       .then((networkResponse) => {
-        // Cache valid responses
-        if (networkResponse && networkResponse.status === 200) {
+        if (networkResponse && networkResponse.status === 200 && event.request.url.includes('/assets/')) {
           const responseToCache = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => {
             cache.put(event.request, responseToCache);
@@ -51,7 +52,6 @@ self.addEventListener('fetch', (event) => {
         return networkResponse;
       })
       .catch(() => {
-        // Offline fallback from cache
         return caches.match(event.request).then((cachedResponse) => {
           if (cachedResponse) {
             return cachedResponse;
@@ -59,6 +59,7 @@ self.addEventListener('fetch', (event) => {
           if (event.request.mode === 'navigate') {
             return caches.match('/index.html');
           }
+          return new Response('Offline', { status: 503, statusText: 'Offline' });
         });
       })
   );
