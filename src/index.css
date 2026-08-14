@@ -48,3 +48,42 @@ div.light-mode-text * {
   --tw-prose-bold: #000000 !important;
 }
 
+/* Stylizacja widgetu Google Translate by pasował do pozostałych przycisków */
+#google_translate_element select.goog-te-combo {
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 0 4px;
+  cursor: pointer;
+  margin: 0;
+  width: 100%;
+}
+
+.skiptranslate.goog-te-gadget {
+  color: transparent !important; /* Ukryj napis Powered by */
+  font-size: 0px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.goog-te-gadget .goog-te-combo {
+  margin: 0 !important;
+}
+
+.goog-logo-link, .goog-te-gadget span {
+  display: none !important;
+}
+
+body {
+  top: 0 !important; /* Blokowanie paska Google na górze ekranu */
+}
+#goog-gt-tt, .goog-te-banner-frame {
+  display: none !important;
+}
+

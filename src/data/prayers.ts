@@ -30,6 +30,14 @@ export const DEFAULT_PRAYERS: Record<string, { title: string; text: string }> = 
     "title": "Antyfona Maryjna (Witaj Królowo / Pod Twoją obronę)",
     "text": "Pod Twoją obronę uciekamy się, święta Boża Rodzicielko, naszymi prośbami racz nie gardzić w potrzebach naszych, ale od wszelakich złych przygód racz nas zawsze wybawiać, Panno chwalebna i błogosławiona. O Pani nasza, Orędowniczko nasza, Pośredniczko nasza, Pocieszycielko nasza! Z Synem swoim nas pojednaj, Synowi swojemu nas polecaj, swojemu Synowi nas oddawaj. Amen."
   },
+  "introTextMain": {
+    "title": "Tekst Wstępu (Widoki na Raj / RHZ365)",
+    "text": "„Widoki na Raj\" to owoc duchowej pielgrzymki i codziennego poszukiwania Jezusa w tajemnicach Boga, prowadzonej zgodnie z Misją Barw i Kolorów. Nie jestem teologiem, osobą duchowną ani autorytetem w sprawach wiary. Jestem jedynie pielgrzymem, który dzieli się własnym doświadczeniem, przemyśleniami i modlitwą.\n\nWnR365 oznacza „Widoki na Raj\" – rozważania na każdy dzień roku, RHZ365 to „Różaniec Historii Zbawienia\" obejmujący 365 dni modlitwy, natomiast eMBiK365 jest wspólnym dziełem moim i mojej żony.\n\nPragniemy razem wzrastać w wierze, trwając w jedności z Bogiem Ojcem, przez Ducha Świętego, w Osobie Jezusa Chrystusa, Pana naszego. Amen."
+  },
+  "introTextMission": {
+    "title": "Misja eMBiK365 (Pasek pod wstępem)",
+    "text": "eMBiK365 (elektronicznej Misji Barw i Kolorów) poprzez duchowe pielgrzymowanie przez Jezusa Chrystusa w Duchu Świętym dzięki Bogu Ojcu i Maryi zawsze dziewicy."
+  },
   "custom_step_step-hailmary-dec-2-7": {
     "title": "Pozdrowienie Anielskie (Zdrowaś Maryjo)",
     "text": "Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego kobieta stała się zapowiedzią Zbawienia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen."

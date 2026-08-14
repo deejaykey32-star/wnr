@@ -17,10 +17,12 @@ import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechPaused, isSpe
 import { SearchModal } from './components/SearchModal';
 import { ExportModal } from './components/ExportModal';
 import { PwaInstallPrompt } from './components/PwaInstallPrompt';
+import { LanguageSwitcher } from './components/LanguageSwitcher';
+import { InlinePrayerEditor } from './components/InlinePrayerEditor';
 import { 
   Play, Pause, ChevronLeft, ChevronRight, RotateCcw, 
   LogIn, LogOut, Video, Edit3, Sliders, Volume2, Info, BookOpen, Mic, MicOff, Calendar, FileDown,
-  Sun, Moon, ShieldAlert, Key, X, ExternalLink, Search, Share2, Check, Smartphone, RefreshCw
+  Sun, Moon, ShieldAlert, Key, X, ExternalLink, Search, Share2, Check, Smartphone, RefreshCw, Edit2
 } from 'lucide-react';
 
 export default function App() {
@@ -71,6 +73,10 @@ export default function App() {
 
   // Prayers state (synced with Firestore or fallback to defaults)
   const [prayers, setPrayers] = useState<Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>>(DEFAULT_PRAYERS);
+
+  // Inline edit states
+  const [isEditingIntroMain, setIsEditingIntroMain] = useState(false);
+  const [isEditingIntroMission, setIsEditingIntroMission] = useState(false);
 
   const POLISH_MONTHS = useMemo(() => [
     { value: 0, label: "Styczeń" },
@@ -238,22 +244,6 @@ export default function App() {
   const handleShare = async () => {
     const slug = getSlugForTabAndDate(activeTab, selectedDate);
     const shareUrl = `${window.location.origin}${slug}`;
-    const shareTitle = activeTab === 'rosary' 
-      ? `RHZ365 — Dzień ${cycleInfo.dayOfCycle}: ${cycleInfo.cycleName}`
-      : `WnR365 — Dzień ${cycleInfo.dayOfCycle}: Widoki na Raj`;
-
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: shareTitle,
-          text: `Zobacz rozważanie na widokinaraj.pl: ${shareTitle}`,
-          url: shareUrl
-        });
-        return;
-      } catch (e) {
-        // Fallback to clipboard copy
-      }
-    }
 
     try {
       await navigator.clipboard.writeText(shareUrl);
@@ -261,6 +251,19 @@ export default function App() {
       setTimeout(() => setCopiedLink(false), 3000);
     } catch (err) {
       console.error("Błąd kopiowania linku:", err);
+      // Fallback fallbacka
+      try {
+        const input = document.createElement('input');
+        input.value = shareUrl;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        document.body.removeChild(input);
+        setCopiedLink(true);
+        setTimeout(() => setCopiedLink(false), 3000);
+      } catch (e) {
+        console.error("Zapasowe kopiowanie również zawiodło", e);
+      }
     }
   };
 
@@ -1004,7 +1007,7 @@ export default function App() {
     }`}>
       {/* HEADER BAR (Hidden in strict YouTube Record Mode) */}
       {!isYoutubeMode && (
-        <header id="main-header" className={`border-b backdrop-blur-md sticky top-0 z-50 py-2.5 px-2.5 sm:px-6 w-full max-w-full overflow-hidden shrink-0 transition-colors duration-300 ${
+        <header id="main-header" className={`border-b backdrop-blur-md sticky top-0 z-50 py-2.5 px-2.5 sm:px-6 w-full max-w-full shrink-0 transition-colors duration-300 ${
           isLight ? 'border-slate-200 bg-white/95 text-slate-900 shadow-sm' : 'border-slate-800 bg-slate-950/90 text-white'
         }`}>
           {/* LINE 0: LOGOTYP Z NAZWĄ STRONY NA SAMEJ GÓRZE */}
@@ -1079,7 +1082,12 @@ export default function App() {
             </div>
 
             {/* LINIA 2 NAWIGACJI: PWA App, Motyw, Logowanie Google / Edytor */}
-            <div className="grid grid-cols-3 sm:flex items-center justify-center gap-1.5 w-full sm:w-auto max-w-full">
+            <div className="grid grid-cols-4 sm:flex items-center justify-center gap-1.5 w-full sm:w-auto max-w-full">
+              {/* Tłumacz - Language Switcher */}
+              <div className="flex-shrink-0 w-full sm:w-auto">
+                <LanguageSwitcher isLight={isLight} />
+              </div>
+
               {/* PWA Install Trigger Button */}
               <button
                 onClick={() => setShowPwaPromptModal(true)}
@@ -1204,31 +1212,40 @@ export default function App() {
                       ? 'bg-indigo-50 text-indigo-600 border-indigo-200'
                       : 'bg-indigo-950/60 text-indigo-300 border-indigo-800/50'
                   }`}>Wstęp</span>
+                  {isAuthorized && !isEditingIntroMain && (
+                    <button
+                      onClick={() => setIsEditingIntroMain(true)}
+                      className={`flex items-center justify-center p-1 rounded-full border transition-colors ${
+                        isLight ? 'bg-indigo-50 text-indigo-600 border-indigo-200 hover:bg-indigo-100' : 'bg-indigo-950/60 text-indigo-300 border-indigo-800/50 hover:bg-indigo-900/60'
+                      }`}
+                      title="Edytuj tekst Wstępu"
+                    >
+                      <Edit2 className="w-3.5 h-3.5" />
+                    </button>
+                  )}
                 </div>
-                <p className={`text-sm sm:text-base leading-relaxed font-serif transition-colors duration-300 ${
-                  isLight ? 'text-slate-700' : 'text-slate-300'
-                }`}>
-                  <span className={`font-bold not-italic ${isLight ? 'text-slate-900' : 'text-white'}`}>„Widoki na Raj"</span> to owoc duchowej pielgrzymki i codziennego poszukiwania Jezusa w tajemnicach Boga, prowadzonej zgodnie z{' '}
-                  <span className={`font-semibold ${isLight ? 'text-indigo-700' : 'text-indigo-300'}`}>Misją Barw i Kolorów</span>. Nie jestem teologiem, osobą duchowną ani autorytetem w sprawach wiary. Jestem jedynie pielgrzymem, który dzieli się własnym doświadczeniem, przemyśleniami i modlitwą.
-                </p>
-                <p className={`text-sm sm:text-base leading-relaxed font-serif mt-3 transition-colors duration-300 ${
-                  isLight ? 'text-slate-700' : 'text-slate-300'
-                }`}>
-                  <strong className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-400 font-extrabold font-sans not-italic">WnR365</strong>{' '}
-                  <span className={isLight ? 'text-slate-600' : 'text-slate-400'}>oznacza „Widoki na Raj" – rozważania na każdy dzień roku,</span>{' '}
-                  <strong className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500 font-extrabold font-sans not-italic">RHZ365</strong>{' '}
-                  <span className={isLight ? 'text-slate-600' : 'text-slate-400'}>to „Różaniec Historii Zbawienia" obejmujący 365 dni modlitwy, natomiast</span>{' '}
-                  <strong className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-indigo-500 to-amber-500 font-extrabold font-sans not-italic">eMBiK365</strong>{' '}
-                  <span className={isLight ? 'text-slate-600' : 'text-slate-400'}>jest wspólnym dziełem moim i mojej żony.</span>
-                </p>
-                <p className={`text-sm sm:text-base leading-relaxed font-serif mt-3 transition-colors duration-300 ${
-                  isLight ? 'text-slate-700' : 'text-slate-300'
-                }`}>
-                  Pragniemy razem wzrastać w wierze, trwając w jedności z{' '}
-                  <span className={`font-semibold ${isLight ? 'text-amber-700' : 'text-amber-300'}`}>Bogiem Ojcem</span>, przez{' '}
-                  <span className={`font-semibold ${isLight ? 'text-sky-600' : 'text-sky-300'}`}>Ducha Świętego</span>, w Osobie{' '}
-                  <span className={`font-bold ${isLight ? 'text-slate-900' : 'text-white'}`}>Jezusa Chrystusa, Pana naszego</span>. Amen.
-                </p>
+                
+                {isEditingIntroMain ? (
+                  <InlinePrayerEditor
+                    prayerKey="introTextMain"
+                    initialTitle={prayers['introTextMain']?.title || DEFAULT_PRAYERS['introTextMain'].title}
+                    initialText={prayers['introTextMain']?.text || DEFAULT_PRAYERS['introTextMain'].text}
+                    userEmail={userEmail}
+                    isLight={isLight}
+                    theme={theme}
+                    onThemeToggle={toggleTheme}
+                    prayers={prayers}
+                    onPrayersUpdated={setPrayers}
+                    onCancel={() => setIsEditingIntroMain(false)}
+                  />
+                ) : (
+                  <div className={`mt-3 transition-colors duration-300 ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
+                    <RichTextRenderer 
+                      text={prayers['introTextMain']?.text || DEFAULT_PRAYERS['introTextMain'].text} 
+                      theme={theme} 
+                    />
+                  </div>
+                )}
               </div>
             </div>
             {/* Decorative bottom gradient bar */}
@@ -1244,11 +1261,42 @@ export default function App() {
               : 'bg-slate-900/40 border-slate-800/80'
           }`}>
             <div className="absolute inset-0 bg-gradient-to-r from-sky-500/5 via-transparent to-amber-500/5 pointer-events-none" />
-            <p className={`text-xs sm:text-sm leading-relaxed font-serif transition-colors duration-300 ${
-              isLight ? 'text-slate-700' : 'text-slate-300'
-            }`}>
-              <strong className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-indigo-500 to-amber-500 font-extrabold font-sans not-italic">eMBiK365</strong> (elektronicznej Misji Barw i Kolorów) poprzez duchowe pielgrzymowanie przez <span className={`${isLight ? 'text-slate-900' : 'text-white'} font-bold`}>Jezusa Chrystusa</span> w <span className={`${isLight ? 'text-sky-600' : 'text-sky-300'} font-semibold`}>Duchu Świętym</span> dzięki <span className={`${isLight ? 'text-amber-600' : 'text-amber-300'} font-semibold`}>Bogu Ojcu</span> i <span className={`${isLight ? 'text-rose-600' : 'text-rose-300'} font-semibold`}>Maryi zawsze dziewicy</span>.
-            </p>
+            
+            {isAuthorized && !isEditingIntroMission && (
+              <button
+                onClick={() => setIsEditingIntroMission(true)}
+                className={`absolute top-2 right-2 flex items-center justify-center p-1.5 rounded-full border transition-colors z-10 ${
+                  isLight ? 'bg-white text-indigo-600 border-indigo-200 hover:bg-indigo-50' : 'bg-slate-900 text-indigo-300 border-indigo-800/50 hover:bg-slate-800'
+                }`}
+                title="Edytuj misję eMBiK365"
+              >
+                <Edit2 className="w-3.5 h-3.5" />
+              </button>
+            )}
+
+            {isEditingIntroMission ? (
+              <div className="relative z-10 text-left">
+                <InlinePrayerEditor
+                  prayerKey="introTextMission"
+                  initialTitle={prayers['introTextMission']?.title || DEFAULT_PRAYERS['introTextMission'].title}
+                  initialText={prayers['introTextMission']?.text || DEFAULT_PRAYERS['introTextMission'].text}
+                  userEmail={userEmail}
+                  isLight={isLight}
+                  theme={theme}
+                  onThemeToggle={toggleTheme}
+                  prayers={prayers}
+                  onPrayersUpdated={setPrayers}
+                  onCancel={() => setIsEditingIntroMission(false)}
+                />
+              </div>
+            ) : (
+              <div className={`mt-2 transition-colors duration-300 relative z-10 ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
+                <RichTextRenderer 
+                  text={prayers['introTextMission']?.text || DEFAULT_PRAYERS['introTextMission'].text} 
+                  theme={theme} 
+                />
+              </div>
+            )}
           </div>
         )}
 

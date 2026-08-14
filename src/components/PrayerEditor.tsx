@@ -618,6 +618,8 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
               <option value="gloryBe">Chwała Ojcu</option>
               <option value="fatima">Modlitwa Fatimska (O mój Jezu)</option>
               <option value="hailQueen">Pod Twoją obronę / Witaj Królowo</option>
+              <option value="introTextMain">Wstęp Główny (Widoki na Raj)</option>
+              <option value="introTextMission">Misja eMBiK365 (pod wstępem)</option>
             </select>
           </div>
         )}
