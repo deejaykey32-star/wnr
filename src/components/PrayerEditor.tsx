@@ -5,6 +5,7 @@ import { getLoveMystery, getHateMystery, getFatherMystery, getActiveDecadeMyster
 import { WysiwygToolbar } from './WysiwygToolbar';
 import { executeUpsertSync, performDryRunSync, validateRHZJson, performPreImportAudit, DryRunReport, UpsertReport } from '../utils/rhzImporter';
 import { saveLocalPrayers } from '../utils/localNoSqlDb';
+import { parseDayText } from '../utils/rhzParser';
 
 interface PrayerEditorProps {
   userEmail: string;
@@ -209,6 +210,18 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
             defaultTitle = `${mysteryData.rgba.title} / ${mysteryData.cmyk.title}`;
             defaultText = `RGBA: ${mysteryData.rgba.text}\n\nCMYK: ${mysteryData.cmyk.text}`;
           }
+        } else if (stepObj.prayerType === 'hailMary' && stepObj.beadNumber && stepObj.decadeIndex && currentCycleType === 'cycle1') {
+          const decIdx = stepObj.decadeIndex;
+          const mysteryData = getActiveDecadeMystery('cycle1', currentDayNum, decIdx, prayers);
+          const parsed = parseDayText(currentDayNum, mysteryData.rgba.text);
+          if (parsed.success && parsed.data && parsed.data.hailMaryTexts[stepObj.beadNumber - 1]) {
+            defaultTitle = `${stepObj.label}`;
+            defaultText = parsed.data.hailMaryTexts[stepObj.beadNumber - 1];
+          } else {
+            const def = prayers['hailMary'] || DEFAULT_PRAYERS['hailMary'];
+            defaultTitle = def?.title || stepObj.label;
+            defaultText = def?.text || "";
+          }
         } else if (stepObj.prayerType === 'ourFather') {
           const def = prayers['ourFather'] || DEFAULT_PRAYERS['ourFather'];
           defaultTitle = def?.title || "Ojcze Nasz";
@@ -255,7 +268,6 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
 
     try {
       const activeKey = getFirestoreKey();
-      const docRef = doc(db, 'prayers', activeKey);
       
       const newEntry = {
         title: editTitle.trim(),
@@ -264,13 +276,12 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
         updatedAt: new Date().toISOString()
       };
 
-      await setDoc(docRef, newEntry);
-
       const nextPrayers = {
         ...prayers,
         [activeKey]: newEntry
       };
 
+      // LOCAL-FIRST: Save to IndexedDB and update React state immediately
       try {
         await saveLocalPrayers(nextPrayers);
       } catch (err) {
@@ -281,10 +292,18 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
         onPrayersUpdated(nextPrayers);
       }
 
-      setSuccessMsg('Zapisano pomyślnie w chmurze i lokalnie!');
+      // Optional Cloud Backup: Send to Firestore in background without blocking local save
+      try {
+        const docRef = doc(db, 'prayers', activeKey);
+        await setDoc(docRef, newEntry);
+      } catch (cloudErr) {
+        console.warn("Firestore Backup skipped/failed (saved locally):", cloudErr);
+      }
+
+      setSuccessMsg('Zapisano pomyślnie lokalnie i w chmurze!');
       setTimeout(() => setSuccessMsg(''), 4000);
     } catch (error: any) {
-      console.error("Firestore Save Error:", error);
+      console.error("Save Error:", error);
       setErrorMsg(`Błąd zapisu: ${error.message || 'Brak uprawnień lub błąd połączenia.'}`);
     } finally {
       setSaving(false);

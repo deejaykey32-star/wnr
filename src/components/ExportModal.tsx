@@ -114,6 +114,8 @@ export const ExportModal: React.FC<ExportModalProps> = ({
 
       if (jsonRhz) {
         exportObject.sections.push('RHZ365');
+        exportObject.sections.push('PRAYERS_AND_INTRO');
+        exportObject.prayers = prayers;
         exportObject.rhz365 = rhzData.map(item => {
           const dayNum = item.dayNumber;
           const decIdx = ((dayNum - 1) % 5) + 1;

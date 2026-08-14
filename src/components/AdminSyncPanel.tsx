@@ -284,14 +284,14 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
             <StatusBar status={blogStatus} />
           </div>
 
-          {/* Prayers Section */}
+          {/* Prayers & Intro Blocks Section */}
           <div className={`rounded-xl border p-4 ${cardBg}`}>
             <h3 className="font-semibold text-sm mb-1 flex items-center gap-2">
               <RefreshCw size={15} className="text-violet-400" />
-              Modlitwy RHZ365
+              Bloki Wstępu & Modlitwy RHZ365
             </h3>
             <p className={`text-xs mb-3 ${subText}`}>
-              Źródło: lokalne wartości domyślne + IndexedDB (edycje admina)
+              Źródło: lokalne wartości domyślne + IndexedDB (edycje Wstępu i Paciorków)
             </p>
 
             <div className="grid grid-cols-1 gap-2">
@@ -305,7 +305,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
                 }`}
               >
                 <CloudUpload size={15} />
-                Wyślij modlitwy do Firestore (backup)
+                Wyślij bloki wstępu i modlitwy do Firestore (backup)
               </button>
 
               <button
@@ -318,7 +318,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
                 }`}
               >
                 <CloudDownload size={15} />
-                Pobierz modlitwy z Firestore (nadpisz lokalne)
+                Pobierz bloki wstępu i modlitwy z Firestore (nadpisz lokalne)
               </button>
             </div>
 

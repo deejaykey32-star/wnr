@@ -199,6 +199,40 @@ p {
 
   const tocEntries: { id: string; title: string; href: string }[] = [];
 
+  // Add Intro & Mission Chapter for full EPUB book
+  if (range === 'full') {
+    const mainText = prayers['introTextMain']?.text;
+    const missionText = prayers['introTextMission']?.text;
+    if (mainText || missionText) {
+      const introId = 'intro_chapter';
+      const introHref = 'intro.xhtml';
+      const introTitle = 'Wstęp i Misja eMBiK365';
+
+      tocEntries.push({ id: introId, title: introTitle, href: introHref });
+      manifestItems.push(`<item id="${introId}" href="${introHref}" media-type="application/xhtml+xml"/>`);
+      spineRefs.push(`<itemref idref="${introId}"/>`);
+
+      const mainParas = (mainText || '').split(/\n\s*\n+/).map(p => `<p>${escapeXml(p.trim())}</p>`).join('');
+      const missionPara = missionText ? `<div className="box"><h3>Misja eMBiK365</h3><p><strong>${escapeXml(missionText.trim())}</strong></p></div>` : '';
+
+      const introHtml = `<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+<head>
+  <title>${escapeXml(introTitle)}</title>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+  <h1>${escapeXml(introTitle)}</h1>
+  ${mainParas}
+  ${missionPara}
+</body>
+</html>`;
+
+      zip.file(`OEBPS/${introHref}`, introHtml);
+    }
+  }
+
   for (let i = startDayIdx; i < endDayIdx; i++) {
     const dayNum = i + 1;
     const current = i - startDayIdx + 1;

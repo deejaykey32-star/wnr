@@ -359,6 +359,44 @@ export const generateCustomScopePdf = async (
     }
   };
 
+  // Render Intro & Mission Statement if generating full range or if single range day 1
+  if (range === 'full') {
+    const mainText = prayers['introTextMain']?.text;
+    const missionText = prayers['introTextMission']?.text;
+    if (mainText || missionText) {
+      doc.setFont(fontName, 'bold');
+      doc.setFontSize(14);
+      doc.setTextColor(15, 23, 42);
+      doc.text("Wstęp i Misja eMBiK365", margin, y);
+      y += 8;
+
+      if (mainText) {
+        renderJustifiedParagraph(mainText, margin, contentWidth, 'normal', 11, [30, 41, 59]);
+        y += 4;
+      }
+
+      if (missionText) {
+        doc.setFillColor(243, 244, 246);
+        doc.setDrawColor(209, 213, 219);
+        doc.rect(margin, y, contentWidth, 14, 'FD');
+        doc.setFont(fontName, 'bold');
+        doc.setFontSize(9);
+        doc.setTextColor(79, 70, 229);
+        doc.text("Misja eMBiK365:", margin + 3, y + 5);
+        doc.setFont(fontName, 'normal');
+        doc.setTextColor(51, 65, 85);
+        const splitMission = doc.splitTextToSize(missionText, contentWidth - 6);
+        doc.text(splitMission, margin + 3, y + 9.5);
+        y += 18;
+      }
+
+      doc.addPage();
+      currentPage++;
+      drawHeaderFooter(currentPage, headerTitle);
+      y = margin + 5;
+    }
+  }
+
   for (let currentDayNum = startDay; currentDayNum <= endDay; currentDayNum++) {
     const progressCount = currentDayNum - startDay + 1;
     const totalCount = endDay - startDay + 1;

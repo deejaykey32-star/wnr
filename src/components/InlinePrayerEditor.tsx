@@ -44,8 +44,6 @@ export const InlinePrayerEditor: React.FC<InlinePrayerEditorProps> = ({
     setErrorMsg('');
 
     try {
-      const docRef = doc(db, 'prayers', prayerKey);
-      
       const newEntry = {
         title: initialTitle,
         text: editText.trim(),
@@ -53,13 +51,12 @@ export const InlinePrayerEditor: React.FC<InlinePrayerEditorProps> = ({
         updatedAt: new Date().toISOString()
       };
 
-      await setDoc(docRef, newEntry);
-
       const nextPrayers = {
         ...prayers,
         [prayerKey]: newEntry
       };
 
+      // LOCAL-FIRST: Save to IndexedDB and update React state immediately
       try {
         await saveLocalPrayers(nextPrayers);
       } catch (err) {
@@ -67,9 +64,18 @@ export const InlinePrayerEditor: React.FC<InlinePrayerEditorProps> = ({
       }
 
       onPrayersUpdated(nextPrayers);
-      onCancel(); // zamknij edytor po udanym zapisie
+
+      // Optional Cloud Backup: Send to Firestore in background without failing local save
+      try {
+        const docRef = doc(db, 'prayers', prayerKey);
+        await setDoc(docRef, newEntry);
+      } catch (cloudErr) {
+        console.warn("Firestore Backup skipped/failed (saved locally):", cloudErr);
+      }
+
+      onCancel(); // Close editor after successful local save
     } catch (error: any) {
-      console.error("Firestore Save Error:", error);
+      console.error("Save Error:", error);
       setErrorMsg(`Błąd zapisu: ${error.message || 'Brak uprawnień lub błąd połączenia.'}`);
     } finally {
       setSaving(false);

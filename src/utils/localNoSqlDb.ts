@@ -236,6 +236,20 @@ export async function saveLocalPrayers(prayers: Record<string, { title: string; 
 }
 
 /**
+ * Saves a single prayer or intro block to local IndexedDB.
+ */
+export async function saveSingleLocalPrayer(docId: string, prayer: { title: string; text: string; updatedBy?: string; updatedAt?: string }): Promise<void> {
+  try {
+    const db = await openDb();
+    const tx = db.transaction(PRAYERS_STORE, 'readwrite');
+    const store = tx.objectStore(PRAYERS_STORE);
+    store.put({ docId, ...prayer });
+  } catch (err) {
+    console.warn('[NoSQL] Failed to save single prayer to IndexedDB:', err);
+  }
+}
+
+/**
  * Gets locally stored prayers from IndexedDB.
  */
 export async function getLocalPrayers(): Promise<Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }> | null> {

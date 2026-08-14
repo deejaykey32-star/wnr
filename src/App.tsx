@@ -454,7 +454,7 @@ export default function App() {
       if (cycleInfo.cycleType === 'cycle1' && decIdx) {
         const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
         const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
-        if (parsed.success && parsed.data) {
+        if (parsed.data?.ourFatherText) {
           return parsed.data.ourFatherText;
         }
       }
@@ -473,7 +473,7 @@ export default function App() {
       if (cycleInfo.cycleType === 'cycle1' && decIdx) {
         const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
         const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
-        if (parsed.success && parsed.data) {
+        if (parsed.data?.gloryBeFatimaText) {
           return parsed.data.gloryBeFatimaText;
         }
       }
@@ -484,8 +484,16 @@ export default function App() {
       const decIdx = activeStep.decadeIndex;
       const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
       const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
-      if (parsed.success && parsed.data && parsed.data.hailMaryTexts[activeStep.beadNumber - 1]) {
-        return parsed.data.hailMaryTexts[activeStep.beadNumber - 1];
+      let specificHailText = parsed.data?.hailMaryTexts?.[activeStep.beadNumber - 1];
+      if (!specificHailText) {
+        const rawText = mysteryData.rgba.text || '';
+        const parts = rawText.split(/(?=(?:^|\n)\s*Zdrowaś Maryjo)/i).filter(p => /Zdrowaś Maryjo/i.test(p));
+        if (parts[activeStep.beadNumber - 1]) {
+          specificHailText = parts[activeStep.beadNumber - 1].trim();
+        }
+      }
+      if (specificHailText) {
+        return specificHailText;
       }
       const currentPrayer = prayers[activeStep.prayerType] || DEFAULT_PRAYERS[activeStep.prayerType];
       return `${currentPrayer?.text || ''}.`;
@@ -789,7 +797,7 @@ export default function App() {
       if (cycleInfo.cycleType === 'cycle1' && decIdx) {
         const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
         const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
-        if (parsed.success && parsed.data) {
+        if (parsed.data?.ourFatherText) {
           textToDisplay = parsed.data.ourFatherText;
         }
       }
@@ -828,7 +836,7 @@ export default function App() {
       if (cycleInfo.cycleType === 'cycle1' && decIdx) {
         const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
         const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
-        if (parsed.success && parsed.data) {
+        if (parsed.data?.gloryBeFatimaText) {
           textToDisplay = parsed.data.gloryBeFatimaText;
         }
       }
@@ -850,8 +858,16 @@ export default function App() {
       const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
       const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
 
-      if (parsed.success && parsed.data && parsed.data.hailMaryTexts[activeStep.beadNumber - 1]) {
-        const specificHailText = parsed.data.hailMaryTexts[activeStep.beadNumber - 1];
+      let specificHailText = parsed.data?.hailMaryTexts?.[activeStep.beadNumber - 1];
+      if (!specificHailText) {
+        const rawText = mysteryData.rgba.text || '';
+        const parts = rawText.split(/(?=(?:^|\n)\s*Zdrowaś Maryjo)/i).filter(p => /Zdrowaś Maryjo/i.test(p));
+        if (parts[activeStep.beadNumber - 1]) {
+          specificHailText = parts[activeStep.beadNumber - 1].trim();
+        }
+      }
+
+      if (specificHailText) {
         return (
           <div className={`mt-3 p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-slate-50 border-slate-200 light-mode-text' : 'bg-slate-900/40 border-slate-800/50'}`} style={isLight ? { color: '#000000' } : undefined}>
             <div className="flex items-center justify-between border-b pb-2 mb-3">
