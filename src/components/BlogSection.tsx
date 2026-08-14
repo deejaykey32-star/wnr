@@ -816,8 +816,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                   </div>
                 ) : (
                   // Read Content View
-                  <div className="prose prose-invert max-w-none">
-                    <div className={`text-sm leading-relaxed font-sans pt-1 min-h-[160px] border-l-2 pl-4 text-justify ${
+                  <div className={`max-w-none ${isLight ? 'light-mode-text' : 'prose prose-invert'}`}>
+                    <div style={isLight ? { color: '#000000' } : undefined} className={`text-sm leading-relaxed font-sans pt-1 min-h-[160px] border-l-2 pl-4 text-justify ${
                       isLight ? 'light-mode-text border-slate-300' : 'text-slate-300 border-amber-500/20'
                     }`}>
                       <RichTextRenderer text={activeEntry.text} theme={theme} />

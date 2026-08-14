@@ -804,11 +804,11 @@ export default function App() {
               </div>
             </div>
           )}
-          <div className={`p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/40 border-slate-800/50'}`}>
-            <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 border-b pb-1.5 ${isLight ? 'text-slate-900 border-slate-200' : 'text-slate-400 border-slate-800'}`}>
+          <div className={`p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-slate-50 border-slate-200 light-mode-text' : 'bg-slate-900/40 border-slate-800/50'}`} style={isLight ? { color: '#000000' } : undefined}>
+            <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 border-b pb-1.5 ${isLight ? 'light-mode-text border-slate-200' : 'text-slate-400 border-slate-800'}`} style={isLight ? { color: '#000000' } : undefined}>
               {ourFather.title}
             </h4>
-            <div className={`text-base sm:text-lg leading-relaxed font-sans text-justify ${isLight ? 'light-mode-text' : 'text-slate-100'}`}>
+            <div className={`text-base sm:text-lg leading-relaxed font-sans text-justify ${isLight ? 'light-mode-text' : 'text-slate-100'}`} style={isLight ? { color: '#000000' } : undefined}>
               <RichTextRenderer text={textToDisplay} theme={theme} />
             </div>
           </div>
@@ -832,9 +832,9 @@ export default function App() {
 
       return (
         <div className="space-y-4 mt-3">
-          <div className={`p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/40 border-slate-800/50'}`}>
-            <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 border-b pb-1.5 ${isLight ? 'text-slate-900 border-slate-200' : 'text-slate-400 border-slate-800'}`}>{glory.title} & {fatima.title}</h4>
-            <div className={`text-base sm:text-lg leading-relaxed text-justify ${isLight ? 'light-mode-text' : 'text-slate-100'}`}>
+          <div className={`p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-slate-50 border-slate-200 light-mode-text' : 'bg-slate-900/40 border-slate-800/50'}`} style={isLight ? { color: '#000000' } : undefined}>
+            <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 border-b pb-1.5 ${isLight ? 'light-mode-text border-slate-200' : 'text-slate-400 border-slate-800'}`} style={isLight ? { color: '#000000' } : undefined}>{glory.title} & {fatima.title}</h4>
+            <div className={`text-base sm:text-lg leading-relaxed text-justify ${isLight ? 'light-mode-text' : 'text-slate-100'}`} style={isLight ? { color: '#000000' } : undefined}>
               <RichTextRenderer text={textToDisplay} theme={theme} />
             </div>
           </div>
@@ -850,16 +850,16 @@ export default function App() {
       if (parsed.success && parsed.data && parsed.data.hailMaryTexts[activeStep.beadNumber - 1]) {
         const specificHailText = parsed.data.hailMaryTexts[activeStep.beadNumber - 1];
         return (
-          <div className={`mt-3 p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/40 border-slate-800/50'}`}>
+          <div className={`mt-3 p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-slate-50 border-slate-200 light-mode-text' : 'bg-slate-900/40 border-slate-800/50'}`} style={isLight ? { color: '#000000' } : undefined}>
             <div className="flex items-center justify-between border-b pb-2 mb-3">
-              <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider ${isLight ? 'text-slate-900' : 'text-slate-400'}`}>
+              <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider ${isLight ? 'light-mode-text' : 'text-slate-400'}`} style={isLight ? { color: '#000000' } : undefined}>
                 Zdrowaś Maryjo ({activeStep.beadNumber} z 10)
               </h4>
               <span className={`text-[10px] font-mono font-bold px-2.5 py-1 rounded-full ${isLight ? 'bg-indigo-100 text-indigo-800' : 'bg-indigo-950 text-indigo-300'}`}>
                 Zdrowaś Maryjo #{activeStep.beadNumber}
               </span>
             </div>
-            <div className={`text-base sm:text-lg leading-relaxed font-serif text-justify ${isLight ? 'light-mode-text' : 'text-slate-100'}`}>
+            <div className={`text-base sm:text-lg leading-relaxed font-serif text-justify ${isLight ? 'light-mode-text' : 'text-slate-100'}`} style={isLight ? { color: '#000000' } : undefined}>
               <RichTextRenderer text={specificHailText} theme={theme} />
             </div>
           </div>

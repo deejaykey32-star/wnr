@@ -36,10 +36,15 @@ html, body {
   scrollbar-width: none;
 }
 
-/* Light mode prayer/content text — ensures pitch-black color (#000000) regardless of Tailwind purge.
+/* Light mode prayer/content text — ensures pitch-black color (#000000) regardless of Tailwind purge or prose styles.
    Applies to the element itself AND all descendant text nodes/tags unconditionally. */
 .light-mode-text,
-.light-mode-text * {
+.light-mode-text *,
+body.light-mode-text,
+div.light-mode-text * {
   color: #000000 !important;
+  --tw-prose-body: #000000 !important;
+  --tw-prose-headings: #000000 !important;
+  --tw-prose-bold: #000000 !important;
 }
 
