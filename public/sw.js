@@ -1,4 +1,4 @@
-const CACHE_NAME = 'embik365-v15-black-text-update';
+const CACHE_NAME = 'embik365-v16-wysiwyg-sync';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',

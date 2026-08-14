@@ -28,6 +28,7 @@ interface PrayerEditorProps {
   }[];
   activeStepIndex: number;
   onChangeStepIndex: (idx: number) => void;
+  onPrayersUpdated?: (prayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>) => void;
   theme?: string;
   onThemeToggle?: () => void;
 }
@@ -41,6 +42,7 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
   steps,
   activeStepIndex,
   onChangeStepIndex,
+  onPrayersUpdated,
   theme = 'dark',
   onThemeToggle
 }) => {
@@ -254,12 +256,21 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
       const activeKey = getFirestoreKey();
       const docRef = doc(db, 'prayers', activeKey);
       
-      await setDoc(docRef, {
+      const newEntry = {
         title: editTitle.trim(),
         text: editText.trim(),
         updatedBy: userEmail,
         updatedAt: new Date().toISOString()
-      });
+      };
+
+      await setDoc(docRef, newEntry);
+
+      if (onPrayersUpdated) {
+        onPrayersUpdated({
+          ...prayers,
+          [activeKey]: newEntry
+        });
+      }
 
       setSuccessMsg('Zapisano pomyślnie w chmurze!');
       setTimeout(() => setSuccessMsg(''), 4000);
@@ -280,6 +291,12 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
       const activeKey = getFirestoreKey();
       const docRef = doc(db, 'prayers', activeKey);
       await deleteDoc(docRef);
+
+      const nextPrayers = { ...prayers };
+      delete nextPrayers[activeKey];
+      if (onPrayersUpdated) {
+        onPrayersUpdated(nextPrayers);
+      }
 
       setSuccessMsg('Przywrócono domyślne ustawienia modlitwy!');
       setTimeout(() => setSuccessMsg(''), 4000);

@@ -132,8 +132,8 @@ export const WysiwygToolbar: React.FC<WysiwygToolbarProps> = ({
     : 'w-full h-[250px] bg-slate-950 p-4 text-sm text-slate-200 font-sans leading-relaxed focus:outline-none focus:ring-0 resize-none border-0';
 
   const previewClass = isLight
-    ? 'p-4 w-full h-[250px] overflow-y-auto prose prose-slate text-left select-text bg-slate-50'
-    : 'p-4 w-full h-[250px] overflow-y-auto prose prose-invert text-left select-text bg-slate-950';
+    ? 'p-4 sm:p-5 w-full h-[250px] overflow-y-auto select-text bg-slate-50 light-mode-text'
+    : 'p-4 sm:p-5 w-full h-[250px] overflow-y-auto select-text bg-slate-950 text-slate-100';
 
   const footerClass = isLight
     ? 'flex justify-between items-center bg-slate-100 px-4 py-1.5 border-t border-slate-200 text-[10px] font-mono text-slate-500'
@@ -651,7 +651,9 @@ export const WysiwygToolbar: React.FC<WysiwygToolbarProps> = ({
         {isPreviewMode ? (
           <div className={previewClass}>
             {text.trim() ? (
-              <RichTextRenderer text={text} theme={theme} />
+              <div className={`text-base sm:text-lg leading-relaxed font-sans text-justify ${isLight ? 'light-mode-text' : 'text-slate-100'}`} style={isLight ? { color: '#000000' } : undefined}>
+                <RichTextRenderer text={text} theme={theme} />
+              </div>
             ) : (
               <span className="text-xs text-slate-500 italic">Podgląd jest pusty. Wpisz coś w edytorze tekstowym...</span>
             )}

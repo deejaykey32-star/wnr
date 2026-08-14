@@ -1860,6 +1860,7 @@ export default function App() {
                       steps={steps}
                       activeStepIndex={activeStepIndex}
                       onChangeStepIndex={setActiveStepIndex}
+                      onPrayersUpdated={setPrayers}
                       theme={theme}
                       onThemeToggle={toggleTheme}
                     />

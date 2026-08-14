@@ -3,73 +3,50 @@ import React from 'react';
 export const normalizeTextParagraphs = (rawText: string): string => {
   if (!rawText) return '';
   const text = rawText.replace(/\r\n/g, '\n').trim();
-  const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
 
-  const isHeader = (line: string): boolean => {
-    if (
-      line.startsWith('#') || 
-      line.startsWith('Etap') || 
-      line.startsWith('Część') || 
-      line.startsWith('Tajemnica') || 
-      line.startsWith('Rozdział') || 
-      line.startsWith('Wstęp') || 
-      line.startsWith('Zakończenie') ||
-      line.startsWith('Dodatek') ||
-      line.startsWith('Modlitwa') ||
-      line.startsWith('Dzień')
-    ) {
-      return true;
-    }
-    if (
-      line.length <= 60 && 
-      !/[.,;!?:]$/.test(line) && 
-      !line.startsWith('-') && 
-      !line.startsWith('*') && 
-      !line.startsWith('>') && 
-      !line.startsWith('[') && 
-      !line.startsWith('«') &&
-      !line.startsWith('»')
-    ) {
-      return true;
-    }
-    return false;
-  };
-
+  // Split into blocks by double newlines or single newlines to preserve user formatting
+  const rawBlocks = text.split(/\n\s*\n/);
   const finalBlocks: string[] = [];
-  let currentParaSentences: string[] = [];
-  let currentLength = 0;
 
-  const flushPara = () => {
-    if (currentParaSentences.length > 0) {
-      finalBlocks.push(currentParaSentences.join(' '));
-      currentParaSentences = [];
-      currentLength = 0;
+  for (const block of rawBlocks) {
+    const trimmed = block.trim();
+    if (!trimmed) continue;
+
+    // Check if lines within the block have explicit Markdown headers or section tags
+    const lines = trimmed.split('\n').map(l => l.trim()).filter(Boolean);
+    let currentPara: string[] = [];
+
+    const flushCurrent = () => {
+      if (currentPara.length > 0) {
+        finalBlocks.push(currentPara.join(' '));
+        currentPara = [];
+      }
+    };
+
+    for (const line of lines) {
+      if (
+        line.startsWith('#') || 
+        line.startsWith('[qr:') || 
+        line.startsWith('![') ||
+        line.startsWith('<') ||
+        line.startsWith('Etap ') ||
+        line.startsWith('Część ') ||
+        line.startsWith('Tajemnica ') ||
+        line.startsWith('Rozdział ') ||
+        line.startsWith('Wstęp ') ||
+        line.startsWith('Zakończenie') ||
+        line.startsWith('Dodatek') ||
+        line.startsWith('Modlitwa') ||
+        line.startsWith('Dzień ')
+      ) {
+        flushCurrent();
+        finalBlocks.push(line.startsWith('#') || line.startsWith('[') || line.startsWith('<') ? line : `### ${line}`);
+      } else {
+        currentPara.push(line);
+      }
     }
-  };
-
-  for (const line of lines) {
-    if (line.startsWith('[qr:') || line.startsWith('![')) {
-      flushPara();
-      finalBlocks.push(line);
-      continue;
-    }
-
-    if (isHeader(line)) {
-      flushPara();
-      finalBlocks.push(line.startsWith('#') ? line : `### ${line}`);
-      continue;
-    }
-
-    currentParaSentences.push(line);
-    currentLength += line.length;
-
-    // Form balanced thematic paragraphs (~300 chars or 4 sentences per paragraph)
-    if (currentLength >= 300 || currentParaSentences.length >= 4) {
-      flushPara();
-    }
+    flushCurrent();
   }
-
-  flushPara();
 
   return finalBlocks.join('\n\n');
 };
