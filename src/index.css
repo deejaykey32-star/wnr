@@ -36,3 +36,22 @@ html, body {
   scrollbar-width: none;
 }
 
+/* Light mode prayer/content text — ensures black color regardless of Tailwind purge.
+   Applies to the element itself AND all descendant text nodes. */
+.light-mode-text,
+.light-mode-text p,
+.light-mode-text h1,
+.light-mode-text h2,
+.light-mode-text h3,
+.light-mode-text h4,
+.light-mode-text h5,
+.light-mode-text h6,
+.light-mode-text li,
+.light-mode-text span,
+.light-mode-text strong,
+.light-mode-text em,
+.light-mode-text blockquote,
+.light-mode-text label {
+  color: #000000 !important;
+}
+

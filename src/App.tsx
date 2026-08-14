@@ -644,8 +644,8 @@ export default function App() {
             <h4 className={`text-lg sm:text-xl font-bold mt-3 font-sans tracking-tight ${isLight ? 'text-slate-900' : 'text-white'}`}>
               {stepOverride.title}
             </h4>
-            <div className={`text-base sm:text-lg leading-relaxed mt-3 font-sans text-justify ${isLight ? 'text-slate-700' : 'text-slate-100'}`}>
-              <RichTextRenderer text={stepOverride.text} />
+            <div className={`text-base sm:text-lg leading-relaxed mt-3 font-sans text-justify ${isLight ? 'light-mode-text' : 'text-slate-100'}`}>
+              <RichTextRenderer text={stepOverride.text} theme={theme} />
             </div>
           </div>
         </div>
@@ -676,8 +676,8 @@ export default function App() {
                 Rozważanie Cyklu II - Boga Ojca
               </span>
               <h4 className={`text-lg sm:text-xl font-bold mt-3 ${isLight ? 'text-slate-900' : 'text-white'}`}>{mysteryData.rgba.title}</h4>
-              <div className={`text-sm sm:text-base mt-2.5 leading-relaxed text-justify ${isLight ? 'text-slate-700' : 'text-slate-200'}`}>
-                <RichTextRenderer text={mysteryData.rgba.text} />
+              <div className={`text-sm sm:text-base mt-2.5 leading-relaxed text-justify ${isLight ? 'light-mode-text' : 'text-slate-200'}`}>
+                <RichTextRenderer text={mysteryData.rgba.text} theme={theme} />
               </div>
             </div>
             
@@ -686,23 +686,23 @@ export default function App() {
                 Rozważanie na Dużym Paciorku
               </span>
               <h4 className={`text-base sm:text-lg font-bold mt-3 ${isLight ? 'text-slate-900' : 'text-white'}`}>{largeBeadRefl.title}</h4>
-              <div className={`text-sm sm:text-base mt-2 leading-relaxed text-justify ${isLight ? 'text-slate-700' : 'text-slate-200'}`}>
-                <RichTextRenderer text={largeBeadRefl.text} />
+              <div className={`text-sm sm:text-base mt-2 leading-relaxed text-justify ${isLight ? 'light-mode-text' : 'text-slate-200'}`}>
+                <RichTextRenderer text={largeBeadRefl.text} theme={theme} />
               </div>
             </div>
 
             <div className={`p-4 sm:p-5 rounded-2xl border space-y-4 shadow-sm ${isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/60 border-slate-800'}`}>
               <span className={`text-xs uppercase font-mono tracking-wider block border-b pb-2 ${isLight ? 'text-slate-500 border-slate-200' : 'text-zinc-400 border-slate-800'}`}>Modlitwy na Dużym Paciorku:</span>
               <div>
-                <h5 className={`text-sm sm:text-base font-bold ${isLight ? 'text-slate-800' : 'text-slate-100'}`}>{hailMaryText.title}</h5>
-                <div className={`text-sm sm:text-base leading-relaxed mt-1.5 ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
-                  <RichTextRenderer text={hailMaryText.text} />
+                <h5 className={`text-sm sm:text-base font-bold ${isLight ? 'light-mode-text' : 'text-slate-100'}`}>{hailMaryText.title}</h5>
+                <div className={`text-sm sm:text-base leading-relaxed mt-1.5 ${isLight ? 'light-mode-text' : 'text-slate-300'}`}>
+                  <RichTextRenderer text={hailMaryText.text} theme={theme} />
                 </div>
               </div>
               <div className={`border-t pt-3 ${isLight ? 'border-slate-200' : 'border-slate-800'}`}>
-                <h5 className={`text-sm sm:text-base font-bold ${isLight ? 'text-slate-800' : 'text-slate-100'}`}>Pozostałe Modlitwy ({gloryText.title} & {fatimaText.title})</h5>
-                <div className={`text-sm sm:text-base leading-relaxed mt-1.5 ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
-                  <RichTextRenderer text={`${gloryText.text}\n\n${fatimaText.text}`} />
+                <h5 className={`text-sm sm:text-base font-bold ${isLight ? 'light-mode-text' : 'text-slate-100'}`}>Pozostałe Modlitwy ({gloryText.title} & {fatimaText.title})</h5>
+                <div className={`text-sm sm:text-base leading-relaxed mt-1.5 ${isLight ? 'light-mode-text' : 'text-slate-300'}`}>
+                  <RichTextRenderer text={`${gloryText.text}\n\n${fatimaText.text}`} theme={theme} />
                 </div>
               </div>
             </div>
@@ -729,15 +729,15 @@ export default function App() {
                 <h4 className={`text-xl sm:text-2xl font-bold font-serif tracking-tight ${isLight ? 'text-slate-900' : 'text-white'}`}>
                   {mysteryData.rgba.title}
                 </h4>
-                <div className={`text-base sm:text-lg leading-relaxed mt-4 font-serif text-justify ${isLight ? 'text-slate-700' : 'text-slate-200'}`}>
-                  <RichTextRenderer text={parsed.data.reflectionText} />
+                <div className={`text-base sm:text-lg leading-relaxed mt-4 font-serif text-justify ${isLight ? 'light-mode-text' : 'text-slate-200'}`}>
+                  <RichTextRenderer text={parsed.data.reflectionText} theme={theme} />
                 </div>
                 <details className={`mt-6 pt-4 border-t ${isLight ? 'border-slate-200' : 'border-slate-800'}`}>
                   <summary className={`cursor-pointer text-xs font-bold uppercase font-mono tracking-wider ${isLight ? 'text-slate-500 hover:text-indigo-600' : 'text-slate-400 hover:text-indigo-400'}`}>
                     Pokaż pełny tekst źródłowy wpisu z RHZ365 (Dzień {cycleInfo.dayOfCycle})
                   </summary>
-                  <div className={`text-sm sm:text-base leading-relaxed mt-3 font-serif text-justify ${isLight ? 'text-slate-600' : 'text-slate-300'}`}>
-                    <RichTextRenderer text={mysteryData.rgba.text} />
+                  <div className={`text-sm sm:text-base leading-relaxed mt-3 font-serif text-justify ${isLight ? 'light-mode-text' : 'text-slate-300'}`}>
+                    <RichTextRenderer text={mysteryData.rgba.text} theme={theme} />
                   </div>
                 </details>
               </div>
@@ -761,8 +761,8 @@ export default function App() {
             <h4 className={`text-xl sm:text-2xl font-bold font-serif tracking-tight ${isLight ? 'text-slate-900' : 'text-white'}`}>
               {mysteryData.rgba.title}
             </h4>
-            <div className={`text-base sm:text-lg leading-relaxed mt-4 font-serif text-justify ${isLight ? 'text-slate-700' : 'text-slate-200'}`}>
-              <RichTextRenderer text={mysteryData.rgba.text} />
+            <div className={`text-base sm:text-lg leading-relaxed mt-4 font-serif text-justify ${isLight ? 'light-mode-text' : 'text-slate-200'}`}>
+              <RichTextRenderer text={mysteryData.rgba.text} theme={theme} />
             </div>
           </div>
         </div>
@@ -799,17 +799,17 @@ export default function App() {
                 Rozważanie na Dużym Paciorku
               </span>
               <h4 className={`text-base sm:text-lg font-bold mt-3 ${isLight ? 'text-slate-900' : 'text-white'}`}>{largeBeadRefl.title}</h4>
-              <div className={`text-sm sm:text-base mt-2 leading-relaxed text-justify ${isLight ? 'text-slate-700' : 'text-slate-200'}`}>
-                <RichTextRenderer text={largeBeadRefl.text} />
+              <div className={`text-sm sm:text-base mt-2 leading-relaxed text-justify ${isLight ? 'light-mode-text' : 'text-slate-200'}`}>
+                <RichTextRenderer text={largeBeadRefl.text} theme={theme} />
               </div>
             </div>
           )}
           <div className={`p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/40 border-slate-800/50'}`}>
-            <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 border-b pb-1.5 ${isLight ? 'text-slate-600 border-slate-200' : 'text-slate-400 border-slate-800'}`}>
+            <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 border-b pb-1.5 ${isLight ? 'text-slate-900 border-slate-200' : 'text-slate-400 border-slate-800'}`}>
               {ourFather.title}
             </h4>
-            <div className={`text-base sm:text-lg leading-relaxed font-sans text-justify ${isLight ? 'text-slate-800' : 'text-slate-100'}`}>
-              <RichTextRenderer text={textToDisplay} />
+            <div className={`text-base sm:text-lg leading-relaxed font-sans text-justify ${isLight ? 'light-mode-text' : 'text-slate-100'}`}>
+              <RichTextRenderer text={textToDisplay} theme={theme} />
             </div>
           </div>
         </div>
@@ -833,9 +833,9 @@ export default function App() {
       return (
         <div className="space-y-4 mt-3">
           <div className={`p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/40 border-slate-800/50'}`}>
-            <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 border-b pb-1.5 ${isLight ? 'text-slate-600 border-slate-200' : 'text-slate-400 border-slate-800'}`}>{glory.title} & {fatima.title}</h4>
-            <div className={`text-base sm:text-lg leading-relaxed text-justify ${isLight ? 'text-slate-800' : 'text-slate-100'}`}>
-              <RichTextRenderer text={textToDisplay} />
+            <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 border-b pb-1.5 ${isLight ? 'text-slate-900 border-slate-200' : 'text-slate-400 border-slate-800'}`}>{glory.title} & {fatima.title}</h4>
+            <div className={`text-base sm:text-lg leading-relaxed text-justify ${isLight ? 'light-mode-text' : 'text-slate-100'}`}>
+              <RichTextRenderer text={textToDisplay} theme={theme} />
             </div>
           </div>
         </div>
@@ -852,15 +852,15 @@ export default function App() {
         return (
           <div className={`mt-3 p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/40 border-slate-800/50'}`}>
             <div className="flex items-center justify-between border-b pb-2 mb-3">
-              <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+              <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider ${isLight ? 'text-slate-900' : 'text-slate-400'}`}>
                 Zdrowaś Maryjo ({activeStep.beadNumber} z 10)
               </h4>
               <span className={`text-[10px] font-mono font-bold px-2.5 py-1 rounded-full ${isLight ? 'bg-indigo-100 text-indigo-800' : 'bg-indigo-950 text-indigo-300'}`}>
                 Zdrowaś Maryjo #{activeStep.beadNumber}
               </span>
             </div>
-            <div className={`text-base sm:text-lg leading-relaxed font-serif text-justify ${isLight ? 'text-slate-800' : 'text-slate-100'}`}>
-              <RichTextRenderer text={specificHailText} />
+            <div className={`text-base sm:text-lg leading-relaxed font-serif text-justify ${isLight ? 'light-mode-text' : 'text-slate-100'}`}>
+              <RichTextRenderer text={specificHailText} theme={theme} />
             </div>
           </div>
         );
@@ -870,11 +870,11 @@ export default function App() {
     const currentPrayer = prayers[activeStep.prayerType] || DEFAULT_PRAYERS[activeStep.prayerType];
     return (
       <div className={`mt-3 p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/40 border-slate-800/50'}`}>
-        <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 border-b pb-1.5 ${isLight ? 'text-slate-600 border-slate-200' : 'text-slate-400 border-slate-800'}`}>
+        <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 border-b pb-1.5 ${isLight ? 'text-slate-900 border-slate-200' : 'text-slate-400 border-slate-800'}`}>
           {currentPrayer?.title}
         </h4>
-        <div className={`text-base sm:text-lg leading-relaxed font-sans text-justify ${isLight ? 'text-slate-800' : 'text-slate-100'}`}>
-          <RichTextRenderer text={currentPrayer?.text || ''} />
+        <div className={`text-base sm:text-lg leading-relaxed font-sans text-justify ${isLight ? 'light-mode-text' : 'text-slate-100'}`}>
+          <RichTextRenderer text={currentPrayer?.text || ''} theme={theme} />
         </div>
       </div>
     );
@@ -1000,7 +1000,7 @@ export default function App() {
 
   return (
     <div className={`min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-300 w-full max-w-full overflow-x-hidden ${
-      isLight ? 'bg-slate-50 text-slate-900' : 'bg-slate-950 text-slate-100'
+      isLight ? 'bg-slate-50 text-slate-900 light-mode-text' : 'bg-slate-950 text-slate-100'
     }`}>
       {/* HEADER BAR (Hidden in strict YouTube Record Mode) */}
       {!isYoutubeMode && (
@@ -1626,7 +1626,7 @@ export default function App() {
                   </h3>
                   <div className="text-xs">
                     <div className={`p-4 rounded-xl border transition-colors duration-300 ${
-                      isLight ? 'bg-slate-50 border-slate-200/80 text-slate-800' : 'bg-slate-950/60 border-slate-800/60 text-slate-200'
+                      isLight ? 'bg-slate-50 border-slate-200/80 light-mode-text' : 'bg-slate-950/60 border-slate-800/60 text-slate-200'
                     }`}>
                       <span className="text-[10px] text-slate-500 font-mono tracking-wider uppercase block mb-1">RÓŻANIEC — SYMBOLIKA PACIORKA</span>
                       <div className="flex items-center gap-2 mt-2">
@@ -1634,7 +1634,7 @@ export default function App() {
                           backgroundColor: rgbaBead?.colorType === 'transparent' ? 'transparent' : rgbaBead?.colorType,
                           boxShadow: rgbaBead?.colorType !== 'transparent' && rgbaBead?.colorType !== 'black' ? `0 0 8px ${rgbaBead?.colorType}` : 'none'
                         }}></span>
-                        <span className={`font-semibold capitalize ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
+                        <span className={`font-semibold capitalize ${isLight ? 'light-mode-text' : 'text-slate-200'}`}>
                           {rgbaBead?.colorType === 'transparent' ? 'Przezroczysty (Separator)' : `Kolor: ${rgbaBead?.colorType}`}
                         </span>
                       </div>
@@ -1887,8 +1887,12 @@ export default function App() {
 
       {/* FOOTER STATUS BAR (Hidden in strict YouTube Record Mode) */}
       {!isYoutubeMode && (
-        <footer className="h-10 border-t border-slate-800 bg-black flex items-center px-6 justify-between shrink-0">
-          <div className="flex items-center gap-4 text-[11px] text-slate-500">
+        <footer className={`h-10 border-t flex items-center px-6 justify-between shrink-0 ${
+          isLight
+            ? 'border-slate-200 bg-white text-slate-600'
+            : 'border-slate-800 bg-black text-slate-500'
+        }`}>
+          <div className="flex items-center gap-4 text-[11px]">
             <div className="flex items-center gap-1.5">
               <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
               eMBiK: Aktywny
@@ -1898,10 +1902,10 @@ export default function App() {
               Pielgrzymowanie Duchowe
             </div>
             <div className="hidden sm:flex items-center gap-1.5 opacity-60">
-              © 2026 eMBiK — Różaniec Historii Zbawienia (RHZ365) & Widoki na Raj (WnR365)
+              © 2026 eMBiK — Różaniec Historii Zbawienia (RHZ365) &amp; Widoki na Raj (WnR365)
             </div>
           </div>
-          <div className="text-[11px] font-mono text-slate-500">
+          <div className="text-[11px] font-mono">
             4K • 60FPS • AAC 320kbps
           </div>
         </footer>

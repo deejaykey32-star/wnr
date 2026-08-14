@@ -630,7 +630,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
               <div className="min-w-0 truncate">
                 <span className="text-[10px] text-indigo-400 font-mono tracking-widest uppercase block truncate">CYKL LITURGICZNY BLOGA WIDOKI NA RAJ (WnR365)</span>
                 <h2 className={`text-base sm:text-lg font-serif font-bold leading-tight mt-0.5 truncate ${
-                  isLight ? 'text-slate-800' : 'text-white'
+                  isLight ? 'light-mode-text' : 'text-white'
                 }`}>
                   {cycleInfo.cycleName}
                 </h2>
@@ -818,9 +818,9 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                   // Read Content View
                   <div className="prose prose-invert max-w-none">
                     <div className={`text-sm leading-relaxed font-sans pt-1 min-h-[160px] border-l-2 pl-4 text-justify ${
-                      isLight ? 'text-slate-800 border-slate-200' : 'text-slate-300 border-amber-500/20'
+                      isLight ? 'light-mode-text border-slate-300' : 'text-slate-300 border-amber-500/20'
                     }`}>
-                      <RichTextRenderer text={activeEntry.text} />
+                      <RichTextRenderer text={activeEntry.text} theme={theme} />
                     </div>
 
                     {activeEntry.updatedBy && (

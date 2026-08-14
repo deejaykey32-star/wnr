@@ -101,7 +101,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
     if (paragraphBuffer.length === 0) return;
     const combined = paragraphBuffer.join(' ');
     paragraphBuffer = [];
-    const pClass = theme === 'light' ? 'text-slate-800' : 'text-slate-200';
+    const pClass = theme === 'light' ? 'light-mode-text' : 'text-slate-200';
     const ac = currentAlignment === 'center' ? 'text-center [text-align-last:center]' :
                currentAlignment === 'right' ? 'text-right [text-align-last:right]' :
                currentAlignment === 'justify' ? 'text-justify [text-align-last:left]' :
@@ -117,7 +117,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
 
   const flushList = () => {
     if (listItems.length > 0) {
-      const listColorClass = theme === 'light' ? 'text-slate-800' : 'text-slate-300';
+      const listColorClass = theme === 'light' ? 'light-mode-text' : 'text-slate-300';
       elements.push(
         <ul key={`list-${keyIndex++}`} className={`list-disc pl-5 my-3 space-y-1 ${listColorClass} text-sm`}>
           {listItems.map((item, idx) => (
@@ -381,7 +381,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       flushParagraph();
       flushList();
       const content = line.startsWith('###') ? line.slice(3).trim() : line.replace(/<\/?h3[^>]*>/g, '').trim();
-      const h3Class = theme === 'light' ? 'text-indigo-600 font-bold' : 'text-amber-400 font-bold';
+      const h3Class = theme === 'light' ? 'text-slate-900 font-bold' : 'text-amber-400 font-bold';
       elements.push(
         <h3 key={`h3-${keyIndex++}`} className={`text-base font-serif mt-5 mb-2 tracking-tight ${h3Class} ${alignClass}`}>
           {content}
@@ -418,7 +418,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       flushList();
       const content = line.startsWith('>') ? line.slice(1).trim() : line.replace(/<\/?blockquote[^>]*>/g, '').trim();
       const quoteClass = theme === 'light'
-        ? 'border-l-4 border-indigo-500 pl-4 my-4 italic text-slate-700 bg-slate-100 py-1.5 pr-2 rounded-r text-sm leading-relaxed'
+        ? 'border-l-4 border-indigo-500 pl-4 my-4 italic light-mode-text bg-slate-100 py-1.5 pr-2 rounded-r text-sm leading-relaxed'
         : 'border-l-4 border-indigo-500 pl-4 my-4 italic text-slate-300 text-sm leading-relaxed';
       elements.push(
         <blockquote key={`quote-${keyIndex++}`} className={`${quoteClass} ${alignClass}`}>
@@ -457,7 +457,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       // Flush any accumulated paragraph text
       if (paragraphBuffer.length > 0) {
         const combined = paragraphBuffer.join(' ');
-        const pClass = theme === 'light' ? 'text-slate-800' : 'text-slate-200';
+        const pClass = theme === 'light' ? 'light-mode-text' : 'text-slate-200';
         elements.push(
           <p
             key={`p-${keyIndex++}`}
@@ -532,11 +532,11 @@ const parseInlineStyles = (
   text = text.replace(/\[\/font\]|\[\/color\]|\[\/bg\]/g, '');
   
   // Bold **text**
-  const boldClass = theme === 'light' ? 'text-slate-950 font-bold' : 'text-white font-semibold';
+  const boldClass = theme === 'light' ? 'light-mode-text font-bold' : 'text-white font-semibold';
   text = text.replace(/\*\*([^*]+)\*\*/g, `<strong class="${boldClass}">$1</strong>`);
   
   // Italic *text*
-  const italicClass = theme === 'light' ? 'text-slate-700 italic' : 'text-slate-200 italic';
+  const italicClass = theme === 'light' ? 'light-mode-text italic' : 'text-slate-200 italic';
   text = text.replace(/\*([^*]+)\*/g, `<em class="${italicClass}">$1</em>`);
 
   // Handle standard inline HTML bold / italic for copy-pasted or WYSIWYG generated markup
