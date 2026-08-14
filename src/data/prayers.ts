@@ -1643,9 +1643,11 @@ export const getActiveDecadeMystery = (
   }
 
   // Cykl I or Break: Traditional Rosary (RHZ365)
-  const authenticTitle = jsonRecord ? jsonRecord.title : `RHZ365 — Dzień ${dayOfCycle}`;
-  const authenticText = (customRgba && customRgba.text && customRgba.text.length > 50) 
-    ? customRgba.text 
+  const authenticTitle = (customRgba && customRgba.title)
+    ? customRgba.title
+    : (jsonRecord ? jsonRecord.title : `RHZ365 — Dzień ${dayOfCycle}`);
+  const authenticText = (customRgba && customRgba.text)
+    ? customRgba.text
     : (jsonRecord ? jsonRecord.text : '');
 
   const rgbaResult = {

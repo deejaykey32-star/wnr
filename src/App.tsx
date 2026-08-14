@@ -1655,7 +1655,7 @@ export default function App() {
               <div className="lg:col-span-5 flex flex-col gap-6">
                 
                 {/* Active Prayer Card */}
-                <div className={`border rounded-2xl p-6 shadow-xl relative overflow-hidden transition-all duration-300 ${
+                <div id="active-prayer-card" className={`border rounded-2xl p-6 shadow-xl relative overflow-hidden transition-all duration-300 ${
                   isLight ? 'bg-white border-slate-200 shadow-slate-100 text-slate-900' : 'bg-slate-900/40 border-slate-800/50 text-slate-100'
                 }`}>
                   <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-indigo-500/10 to-transparent rounded-bl-full pointer-events-none"></div>

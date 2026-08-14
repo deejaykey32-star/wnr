@@ -1,4 +1,4 @@
-const CACHE_NAME = 'embik365-v17-wysiwyg-sync-full';
+const CACHE_NAME = 'embik365-v18-prayer-editor-audit';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
