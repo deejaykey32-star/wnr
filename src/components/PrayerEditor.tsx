@@ -4,6 +4,7 @@ import { doc, setDoc, deleteDoc } from 'firebase/firestore';
 import { getLoveMystery, getHateMystery, getFatherMystery, getActiveDecadeMystery, getDecadeForDay, DEFAULT_PRAYERS } from '../data/prayers';
 import { WysiwygToolbar } from './WysiwygToolbar';
 import { executeUpsertSync, performDryRunSync, validateRHZJson, performPreImportAudit, DryRunReport, UpsertReport } from '../utils/rhzImporter';
+import { saveLocalPrayers } from '../utils/localNoSqlDb';
 
 interface PrayerEditorProps {
   userEmail: string;
@@ -265,14 +266,22 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
 
       await setDoc(docRef, newEntry);
 
-      if (onPrayersUpdated) {
-        onPrayersUpdated({
-          ...prayers,
-          [activeKey]: newEntry
-        });
+      const nextPrayers = {
+        ...prayers,
+        [activeKey]: newEntry
+      };
+
+      try {
+        await saveLocalPrayers(nextPrayers);
+      } catch (err) {
+        console.warn("Local DB Save error:", err);
       }
 
-      setSuccessMsg('Zapisano pomyślnie w chmurze!');
+      if (onPrayersUpdated) {
+        onPrayersUpdated(nextPrayers);
+      }
+
+      setSuccessMsg('Zapisano pomyślnie w chmurze i lokalnie!');
       setTimeout(() => setSuccessMsg(''), 4000);
     } catch (error: any) {
       console.error("Firestore Save Error:", error);
@@ -294,6 +303,13 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
 
       const nextPrayers = { ...prayers };
       delete nextPrayers[activeKey];
+
+      try {
+        await saveLocalPrayers(nextPrayers);
+      } catch (err) {
+        console.warn("Local DB Save error:", err);
+      }
+
       if (onPrayersUpdated) {
         onPrayersUpdated(nextPrayers);
       }
