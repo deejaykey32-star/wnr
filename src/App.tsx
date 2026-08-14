@@ -869,11 +869,11 @@ export default function App() {
 
     const currentPrayer = prayers[activeStep.prayerType] || DEFAULT_PRAYERS[activeStep.prayerType];
     return (
-      <div className={`mt-3 p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/40 border-slate-800/50'}`}>
-        <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 border-b pb-1.5 ${isLight ? 'text-slate-900 border-slate-200' : 'text-slate-400 border-slate-800'}`}>
+      <div className={`mt-3 p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-slate-50 border-slate-200 light-mode-text' : 'bg-slate-900/40 border-slate-800/50'}`} style={isLight ? { color: '#000000' } : undefined}>
+        <h4 className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 border-b pb-1.5 ${isLight ? 'light-mode-text border-slate-200' : 'text-slate-400 border-slate-800'}`} style={isLight ? { color: '#000000' } : undefined}>
           {currentPrayer?.title}
         </h4>
-        <div className={`text-base sm:text-lg leading-relaxed font-sans text-justify ${isLight ? 'light-mode-text' : 'text-slate-100'}`}>
+        <div className={`text-base sm:text-lg leading-relaxed font-sans text-justify ${isLight ? 'light-mode-text' : 'text-slate-100'}`} style={isLight ? { color: '#000000' } : undefined}>
           <RichTextRenderer text={currentPrayer?.text || ''} theme={theme} />
         </div>
       </div>

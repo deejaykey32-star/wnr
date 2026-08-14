@@ -109,6 +109,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
     elements.push(
       <p
         key={`p-${keyIndex++}`}
+        style={theme === 'light' ? { color: '#000000' } : undefined}
         className={`text-sm sm:text-base leading-relaxed mb-5 tracking-normal ${pClass} ${ac}`}
         dangerouslySetInnerHTML={{ __html: parseInlineStyles(combined, theme, { font: currentFont, color: currentColor, bg: currentBg }) }}
       />
@@ -119,9 +120,9 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
     if (listItems.length > 0) {
       const listColorClass = theme === 'light' ? 'light-mode-text' : 'text-slate-300';
       elements.push(
-        <ul key={`list-${keyIndex++}`} className={`list-disc pl-5 my-3 space-y-1 ${listColorClass} text-sm`}>
+        <ul key={`list-${keyIndex++}`} style={theme === 'light' ? { color: '#000000' } : undefined} className={`list-disc pl-5 my-3 space-y-1 ${listColorClass} text-sm`}>
           {listItems.map((item, idx) => (
-            <li key={`li-${idx}`} dangerouslySetInnerHTML={{ __html: parseInlineStyles(item, theme, { font: currentFont, color: currentColor, bg: currentBg }) }} />
+            <li key={`li-${idx}`} style={theme === 'light' ? { color: '#000000' } : undefined} dangerouslySetInnerHTML={{ __html: parseInlineStyles(item, theme, { font: currentFont, color: currentColor, bg: currentBg }) }} />
           ))}
         </ul>
       );
@@ -381,9 +382,9 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       flushParagraph();
       flushList();
       const content = line.startsWith('###') ? line.slice(3).trim() : line.replace(/<\/?h3[^>]*>/g, '').trim();
-      const h3Class = theme === 'light' ? 'text-slate-900 font-bold' : 'text-amber-400 font-bold';
+      const h3Class = theme === 'light' ? 'light-mode-text font-bold' : 'text-amber-400 font-bold';
       elements.push(
-        <h3 key={`h3-${keyIndex++}`} className={`text-base font-serif mt-5 mb-2 tracking-tight ${h3Class} ${alignClass}`}>
+        <h3 key={`h3-${keyIndex++}`} style={theme === 'light' ? { color: '#000000' } : undefined} className={`text-base font-serif mt-5 mb-2 tracking-tight ${h3Class} ${alignClass}`}>
           {content}
         </h3>
       );
@@ -398,10 +399,10 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       flushList();
       const content = line.startsWith('##') ? line.slice(2).trim() : line.replace(/<\/?h2[^>]*>/g, '').trim();
       const h2Class = theme === 'light'
-        ? 'text-slate-900 border-slate-200'
+        ? 'light-mode-text border-slate-200'
         : 'text-white border-slate-850';
       elements.push(
-        <h2 key={`h2-${keyIndex++}`} className={`text-lg font-serif font-bold mt-6 mb-3 tracking-tight border-b pb-1 ${h2Class} ${alignClass}`}>
+        <h2 key={`h2-${keyIndex++}`} style={theme === 'light' ? { color: '#000000' } : undefined} className={`text-lg font-serif font-bold mt-6 mb-3 tracking-tight border-b pb-1 ${h2Class} ${alignClass}`}>
           {content}
         </h2>
       );
@@ -421,7 +422,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
         ? 'border-l-4 border-indigo-500 pl-4 my-4 italic light-mode-text bg-slate-100 py-1.5 pr-2 rounded-r text-sm leading-relaxed'
         : 'border-l-4 border-indigo-500 pl-4 my-4 italic text-slate-300 text-sm leading-relaxed';
       elements.push(
-        <blockquote key={`quote-${keyIndex++}`} className={`${quoteClass} ${alignClass}`}>
+        <blockquote key={`quote-${keyIndex++}`} style={theme === 'light' ? { color: '#000000' } : undefined} className={`${quoteClass} ${alignClass}`}>
           {content}
         </blockquote>
       );
@@ -461,6 +462,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
         elements.push(
           <p
             key={`p-${keyIndex++}`}
+            style={theme === 'light' ? { color: '#000000' } : undefined}
             className={`text-sm sm:text-base leading-relaxed mb-5 tracking-normal ${pClass} ${alignClass}`}
             dangerouslySetInnerHTML={{ __html: parseInlineStyles(combined, theme, { font: currentFont, color: currentColor, bg: currentBg }) }}
           />
@@ -484,7 +486,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
   flushParagraph();
   flushList();
 
-  return <div className="space-y-0">{elements}</div>;
+  return <div className={`space-y-0 ${theme === 'light' ? 'light-mode-text' : ''}`} style={theme === 'light' ? { color: '#000000' } : undefined}>{elements}</div>;
 };
 
 /**
