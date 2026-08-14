@@ -16,7 +16,7 @@ const FLAG_MAP: Record<string, string> = {
 interface LangOption {
   code: string;
   name: string;
-  flag: string | JSX.Element;
+  flag: string | React.ReactNode;
 }
 
 export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ isLight }) => {
