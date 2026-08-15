@@ -285,8 +285,8 @@ p {
       ? window.location.origin
       : 'https://widokinaraj.pages.dev';
     const dayUrl = scope === 'wnr365'
-      ? `${baseUrl}/wnr365-day-${dayNum}`
-      : `${baseUrl}/rhz365-day-${dayNum}`;
+      ? `${baseUrl}/#/wnr365-day-${dayNum}`
+      : `${baseUrl}/#/rhz365-day-${dayNum}`;
     const embeddedUrls = extractUrlsFromText(`${rawRhzText} ${wnrDoc.text || ''}`);
     const allUrls = Array.from(new Set([dayUrl, ...embeddedUrls]));
 

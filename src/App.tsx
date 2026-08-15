@@ -248,14 +248,14 @@ export default function App() {
     };
   }, []);
 
-  // Helper to map activeTab and date to 1-365 sequential URL slug
+  // Helper to map activeTab and date to 1-365 sequential URL slug (supports hash routing for 100% web host compatibility)
   const getSlugForTabAndDate = (tab: 'rosary' | 'blog', date: Date) => {
     const cycleStart = new Date(2025, 11, 25, 12, 0, 0, 0); // Dec 25, 2025
     const diffMs = date.getTime() - cycleStart.getTime();
     const dayIndex = Math.max(0, Math.min(364, Math.floor(diffMs / 86400000)));
     const totalDayNum = dayIndex + 1; // 1 to 365
     const prefix = tab === 'rosary' ? 'rhz365-day' : 'wnr365-day';
-    return `/${prefix}-${totalDayNum}`;
+    return `/#/${prefix}-${totalDayNum}`;
   };
 
   // URL Initialization on Page Load and Browser Back/Forward navigation
@@ -266,14 +266,14 @@ export default function App() {
         rawPath = decodeURIComponent(rawPath);
       } catch {}
 
-      if (!rawPath || rawPath === '/' || rawPath === '/index.html') {
+      if (!rawPath || rawPath === '/' || rawPath === '/index.html' || rawPath === '/#/' || rawPath === '/#') {
         const today = getInitialUniversalDate();
         setSelectedDate(today);
         setIsRouteInitialized(true);
         return;
       }
 
-      // Flexible match for /rhz365-day-233, /wnr365-day-233, /day/233, /day-233, /rhz/233, /wnr/233 etc.
+      // Flexible match for /rhz365-day-233, /#/rhz365-day-233, /wnr365-day-233, /#/wnr365-day-233, /day/233, /day-233, etc.
       const match = rawPath.match(/(rhz365-day|wnr365-day|rhz365|wnr365|rhz|wnr|day)[-\/]?(\d+)/i);
       if (match) {
         const routePrefix = match[1].toLowerCase();
@@ -293,14 +293,19 @@ export default function App() {
 
     handleUrlRoute();
     window.addEventListener('popstate', handleUrlRoute);
-    return () => window.removeEventListener('popstate', handleUrlRoute);
+    window.addEventListener('hashchange', handleUrlRoute);
+    return () => {
+      window.removeEventListener('popstate', handleUrlRoute);
+      window.removeEventListener('hashchange', handleUrlRoute);
+    };
   }, []);
 
   // Sync browser URL slug when activeTab or selectedDate changes (after initial route is set)
   useEffect(() => {
     if (!isRouteInitialized) return;
     const newSlug = getSlugForTabAndDate(activeTab, selectedDate);
-    if (window.location.pathname !== newSlug) {
+    const currentFullSlug = window.location.pathname + window.location.hash;
+    if (currentFullSlug !== newSlug && (window.location.hash !== newSlug.replace('/', ''))) {
       window.history.pushState(null, '', newSlug);
     }
   }, [activeTab, selectedDate, isRouteInitialized]);

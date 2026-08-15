@@ -457,8 +457,8 @@ export const generateCustomScopePdf = async (
       ? window.location.origin
       : 'https://widokinaraj.pages.dev';
     const dayUrl = scope === 'wnr365' 
-      ? `${baseUrl}/wnr365-day-${currentDayNum}` 
-      : `${baseUrl}/rhz365-day-${currentDayNum}`;
+      ? `${baseUrl}/#/wnr365-day-${currentDayNum}` 
+      : `${baseUrl}/#/rhz365-day-${currentDayNum}`;
     
     // Fetch RHZ and WnR content to scan for additional embedded URLs
     const decIdx = ((currentDayNum - 1) % 5) + 1;
