@@ -281,9 +281,12 @@ p {
     const wnrDoc = getWnrDefaultBlogEntry(i, prayers, blogEntries);
 
     // Extract all URLs
+    const baseUrl = (typeof window !== 'undefined' && window.location?.origin)
+      ? window.location.origin
+      : 'https://widokinaraj.pages.dev';
     const dayUrl = scope === 'wnr365'
-      ? `https://widokinaraj.pl/wnr365-day-${dayNum}`
-      : `https://widokinaraj.pl/rhz365-day-${dayNum}`;
+      ? `${baseUrl}/wnr365-day-${dayNum}`
+      : `${baseUrl}/rhz365-day-${dayNum}`;
     const embeddedUrls = extractUrlsFromText(`${rawRhzText} ${wnrDoc.text || ''}`);
     const allUrls = Array.from(new Set([dayUrl, ...embeddedUrls]));
 

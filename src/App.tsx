@@ -246,10 +246,13 @@ export default function App() {
     }
   }, [activeTab, selectedDate]);
 
-  // Share entry URL handler — copies ONLY the clean plain text URL (e.g. https://widokinaraj.pl/rhz365-day-233)
+  // Share entry URL handler — copies ONLY the clean plain text URL
   const handleShare = async () => {
     const slug = getSlugForTabAndDate(activeTab, selectedDate);
-    const shareUrl = `https://widokinaraj.pl${slug}`;
+    const origin = (typeof window !== 'undefined' && window.location?.origin)
+      ? window.location.origin
+      : 'https://widokinaraj.pages.dev';
+    const shareUrl = `${origin}${slug}`;
 
     let success = false;
 
