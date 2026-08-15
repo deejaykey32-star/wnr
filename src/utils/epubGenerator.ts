@@ -281,7 +281,9 @@ p {
     const wnrDoc = getWnrDefaultBlogEntry(i, prayers, blogEntries);
 
     // Extract all URLs
-    const dayUrl = `https://widokinaraj.pl/day/${dayNum}`;
+    const dayUrl = scope === 'wnr365'
+      ? `https://widokinaraj.pl/wnr365-day-${dayNum}`
+      : `https://widokinaraj.pl/rhz365-day-${dayNum}`;
     const embeddedUrls = extractUrlsFromText(`${rawRhzText} ${wnrDoc.text || ''}`);
     const allUrls = Array.from(new Set([dayUrl, ...embeddedUrls]));
 

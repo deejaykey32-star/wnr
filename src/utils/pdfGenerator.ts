@@ -453,7 +453,9 @@ export const generateCustomScopePdf = async (
     y += 16;
 
     // Direct entry URL QR Code
-    const dayUrl = `https://widokinaraj.pl/day/${currentDayNum}`;
+    const dayUrl = scope === 'wnr365' 
+      ? `https://widokinaraj.pl/wnr365-day-${currentDayNum}` 
+      : `https://widokinaraj.pl/rhz365-day-${currentDayNum}`;
     
     // Fetch RHZ and WnR content to scan for additional embedded URLs
     const decIdx = ((currentDayNum - 1) % 5) + 1;

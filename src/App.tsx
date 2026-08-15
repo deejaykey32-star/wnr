@@ -205,24 +205,30 @@ export default function App() {
   // URL Initialization on Page Load and Browser Back/Forward navigation
   useEffect(() => {
     const handleUrlRoute = () => {
-      const path = window.location.pathname;
-      if (!path || path === '/' || path === '/index.html') {
+      let rawPath = window.location.pathname + window.location.search + window.location.hash;
+      try {
+        rawPath = decodeURIComponent(rawPath);
+      } catch {}
+
+      if (!rawPath || rawPath === '/' || rawPath === '/index.html') {
         const today = getInitialUniversalDate();
         setSelectedDate(today);
         return;
       }
 
-      // Supports /wnr365-day-X, /rhz365-day-X, /day-X, /day/X (from 1 to 365)
-      const match = path.match(/^\/(rhz365-day|wnr365-day|day)[-\/]?(\d+)/i);
+      // Flexible match for /rhz365-day-233, /wnr365-day-233, /day/233, /day-233, /rhz/233, /wnr/233 etc.
+      const match = rawPath.match(/(rhz365-day|wnr365-day|rhz365|wnr365|rhz|wnr|day)[-\/]?(\d+)/i);
       if (match) {
-        const routeType = match[1].toLowerCase();
+        const routePrefix = match[1].toLowerCase();
         const totalDayNum = parseInt(match[2], 10);
         if (totalDayNum >= 1 && totalDayNum <= 365) {
           const dayIndex = totalDayNum - 1; // 0 to 364
           const cycleStart = new Date(2025, 11, 25, 12, 0, 0, 0);
           const targetDate = new Date(cycleStart.getTime() + dayIndex * 86400000);
           setSelectedDate(targetDate);
-          setActiveTab(routeType === 'rhz365-day' ? 'rosary' : 'blog');
+          
+          const isBlogRoute = routePrefix.startsWith('wnr');
+          setActiveTab(isBlogRoute ? 'blog' : 'rosary');
         }
       }
     };
@@ -240,18 +246,24 @@ export default function App() {
     }
   }, [activeTab, selectedDate]);
 
-  // Share entry URL handler
+  // Share entry URL handler — copies ONLY the clean plain text URL (e.g. https://widokinaraj.pl/rhz365-day-233)
   const handleShare = async () => {
     const slug = getSlugForTabAndDate(activeTab, selectedDate);
-    const shareUrl = `${window.location.origin}${slug}`;
+    const shareUrl = `https://widokinaraj.pl${slug}`;
 
+    let success = false;
+
+    // 1. Copy pure plain URL to clipboard (avoids rich-text markdown link wrappers)
     try {
-      await navigator.clipboard.writeText(shareUrl);
-      setCopiedLink(true);
-      setTimeout(() => setCopiedLink(false), 3000);
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(shareUrl);
+        success = true;
+      }
     } catch (err) {
-      console.error("Błąd kopiowania linku:", err);
-      // Fallback fallbacka
+      console.warn("Clipboard API copy error, trying fallback:", err);
+    }
+
+    if (!success) {
       try {
         const input = document.createElement('input');
         input.value = shareUrl;
@@ -259,10 +271,25 @@ export default function App() {
         input.select();
         document.execCommand('copy');
         document.body.removeChild(input);
-        setCopiedLink(true);
-        setTimeout(() => setCopiedLink(false), 3000);
+        success = true;
       } catch (e) {
-        console.error("Zapasowe kopiowanie również zawiodło", e);
+        console.error("Fallback copy error:", e);
+      }
+    }
+
+    if (success) {
+      setCopiedLink(true);
+      setTimeout(() => setCopiedLink(false), 3000);
+    }
+
+    // 2. Optional Web Share API on mobile (passes ONLY url parameter to prevent title markdown wrapping)
+    if (navigator.share && typeof navigator.share === 'function') {
+      try {
+        await navigator.share({
+          url: shareUrl
+        });
+      } catch (e) {
+        // Native share canceled by user
       }
     }
   };
