@@ -1,7 +1,2 @@
-/rhz365-day-* /index.html 200
-/rhz365/*     /index.html 200
-/wnr365-day-* /index.html 200
-/wnr365/*     /index.html 200
-/day-*        /index.html 200
-/day/*        /index.html 200
-/*            /index.html 200
+# Cloudflare Pages SPA Routing Rewrite Rule
+/*  /index.html  200
