@@ -1,11 +1,12 @@
 import { useEffect, useState, useRef, useMemo } from 'react';
-import { auth, loginWithGoogle, logout, onAuthStateChanged, handleRedirectLogin, User } from './firebase';
+import { auth, db, loginWithGoogle, logout, onAuthStateChanged, handleRedirectLogin, User } from './firebase';
+import { collection, getDocs } from 'firebase/firestore';
 import { 
   DEFAULT_PRAYERS, getRGBABeads, getCMYKBeads, getPrayerSteps, 
   getCycleDayInfo, getActiveDecadeMystery, getDecadeForDay 
 } from './data/prayers';
 import { getWnrDefaultBlogEntry } from './utils/wnrBlogDefaults';
-import { initLocalNoSqlDb, getAllLocalBlogEntries, getAllLocalBlogEntriesSync, saveLocalBlogEntry, getLocalPrayers } from './utils/localNoSqlDb';
+import { initLocalNoSqlDb, getAllLocalBlogEntries, getAllLocalBlogEntriesSync, saveLocalBlogEntry, getLocalPrayers, saveLocalPrayers } from './utils/localNoSqlDb';
 import { RosaryRenderer } from './components/RosaryRenderer';
 import { PrayerEditor } from './components/PrayerEditor';
 import { BlogSection } from './components/BlogSection';
@@ -192,6 +193,61 @@ export default function App() {
     }
   }, []);
 
+  // Route initialization state to prevent URL race conditions on initial page load
+  const [isRouteInitialized, setIsRouteInitialized] = useState<boolean>(false);
+
+  // Load local prayers & background sync from Firestore on startup
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadAndSyncPrayers() {
+      // 1. First load from IndexedDB local storage
+      try {
+        const local = await getLocalPrayers();
+        if (local && Object.keys(local).length > 0 && isMounted) {
+          setPrayers(prev => ({ ...prev, ...local }));
+        }
+      } catch (err) {
+        console.warn("Failed to load local prayers:", err);
+      }
+
+      // 2. Non-blocking background fetch from Firestore (syncs intro blocks with QR codes & custom prayers)
+      try {
+        const snapshot = await getDocs(collection(db, 'prayers'));
+        if (!snapshot.empty && isMounted) {
+          const remotePrayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }> = {};
+          snapshot.forEach((docSnap) => {
+            const data = docSnap.data();
+            if (data && data.title && data.text) {
+              remotePrayers[docSnap.id] = {
+                title: data.title,
+                text: data.text,
+                updatedBy: data.updatedBy,
+                updatedAt: data.updatedAt
+              };
+            }
+          });
+
+          if (Object.keys(remotePrayers).length > 0 && isMounted) {
+            setPrayers(prev => {
+              const merged = { ...prev, ...remotePrayers };
+              saveLocalPrayers(merged).catch(() => {});
+              return merged;
+            });
+          }
+        }
+      } catch (cloudErr) {
+        console.info("Firestore background prayer sync skipped (offline or unauthenticated):", cloudErr);
+      }
+    }
+
+    loadAndSyncPrayers();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   // Helper to map activeTab and date to 1-365 sequential URL slug
   const getSlugForTabAndDate = (tab: 'rosary' | 'blog', date: Date) => {
     const cycleStart = new Date(2025, 11, 25, 12, 0, 0, 0); // Dec 25, 2025
@@ -213,6 +269,7 @@ export default function App() {
       if (!rawPath || rawPath === '/' || rawPath === '/index.html') {
         const today = getInitialUniversalDate();
         setSelectedDate(today);
+        setIsRouteInitialized(true);
         return;
       }
 
@@ -231,6 +288,7 @@ export default function App() {
           setActiveTab(isBlogRoute ? 'blog' : 'rosary');
         }
       }
+      setIsRouteInitialized(true);
     };
 
     handleUrlRoute();
@@ -238,13 +296,14 @@ export default function App() {
     return () => window.removeEventListener('popstate', handleUrlRoute);
   }, []);
 
-  // Sync browser URL slug when activeTab or selectedDate changes
+  // Sync browser URL slug when activeTab or selectedDate changes (after initial route is set)
   useEffect(() => {
+    if (!isRouteInitialized) return;
     const newSlug = getSlugForTabAndDate(activeTab, selectedDate);
     if (window.location.pathname !== newSlug) {
       window.history.pushState(null, '', newSlug);
     }
-  }, [activeTab, selectedDate]);
+  }, [activeTab, selectedDate, isRouteInitialized]);
 
   // Share entry URL handler — copies ONLY the clean plain text URL
   const handleShare = async () => {
