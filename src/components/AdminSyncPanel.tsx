@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { db } from '../firebase';
 import {
-  collection, doc, setDoc, getDocs
+  collection, doc, setDoc, getDocs, getDoc
 } from 'firebase/firestore';
 import {
   Cloud, CloudDownload, CloudUpload, RefreshCw, X,
-  CheckCircle, AlertCircle, Loader, Database, RotateCcw
+  CheckCircle, AlertCircle, Loader, Database, RotateCcw, FileText
 } from 'lucide-react';
 import { getAllLocalBlogEntries, saveLocalBlogEntry, resetLocalToSeedData, saveLocalPrayers, getLocalPrayers } from '../utils/localNoSqlDb';
 import { DEFAULT_PRAYERS } from '../data/prayers';
@@ -34,6 +34,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 }) => {
   const [blogStatus, setBlogStatus] = useState<SyncStatus>({ type: 'idle', message: '' });
   const [prayerStatus, setPrayerStatus] = useState<SyncStatus>({ type: 'idle', message: '' });
+  const [introStatus, setIntroStatus] = useState<SyncStatus>({ type: 'idle', message: '' });
 
   const isDark = theme === 'dark';
   const bg = isDark ? 'bg-slate-900 border-slate-700' : 'bg-white border-slate-200';
@@ -116,6 +117,62 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       setBlogStatus({ type: 'success', message: `✅ Zresetowano ${Object.keys(fresh).length} wpisów do danych z PDF` });
     } catch (err) {
       setBlogStatus({ type: 'error', message: `❌ Błąd resetowania: ${err instanceof Error ? err.message : ''}` });
+    }
+  };
+
+  // ── INTRO BLOCKS (Wstęp Główny & Misja eMBiK365) ────────────────────────────
+
+  const pushIntroToFirestore = async () => {
+    setIntroStatus({ type: 'loading', message: 'Wysyłam treść Wstępu i Misji do Firestore...' });
+    try {
+      let count = 0;
+      const keys = ['introTextMain', 'introTextMission'];
+      for (const k of keys) {
+        const item = prayers[k] || DEFAULT_PRAYERS[k];
+        if (item && item.text && item.title) {
+          await setDoc(doc(db, 'prayers', k), {
+            title: item.title,
+            text: item.text,
+            updatedBy: item.updatedBy || 'Admin Sync',
+            updatedAt: item.updatedAt || new Date().toISOString()
+          });
+          count++;
+        }
+      }
+      await saveLocalPrayers(prayers);
+      setIntroStatus({ type: 'success', message: `✅ Wysłano treść Wstępu i Misji (${count} bloki) do Firestore` });
+    } catch (err) {
+      setIntroStatus({ type: 'error', message: `❌ Błąd: ${err instanceof Error ? err.message : 'Nieznany błąd'}` });
+    }
+  };
+
+  const pullIntroFromFirestore = async () => {
+    if (!window.confirm('Czy na pewno pobrać treść Wstępu i Misji z Firestore? Nadpisze edycje lokalne.')) return;
+    setIntroStatus({ type: 'loading', message: 'Pobieram treść Wstępu i Misji z Firestore...' });
+    try {
+      const keys = ['introTextMain', 'introTextMission'];
+      const updated = { ...prayers };
+      let count = 0;
+      for (const k of keys) {
+        const docSnap = await getDoc(doc(db, 'prayers', k));
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          if (data && data.title && data.text) {
+            updated[k] = {
+              title: data.title,
+              text: data.text,
+              updatedBy: data.updatedBy,
+              updatedAt: data.updatedAt
+            };
+            count++;
+          }
+        }
+      }
+      await saveLocalPrayers(updated);
+      onPrayersUpdated(updated);
+      setIntroStatus({ type: 'success', message: `✅ Pobrano treść Wstępu i Misji (${count} bloki) z Firestore do lokalnej bazy` });
+    } catch (err) {
+      setIntroStatus({ type: 'error', message: `❌ Błąd: ${err instanceof Error ? err.message : 'Brak dostępu do Firestore'}` });
     }
   };
 
@@ -282,6 +339,48 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
             </div>
 
             <StatusBar status={blogStatus} />
+          </div>
+
+          {/* Intro Blocks Section (Widoki na Raj & Misja eMBiK365) */}
+          <div className={`rounded-xl border p-4 ${cardBg}`}>
+            <h3 className="font-semibold text-sm mb-1 flex items-center gap-2">
+              <FileText size={15} className="text-sky-400" />
+              Treść Wstępu strony widokinaraj.pl
+            </h3>
+            <p className={`text-xs mb-3 ${subText}`}>
+              Obejmuje: <code className="text-sky-400">Wstęp Główny</code> oraz <code className="text-sky-400">Misję eMBiK365</code> z paska pod wstępem
+            </p>
+
+            <div className="grid grid-cols-1 gap-2">
+              <button
+                onClick={pushIntroToFirestore}
+                disabled={introStatus.type === 'loading'}
+                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all border ${
+                  isDark
+                    ? 'bg-sky-600/20 border-sky-500/40 text-sky-300 hover:bg-sky-600/30 disabled:opacity-50'
+                    : 'bg-sky-50 border-sky-200 text-sky-700 hover:bg-sky-100 disabled:opacity-50'
+                }`}
+              >
+                <CloudUpload size={15} />
+                Wyślij edytowany Wstęp i Misję do Firestore (backup)
+                {introStatus.type === 'loading' && <Loader size={13} className="animate-spin ml-auto" />}
+              </button>
+
+              <button
+                onClick={pullIntroFromFirestore}
+                disabled={introStatus.type === 'loading'}
+                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all border ${
+                  isDark
+                    ? 'bg-emerald-600/20 border-emerald-500/40 text-emerald-300 hover:bg-emerald-600/30 disabled:opacity-50'
+                    : 'bg-emerald-50 border-emerald-200 text-emerald-700 hover:bg-emerald-100 disabled:opacity-50'
+                }`}
+              >
+                <CloudDownload size={15} />
+                Pobierz Wstęp i Misję z Firestore (nadpisz lokalne)
+              </button>
+            </div>
+
+            <StatusBar status={introStatus} />
           </div>
 
           {/* Prayers & Intro Blocks Section */}
