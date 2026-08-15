@@ -220,12 +220,21 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       }
 
       if (url) {
-        const qrUrl = url.startsWith('http') 
-          ? `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}`
-          : `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent('https://' + url)}`;
+        // Auto-normalize any widokinaraj URLs to use /#/ hash routing format for 100% server compatibility
+        let normalizedUrl = url;
+        if (normalizedUrl.includes('widokinaraj') && !normalizedUrl.includes('#')) {
+          normalizedUrl = normalizedUrl
+            .replace('/wnr365-day', '/#/wnr365-day')
+            .replace('/rhz365-day', '/#/rhz365-day')
+            .replace('/day', '/#/day');
+        }
 
-        const isExternalLink = url.startsWith('http') || url.startsWith('www.') || url.includes('.');
-        const clickUrl = (url.startsWith('http') || url.startsWith('https')) ? url : `https://${url}`;
+        const qrUrl = normalizedUrl.startsWith('http') 
+          ? `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(normalizedUrl)}`
+          : `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent('https://' + normalizedUrl)}`;
+
+        const isExternalLink = normalizedUrl.startsWith('http') || normalizedUrl.startsWith('www.') || normalizedUrl.includes('.');
+        const clickUrl = (normalizedUrl.startsWith('http') || normalizedUrl.startsWith('https')) ? normalizedUrl : `https://${normalizedUrl}`;
         const ContainerTag = isExternalLink ? 'a' : 'div';
         const extraProps = isExternalLink ? {
           href: clickUrl,

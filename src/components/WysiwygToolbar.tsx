@@ -80,7 +80,14 @@ export const WysiwygToolbar: React.FC<WysiwygToolbarProps> = ({
 
   const handleInsertQr = () => {
     if (!qrUrl.trim()) return;
-    const formatted = `\n[qr:${qrUrl.trim()}]${qrCaption.trim() ? `[caption:${qrCaption.trim()}]` : ''}\n`;
+    let finalQrUrl = qrUrl.trim();
+    if (finalQrUrl.includes('widokinaraj') && !finalQrUrl.includes('#')) {
+      finalQrUrl = finalQrUrl
+        .replace('/wnr365-day', '/#/wnr365-day')
+        .replace('/rhz365-day', '/#/rhz365-day')
+        .replace('/day', '/#/day');
+    }
+    const formatted = `\n[qr:${finalQrUrl}]${qrCaption.trim() ? `[caption:${qrCaption.trim()}]` : ''}\n`;
     handleFormat(formatted);
     setQrUrl('');
     setQrCaption('');
@@ -547,7 +554,7 @@ export const WysiwygToolbar: React.FC<WysiwygToolbarProps> = ({
                     type="url"
                     value={qrUrl}
                     onChange={(e) => setQrUrl(e.target.value)}
-                    placeholder="https://rozaniec-embik.pl"
+                    placeholder="https://widokinaraj.pl/#/wnr365-day-1"
                     className={inputClass}
                   />
                   <p className="text-[9px] text-slate-500 mt-0.5">Przekieruje użytkownika po kliknięciu lub zeskanowaniu</p>
