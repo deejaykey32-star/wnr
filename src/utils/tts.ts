@@ -10,6 +10,9 @@ export const isTtsSupported = (): boolean => {
   return typeof window !== 'undefined' && 'speechSynthesis' in window;
 };
 
+// Session ID to discard stale callbacks from canceled utterances
+let currentSessionId = 0;
+
 // State for chunked reading
 let utteranceQueue: string[] = [];
 let queueIndex = 0;
@@ -72,12 +75,21 @@ const splitLongSegment = (text: string, maxLength: number = 180): string[] => {
  * Stop any active voice narration immediately
  */
 export const stopSpeech = () => {
+  currentSessionId++;
   isQueueActive = false;
   isQueuePaused = false;
   isUtteranceSpeaking = false;
   utteranceQueue = [];
   queueIndex = 0;
+  
+  // Nullify event handlers on active utterances to prevent ghost callbacks
+  activeUtterances.forEach(u => {
+    u.onstart = null;
+    u.onend = null;
+    u.onerror = null;
+  });
   activeUtterances.clear();
+  
   if (isTtsSupported()) {
     try {
       window.speechSynthesis.cancel();
@@ -93,6 +105,11 @@ export const stopSpeech = () => {
 export const pauseSpeech = () => {
   isQueuePaused = true;
   isUtteranceSpeaking = false;
+  activeUtterances.forEach(u => {
+    u.onstart = null;
+    u.onend = null;
+    u.onerror = null;
+  });
   activeUtterances.clear();
   if (isTtsSupported()) {
     try {
@@ -177,6 +194,8 @@ const speakNextSegment = () => {
     return;
   }
 
+  const thisSessionId = currentSessionId;
+
   try {
     const utterance = new SpeechSynthesisUtterance(segmentText);
     
@@ -191,6 +210,7 @@ const speakNextSegment = () => {
     utterance.volume = queueOptions.volume !== undefined ? queueOptions.volume : 1.0;
 
     utterance.onstart = () => {
+      if (thisSessionId !== currentSessionId) return;
       isUtteranceSpeaking = true;
       // Only fire onStart on the very first segment
       if (queueIndex === 0 && queueOptions.onStart) {
@@ -203,6 +223,7 @@ const speakNextSegment = () => {
 
     utterance.onend = () => {
       activeUtterances.delete(utterance);
+      if (thisSessionId !== currentSessionId) return;
       isUtteranceSpeaking = false;
       if (!isQueueActive || isQueuePaused) return; // Queue was cancelled or paused
       
@@ -210,7 +231,7 @@ const speakNextSegment = () => {
       queueIndex++;
       // Small break between sentences to make it sound natural (e.g., 300ms)
       setTimeout(() => {
-        if (isQueueActive && !isQueuePaused) {
+        if (thisSessionId === currentSessionId && isQueueActive && !isQueuePaused) {
           speakNextSegment();
         }
       }, 300);
@@ -218,6 +239,7 @@ const speakNextSegment = () => {
 
     utterance.onerror = (e) => {
       activeUtterances.delete(utterance);
+      if (thisSessionId !== currentSessionId) return;
       isUtteranceSpeaking = false;
       console.warn("Utterance error during segment play:", e);
       if (!isQueueActive || isQueuePaused) return;
@@ -225,7 +247,7 @@ const speakNextSegment = () => {
       // On error, try to proceed to next segment
       queueIndex++;
       setTimeout(() => {
-        if (isQueueActive && !isQueuePaused) {
+        if (thisSessionId === currentSessionId && isQueueActive && !isQueuePaused) {
           speakNextSegment();
         }
       }, 300);
@@ -266,6 +288,9 @@ export const speakText = (
   // Stop previous speech or queue
   stopSpeech();
 
+  // New session ID for this request
+  const newSessionId = currentSessionId;
+
   // Strip unwanted symbols
   const cleanText = text
     .replace(/[\[\]]/g, '')
@@ -300,7 +325,12 @@ export const speakText = (
   isQueueActive = true;
   isQueuePaused = false;
 
-  speakNextSegment();
+  // Give Chrome's speech synthesis engine a tiny delay after cancel() to prevent stuttering at beginning
+  setTimeout(() => {
+    if (newSessionId === currentSessionId && isQueueActive) {
+      speakNextSegment();
+    }
+  }, 40);
 };
 
 // Listen to voiceschanged event to warm up voices list in browsers like Chrome

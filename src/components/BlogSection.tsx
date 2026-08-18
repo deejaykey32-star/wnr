@@ -6,8 +6,12 @@ import { getRGBABeads, getCMYKBeads } from '../data/prayers';
 import { playBeadChime } from '../utils/audio';
 import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechPaused, isSpeechSpeaking } from '../utils/tts';
 import { 
+  getCompletedWnrDays, toggleWnrDayCompleted, markWnrDayCompleted, isWnrDayCompleted 
+} from '../utils/completedDays';
+import { 
   Play, Pause, ChevronLeft, ChevronRight, RotateCcw, 
-  Edit3, Volume2, Mic, MicOff, Calendar, Save, BookOpen, AlertCircle, Sparkles, FileDown, Video, RefreshCw
+  Edit3, Volume2, Mic, MicOff, Calendar, Save, BookOpen, AlertCircle, Sparkles, FileDown, Video, RefreshCw,
+  Bookmark, Repeat
 } from 'lucide-react';
 import { RichTextRenderer } from '../utils/richTextHelper';
 import { WysiwygToolbar } from './WysiwygToolbar';
@@ -51,6 +55,14 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
   const [ttsEnabled, setTtsEnabled] = useState<boolean>(true);
   const [isYoutubeMode, setIsYoutubeMode] = useState<boolean>(false);
+
+  // Continuous playback & completed days state (WnR365)
+  const [completedWnrDays, setCompletedWnrDays] = useState<Record<number, boolean>>(() => getCompletedWnrDays());
+  const [isContinuousPlayback, setIsContinuousPlayback] = useState<boolean>(false);
+  const isContinuousPlaybackRef = useRef<boolean>(isContinuousPlayback);
+  useEffect(() => {
+    isContinuousPlaybackRef.current = isContinuousPlayback;
+  }, [isContinuousPlayback]);
 
   // Refs for scrolling and auto advance
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
@@ -254,7 +266,15 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                 if (activeSegmentIndex < blogSegments.length - 1) {
                   setActiveSegmentIndex(prev => prev + 1);
                 } else {
-                  setIsPlaying(false);
+                  // Reached end of current WnR365 blog entry!
+                  markWnrDayCompleted(cycleInfo.dayIndex);
+                  setCompletedWnrDays(getCompletedWnrDays());
+                  if (isContinuousPlaybackRef.current) {
+                    handleNextDay();
+                    setActiveSegmentIndex(0);
+                  } else {
+                    setIsPlaying(false);
+                  }
                 }
               }, 1200); // peaceful delay
             }
@@ -270,7 +290,14 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         if (activeSegmentIndex < blogSegments.length - 1) {
           setActiveSegmentIndex(prev => prev + 1);
         } else {
-          setIsPlaying(false);
+          markWnrDayCompleted(cycleInfo.dayIndex);
+          setCompletedWnrDays(getCompletedWnrDays());
+          if (isContinuousPlaybackRef.current) {
+            handleNextDay();
+            setActiveSegmentIndex(0);
+          } else {
+            setIsPlaying(false);
+          }
         }
       }, 5000); // 5 seconds reading time
     }
@@ -647,7 +674,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                   <span className={`text-[11px] sm:text-xs font-mono ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>WYBÓR:</span>
                 </div>
                 
-                {/* Day selector dropdown */}
+                {/* Day selector dropdown with ribbon indicators */}
                 <select
                   value={selectedDate.getDate()}
                   onChange={(e) => handleDayChange(Number(e.target.value))}
@@ -657,9 +684,20 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                       : 'bg-slate-950 border-slate-850 hover:border-slate-700 text-slate-200'
                   }`}
                 >
-                  {Array.from({ length: getDaysInMonth(selectedDate.getMonth()) }, (_, idx) => idx + 1).map((d) => (
-                    <option key={d} value={d}>{d}</option>
-                  ))}
+                  {Array.from({ length: getDaysInMonth(selectedDate.getMonth()) }, (_, idx) => idx + 1).map((d) => {
+                    const checkDate = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), d, 12, 0, 0, 0);
+                    let startYear = checkDate.getFullYear();
+                    const currentDec25 = new Date(startYear, 11, 25, 12, 0, 0, 0);
+                    if (checkDate < currentDec25) startYear = startYear - 1;
+                    const diffTime = checkDate.getTime() - new Date(startYear, 11, 25, 12, 0, 0, 0).getTime();
+                    const dIdx = Math.round(diffTime / (1000 * 60 * 60 * 24));
+                    const isCompleted = completedWnrDays[dIdx];
+                    return (
+                      <option key={d} value={d}>
+                        {d} {isCompleted ? '🎗️ (odmówiony)' : ''}
+                      </option>
+                    );
+                  })}
                 </select>
 
                 {/* Month selector dropdown */}
@@ -678,7 +716,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                 </select>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
                 <button
                   onClick={() => {
                     const today = new Date();
@@ -697,6 +735,42 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                 >
                   Dzisiaj
                 </button>
+
+                {/* Manual Ribbon Toggle Button */}
+                <button
+                  onClick={() => {
+                    toggleWnrDayCompleted(cycleInfo.dayIndex);
+                    setCompletedWnrDays(getCompletedWnrDays());
+                  }}
+                  className={`flex-1 sm:flex-initial px-3 py-1.5 sm:py-2 border text-xs rounded-xl font-bold transition cursor-pointer flex items-center justify-center gap-1.5 ${
+                    completedWnrDays[cycleInfo.dayIndex]
+                      ? 'bg-amber-500/20 text-amber-400 border-amber-500/50 shadow-sm'
+                      : isLight
+                        ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300'
+                        : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
+                  }`}
+                  title="Oznacz ten dzień WnR365 wstążką jako odmówiony / odznacz"
+                >
+                  <Bookmark className={`w-4 h-4 ${completedWnrDays[cycleInfo.dayIndex] ? 'fill-amber-400 text-amber-400' : ''}`} />
+                  <span className="hidden xs:inline">{completedWnrDays[cycleInfo.dayIndex] ? 'Odmówiono 🎗️' : 'Wstążka WnR'}</span>
+                </button>
+
+                {/* Continuous Playback Toggle */}
+                <button
+                  onClick={() => setIsContinuousPlayback(!isContinuousPlayback)}
+                  className={`flex-1 sm:flex-initial px-3 py-1.5 sm:py-2 border text-xs rounded-xl font-bold transition cursor-pointer flex items-center justify-center gap-1.5 ${
+                    isContinuousPlayback
+                      ? 'bg-emerald-600 text-white border-emerald-500 shadow-md shadow-emerald-600/30'
+                      : isLight
+                        ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300'
+                        : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
+                  }`}
+                  title="Włącz odtwarzanie całości WnR365 jednym ciągiem z automatycznym przełączaniem kolejnych dni"
+                >
+                  <Repeat className="w-4 h-4" />
+                  <span>{isContinuousPlayback ? 'Ciągłe WnR: WŁ' : 'Odtwarzaj ciągiem'}</span>
+                </button>
+
                 {onOpenExportModal && (
                   <button
                     onClick={onOpenExportModal}
@@ -744,11 +818,19 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                   }`}>
                     {formattedPolishDate} ({cycleInfo.cycleName})
                   </span>
-                  <h1 className={`text-2xl font-serif tracking-tight leading-tight mt-1 ${
-                    isLight ? 'text-slate-900' : 'text-white'
-                  }`}>
-                    {activeEntry.title}
-                  </h1>
+                  <div className="flex items-center gap-2.5 flex-wrap">
+                    <h1 className={`text-2xl font-serif tracking-tight leading-tight mt-1 ${
+                      isLight ? 'text-slate-900' : 'text-white'
+                    }`}>
+                      {activeEntry.title}
+                    </h1>
+                    {completedWnrDays[cycleInfo.dayIndex] && (
+                      <span className="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40 shrink-0 shadow-sm mt-1">
+                        <Bookmark className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                        Odmówiono 🎗️
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 {editing ? (

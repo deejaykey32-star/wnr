@@ -15,6 +15,10 @@ import { RichTextRenderer } from './utils/richTextHelper';
 import { parseDayText } from './utils/rhzParser';
 import { playBeadChime } from './utils/audio';
 import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechPaused, isSpeechSpeaking, isTtsSupported } from './utils/tts';
+import { 
+  getCompletedRhzDays, toggleRhzDayCompleted, markRhzDayCompleted, isRhzDayCompleted,
+  getCompletedWnrDays, toggleWnrDayCompleted, markWnrDayCompleted, isWnrDayCompleted
+} from './utils/completedDays';
 import { SearchModal } from './components/SearchModal';
 import { ExportModal } from './components/ExportModal';
 import { PwaInstallPrompt } from './components/PwaInstallPrompt';
@@ -23,7 +27,8 @@ import { InlinePrayerEditor } from './components/InlinePrayerEditor';
 import { 
   Play, Pause, ChevronLeft, ChevronRight, RotateCcw, 
   LogIn, LogOut, Video, Edit3, Sliders, Volume2, Info, BookOpen, Mic, MicOff, Calendar, FileDown,
-  Sun, Moon, ShieldAlert, Key, X, ExternalLink, Search, Share2, Check, Smartphone, RefreshCw, Edit2
+  Sun, Moon, ShieldAlert, Key, X, ExternalLink, Search, Share2, Check, Smartphone, RefreshCw, Edit2,
+  Bookmark, Repeat, Zap
 } from 'lucide-react';
 
 export default function App() {
@@ -160,6 +165,51 @@ export default function App() {
   const [showEditor, setShowEditor] = useState<boolean>(false);
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
   const [ttsEnabled, setTtsEnabled] = useState<boolean>(true);
+
+  // Continuous playback & completed days state (RHZ365)
+  const [completedRhzDays, setCompletedRhzDays] = useState<Record<number, boolean>>(() => getCompletedRhzDays());
+  const [isContinuousPlayback, setIsContinuousPlayback] = useState<boolean>(false);
+  const isContinuousPlaybackRef = useRef<boolean>(isContinuousPlayback);
+  useEffect(() => {
+    isContinuousPlaybackRef.current = isContinuousPlayback;
+  }, [isContinuousPlayback]);
+
+  // Shortened continuous Rosary playback mode (skips intro/outro on subsequent days)
+  const [isShortenedMode, setIsShortenedMode] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem('rhz_shortened_mode') === 'true';
+    } catch {
+      return false;
+    }
+  });
+  const isShortenedModeRef = useRef<boolean>(isShortenedMode);
+  useEffect(() => {
+    isShortenedModeRef.current = isShortenedMode;
+  }, [isShortenedMode]);
+
+  const toggleShortenedMode = () => {
+    setIsShortenedMode(prev => {
+      const next = !prev;
+      try {
+        localStorage.setItem('rhz_shortened_mode', String(next));
+      } catch {}
+      return next;
+    });
+  };
+
+  const handleNextDay = () => {
+    const next = new Date(selectedDate);
+    next.setDate(next.getDate() + 1);
+    if (next.getMonth() === 1 && next.getDate() === 29) {
+      next.setDate(1);
+      next.setMonth(2); // March 1st (skip Feb 29)
+    }
+    const maxDate = new Date(2026, 11, 24, 12, 0, 0, 0);
+    if (next > maxDate) {
+      next.setTime(new Date(2025, 11, 25, 12, 0, 0, 0).getTime());
+    }
+    setSelectedDate(next);
+  };
 
   // Blog entries: local-first pre-populated with bundled PDF JSON entries.
   const [blogEntries, setBlogEntries] = useState<Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>>(() => {
@@ -597,14 +647,14 @@ export default function App() {
     }
   }, [activeStep, prayers, cycleInfo.cycleType, cycleInfo.dayOfCycle]);
 
-  // AI TTS Narration when step changes or content is edited
+  // AI TTS Narration when playing, step changes or content is edited
   useEffect(() => {
-    if (!ttsEnabled || !activeStep || !textToRead) {
+    if (!isPlaying || !ttsEnabled || !activeStep || !textToRead) {
       stopSpeech();
       return;
     }
 
-    // Add a small delay (e.g. 500ms) to let the bead sound finish playing
+    // Add a small delay (400ms) to let the bead sound finish playing
     const timer = setTimeout(() => {
       speakText(textToRead, {
         rate: 0.95, // solemn calm pace
@@ -620,41 +670,14 @@ export default function App() {
           }
         }
       });
-    }, 500);
+    }, 400);
 
     return () => {
       clearTimeout(timer);
       if (autoAdvanceTimeoutRef.current) clearTimeout(autoAdvanceTimeoutRef.current);
       stopSpeech();
     };
-  }, [activeStepIndex, textToRead, ttsEnabled]);
-
-  // Sync isPlaying with TTS play/pause state
-  useEffect(() => {
-    if (!isPlaying) {
-      pauseSpeech();
-    } else {
-      if (isSpeechPaused()) {
-        resumeSpeech();
-      } else if (!isSpeechSpeaking() && ttsEnabled && textToRead) {
-        // If it's not speaking (idle), trigger the reading!
-        speakText(textToRead, {
-          rate: 0.95,
-          pitch: 1.0,
-          onSegmentStart: (index) => {
-            setActiveSegmentIndex(index);
-          },
-          onEnd: () => {
-            if (isPlayingRef.current) {
-              autoAdvanceTimeoutRef.current = setTimeout(() => {
-                handleNext();
-              }, 1500); // 1.5 seconds gap between prayers
-            }
-          }
-        });
-      }
-    }
-  }, [isPlaying, textToRead, ttsEnabled]);
+  }, [isPlaying, activeStepIndex, textToRead, ttsEnabled]);
 
   // If TTS is disabled, we auto-advance on a simple fallback interval
   useEffect(() => {
@@ -667,7 +690,45 @@ export default function App() {
   }, [isPlaying, ttsEnabled, activeStepIndex]);
 
   const handleNext = () => {
-    setActiveStepIndex((prev) => (prev < steps.length - 1 ? prev + 1 : 0));
+    // Determine the step index of the first mystery / decade reflection (e.g. index 7 for Rosary)
+    const firstMysteryIdx = steps.findIndex(s => s.prayerType === 'mystery' || s.id.startsWith('step-mystery'));
+    const mysteryStartStepIndex = firstMysteryIdx >= 0 ? firstMysteryIdx : 0;
+
+    const currentStep = steps[activeStepIndex];
+    
+    // In shortened continuous playback mode, after completing the decade's Glory Be, skip ending prayers and jump to next day's decade
+    const isGloryAfterDecade = currentStep && (
+      currentStep.id.includes('glory-dec') ||
+      (currentStep.prayerType === 'gloryBe' && activeStepIndex > 5 && activeStepIndex < steps.length - 2)
+    );
+
+    if (isShortenedModeRef.current && isContinuousPlaybackRef.current && isGloryAfterDecade) {
+      markRhzDayCompleted(cycleInfo.dayIndex);
+      setCompletedRhzDays(getCompletedRhzDays());
+      handleNextDay();
+      setActiveStepIndex(mysteryStartStepIndex);
+      return;
+    }
+
+    if (activeStepIndex < steps.length - 1) {
+      setActiveStepIndex(prev => prev + 1);
+    } else {
+      // Reached the last prayer step of the day!
+      markRhzDayCompleted(cycleInfo.dayIndex);
+      setCompletedRhzDays(getCompletedRhzDays());
+
+      if (isContinuousPlaybackRef.current) {
+        handleNextDay();
+        if (isShortenedModeRef.current) {
+          setActiveStepIndex(mysteryStartStepIndex);
+        } else {
+          setActiveStepIndex(0);
+        }
+      } else {
+        setActiveStepIndex(0);
+        setIsPlaying(false);
+      }
+    }
   };
 
   const handlePrev = () => {
@@ -1680,9 +1741,17 @@ export default function App() {
                 </div>
                 <div>
                   <span className={`text-[10px] font-mono tracking-widest uppercase block ${isLight ? 'text-indigo-600' : 'text-indigo-400'}`}>AKTUALNY DZIEŃ LITURGICZNY</span>
-                  <h2 className={`text-base sm:text-lg font-serif font-bold leading-tight ${isLight ? 'text-slate-950' : 'text-white'}`}>
-                    {cycleInfo.cycleName}
-                  </h2>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <h2 className={`text-base sm:text-lg font-serif font-bold leading-tight ${isLight ? 'text-slate-950' : 'text-white'}`}>
+                      {cycleInfo.cycleName}
+                    </h2>
+                    {completedRhzDays[cycleInfo.dayIndex] && (
+                      <span className="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40 shrink-0 shadow-sm">
+                        <Bookmark className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                        Odmówiono 🎗️
+                      </span>
+                    )}
+                  </div>
                   <p className={`text-xs mt-1 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
                     {(cycleInfo.cycleType === 'cycle1' || cycleInfo.cycleType === 'cycle2') && (
                       <>Tajemnica dnia: <strong>{getDecadeForDay(cycleInfo.dayOfCycle)}</strong> z 5 &nbsp;•&nbsp; </>
@@ -1692,11 +1761,11 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 w-full md:w-auto justify-end flex-wrap sm:flex-nowrap">
+              <div className="flex items-center gap-2.5 w-full md:w-auto justify-end flex-wrap sm:flex-nowrap">
                 <Calendar className="w-4 h-4 text-slate-500 shrink-0" />
                 <span className={`text-xs font-mono ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>WYBÓR DNIA:</span>
                 
-                {/* Day selector dropdown */}
+                {/* Day selector dropdown with ribbon badges */}
                 <select
                   value={selectedDate.getDate()}
                   onChange={(e) => handleDayChange(Number(e.target.value))}
@@ -1706,9 +1775,16 @@ export default function App() {
                       : 'bg-slate-950 border-slate-850 hover:border-slate-700 text-slate-200'
                   }`}
                 >
-                  {Array.from({ length: getDaysInMonth(selectedDate.getMonth()) }, (_, idx) => idx + 1).map((d) => (
-                    <option key={d} value={d}>{d}</option>
-                  ))}
+                  {Array.from({ length: getDaysInMonth(selectedDate.getMonth()) }, (_, idx) => idx + 1).map((d) => {
+                    const checkDate = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), d, 12, 0, 0, 0);
+                    const dayInfo = getCycleDayInfo(checkDate, { isExplicitRhzRoute: activeTab === 'rosary' });
+                    const isCompleted = completedRhzDays[dayInfo.dayIndex];
+                    return (
+                      <option key={d} value={d}>
+                        {d} {isCompleted ? '🎗️ (odmówiony)' : ''}
+                      </option>
+                    );
+                  })}
                 </select>
 
                 {/* Month selector dropdown */}
@@ -1737,6 +1813,57 @@ export default function App() {
                   }`}
                 >
                   Dzisiaj
+                </button>
+
+                {/* Manual Ribbon Day Completion Toggle */}
+                <button
+                  onClick={() => {
+                    toggleRhzDayCompleted(cycleInfo.dayIndex);
+                    setCompletedRhzDays(getCompletedRhzDays());
+                  }}
+                  className={`px-3 py-2 border text-xs rounded-xl font-bold transition cursor-pointer flex items-center gap-1.5 ${
+                    completedRhzDays[cycleInfo.dayIndex]
+                      ? 'bg-amber-500/20 text-amber-400 border-amber-500/50 shadow-sm'
+                      : isLight
+                        ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300'
+                        : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
+                  }`}
+                  title="Oznacz ten dzień RHZ365 wstążką jako odmówiony / odznacz"
+                >
+                  <Bookmark className={`w-4 h-4 ${completedRhzDays[cycleInfo.dayIndex] ? 'fill-amber-400 text-amber-400' : ''}`} />
+                  <span className="hidden xs:inline">{completedRhzDays[cycleInfo.dayIndex] ? 'Odmówiono 🎗️' : 'Oznacz wstążką'}</span>
+                </button>
+
+                {/* Continuous Playback Toggle */}
+                <button
+                  onClick={() => setIsContinuousPlayback(!isContinuousPlayback)}
+                  className={`px-3 py-2 border text-xs rounded-xl font-bold transition cursor-pointer flex items-center gap-1.5 ${
+                    isContinuousPlayback
+                      ? 'bg-emerald-600 text-white border-emerald-500 shadow-md shadow-emerald-600/30'
+                      : isLight
+                        ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300'
+                        : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
+                  }`}
+                  title="Włącz odtwarzanie całości RHZ365 jednym ciągiem z automatycznym przełączaniem kolejnych dni"
+                >
+                  <Repeat className="w-4 h-4" />
+                  <span>{isContinuousPlayback ? 'Ciągłe RHZ: WŁ' : 'Odtwarzaj ciągiem'}</span>
+                </button>
+
+                {/* Shortened Mode Toggle */}
+                <button
+                  onClick={toggleShortenedMode}
+                  className={`px-3 py-2 border text-xs rounded-xl font-bold transition cursor-pointer flex items-center gap-1.5 ${
+                    isShortenedMode
+                      ? 'bg-amber-600 text-white border-amber-500 shadow-md shadow-amber-600/30'
+                      : isLight
+                        ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300'
+                        : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
+                  }`}
+                  title="Wersja skrócona: wstęp (W imię Ojca, Wierzę w Boga, 3x Zdrowaś) odmawiany tylko pierwszego dnia, a w kolejnych dniach automatyczne pomijanie wstępu i zakończenia (Pod Twoją obronę)"
+                >
+                  <Zap className={`w-4 h-4 ${isShortenedMode ? 'fill-current' : ''}`} />
+                  <span>{isShortenedMode ? 'Wersja skrócona: WŁ' : 'Wersja skrócona'}</span>
                 </button>
                 <button
                   onClick={() => setShowCustomExportModal(true)}
