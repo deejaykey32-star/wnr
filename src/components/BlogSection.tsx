@@ -172,9 +172,22 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     setEditTitle(activeEntry.title);
     setEditText(activeEntry.text);
     setEditing(false);
-    setIsPlaying(false);
+    if (!isContinuousPlaybackRef.current) {
+      setIsPlaying(false);
+    }
     setActiveSegmentIndex(0);
   }, [activeEntry]);
+
+  const toggleContinuousPlayback = () => {
+    setIsContinuousPlayback(prev => {
+      const next = !prev;
+      if (next) {
+        setTtsEnabled(true);
+        setIsPlaying(true);
+      }
+      return next;
+    });
+  };
 
   // Polish date formatting (WITHOUT year component for universal form)
   const formattedPolishDate = useMemo(() => {
@@ -757,7 +770,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
 
                 {/* Continuous Playback Toggle */}
                 <button
-                  onClick={() => setIsContinuousPlayback(!isContinuousPlayback)}
+                  onClick={toggleContinuousPlayback}
                   className={`flex-1 sm:flex-initial px-3 py-1.5 sm:py-2 border text-xs rounded-xl font-bold transition cursor-pointer flex items-center justify-center gap-1.5 ${
                     isContinuousPlayback
                       ? 'bg-emerald-600 text-white border-emerald-500 shadow-md shadow-emerald-600/30'
@@ -765,7 +778,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                         ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300'
                         : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
                   }`}
-                  title="Włącz odtwarzanie całości WnR365 jednym ciągiem z automatycznym przełączaniem kolejnych dni"
+                  title="Włącz odtwarzanie całości WnR365 jednym ciągiem z automatycznym przełączaniem kolejnych dni oraz uruchom lektora"
                 >
                   <Repeat className="w-4 h-4" />
                   <span>{isContinuousPlayback ? 'Ciągłe WnR: WŁ' : 'Odtwarzaj ciągiem'}</span>

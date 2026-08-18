@@ -187,12 +187,36 @@ export default function App() {
     isShortenedModeRef.current = isShortenedMode;
   }, [isShortenedMode]);
 
+  const toggleContinuousPlayback = () => {
+    setIsContinuousPlayback(prev => {
+      const next = !prev;
+      if (next) {
+        setTtsEnabled(true);
+        setIsPlaying(true);
+      }
+      return next;
+    });
+  };
+
   const toggleShortenedMode = () => {
     setIsShortenedMode(prev => {
       const next = !prev;
       try {
         localStorage.setItem('rhz_shortened_mode', String(next));
       } catch {}
+      if (next) {
+        setIsContinuousPlayback(true);
+        setTtsEnabled(true);
+
+        const firstMysteryIdx = steps.findIndex(s => s.prayerType === 'mystery' || s.id.startsWith('step-mystery'));
+        const mysteryStartStepIndex = firstMysteryIdx >= 0 ? firstMysteryIdx : 0;
+
+        if (cycleInfo.dayIndex > 0 && activeStepIndex < mysteryStartStepIndex) {
+          setActiveStepIndex(mysteryStartStepIndex);
+        }
+
+        setIsPlaying(true);
+      }
       return next;
     });
   };
@@ -525,10 +549,12 @@ export default function App() {
     }
   };
 
-  // Reset step index to 0 whenever date changes and steps refresh
+  // Reset step index to 0 whenever date changes and steps refresh (only when not in continuous playback)
   useEffect(() => {
-    setActiveStepIndex(0);
-    setIsPlaying(false);
+    if (!isContinuousPlaybackRef.current) {
+      setActiveStepIndex(0);
+      setIsPlaying(false);
+    }
   }, [selectedDate, cycleInfo.cycleType]);
 
   // Reset active segment index on step change
@@ -1836,7 +1862,7 @@ export default function App() {
 
                 {/* Continuous Playback Toggle */}
                 <button
-                  onClick={() => setIsContinuousPlayback(!isContinuousPlayback)}
+                  onClick={toggleContinuousPlayback}
                   className={`px-3 py-2 border text-xs rounded-xl font-bold transition cursor-pointer flex items-center gap-1.5 ${
                     isContinuousPlayback
                       ? 'bg-emerald-600 text-white border-emerald-500 shadow-md shadow-emerald-600/30'
@@ -1844,7 +1870,7 @@ export default function App() {
                         ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300'
                         : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
                   }`}
-                  title="Włącz odtwarzanie całości RHZ365 jednym ciągiem z automatycznym przełączaniem kolejnych dni"
+                  title="Włącz odtwarzanie całości RHZ365 jednym ciągiem z automatycznym przełączaniem kolejnych dni oraz uruchom lektora"
                 >
                   <Repeat className="w-4 h-4" />
                   <span>{isContinuousPlayback ? 'Ciągłe RHZ: WŁ' : 'Odtwarzaj ciągiem'}</span>
