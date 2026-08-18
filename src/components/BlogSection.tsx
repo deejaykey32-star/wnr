@@ -1239,7 +1239,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
 
                   {/* Cykl II */}
                   <div>
-                    <label className="block text-[11px] text-slate-500 font-medium mb-1.5">Cykl II - do Boga Ojca (Dni 1 - 175)</label>
+                    <label className="block text-[11px] text-slate-500 font-medium mb-1.5">Cykl II (Dni 1 - 175)</label>
                     <div className="flex gap-2">
                       <input
                         type="number"

@@ -989,7 +989,7 @@ export const getCycleDayInfo = (
   } else if (dayIndex >= 182 && dayIndex < 357) {
     cycleType = 'cycle2';
     dayOfCycle = dayIndex - 181; // 1 to 175
-    cycleName = `Cykl II - Dzień ${dayOfCycle} z 175 (Różaniec do Boga Ojca)`;
+    cycleName = `Cykl II - Dzień ${dayOfCycle} z 175 (Różaniec Tradycyjny)`;
   } else {
     cycleType = 'break2';
     dayOfCycle = dayIndex - 356;
@@ -1447,10 +1447,8 @@ export const getPrayerSteps = (
 
   // Step 3, 4, 5: Virtues (beads 2, 3, 4)
   // In Cycle II, small beads are "Ojcze Nasz"
-  const smallBeadPrayer = cycleType === 'cycle2' ? 'ourFather' : 'hailMary';
-  const virtueLabels = cycleType === 'cycle2'
-    ? ["Paciorek 2 - Ojcze Nasz (O Wiarę)", "Paciorek 3 - Ojcze Nasz (O Nadzieję)", "Paciorek 4 - Ojcze Nasz (O Miłość)"]
-    : ["Paciorek 2 - Zdrowaś Maryjo (O Wiarę)", "Paciorek 3 - Zdrowaś Maryjo (O Nadzieję)", "Paciorek 4 - Zdrowaś Maryjo (O Miłość)"];
+  const smallBeadPrayer = 'hailMary';
+  const virtueLabels = ["Paciorek 2 - Zdrowaś Maryjo (O Wiarę)", "Paciorek 3 - Zdrowaś Maryjo (O Nadzieję)", "Paciorek 4 - Zdrowaś Maryjo (O Miłość)"];
 
   steps.push({
     id: 'step-intro-virtue-1',
@@ -1504,79 +1502,51 @@ export const getPrayerSteps = (
   const decNum = activeDecadeNum;
   const triggerBeadIdx = d === 0 ? 6 : decadeBeadIndices[d - 1].sep;
 
-  if (cycleType === 'cycle2') {
-    // CYKL II: Różaniec do Boga Ojca — jeden dziesiątek na dzień
+  // CYKL I & CYKL II (lub Dni Przerwy): Różaniec Tradycyjny — jeden dziesiątek na dzień
+  steps.push({
+    id: `step-mystery-dec-${decNum}`,
+    label: `Tajemnica ${decNum} — Rozważanie`,
+    beadIndex: triggerBeadIdx,
+    prayerType: 'mystery',
+    rgbaBeadId: getRGBAId(triggerBeadIdx),
+    cmykBeadId: getCMYKId(triggerBeadIdx),
+    decadeIndex: decNum
+  });
+
+  steps.push({
+    id: `step-father-dec-${decNum}`,
+    label: `Tajemnica ${decNum} — Ojcze Nasz`,
+    beadIndex: triggerBeadIdx,
+    prayerType: 'ourFather',
+    rgbaBeadId: getRGBAId(triggerBeadIdx),
+    cmykBeadId: getCMYKId(triggerBeadIdx),
+    decadeIndex: decNum
+  });
+
+  for (let h = 0; h < 10; h++) {
+    const bIdx = start + h;
     steps.push({
-      id: `step-mystery-dec-${decNum}`,
-      label: `Tajemnica ${decNum} — Rozważanie i Zdrowaś Maryjo (Duży Paciorek)`,
-      beadIndex: triggerBeadIdx,
-      prayerType: 'mystery',
-      rgbaBeadId: getRGBAId(triggerBeadIdx),
-      cmykBeadId: getCMYKId(triggerBeadIdx),
-      decadeIndex: decNum
-    });
-
-    for (let h = 0; h < 10; h++) {
-      const bIdx = start + h;
-      steps.push({
-        id: `step-hailmary-dec-${decNum}-${h + 1}`,
-        label: `Tajemnica ${decNum}, Ojcze Nasz ${h + 1}/10 (Odpust i Uwielbienie)`,
-        beadIndex: bIdx,
-        prayerType: 'ourFather',
-        rgbaBeadId: getRGBAId(bIdx),
-        cmykBeadId: getCMYKId(bIdx),
-        decadeIndex: decNum,
-        beadNumber: h + 1
-      });
-    }
-
-  } else {
-    // CYKL I (lub Dni Przerwy): Różaniec Tradycyjny — jeden dziesiątek na dzień
-    steps.push({
-      id: `step-mystery-dec-${decNum}`,
-      label: `Tajemnica ${decNum} — Rozważanie`,
-      beadIndex: triggerBeadIdx,
-      prayerType: 'mystery',
-      rgbaBeadId: getRGBAId(triggerBeadIdx),
-      cmykBeadId: getCMYKId(triggerBeadIdx),
-      decadeIndex: decNum
-    });
-
-    steps.push({
-      id: `step-father-dec-${decNum}`,
-      label: `Tajemnica ${decNum} — Ojcze Nasz`,
-      beadIndex: triggerBeadIdx,
-      prayerType: 'ourFather',
-      rgbaBeadId: getRGBAId(triggerBeadIdx),
-      cmykBeadId: getCMYKId(triggerBeadIdx),
-      decadeIndex: decNum
-    });
-
-    for (let h = 0; h < 10; h++) {
-      const bIdx = start + h;
-      steps.push({
-        id: `step-hailmary-dec-${decNum}-${h + 1}`,
-        label: `Tajemnica ${decNum}, Zdrowaś Maryjo ${h + 1}/10`,
-        beadIndex: bIdx,
-        prayerType: 'hailMary',
-        rgbaBeadId: getRGBAId(bIdx),
-        cmykBeadId: getCMYKId(bIdx),
-        decadeIndex: decNum,
-        beadNumber: h + 1
-      });
-    }
-
-    const gloryBeadIdx = sep !== -1 ? sep : 6;
-    steps.push({
-      id: `step-glory-dec-${decNum}`,
-      label: `Tajemnica ${decNum} — Chwała Ojcu & O mój Jezu`,
-      beadIndex: gloryBeadIdx,
-      prayerType: 'gloryBe',
-      rgbaBeadId: getRGBAId(gloryBeadIdx),
-      cmykBeadId: getCMYKId(gloryBeadIdx),
-      decadeIndex: decNum
+      id: `step-hailmary-dec-${decNum}-${h + 1}`,
+      label: `Tajemnica ${decNum}, Zdrowaś Maryjo ${h + 1}/10`,
+      beadIndex: bIdx,
+      prayerType: 'hailMary',
+      rgbaBeadId: getRGBAId(bIdx),
+      cmykBeadId: getCMYKId(bIdx),
+      decadeIndex: decNum,
+      beadNumber: h + 1
     });
   }
+
+  const gloryBeadIdx = sep !== -1 ? sep : 6;
+  steps.push({
+    id: `step-glory-dec-${decNum}`,
+    label: `Tajemnica ${decNum} — Chwała Ojcu & O mój Jezu`,
+    beadIndex: gloryBeadIdx,
+    prayerType: 'gloryBe',
+    rgbaBeadId: getRGBAId(gloryBeadIdx),
+    cmykBeadId: getCMYKId(gloryBeadIdx),
+    decadeIndex: decNum
+  });
 
   steps.push({
     id: 'step-hail-queen',
@@ -1641,16 +1611,7 @@ export const getActiveDecadeMystery = (
 
   const jsonRecord = (rhzData as any[]).find(r => r.dayNumber === dayOfCycle) || rhzData[(dayOfCycle - 1) % rhzData.length];
 
-  if (cycleType === 'cycle2') {
-    // Cykl II: Różaniec do Boga Ojca
-    const defaultRgba = getFatherMystery(dayOfCycle, decIdx);
-    return {
-      rgba: customRgba || defaultRgba,
-      cmyk: { title: "Różaniec do Boga Ojca", text: "W tym cyklu rozważamy nieskończoną miłość i opatrzność Boga Ojca na wszystkich paciorkach." }
-    };
-  }
-
-  // Cykl I or Break: Traditional Rosary (RHZ365)
+  // Cykl I, Cykl II or Break: Traditional Rosary (RHZ365)
   const authenticTitle = (customRgba && customRgba.title)
     ? customRgba.title
     : (jsonRecord ? jsonRecord.title : `RHZ365 — Dzień ${dayOfCycle}`);

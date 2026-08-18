@@ -48,7 +48,7 @@ function openDb(): Promise<IDBDatabase> {
 
 // Increment this version whenever wnr365_pdf_entries.json content changes significantly.
 // This forces a full IndexedDB reseed on next app load, clearing stale cached data.
-const DATA_VERSION = '2026-08-17-sync-1786979898349';
+const DATA_VERSION = '2026-08-18-rhz-day1-full-prayer-v3';
 const DATA_VERSION_KEY = 'wnr365_db_data_version';
 
 /**
@@ -62,13 +62,15 @@ export async function initLocalNoSqlDb(): Promise<void> {
     const needsReseed = storedVersion !== DATA_VERSION;
 
     const db = await openDb();
-    const tx = db.transaction(BLOG_STORE, 'readwrite');
+    const tx = db.transaction([BLOG_STORE, PRAYERS_STORE], 'readwrite');
     const store = tx.objectStore(BLOG_STORE);
+    const prayersStore = tx.objectStore(PRAYERS_STORE);
 
     if (needsReseed) {
-      console.log(`[NoSQL] Data version changed (${storedVersion} → ${DATA_VERSION}). Re-seeding IndexedDB with fresh PDF data...`);
+      console.log(`[NoSQL] Data version changed (${storedVersion} → ${DATA_VERSION}). Re-seeding IndexedDB with fresh PDF and prayer data...`);
       // Clear old data so stale entries don't persist
       store.clear();
+      prayersStore.clear();
       Object.entries(wnrPdfMap).forEach(([docId, entry]) => {
         store.put({
           docId,

@@ -266,6 +266,48 @@ const speakNextSegment = () => {
 };
 
 /**
+ * Cleans text for Polish TTS engine to ensure smooth, continuous reading.
+ * Strips quotes ("cudzysłów"), dashes ("kreska / pauza / myślnik"), brackets ("nawias"),
+ * and other disruptive symbols while preserving natural sentence pauses.
+ */
+export const sanitizeTextForTts = (text: string): string => {
+  if (!text) return "";
+
+  return text
+    // 1. Remove quotes (cudzysłowy) of all types
+    .replace(/[„”"«»‘’'`]/g, '')
+
+    // 2. Replace ellipses (... or …) with a natural pause (comma)
+    .replace(/(\.\.\.|…)/g, ', ')
+
+    // 3. Replace hyphens / dashes / pauzy with a comma or space to create natural pauses without reading character names
+    // Spaced dashes / em-dashes / en-dashes / horizontal bars -> comma pause
+    .replace(/[—–―]/g, ', ')
+    .replace(/\s+-\s+/g, ', ')
+    // Hyphenated compound words (e.g. Bet-Peor -> Bet Peor)
+    .replace(/(\w+)-(\w+)/g, '$1 $2')
+    // Remaining standalone hyphens -> space
+    .replace(/-/g, ' ')
+
+    // 4. Remove parentheses and brackets (nawiasy)
+    .replace(/[()\[\]{}]/g, ' ')
+
+    // 5. Replace colons and semicolons with commas to avoid saying "dwukropek"/"średnik"
+    .replace(/[:;]/g, ', ')
+
+    // 6. Remove slashes, backslashes, markdown symbols, bullets, hashes, etc.
+    .replace(/[\/\\*#_~>•·°|]/g, ' ')
+
+    // 7. Clean up multiple commas, spaces, and punctuation formatting
+    .replace(/,\s*,+/g, ',')
+    .replace(/\s+/g, ' ')
+    .replace(/\s+,/g, ',')
+    .replace(/\s+\./g, '.')
+    .replace(/^\s*,+\s*/, '')
+    .trim();
+};
+
+/**
  * Read the specified text aloud
  */
 export const speakText = (
@@ -291,10 +333,8 @@ export const speakText = (
   // New session ID for this request
   const newSessionId = currentSessionId;
 
-  // Strip unwanted symbols
-  const cleanText = text
-    .replace(/[\[\]]/g, '')
-    .trim();
+  // Clean and sanitize text for smooth Polish TTS reading (strip quotes, dashes, brackets, etc.)
+  const cleanText = sanitizeTextForTts(text);
 
   if (!cleanText) {
     if (options.onEnd) options.onEnd();

@@ -269,13 +269,27 @@ p {
     spineRefs.push(`<itemref idref="${chapterId}"/>`);
 
     // Fetch RHZ and WnR content
-    const decIdx = ((dayNum - 1) % 5) + 1;
-    const firestoreKey = `day_${dayNum}_decade_rgba_${decIdx}`;
+    const rhzDayNum = ((dayNum - 1) % 175) + 1;
+    const decIdx = ((rhzDayNum - 1) % 5) + 1;
+    const firestoreKey = `day_${rhzDayNum}_decade_rgba_${decIdx}`;
     const rhzDoc = prayers[firestoreKey];
-    const rawRhzText = rhzDoc?.text || rhzData[Math.min(dayNum - 1, rhzData.length - 1)]?.text || '';
-    const rhzTitle = rhzDoc?.title || rhzData[Math.min(dayNum - 1, rhzData.length - 1)]?.title || `Dzień ${dayNum}`;
 
-    const parsedRHZ = parseDayText(dayNum, rawRhzText);
+    const jsonRecord = (rhzData as any[]).find(r => r.dayNumber === rhzDayNum) || rhzData[rhzDayNum - 1];
+
+    let rawRhzText = rhzDoc?.text || jsonRecord?.text || '';
+    let rhzTitle = rhzDoc?.title || jsonRecord?.title || `Dzień ${rhzDayNum}`;
+
+    let parsedRHZ = parseDayText(rhzDayNum, rawRhzText);
+
+    // Fallback to bundled rhzData if custom text lacks full 10x Hail Mary prayer structure
+    if (!parsedRHZ.success && jsonRecord?.text) {
+      const fallbackParsed = parseDayText(rhzDayNum, jsonRecord.text);
+      if (fallbackParsed.success) {
+        parsedRHZ = fallbackParsed;
+        rawRhzText = jsonRecord.text;
+        if (jsonRecord.title) rhzTitle = jsonRecord.title;
+      }
+    }
 
     const wnrKey = `blog_day_${i}`;
     const wnrDoc = getWnrDefaultBlogEntry(i, prayers, blogEntries);
@@ -347,7 +361,17 @@ const formatParagraphsHtml = (rawText: string): string => {
         });
         chapterHtml += `</ol>`;
 
-        chapterHtml += `<div class="box"><h4>Chwała Ojcu &amp; O mój Jezu</h4>${formatParagraphsHtml(parsedRHZ.data.gloryBeFatimaText)}</div>`;
+        const gloryFatimaText = parsedRHZ.data.gloryBeFatimaText || '';
+        const fatimaMatch = gloryFatimaText.search(/(?:^|\n)\s*O mój Jezu/i);
+
+        if (fatimaMatch !== -1) {
+          const gloryTextPart = gloryFatimaText.substring(0, fatimaMatch).trim();
+          const fatimaTextPart = gloryFatimaText.substring(fatimaMatch).trim();
+          chapterHtml += `<div class="box"><h4>Modlitwa Uwielbienia (Chwała Ojcu)</h4>${formatParagraphsHtml(gloryTextPart)}</div>`;
+          chapterHtml += `<div class="box"><h4>Modlitwa Fatimska (O mój Jezu)</h4>${formatParagraphsHtml(fatimaTextPart)}</div>`;
+        } else {
+          chapterHtml += `<div class="box"><h4>Chwała Ojcu &amp; O mój Jezu</h4>${formatParagraphsHtml(gloryFatimaText)}</div>`;
+        }
       } else {
         chapterHtml += formatParagraphsHtml(rawRhzText);
       }

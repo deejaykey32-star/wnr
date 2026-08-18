@@ -13,6 +13,7 @@ import { BlogSection } from './components/BlogSection';
 import { AdminSyncPanel } from './components/AdminSyncPanel';
 import { RichTextRenderer } from './utils/richTextHelper';
 import { parseDayText } from './utils/rhzParser';
+import rhzData from '../RHZ365_pierwszy_cykl_175_dni.json';
 import { playBeadChime } from './utils/audio';
 import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechPaused, isSpeechSpeaking, isTtsSupported } from './utils/tts';
 import { 
@@ -605,24 +606,19 @@ export default function App() {
       const decIdx = activeStep.decadeIndex || 1;
       const mysteryData = getActiveDecadeMystery(cycleInfo.cycleType, cycleInfo.dayOfCycle, decIdx, prayers);
       
-      if (cycleInfo.cycleType === 'cycle1') {
+      if (cycleInfo.cycleType === 'cycle1' || cycleInfo.cycleType === 'cycle2') {
         const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
         if (parsed.success && parsed.data) {
           return `${mysteryData.rgba.title}. ${parsed.data.reflectionText}.`;
         }
         return `${mysteryData.rgba.title}. ${mysteryData.rgba.text}.`;
-      } else if (cycleInfo.cycleType === 'cycle2') {
-        const largeBeadKey = `day_${cycleInfo.dayOfCycle}_large_bead_reflection_dec_${decIdx}`;
-        const customLargeBead = prayers[largeBeadKey] || prayers[`large_bead_reflection_dec_${decIdx}`];
-        const largeBeadText = customLargeBead ? `${customLargeBead.title}. ${customLargeBead.text}` : "";
-        return `${mysteryData.rgba.title}. ${mysteryData.rgba.text}. ${largeBeadText}`;
       } else {
         return `${mysteryData.rgba.title}. ${mysteryData.rgba.text}.`;
       }
     } else if (activeStep.prayerType === 'ourFather') {
       const decIdx = activeStep.decadeIndex;
-      if (cycleInfo.cycleType === 'cycle1' && decIdx) {
-        const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
+      if ((cycleInfo.cycleType === 'cycle1' || cycleInfo.cycleType === 'cycle2') && decIdx) {
+        const mysteryData = getActiveDecadeMystery(cycleInfo.cycleType, cycleInfo.dayOfCycle, decIdx, prayers);
         const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
         if (parsed.data?.ourFatherText) {
           return parsed.data.ourFatherText;
@@ -640,8 +636,8 @@ export default function App() {
       return `${extraText}${ourFather.text}`;
     } else if (activeStep.prayerType === 'gloryBe') {
       const decIdx = activeStep.decadeIndex;
-      if (cycleInfo.cycleType === 'cycle1' && decIdx) {
-        const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
+      if ((cycleInfo.cycleType === 'cycle1' || cycleInfo.cycleType === 'cycle2') && decIdx) {
+        const mysteryData = getActiveDecadeMystery(cycleInfo.cycleType, cycleInfo.dayOfCycle, decIdx, prayers);
         const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
         if (parsed.data?.gloryBeFatimaText) {
           return parsed.data.gloryBeFatimaText;
@@ -650,9 +646,9 @@ export default function App() {
       const glory = prayers['gloryBe'] || DEFAULT_PRAYERS['gloryBe'];
       const fatima = prayers['fatima'] || DEFAULT_PRAYERS['fatima'];
       return `${glory.text}. ${fatima.text}.`;
-    } else if (activeStep.prayerType === 'hailMary' && activeStep.beadNumber && activeStep.decadeIndex && cycleInfo.cycleType === 'cycle1') {
+    } else if (activeStep.prayerType === 'hailMary' && activeStep.beadNumber && activeStep.decadeIndex && (cycleInfo.cycleType === 'cycle1' || cycleInfo.cycleType === 'cycle2')) {
       const decIdx = activeStep.decadeIndex;
-      const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
+      const mysteryData = getActiveDecadeMystery(cycleInfo.cycleType, cycleInfo.dayOfCycle, decIdx, prayers);
       const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
       let specificHailText = parsed.data?.hailMaryTexts?.[activeStep.beadNumber - 1];
       if (!specificHailText) {
@@ -848,63 +844,23 @@ export default function App() {
       const decIdx = activeStep.decadeIndex || 1;
       const mysteryData = getActiveDecadeMystery(cycleInfo.cycleType, cycleInfo.dayOfCycle, decIdx, prayers);
 
-      if (cycleInfo.cycleType === 'cycle2') {
-        const hailMaryText = prayers['hailMary'] || DEFAULT_PRAYERS['hailMary'];
-        const gloryText = prayers['gloryBe'] || DEFAULT_PRAYERS['gloryBe'];
-        const fatimaText = prayers['fatima'] || DEFAULT_PRAYERS['fatima'];
-        
-        // Large bead reflection
-        const largeBeadKey = `day_${cycleInfo.dayOfCycle}_large_bead_reflection_dec_${decIdx}`;
-        const customLargeBead = prayers[largeBeadKey] || prayers[`large_bead_reflection_dec_${decIdx}`];
-        const largeBeadRefl = customLargeBead || {
-          title: `Rozważanie na Dużym Paciorku - Dziesiątek ${decIdx}`,
-          text: `Wznosimy nasze serca ku Ojcu Niebieskiemu, wielbiąc Jego niezmierzoną Opatrzność i prosząc o łaski w tym dziesiątku.`
-        };
-
-        return (
-          <div className="space-y-4 mt-3">
-            <div className={`p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-indigo-50 border-indigo-200' : 'bg-indigo-950/25 border-indigo-900/40'}`}>
-              <span className={`text-xs border px-2.5 py-1 rounded-full font-semibold font-mono uppercase tracking-wide ${isLight ? 'bg-indigo-100 text-indigo-700 border-indigo-200' : 'bg-indigo-950 text-indigo-400 border-indigo-800/60'}`}>
-                Rozważanie Cyklu II - Boga Ojca
-              </span>
-              <h4 className={`text-lg sm:text-xl font-bold mt-3 ${isLight ? 'text-slate-900' : 'text-white'}`}>{mysteryData.rgba.title}</h4>
-              <div className={`text-sm sm:text-base mt-2.5 leading-relaxed text-justify ${isLight ? 'light-mode-text' : 'text-slate-200'}`}>
-                <RichTextRenderer text={mysteryData.rgba.text} theme={theme} />
-              </div>
-            </div>
-            
-            <div className={`p-4 sm:p-5 rounded-2xl border shadow-sm ${isLight ? 'bg-emerald-50 border-emerald-200' : 'bg-emerald-950/20 border-emerald-900/30'}`}>
-              <span className={`text-xs border px-2.5 py-1 rounded-full font-semibold font-mono uppercase tracking-wide ${isLight ? 'bg-emerald-100 text-emerald-700 border-emerald-200' : 'bg-emerald-950 text-emerald-400 border-emerald-800/60'}`}>
-                Rozważanie na Dużym Paciorku
-              </span>
-              <h4 className={`text-base sm:text-lg font-bold mt-3 ${isLight ? 'text-slate-900' : 'text-white'}`}>{largeBeadRefl.title}</h4>
-              <div className={`text-sm sm:text-base mt-2 leading-relaxed text-justify ${isLight ? 'light-mode-text' : 'text-slate-200'}`}>
-                <RichTextRenderer text={largeBeadRefl.text} theme={theme} />
-              </div>
-            </div>
-
-            <div className={`p-4 sm:p-5 rounded-2xl border space-y-4 shadow-sm ${isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/60 border-slate-800'}`}>
-              <span className={`text-xs uppercase font-mono tracking-wider block border-b pb-2 ${isLight ? 'text-slate-500 border-slate-200' : 'text-zinc-400 border-slate-800'}`}>Modlitwy na Dużym Paciorku:</span>
-              <div>
-                <h5 className={`text-sm sm:text-base font-bold ${isLight ? 'light-mode-text' : 'text-slate-100'}`}>{hailMaryText.title}</h5>
-                <div className={`text-sm sm:text-base leading-relaxed mt-1.5 ${isLight ? 'light-mode-text' : 'text-slate-300'}`}>
-                  <RichTextRenderer text={hailMaryText.text} theme={theme} />
-                </div>
-              </div>
-              <div className={`border-t pt-3 ${isLight ? 'border-slate-200' : 'border-slate-800'}`}>
-                <h5 className={`text-sm sm:text-base font-bold ${isLight ? 'light-mode-text' : 'text-slate-100'}`}>Pozostałe Modlitwy ({gloryText.title} & {fatimaText.title})</h5>
-                <div className={`text-sm sm:text-base leading-relaxed mt-1.5 ${isLight ? 'light-mode-text' : 'text-slate-300'}`}>
-                  <RichTextRenderer text={`${gloryText.text}\n\n${fatimaText.text}`} theme={theme} />
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      }
-
       // Cykl I: Traditional RHZ365 Prayer Presentation (22-step structured view)
       if (activeStep.decadeIndex) {
-        const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
+        let textToParse = mysteryData.rgba.text;
+        let parsed = parseDayText(cycleInfo.dayOfCycle, textToParse);
+        
+        // Fallback to bundled rhzData if local custom text lacks full prayer structure
+        if (!parsed.success) {
+          const jsonRecord = (rhzData as any[]).find(r => r.dayNumber === cycleInfo.dayOfCycle);
+          if (jsonRecord?.text) {
+            const fallbackParsed = parseDayText(cycleInfo.dayOfCycle, jsonRecord.text);
+            if (fallbackParsed.success) {
+              parsed = fallbackParsed;
+              textToParse = jsonRecord.text;
+            }
+          }
+        }
+
         if (parsed.success && parsed.data) {
           return (
             <div className="mt-3 space-y-4">
@@ -924,14 +880,6 @@ export default function App() {
                 <div className={`text-base sm:text-lg leading-relaxed mt-4 font-serif text-justify ${isLight ? 'light-mode-text' : 'text-slate-200'}`}>
                   <RichTextRenderer text={parsed.data.reflectionText} theme={theme} />
                 </div>
-                <details className={`mt-6 pt-4 border-t ${isLight ? 'border-slate-200' : 'border-slate-800'}`}>
-                  <summary className={`cursor-pointer text-xs font-bold uppercase font-mono tracking-wider ${isLight ? 'text-slate-500 hover:text-indigo-600' : 'text-slate-400 hover:text-indigo-400'}`}>
-                    Pokaż pełny tekst źródłowy wpisu z RHZ365 (Dzień {cycleInfo.dayOfCycle})
-                  </summary>
-                  <div className={`text-sm sm:text-base leading-relaxed mt-3 font-serif text-justify ${isLight ? 'light-mode-text' : 'text-slate-300'}`}>
-                    <RichTextRenderer text={mysteryData.rgba.text} theme={theme} />
-                  </div>
-                </details>
               </div>
             </div>
           );
@@ -947,7 +895,7 @@ export default function App() {
               <span className={`text-xs border px-3 py-1 rounded-full font-bold uppercase tracking-wider font-mono ${
                 isLight ? 'bg-indigo-50 text-indigo-700 border-indigo-200' : 'bg-indigo-950/60 text-indigo-300 border-indigo-800/60'
               }`}>
-                Rozważanie
+                Rozważanie Tajemnicy (Dzień {cycleInfo.dayOfCycle})
               </span>
             </div>
             <h4 className={`text-xl sm:text-2xl font-bold font-serif tracking-tight ${isLight ? 'text-slate-900' : 'text-white'}`}>

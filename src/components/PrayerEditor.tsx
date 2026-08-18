@@ -207,8 +207,13 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
             defaultTitle = `${mysteryData.rgba.title} (Rozważanie)`;
             defaultText = `${mysteryData.rgba.text}\n\n${largeBeadText}`;
           } else {
-            defaultTitle = `${mysteryData.rgba.title} / ${mysteryData.cmyk.title}`;
-            defaultText = `RGBA: ${mysteryData.rgba.text}\n\nCMYK: ${mysteryData.cmyk.text}`;
+            defaultTitle = `${mysteryData.rgba.title}`;
+            const parsed = parseDayText(currentDayNum, mysteryData.rgba.text);
+            if (parsed.success && parsed.data) {
+              defaultText = parsed.data.reflectionText;
+            } else {
+              defaultText = mysteryData.rgba.text;
+            }
           }
         } else if (stepObj.prayerType === 'hailMary' && stepObj.beadNumber && stepObj.decadeIndex && currentCycleType === 'cycle1') {
           const decIdx = stepObj.decadeIndex;
@@ -223,14 +228,36 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
             defaultText = def?.text || "";
           }
         } else if (stepObj.prayerType === 'ourFather') {
-          const def = prayers['ourFather'] || DEFAULT_PRAYERS['ourFather'];
-          defaultTitle = def?.title || "Ojcze Nasz";
-          defaultText = def?.text || "";
+          const decIdx = stepObj.decadeIndex;
+          if (currentCycleType === 'cycle1' && decIdx) {
+            const mysteryData = getActiveDecadeMystery('cycle1', currentDayNum, decIdx, prayers);
+            const parsed = parseDayText(currentDayNum, mysteryData.rgba.text);
+            if (parsed.success && parsed.data?.ourFatherText) {
+              defaultTitle = stepObj.label;
+              defaultText = parsed.data.ourFatherText;
+            }
+          }
+          if (!defaultText) {
+            const def = prayers['ourFather'] || DEFAULT_PRAYERS['ourFather'];
+            defaultTitle = def?.title || "Ojcze Nasz";
+            defaultText = def?.text || "";
+          }
         } else if (stepObj.prayerType === 'gloryBe') {
-          const glory = prayers['gloryBe'] || DEFAULT_PRAYERS['gloryBe'];
-          const fatima = prayers['fatima'] || DEFAULT_PRAYERS['fatima'];
-          defaultTitle = `${glory?.title || "Chwała Ojcu"} & ${fatima?.title || "Modlitwa Fatimska"}`;
-          defaultText = `${glory?.text || ""}\n\n${fatima?.text || ""}`;
+          const decIdx = stepObj.decadeIndex;
+          if (currentCycleType === 'cycle1' && decIdx) {
+            const mysteryData = getActiveDecadeMystery('cycle1', currentDayNum, decIdx, prayers);
+            const parsed = parseDayText(currentDayNum, mysteryData.rgba.text);
+            if (parsed.success && parsed.data?.gloryBeFatimaText) {
+              defaultTitle = stepObj.label;
+              defaultText = parsed.data.gloryBeFatimaText;
+            }
+          }
+          if (!defaultText) {
+            const glory = prayers['gloryBe'] || DEFAULT_PRAYERS['gloryBe'];
+            const fatima = prayers['fatima'] || DEFAULT_PRAYERS['fatima'];
+            defaultTitle = `${glory?.title || "Chwała Ojcu"} & ${fatima?.title || "Modlitwa Fatimska"}`;
+            defaultText = `${glory?.text || ""}\n\n${fatima?.text || ""}`;
+          }
         } else {
           const def = prayers[stepObj.prayerType] || DEFAULT_PRAYERS[stepObj.prayerType];
           defaultTitle = def?.title || stepObj.label;
@@ -656,7 +683,7 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
                   className={`w-full rounded-lg px-3 py-2 text-xs focus:outline-none transition border ${inputBgClass}`}
                 >
                   <option value="cycle1">Cykl I (Tradycyjny)</option>
-                  <option value="cycle2">Cykl II (do Boga Ojca)</option>
+                  <option value="cycle2">Cykl II (Tradycyjny)</option>
                 </select>
               </div>
               

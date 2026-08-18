@@ -213,26 +213,14 @@ export const generateCustomScopePdf = async (
       const lines: string[] = doc.splitTextToSize(para, width);
       if (lines.length === 0) continue;
 
-      let lineBlock: string[] = [];
       for (let l = 0; l < lines.length; l++) {
-        // Check if adding this line exceeds the printable bottom boundary (192 mm)
-        const projectedY = y + (lineBlock.length + 1) * lineSpacing15;
-        if (projectedY > pageHeight - margin - 6 && lineBlock.length > 0) {
-          doc.text(lineBlock, xMargin, y, { align: 'justify', maxWidth: width });
-          y += lineBlock.length * lineSpacing15;
-          lineBlock = [];
-          checkAndBreakPage(15, { style: fontStyle, size: fontSize, color });
-        }
-
-        lineBlock.push(lines[l]);
-      }
-
-      if (lineBlock.length > 0) {
-        if (y + lineBlock.length * lineSpacing15 > pageHeight - margin - 6) {
-          checkAndBreakPage(lineBlock.length * lineSpacing15 + 4, { style: fontStyle, size: fontSize, color });
-        }
-        doc.text(lineBlock, xMargin, y, { align: 'justify', maxWidth: width });
-        y += lineBlock.length * lineSpacing15;
+        checkAndBreakPage(lineSpacing15 + 2, { style: fontStyle, size: fontSize, color });
+        const isLastLineOfPara = (l === lines.length - 1);
+        doc.text(lines[l], xMargin, y, { 
+          align: isLastLineOfPara ? 'left' : 'justify', 
+          maxWidth: width 
+        });
+        y += lineSpacing15;
       }
       y += 2; // Spacing after paragraph
     }
@@ -461,13 +449,27 @@ export const generateCustomScopePdf = async (
       : `${baseUrl}/#/rhz365-day-${currentDayNum}`;
     
     // Fetch RHZ and WnR content to scan for additional embedded URLs
-    const decIdx = ((currentDayNum - 1) % 5) + 1;
-    const firestoreKey = `day_${currentDayNum}_decade_rgba_${decIdx}`;
+    const rhzDayNum = ((currentDayNum - 1) % 175) + 1;
+    const decIdx = ((rhzDayNum - 1) % 5) + 1;
+    const firestoreKey = `day_${rhzDayNum}_decade_rgba_${decIdx}`;
     const rhzDoc = prayers[firestoreKey];
-    const rawRhzText = rhzDoc?.text || rhzData[Math.min(currentDayNum - 1, rhzData.length - 1)]?.text || '';
-    const rhzTitle = rhzDoc?.title || rhzData[Math.min(currentDayNum - 1, rhzData.length - 1)]?.title || `Dzień ${currentDayNum}`;
+    
+    const jsonRecord = (rhzData as any[]).find(r => r.dayNumber === rhzDayNum) || rhzData[rhzDayNum - 1];
 
-    const parsedRHZ = parseDayText(currentDayNum, rawRhzText);
+    let rawRhzText = rhzDoc?.text || jsonRecord?.text || '';
+    let rhzTitle = rhzDoc?.title || jsonRecord?.title || `Dzień ${rhzDayNum}`;
+
+    let parsedRHZ = parseDayText(rhzDayNum, rawRhzText);
+
+    // Fallback to bundled rhzData if custom text lacks full 10x Hail Mary prayer structure
+    if (!parsedRHZ.success && jsonRecord?.text) {
+      const fallbackParsed = parseDayText(rhzDayNum, jsonRecord.text);
+      if (fallbackParsed.success) {
+        parsedRHZ = fallbackParsed;
+        rawRhzText = jsonRecord.text;
+        if (jsonRecord.title) rhzTitle = jsonRecord.title;
+      }
+    }
 
     const wnrKey = `blog_day_${dayIdx}`;
     const wnrDoc = getWnrDefaultBlogEntry(dayIdx, prayers, blogEntries);
@@ -566,17 +568,40 @@ export const generateCustomScopePdf = async (
           y += 2;
         }
 
-        // Glory Be
+        // Glory Be & Fatima Prayer (O mój Jezu)
         checkAndBreakPage(20);
+
+        const gloryFatimaText = parsedRHZ.data.gloryBeFatimaText || '';
+        const fatimaMatch = gloryFatimaText.search(/(?:^|\n)\s*O mój Jezu/i);
+
+        let gloryTextPart = gloryFatimaText;
+        let fatimaTextPart = '';
+
+        if (fatimaMatch !== -1) {
+          gloryTextPart = gloryFatimaText.substring(0, fatimaMatch).trim();
+          fatimaTextPart = gloryFatimaText.substring(fatimaMatch).trim();
+        }
 
         doc.setFont(fontName, 'bold');
         doc.setFontSize(9.5);
         doc.setTextColor(15, 23, 42);
-        doc.text("Chwała Ojcu & O mój Jezu:", margin, y);
+        doc.text("Modlitwa Uwielbienia (Chwała Ojcu):", margin, y);
         y += 5;
 
-        renderJustifiedParagraph(parsedRHZ.data.gloryBeFatimaText, margin, contentWidth, 'normal', 12, [51, 65, 85]);
-        y += 4;
+        renderJustifiedParagraph(gloryTextPart, margin, contentWidth, 'normal', 12, [51, 65, 85]);
+        y += 3;
+
+        if (fatimaTextPart) {
+          checkAndBreakPage(20);
+          doc.setFont(fontName, 'bold');
+          doc.setFontSize(9.5);
+          doc.setTextColor(15, 23, 42);
+          doc.text("Modlitwa Fatimska (O mój Jezu):", margin, y);
+          y += 5;
+
+          renderJustifiedParagraph(fatimaTextPart, margin, contentWidth, 'normal', 12, [51, 65, 85]);
+          y += 4;
+        }
       } else {
         await renderRichContentWithEmbeddedQr(rawRhzText, margin, contentWidth, 'normal', 12, [51, 65, 85]);
         y += 4;
