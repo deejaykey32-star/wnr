@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 // import { collection, doc, onSnapshot, setDoc } from 'firebase/firestore';
 import { getRGBABeads, getCMYKBeads } from '../data/prayers';
 import { playBeadChime } from '../utils/audio';
-import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechPaused, isSpeechSpeaking } from '../utils/tts';
+import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechPaused, isSpeechSpeaking, getPrayerSegments } from '../utils/tts';
 import { 
   getCompletedWnrDays, toggleWnrDayCompleted, markWnrDayCompleted, isWnrDayCompleted 
 } from '../utils/completedDays';
@@ -207,13 +207,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     const cleanBody = bodyText.replace(/[\[\]]/g, '').trim();
     if (!cleanBody) return [titleText];
 
-    // Regex to split by sentences
-    const sentenceRegex = /[^.!?;\n]+[.!?;\n]*/g;
-    const sentences = (cleanBody.match(sentenceRegex) || [cleanBody])
-      .map(s => s.trim())
-      .filter(s => s.length > 0);
-
-    return [titleText, ...sentences];
+    return [titleText, ...getPrayerSegments(cleanBody)];
   }, [activeEntry]);
 
   // Static beads definition
@@ -1073,18 +1067,21 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                     </div>
                   </div>
 
-                  {/* PRZYCISK WERSJI MINIMALISTYCZNEJ 16:9 W DEDYKOWANEJ NOWEJ LINII NA SMARTFONIE */}
-                  <button
-                    onClick={() => setIsYoutubeMode(true)}
-                    className={`w-full sm:w-auto px-3 py-2 sm:py-1.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition cursor-pointer border shadow-sm ${
-                      isLight
-                        ? 'bg-indigo-50 border-indigo-200 text-indigo-700 hover:bg-indigo-100'
-                        : 'bg-indigo-950/40 hover:bg-indigo-900/30 text-indigo-400 border border-indigo-800/50'
-                    }`}
-                  >
-                    <Video className="w-4 h-4 text-indigo-400 shrink-0" />
-                    <span>Wersja Minimalistyczna 16:9</span>
-                  </button>
+                  {/* PRZYCISK WERSJI MINIMALISTYCZNEJ 16:9 (DOSTĘPNY TYLKO DLA ADMINISTRATORA) */}
+                  {isAuthorized && (
+                    <button
+                      onClick={() => setIsYoutubeMode(true)}
+                      className={`w-full sm:w-auto px-3 py-2 sm:py-1.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition cursor-pointer border shadow-sm ${
+                        isLight
+                          ? 'bg-indigo-50 border-indigo-200 text-indigo-700 hover:bg-indigo-100'
+                          : 'bg-indigo-950/40 hover:bg-indigo-900/30 text-indigo-400 border border-indigo-800/50'
+                      }`}
+                      title="Generowanie wideo YouTube 16:9 (Administrator)"
+                    >
+                      <Video className="w-4 h-4 text-indigo-400 shrink-0" />
+                      <span>Wersja Minimalistyczna 16:9 (Admin)</span>
+                    </button>
+                  )}
                 </div>
 
                 {/* Main player navigation controls */}

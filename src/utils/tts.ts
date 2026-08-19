@@ -308,6 +308,30 @@ export const sanitizeTextForTts = (text: string): string => {
 };
 
 /**
+ * Splits prayer or blog text into exact segments used by both TTS engine and UI renderer.
+ * Ensures 1:1 segment index matching for yellow highlighting.
+ */
+export const getPrayerSegments = (text: string): string[] => {
+  if (!text) return [];
+  const cleanBody = text.replace(/[\[\]]/g, '').trim();
+  if (!cleanBody) return [];
+
+  // Split by sentence/clause boundaries while preserving them
+  const sentenceRegex = /[^.!?;\n]+[.!?;\n]*/g;
+  const segments = cleanBody.match(sentenceRegex) || [cleanBody];
+
+  const rawSegments = segments
+    .map(s => s.trim())
+    .filter(s => s.length > 0);
+
+  const result: string[] = [];
+  for (const seg of rawSegments) {
+    result.push(...splitLongSegment(seg, 180));
+  }
+  return result;
+};
+
+/**
  * Read the specified text aloud
  */
 export const speakText = (
@@ -341,19 +365,8 @@ export const speakText = (
     return;
   }
 
-  // Split text by sentence/clause boundaries while preserving them as much as possible.
-  const sentenceRegex = /[^.!?;\n]+[.!?;\n]*/g;
-  const segments = cleanText.match(sentenceRegex) || [cleanText];
-
-  // Clean segments and filter empty ones, splitting excessively long sentences
-  const rawSegments = segments
-    .map(s => s.trim())
-    .filter(s => s.length > 0);
-
-  utteranceQueue = [];
-  for (const seg of rawSegments) {
-    utteranceQueue.push(...splitLongSegment(seg, 180));
-  }
+  // Get exact segments matching the UI renderer
+  utteranceQueue = getPrayerSegments(cleanText);
 
   if (utteranceQueue.length === 0) {
     if (options.onEnd) options.onEnd();

@@ -15,7 +15,16 @@ import { RichTextRenderer } from './utils/richTextHelper';
 import { parseDayText } from './utils/rhzParser';
 import rhzData from '../RHZ365_pierwszy_cykl_175_dni.json';
 import { playBeadChime } from './utils/audio';
-import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechPaused, isSpeechSpeaking, isTtsSupported } from './utils/tts';
+import { 
+  getStoredFlikiApiKey, setStoredFlikiApiKey,
+  getStoredFlikiVoiceId, setStoredFlikiVoiceId,
+  getStoredMakeWebhookUrl, setStoredMakeWebhookUrl,
+  fetchFlikiVoices, generateFlikiVideo, checkFlikiVideoStatus,
+  buildFlikiScenesFromSteps, extractHailMaryClausula,
+  buildMakeWebhookPayload, sendToMakeWebhook,
+  FlikiVoice, FlikiScene
+} from './utils/flikiApi';
+import { getPrayerSegments, speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechPaused, isSpeechSpeaking, isTtsSupported } from './utils/tts';
 import { 
   getCompletedRhzDays, toggleRhzDayCompleted, markRhzDayCompleted, isRhzDayCompleted,
   getCompletedWnrDays, toggleWnrDayCompleted, markWnrDayCompleted, isWnrDayCompleted
@@ -29,7 +38,7 @@ import {
   Play, Pause, ChevronLeft, ChevronRight, RotateCcw, 
   LogIn, LogOut, Video, Edit3, Sliders, Volume2, Info, BookOpen, Mic, MicOff, Calendar, FileDown,
   Sun, Moon, ShieldAlert, Key, X, ExternalLink, Search, Share2, Check, Smartphone, RefreshCw, Edit2,
-  Bookmark, Repeat, Zap
+  Bookmark, Repeat, Zap, Film, Download, Sparkles, ChevronDown, ChevronUp, Copy, Save, CheckCircle2
 } from 'lucide-react';
 
 export default function App() {
@@ -149,6 +158,15 @@ export default function App() {
     return getCycleDayInfo(selectedDate, { isExplicitRhzRoute: activeTab === 'rosary' });
   }, [selectedDate, activeTab]);
 
+  // Polish date formatting (WITHOUT year component for universal form)
+  const formattedPolishDate = useMemo(() => {
+    const months = [
+      "stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca",
+      "lipca", "sierpnia", "września", "października", "listopada", "grudnia"
+    ];
+    return `${selectedDate.getDate()} ${months[selectedDate.getMonth()]}`;
+  }, [selectedDate]);
+
   // Rosary structure (static definitions)
   const rgbaBeads = getRGBABeads();
   const cmykBeads = getCMYKBeads();
@@ -247,6 +265,189 @@ export default function App() {
 
   // Admin Sync Panel
   const [showAdminSync, setShowAdminSync] = useState<boolean>(false);
+
+  // Fliki AI API State inside 16:9 Minimalist Frame (Admin only)
+  const [flikiApiKey, setFlikiApiKey] = useState<string>(() => getStoredFlikiApiKey());
+  const [flikiVoiceId, setFlikiVoiceId] = useState<string>(() => getStoredFlikiVoiceId());
+  const [flikiVoicesList, setFlikiVoicesList] = useState<FlikiVoice[]>([]);
+  const [flikiLoadingVoices, setFlikiLoadingVoices] = useState<boolean>(false);
+  const [flikiVoicesMsg, setFlikiVoicesMsg] = useState<string | null>(null);
+
+  const [flikiShowAdminPanel, setFlikiShowAdminPanel] = useState<boolean>(false);
+  const [flikiGenerating, setFlikiGenerating] = useState<boolean>(false);
+  const [flikiProgress, setFlikiProgress] = useState<number>(0);
+  const [flikiStatusMsg, setFlikiStatusMsg] = useState<string | null>(null);
+  const [flikiDownloadUrl, setFlikiDownloadUrl] = useState<string | null>(null);
+  const [flikiJsonPayload, setFlikiJsonPayload] = useState<any | null>(null);
+  const [flikiCopiedJson, setFlikiCopiedJson] = useState<boolean>(false);
+
+  const [keysSavedSuccess, setKeysSavedSuccess] = useState<boolean>(false);
+
+  const handleSaveFlikiApiKey = (val: string) => {
+    setFlikiApiKey(val);
+    setStoredFlikiApiKey(val);
+  };
+
+  const handleSaveFlikiVoiceId = (val: string) => {
+    setFlikiVoiceId(val);
+    setStoredFlikiVoiceId(val);
+  };
+
+  const handleSaveAllKeys = () => {
+    setStoredFlikiApiKey(flikiApiKey);
+    setStoredFlikiVoiceId(flikiVoiceId);
+    setStoredMakeWebhookUrl(makeWebhookUrl);
+    setKeysSavedSuccess(true);
+    setTimeout(() => setKeysSavedSuccess(false), 4000);
+  };
+
+  const handleFetchFlikiVoices = async () => {
+    if (!flikiApiKey) {
+      setFlikiVoicesMsg("Wprowadź klucz Fliki API Key, aby pobrać dostępne głosy.");
+      return;
+    }
+    setFlikiLoadingVoices(true);
+    setFlikiVoicesMsg(null);
+    try {
+      const voices = await fetchFlikiVoices(flikiApiKey);
+      setFlikiVoicesList(voices);
+      const deejayVoice = voices.find(v => 
+        v.name.toLowerCase().includes('deejaykey') || 
+        (v.id && String(v.id).toLowerCase().includes('deejaykey'))
+      );
+      if (deejayVoice) {
+        setFlikiVoiceId(deejayVoice.id);
+        setStoredFlikiVoiceId(deejayVoice.id);
+        setFlikiVoicesMsg(`✅ Wykryto Twój głos Custom Voice: ${deejayVoice.name}!`);
+      } else if (voices.length > 0 && (!flikiVoiceId || flikiVoiceId === 'deejaykey')) {
+        setFlikiVoiceId(voices[0].id);
+        setStoredFlikiVoiceId(voices[0].id);
+        setFlikiVoicesMsg(`Pobrano ${voices.length} głosów z Fliki API.`);
+      } else {
+        setFlikiVoicesMsg(`Pobrano ${voices.length} głosów z Fliki API.`);
+      }
+    } catch (err: any) {
+      setFlikiVoicesMsg(`Błąd pobierania głosów: ${err?.message || err}`);
+    } finally {
+      setFlikiLoadingVoices(false);
+    }
+  };
+
+  const handleGenerateFlikiMp4 = async () => {
+    setFlikiGenerating(true);
+    setFlikiProgress(15);
+    setFlikiStatusMsg("Analizowanie wezwań 'dla którego...' i układanie scen 16:9...");
+    setFlikiDownloadUrl(null);
+
+    try {
+      const flikiScenes = buildFlikiScenesFromSteps(steps, prayers, cycleInfo);
+      
+      const res = await generateFlikiVideo(
+        flikiApiKey,
+        flikiVoiceId,
+        `RHZ365 ${cycleInfo.cycleName} - YouTube 16:9`,
+        flikiScenes
+      );
+
+      setFlikiJsonPayload(res.jsonScript);
+
+      if (!res.success) {
+        setFlikiStatusMsg(res.message || "Błąd generowania wideo w Fliki API.");
+        setFlikiGenerating(false);
+        return;
+      }
+
+      if (res.downloadUrl) {
+        setFlikiDownloadUrl(res.downloadUrl);
+        setFlikiStatusMsg("Wygenerowano plik MP4!");
+        setFlikiProgress(100);
+        setFlikiGenerating(false);
+        return;
+      }
+
+      if (res.videoId && flikiApiKey) {
+        setFlikiStatusMsg("Trwa renderowanie pliku MP4 w Fliki AI...");
+        let attempts = 0;
+        const interval = setInterval(async () => {
+          attempts++;
+          try {
+            const statusRes = await checkFlikiVideoStatus(flikiApiKey, res.videoId!);
+            if (statusRes.progress) setFlikiProgress(statusRes.progress);
+            if (statusRes.status === 'completed' && statusRes.downloadUrl) {
+              clearInterval(interval);
+              setFlikiDownloadUrl(statusRes.downloadUrl);
+              setFlikiStatusMsg("Generowanie pliku MP4 dla YouTube zakończone pomyślnie!");
+              setFlikiProgress(100);
+              setFlikiGenerating(false);
+            } else if (statusRes.status === 'failed' || attempts > 60) {
+              clearInterval(interval);
+              setFlikiStatusMsg("Przekroczono czas oczekiwania na Fliki API lub wystąpił błąd.");
+              setFlikiGenerating(false);
+            }
+          } catch (e: any) {
+            clearInterval(interval);
+            setFlikiStatusMsg(`Błąd statusu: ${e?.message || e}`);
+            setFlikiGenerating(false);
+          }
+        }, 5000);
+      } else {
+        setFlikiStatusMsg(res.message || "Wygenerowano gotowy skrypt wideo (JSON). Podaj klucz Fliki API Key, aby pobrać gotowe wideo MP4.");
+        setFlikiGenerating(false);
+      }
+    } catch (err: any) {
+      setFlikiStatusMsg(`Błąd: ${err?.message || err}`);
+      setFlikiGenerating(false);
+    }
+  };
+
+  const handleCopyFlikiJson = async () => {
+    if (!flikiJsonPayload) return;
+    try {
+      await navigator.clipboard.writeText(JSON.stringify(flikiJsonPayload, null, 2));
+      setFlikiCopiedJson(true);
+      setTimeout(() => setFlikiCopiedJson(false), 3000);
+    } catch {}
+  };
+
+  // Make.com Webhook State
+  const [makeWebhookUrl, setMakeWebhookUrl] = useState<string>(() => getStoredMakeWebhookUrl());
+  const [makeSending, setMakeSending] = useState<boolean>(false);
+  const [makeStatusMsg, setMakeStatusMsg] = useState<string | null>(null);
+
+  const handleSaveMakeWebhookUrl = (url: string) => {
+    setMakeWebhookUrl(url);
+    setStoredMakeWebhookUrl(url);
+  };
+
+  const handleSendToMakeWebhook = async () => {
+    if (!makeWebhookUrl) {
+      setMakeStatusMsg("Wprowadź adres URL Make.com Webhook.");
+      return;
+    }
+    setMakeSending(true);
+    setMakeStatusMsg("Tworzenie ładunku JSON i wysyłanie do Make.com Webhook...");
+    try {
+      const payload = buildMakeWebhookPayload(
+        steps,
+        prayers,
+        cycleInfo,
+        formattedPolishDate,
+        flikiApiKey,
+        flikiVoiceId
+      );
+
+      const res = await sendToMakeWebhook(makeWebhookUrl, payload);
+      if (res.success) {
+        setMakeStatusMsg("✅ Pomyślnie wysłano dane do Make.com Webhook!");
+      } else {
+        setMakeStatusMsg(`❌ ${res.message}`);
+      }
+    } catch (err: any) {
+      setMakeStatusMsg(`❌ Błąd wysyłania: ${err?.message || err}`);
+    } finally {
+      setMakeSending(false);
+    }
+  };
 
   // PDF Exporting States
   const [isExportingPdf, setIsExportingPdf] = useState<boolean>(false);
@@ -1055,15 +1256,10 @@ export default function App() {
   const rgbaBeadWindow = getBeadWindow(rgbaBeads, activeStep.rgbaBeadId);
   const cmykBeadWindow = getBeadWindow(cmykBeads, activeStep.cmykBeadId);
 
-  // Split active prayer text into sentences for teleprompter/karaoke scrolling
+  // Split active prayer text into sentences for teleprompter/karaoke scrolling (100% synced with TTS)
   const prayerSegments = useMemo(() => {
     if (!textToRead) return [];
-    const cleanText = textToRead.replace(/[\[\]]/g, '').trim();
-    if (!cleanText) return [];
-    const sentenceRegex = /[^.!?;\n]+[.!?;\n]*/g;
-    return (cleanText.match(sentenceRegex) || [cleanText])
-      .map(s => s.trim())
-      .filter(s => s.length > 0);
+    return getPrayerSegments(textToRead);
   }, [textToRead]);
 
   const renderStripBead = (bead: any | null, isActive: boolean, isRgba: boolean) => {
@@ -1445,68 +1641,7 @@ export default function App() {
           </div>
         )}
 
-        {/* aledom.widokinaraj.pl Banner */}
-        {!isYoutubeMode && (
-          <a
-            href="https://aledom.widokinaraj.pl"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`w-full max-w-7xl mb-6 group block rounded-2xl overflow-hidden shadow-lg border transition-all duration-300 hover:scale-[1.015] hover:shadow-xl ${
-              isLight
-                ? 'border-sky-200 shadow-sky-100'
-                : 'border-sky-800/60 shadow-sky-950'
-            }`}
-            style={{ textDecoration: 'none' }}
-          >
-            {/* Top gradient accent bar */}
-            <div className="h-1 w-full bg-gradient-to-r from-amber-400 via-sky-400 to-indigo-500" />
-            <div className={`relative flex flex-col sm:flex-row items-center gap-4 px-5 py-4 sm:py-5 transition-colors duration-300 ${
-              isLight
-                ? 'bg-gradient-to-r from-sky-50 via-white to-indigo-50'
-                : 'bg-gradient-to-r from-sky-950/50 via-slate-900/60 to-indigo-950/50'
-            }`}>
-              {/* Decorative glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-sky-500/5 via-transparent to-indigo-500/5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              {/* Icon / Logo area */}
-              <div className={`flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-2xl shadow-inner border ${
-                isLight
-                  ? 'bg-sky-100 border-sky-200 text-sky-600'
-                  : 'bg-sky-900/50 border-sky-700/50 text-sky-300'
-              }`}>
-                🏠
-              </div>
-              {/* Text content */}
-              <div className="flex-1 text-center sm:text-left relative z-10">
-                <p className={`text-[10px] sm:text-xs font-mono uppercase tracking-widest font-bold mb-0.5 ${
-                  isLight ? 'text-sky-500' : 'text-sky-400'
-                }`}>Widoki na Raj — Portal</p>
-                <p className={`text-base sm:text-lg font-extrabold font-sans tracking-tight ${
-                  isLight ? 'text-slate-900' : 'text-white'
-                }`}>
-                  aledom.widokinaraj.pl
-                </p>
-                <p className={`text-xs sm:text-sm mt-0.5 font-serif ${
-                  isLight ? 'text-slate-600' : 'text-slate-400'
-                }`}>
-                  Ale Dom! – duchowe treści, rozważania i modlitwy na każdy dzień roku
-                </p>
-              </div>
-              {/* CTA arrow */}
-              <div className={`flex-shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wide transition-all duration-200 group-hover:gap-2.5 ${
-                isLight
-                  ? 'bg-sky-600 text-white shadow-sm group-hover:bg-sky-700'
-                  : 'bg-sky-600/80 text-white shadow-sm group-hover:bg-sky-500'
-              }`}>
-                Odwiedź
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                </svg>
-              </div>
-            </div>
-            {/* Bottom accent bar */}
-            <div className="h-0.5 w-full bg-gradient-to-r from-indigo-500 via-sky-400 to-amber-400 opacity-50" />
-          </a>
-        )}
+
 
         {/* TAB SWITCHER (Only in standard mode) */}
         {!isYoutubeMode && (
@@ -1548,29 +1683,257 @@ export default function App() {
 
         {activeTab === 'rosary' ? (
           /* WERSJA MINIMALISTYCZNA FRAME */
-          isYoutubeMode ? (
-          <div id="youtube-frame" className="w-full max-w-5xl min-h-[480px] sm:min-h-0 sm:aspect-video bg-slate-950 border-2 sm:border-4 border-slate-800 rounded-2xl shadow-2xl relative flex flex-col justify-between overflow-hidden mx-auto">
-            {/* Top status bar of minimalist view */}
-            <div className="bg-slate-900/90 backdrop-blur-md px-3 sm:px-6 py-2.5 sm:py-3 flex flex-col sm:flex-row items-center justify-between border-b border-slate-800 gap-2 w-full max-w-full overflow-hidden text-center sm:text-left">
-              <div className="flex items-center justify-center gap-2 min-w-0 max-w-full">
-                <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 animate-pulse shrink-0"></span>
-                <span className="text-[10px] sm:text-xs font-mono tracking-widest text-slate-300 uppercase truncate">
-                  {cycleInfo.cycleName}
+          (isYoutubeMode && isAuthorized) ? (
+          <div id="youtube-frame" className="w-full max-w-5xl bg-slate-950 border-2 sm:border-4 border-slate-800 rounded-2xl shadow-2xl relative flex flex-col justify-between overflow-hidden mx-auto transition-all duration-300">
+            
+            {/* Top status & detailed progress bar of minimalist view */}
+            <div className="bg-slate-900/90 backdrop-blur-md px-3 sm:px-6 py-2.5 sm:py-3 flex flex-col border-b border-slate-800 gap-2 w-full max-w-full overflow-hidden">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+                {/* Cycle & Date Pills */}
+                <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap min-w-0 max-w-full">
+                  <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 animate-pulse shrink-0"></span>
+                  <span className="text-[10px] sm:text-xs font-mono tracking-widest text-slate-300 uppercase truncate">
+                    {cycleInfo.cycleName}
+                  </span>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-sky-400 border border-sky-500/30">
+                    {formattedPolishDate}
+                  </span>
+                </div>
+
+                {/* Active Bead & Mystery Details */}
+                <div className="flex items-center gap-1.5 flex-wrap justify-center">
+                  <span className="text-[10px] font-bold text-amber-400 bg-amber-950/60 px-2.5 py-0.5 rounded-full border border-amber-500/30 font-mono truncate max-w-full">
+                    {activeStep.label}
+                  </span>
+                  {activeStep.decadeIndex && (
+                    <span className="text-[10px] font-semibold text-slate-300 bg-slate-800 px-2 py-0.5 rounded-full font-mono">
+                      Dziesiątek {activeStep.decadeIndex}/5
+                    </span>
+                  )}
+                </div>
+
+                {/* Fliki AI & Exit Buttons */}
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setFlikiShowAdminPanel(!flikiShowAdminPanel)}
+                    className={`text-[9px] sm:text-[10px] px-2.5 py-1 rounded font-mono font-bold transition cursor-pointer flex items-center gap-1 border ${
+                      flikiShowAdminPanel
+                        ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-md'
+                        : 'bg-indigo-950/80 hover:bg-indigo-900 text-indigo-300 border-indigo-700/60'
+                    }`}
+                    title="Panel Lektora & Generowanie Wideo MP4 przez Fliki AI"
+                  >
+                    <Film className="w-3 h-3 shrink-0" />
+                    <span>Fliki AI MP4 {flikiShowAdminPanel ? '▲' : '▼'}</span>
+                  </button>
+                  <button
+                    onClick={() => setIsYoutubeMode(false)}
+                    className="text-[9px] sm:text-[10px] bg-slate-950 hover:bg-slate-800 text-slate-400 border border-slate-800 px-2.5 py-1 rounded font-mono transition cursor-pointer shrink-0"
+                  >
+                    WYJDŹ (ESC)
+                  </button>
+                </div>
+              </div>
+
+              {/* Progress Summary Pills Row */}
+              <div className="flex items-center justify-between gap-2 text-[10px] font-mono text-slate-400 border-t border-slate-800/60 pt-2 flex-wrap">
+                <span className="truncate text-indigo-300">
+                  🌹 {getDecadeForDay(cycleInfo.dayOfCycle) || 'Różaniec'}
+                </span>
+                {activeStep.decadeIndex && (
+                  <span className="truncate text-amber-300 max-w-xs">
+                    ✨ Tajemnica {activeStep.decadeIndex}: {getActiveDecadeMystery(cycleInfo.cycleType, cycleInfo.dayOfCycle, activeStep.decadeIndex, prayers).rgba.title}
+                  </span>
+                )}
+                <span className="text-slate-300 shrink-0">
+                  📿 Paciorek {activeStepIndex + 1} z {steps.length} ({Math.round(((activeStepIndex + 1) / steps.length) * 100)}%)
                 </span>
               </div>
-              <div className="text-[10px] sm:text-xs font-bold text-slate-300 bg-slate-800 px-3 py-1 rounded-full font-mono truncate max-w-full">
-                {activeStep.label}
-              </div>
-              <button
-                onClick={() => setIsYoutubeMode(false)}
-                className="text-[9px] sm:text-[10px] bg-slate-950 hover:bg-slate-800 text-slate-400 border border-slate-800 px-2.5 py-1 rounded font-mono transition cursor-pointer shrink-0"
-              >
-                WYJDŹ Z WERSJI MINIMALISTYCZNEJ (ESC)
-              </button>
             </div>
 
+            {/* COLLAPSIBLE ADMIN FLIKI AI GENERATOR PANEL */}
+            {flikiShowAdminPanel && (
+              <div className="bg-slate-900 border-b border-indigo-900/60 p-4 sm:p-5 flex flex-col gap-4 text-left animate-fadeIn">
+                <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-amber-400" />
+                    <h4 className="text-sm font-bold font-mono uppercase tracking-wider text-amber-400">
+                      Panel Administratora — Lektor i Wideo MP4 Fliki AI (16:9 YouTube)
+                    </h4>
+                  </div>
+                  <span className="text-[10px] font-mono bg-indigo-950 text-indigo-300 px-2 py-0.5 rounded border border-indigo-800">
+                    Administrator
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                  {/* Fliki API Key Input */}
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[11px] font-mono text-slate-300 font-bold">Fliki API Key:</label>
+                    <input
+                      type="password"
+                      value={flikiApiKey}
+                      onChange={(e) => handleSaveFlikiApiKey(e.target.value)}
+                      placeholder="Wklej klucz API z fliki.ai..."
+                      className="bg-slate-950 border border-slate-800 text-slate-200 px-3 py-2 rounded-xl text-xs font-mono focus:outline-none focus:border-indigo-500"
+                    />
+                    <p className="text-[10px] text-slate-400">Klucz API Fliki AI</p>
+                  </div>
+
+                  {/* Voice Selector / Cloned Voice ID */}
+                  <div className="flex flex-col gap-1.5">
+                    <div className="flex items-center justify-between">
+                      <label className="text-[11px] font-mono text-slate-300 font-bold">Głos lektora (Voice ID):</label>
+                      <button
+                        onClick={handleFetchFlikiVoices}
+                        disabled={flikiLoadingVoices}
+                        className="text-[10px] bg-slate-800 hover:bg-slate-700 text-indigo-300 px-2 py-0.5 rounded font-mono border border-slate-700 transition"
+                      >
+                        {flikiLoadingVoices ? 'Pobieranie...' : 'Pobierz głosy'}
+                      </button>
+                    </div>
+                    {flikiVoicesList.length > 0 ? (
+                      <select
+                        value={flikiVoiceId}
+                        onChange={(e) => handleSaveFlikiVoiceId(e.target.value)}
+                        className="bg-slate-950 border border-slate-800 text-slate-200 px-3 py-2 rounded-xl text-xs font-mono focus:outline-none focus:border-indigo-500"
+                      >
+                        {flikiVoicesList.map(v => (
+                          <option key={v.id} value={v.id}>
+                            {v.name} ({v.lang}){v.isCloned ? ' ⭐ Sklonowany' : ''}
+                          </option>
+                        ))}
+                      </select>
+                    ) : (
+                      <input
+                        type="text"
+                        value={flikiVoiceId}
+                        onChange={(e) => handleSaveFlikiVoiceId(e.target.value)}
+                        placeholder="Wpisz Voice ID..."
+                        className="bg-slate-950 border border-slate-800 text-slate-200 px-3 py-2 rounded-xl text-xs font-mono focus:outline-none focus:border-indigo-500"
+                      />
+                    )}
+                    {flikiVoicesMsg && <p className="text-[10px] text-amber-400 font-mono">{flikiVoicesMsg}</p>}
+                  </div>
+
+                  {/* Make.com Webhook URL Input */}
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[11px] font-mono text-sky-300 font-bold">Make.com Webhook URL:</label>
+                    <input
+                      type="text"
+                      value={makeWebhookUrl}
+                      onChange={(e) => handleSaveMakeWebhookUrl(e.target.value)}
+                      placeholder="https://hook.eu1.make.com/..."
+                      className="bg-slate-950 border border-sky-800/60 text-sky-200 px-3 py-2 rounded-xl text-xs font-mono focus:outline-none focus:border-sky-400"
+                    />
+                    <p className="text-[10px] text-slate-400">Adres webhooka w scenariuszu Make.com</p>
+                  </div>
+                </div>
+
+                {/* Explicit Save Keys Bar */}
+                <div className="flex items-center justify-between gap-3 bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex-wrap">
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={handleSaveAllKeys}
+                      className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg text-xs transition flex items-center gap-1.5 shadow cursor-pointer active:scale-95"
+                    >
+                      <Save className="w-3.5 h-3.5" />
+                      <span>Zapisz konfigurację kluczy</span>
+                    </button>
+                    <span className="text-[10px] font-mono text-slate-400">
+                      Zapisuje klucze Fliki API Key, Voice ID oraz Webhook Make.com w pamięci przeglądarki.
+                    </span>
+                  </div>
+                  {keysSavedSuccess && (
+                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 font-bold animate-fadeIn">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <span>Konfiguracja kluczy zapisana pomyślnie!</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Current Clausula & Image Prompt Preview */}
+                <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs">
+                  <div className="text-[11px] font-mono font-bold text-sky-400 mb-1 flex items-center justify-between">
+                    <span>🖼️ Podgląd obrazu sakralnego dla aktualnego paciorka:</span>
+                    <span className="text-[10px] text-slate-400 font-normal">Słowo "Jezus" -&gt; Wezwanie "dla którego..."</span>
+                  </div>
+                  {extractHailMaryClausula(textToRead, activeStep.label).clausula ? (
+                    <p className="text-amber-300 font-serif italic mb-1">
+                      „...Jezus, {extractHailMaryClausula(textToRead, activeStep.label).clausula}”
+                    </p>
+                  ) : (
+                    <p className="text-slate-400 font-serif italic mb-1">Modlitwa ogólna / rozważanie bez szczegółowej klauzuli</p>
+                  )}
+                  <p className="text-[11px] font-mono text-emerald-400">
+                    <strong>Temat obrazu:</strong> {extractHailMaryClausula(textToRead, activeStep.label).topic}
+                  </p>
+                </div>
+
+                {/* Action Buttons & Status */}
+                <div className="flex flex-col sm:flex-row items-center gap-3 flex-wrap">
+                  <button
+                    onClick={handleSendToMakeWebhook}
+                    disabled={makeSending}
+                    className="w-full sm:w-auto px-4 py-2.5 bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 text-white font-bold rounded-xl text-xs transition active:scale-95 shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  >
+                    <Zap className="w-4 h-4 text-amber-300 shrink-0" />
+                    <span>{makeSending ? 'Wysyłanie...' : '🚀 Wyślij do Make.com + Fliki AI'}</span>
+                  </button>
+
+                  <button
+                    onClick={handleGenerateFlikiMp4}
+                    disabled={flikiGenerating}
+                    className="w-full sm:w-auto px-4 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-bold rounded-xl text-xs transition active:scale-95 shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  >
+                    <Film className="w-4 h-4 shrink-0" />
+                    <span>{flikiGenerating ? 'Generowanie...' : 'Generuj plik MP4 w Fliki AI'}</span>
+                  </button>
+
+                  {flikiJsonPayload && (
+                    <button
+                      onClick={handleCopyFlikiJson}
+                      className="w-full sm:w-auto px-3 py-2.5 bg-slate-800 hover:bg-slate-750 text-slate-200 font-bold rounded-xl text-xs transition flex items-center justify-center gap-1.5 border border-slate-700 cursor-pointer"
+                    >
+                      <Copy className="w-3.5 h-3.5 text-sky-400" />
+                      <span>{flikiCopiedJson ? 'Skopiowano JSON!' : 'Kopiuj JSON'}</span>
+                    </button>
+                  )}
+
+                  {flikiDownloadUrl && (
+                    <a
+                      href={flikiDownloadUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                    >
+                      <Download className="w-4 h-4 shrink-0" />
+                      <span>Pobierz plik MP4 (YouTube)</span>
+                    </a>
+                  )}
+                </div>
+
+                {makeStatusMsg && (
+                  <p className="text-[11px] font-mono text-sky-300 bg-slate-950 p-2 rounded border border-sky-800">{makeStatusMsg}</p>
+                )}
+
+                {/* Progress bar */}
+                {flikiGenerating && (
+                  <div className="flex flex-col gap-1">
+                    <div className="h-2 w-full bg-slate-950 rounded-full overflow-hidden border border-slate-800">
+                      <div className="h-full bg-gradient-to-r from-indigo-500 via-sky-400 to-amber-400 transition-all duration-300" style={{ width: `${flikiProgress}%` }}></div>
+                    </div>
+                    <span className="text-[10px] font-mono text-slate-400">{flikiStatusMsg} ({flikiProgress}%)</span>
+                  </div>
+                )}
+                {flikiStatusMsg && !flikiGenerating && (
+                  <p className="text-[11px] font-mono text-amber-300 bg-slate-950 p-2 rounded border border-slate-800">{flikiStatusMsg}</p>
+                )}
+              </div>
+            )}
+
             {/* Inner row containing the unrolled bead strips and centered scrolling prayer text */}
-            <div className="flex-1 grid grid-cols-12 items-stretch px-2 sm:px-6 relative bg-slate-950 h-full overflow-hidden">
+            <div className="flex-1 grid grid-cols-12 items-stretch px-2 sm:px-6 relative bg-slate-950 h-full overflow-hidden py-4">
               {/* LEFT COLUMN: RGBA Vertical Strip (Hidden on mobile < 640px) */}
               <div className="hidden sm:flex col-span-2 flex-col items-center justify-center relative py-6 border-r border-slate-900/40">
                 <div className="absolute top-2 text-[8px] font-mono font-bold tracking-widest text-sky-400">
@@ -1603,7 +1966,7 @@ export default function App() {
                   </h3>
                 </div>
 
-                {/* Auto-scrolling text container */}
+                {/* Auto-scrolling text container (100% synced with TTS voice) */}
                 <div 
                   ref={scrollContainerRef}
                   className="flex-1 overflow-y-auto max-h-[190px] pr-2 custom-scrollbar flex flex-col items-center gap-3 scroll-smooth py-16"
@@ -1681,16 +2044,16 @@ export default function App() {
                 </button>
               </div>
 
-              {/* Delay and Progress Indicators */}
+              {/* Progress Indicators */}
               <div className="flex items-center justify-center gap-3 w-full sm:w-auto">
                 <div className="h-2 flex-1 sm:w-32 bg-slate-800 rounded-full overflow-hidden min-w-[80px]">
                   <div
-                    className="h-full bg-indigo-500 transition-all duration-300"
+                    className="h-full bg-gradient-to-r from-indigo-500 via-sky-400 to-amber-400 transition-all duration-300"
                     style={{ width: `${((activeStepIndex + 1) / steps.length) * 100}%` }}
                   ></div>
                 </div>
-                <span className="text-xs font-mono text-slate-400 shrink-0">
-                  {activeStepIndex + 1} / {steps.length}
+                <span className="text-xs font-mono text-slate-300 shrink-0 font-bold">
+                  {activeStepIndex + 1} / {steps.length} ({Math.round(((activeStepIndex + 1) / steps.length) * 100)}%)
                 </span>
               </div>
             </div>
@@ -2015,19 +2378,21 @@ export default function App() {
                       </div>
                     </div>
 
-                    {/* PRZYCISK WERSJI MINIMALISTYCZNEJ 16:9 W DEDYKOWANEJ NOWEJ LINII NA SMARTFONIE */}
-                    <button
-                      onClick={() => setIsYoutubeMode(true)}
-                      className={`w-full sm:w-auto px-3 py-2 sm:py-1.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition cursor-pointer border shadow-sm ${
-                        isLight
-                          ? 'bg-indigo-50 border-indigo-200 text-indigo-700 hover:bg-indigo-100'
-                          : 'bg-indigo-950/40 hover:bg-indigo-900/30 text-indigo-400 border border-indigo-800/50'
-                      }`}
-                      title="Uruchom wersję minimalistyczną w formacie 16:9"
-                    >
-                      <Video className="w-4 h-4 text-indigo-400 shrink-0" />
-                      <span>Wersja Minimalistyczna 16:9</span>
-                    </button>
+                    {/* PRZYCISK WERSJI MINIMALISTYCZNEJ 16:9 (DOSTĘPNY TYLKO DLA ADMINISTRATORA) */}
+                    {isAuthorized && (
+                      <button
+                        onClick={() => setIsYoutubeMode(true)}
+                        className={`w-full sm:w-auto px-3 py-2 sm:py-1.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition cursor-pointer border shadow-sm ${
+                          isLight
+                            ? 'bg-indigo-50 border-indigo-200 text-indigo-700 hover:bg-indigo-100'
+                            : 'bg-indigo-950/40 hover:bg-indigo-900/30 text-indigo-400 border border-indigo-800/50'
+                        }`}
+                        title="Generowanie wideo YouTube 16:9 (Administrator)"
+                      >
+                        <Video className="w-4 h-4 text-indigo-400 shrink-0" />
+                        <span>Wersja Minimalistyczna 16:9 (Admin)</span>
+                      </button>
+                    )}
                   </div>
 
                   {/* Main buttons */}
