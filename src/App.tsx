@@ -343,18 +343,25 @@ export default function App() {
     setClientVideoUrl(null);
 
     try {
-      const fullText = steps.map((step) => {
-        return step.text || prayers[step.prayerType]?.text || '';
-      }).filter(t => t.trim().length > 0).join('\n\n');
+      // Przygotuj kroki z tekstem modlitwy
+      const stepsWithText = steps.map((step) => ({
+        ...step,
+        text: step.text || prayers[step.prayerType]?.text || ''
+      })).filter(s => (s.text?.trim().length ?? 0) > 2);
+
+      const fullText = stepsWithText.map(s => s.text).join('\n\n');
 
       const videoUrl = await generateVideoClientSide(
         fullText,
         "", // fishApiKey - empty to force Google TTS fallback
-        "/VID-20260727-WA0000.mp3", // voiceSampleUrlOrPath
+        "/VID-20260727-WA0000.mp3",
         (state) => {
           setLocalProgress(state.progress);
           setLocalStatusMsg(state.message);
-        }
+        },
+        stepsWithText,   // przekaż kroki z ID paciorków
+        rgbaBeads,       // lista paciorków RGBA (lewy pasek)
+        cmykBeads        // lista paciorków CMYK (prawy pasek)
       );
 
       setClientVideoUrl(videoUrl);
