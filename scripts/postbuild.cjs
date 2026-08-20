@@ -6,42 +6,22 @@ const dist404 = path.join(__dirname, '..', 'dist', '404.html');
 const distRedirects = path.join(__dirname, '..', 'dist', '_redirects');
 const publicRedirects = path.join(__dirname, '..', 'public', '_redirects');
 
+// 1. SPA fallback: copy index.html → 404.html for Cloudflare Pages routing
 if (fs.existsSync(distIndex)) {
   fs.copyFileSync(distIndex, dist404);
-  console.log('[Postbuild] Successfully copied dist/index.html to dist/404.html for SPA fallback!');
+  console.log('[Postbuild] Copied dist/index.html → dist/404.html for SPA fallback');
 } else {
-  console.error('[Postbuild] Error: dist/index.html does not exist!');
+  console.error('[Postbuild] ERROR: dist/index.html does not exist!');
   process.exit(1);
 }
 
+// 2. Copy _redirects for Cloudflare Pages SPA routing
 if (fs.existsSync(publicRedirects)) {
   fs.copyFileSync(publicRedirects, distRedirects);
-  console.log('[Postbuild] Successfully copied public/_redirects to dist/_redirects!');
+  console.log('[Postbuild] Copied public/_redirects → dist/_redirects');
 }
 
-// Inject Vite built assets into Service Worker's precache list
-const distSw = path.join(__dirname, '..', 'dist', 'sw.js');
-const assetsDir = path.join(__dirname, '..', 'dist', 'assets');
-
-if (fs.existsSync(distSw) && fs.existsSync(assetsDir)) {
-  try {
-    const assetFiles = fs.readdirSync(assetsDir);
-    const assetUrls = assetFiles.map(file => `/assets/${file}`);
-    
-    console.log(`[Postbuild] Scanning dist/assets... Found ${assetFiles.length} files to cache:`);
-    assetUrls.forEach(url => console.log(` - ${url}`));
-
-    let swContent = fs.readFileSync(distSw, 'utf-8');
-    if (swContent.includes('const PRECACHE_ASSETS = [')) {
-      const injection = `const PRECACHE_ASSETS = [\n  ${assetUrls.map(u => `'${u}'`).join(',\n  ')},`;
-      swContent = swContent.replace('const PRECACHE_ASSETS = [', injection);
-      fs.writeFileSync(distSw, swContent, 'utf-8');
-      console.log('[Postbuild] Successfully injected Vite built assets into dist/sw.js!');
-    } else {
-      console.warn('[Postbuild] Could not find PRECACHE_ASSETS in sw.js');
-    }
-  } catch (err) {
-    console.error('[Postbuild] Error injecting assets into service worker:', err);
-  }
-}
-
+// Note: SW asset injection intentionally REMOVED.
+// sw.js v19 uses network-only for /assets/ — injecting chunk names into PRECACHE_ASSETS
+// would cause stale chunk serving on redeployments (the root cause of the cache error screen).
+console.log('[Postbuild] Done.');

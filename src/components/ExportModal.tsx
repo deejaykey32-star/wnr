@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FileDown, FileText, Download, X, Shield, BookOpen, Layers, Sparkles, CheckCircle2 } from 'lucide-react';
 import { getRhzList } from '../data/prayers';
-import { generateCustomScopePdf } from '../utils/pdfGenerator';
-import { generateEpubBook } from '../utils/epubGenerator';
+// pdfGenerator and epubGenerator are loaded on-demand only when user clicks export
+// (they're ~2.8 MB due to embedded Roboto base64 fonts)
 
 interface ExportModalProps {
   isOpen: boolean;
@@ -62,6 +62,8 @@ export const ExportModal: React.FC<ExportModalProps> = ({
 
     try {
       if (exportFormat === 'pdf') {
+        // Lazy-load the 2.8 MB pdfGenerator chunk only on first use
+        const { generateCustomScopePdf } = await import('../utils/pdfGenerator');
         await generateCustomScopePdf({
           scope: exportScope,
           range: exportRange,
@@ -72,6 +74,8 @@ export const ExportModal: React.FC<ExportModalProps> = ({
           blogEntries
         }, onProgressCallback);
       } else {
+        // Lazy-load the epubGenerator chunk only on first use
+        const { generateEpubBook } = await import('../utils/epubGenerator');
         await generateEpubBook({
           scope: exportScope,
           range: exportRange,

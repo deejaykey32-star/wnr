@@ -1,7 +1,7 @@
-const CACHE_NAME = 'embik365-v18-prayer-editor-audit';
+const CACHE_NAME = 'embik365-v19-static-only';
+
+// Only truly static files go here — NO JS chunks (they change on every build)
 const PRECACHE_ASSETS = [
-  '/',
-  '/index.html',
   '/manifest.json',
   '/favicon.ico',
   '/favicon.png',
@@ -16,17 +16,23 @@ const PRECACHE_ASSETS = [
   '/icon-maskable-512.png'
 ];
 
-// Install event: Pre-cache core files & immediate skip waiting
+// Install: pre-cache only static icons/manifest, skip waiting immediately
 self.addEventListener('install', (event) => {
   self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(PRECACHE_ASSETS);
+      return cache.addAll(PRECACHE_ASSETS.filter(url => {
+        // skip urls that might 404 during install
+        return !url.endsWith('.ico') || url === '/favicon.ico';
+      })).catch(() => {
+        // Non-fatal: if some icons are missing, continue anyway
+        return Promise.resolve();
+      });
     })
   );
 });
 
-// Activate event: Instantly purge all old caches
+// Activate: purge ALL old caches immediately and claim all clients
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
@@ -42,13 +48,19 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch event: Navigation SPA fallback + Network-first strategy
+// Fetch event strategy:
+// - Navigation (HTML pages): network-first, fallback to / for SPA
+// - /assets/*.js and /assets/*.css: ALWAYS network, NEVER serve from cache
+//   (chunks have content-hash in filename so stale cache = wrong version crash)
+// - Static icons/manifest: cache-first (they rarely change)
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET' || !event.request.url.startsWith('http')) {
     return;
   }
 
-  // Handle SPA Page Navigations (e.g. /wnr365-day-1, /rhz365-day-150)
+  const url = new URL(event.request.url);
+
+  // SPA Navigation — network-first with / fallback
   if (event.request.mode === 'navigate') {
     event.respondWith(
       fetch(event.request)
@@ -56,12 +68,10 @@ self.addEventListener('fetch', (event) => {
           if (networkResponse && networkResponse.ok) {
             return networkResponse;
           }
-          // If server responded with non-200 (e.g. 404), fallback to index.html
-          return caches.match('/index.html').then((cached) => cached || networkResponse);
+          return caches.match('/').then((cached) => cached || networkResponse);
         })
         .catch(() => {
-          // Offline fallback
-          return caches.match('/index.html').then((cached) => {
+          return caches.match('/').then((cached) => {
             return cached || new Response('Offline', { status: 503, statusText: 'Offline' });
           });
         })
@@ -69,25 +79,33 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Assets and static requests: Network first with cache fallback
+  // JS/JSON/WASM chunks under /assets/: ALWAYS go to network, never cache
+  // These have Vite content-hashes in filenames so stale cache = wrong version
+  if (url.pathname.startsWith('/assets/')) {
+    event.respondWith(
+      fetch(event.request).catch(() => {
+        return new Response('Asset unavailable offline', { status: 503 });
+      })
+    );
+    return;
+  }
+
+  // Static icons, manifest etc: cache-first
   event.respondWith(
-    fetch(event.request)
-      .then((networkResponse) => {
-        if (networkResponse && networkResponse.status === 200 && event.request.url.includes('/assets/')) {
+    caches.match(event.request).then((cached) => {
+      if (cached) return cached;
+      return fetch(event.request).then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
           const responseToCache = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => {
             cache.put(event.request, responseToCache);
           });
         }
         return networkResponse;
-      })
-      .catch(() => {
-        return caches.match(event.request).then((cachedResponse) => {
-          if (cachedResponse) {
-            return cachedResponse;
-          }
-          return new Response('Offline', { status: 503, statusText: 'Offline' });
-        });
-      })
+      }).catch(() => {
+        return new Response('Offline', { status: 503 });
+      });
+    })
   );
 });
+

@@ -12,6 +12,61 @@ interface State {
   error: Error | null;
 }
 
+// ─── Global async error guard (BEFORE React even mounts) ──────────────────────
+// Catches "Failed to fetch dynamically imported module" and similar chunk-load
+// errors that happen outside React's render cycle and therefore bypass
+// ErrorBoundary. On detection we clear ALL caches and reload once.
+function installGlobalChunkErrorGuard() {
+  const RELOAD_FLAG = '__eMBiK_reload_once__';
+
+  const isChunkError = (msg: string): boolean => {
+    const m = (msg || '').toLowerCase();
+    return (
+      m.includes('failed to fetch') ||
+      m.includes('dynamically imported') ||
+      m.includes('importing a module') ||
+      m.includes('load failed') ||
+      m.includes('loading chunk') ||
+      m.includes('loading css chunk')
+    );
+  };
+
+  const autoRecover = async () => {
+    if (sessionStorage.getItem(RELOAD_FLAG)) return; // guard against infinite loop
+    sessionStorage.setItem(RELOAD_FLAG, '1');
+    try {
+      if ('caches' in window) {
+        const names = await caches.keys();
+        await Promise.all(names.map(n => caches.delete(n)));
+      }
+      if ('serviceWorker' in navigator) {
+        const regs = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(regs.map(r => r.unregister()));
+      }
+    } catch {}
+    window.location.reload();
+  };
+
+  window.addEventListener('unhandledrejection', (event) => {
+    const msg = event.reason?.message || String(event.reason || '');
+    if (isChunkError(msg)) {
+      event.preventDefault();
+      console.warn('[eMBiK365] Chunk load error caught globally — auto-recovering:', msg);
+      autoRecover();
+    }
+  });
+
+  window.addEventListener('error', (event) => {
+    if (event.filename?.includes('/assets/') || isChunkError(event.message)) {
+      console.warn('[eMBiK365] Script load error caught globally — auto-recovering:', event.message);
+      autoRecover();
+    }
+  });
+}
+
+installGlobalChunkErrorGuard();
+// ─────────────────────────────────────────────────────────────────────────────
+
 class ErrorBoundary extends Component<Props, State> {
   declare props: Readonly<Props>;
 
@@ -30,52 +85,57 @@ class ErrorBoundary extends Component<Props, State> {
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error("Uncaught Error in eMBiK365:", error, errorInfo);
-    
-    // Auto-recover from chunk load/dynamic import failure (common during new deployments on Cloudflare Pages)
+
+    // Secondary guard: if the error still slipped through to React rendering,
+    // try silent auto-recovery for chunk/import errors
     const errorStr = (error.message || error.toString() || '').toLowerCase();
-    const isChunkError = 
-      errorStr.includes('chunk') || 
-      errorStr.includes('dynamically imported') || 
+    const isChunk =
+      errorStr.includes('chunk') ||
+      errorStr.includes('dynamically imported') ||
       errorStr.includes('failed to fetch') ||
+      errorStr.includes('load failed') ||
       errorStr.includes('import');
-      
-    if (isChunkError) {
-      console.warn("Chunk load error detected, triggering silent cache clear and reload...");
+
+    if (isChunk) {
+      console.warn('[eMBiK365] Chunk error in React render — triggering silent recovery...');
       this.handleResetSilent();
     }
   }
 
-  private handleResetSilent = () => {
+  private handleResetSilent = async () => {
     if (typeof window === 'undefined') return;
-    if ('caches' in window) {
-      caches.keys().then(names => {
-        Promise.all(names.map(name => caches.delete(name))).then(() => {
-          try {
-            localStorage.removeItem('wnr365_db_data_version');
-          } catch {}
-          window.location.reload();
-        });
-      }).catch(() => {
-        window.location.reload();
-      });
-    } else {
-      window.location.reload();
-    }
+    const RELOAD_FLAG = '__eMBiK_reload_once__';
+    if (sessionStorage.getItem(RELOAD_FLAG)) return; // already attempted
+    sessionStorage.setItem(RELOAD_FLAG, '1');
+    try {
+      if ('caches' in window) {
+        const names = await caches.keys();
+        await Promise.all(names.map(n => caches.delete(n)));
+      }
+      if ('serviceWorker' in navigator) {
+        const regs = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(regs.map(r => r.unregister()));
+      }
+    } catch {}
+    window.location.reload();
   };
 
-  private handleReset = () => {
+  private handleReset = async () => {
     if (typeof window === 'undefined') return;
-    
-    // Clear Service Worker caches
-    if ('caches' in window) {
-      try {
-        caches.keys().then(names => {
-          names.forEach(name => caches.delete(name));
-        });
-      } catch {}
-    }
-    
-    // Preserve user progress, settings and auth from being deleted
+
+    // Clear Service Worker caches and unregister SW
+    try {
+      if ('caches' in window) {
+        const names = await caches.keys();
+        await Promise.all(names.map(n => caches.delete(n)));
+      }
+      if ('serviceWorker' in navigator) {
+        const regs = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(regs.map(r => r.unregister()));
+      }
+    } catch {}
+
+    // Preserve user progress, settings and auth
     const preservedKeys = [
       'completed_rhz365_days',
       'completed_wnr365_days',
@@ -84,23 +144,22 @@ class ErrorBoundary extends Component<Props, State> {
       'local_editor_auth',
       'rhz_shortened_mode'
     ];
-    
+
     try {
       const saved: Record<string, string> = {};
       preservedKeys.forEach(k => {
         const val = localStorage.getItem(k);
         if (val !== null) saved[k] = val;
       });
-      
       localStorage.clear();
-      
       Object.entries(saved).forEach(([k, val]) => {
         localStorage.setItem(k, val);
       });
     } catch (e) {
       console.warn("Failed to clear localStorage selectively:", e);
     }
-    
+
+    sessionStorage.clear();
     window.location.href = '/';
   };
 
@@ -141,3 +200,4 @@ createRoot(document.getElementById('root')!).render(
     </ErrorBoundary>
   </StrictMode>,
 );
+
