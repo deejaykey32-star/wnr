@@ -33,7 +33,7 @@ import {
   Play, Pause, ChevronLeft, ChevronRight, RotateCcw, 
   LogIn, LogOut, Video, Edit3, Sliders, Volume2, Info, BookOpen, Mic, MicOff, Calendar, FileDown,
   Sun, Moon, ShieldAlert, Key, X, ExternalLink, Search, Share2, Check, Smartphone, RefreshCw, Edit2,
-  Bookmark, Repeat, Film, Download, Sparkles, ChevronDown, ChevronUp, Copy, Save, CheckCircle2
+  Bookmark, Repeat, Film, Download, Sparkles, ChevronDown, ChevronUp, Copy, Save, CheckCircle2, Zap
 } from 'lucide-react';
 
 export default function App() {
