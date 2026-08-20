@@ -15,15 +15,7 @@ import { RichTextRenderer } from './utils/richTextHelper';
 import { parseDayText } from './utils/rhzParser';
 import rhzData from '../RHZ365_pierwszy_cykl_175_dni.json';
 import { playBeadChime } from './utils/audio';
-import { 
-  getStoredFlikiApiKey, setStoredFlikiApiKey,
-  getStoredFlikiVoiceId, setStoredFlikiVoiceId,
-  getStoredMakeWebhookUrl, setStoredMakeWebhookUrl,
-  fetchFlikiVoices, generateFlikiVideo, checkFlikiVideoStatus,
-  buildFlikiScenesFromSteps, extractHailMaryClausula,
-  buildMakeWebhookPayload, sendToMakeWebhook,
-  FlikiVoice, FlikiScene
-} from './utils/flikiApi';
+import { extractHailMaryClausula } from './utils/clausulaHelper';
 import { getPrayerSegments, speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechPaused, isSpeechSpeaking, isTtsSupported } from './utils/tts';
 import { 
   getCompletedRhzDays, toggleRhzDayCompleted, markRhzDayCompleted, isRhzDayCompleted,
@@ -38,7 +30,7 @@ import {
   Play, Pause, ChevronLeft, ChevronRight, RotateCcw, 
   LogIn, LogOut, Video, Edit3, Sliders, Volume2, Info, BookOpen, Mic, MicOff, Calendar, FileDown,
   Sun, Moon, ShieldAlert, Key, X, ExternalLink, Search, Share2, Check, Smartphone, RefreshCw, Edit2,
-  Bookmark, Repeat, Zap, Film, Download, Sparkles, ChevronDown, ChevronUp, Copy, Save, CheckCircle2
+  Bookmark, Repeat, Film, Download, Sparkles, ChevronDown, ChevronUp, Copy, Save, CheckCircle2
 } from 'lucide-react';
 
 export default function App() {
@@ -266,160 +258,69 @@ export default function App() {
   // Admin Sync Panel
   const [showAdminSync, setShowAdminSync] = useState<boolean>(false);
 
-  // Fliki AI API State inside 16:9 Minimalist Frame (Admin only)
-  const [flikiApiKey, setFlikiApiKey] = useState<string>(() => getStoredFlikiApiKey());
-  const [flikiVoiceId, setFlikiVoiceId] = useState<string>(() => getStoredFlikiVoiceId());
-  const [flikiVoicesList, setFlikiVoicesList] = useState<FlikiVoice[]>([]);
-  const [flikiLoadingVoices, setFlikiLoadingVoices] = useState<boolean>(false);
-  const [flikiVoicesMsg, setFlikiVoicesMsg] = useState<string | null>(null);
+  // Local Video Generator State (Local API server on port 3333)
+  const [localGenerating, setLocalGenerating] = useState<boolean>(false);
+  const [localProgress, setLocalProgress] = useState<number>(0);
+  const [localStatusMsg, setLocalStatusMsg] = useState<string | null>(null);
+  const [localDownloadReady, setLocalDownloadReady] = useState<boolean>(false);
+  const [localShowPanel, setLocalShowPanel] = useState<boolean>(false);
 
-  const [flikiShowAdminPanel, setFlikiShowAdminPanel] = useState<boolean>(false);
-  const [flikiGenerating, setFlikiGenerating] = useState<boolean>(false);
-  const [flikiProgress, setFlikiProgress] = useState<number>(0);
-  const [flikiStatusMsg, setFlikiStatusMsg] = useState<string | null>(null);
-  const [flikiDownloadUrl, setFlikiDownloadUrl] = useState<string | null>(null);
-  const [flikiJsonPayload, setFlikiJsonPayload] = useState<any | null>(null);
-  const [flikiCopiedJson, setFlikiCopiedJson] = useState<boolean>(false);
+  const handleGenerateLocalMp4 = async () => {
+    setLocalGenerating(true);
+    setLocalProgress(5);
+    setLocalStatusMsg("Łączenie z lokalnym serwerem API...");
+    setLocalDownloadReady(false);
 
-  const [keysSavedSuccess, setKeysSavedSuccess] = useState<boolean>(false);
-
-  const handleSaveFlikiApiKey = (val: string) => {
-    setFlikiApiKey(val);
-    setStoredFlikiApiKey(val);
-  };
-
-  const handleSaveFlikiVoiceId = (val: string) => {
-    setFlikiVoiceId(val);
-    setStoredFlikiVoiceId(val);
-  };
-
-  const handleSaveAllKeys = () => {
-    setStoredFlikiApiKey(flikiApiKey);
-    setStoredFlikiVoiceId(flikiVoiceId);
-    setStoredMakeWebhookUrl(makeWebhookUrl);
-    setKeysSavedSuccess(true);
-    setTimeout(() => setKeysSavedSuccess(false), 4000);
-  };
-
-  const handleFetchFlikiVoices = async () => {
-    if (!flikiApiKey) {
-      setFlikiVoicesMsg("Wprowadź klucz Fliki API Key, aby pobrać dostępne głosy.");
-      return;
-    }
-    setFlikiLoadingVoices(true);
-    setFlikiVoicesMsg(null);
     try {
-      const voices = await fetchFlikiVoices(flikiApiKey);
-      setFlikiVoicesList(voices);
-      const deejayVoice = voices.find(v => 
-        v.name.toLowerCase().includes('deejaykey') || 
-        (v.id && String(v.id).toLowerCase().includes('deejaykey'))
-      );
-      if (deejayVoice) {
-        setFlikiVoiceId(deejayVoice.id);
-        setStoredFlikiVoiceId(deejayVoice.id);
-        setFlikiVoicesMsg(`✅ Wykryto Twój głos Custom Voice: ${deejayVoice.name}!`);
-      } else if (voices.length > 0 && (!flikiVoiceId || flikiVoiceId === 'deejaykey')) {
-        setFlikiVoiceId(voices[0].id);
-        setStoredFlikiVoiceId(voices[0].id);
-        setFlikiVoicesMsg(`Pobrano ${voices.length} głosów z Fliki API.`);
-      } else {
-        setFlikiVoicesMsg(`Pobrano ${voices.length} głosów z Fliki API.`);
+      const fullText = steps.map((step) => {
+        return step.text || prayers[step.prayerType]?.text || '';
+      }).filter(t => t.trim().length > 0).join('\n\n');
+
+      const res = await fetch("http://localhost:3333/api/generate-mp4", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: fullText })
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({ error: "Błąd serwera." }));
+        throw new Error(err.error || `HTTP ${res.status}`);
       }
+
+      setLocalStatusMsg("Rozpoczęto generowanie w tle...");
+      pollLocalGenerationStatus();
     } catch (err: any) {
-      setFlikiVoicesMsg(`Błąd pobierania głosów: ${err?.message || err}`);
-    } finally {
-      setFlikiLoadingVoices(false);
+      setLocalStatusMsg(`❌ Błąd: ${err?.message || err}. Upewnij się, że serwer Python (server.py) jest uruchomiony na porcie 3333.`);
+      setLocalGenerating(false);
     }
   };
 
-  const handleGenerateFlikiMp4 = async () => {
-    setFlikiGenerating(true);
-    setFlikiProgress(5);
-    setFlikiStatusMsg("Uruchamianie renderera wideo w przeglądarce...");
-    setFlikiDownloadUrl(null);
+  const pollLocalGenerationStatus = () => {
+    const interval = setInterval(async () => {
+      try {
+        const res = await fetch("http://localhost:3333/api/generate-mp4/status");
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
 
-    // Klucze API podawane z pliku env
-    const fishApiKey = import.meta.env.VITE_FISH_AUDIO_API_KEY || "sk-fish-04aSOFMOebn-qsDQ1S3zFtHh62oae6YIdbNIrwILrS0";
-    // Ścieżka do pliku audio w katalogu public/ lub zasobach
-    const voiceSampleUrl = "/VID-20260727-WA0000.mp3";
+        setLocalProgress(data.progress || 0);
+        setLocalStatusMsg(data.message || "");
 
-    try {
-      const { generateVideoClientSide } = await import('./utils/videoGenerator');
-      
-      // Zbierz pełny tekst wszystkich scen/modlitw do generowania
-      const scenes = buildFlikiScenesFromSteps(steps, prayers, cycleInfo);
-      const fullText = scenes.map(s => s.text).join('\n\n');
-
-      const videoUrl = await generateVideoClientSide(
-        fullText,
-        fishApiKey,
-        voiceSampleUrl,
-        (state) => {
-          setFlikiProgress(state.progress);
-          setFlikiStatusMsg(state.message);
+        if (data.status === "done") {
+          clearInterval(interval);
+          setLocalDownloadReady(true);
+          setLocalGenerating(false);
+          setLocalStatusMsg("✅ Wideo wygenerowane pomyślnie!");
+        } else if (data.status === "error") {
+          clearInterval(interval);
+          setLocalGenerating(false);
+          setLocalStatusMsg(`❌ Błąd: ${data.message}`);
         }
-      );
-
-      setFlikiDownloadUrl(videoUrl);
-      setFlikiStatusMsg("✅ Wideo gotowe do pobrania! (Wygenerowane 100% lokalnie w chmurze)");
-      setFlikiProgress(100);
-      setFlikiGenerating(false);
-
-    } catch (err: any) {
-      setFlikiStatusMsg(`❌ Błąd generowania w chmurze Cloudflare Pages: ${err?.message || err}`);
-      setFlikiGenerating(false);
-    }
-  };
-
-
-  const handleCopyFlikiJson = async () => {
-    if (!flikiJsonPayload) return;
-    try {
-      await navigator.clipboard.writeText(JSON.stringify(flikiJsonPayload, null, 2));
-      setFlikiCopiedJson(true);
-      setTimeout(() => setFlikiCopiedJson(false), 3000);
-    } catch {}
-  };
-
-  // Make.com Webhook State
-  const [makeWebhookUrl, setMakeWebhookUrl] = useState<string>(() => getStoredMakeWebhookUrl());
-  const [makeSending, setMakeSending] = useState<boolean>(false);
-  const [makeStatusMsg, setMakeStatusMsg] = useState<string | null>(null);
-
-  const handleSaveMakeWebhookUrl = (url: string) => {
-    setMakeWebhookUrl(url);
-    setStoredMakeWebhookUrl(url);
-  };
-
-  const handleSendToMakeWebhook = async () => {
-    if (!makeWebhookUrl) {
-      setMakeStatusMsg("Wprowadź adres URL Make.com Webhook.");
-      return;
-    }
-    setMakeSending(true);
-    setMakeStatusMsg("Tworzenie ładunku JSON i wysyłanie do Make.com Webhook...");
-    try {
-      const payload = buildMakeWebhookPayload(
-        steps,
-        prayers,
-        cycleInfo,
-        formattedPolishDate,
-        flikiApiKey,
-        flikiVoiceId
-      );
-
-      const res = await sendToMakeWebhook(makeWebhookUrl, payload);
-      if (res.success) {
-        setMakeStatusMsg("✅ Pomyślnie wysłano dane do Make.com Webhook!");
-      } else {
-        setMakeStatusMsg(`❌ ${res.message}`);
+      } catch (err: any) {
+        clearInterval(interval);
+        setLocalGenerating(false);
+        setLocalStatusMsg(`❌ Błąd połączenia podczas sprawdzania statusu: ${err?.message || err}`);
       }
-    } catch (err: any) {
-      setMakeStatusMsg(`❌ Błąd wysyłania: ${err?.message || err}`);
-    } finally {
-      setMakeSending(false);
-    }
+    }, 2000);
   };
 
   // PDF Exporting States
@@ -1685,19 +1586,19 @@ export default function App() {
                   )}
                 </div>
 
-                {/* Fliki AI & Exit Buttons */}
+                {/* Local MP4 Generator & Exit Buttons */}
                 <div className="flex items-center gap-2">
                   <button
-                    onClick={() => setFlikiShowAdminPanel(!flikiShowAdminPanel)}
+                    onClick={() => setLocalShowPanel(!localShowPanel)}
                     className={`text-[9px] sm:text-[10px] px-2.5 py-1 rounded font-mono font-bold transition cursor-pointer flex items-center gap-1 border ${
-                      flikiShowAdminPanel
+                      localShowPanel
                         ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-md'
                         : 'bg-indigo-950/80 hover:bg-indigo-900 text-indigo-300 border-indigo-700/60'
                     }`}
-                    title="Panel Lektora & Generowanie Wideo MP4 przez Fliki AI"
+                    title="Generowanie wideo MP4 z podkładem lektora"
                   >
                     <Film className="w-3 h-3 shrink-0" />
-                    <span>Fliki AI MP4 {flikiShowAdminPanel ? '▲' : '▼'}</span>
+                    <span>Generuj MP4 {localShowPanel ? '▲' : '▼'}</span>
                   </button>
                   <button
                     onClick={() => setIsYoutubeMode(false)}
@@ -1724,78 +1625,47 @@ export default function App() {
               </div>
             </div>
 
-            {/* COLLAPSIBLE ADMIN FLIKI AI GENERATOR PANEL */}
-            {flikiShowAdminPanel && (
+            {/* COLLAPSIBLE LOCAL MP4 GENERATOR PANEL */}
+            {localShowPanel && (
               <div className="bg-slate-900 border-b border-indigo-900/60 p-4 sm:p-5 flex flex-col gap-4 text-left animate-fadeIn">
                 <div className="flex items-center justify-between border-b border-slate-800 pb-2">
                   <div className="flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-amber-400" />
                     <h4 className="text-sm font-bold font-mono uppercase tracking-wider text-amber-400">
-                      Panel Administratora — Generator Wideo 16:9 Cloud-Native (Cloudflare Pages)
+                      Lokalny Generator Wideo MP4 (Edge Neural TTS & FFmpeg)
                     </h4>
                   </div>
                   <span className="text-[10px] font-mono bg-indigo-950 text-indigo-300 px-2 py-0.5 rounded border border-indigo-800">
-                    Administrator
+                    Lokalny API Server
                   </span>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-                  {/* Voice Sample Info */}
+                  {/* Voice Info */}
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-[11px] font-mono text-emerald-300 font-bold">🎙️ Próbka głosu (klonowanie):</label>
+                    <label className="text-[11px] font-mono text-emerald-300 font-bold">🎙️ Podkład głosowy (TTS):</label>
                     <div className="bg-slate-950 border border-emerald-800/60 text-emerald-300 px-3 py-2 rounded-xl text-xs font-mono flex items-center gap-2">
                       <span>✅</span>
-                      <span className="truncate">VID-20260727-WA0000.mp3 (9.1 MB)</span>
+                      <span className="truncate">Edge Neural TTS (pl-PL-MarekNeural) - 100% Darmowy</span>
                     </div>
-                    <p className="text-[10px] text-slate-400">Pobrana bezpośrednio z zasobów serwera w chmurze Cloudflare Pages</p>
+                    <p className="text-[10px] text-slate-400">Generuje naturalny głos męski lektora z prawidłowym akcentem w języku polskim.</p>
                   </div>
 
                   {/* Image Provider Info */}
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-[11px] font-mono text-amber-300 font-bold">🖼️ Generator grafik 16:9:</label>
+                    <label className="text-[11px] font-mono text-amber-300 font-bold">🖼️ Generowanie obrazów:</label>
                     <div className="bg-slate-950 border border-amber-800/60 text-amber-300 px-3 py-2 rounded-xl text-xs font-mono flex items-center gap-2">
                       <span>✅</span>
-                      <span>Pollinations.ai (Cloud API) → PNG 1280×720</span>
+                      <span>Pollinations.ai (Cloud API) → Widescreen 16:9</span>
                     </div>
-                    <p className="text-[10px] text-slate-400">Generuje unikalne obrazy modlitwy w czasie rzeczywistym w przeglądarce</p>
+                    <p className="text-[10px] text-slate-400">Generuje unikalne grafiki sakralne dla każdego paciorka różańca.</p>
                   </div>
-
-                  {/* Server status */}
-                  <div className="flex flex-col gap-1.5 md:col-span-2">
-                    <label className="text-[11px] font-mono text-sky-300 font-bold">🖥️ Architektura wdrożenia Cloudflare Pages:</label>
-                    <div className="bg-slate-950 border border-sky-800/60 text-sky-300 px-3 py-2 rounded-xl text-xs font-mono">
-                      <span>✅ <strong>Brak serwera!</strong> Renderowanie wideo MP4/WebM odbywa się w całości za pomocą procesora karty graficznej użytkownika (HTML5 Canvas + MediaRecorder).</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Explicit Save Keys Bar */}
-                <div className="flex items-center justify-between gap-3 bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex-wrap">
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={handleSaveAllKeys}
-                      className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg text-xs transition flex items-center gap-1.5 shadow cursor-pointer active:scale-95"
-                    >
-                      <Save className="w-3.5 h-3.5" />
-                      <span>Zapisz konfigurację kluczy</span>
-                    </button>
-                    <span className="text-[10px] font-mono text-slate-400">
-                      Zapisuje klucze Fliki API Key, Voice ID oraz Webhook Make.com w pamięci przeglądarki.
-                    </span>
-                  </div>
-                  {keysSavedSuccess && (
-                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 font-bold animate-fadeIn">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                      <span>Konfiguracja kluczy zapisana pomyślnie!</span>
-                    </div>
-                  )}
                 </div>
 
                 {/* Current Clausula & Image Prompt Preview */}
                 <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs">
                   <div className="text-[11px] font-mono font-bold text-sky-400 mb-1 flex items-center justify-between">
                     <span>🖼️ Podgląd obrazu sakralnego dla aktualnego paciorka:</span>
-                    <span className="text-[10px] text-slate-400 font-normal">Słowo "Jezus" -&gt; Wezwanie "dla którego..."</span>
                   </div>
                   {extractHailMaryClausula(textToRead, activeStep.label).clausula ? (
                     <p className="text-amber-300 font-serif italic mb-1">
@@ -1812,39 +1682,20 @@ export default function App() {
                 {/* Action Buttons & Status */}
                 <div className="flex flex-col sm:flex-row items-center gap-3 flex-wrap">
                   <button
-                    onClick={handleSendToMakeWebhook}
-                    disabled={makeSending}
-                    className="w-full sm:w-auto px-4 py-2.5 bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 text-white font-bold rounded-xl text-xs transition active:scale-95 shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
-                  >
-                    <Zap className="w-4 h-4 text-amber-300 shrink-0" />
-                    <span>{makeSending ? 'Wysyłanie...' : '🚀 Wyślij do Make.com + Fliki AI'}</span>
-                  </button>
-
-                  <button
-                    onClick={handleGenerateFlikiMp4}
-                    disabled={flikiGenerating}
-                    className="w-full sm:w-auto px-4 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-bold rounded-xl text-xs transition active:scale-95 shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                    onClick={handleGenerateLocalMp4}
+                    disabled={localGenerating}
+                    className="w-full sm:w-auto px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-bold rounded-xl text-xs transition active:scale-95 shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                   >
                     <Film className="w-4 h-4 shrink-0" />
-                    <span>{flikiGenerating ? '⏳ Generowanie...' : '🎬 Generuj MP4 (Chmura)'}</span>
+                    <span>{localGenerating ? '⏳ Generowanie filmu...' : '🎬 Generuj wideo MP4'}</span>
                   </button>
 
-                  {flikiJsonPayload && (
-                    <button
-                      onClick={handleCopyFlikiJson}
-                      className="w-full sm:w-auto px-3 py-2.5 bg-slate-800 hover:bg-slate-750 text-slate-200 font-bold rounded-xl text-xs transition flex items-center justify-center gap-1.5 border border-slate-700 cursor-pointer"
-                    >
-                      <Copy className="w-3.5 h-3.5 text-sky-400" />
-                      <span>{flikiCopiedJson ? 'Skopiowano JSON!' : 'Kopiuj JSON'}</span>
-                    </button>
-                  )}
-
-                  {flikiDownloadUrl && (
+                  {localDownloadReady && (
                     <a
-                      href={flikiDownloadUrl}
+                      href="http://localhost:3333/api/generate-mp4/download"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full sm:w-auto px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                      className="w-full sm:w-auto px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition shadow-lg flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <Download className="w-4 h-4 shrink-0" />
                       <span>Pobierz plik MP4 (YouTube)</span>
@@ -1852,21 +1703,17 @@ export default function App() {
                   )}
                 </div>
 
-                {makeStatusMsg && (
-                  <p className="text-[11px] font-mono text-sky-300 bg-slate-950 p-2 rounded border border-sky-800">{makeStatusMsg}</p>
-                )}
-
                 {/* Progress bar */}
-                {flikiGenerating && (
+                {localGenerating && (
                   <div className="flex flex-col gap-1">
                     <div className="h-2 w-full bg-slate-950 rounded-full overflow-hidden border border-slate-800">
-                      <div className="h-full bg-gradient-to-r from-indigo-500 via-sky-400 to-amber-400 transition-all duration-300" style={{ width: `${flikiProgress}%` }}></div>
+                      <div className="h-full bg-gradient-to-r from-indigo-500 via-sky-400 to-amber-400 transition-all duration-300" style={{ width: `${localProgress}%` }}></div>
                     </div>
-                    <span className="text-[10px] font-mono text-slate-400">{flikiStatusMsg} ({flikiProgress}%)</span>
+                    <span className="text-[10px] font-mono text-slate-400">{localStatusMsg} ({localProgress}%)</span>
                   </div>
                 )}
-                {flikiStatusMsg && !flikiGenerating && (
-                  <p className="text-[11px] font-mono text-amber-300 bg-slate-950 p-2 rounded border border-slate-800">{flikiStatusMsg}</p>
+                {localStatusMsg && !localGenerating && (
+                  <p className="text-[11px] font-mono text-amber-300 bg-slate-950 p-2 rounded border border-slate-800">{localStatusMsg}</p>
                 )}
               </div>
             )}

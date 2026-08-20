@@ -303,6 +303,20 @@ def _generate_fallback_audio(text: str, output_audio: str, output_timing: str) -
     with open(output_timing, "w", encoding="utf-8") as f:
         json.dump(alignment, f, ensure_ascii=False, indent=2)
         
+    try:
+        import subprocess
+        cmd = [
+            "ffmpeg", "-y",
+            "-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44100",
+            "-t", f"{estimated_duration:.2f}",
+            "-c:a", "libmp3lame",
+            output_audio
+        ]
+        subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
+        print(f"[FALLBACK] Generated silent MP3 of duration {estimated_duration:.2f}s using ffmpeg.")
+    except Exception as e:
+        print(f"[ERROR] Failed to generate fallback silent MP3 using ffmpeg: {e}")
+        
     print(f"[FALLBACK] Generated estimated timestamps for {len(words)} words over {estimated_duration:.2f}s")
     return alignment
 

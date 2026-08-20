@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "text": "Witamy na widokinaraj.pl - Odkryj piękno minimalistycznego życia w harmonii z naturą.",
+    "prompt": "Minimalist art style, clean composition, tranquil background, high quality, soft pastel lighting, tranquil scenery representing: Witamy na widokinaraj.pl - Odkryj piękno...",
+    "negative_prompt": "ugly, overcrowded, blurry, text, watermark, complex details, saturated colors",
+    "image_path": "output\\img_001.png"
+  },
+  {
+    "id": 2,
+    "text": "Zatrzymaj się na chwilę i poczuj spokój porannego wiatru musującego w koronie drzew.",
+    "prompt": "Minimalist art style, clean composition, tranquil background, high quality, soft pastel lighting, tranquil scenery representing: Zatrzymaj się na chwilę i poczuj spokój ...",
+    "negative_prompt": "ugly, overcrowded, blurry, text, watermark, complex details, saturated colors",
+    "image_path": "output\\img_002.png"
+  },
+  {
+    "id": 3,
+    "text": "Minimalizm to nie brak wszystkiego, ale świadomy wybór tego, co najważniejsze dla duszy.",
+    "prompt": "Minimalist art style, clean composition, tranquil background, high quality, soft pastel lighting, tranquil scenery representing: Minimalizm to nie brak wszystkiego, ale ...",
+    "negative_prompt": "ugly, overcrowded, blurry, text, watermark, complex details, saturated colors",
+    "image_path": "output\\img_003.png"
+  },
+  {
+    "id": 4,
+    "text": "Stwórz własną przestrzeń ciszy i powróć do prostych radostek dnia powszedniego.",
+    "prompt": "Minimalist art style, clean composition, tranquil background, high quality, soft pastel lighting, tranquil scenery representing: Stwórz własną przestrzeń ciszy i powróć ...",
+    "negative_prompt": "ugly, overcrowded, blurry, text, watermark, complex details, saturated colors",
+    "image_path": "output\\img_004.png"
+  }
+]

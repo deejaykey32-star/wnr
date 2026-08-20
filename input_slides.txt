@@ -1,0 +1,9 @@
+file 'output/img_001.png'
+duration 5.400
+file 'output/img_002.png'
+duration 5.850
+file 'output/img_003.png'
+duration 5.850
+file 'output/img_004.png'
+duration 4.950
+file 'output/img_004.png'
