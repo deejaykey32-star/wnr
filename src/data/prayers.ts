@@ -32,11 +32,11 @@ export const DEFAULT_PRAYERS: Record<string, { title: string; text: string }> = 
   },
   "introTextMain": {
     "title": "Tekst Wstępu (Widoki na Raj / RHZ365)",
-    "text": "„Widoki na Raj” to owoc duchowej pielgrzymki i codziennego poszukiwania Jezusa w tajemnicach Boga, prowadzonej zgodnie z Misją Barw i Kolorów. Nie jestem teologiem, osobą duchowną ani autorytetem w sprawach wiary. Jestem jedynie pielgrzymem, który dzieli się własnym doświadczeniem, przemyśleniami i modlitwą.\n\nMoje oddanie Bogu oraz sposób, w jaki powstają te rozważania, opisałem szerzej w poniższym wpisie z dnia 323:\n\n[qr:https://widokinaraj.pl/wnr365-day-323]\n\nWnR365 oznacza „Widoki na Raj” – rozważania na każdy dzień roku, RHZ365 to „Różaniec Historii Zbawienia” obejmujący 365 dni modlitwy, natomiast eMBiK365 jest wspólnym dziełem moim i mojej żony.\n\nPragniemy razem wzrastać w wierze, trwając w jedności z Bogiem Ojcem, przez Ducha Świętego, w Osobie Jezusa Chrystusa, Pana naszego.\n\nAmen."
+    "text": "„Widoki na Raj” to owoc duchowej pielgrzymki i codziennego poszukiwania Jezusa w tajemnicach Boga, prowadzonej zgodnie z Misją Barw i Kolorów. Nie jestem teologiem, osobą duchowną ani autorytetem w sprawach wiary. Jestem jedynie pielgrzymem, który dzieli się własnym doświadczeniem, przemyśleniami i modlitwą.\n\nMoje oddanie Bogu oraz sposób, w jaki powstają te rozważania, opisałem szerzej w poniższym wpisie z dnia 323:\n\n[qr:https://widokinaraj.pl/wnr365-day-323]\n\nWnR365 oznacza „Widoki na Raj” – rozważania na każdy dzień roku, RHZ365 to „Różaniec Historii Zbawienia” obejmujący 365 dni modlitwy, natomiast eMBiK365 jest wspólnym dziełem moim i mojej żony.\n\nPragniemy razem wzrastać w wierze, trwając w jedności z Bogiem Ojcem, przez Ducha Świętego, w Osobie Jezusa Chrystusa, Pana naszego i aniołów.\n\nAmen."
   },
   "introTextMission": {
     "title": "Misja eMBiK365 (Pasek pod wstępem)",
-    "text": "eMBiK365 (elektronicznej Misji Barw i Kolorów) poprzez duchowe pielgrzymowanie przez Jezusa Chrystusa w Duchu Świętym dzięki Bogu Ojcu i Maryi zawsze dziewicy."
+    "text": "eMBiK365 (elektroniczna Misja Barw i Kolorów) poprzez duchowe pielgrzymowanie przez Jezusa Chrystusa Pana ludzi i aniołów w Duchu Świętym dzięki Bogu Ojcu i Maryi zawsze dziewicy, prowadzących wszystkich do świętości. Niech świeci swiecą dla Nieba i świata całego. Amen."
   },
   "custom_step_step-hailmary-dec-2-7": {
     "title": "Pozdrowienie Anielskie (Zdrowaś Maryjo)",
