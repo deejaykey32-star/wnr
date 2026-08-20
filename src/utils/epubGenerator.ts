@@ -1,7 +1,7 @@
 import JSZip from 'jszip';
 import { COVER_IMAGE_BASE64 } from '../assets/coverBase64';
 import { generateQrCodeDataUri } from './qrCodeGenerator';
-import rhzData from '../../RHZ365_pierwszy_cykl_175_dni.json';
+import { getRhzList } from '../data/prayers';
 import { parseDayText } from './rhzParser';
 import { getWnrDefaultBlogEntry } from './wnrBlogDefaults';
 
@@ -274,7 +274,7 @@ p {
     const firestoreKey = `day_${rhzDayNum}_decade_rgba_${decIdx}`;
     const rhzDoc = prayers[firestoreKey];
 
-    const jsonRecord = (rhzData as any[]).find(r => r.dayNumber === rhzDayNum) || rhzData[rhzDayNum - 1];
+    const jsonRecord = (getRhzList() as any[]).find(r => r.dayNumber === rhzDayNum) || getRhzList()[rhzDayNum - 1];
 
     let rawRhzText = rhzDoc?.text || jsonRecord?.text || '';
     let rhzTitle = rhzDoc?.title || jsonRecord?.title || `Dzień ${rhzDayNum}`;

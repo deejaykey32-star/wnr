@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Search, X, BookOpen, Calendar, ArrowRight } from 'lucide-react';
-import rhzData from '../../RHZ365_pierwszy_cykl_175_dni.json';
+import { getRhzList } from '../data/prayers';
 import { parseDayText } from '../utils/rhzParser';
 
 export interface SearchResultItem {
@@ -47,10 +47,11 @@ export const SearchModal: React.FC<SearchModalProps> = ({
     const searchHits: SearchResultItem[] = [];
     const maxResults = 40;
 
+    const rhzList = getRhzList();
     // 1. Search RHZ365
-    for (let i = 0; i < rhzData.length; i++) {
+    for (let i = 0; i < rhzList.length; i++) {
       if (searchHits.length >= maxResults) break;
-      const item = rhzData[i];
+      const item = rhzList[i];
       const dayNum = item.dayNumber;
       const decIdx = ((dayNum - 1) % 5) + 1;
       const firestoreKey = `day_${dayNum}_decade_rgba_${decIdx}`;

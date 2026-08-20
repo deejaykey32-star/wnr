@@ -1,6 +1,3 @@
-import rhzData from '../../RHZ365_pierwszy_cykl_175_dni.json';
-import wnrPdfEntriesData from '../data/wnr365_pdf_entries.json';
-
 export interface WnrBlogEntry {
   title: string;
   text: string;
@@ -20,8 +17,26 @@ interface RHZItem {
   text: string;
 }
 
-const rhzList = rhzData as RHZItem[];
-const wnrPdfMap = wnrPdfEntriesData as Record<string, { dayIndex: number; title: string; text: string; updatedBy?: string; updatedAt?: string }>;
+let loadedWnrPdfMap: Record<string, { dayIndex: number; title: string; text: string; updatedBy?: string; updatedAt?: string }> | null = null;
+let loadedRhzList: RHZItem[] | null = null;
+
+export async function loadWnrBlogDefaultsData(): Promise<void> {
+  if (loadedWnrPdfMap && loadedRhzList) return;
+  const [wnrData, rhzData] = await Promise.all([
+    import('../data/wnr365_pdf_entries.json'),
+    import('../../RHZ365_pierwszy_cykl_175_dni.json')
+  ]);
+  loadedWnrPdfMap = wnrData.default;
+  loadedRhzList = rhzData.default as RHZItem[];
+}
+
+function getWnrPdfMap() {
+  return loadedWnrPdfMap || {};
+}
+
+function getRhzList() {
+  return loadedRhzList || [];
+}
 
 /**
  * Helper to check if a blog text is a legacy generic placeholder/preamble
@@ -47,7 +62,8 @@ export function getWnrDefaultBlogEntry(
   const blogKey = `blog_day_${safeDayIndex}`;
 
   // 1. Primary Source of Truth: Extracted Entry from eMBiK365_RHZ365_WnR365_Calosc_Ksiega_A5 (1).pdf
-  const pdfEntry = wnrPdfMap[blogKey];
+  const pdfMap = getWnrPdfMap();
+  const pdfEntry = pdfMap[blogKey];
 
   // 2. Check if there is an explicit user edit in blogEntries saved recently by an editor
   const customBlog = blogEntries[blogKey];
@@ -88,12 +104,13 @@ export function getWnrDefaultBlogEntry(
     dayOfCycle = safeDayIndex - 356;
   }
 
-  const jsonRecord = rhzList.find(r => r.dayNumber === dayOfCycle) || rhzList[0];
+  const rhzList = getRhzList();
+  const jsonRecord = rhzList.find(r => r.dayNumber === dayOfCycle) || (rhzList.length > 0 ? rhzList[0] : null);
 
   return {
     dayIndex: safeDayIndex,
-    title: jsonRecord.title.trim(),
-    text: jsonRecord.text.trim(),
+    title: jsonRecord ? jsonRecord.title.trim() : `WnR365 — Dzień ${safeDayIndex + 1}`,
+    text: jsonRecord ? jsonRecord.text.trim() : `Rozważanie dnia ${safeDayIndex + 1}.`,
     updatedBy: 'System RHZ365',
     updatedAt: '2026-08-10T00:00:00.000Z'
   };

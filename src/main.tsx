@@ -30,16 +30,77 @@ class ErrorBoundary extends Component<Props, State> {
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error("Uncaught Error in eMBiK365:", error, errorInfo);
+    
+    // Auto-recover from chunk load/dynamic import failure (common during new deployments on Cloudflare Pages)
+    const errorStr = (error.message || error.toString() || '').toLowerCase();
+    const isChunkError = 
+      errorStr.includes('chunk') || 
+      errorStr.includes('dynamically imported') || 
+      errorStr.includes('failed to fetch') ||
+      errorStr.includes('import');
+      
+    if (isChunkError) {
+      console.warn("Chunk load error detected, triggering silent cache clear and reload...");
+      this.handleResetSilent();
+    }
   }
 
-  private handleReset = () => {
-    // Clear legacy caches and reload
+  private handleResetSilent = () => {
+    if (typeof window === 'undefined') return;
     if ('caches' in window) {
       caches.keys().then(names => {
-        names.forEach(name => caches.delete(name));
+        Promise.all(names.map(name => caches.delete(name))).then(() => {
+          try {
+            localStorage.removeItem('wnr365_db_data_version');
+          } catch {}
+          window.location.reload();
+        });
+      }).catch(() => {
+        window.location.reload();
       });
+    } else {
+      window.location.reload();
     }
-    localStorage.clear();
+  };
+
+  private handleReset = () => {
+    if (typeof window === 'undefined') return;
+    
+    // Clear Service Worker caches
+    if ('caches' in window) {
+      try {
+        caches.keys().then(names => {
+          names.forEach(name => caches.delete(name));
+        });
+      } catch {}
+    }
+    
+    // Preserve user progress, settings and auth from being deleted
+    const preservedKeys = [
+      'completed_rhz365_days',
+      'completed_wnr365_days',
+      'theme',
+      'prayer-editor-theme',
+      'local_editor_auth',
+      'rhz_shortened_mode'
+    ];
+    
+    try {
+      const saved: Record<string, string> = {};
+      preservedKeys.forEach(k => {
+        const val = localStorage.getItem(k);
+        if (val !== null) saved[k] = val;
+      });
+      
+      localStorage.clear();
+      
+      Object.entries(saved).forEach(([k, val]) => {
+        localStorage.setItem(k, val);
+      });
+    } catch (e) {
+      console.warn("Failed to clear localStorage selectively:", e);
+    }
+    
     window.location.href = '/';
   };
 

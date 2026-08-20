@@ -1,5 +1,3 @@
-import wnrPdfEntriesData from '../data/wnr365_pdf_entries.json';
-
 export interface LocalBlogEntry {
   docId: string;
   dayIndex: number;
@@ -13,8 +11,6 @@ const DB_NAME = 'WnR365LocalNoSqlDb';
 const DB_VERSION = 1;
 const BLOG_STORE = 'blog_entries';
 const PRAYERS_STORE = 'prayers';
-
-const wnrPdfMap = wnrPdfEntriesData as Record<string, { dayIndex: number; title: string; text: string; updatedBy?: string; updatedAt?: string }>;
 
 let dbPromise: Promise<IDBDatabase> | null = null;
 
@@ -71,6 +67,10 @@ export async function initLocalNoSqlDb(): Promise<void> {
       // Clear old data so stale entries don't persist
       store.clear();
       prayersStore.clear();
+      
+      const wnrPdfEntriesData = (await import('../data/wnr365_pdf_entries.json')).default;
+      const wnrPdfMap = wnrPdfEntriesData as Record<string, { dayIndex: number; title: string; text: string; updatedBy?: string; updatedAt?: string }>;
+
       Object.entries(wnrPdfMap).forEach(([docId, entry]) => {
         store.put({
           docId,
@@ -88,9 +88,12 @@ export async function initLocalNoSqlDb(): Promise<void> {
       };
     } else {
       const countReq = store.count();
-      countReq.onsuccess = () => {
+      countReq.onsuccess = async () => {
         if (countReq.result === 0) {
           console.log('[NoSQL] Empty IndexedDB — seeding with PDF JSON...');
+          const wnrPdfEntriesData = (await import('../data/wnr365_pdf_entries.json')).default;
+          const wnrPdfMap = wnrPdfEntriesData as Record<string, { dayIndex: number; title: string; text: string; updatedBy?: string; updatedAt?: string }>;
+          
           Object.entries(wnrPdfMap).forEach(([docId, entry]) => {
             store.put({
               docId,
@@ -115,18 +118,9 @@ export async function initLocalNoSqlDb(): Promise<void> {
  * Used for instant zero-delay state initialization in React to prevent white screen.
  */
 export function getAllLocalBlogEntriesSync(): Record<string, LocalBlogEntry> {
-  const result: Record<string, LocalBlogEntry> = {};
-  Object.entries(wnrPdfMap).forEach(([docId, entry]) => {
-    result[docId] = {
-      docId,
-      dayIndex: entry.dayIndex,
-      title: entry.title,
-      text: entry.text,
-      updatedBy: entry.updatedBy || 'eMBiK365 Księga A5 PDF',
-      updatedAt: entry.updatedAt || '2026-08-11T00:00:00.000Z'
-    };
-  });
-  return result;
+  // Return empty initially. Once dynamic import and IndexedDB seeding completes,
+  // getAllLocalBlogEntries will run asynchronously and populate React state.
+  return {};
 }
 
 /**
@@ -137,7 +131,6 @@ export function getAllLocalBlogEntriesSync(): Record<string, LocalBlogEntry> {
 export async function getAllLocalBlogEntries(): Promise<Record<string, LocalBlogEntry>> {
   const result = getAllLocalBlogEntriesSync();
 
-  // Overlay with IndexedDB entries ONLY if they were admin-edited (not seed data)
   try {
     const db = await openDb();
     return new Promise((resolve) => {
@@ -148,14 +141,12 @@ export async function getAllLocalBlogEntries(): Promise<Record<string, LocalBlog
       req.onsuccess = () => {
         if (req.result && Array.isArray(req.result)) {
           req.result.forEach((item: LocalBlogEntry) => {
-            // Only overlay entries that were genuinely admin-edited, not seeded entries
-            if (item && item.docId && item.updatedBy && item.updatedBy !== 'eMBiK365 Księga A5 PDF') {
+            if (item && item.docId) {
               result[item.docId] = item;
             }
           });
         }
         resolve(result);
-
       };
 
       req.onerror = () => resolve(result);
@@ -201,6 +192,9 @@ export async function resetLocalToSeedData(): Promise<void> {
     const tx = db.transaction(BLOG_STORE, 'readwrite');
     const store = tx.objectStore(BLOG_STORE);
     store.clear();
+
+    const wnrPdfEntriesData = (await import('../data/wnr365_pdf_entries.json')).default;
+    const wnrPdfMap = wnrPdfEntriesData as Record<string, { dayIndex: number; title: string; text: string; updatedBy?: string; updatedAt?: string }>;
 
     Object.entries(wnrPdfMap).forEach(([docId, entry]) => {
       store.put({

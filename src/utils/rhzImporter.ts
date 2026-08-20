@@ -1,5 +1,5 @@
 import { doc, getDoc, runTransaction, Firestore } from 'firebase/firestore';
-import rhzData from '../../RHZ365_pierwszy_cykl_175_dni.json';
+import { getRhzList } from '../data/prayers';
 
 export interface RHZRecord {
   dayNumber: number;
@@ -116,7 +116,7 @@ export interface RHZValidationFullReport {
 }
 
 export function validateRHZ365FullReport(): RHZValidationFullReport {
-  const records = rhzData as RHZRecord[];
+  const records = getRhzList() as RHZRecord[];
   const errors: string[] = [];
 
   let daysCount = records.length;
@@ -214,7 +214,7 @@ export function validateRHZ365FullReport(): RHZValidationFullReport {
 
 // Step A: Validate entire JSON dataset in memory
 export function validateRHZJson(): { isValid: boolean; errors: string[]; records: RHZRecord[] } {
-  const records = rhzData as RHZRecord[];
+  const records = getRhzList() as RHZRecord[];
   const errors: string[] = [];
 
   if (!Array.isArray(records)) {
@@ -261,7 +261,7 @@ export function validateRHZJson(): { isValid: boolean; errors: string[]; records
 
 // Step B: READ-ONLY Pre-Import Audit of Firestore
 export async function performPreImportAudit(db: Firestore): Promise<ImportAuditItem[]> {
-  const records = rhzData as RHZRecord[];
+  const records = getRhzList() as RHZRecord[];
   const auditResults: ImportAuditItem[] = [];
 
   for (const r of records) {

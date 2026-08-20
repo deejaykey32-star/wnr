@@ -1,5 +1,18 @@
 import { BeadData, PrayerStep } from '../types';
-import rhzData from '../../RHZ365_pierwszy_cykl_175_dni.json';
+
+let loadedRhzData: any[] | null = null;
+
+export async function loadRhzData(): Promise<any[]> {
+  if (loadedRhzData) return loadedRhzData;
+  const data = (await import('../../RHZ365_pierwszy_cykl_175_dni.json')).default;
+  loadedRhzData = data;
+  return data;
+}
+
+export function getRhzList(): any[] {
+  return loadedRhzData || [];
+}
+
 
 export const DEFAULT_PRAYERS: Record<string, { title: string; text: string }> = {
   "signOfCross": {
@@ -1008,7 +1021,8 @@ export const getCycleDayInfo = (
 
 // Authentic RHZ365 Record retriever for Cykl I (RGBA)
 export const getLoveMystery = (dayNum: number, decIdx?: number) => {
-  const jsonRecord = (rhzData as any[]).find(r => r.dayNumber === dayNum) || rhzData[(dayNum - 1) % rhzData.length];
+  const list = getRhzList();
+  const jsonRecord = list.find(r => r.dayNumber === dayNum) || (list.length > 0 ? list[(dayNum - 1) % list.length] : null);
   if (jsonRecord) {
     return {
       title: jsonRecord.title,
@@ -1609,7 +1623,8 @@ export const getActiveDecadeMystery = (
   const keyRgba = `day_${dayOfCycle}_decade_rgba_${decIdx}`;
   const customRgba = prayers[keyRgba];
 
-  const jsonRecord = (rhzData as any[]).find(r => r.dayNumber === dayOfCycle) || rhzData[(dayOfCycle - 1) % rhzData.length];
+  const list = getRhzList();
+  const jsonRecord = list.find(r => r.dayNumber === dayOfCycle) || (list.length > 0 ? list[(dayOfCycle - 1) % list.length] : null);
 
   // Cykl I, Cykl II or Break: Traditional Rosary (RHZ365)
   const authenticTitle = (customRgba && customRgba.title)

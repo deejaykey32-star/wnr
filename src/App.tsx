@@ -1,11 +1,13 @@
-import { useEffect, useState, useRef, useMemo } from 'react';
+import { useEffect, useState, useRef, useMemo, lazy, Suspense } from 'react';
 import { auth, db, loginWithGoogle, logout, onAuthStateChanged, handleRedirectLogin, User } from './firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { 
   DEFAULT_PRAYERS, getRGBABeads, getCMYKBeads, getPrayerSteps, 
-  getCycleDayInfo, getActiveDecadeMystery, getDecadeForDay 
+  getCycleDayInfo, getActiveDecadeMystery, getDecadeForDay,
+  loadRhzData, getRhzList
 } from './data/prayers';
-import { getWnrDefaultBlogEntry } from './utils/wnrBlogDefaults';\nimport { generateVideoClientSide } from './utils/videoGenerator';
+import { getWnrDefaultBlogEntry, loadWnrBlogDefaultsData } from './utils/wnrBlogDefaults';
+import { generateVideoClientSide } from './utils/videoGenerator';
 import { initLocalNoSqlDb, getAllLocalBlogEntries, getAllLocalBlogEntriesSync, saveLocalBlogEntry, getLocalPrayers, saveLocalPrayers } from './utils/localNoSqlDb';
 import { RosaryRenderer } from './components/RosaryRenderer';
 import { PrayerEditor } from './components/PrayerEditor';
@@ -13,7 +15,6 @@ import { BlogSection } from './components/BlogSection';
 import { AdminSyncPanel } from './components/AdminSyncPanel';
 import { RichTextRenderer } from './utils/richTextHelper';
 import { parseDayText } from './utils/rhzParser';
-import rhzData from '../RHZ365_pierwszy_cykl_175_dni.json';
 import { playBeadChime } from './utils/audio';
 import { extractHailMaryClausula } from './utils/clausulaHelper';
 import { getPrayerSegments, speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechPaused, isSpeechSpeaking, isTtsSupported } from './utils/tts';
@@ -21,8 +22,10 @@ import {
   getCompletedRhzDays, toggleRhzDayCompleted, markRhzDayCompleted, isRhzDayCompleted,
   getCompletedWnrDays, toggleWnrDayCompleted, markWnrDayCompleted, isWnrDayCompleted
 } from './utils/completedDays';
-import { SearchModal } from './components/SearchModal';
-import { ExportModal } from './components/ExportModal';
+
+const SearchModal = lazy(() => import('./components/SearchModal').then(m => ({ default: m.SearchModal })));
+const ExportModal = lazy(() => import('./components/ExportModal').then(m => ({ default: m.ExportModal })));
+
 import { PwaInstallPrompt } from './components/PwaInstallPrompt';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { InlinePrayerEditor } from './components/InlinePrayerEditor';
@@ -42,6 +45,9 @@ export default function App() {
       return 'dark';
     }
   });
+
+  // State to track if lazy static databases are loaded
+  const [isDataLoaded, setIsDataLoaded] = useState<boolean>(false);
 
   const toggleTheme = () => {
     setTheme(prev => {
@@ -521,7 +527,12 @@ export default function App() {
   // LOCAL-FIRST: Load blog entries and prayers from local NoSQL (PDF JSON + IndexedDB).
   // Firestore is NEVER auto-synced. Use AdminSyncPanel for manual Firestore operations.
   useEffect(() => {
-    initLocalNoSqlDb().then(async () => {
+    // Load dynamically split JSON assets and initialize IndexedDB
+    Promise.all([
+      initLocalNoSqlDb(),
+      loadRhzData(),
+      loadWnrBlogDefaultsData()
+    ]).then(async () => {
       try {
         const localEntries = await getAllLocalBlogEntries();
         if (localEntries && Object.keys(localEntries).length > 0) {
@@ -533,9 +544,12 @@ export default function App() {
         }
       } catch (err) {
         console.warn('[App] Local NoSQL loading fallback:', err);
+      } finally {
+        setIsDataLoaded(true);
       }
     }).catch(err => {
-      console.warn('[App] initLocalNoSqlDb failed, using bundled defaults:', err);
+      console.warn('[App] initLocalNoSqlDb or dynamic data load failed:', err);
+      setIsDataLoaded(true); // fallback to render anyway
     });
   }, []);
 
@@ -902,7 +916,7 @@ export default function App() {
         
         // Fallback to bundled rhzData if local custom text lacks full prayer structure
         if (!parsed.success) {
-          const jsonRecord = (rhzData as any[]).find(r => r.dayNumber === cycleInfo.dayOfCycle);
+          const jsonRecord = getRhzList().find(r => r.dayNumber === cycleInfo.dayOfCycle);
           if (jsonRecord?.text) {
             const fallbackParsed = parseDayText(cycleInfo.dayOfCycle, jsonRecord.text);
             if (fallbackParsed.success) {
@@ -1191,6 +1205,22 @@ export default function App() {
   };
 
   const isLight = theme === 'light';
+
+  if (!isDataLoaded) {
+    return (
+      <div className={`min-h-screen flex flex-col items-center justify-center p-6 text-center transition-colors duration-300 ${
+        isLight ? 'bg-slate-50 text-slate-900' : 'bg-slate-950 text-slate-100'
+      }`}>
+        <div className="w-16 h-16 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-2xl font-bold mb-4 animate-spin">
+          🔄
+        </div>
+        <h1 className="text-xl font-bold mb-2">Wczytywanie eMBiK365...</h1>
+        <p className="text-sm text-slate-400 max-w-md">
+          Przygotowujemy rozważania i modlitwy...
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className={`min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-300 w-full max-w-full overflow-x-hidden ${
@@ -2447,30 +2477,38 @@ export default function App() {
       )}
 
       {/* Search Modal (Requirement 6 & 7) */}
-      <SearchModal
-        isOpen={showSearchModal}
-        onClose={() => setShowSearchModal(false)}
-        onSelectResult={(section, dayNum, targetDate) => {
-          setSelectedDate(targetDate);
-          setActiveTab(section === 'WnR365' ? 'blog' : 'rosary');
-        }}
-        prayers={prayers}
-        blogEntries={blogEntries}
-        theme={theme}
-      />
+      <Suspense fallback={null}>
+        {showSearchModal && (
+          <SearchModal
+            isOpen={showSearchModal}
+            onClose={() => setShowSearchModal(false)}
+            onSelectResult={(section, dayNum, targetDate) => {
+              setSelectedDate(targetDate);
+              setActiveTab(section === 'WnR365' ? 'blog' : 'rosary');
+            }}
+            prayers={prayers}
+            blogEntries={blogEntries}
+            theme={theme}
+          />
+        )}
+      </Suspense>
 
       {/* Custom Export Modal (Requirement 11, 12, 13, 14, 15) */}
-      <ExportModal
-        isOpen={showCustomExportModal}
-        onClose={() => setShowCustomExportModal(false)}
-        selectedDate={selectedDate}
-        dayOfCycle={cycleInfo.dayOfCycle}
-        isAuthorized={isAuthorized}
-        userEmail={userEmail}
-        prayers={prayers}
-        blogEntries={blogEntries}
-        theme={theme}
-      />
+      <Suspense fallback={null}>
+        {showCustomExportModal && (
+          <ExportModal
+            isOpen={showCustomExportModal}
+            onClose={() => setShowCustomExportModal(false)}
+            selectedDate={selectedDate}
+            dayOfCycle={cycleInfo.dayOfCycle}
+            isAuthorized={isAuthorized}
+            userEmail={userEmail}
+            prayers={prayers}
+            blogEntries={blogEntries}
+            theme={theme}
+          />
+        )}
+      </Suspense>
 
       {/* PWA Install Prompt Banner */}
       <PwaInstallPrompt

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FileDown, FileText, Download, X, Shield, BookOpen, Layers, Sparkles, CheckCircle2 } from 'lucide-react';
-import rhzData from '../../RHZ365_pierwszy_cykl_175_dni.json';
+import { getRhzList } from '../data/prayers';
 import { generateCustomScopePdf } from '../utils/pdfGenerator';
 import { generateEpubBook } from '../utils/epubGenerator';
 
@@ -116,7 +116,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
         exportObject.sections.push('RHZ365');
         exportObject.sections.push('PRAYERS_AND_INTRO');
         exportObject.prayers = prayers;
-        exportObject.rhz365 = rhzData.map(item => {
+        exportObject.rhz365 = getRhzList().map(item => {
           const dayNum = item.dayNumber;
           const decIdx = ((dayNum - 1) % 5) + 1;
           const firestoreKey = `day_${dayNum}_decade_rgba_${decIdx}`;
