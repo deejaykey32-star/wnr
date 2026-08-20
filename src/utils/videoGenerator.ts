@@ -177,22 +177,50 @@ export const generateVideoClientSide = async (
     
     let mediaRecorder: MediaRecorder;
     const audioTracks: MediaStreamTrack[] = [];
+    let bufferSource: AudioBufferSourceNode | null = null;
     
     if (audioBuffer) {
       const dest = audioContext.createMediaStreamDestination();
-      const bufferSource = audioContext.createBufferSource();
+      bufferSource = audioContext.createBufferSource();
       bufferSource.buffer = audioBuffer;
       bufferSource.connect(dest);
       dest.stream.getAudioTracks().forEach(track => audioTracks.push(track));
       
+      // Ensure the audio graph is active by connecting to destination with gain = 0
+      const gainNode = audioContext.createGain();
+      gainNode.gain.value = 0.0;
+      bufferSource.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+
       const combinedStream = new MediaStream([
         ...stream.getVideoTracks(),
         ...audioTracks
       ]);
-      mediaRecorder = new MediaRecorder(combinedStream, { mimeType: "video/webm;codecs=vp9,opus" });
+
+      let mimeType = "video/webm;codecs=vp9,opus";
+      if (!MediaRecorder.isTypeSupported(mimeType)) {
+        mimeType = "video/webm;codecs=vp8,opus";
+      }
+      if (!MediaRecorder.isTypeSupported(mimeType)) {
+        mimeType = "video/webm";
+      }
+
+      mediaRecorder = new MediaRecorder(combinedStream, { mimeType });
+
+      if (audioContext.state === 'suspended') {
+        await audioContext.resume();
+      }
+
       bufferSource.start(0);
     } else {
-      mediaRecorder = new MediaRecorder(stream, { mimeType: "video/webm;codecs=vp9" });
+      let mimeType = "video/webm;codecs=vp9";
+      if (!MediaRecorder.isTypeSupported(mimeType)) {
+        mimeType = "video/webm;codecs=vp8";
+      }
+      if (!MediaRecorder.isTypeSupported(mimeType)) {
+        mimeType = "video/webm";
+      }
+      mediaRecorder = new MediaRecorder(stream, { mimeType });
     }
 
     const chunks: Blob[] = [];
@@ -201,8 +229,6 @@ export const generateVideoClientSide = async (
     };
 
     const duration = audioBuffer ? audioBuffer.duration : sentences.length * 5.0;
-    const totalFrames = Math.ceil(duration * 25);
-    let currentFrame = 0;
 
     return new Promise<string>((resolve, reject) => {
       mediaRecorder.onstop = () => {
@@ -213,25 +239,33 @@ export const generateVideoClientSide = async (
 
       mediaRecorder.start();
 
+      const startTime = performance.now();
+
       const renderLoop = () => {
-        if (currentFrame >= totalFrames) {
+        const elapsedRealTimeSec = (performance.now() - startTime) / 1000;
+        
+        if (elapsedRealTimeSec >= duration) {
           mediaRecorder.stop();
+          if (bufferSource) {
+            try {
+              bufferSource.stop();
+            } catch (e) {}
+          }
           return;
         }
 
-        const currentTimeSec = currentFrame / 25;
-        const progressPct = 60 + Math.floor((currentFrame / totalFrames) * 38);
-        onProgress({ progress: progressPct, message: `Nagrywanie klatek wideo (${currentFrame}/${totalFrames})...` });
+        const progressPct = 60 + Math.floor((elapsedRealTimeSec / duration) * 38);
+        onProgress({ progress: progressPct, message: `Nagrywanie klatek wideo (${elapsedRealTimeSec.toFixed(1)}s / ${duration.toFixed(1)}s)...` });
 
         // Określamy, który obrazek narysować
         let sceneIndex = 0;
         for (let i = 0; i < sceneTimings.length; i++) {
-          if (currentTimeSec >= sceneTimings[i].start && currentTimeSec <= sceneTimings[i].end) {
+          if (elapsedRealTimeSec >= sceneTimings[i].start && elapsedRealTimeSec <= sceneTimings[i].end) {
             sceneIndex = i;
             break;
           }
         }
-        if (currentTimeSec > sceneTimings[sceneTimings.length - 1].end) {
+        if (elapsedRealTimeSec > sceneTimings[sceneTimings.length - 1].end) {
           sceneIndex = sceneTimings.length - 1;
         }
 
@@ -249,7 +283,7 @@ export const generateVideoClientSide = async (
         ctx.fillRect(0, 500, 1280, 220);
 
         // Rysuj "Paciorek różańca"
-        const beadPulse = 15 + Math.sin(currentTimeSec * 5) * 3;
+        const beadPulse = 15 + Math.sin(elapsedRealTimeSec * 5) * 3;
         ctx.beginPath();
         ctx.arc(80, 640, beadPulse, 0, 2 * Math.PI);
         ctx.fillStyle = "#fbbf24";
@@ -285,7 +319,6 @@ export const generateVideoClientSide = async (
           ctx.fillText(lineText, 130, 620 + (idx * 40) - ((lines.length - 1) * 20));
         });
 
-        currentFrame++;
         requestAnimationFrame(renderLoop);
       };
 
