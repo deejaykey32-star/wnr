@@ -271,6 +271,69 @@ export default function App() {
   const [localDownloadReady, setLocalDownloadReady] = useState<boolean>(false);
   const [localShowPanel, setLocalShowPanel] = useState<boolean>(false);
   const [clientVideoUrl, setClientVideoUrl] = useState<string | null>(null);
+  const [apiServerUrl, setApiServerUrl] = useState<string>(() => {
+    try {
+      return localStorage.getItem('apiServerUrl') || 'http://localhost:3333';
+    } catch (e) {
+      return 'http://localhost:3333';
+    }
+  });
+
+  const handleGenerateLocalMp4 = async () => {
+    setLocalGenerating(true);
+    setLocalProgress(5);
+    setLocalStatusMsg("Rozpoczynanie generowania modlitwy na serwerze...");
+    setLocalDownloadReady(false);
+    setClientVideoUrl(null);
+
+    try {
+      const fullText = steps.map((step) => {
+        return step.text || prayers[step.prayerType]?.text || '';
+      }).filter(t => t.trim().length > 0).join('\n\n');
+
+      const res = await fetch(`${apiServerUrl}/api/generate-mp4`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: fullText })
+      });
+
+      if (!res.ok) throw new Error(`HTTP Status ${res.status}`);
+
+      setLocalStatusMsg("Rozpoczęto generowanie filmu na serwerze...");
+      pollLocalGenerationStatus();
+    } catch (err: any) {
+      setLocalStatusMsg(`❌ Błąd: ${err?.message || err}. Upewnij się, że serwer (server.py) jest uruchomiony pod adresem ${apiServerUrl}.`);
+      setLocalGenerating(false);
+    }
+  };
+
+  const pollLocalGenerationStatus = () => {
+    const interval = setInterval(async () => {
+      try {
+        const res = await fetch(`${apiServerUrl}/api/generate-mp4/status`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+
+        setLocalProgress(data.progress || 0);
+        setLocalStatusMsg(data.message || "");
+
+        if (data.status === "done") {
+          clearInterval(interval);
+          setLocalDownloadReady(true);
+          setLocalGenerating(false);
+          setLocalStatusMsg("✅ Wideo MP4 wygenerowane pomyślnie na serwerze!");
+        } else if (data.status === "error") {
+          clearInterval(interval);
+          setLocalGenerating(false);
+          setLocalStatusMsg(`❌ Błąd serwera: ${data.message}`);
+        }
+      } catch (err: any) {
+        clearInterval(interval);
+        setLocalGenerating(false);
+        setLocalStatusMsg(`❌ Błąd połączenia z serwerem: ${err?.message || err}`);
+      }
+    }, 2000);
+  };
 
   const handleGenerateClientVideo = async () => {
     setLocalGenerating(true);
@@ -1380,7 +1443,7 @@ export default function App() {
                 </div>
               ) : (
                 <button
-                  onClick={handleLogin}
+                  onClick={() => setShowAuthModal(true)}
                   className={`px-2 py-1.5 border text-[11px] sm:text-xs font-semibold rounded-full transition active:scale-95 cursor-pointer flex items-center justify-center gap-1 w-full sm:w-auto min-w-0 ${
                     isLight
                       ? 'bg-white hover:bg-slate-100 border-slate-300 text-slate-700 shadow-sm'
@@ -1633,92 +1696,163 @@ export default function App() {
 
             {/* COLLAPSIBLE LOCAL MP4 GENERATOR PANEL */}
             {localShowPanel && (
-              <div className="bg-slate-900 border-b border-indigo-900/60 p-4 sm:p-5 flex flex-col gap-4 text-left animate-fadeIn">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+              <div className="bg-slate-900 border-b border-indigo-900/60 p-4 sm:p-6 flex flex-col gap-5 text-left animate-fadeIn">
+                <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                   <div className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-amber-400" />
+                    <Sparkles className="w-5 h-5 text-amber-400" />
                     <h4 className="text-sm font-bold font-mono uppercase tracking-wider text-amber-400">
-                      Generator Wideo w Przeglądarce (100% Statyczny)
+                      Zaawansowany Generator Wideo (MP4 / WebM)
                     </h4>
                   </div>
                   <span className="text-[10px] font-mono bg-indigo-950 text-indigo-300 px-2 py-0.5 rounded border border-indigo-800">
-                    Brak Serwera (Client-Side GPU)
+                    Opcje Renderowania
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-                  {/* Voice Info */}
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-[11px] font-mono text-emerald-300 font-bold">🎙️ Podkład głosowy (TTS):</label>
-                    <div className="bg-slate-950 border border-emerald-800/60 text-emerald-300 px-3 py-2 rounded-xl text-xs font-mono flex items-center gap-2">
-                      <span>✅</span>
-                      <span className="truncate">Google Translate TTS (pl-PL) via Pages Function</span>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {/* METODA A: SERWER MP4 */}
+                  <div className="bg-slate-950/60 p-4 rounded-2xl border border-indigo-950 flex flex-col justify-between gap-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                        <h5 className="text-xs font-bold font-mono text-amber-400 uppercase tracking-wide">
+                          Metoda A: Zewnętrzny Serwer (Format MP4 + Klonowanie Głosu)
+                        </h5>
+                      </div>
+                      <p className="text-[11px] text-slate-400 leading-relaxed">
+                        Wykorzystuje lokalny serwer Python (lub tunel), aby wyrenderować wideo MP4 z lektorem AI z Twoim własnym sklonowanym głosem (Fish.audio) oraz dopasowanymi grafikami.
+                      </p>
+
+                      <div className="flex flex-col gap-1.5 pt-2">
+                        <label className="text-[10px] font-mono text-slate-400">🔗 Adres API serwera generującego:</label>
+                        <div className="flex gap-2">
+                          <input
+                            type="text"
+                            value={apiServerUrl}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setApiServerUrl(val);
+                              try {
+                                localStorage.setItem('apiServerUrl', val);
+                              } catch (err) {}
+                            }}
+                            placeholder="http://localhost:3333"
+                            className="flex-1 bg-slate-900 border border-slate-800 text-slate-200 px-3 py-1.5 rounded-lg text-xs font-mono focus:outline-none focus:border-amber-500"
+                          />
+                          <button
+                            onClick={() => {
+                              setApiServerUrl('http://localhost:3333');
+                              try {
+                                localStorage.setItem('apiServerUrl', 'http://localhost:3333');
+                              } catch (err) {}
+                            }}
+                            className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-mono transition cursor-pointer"
+                          >
+                            Reset
+                          </button>
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-[10px] text-slate-400">Generuje darmowy głos lektora z polskim akcentem dla każdego paciorka różańca.</p>
+
+                    <div className="pt-2 flex flex-col gap-2">
+                      <button
+                        onClick={handleGenerateLocalMp4}
+                        disabled={localGenerating}
+                        className="w-full px-4 py-2.5 bg-amber-500 hover:bg-amber-400 disabled:opacity-50 text-slate-950 font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer shadow"
+                      >
+                        <Film className="w-3.5 h-3.5 shrink-0" />
+                        <span>Generuj MP4 na Serwerze</span>
+                      </button>
+
+                      {localDownloadReady && (
+                        <a
+                          href={`${apiServerUrl}/api/generate-mp4/download`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer text-center animate-pulse"
+                        >
+                          <Download className="w-3.5 h-3.5 shrink-0" />
+                          <span>Pobierz wideo MP4 (YouTube)</span>
+                        </a>
+                      )}
+                    </div>
                   </div>
 
-                  {/* Image Provider Info */}
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-[11px] font-mono text-amber-300 font-bold">🖼️ Generowanie obrazów:</label>
-                    <div className="bg-slate-950 border border-amber-800/60 text-amber-300 px-3 py-2 rounded-xl text-xs font-mono flex items-center gap-2">
-                      <span>✅</span>
-                      <span>Pollinations.ai (Cloud API) → Widescreen 16:9</span>
+                  {/* METODA B: BROWSER WEBM */}
+                  <div className="bg-slate-950/60 p-4 rounded-2xl border border-indigo-950 flex flex-col justify-between gap-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+                        <h5 className="text-xs font-bold font-mono text-indigo-400 uppercase tracking-wide">
+                          Metoda B: W Przeglądarce (Format WebM - 100% Statyczny)
+                        </h5>
+                      </div>
+                      <p className="text-[11px] text-slate-400 leading-relaxed">
+                        Generuje film bezpośrednio na Twoim komputerze bez wysyłania zapytań do serwera (używa GPU przeglądarki). Lektor to darmowy pl-PL z Google Translate, a wideo zapisuje się jako plik WebM.
+                      </p>
+
+                      <div className="space-y-1.5 pt-2">
+                        <div className="text-[10px] text-slate-400">
+                          <strong>Głos:</strong> Google Translate TTS (pl-PL) proxy
+                        </div>
+                        <div className="text-[10px] text-slate-400">
+                          <strong>Grafiki:</strong> Pollinations.ai (16:9 Widescreen)
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-[10px] text-slate-400">Generuje unikalne grafiki sakralne dla każdego paciorka różańca.</p>
+
+                    <div className="pt-2 flex flex-col gap-2">
+                      <button
+                        onClick={handleGenerateClientVideo}
+                        disabled={localGenerating}
+                        className="w-full px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer shadow"
+                      >
+                        <Film className="w-3.5 h-3.5 shrink-0" />
+                        <span>Generuj WebM w Przeglądarce</span>
+                      </button>
+
+                      {localDownloadReady && clientVideoUrl && (
+                        <a
+                          href={clientVideoUrl}
+                          download="rozaniec_widokinaraj.webm"
+                          className="w-full px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer text-center animate-pulse"
+                        >
+                          <Download className="w-3.5 h-3.5 shrink-0" />
+                          <span>Pobierz wideo WebM</span>
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
 
-                {/* Current Clausula & Image Prompt Preview */}
+                {/* Clausula i Prompt podgląd */}
                 <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs">
-                  <div className="text-[11px] font-mono font-bold text-sky-400 mb-1 flex items-center justify-between">
-                    <span>🖼️ Podgląd obrazu sakralnego dla aktualnego paciorka:</span>
+                  <div className="text-[10px] font-mono font-bold text-sky-400 mb-1">
+                    🖼️ Temat obrazu sakralnego dla aktualnego paciorka:
                   </div>
                   {extractHailMaryClausula(textToRead, activeStep.label).clausula ? (
                     <p className="text-amber-300 font-serif italic mb-1">
                       „...Jezus, {extractHailMaryClausula(textToRead, activeStep.label).clausula}”
                     </p>
                   ) : (
-                    <p className="text-slate-400 font-serif italic mb-1">Modlitwa ogólna / rozważanie bez szczegółowej klauzuli</p>
+                    <p className="text-slate-400 font-serif italic mb-1">Modlitwa ogólna / rozważanie bez klauzuli</p>
                   )}
-                  <p className="text-[11px] font-mono text-emerald-400">
-                    <strong>Temat obrazu:</strong> {extractHailMaryClausula(textToRead, activeStep.label).topic}
+                  <p className="text-[10px] font-mono text-emerald-400">
+                    <strong>Prompt:</strong> holy sacred christian painting, minimalist style, {extractHailMaryClausula(textToRead, activeStep.label).topic}
                   </p>
                 </div>
 
-                {/* Action Buttons & Status */}
-                <div className="flex flex-col sm:flex-row items-center gap-3 flex-wrap">
-                  <button
-                    onClick={handleGenerateClientVideo}
-                    disabled={localGenerating}
-                    className="w-full sm:w-auto px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-bold rounded-xl text-xs transition active:scale-95 shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
-                  >
-                    <Film className="w-4 h-4 shrink-0" />
-                    <span>{localGenerating ? '⏳ Generowanie...' : '🎬 Generuj wideo w przeglądarce'}</span>
-                  </button>
-
-                  {localDownloadReady && clientVideoUrl && (
-                    <a
-                      href={clientVideoUrl}
-                      download="rozaniec_widokinaraj.webm"
-                      className="w-full sm:w-auto px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition shadow-lg flex items-center justify-center gap-2 cursor-pointer animate-pulse"
-                    >
-                      <Download className="w-4 h-4 shrink-0" />
-                      <span>Pobierz wideo WebM</span>
-                    </a>
-                  )}
-                </div>
-
-                {/* Progress bar */}
+                {/* Progress bar i status */}
                 {localGenerating && (
-                  <div className="flex flex-col gap-1">
-                    <div className="h-2 w-full bg-slate-950 rounded-full overflow-hidden border border-slate-800">
+                  <div className="flex flex-col gap-1.5 bg-slate-950 p-3 rounded-xl border border-slate-850">
+                    <div className="h-2 w-full bg-slate-900 rounded-full overflow-hidden border border-slate-850">
                       <div className="h-full bg-gradient-to-r from-indigo-500 via-sky-400 to-amber-400 transition-all duration-300" style={{ width: `${localProgress}%` }}></div>
                     </div>
                     <span className="text-[10px] font-mono text-slate-400">{localStatusMsg} ({localProgress}%)</span>
                   </div>
                 )}
                 {localStatusMsg && !localGenerating && (
-                  <p className="text-[11px] font-mono text-amber-300 bg-slate-950 p-2 rounded border border-slate-800">{localStatusMsg}</p>
+                  <p className="text-[11px] font-mono text-amber-300 bg-slate-950 p-3 rounded-xl border border-slate-800">{localStatusMsg}</p>
                 )}
               </div>
             )}
