@@ -5,7 +5,7 @@ import {
   DEFAULT_PRAYERS, getRGBABeads, getCMYKBeads, getPrayerSteps, 
   getCycleDayInfo, getActiveDecadeMystery, getDecadeForDay 
 } from './data/prayers';
-import { getWnrDefaultBlogEntry } from './utils/wnrBlogDefaults';
+import { getWnrDefaultBlogEntry } from './utils/wnrBlogDefaults';\nimport { generateVideoClientSide } from './utils/videoGenerator';
 import { initLocalNoSqlDb, getAllLocalBlogEntries, getAllLocalBlogEntriesSync, saveLocalBlogEntry, getLocalPrayers, saveLocalPrayers } from './utils/localNoSqlDb';
 import { RosaryRenderer } from './components/RosaryRenderer';
 import { PrayerEditor } from './components/PrayerEditor';
@@ -258,76 +258,45 @@ export default function App() {
   // Admin Sync Panel
   const [showAdminSync, setShowAdminSync] = useState<boolean>(false);
 
-  // Local Video Generator State (Local API server on port 3333)
+  // Browser Video Generator State (100% Client-Side inside Cloudflare Pages)
   const [localGenerating, setLocalGenerating] = useState<boolean>(false);
   const [localProgress, setLocalProgress] = useState<number>(0);
   const [localStatusMsg, setLocalStatusMsg] = useState<string | null>(null);
   const [localDownloadReady, setLocalDownloadReady] = useState<boolean>(false);
   const [localShowPanel, setLocalShowPanel] = useState<boolean>(false);
-  const [apiServerUrl, setApiServerUrl] = useState<string>(() => {
-    try {
-      return localStorage.getItem('apiServerUrl') || 'http://localhost:3333';
-    } catch {
-      return 'http://localhost:3333';
-    }
-  });
+  const [clientVideoUrl, setClientVideoUrl] = useState<string | null>(null);
 
-  const handleGenerateLocalMp4 = async () => {
+  const handleGenerateClientVideo = async () => {
     setLocalGenerating(true);
     setLocalProgress(5);
-    setLocalStatusMsg("Łączenie z lokalnym serwerem API...");
+    setLocalStatusMsg("Przygotowywanie generowania w przeglądarce...");
     setLocalDownloadReady(false);
+    setClientVideoUrl(null);
 
     try {
       const fullText = steps.map((step) => {
         return step.text || prayers[step.prayerType]?.text || '';
       }).filter(t => t.trim().length > 0).join('\n\n');
 
-      const res = await fetch(`${apiServerUrl}/api/generate-mp4`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: fullText })
-      });
+      const videoUrl = await generateVideoClientSide(
+        fullText,
+        "", // fishApiKey - empty to force Google TTS fallback
+        "/VID-20260727-WA0000.mp3", // voiceSampleUrlOrPath
+        (state) => {
+          setLocalProgress(state.progress);
+          setLocalStatusMsg(state.message);
+        }
+      );
 
-      if (!res.ok) {
-        const err = await res.json().catch(() => ({ error: "Błąd serwera." }));
-        throw new Error(err.error || `HTTP ${res.status}`);
-      }
-
-      setLocalStatusMsg("Rozpoczęto generowanie w tle...");
-      pollLocalGenerationStatus();
+      setClientVideoUrl(videoUrl);
+      setLocalDownloadReady(true);
+      setLocalStatusMsg("Gotowe! Wideo z lektorem i napisami zostało pomyślnie zmontowane w Twojej przeglądarce.");
     } catch (err: any) {
-      setLocalStatusMsg(`❌ Błąd: ${err?.message || err}. Upewnij się, że serwer Python (server.py) jest uruchomiony na porcie 3333.`);
+      console.error(err);
+      setLocalStatusMsg(`❌ Błąd generowania: ${err.message || err}`);
+    } finally {
       setLocalGenerating(false);
     }
-  };
-
-  const pollLocalGenerationStatus = () => {
-    const interval = setInterval(async () => {
-      try {
-        const res = await fetch(`${apiServerUrl}/api/generate-mp4/status`);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-
-        setLocalProgress(data.progress || 0);
-        setLocalStatusMsg(data.message || "");
-
-        if (data.status === "done") {
-          clearInterval(interval);
-          setLocalDownloadReady(true);
-          setLocalGenerating(false);
-          setLocalStatusMsg("✅ Wideo wygenerowane pomyślnie!");
-        } else if (data.status === "error") {
-          clearInterval(interval);
-          setLocalGenerating(false);
-          setLocalStatusMsg(`❌ Błąd: ${data.message}`);
-        }
-      } catch (err: any) {
-        clearInterval(interval);
-        setLocalGenerating(false);
-        setLocalStatusMsg(`❌ Błąd połączenia podczas sprawdzania statusu: ${err?.message || err}`);
-      }
-    }, 2000);
   };
 
   // PDF Exporting States
@@ -1639,11 +1608,11 @@ export default function App() {
                   <div className="flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-amber-400" />
                     <h4 className="text-sm font-bold font-mono uppercase tracking-wider text-amber-400">
-                      Lokalny Generator Wideo MP4 (Edge Neural TTS & FFmpeg)
+                      Generator Wideo w Przeglądarce (100% Statyczny)
                     </h4>
                   </div>
                   <span className="text-[10px] font-mono bg-indigo-950 text-indigo-300 px-2 py-0.5 rounded border border-indigo-800">
-                    Lokalny API Server
+                    Brak Serwera (Client-Side GPU)
                   </span>
                 </div>
 
@@ -1653,9 +1622,9 @@ export default function App() {
                     <label className="text-[11px] font-mono text-emerald-300 font-bold">🎙️ Podkład głosowy (TTS):</label>
                     <div className="bg-slate-950 border border-emerald-800/60 text-emerald-300 px-3 py-2 rounded-xl text-xs font-mono flex items-center gap-2">
                       <span>✅</span>
-                      <span className="truncate">Edge Neural TTS (pl-PL-MarekNeural) - 100% Darmowy</span>
+                      <span className="truncate">Google Translate TTS (pl-PL) via Pages Function</span>
                     </div>
-                    <p className="text-[10px] text-slate-400">Generuje naturalny głos męski lektora z prawidłowym akcentem w języku polskim.</p>
+                    <p className="text-[10px] text-slate-400">Generuje darmowy głos lektora z polskim akcentem dla każdego paciorka różańca.</p>
                   </div>
 
                   {/* Image Provider Info */}
@@ -1666,38 +1635,6 @@ export default function App() {
                       <span>Pollinations.ai (Cloud API) → Widescreen 16:9</span>
                     </div>
                     <p className="text-[10px] text-slate-400">Generuje unikalne grafiki sakralne dla każdego paciorka różańca.</p>
-                  </div>
-
-                  {/* API Server URL Config */}
-                  <div className="flex flex-col gap-1.5 md:col-span-2">
-                    <label className="text-[11px] font-mono text-indigo-300 font-bold">🔗 Adres API serwera generującego:</label>
-                    <div className="flex gap-2">
-                      <input
-                        type="text"
-                        value={apiServerUrl}
-                        onChange={(e) => {
-                          const val = e.target.value;
-                          setApiServerUrl(val);
-                          try {
-                            localStorage.setItem('apiServerUrl', val);
-                          } catch (err) {}
-                        }}
-                        placeholder="http://localhost:3333"
-                        className="flex-1 bg-slate-950 border border-indigo-800/60 text-slate-200 px-3 py-2 rounded-xl text-xs font-mono focus:outline-none focus:border-amber-500"
-                      />
-                      <button
-                        onClick={() => {
-                          setApiServerUrl('http://localhost:3333');
-                          try {
-                            localStorage.setItem('apiServerUrl', 'http://localhost:3333');
-                          } catch (err) {}
-                        }}
-                        className="px-3 py-2 bg-slate-800 hover:bg-slate-750 text-slate-300 rounded-xl text-xs font-mono transition"
-                      >
-                        Reset
-                      </button>
-                    </div>
-                    <p className="text-[10px] text-slate-400">Domyślnie http://localhost:3333. Jeśli wdrożysz serwer w chmurze lub użyjesz tunelu HTTPS (np. Cloudflare Tunnel / ngrok) do obejścia Mixed Content na widokinaraj.pl, wpisz tutaj nowy adres API.</p>
                   </div>
                 </div>
 
@@ -1721,23 +1658,22 @@ export default function App() {
                 {/* Action Buttons & Status */}
                 <div className="flex flex-col sm:flex-row items-center gap-3 flex-wrap">
                   <button
-                    onClick={handleGenerateLocalMp4}
+                    onClick={handleGenerateClientVideo}
                     disabled={localGenerating}
                     className="w-full sm:w-auto px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-bold rounded-xl text-xs transition active:scale-95 shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                   >
                     <Film className="w-4 h-4 shrink-0" />
-                    <span>{localGenerating ? '⏳ Generowanie filmu...' : '🎬 Generuj wideo MP4'}</span>
+                    <span>{localGenerating ? '⏳ Generowanie...' : '🎬 Generuj wideo w przeglądarce'}</span>
                   </button>
 
-                  {localDownloadReady && (
+                  {localDownloadReady && clientVideoUrl && (
                     <a
-                      href={`${apiServerUrl}/api/generate-mp4/download`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full sm:w-auto px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                      href={clientVideoUrl}
+                      download="rozaniec_widokinaraj.webm"
+                      className="w-full sm:w-auto px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition shadow-lg flex items-center justify-center gap-2 cursor-pointer animate-pulse"
                     >
                       <Download className="w-4 h-4 shrink-0" />
-                      <span>Pobierz plik MP4 (YouTube)</span>
+                      <span>Pobierz wideo WebM</span>
                     </a>
                   )}
                 </div>

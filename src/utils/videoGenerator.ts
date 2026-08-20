@@ -1,11 +1,3 @@
-/**
- * src/utils/videoGenerator.ts
- *
- * Klasa narzędziowa do generowania wideo 100% po stronie klienta (Client-Side)
- * dla Cloudflare Pages. Nagrywa płótno HTML Canvas (obrazy z Pollinations.ai + napisy)
- * zmiksowane ze ścieżką dźwiękową lektora (Fish.audio API).
- */
-
 export interface RenderProgress {
   progress: number;
   message: string;
@@ -59,39 +51,118 @@ export const generateVideoClientSide = async (
       })
     );
 
-    // 3. Synteza mowy lektora (Fish.audio)
-    onProgress({ progress: 40, message: "Synteza głosu lektora (Fish.audio API)..." });
+    // 3. Synteza mowy lektora (Fish.audio z darmowym fallbackiem Google TTS)
+    onProgress({ progress: 40, message: "Synteza głosu lektora..." });
     let audioBuffer: AudioBuffer | null = null;
     const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
     
-    try {
-      // Pobranie pliku próbki z domyślnego zasobu
-      const refRes = await fetch(voiceSampleUrlOrPath);
-      const refBlob = await refRes.blob();
+    interface SceneTiming {
+      start: number;
+      end: number;
+      duration: number;
+    }
+    const sceneTimings: SceneTiming[] = [];
 
-      const formData = new FormData();
-      formData.append("reference_audio", refBlob, "voice_sample.mp3");
-      formData.append("text", text);
-      formData.append("format", "mp3");
-      formData.append("normalize", "true");
-      formData.append("latency", "normal");
+    // Najpierw próbujemy Fish.audio (jeśli podano klucz)
+    if (fishApiKey && fishApiKey !== "your_fish_audio_api_key_here") {
+      try {
+        onProgress({ progress: 42, message: "Klonowanie głosu w Fish.audio API..." });
+        const refRes = await fetch(voiceSampleUrlOrPath);
+        const refBlob = await refRes.blob();
 
-      const ttsRes = await fetch("https://api.fish.audio/v1/tts", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${fishApiKey}`
-        },
-        body: formData
-      });
+        const formData = new FormData();
+        formData.append("reference_audio", refBlob, "voice_sample.mp3");
+        formData.append("text", text);
+        formData.append("format", "mp3");
+        formData.append("normalize", "true");
+        formData.append("latency", "normal");
 
-      if (!ttsRes.ok) throw new Error(`Fish.audio API error: ${ttsRes.statusText}`);
+        const ttsRes = await fetch("https://api.fish.audio/v1/tts", {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${fishApiKey}`
+          },
+          body: formData
+        });
 
-      const audioData = await ttsRes.arrayBuffer();
-      audioBuffer = await audioContext.decodeAudioData(audioData);
-    } catch (e: any) {
-      console.warn("Błąd Fish.audio, przejście na systemowy SpeechSynthesis:", e);
-      // Fallback na Web Speech API
-      audioBuffer = null;
+        if (ttsRes.ok) {
+          const audioData = await ttsRes.arrayBuffer();
+          audioBuffer = await audioContext.decodeAudioData(audioData);
+          console.log("Pomyślnie sklonowano głos za pomocą Fish.audio.");
+        }
+      } catch (e: any) {
+        console.warn("Błąd Fish.audio, przechodzenie do darmowego syntezatora:", e);
+      }
+    }
+
+    // Darmowy fallback - pobieramy i łączymy pliki audio z naszego proxy Cloudflare Pages (/api/tts)
+    if (!audioBuffer) {
+      try {
+        onProgress({ progress: 45, message: "Generowanie darmowego lektora pl-PL..." });
+        const sentenceBuffers: AudioBuffer[] = [];
+
+        for (let i = 0; i < sentences.length; i++) {
+          const sentence = sentences[i].trim();
+          onProgress({ 
+            progress: 45 + Math.floor((i / sentences.length) * 12), 
+            message: `Generowanie audio dla sceny ${i + 1}/${sentences.length}...` 
+          });
+
+          const ttsUrl = `/api/tts?lang=pl&text=${encodeURIComponent(sentence)}`;
+          const ttsRes = await fetch(ttsUrl);
+          if (!ttsRes.ok) {
+            throw new Error(`Błąd syntezy API: ${ttsRes.statusText}`);
+          }
+
+          const audioData = await ttsRes.arrayBuffer();
+          const decoded = await audioContext.decodeAudioData(audioData);
+          sentenceBuffers.push(decoded);
+        }
+
+        if (sentenceBuffers.length > 0) {
+          const totalLength = sentenceBuffers.reduce((acc, val) => acc + val.length, 0);
+          const numberOfChannels = sentenceBuffers[0].numberOfChannels;
+          const sampleRate = sentenceBuffers[0].sampleRate;
+
+          audioBuffer = audioContext.createBuffer(numberOfChannels, totalLength, sampleRate);
+
+          let currentOffset = 0;
+          for (let i = 0; i < sentenceBuffers.length; i++) {
+            const buf = sentenceBuffers[i];
+            const startSec = currentOffset / sampleRate;
+            const durationSec = buf.duration;
+            const endSec = startSec + durationSec;
+
+            sceneTimings.push({
+              start: startSec,
+              end: endSec,
+              duration: durationSec
+            });
+
+            for (let channel = 0; channel < numberOfChannels; channel++) {
+              audioBuffer.getChannelData(channel).set(buf.getChannelData(channel), currentOffset);
+            }
+            currentOffset += buf.length;
+          }
+          console.log(`Zmontowano lektora: ${audioBuffer.duration.toFixed(2)}s`);
+        }
+      } catch (err: any) {
+        console.error("Błąd generowania darmowego TTS:", err);
+        audioBuffer = null;
+      }
+    }
+
+    // Uzupełnienie czasów scen, jeśli używamy Fish.audio lub wideo jest nieme
+    if (sceneTimings.length === 0) {
+      const dur = audioBuffer ? audioBuffer.duration : sentences.length * 5.0;
+      const avgDuration = dur / sentences.length;
+      for (let i = 0; i < sentences.length; i++) {
+        sceneTimings.push({
+          start: i * avgDuration,
+          end: (i + 1) * avgDuration,
+          duration: avgDuration
+        });
+      }
     }
 
     // 4. Montaż wideo za pomocą HTML Canvas i MediaRecorder
@@ -104,7 +175,6 @@ export const generateVideoClientSide = async (
 
     const stream = canvas.captureStream(25); // 25 FPS
     
-    // Jeśli udało się pobrać audio z Fish.audio, miksujemy je
     let mediaRecorder: MediaRecorder;
     const audioTracks: MediaStreamTrack[] = [];
     
@@ -130,7 +200,7 @@ export const generateVideoClientSide = async (
       if (e.data && e.data.size > 0) chunks.push(e.data);
     };
 
-    const duration = audioBuffer ? audioBuffer.duration : sentences.length * 5.0; // 5s na zdanie przy fallbacku
+    const duration = audioBuffer ? audioBuffer.duration : sentences.length * 5.0;
     const totalFrames = Math.ceil(duration * 25);
     let currentFrame = 0;
 
@@ -154,32 +224,39 @@ export const generateVideoClientSide = async (
         onProgress({ progress: progressPct, message: `Nagrywanie klatek wideo (${currentFrame}/${totalFrames})...` });
 
         // Określamy, który obrazek narysować
-        const sceneIndex = Math.min(
-          Math.floor((currentTimeSec / duration) * images.length),
-          images.length - 1
-        );
+        let sceneIndex = 0;
+        for (let i = 0; i < sceneTimings.length; i++) {
+          if (currentTimeSec >= sceneTimings[i].start && currentTimeSec <= sceneTimings[i].end) {
+            sceneIndex = i;
+            break;
+          }
+        }
+        if (currentTimeSec > sceneTimings[sceneTimings.length - 1].end) {
+          sceneIndex = sceneTimings.length - 1;
+        }
+
         const activeImg = images[sceneIndex];
         const activeText = sentences[sceneIndex] || "";
 
         // Rysuj tło z obrazka Pollinations
         ctx.drawImage(activeImg, 0, 0, 1280, 720);
 
-        // Nakładka cieniująca (gradient dla lepszej czytelności napisów)
+        // Nakładka cieniująca (gradient)
         const gradient = ctx.createLinearGradient(0, 500, 0, 720);
         gradient.addColorStop(0, "rgba(0, 0, 0, 0)");
         gradient.addColorStop(1, "rgba(0, 0, 0, 0.85)");
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 500, 1280, 220);
 
-        // Rysuj "Paciorek różańca" (animowany postęp modlitwy)
+        // Rysuj "Paciorek różańca"
         const beadPulse = 15 + Math.sin(currentTimeSec * 5) * 3;
         ctx.beginPath();
         ctx.arc(80, 640, beadPulse, 0, 2 * Math.PI);
-        ctx.fillStyle = "#fbbf24"; // Kolor paciorka w wersji minimalistycznej
+        ctx.fillStyle = "#fbbf24";
         ctx.shadowColor = "rgba(251, 191, 36, 0.8)";
         ctx.shadowBlur = 15;
         ctx.fill();
-        ctx.shadowBlur = 0; // reset shadow
+        ctx.shadowBlur = 0;
 
         // Rysuj tekst modlitwy
         ctx.fillStyle = "#ffffff";
@@ -187,7 +264,6 @@ export const generateVideoClientSide = async (
         ctx.textAlign = "left";
         ctx.textBaseline = "middle";
         
-        // Zawijanie tekstu
         const maxWidth = 1000;
         const words = activeText.split(" ");
         let line = "";
@@ -205,7 +281,6 @@ export const generateVideoClientSide = async (
         }
         lines.push(line);
 
-        // Wyświetl zawinięte linie
         lines.forEach((lineText, idx) => {
           ctx.fillText(lineText, 130, 620 + (idx * 40) - ((lines.length - 1) * 20));
         });
