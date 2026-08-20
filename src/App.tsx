@@ -333,97 +333,41 @@ export default function App() {
     }
   };
 
-  const LOCAL_API = 'http://localhost:3333';
-
   const handleGenerateFlikiMp4 = async () => {
     setFlikiGenerating(true);
     setFlikiProgress(5);
-    setFlikiStatusMsg("Wysyłanie tekstu modlitwy do lokalnego rurociągu generowania wideo...");
+    setFlikiStatusMsg("Uruchamianie renderera wideo w przeglądarce...");
     setFlikiDownloadUrl(null);
 
+    // Klucze API podawane z pliku env
+    const fishApiKey = import.meta.env.VITE_FISH_AUDIO_API_KEY || "sk-fish-04aSOFMOebn-qsDQ1S3zFtHh62oae6YIdbNIrwILrS0";
+    // Ścieżka do pliku audio w katalogu public/ lub zasobach
+    const voiceSampleUrl = "/VID-20260727-WA0000.mp3";
+
     try {
+      const { generateVideoClientSide } = await import('./utils/videoGenerator');
+      
       // Zbierz pełny tekst wszystkich scen/modlitw do generowania
       const scenes = buildFlikiScenesFromSteps(steps, prayers, cycleInfo);
       const fullText = scenes.map(s => s.text).join('\n\n');
 
-      // Sprawdź czy lokalny serwer działa
-      let serverOk = false;
-      try {
-        const healthRes = await fetch(`${LOCAL_API}/api/health`, { signal: AbortSignal.timeout(2000) });
-        serverOk = healthRes.ok;
-      } catch {
-        serverOk = false;
-      }
-
-      if (!serverOk) {
-        setFlikiStatusMsg("⚠️ Lokalny serwer API (port 3333) nie działa. Uruchom go komendą: npx tsx server.ts");
-        setFlikiGenerating(false);
-        return;
-      }
-
-      setFlikiProgress(10);
-      setFlikiStatusMsg("Uruchamianie rurociągu: Pollinations.ai (16:9 grafiki) + głos lektora z klonowania MP3...");
-
-      // Wyślij żądanie generowania do lokalnego Express serwera
-      const startRes = await fetch(`${LOCAL_API}/api/generate-mp4`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          text: fullText,
-          type: 'prayer',
-          cycleInfo: {
-            cycleName: cycleInfo.cycleName,
-            dayOfCycle: cycleInfo.dayOfCycle
-          }
-        })
-      });
-
-      if (!startRes.ok) {
-        const err = await startRes.json().catch(() => ({ error: 'Nieznany błąd' }));
-        setFlikiStatusMsg(`Błąd startu: ${err.error || startRes.statusText}`);
-        setFlikiGenerating(false);
-        return;
-      }
-
-      setFlikiProgress(15);
-      setFlikiStatusMsg("Generowanie w tle... Sprawdzanie postępu...");
-
-      // Polling statusu co 3 sekundy
-      let pollAttempts = 0;
-      const pollInterval = setInterval(async () => {
-        pollAttempts++;
-        try {
-          const statusRes = await fetch(`${LOCAL_API}/api/generate-mp4/status`);
-          const status = await statusRes.json();
-
-          if (status.progress) setFlikiProgress(Math.min(status.progress, 99));
-          if (status.message) setFlikiStatusMsg(status.message);
-
-          if (status.status === 'done' && status.downloadReady) {
-            clearInterval(pollInterval);
-            setFlikiDownloadUrl(`${LOCAL_API}/api/generate-mp4/download`);
-            setFlikiStatusMsg("✅ Wideo gotowe! Kliknij 'Pobierz MP4' aby zapisać plik.");
-            setFlikiProgress(100);
-            setFlikiGenerating(false);
-          } else if (status.status === 'error') {
-            clearInterval(pollInterval);
-            setFlikiStatusMsg(`❌ Błąd generowania: ${status.message}`);
-            setFlikiGenerating(false);
-          } else if (pollAttempts > 120) {
-            // timeout po 6 minutach
-            clearInterval(pollInterval);
-            setFlikiStatusMsg("⏱️ Timeout — generowanie trwa zbyt długo. Spróbuj ponownie.");
-            setFlikiGenerating(false);
-          }
-        } catch (e: any) {
-          clearInterval(pollInterval);
-          setFlikiStatusMsg(`Błąd połączenia z serwerem: ${e?.message || e}`);
-          setFlikiGenerating(false);
+      const videoUrl = await generateVideoClientSide(
+        fullText,
+        fishApiKey,
+        voiceSampleUrl,
+        (state) => {
+          setFlikiProgress(state.progress);
+          setFlikiStatusMsg(state.message);
         }
-      }, 3000);
+      );
+
+      setFlikiDownloadUrl(videoUrl);
+      setFlikiStatusMsg("✅ Wideo gotowe do pobrania! (Wygenerowane 100% lokalnie w chmurze)");
+      setFlikiProgress(100);
+      setFlikiGenerating(false);
 
     } catch (err: any) {
-      setFlikiStatusMsg(`Błąd: ${err?.message || err}`);
+      setFlikiStatusMsg(`❌ Błąd generowania w chmurze Cloudflare Pages: ${err?.message || err}`);
       setFlikiGenerating(false);
     }
   };
@@ -1787,7 +1731,7 @@ export default function App() {
                   <div className="flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-amber-400" />
                     <h4 className="text-sm font-bold font-mono uppercase tracking-wider text-amber-400">
-                      Panel Administratora — Lokalny Rurociąg Wideo 16:9 (Głos Klonowany + Pollinations)
+                      Panel Administratora — Generator Wideo 16:9 Cloud-Native (Cloudflare Pages)
                     </h4>
                   </div>
                   <span className="text-[10px] font-mono bg-indigo-950 text-indigo-300 px-2 py-0.5 rounded border border-indigo-800">
@@ -1803,7 +1747,7 @@ export default function App() {
                       <span>✅</span>
                       <span className="truncate">VID-20260727-WA0000.mp3 (9.1 MB)</span>
                     </div>
-                    <p className="text-[10px] text-slate-400">Plik próbki głosu do klonowania (Edge Neural TTS jako backup)</p>
+                    <p className="text-[10px] text-slate-400">Pobrana bezpośrednio z zasobów serwera w chmurze Cloudflare Pages</p>
                   </div>
 
                   {/* Image Provider Info */}
@@ -1811,17 +1755,16 @@ export default function App() {
                     <label className="text-[11px] font-mono text-amber-300 font-bold">🖼️ Generator grafik 16:9:</label>
                     <div className="bg-slate-950 border border-amber-800/60 text-amber-300 px-3 py-2 rounded-xl text-xs font-mono flex items-center gap-2">
                       <span>✅</span>
-                      <span>Pollinations.ai (API Key aktywny) → PNG 1280×720</span>
+                      <span>Pollinations.ai (Cloud API) → PNG 1280×720</span>
                     </div>
-                    <p className="text-[10px] text-slate-400">Generuje unikalny obraz sakralny 16:9 dla każdej sceny rozważania</p>
+                    <p className="text-[10px] text-slate-400">Generuje unikalne obrazy modlitwy w czasie rzeczywistym w przeglądarce</p>
                   </div>
 
                   {/* Server status */}
                   <div className="flex flex-col gap-1.5 md:col-span-2">
-                    <label className="text-[11px] font-mono text-sky-300 font-bold">🖥️ Lokalny serwer API:</label>
+                    <label className="text-[11px] font-mono text-sky-300 font-bold">🖥️ Architektura wdrożenia Cloudflare Pages:</label>
                     <div className="bg-slate-950 border border-sky-800/60 text-sky-300 px-3 py-2 rounded-xl text-xs font-mono">
-                      Uruchom w terminalu: <span className="text-amber-300 font-bold">npx tsx server.ts</span>
-                      <span className="ml-3 text-slate-400">(port 3333, wymagany przed kliknięciem Generuj MP4)</span>
+                      <span>✅ <strong>Brak serwera!</strong> Renderowanie wideo MP4/WebM odbywa się w całości za pomocą procesora karty graficznej użytkownika (HTML5 Canvas + MediaRecorder).</span>
                     </div>
                   </div>
                 </div>
@@ -1883,7 +1826,7 @@ export default function App() {
                     className="w-full sm:w-auto px-4 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-bold rounded-xl text-xs transition active:scale-95 shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                   >
                     <Film className="w-4 h-4 shrink-0" />
-                    <span>{flikiGenerating ? '⏳ Generowanie...' : '🎬 Generuj MP4 (Lokalnie)'}</span>
+                    <span>{flikiGenerating ? '⏳ Generowanie...' : '🎬 Generuj MP4 (Chmura)'}</span>
                   </button>
 
                   {flikiJsonPayload && (
