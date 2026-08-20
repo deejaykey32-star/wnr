@@ -264,6 +264,13 @@ export default function App() {
   const [localStatusMsg, setLocalStatusMsg] = useState<string | null>(null);
   const [localDownloadReady, setLocalDownloadReady] = useState<boolean>(false);
   const [localShowPanel, setLocalShowPanel] = useState<boolean>(false);
+  const [apiServerUrl, setApiServerUrl] = useState<string>(() => {
+    try {
+      return localStorage.getItem('apiServerUrl') || 'http://localhost:3333';
+    } catch {
+      return 'http://localhost:3333';
+    }
+  });
 
   const handleGenerateLocalMp4 = async () => {
     setLocalGenerating(true);
@@ -276,7 +283,7 @@ export default function App() {
         return step.text || prayers[step.prayerType]?.text || '';
       }).filter(t => t.trim().length > 0).join('\n\n');
 
-      const res = await fetch("http://localhost:3333/api/generate-mp4", {
+      const res = await fetch(`${apiServerUrl}/api/generate-mp4`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: fullText })
@@ -298,7 +305,7 @@ export default function App() {
   const pollLocalGenerationStatus = () => {
     const interval = setInterval(async () => {
       try {
-        const res = await fetch("http://localhost:3333/api/generate-mp4/status");
+        const res = await fetch(`${apiServerUrl}/api/generate-mp4/status`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
 
@@ -1660,6 +1667,38 @@ export default function App() {
                     </div>
                     <p className="text-[10px] text-slate-400">Generuje unikalne grafiki sakralne dla każdego paciorka różańca.</p>
                   </div>
+
+                  {/* API Server URL Config */}
+                  <div className="flex flex-col gap-1.5 md:col-span-2">
+                    <label className="text-[11px] font-mono text-indigo-300 font-bold">🔗 Adres API serwera generującego:</label>
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        value={apiServerUrl}
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          setApiServerUrl(val);
+                          try {
+                            localStorage.setItem('apiServerUrl', val);
+                          } catch (err) {}
+                        }}
+                        placeholder="http://localhost:3333"
+                        className="flex-1 bg-slate-950 border border-indigo-800/60 text-slate-200 px-3 py-2 rounded-xl text-xs font-mono focus:outline-none focus:border-amber-500"
+                      />
+                      <button
+                        onClick={() => {
+                          setApiServerUrl('http://localhost:3333');
+                          try {
+                            localStorage.setItem('apiServerUrl', 'http://localhost:3333');
+                          } catch (err) {}
+                        }}
+                        className="px-3 py-2 bg-slate-800 hover:bg-slate-750 text-slate-300 rounded-xl text-xs font-mono transition"
+                      >
+                        Reset
+                      </button>
+                    </div>
+                    <p className="text-[10px] text-slate-400">Domyślnie http://localhost:3333. Jeśli wdrożysz serwer w chmurze lub użyjesz tunelu HTTPS (np. Cloudflare Tunnel / ngrok) do obejścia Mixed Content na widokinaraj.pl, wpisz tutaj nowy adres API.</p>
+                  </div>
                 </div>
 
                 {/* Current Clausula & Image Prompt Preview */}
@@ -1692,7 +1731,7 @@ export default function App() {
 
                   {localDownloadReady && (
                     <a
-                      href="http://localhost:3333/api/generate-mp4/download"
+                      href={`${apiServerUrl}/api/generate-mp4/download`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full sm:w-auto px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition shadow-lg flex items-center justify-center gap-2 cursor-pointer"
