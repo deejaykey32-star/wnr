@@ -65,14 +65,14 @@ def build_ffmpeg_concat_file(segments: list, concat_file_path: str):
     """Creates FFmpeg concat demuxer text file specifying image file paths and durations."""
     lines = []
     for seg in segments:
-        img_path = seg.get("image_path", "").replace("\\", "/")
+        img_path = os.path.abspath(seg.get("image_path", "")).replace("\\", "/")
         duration = seg.get("duration", 4.0)
         lines.append(f"file '{img_path}'\n")
         lines.append(f"duration {duration:.3f}\n")
     
     # FFmpeg concat requirement: repeat last file
     if segments:
-        last_img = segments[-1].get("image_path", "").replace("\\", "/")
+        last_img = os.path.abspath(segments[-1].get("image_path", "")).replace("\\", "/")
         lines.append(f"file '{last_img}'\n")
         
     with open(concat_file_path, "w", encoding="utf-8") as f:
@@ -87,14 +87,15 @@ def render_video(segments: list, audio_path: str, output_mp4: str = "final_widok
     build_ffmpeg_concat_file(segments, concat_file)
 
     # Escape subtitle path for ffmpeg filter string (Windows backslashes must be escaped)
-    escaped_srt = srt_path.replace("\\", "/").replace(":", "\\:")
+    escaped_srt = os.path.abspath(srt_path).replace("\\", "/").replace(":", "\\:")
     
     sub_style = "FontName=Arial,FontSize=20,PrimaryColour=&H00FFFFFF,BackColour=&H80000000,BorderStyle=4,Alignment=2,MarginV=30"
     vf_filter = f"scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,subtitles='{escaped_srt}':force_style='{sub_style}'"
 
+    audio_abs_path = os.path.abspath(audio_path)
     # Check if narration audio exists; if not, create silent audio track filter
-    if os.path.exists(audio_path):
-        audio_input = ["-i", audio_path]
+    if os.path.exists(audio_abs_path):
+        audio_input = ["-i", audio_abs_path]
         audio_map = ["-c:a", "aac", "-b:a", "192k"]
     else:
         print("[WARNING] Narration audio not found, generating silent audio stream.")
