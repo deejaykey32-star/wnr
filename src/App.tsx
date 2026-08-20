@@ -333,72 +333,101 @@ export default function App() {
     }
   };
 
+  const LOCAL_API = 'http://localhost:3333';
+
   const handleGenerateFlikiMp4 = async () => {
     setFlikiGenerating(true);
-    setFlikiProgress(15);
-    setFlikiStatusMsg("Analizowanie wezwań 'dla którego...' i układanie scen 16:9...");
+    setFlikiProgress(5);
+    setFlikiStatusMsg("Wysyłanie tekstu modlitwy do lokalnego rurociągu generowania wideo...");
     setFlikiDownloadUrl(null);
 
     try {
-      const flikiScenes = buildFlikiScenesFromSteps(steps, prayers, cycleInfo);
-      
-      const res = await generateFlikiVideo(
-        flikiApiKey,
-        flikiVoiceId,
-        `RHZ365 ${cycleInfo.cycleName} - YouTube 16:9`,
-        flikiScenes
-      );
+      // Zbierz pełny tekst wszystkich scen/modlitw do generowania
+      const scenes = buildFlikiScenesFromSteps(steps, prayers, cycleInfo);
+      const fullText = scenes.map(s => s.text).join('\n\n');
 
-      setFlikiJsonPayload(res.jsonScript);
+      // Sprawdź czy lokalny serwer działa
+      let serverOk = false;
+      try {
+        const healthRes = await fetch(`${LOCAL_API}/api/health`, { signal: AbortSignal.timeout(2000) });
+        serverOk = healthRes.ok;
+      } catch {
+        serverOk = false;
+      }
 
-      if (!res.success) {
-        setFlikiStatusMsg(res.message || "Błąd generowania wideo w Fliki API.");
+      if (!serverOk) {
+        setFlikiStatusMsg("⚠️ Lokalny serwer API (port 3333) nie działa. Uruchom go komendą: npx tsx server.ts");
         setFlikiGenerating(false);
         return;
       }
 
-      if (res.downloadUrl) {
-        setFlikiDownloadUrl(res.downloadUrl);
-        setFlikiStatusMsg("Wygenerowano plik MP4!");
-        setFlikiProgress(100);
+      setFlikiProgress(10);
+      setFlikiStatusMsg("Uruchamianie rurociągu: Pollinations.ai (16:9 grafiki) + głos lektora z klonowania MP3...");
+
+      // Wyślij żądanie generowania do lokalnego Express serwera
+      const startRes = await fetch(`${LOCAL_API}/api/generate-mp4`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          text: fullText,
+          type: 'prayer',
+          cycleInfo: {
+            cycleName: cycleInfo.cycleName,
+            dayOfCycle: cycleInfo.dayOfCycle
+          }
+        })
+      });
+
+      if (!startRes.ok) {
+        const err = await startRes.json().catch(() => ({ error: 'Nieznany błąd' }));
+        setFlikiStatusMsg(`Błąd startu: ${err.error || startRes.statusText}`);
         setFlikiGenerating(false);
         return;
       }
 
-      if (res.videoId && flikiApiKey) {
-        setFlikiStatusMsg("Trwa renderowanie pliku MP4 w Fliki AI...");
-        let attempts = 0;
-        const interval = setInterval(async () => {
-          attempts++;
-          try {
-            const statusRes = await checkFlikiVideoStatus(flikiApiKey, res.videoId!);
-            if (statusRes.progress) setFlikiProgress(statusRes.progress);
-            if (statusRes.status === 'completed' && statusRes.downloadUrl) {
-              clearInterval(interval);
-              setFlikiDownloadUrl(statusRes.downloadUrl);
-              setFlikiStatusMsg("Generowanie pliku MP4 dla YouTube zakończone pomyślnie!");
-              setFlikiProgress(100);
-              setFlikiGenerating(false);
-            } else if (statusRes.status === 'failed' || attempts > 60) {
-              clearInterval(interval);
-              setFlikiStatusMsg("Przekroczono czas oczekiwania na Fliki API lub wystąpił błąd.");
-              setFlikiGenerating(false);
-            }
-          } catch (e: any) {
-            clearInterval(interval);
-            setFlikiStatusMsg(`Błąd statusu: ${e?.message || e}`);
+      setFlikiProgress(15);
+      setFlikiStatusMsg("Generowanie w tle... Sprawdzanie postępu...");
+
+      // Polling statusu co 3 sekundy
+      let pollAttempts = 0;
+      const pollInterval = setInterval(async () => {
+        pollAttempts++;
+        try {
+          const statusRes = await fetch(`${LOCAL_API}/api/generate-mp4/status`);
+          const status = await statusRes.json();
+
+          if (status.progress) setFlikiProgress(Math.min(status.progress, 99));
+          if (status.message) setFlikiStatusMsg(status.message);
+
+          if (status.status === 'done' && status.downloadReady) {
+            clearInterval(pollInterval);
+            setFlikiDownloadUrl(`${LOCAL_API}/api/generate-mp4/download`);
+            setFlikiStatusMsg("✅ Wideo gotowe! Kliknij 'Pobierz MP4' aby zapisać plik.");
+            setFlikiProgress(100);
+            setFlikiGenerating(false);
+          } else if (status.status === 'error') {
+            clearInterval(pollInterval);
+            setFlikiStatusMsg(`❌ Błąd generowania: ${status.message}`);
+            setFlikiGenerating(false);
+          } else if (pollAttempts > 120) {
+            // timeout po 6 minutach
+            clearInterval(pollInterval);
+            setFlikiStatusMsg("⏱️ Timeout — generowanie trwa zbyt długo. Spróbuj ponownie.");
             setFlikiGenerating(false);
           }
-        }, 5000);
-      } else {
-        setFlikiStatusMsg(res.message || "Wygenerowano gotowy skrypt wideo (JSON). Podaj klucz Fliki API Key, aby pobrać gotowe wideo MP4.");
-        setFlikiGenerating(false);
-      }
+        } catch (e: any) {
+          clearInterval(pollInterval);
+          setFlikiStatusMsg(`Błąd połączenia z serwerem: ${e?.message || e}`);
+          setFlikiGenerating(false);
+        }
+      }, 3000);
+
     } catch (err: any) {
       setFlikiStatusMsg(`Błąd: ${err?.message || err}`);
       setFlikiGenerating(false);
     }
   };
+
 
   const handleCopyFlikiJson = async () => {
     if (!flikiJsonPayload) return;
@@ -1758,7 +1787,7 @@ export default function App() {
                   <div className="flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-amber-400" />
                     <h4 className="text-sm font-bold font-mono uppercase tracking-wider text-amber-400">
-                      Panel Administratora — Lektor i Wideo MP4 Fliki AI (16:9 YouTube)
+                      Panel Administratora — Lokalny Rurociąg Wideo 16:9 (Głos Klonowany + Pollinations)
                     </h4>
                   </div>
                   <span className="text-[10px] font-mono bg-indigo-950 text-indigo-300 px-2 py-0.5 rounded border border-indigo-800">
@@ -1766,67 +1795,34 @@ export default function App() {
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-                  {/* Fliki API Key Input */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                  {/* Voice Sample Info */}
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-[11px] font-mono text-slate-300 font-bold">Fliki API Key:</label>
-                    <input
-                      type="password"
-                      value={flikiApiKey}
-                      onChange={(e) => handleSaveFlikiApiKey(e.target.value)}
-                      placeholder="Wklej klucz API z fliki.ai..."
-                      className="bg-slate-950 border border-slate-800 text-slate-200 px-3 py-2 rounded-xl text-xs font-mono focus:outline-none focus:border-indigo-500"
-                    />
-                    <p className="text-[10px] text-slate-400">Klucz API Fliki AI</p>
-                  </div>
-
-                  {/* Voice Selector / Cloned Voice ID */}
-                  <div className="flex flex-col gap-1.5">
-                    <div className="flex items-center justify-between">
-                      <label className="text-[11px] font-mono text-slate-300 font-bold">Głos lektora (Voice ID):</label>
-                      <button
-                        onClick={handleFetchFlikiVoices}
-                        disabled={flikiLoadingVoices}
-                        className="text-[10px] bg-slate-800 hover:bg-slate-700 text-indigo-300 px-2 py-0.5 rounded font-mono border border-slate-700 transition"
-                      >
-                        {flikiLoadingVoices ? 'Pobieranie...' : 'Pobierz głosy'}
-                      </button>
+                    <label className="text-[11px] font-mono text-emerald-300 font-bold">🎙️ Próbka głosu (klonowanie):</label>
+                    <div className="bg-slate-950 border border-emerald-800/60 text-emerald-300 px-3 py-2 rounded-xl text-xs font-mono flex items-center gap-2">
+                      <span>✅</span>
+                      <span className="truncate">VID-20260727-WA0000.mp3 (9.1 MB)</span>
                     </div>
-                    {flikiVoicesList.length > 0 ? (
-                      <select
-                        value={flikiVoiceId}
-                        onChange={(e) => handleSaveFlikiVoiceId(e.target.value)}
-                        className="bg-slate-950 border border-slate-800 text-slate-200 px-3 py-2 rounded-xl text-xs font-mono focus:outline-none focus:border-indigo-500"
-                      >
-                        {flikiVoicesList.map(v => (
-                          <option key={v.id} value={v.id}>
-                            {v.name} ({v.lang}){v.isCloned ? ' ⭐ Sklonowany' : ''}
-                          </option>
-                        ))}
-                      </select>
-                    ) : (
-                      <input
-                        type="text"
-                        value={flikiVoiceId}
-                        onChange={(e) => handleSaveFlikiVoiceId(e.target.value)}
-                        placeholder="Wpisz Voice ID..."
-                        className="bg-slate-950 border border-slate-800 text-slate-200 px-3 py-2 rounded-xl text-xs font-mono focus:outline-none focus:border-indigo-500"
-                      />
-                    )}
-                    {flikiVoicesMsg && <p className="text-[10px] text-amber-400 font-mono">{flikiVoicesMsg}</p>}
+                    <p className="text-[10px] text-slate-400">Plik próbki głosu do klonowania (Edge Neural TTS jako backup)</p>
                   </div>
 
-                  {/* Make.com Webhook URL Input */}
+                  {/* Image Provider Info */}
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-[11px] font-mono text-sky-300 font-bold">Make.com Webhook URL:</label>
-                    <input
-                      type="text"
-                      value={makeWebhookUrl}
-                      onChange={(e) => handleSaveMakeWebhookUrl(e.target.value)}
-                      placeholder="https://hook.eu1.make.com/..."
-                      className="bg-slate-950 border border-sky-800/60 text-sky-200 px-3 py-2 rounded-xl text-xs font-mono focus:outline-none focus:border-sky-400"
-                    />
-                    <p className="text-[10px] text-slate-400">Adres webhooka w scenariuszu Make.com</p>
+                    <label className="text-[11px] font-mono text-amber-300 font-bold">🖼️ Generator grafik 16:9:</label>
+                    <div className="bg-slate-950 border border-amber-800/60 text-amber-300 px-3 py-2 rounded-xl text-xs font-mono flex items-center gap-2">
+                      <span>✅</span>
+                      <span>Pollinations.ai (API Key aktywny) → PNG 1280×720</span>
+                    </div>
+                    <p className="text-[10px] text-slate-400">Generuje unikalny obraz sakralny 16:9 dla każdej sceny rozważania</p>
+                  </div>
+
+                  {/* Server status */}
+                  <div className="flex flex-col gap-1.5 md:col-span-2">
+                    <label className="text-[11px] font-mono text-sky-300 font-bold">🖥️ Lokalny serwer API:</label>
+                    <div className="bg-slate-950 border border-sky-800/60 text-sky-300 px-3 py-2 rounded-xl text-xs font-mono">
+                      Uruchom w terminalu: <span className="text-amber-300 font-bold">npx tsx server.ts</span>
+                      <span className="ml-3 text-slate-400">(port 3333, wymagany przed kliknięciem Generuj MP4)</span>
+                    </div>
                   </div>
                 </div>
 
@@ -1887,7 +1883,7 @@ export default function App() {
                     className="w-full sm:w-auto px-4 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-bold rounded-xl text-xs transition active:scale-95 shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                   >
                     <Film className="w-4 h-4 shrink-0" />
-                    <span>{flikiGenerating ? 'Generowanie...' : 'Generuj plik MP4 w Fliki AI'}</span>
+                    <span>{flikiGenerating ? '⏳ Generowanie...' : '🎬 Generuj MP4 (Lokalnie)'}</span>
                   </button>
 
                   {flikiJsonPayload && (
