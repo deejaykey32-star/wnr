@@ -346,17 +346,21 @@ export const generateVideoClientSide = async (
       mediaRecorder.start();
       const startTime = performance.now();
 
+      const totalFrames = Math.ceil(totalDuration * 25);
+      let frameCount = 0;
+      
       const renderLoop = () => {
-        const t = (performance.now() - startTime) / 1000;
+        // Obliczamy `t` na podstawie klatek, nie czasu rzeczywistego (odporność na background tab)
+        const t = frameCount / 25;
 
-        if (t >= totalDuration) {
+        if (t >= totalDuration || frameCount >= totalFrames) {
           mediaRecorder.stop();
           try { bufferSource?.stop(); } catch {}
           return;
         }
 
         const pct = 60 + Math.floor((t / totalDuration) * 38);
-        onProgress({ progress: pct, message: `Renderowanie: ${t.toFixed(1)}s / ${totalDuration.toFixed(1)}s` });
+        onProgress({ progress: pct, message: `Renderowanie: ${t.toFixed(1)}s / ${totalDuration.toFixed(1)}s (NIE ZMIENIAJ KARTY)` });
 
         // Wyznacz aktywną scenę
         let sceneIndex = scenes.length - 1;
@@ -394,7 +398,7 @@ export const generateVideoClientSide = async (
         ctx.fillStyle = botGrad;
         ctx.fillRect(0, H - 220, W, 220);
 
-        // ── PASKI RÓŻAŃCA ────────────────────────────────────────
+        // ── PASKI RÓŻAŃCA (lub centralny paciorek dla bloga) ─────────────────────────
         if (rgbaBeads && cmykBeads && scene.rgbaBeadId && scene.cmykBeadId) {
           ctx.save();
           drawBeadStrip(ctx, rgbaBeads, scene.rgbaBeadId, 100, H / 2, true, t);
@@ -404,21 +408,43 @@ export const generateVideoClientSide = async (
           drawBeadStrip(ctx, cmykBeads, scene.cmykBeadId, W - 100, H / 2, false, t);
           ctx.restore();
         } else {
-          // Fallback: jeden animowany paciorek
-          const bPulse = 18 + Math.sin(t * 5) * 4;
+          // Fallback: jeden animowany paciorek (np. w Blogu WnR365)
+          const bPulse = 24 + Math.sin(t * 5) * 6;
           ctx.save();
+          
+          // Outer glow
+          const grd = ctx.createRadialGradient(W/2, H - 280, bPulse*0.3, W/2, H - 280, bPulse*1.8);
+          grd.addColorStop(0, 'rgba(251,191,36,0.5)');
+          grd.addColorStop(1, 'rgba(0,0,0,0)');
+          ctx.fillStyle = grd;
           ctx.beginPath();
-          ctx.arc(80, H - 80, bPulse, 0, Math.PI * 2);
-          ctx.fillStyle = '#fbbf24';
+          ctx.arc(W/2, H - 280, bPulse*1.8, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Bead
+          const grad = ctx.createRadialGradient(W/2 - bPulse*0.3, H - 280 - bPulse*0.3, bPulse*0.1, W/2, H - 280, bPulse);
+          grad.addColorStop(0, '#fcd34d');
+          grad.addColorStop(1, '#d97706');
+          
+          ctx.beginPath();
+          ctx.arc(W/2, H - 280, bPulse, 0, Math.PI * 2);
+          ctx.fillStyle = grad;
           ctx.shadowColor = 'rgba(251,191,36,0.8)';
-          ctx.shadowBlur = 18;
+          ctx.shadowBlur = 20;
           ctx.fill();
           ctx.shadowBlur = 0;
+          
+          // Symbol IHS
+          ctx.fillStyle = '#78350f';
+          ctx.font = `bold ${Math.floor(bPulse*0.6)}px serif`;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText('IHS', W/2, H - 280);
           ctx.restore();
         }
 
         // ── ŚRODKOWY TEKST MODLITWY ──────────────────────────────
-        const textX = 270, textMaxW = W - 540, textBaseY = H - 130;
+        const textMaxW = W - 540, textBaseY = H - 130;
 
         // Etykieta (nazwa kroku)
         if (scene.label) {
@@ -473,10 +499,15 @@ export const generateVideoClientSide = async (
         ctx.fillRect(0, H - 4, progW, 4);
         ctx.restore();
 
-        requestAnimationFrame(renderLoop);
+        frameCount++;
+        
+        // Zamiast polegać w 100% na animFrame (które pauzuje się w tle), używamy timeout dla pewności nagrania w WebM.
+        // Jednak MediaRecorder rejestruje klatki asynchronicznie, więc setTimeout 40ms wymusi stałe renderowanie.
+        setTimeout(renderLoop, 40); // 25fps = 40ms
       };
 
-      renderLoop();
+      // Zastąp requestAnimationFrame timerem
+      setTimeout(renderLoop, 40);
     });
 
   } catch (error: any) {

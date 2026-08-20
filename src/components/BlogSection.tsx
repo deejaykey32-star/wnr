@@ -11,8 +11,9 @@ import {
 import { 
   Play, Pause, ChevronLeft, ChevronRight, RotateCcw, 
   Edit3, Volume2, Mic, MicOff, Calendar, Save, BookOpen, AlertCircle, Sparkles, FileDown, Video, RefreshCw,
-  Bookmark, Repeat
+  Bookmark, Repeat, Film, Download
 } from 'lucide-react';
+import { generateVideoClientSide } from '../utils/videoGenerator';
 import { RichTextRenderer } from '../utils/richTextHelper';
 import { WysiwygToolbar } from './WysiwygToolbar';
 import { getWnrDefaultBlogEntry } from '../utils/wnrBlogDefaults';
@@ -56,6 +57,17 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   const [ttsEnabled, setTtsEnabled] = useState<boolean>(true);
   const [isYoutubeMode, setIsYoutubeMode] = useState<boolean>(false);
 
+  // Local Video Generation State
+  const [localGenerating, setLocalGenerating] = useState<boolean>(false);
+  const [localProgress, setLocalProgress] = useState<number>(0);
+  const [localStatusMsg, setLocalStatusMsg] = useState<string>('');
+  const [localDownloadReady, setLocalDownloadReady] = useState<boolean>(false);
+  const [clientVideoUrl, setClientVideoUrl] = useState<string | null>(null);
+  const [localShowPanel, setLocalShowPanel] = useState<boolean>(false);
+  const [apiServerUrl, setApiServerUrl] = useState<string>(() => {
+    try { return localStorage.getItem('apiServerUrl') || 'http://localhost:3333'; } 
+    catch { return 'http://localhost:3333'; }
+  });
   // Continuous playback & completed days state (WnR365)
   const [completedWnrDays, setCompletedWnrDays] = useState<Record<number, boolean>>(() => getCompletedWnrDays());
   const [isContinuousPlayback, setIsContinuousPlayback] = useState<boolean>(false);
@@ -209,6 +221,67 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
 
     return [titleText, ...getPrayerSegments(cleanBody)];
   }, [activeEntry]);
+
+  const handleGenerateLocalMp4 = async () => {
+    setLocalGenerating(true);
+    setLocalStatusMsg("Wysyłanie zlecenia wygenerowania MP4 (Fish.audio)...");
+    setLocalDownloadReady(false);
+    
+    try {
+      const response = await fetch(`${apiServerUrl}/api/generate-mp4`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          text: activeEntry.text,
+          voiceSampleUrl: '/VID-20260727-WA0000.mp3',
+          outputFilename: `wnr365_blog_${cycleInfo.dayIndex}.mp4`
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`Błąd serwera: ${response.status} ${response.statusText}`);
+      }
+      
+      const data = await response.json();
+      setLocalStatusMsg(`Generowanie rozpoczęte: ${data.message || 'W toku'}. Serwer montuje MP4...`);
+      setLocalDownloadReady(true);
+    } catch (err: any) {
+      console.error(err);
+      setLocalStatusMsg(`❌ Błąd połączenia z lokalnym serwerem MP4: ${err.message}`);
+    } finally {
+      setLocalGenerating(false);
+    }
+  };
+
+  const handleGenerateClientVideo = async () => {
+    setLocalGenerating(true);
+    setLocalProgress(5);
+    setLocalStatusMsg("Przygotowywanie generowania w przeglądarce...");
+    setLocalDownloadReady(false);
+    setClientVideoUrl(null);
+
+    try {
+      const fullText = activeEntry.text || activeEntry.title;
+      const videoUrl = await generateVideoClientSide(
+        fullText,
+        "", // fishApiKey - empty to force Google TTS fallback
+        "/VID-20260727-WA0000.mp3",
+        (state) => {
+          setLocalProgress(state.progress);
+          setLocalStatusMsg(state.message);
+        }
+      );
+
+      setClientVideoUrl(videoUrl);
+      setLocalDownloadReady(true);
+      setLocalStatusMsg("Gotowe! Wideo WebM zostało zmontowane.");
+    } catch (err: any) {
+      console.error(err);
+      setLocalStatusMsg(`❌ Błąd generowania: ${err.message || err}`);
+    } finally {
+      setLocalGenerating(false);
+    }
+  };
 
   // Static beads definition
   const rgbaBeads = getRGBABeads();
@@ -538,13 +611,160 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
             <div className="text-[10px] sm:text-xs font-serif font-black text-amber-400 px-3 py-1 rounded bg-slate-950 border border-amber-500/20 truncate max-w-full">
               Widoki na Raj — WnR365
             </div>
-            <button
-              onClick={() => setIsYoutubeMode(false)}
-              className="text-[9px] sm:text-[10px] bg-slate-950 hover:bg-slate-800 text-slate-400 border border-slate-850 px-2.5 py-1 rounded font-mono transition cursor-pointer shrink-0"
-            >
-              WYJDŹ Z WERSJI MINIMALISTYCZNEJ (ESC)
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setLocalShowPanel(!localShowPanel)}
+                className={`text-[9px] sm:text-[10px] px-2.5 py-1 rounded font-mono font-bold transition cursor-pointer flex items-center gap-1 border ${
+                  localShowPanel
+                    ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-md'
+                    : 'bg-indigo-950/80 hover:bg-indigo-900 text-indigo-300 border-indigo-700/60'
+                }`}
+                title="Generowanie wideo MP4 z podkładem lektora"
+              >
+                <Film className="w-3 h-3 shrink-0" />
+                <span>Generuj Wideo {localShowPanel ? '▲' : '▼'}</span>
+              </button>
+              <button
+                onClick={() => setIsYoutubeMode(false)}
+                className="text-[9px] sm:text-[10px] bg-slate-950 hover:bg-slate-800 text-slate-400 border border-slate-850 px-2.5 py-1 rounded font-mono transition cursor-pointer shrink-0"
+              >
+                WYJDŹ (ESC)
+              </button>
+            </div>
           </div>
+
+          {/* COLLAPSIBLE LOCAL MP4/WEBM GENERATOR PANEL */}
+          {localShowPanel && (
+            <div className="bg-slate-900 border-b border-indigo-900/60 p-4 sm:p-6 flex flex-col gap-5 text-left animate-fadeIn">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-amber-400" />
+                  <h4 className="text-sm font-bold font-mono uppercase tracking-wider text-amber-400">
+                    Zaawansowany Generator Wideo (MP4 / WebM)
+                  </h4>
+                </div>
+                <span className="text-[10px] font-mono bg-indigo-950 text-indigo-300 px-2 py-0.5 rounded border border-indigo-800">
+                  Opcje Renderowania WnR365
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* METODA A: SERWER MP4 */}
+                <div className="bg-slate-950/60 p-4 rounded-2xl border border-indigo-950 flex flex-col justify-between gap-4">
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                      <h5 className="text-xs font-bold font-mono text-amber-400 uppercase tracking-wide">
+                        Metoda A: Serwer (MP4)
+                      </h5>
+                    </div>
+                    <p className="text-[11px] text-slate-400 leading-relaxed">
+                      Wysyła tekst do lokalnego serwera API (Python), by wygenerować wideo MP4 (Fish.audio klonowanie głosu).
+                    </p>
+
+                    <div className="flex flex-col gap-1.5 pt-2">
+                      <label className="text-[10px] font-mono text-slate-400">🔗 Adres API serwera generującego:</label>
+                      <div className="flex gap-2">
+                        <input
+                          type="text"
+                          value={apiServerUrl}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            setApiServerUrl(val);
+                            try { localStorage.setItem('apiServerUrl', val); } catch (err) {}
+                          }}
+                          placeholder="http://localhost:3333"
+                          className="flex-1 bg-slate-900 border border-slate-800 text-slate-200 px-3 py-1.5 rounded-lg text-xs font-mono focus:outline-none focus:border-amber-500"
+                        />
+                        <button
+                          onClick={() => {
+                            setApiServerUrl('http://localhost:3333');
+                            try { localStorage.setItem('apiServerUrl', 'http://localhost:3333'); } catch (err) {}
+                          }}
+                          className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-mono transition cursor-pointer"
+                        >
+                          Reset
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-2 flex flex-col gap-2">
+                    <button
+                      onClick={handleGenerateLocalMp4}
+                      disabled={localGenerating}
+                      className="w-full px-4 py-2.5 bg-amber-500 hover:bg-amber-400 disabled:opacity-50 text-slate-950 font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer shadow"
+                    >
+                      <Film className="w-3.5 h-3.5 shrink-0" />
+                      <span>Generuj MP4 na Serwerze</span>
+                    </button>
+
+                    {localDownloadReady && (
+                      <a
+                        href={`${apiServerUrl}/api/generate-mp4/download`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer text-center animate-pulse"
+                      >
+                        <Download className="w-3.5 h-3.5 shrink-0" />
+                        <span>Pobierz wideo MP4</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                {/* METODA B: BROWSER WEBM */}
+                <div className="bg-slate-950/60 p-4 rounded-2xl border border-indigo-950 flex flex-col justify-between gap-4">
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+                      <h5 className="text-xs font-bold font-mono text-indigo-400 uppercase tracking-wide">
+                        Metoda B: Przeglądarka (WebM)
+                      </h5>
+                    </div>
+                    <p className="text-[11px] text-slate-400 leading-relaxed">
+                      Generuje wideo lokalnie w oknie przeglądarki. Wykorzystuje Google Translate TTS. <b>Nie zmieniaj karty podczas generowania!</b>
+                    </p>
+                  </div>
+
+                  <div className="pt-2 flex flex-col gap-2">
+                    <button
+                      onClick={handleGenerateClientVideo}
+                      disabled={localGenerating}
+                      className="w-full px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer shadow"
+                    >
+                      <Film className="w-3.5 h-3.5 shrink-0" />
+                      <span>Generuj WebM w Przeglądarce</span>
+                    </button>
+
+                    {localDownloadReady && clientVideoUrl && (
+                      <a
+                        href={clientVideoUrl}
+                        download={`wnr365_blog_${cycleInfo.dayIndex}.webm`}
+                        className="w-full px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer text-center animate-pulse"
+                      >
+                        <Download className="w-3.5 h-3.5 shrink-0" />
+                        <span>Pobierz wideo WebM</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Progress bar i status */}
+              {localGenerating && (
+                <div className="flex flex-col gap-1.5 bg-slate-950 p-3 rounded-xl border border-slate-850 mt-2">
+                  <div className="h-2 w-full bg-slate-900 rounded-full overflow-hidden border border-slate-850">
+                    <div className="h-full bg-gradient-to-r from-indigo-500 via-sky-400 to-amber-400 transition-all duration-300" style={{ width: `${localProgress}%` }}></div>
+                  </div>
+                  <span className="text-[10px] font-mono text-slate-400">{localStatusMsg} ({localProgress}%)</span>
+                </div>
+              )}
+              {localStatusMsg && !localGenerating && (
+                <p className="text-[11px] font-mono text-amber-300 bg-slate-950 p-3 rounded-xl border border-slate-800 mt-2">{localStatusMsg}</p>
+              )}
+            </div>
+          )}
 
           {/* YT Content Row (Unrolled Beads + Auto scrolling text) */}
           <div className="flex-1 grid grid-cols-12 items-stretch px-2 sm:px-6 relative bg-slate-950 h-full overflow-hidden">
