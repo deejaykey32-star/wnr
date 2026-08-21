@@ -1634,29 +1634,29 @@ export default function App() {
         {activeTab === 'rosary' ? (
           /* WERSJA MINIMALISTYCZNA FRAME */
           (isYoutubeMode && isAuthorized) ? (
-          <div id="youtube-frame" className="w-full max-w-5xl bg-slate-950 border-2 sm:border-4 border-slate-800 rounded-2xl shadow-2xl relative flex flex-col justify-between overflow-hidden mx-auto transition-all duration-300">
+          <div id="youtube-frame" className={`w-full max-w-5xl border-2 sm:border-4 rounded-2xl shadow-2xl relative flex flex-col justify-between overflow-hidden mx-auto transition-all duration-300 ${isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'}`}>
             
             {/* Top status & detailed progress bar of minimalist view */}
-            <div className="bg-slate-900/90 backdrop-blur-md px-3 sm:px-6 py-2.5 sm:py-3 flex flex-col border-b border-slate-800 gap-2 w-full max-w-full overflow-hidden">
+            <div className={`backdrop-blur-md px-3 sm:px-6 py-2.5 sm:py-3 flex flex-col border-b gap-2 w-full max-w-full overflow-hidden ${isLight ? 'bg-slate-100/90 border-slate-200' : 'bg-slate-900/90 border-slate-800'}`}>
               <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
                 {/* Cycle & Date Pills */}
                 <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap min-w-0 max-w-full">
                   <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 animate-pulse shrink-0"></span>
-                  <span className="text-[10px] sm:text-xs font-mono tracking-widest text-slate-300 uppercase truncate">
+                  <span className={`text-[10px] sm:text-xs font-mono tracking-widest uppercase truncate ${isLight ? 'text-slate-600' : 'text-slate-300'}`}>
                     {cycleInfo.cycleName}
                   </span>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-sky-400 border border-sky-500/30">
+                  <span className={`text-[10px] font-mono px-2 py-0.5 rounded border ${isLight ? 'bg-slate-200 text-indigo-700 border-indigo-300' : 'bg-slate-800 text-sky-400 border-sky-500/30'}`}>
                     {formattedPolishDate}
                   </span>
                 </div>
 
                 {/* Active Bead & Mystery Details */}
                 <div className="flex items-center gap-1.5 flex-wrap justify-center">
-                  <span className="text-[10px] font-bold text-amber-400 bg-amber-950/60 px-2.5 py-0.5 rounded-full border border-amber-500/30 font-mono truncate max-w-full">
+                  <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border font-mono truncate max-w-full ${isLight ? 'text-amber-700 bg-amber-100 border-amber-300' : 'text-amber-400 bg-amber-950/60 border-amber-500/30'}`}>
                     {activeStep.label}
                   </span>
                   {activeStep.decadeIndex && (
-                    <span className="text-[10px] font-semibold text-slate-300 bg-slate-800 px-2 py-0.5 rounded-full font-mono">
+                    <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full font-mono ${isLight ? 'text-slate-700 bg-slate-200' : 'text-slate-300 bg-slate-800'}`}>
                       Dziesiątek {activeStep.decadeIndex}/5
                     </span>
                   )}
@@ -1669,7 +1669,7 @@ export default function App() {
                     className={`text-[9px] sm:text-[10px] px-2.5 py-1 rounded font-mono font-bold transition cursor-pointer flex items-center gap-1 border ${
                       localShowPanel
                         ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-md'
-                        : 'bg-indigo-950/80 hover:bg-indigo-900 text-indigo-300 border-indigo-700/60'
+                        : isLight ? 'bg-indigo-100 hover:bg-indigo-200 text-indigo-800 border-indigo-300' : 'bg-indigo-950/80 hover:bg-indigo-900 text-indigo-300 border-indigo-700/60'
                     }`}
                     title="Generowanie wideo MP4 z podkładem lektora"
                   >
@@ -1678,7 +1678,7 @@ export default function App() {
                   </button>
                   <button
                     onClick={() => setIsYoutubeMode(false)}
-                    className="text-[9px] sm:text-[10px] bg-slate-950 hover:bg-slate-800 text-slate-400 border border-slate-800 px-2.5 py-1 rounded font-mono transition cursor-pointer shrink-0"
+                    className={`text-[9px] sm:text-[10px] px-2.5 py-1 rounded font-mono transition cursor-pointer shrink-0 border ${isLight ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300' : 'bg-slate-950 hover:bg-slate-800 text-slate-400 border-slate-800'}`}
                   >
                     WYJDŹ (ESC)
                   </button>
@@ -1855,17 +1855,17 @@ export default function App() {
                     <div className="h-2 w-full bg-slate-900 rounded-full overflow-hidden border border-slate-850">
                       <div className="h-full bg-gradient-to-r from-indigo-500 via-sky-400 to-amber-400 transition-all duration-300" style={{ width: `${localProgress}%` }}></div>
                     </div>
-                    <span className="text-[10px] font-mono text-slate-400">{localStatusMsg} ({localProgress}%)</span>
+                    <span className={`text-[10px] font-mono ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>{localStatusMsg} ({localProgress}%)</span>
                   </div>
                 )}
                 {localStatusMsg && !localGenerating && (
-                  <p className="text-[11px] font-mono text-amber-300 bg-slate-950 p-3 rounded-xl border border-slate-800">{localStatusMsg}</p>
+                  <p className={`text-[11px] font-mono text-amber-300 p-3 rounded-xl border ${isLight ? 'bg-slate-100 border-slate-200' : 'bg-slate-950 border-slate-800'}`}>{localStatusMsg}</p>
                 )}
               </div>
             )}
 
             {/* Inner row containing the unrolled bead strips and centered scrolling prayer text */}
-            <div className="flex-1 grid grid-cols-12 items-stretch px-2 sm:px-6 relative bg-slate-950 h-full overflow-hidden py-4">
+            <div className={`flex-1 grid grid-cols-12 items-stretch px-2 sm:px-6 relative h-full overflow-hidden py-4 ${isLight ? 'bg-slate-50' : 'bg-slate-950'}`}>
               {/* LEFT COLUMN: RGBA Vertical Strip (Hidden on mobile < 640px) */}
               <div className="hidden sm:flex col-span-2 flex-col items-center justify-center relative py-6 border-r border-slate-900/40">
                 <div className="absolute top-2 text-[8px] font-mono font-bold tracking-widest text-sky-400">
@@ -1891,7 +1891,7 @@ export default function App() {
                   <span className="text-[9px] text-indigo-400 uppercase tracking-widest font-mono font-black mb-0.5 block">
                     {activeStep.label}
                   </span>
-                  <h3 className="text-base sm:text-xl font-serif text-white tracking-tight leading-tight">
+                  <h3 className={`text-base sm:text-xl font-serif tracking-tight leading-tight ${isLight ? 'text-slate-900' : 'text-white'}`}>
                     {activeStep.prayerType === 'mystery' 
                       ? `TAJEMNICA ${activeStep.decadeIndex}`
                       : prayers[activeStep.prayerType]?.title || DEFAULT_PRAYERS[activeStep.prayerType]?.title}
@@ -1901,8 +1901,8 @@ export default function App() {
                 {/* Auto-scrolling text container (100% synced with TTS voice) */}
                 <div 
                   ref={scrollContainerRef}
-                  className="flex-1 overflow-y-auto max-h-[190px] pr-2 custom-scrollbar flex flex-col items-center gap-3 scroll-smooth py-16"
-                  style={{ maskImage: 'linear-gradient(to bottom, transparent, white 20%, white 80%, transparent)' }}
+                  className="flex-1 overflow-y-auto max-h-[190px] pr-2 custom-scrollbar flex flex-col items-center gap-4 scroll-smooth"
+                  style={{ maskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)' }}
                 >
                   {prayerSegments.map((seg, sIdx) => {
                     const isCurrent = sIdx === activeSegmentIndex;
@@ -1910,11 +1910,12 @@ export default function App() {
                       <p
                         key={sIdx}
                         ref={el => { sentenceRefs.current[sIdx] = el; }}
-                        className={`text-sm sm:text-base transition-all duration-500 text-center leading-relaxed font-sans max-w-2xl px-2 ${
+                        className={`text-center font-serif text-sm sm:text-lg lg:text-xl px-2 sm:px-8 transition-all duration-500 ease-in-out cursor-pointer ${
                           isCurrent 
-                            ? "text-yellow-400 font-bold scale-105 drop-shadow-[0_2px_6px_rgba(234,179,8,0.4)]" 
-                            : "text-slate-400 opacity-30 hover:opacity-50"
+                            ? `opacity-100 font-medium tracking-tight scale-105 blur-none ${isLight ? 'text-slate-900' : 'text-white'}` 
+                            : `opacity-30 blur-[1px] scale-95 ${isLight ? 'text-slate-500' : 'text-slate-300'}`
                         }`}
+                        onClick={() => setActiveSegmentIndex(sIdx)}
                       >
                         {seg}
                       </p>

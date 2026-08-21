@@ -361,6 +361,8 @@ export const generateVideoClientSide = async (
 
     const totalDuration = audioBuffer ? audioBuffer.duration : scenes.length * 6.0;
 
+    const audioStartTime = audioContext.currentTime;
+
     return new Promise<string>((resolve) => {
       mediaRecorder.onstop = () => {
         const blob = new Blob(chunks, { type: 'video/webm' });
@@ -371,12 +373,14 @@ export const generateVideoClientSide = async (
       const startTime = performance.now();
 
       const renderLoop = () => {
-        // Używamy czasu rzeczywistego dla idealnej synchronizacji z audio. 
-        // Jeśli karta zostanie schowana, setTimeout zwolni do 1s, ale t będzie poprawne.
-        const t = (performance.now() - startTime) / 1000;
+        // Używamy czasu audioContext.currentTime dla absolutnie idealnej synchronizacji z odtwarzanym dźwiękiem.
+        const t = audioBuffer 
+          ? (audioContext.currentTime - audioStartTime) 
+          : ((performance.now() - startTime) / 1000);
 
         if (t >= totalDuration) {
           mediaRecorder.stop();
+          stream.getTracks().forEach(track => track.stop()); // Wymuszenie zakończenia wszystkich ścieżek
           try { bufferSource?.stop(); } catch {}
           return;
         }
