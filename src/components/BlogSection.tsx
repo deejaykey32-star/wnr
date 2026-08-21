@@ -269,7 +269,11 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         (state) => {
           setLocalProgress(state.progress);
           setLocalStatusMsg(state.message);
-        }
+        },
+        undefined, // stepsData
+        undefined, // rgbaBeads
+        undefined, // cmykBeads
+        "Widoki na Raj" // titleFallback
       );
 
       setClientVideoUrl(videoUrl);

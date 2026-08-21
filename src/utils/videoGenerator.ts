@@ -171,7 +171,8 @@ export const generateVideoClientSide = async (
   onProgress: (state: RenderProgress) => void,
   stepsData?: PrayerStep[],
   rgbaBeads?: BeadData[],
-  cmykBeads?: BeadData[]
+  cmykBeads?: BeadData[],
+  titleFallback: string = 'Modlitwa Różańcowa'
 ): Promise<string> => {
   try {
     // 1. Podział tekstu na sceny (po jednym kroku modlitwy)
@@ -195,38 +196,61 @@ export const generateVideoClientSide = async (
     }
 
     // 2. Generowanie obrazów w tle (Pollinations.ai) — jeden obraz na scenę
-    onProgress({ progress: 20, message: `Generowanie ${scenes.length} obrazów sakralnych 16:9...` });
-    const imageUrls = scenes.map((scene) => {
+    onProgress({ progress: 15, message: `Generowanie ${scenes.length} obrazów sakralnych 16:9...` });
+    
+    const images: HTMLImageElement[] = [];
+    // Ładowanie obrazów sekwencyjnie z opóźnieniem aby uniknąć limitów Pollinations.ai (HTTP 429)
+    for (let i = 0; i < scenes.length; i++) {
+      onProgress({ progress: 15 + Math.floor((i / scenes.length) * 20), message: `Obraz ${i + 1}/${scenes.length}...` });
+      
+      const scene = scenes[i];
       const cleanPrompt = encodeURIComponent(`holy sacred christian painting, baroque style, soft light, ${scene.text.slice(0, 80)}`);
       const seed = Math.floor(Math.random() * 1000000);
-      return `https://image.pollinations.ai/prompt/${cleanPrompt}?width=1280&height=720&nologo=true&seed=${seed}`;
-    });
+      const url = `https://image.pollinations.ai/prompt/${cleanPrompt}?width=1280&height=720&nologo=true&seed=${seed}`;
 
-    const images: HTMLImageElement[] = await Promise.all(
-      imageUrls.map((url) => {
-        return new Promise<HTMLImageElement>((resolve) => {
-          const img = new Image();
-          img.crossOrigin = 'anonymous';
-          img.onload = () => resolve(img);
-          img.onerror = () => {
-            // Fallback: ciemne tło z tekstem
-            const canvas = document.createElement('canvas');
-            canvas.width = 1280; canvas.height = 720;
-            const c = canvas.getContext('2d')!;
-            c.fillStyle = '#0f172a';
-            c.fillRect(0, 0, 1280, 720);
-            c.fillStyle = '#fbbf24';
-            c.font = 'bold 36px serif';
-            c.textAlign = 'center';
-            c.fillText('Modlitwa Różańcowa', 640, 360);
-            const fb = new Image();
-            fb.src = canvas.toDataURL();
-            fb.onload = () => resolve(fb);
-          };
-          img.src = url;
-        });
-      })
-    );
+      const img = await new Promise<HTMLImageElement>((resolve) => {
+        const image = new Image();
+        image.crossOrigin = 'anonymous';
+        
+        let timeoutId: NodeJS.Timeout;
+        
+        const finish = (result: HTMLImageElement) => {
+          clearTimeout(timeoutId);
+          resolve(result);
+        };
+        
+        image.onload = () => finish(image);
+        
+        const handleFallback = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = 1280; canvas.height = 720;
+          const c = canvas.getContext('2d')!;
+          c.fillStyle = '#0f172a';
+          c.fillRect(0, 0, 1280, 720);
+          c.fillStyle = '#fbbf24';
+          c.font = 'bold 36px serif';
+          c.textAlign = 'center';
+          c.fillText(titleFallback, 640, 360);
+          const fb = new Image();
+          fb.onload = () => finish(fb);
+          fb.src = canvas.toDataURL();
+        };
+        
+        image.onerror = handleFallback;
+        
+        // Timeout 15s na każdy obraz, potem wymuś fallback
+        timeoutId = setTimeout(() => {
+          image.src = '';
+          handleFallback();
+        }, 15000);
+
+        image.src = url;
+      });
+      
+      images.push(img);
+      // Małe opóźnienie aby odciążyć połączenia (400ms)
+      await new Promise(r => setTimeout(r, 400));
+    }
 
     // 3. Synteza lektora (Google Translate TTS przez Cloudflare Pages Function)
     onProgress({ progress: 40, message: 'Synteza głosu lektora (TTS)...' });
@@ -343,17 +367,15 @@ export const generateVideoClientSide = async (
         resolve(URL.createObjectURL(blob));
       };
 
-      mediaRecorder.start();
+      mediaRecorder.start(1000); // 1-second chunks to prevent memory bloat/crash
       const startTime = performance.now();
 
-      const totalFrames = Math.ceil(totalDuration * 25);
-      let frameCount = 0;
-      
       const renderLoop = () => {
-        // Obliczamy `t` na podstawie klatek, nie czasu rzeczywistego (odporność na background tab)
-        const t = frameCount / 25;
+        // Używamy czasu rzeczywistego dla idealnej synchronizacji z audio. 
+        // Jeśli karta zostanie schowana, setTimeout zwolni do 1s, ale t będzie poprawne.
+        const t = (performance.now() - startTime) / 1000;
 
-        if (t >= totalDuration || frameCount >= totalFrames) {
+        if (t >= totalDuration) {
           mediaRecorder.stop();
           try { bufferSource?.stop(); } catch {}
           return;
@@ -498,8 +520,6 @@ export const generateVideoClientSide = async (
         ctx.fillStyle = progGrad;
         ctx.fillRect(0, H - 4, progW, 4);
         ctx.restore();
-
-        frameCount++;
         
         // Zamiast polegać w 100% na animFrame (które pauzuje się w tle), używamy timeout dla pewności nagrania w WebM.
         // Jednak MediaRecorder rejestruje klatki asynchronicznie, więc setTimeout 40ms wymusi stałe renderowanie.
