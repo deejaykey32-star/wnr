@@ -1,4 +1,4 @@
-const CACHE_NAME = 'embik365-v19-static-only';
+const CACHE_NAME = 'embik365-v20-static-only';
 
 // Only truly static files go here — NO JS chunks (they change on every build)
 const PRECACHE_ASSETS = [

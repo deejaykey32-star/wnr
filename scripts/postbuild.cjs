@@ -15,10 +15,16 @@ if (fs.existsSync(distIndex)) {
   process.exit(1);
 }
 
-// 2. Copy _redirects for Cloudflare Pages SPA routing
+// 2. Copy _redirects and _headers for Cloudflare Pages SPA routing & cache control
 if (fs.existsSync(publicRedirects)) {
   fs.copyFileSync(publicRedirects, distRedirects);
   console.log('[Postbuild] Copied public/_redirects → dist/_redirects');
+}
+const publicHeaders = path.join(__dirname, '..', 'public', '_headers');
+const distHeaders = path.join(__dirname, '..', 'dist', '_headers');
+if (fs.existsSync(publicHeaders)) {
+  fs.copyFileSync(publicHeaders, distHeaders);
+  console.log('[Postbuild] Copied public/_headers → dist/_headers');
 }
 
 // Note: SW asset injection intentionally REMOVED.
