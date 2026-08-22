@@ -271,6 +271,10 @@ export default function App() {
   const [localDownloadReady, setLocalDownloadReady] = useState<boolean>(false);
   const [localShowPanel, setLocalShowPanel] = useState<boolean>(false);
   const [clientVideoUrl, setClientVideoUrl] = useState<string | null>(null);
+  const [autoUploadYoutube, setAutoUploadYoutube] = useState<boolean>(false);
+  const [youtubePlaylistId, setYoutubePlaylistId] = useState<string>('');
+  const [youtubePrivacy, setYoutubePrivacy] = useState<string>('public');
+  const [youtubeUploadedUrl, setYoutubeUploadedUrl] = useState<string | null>(null);
   const [apiServerUrl, setApiServerUrl] = useState<string>(() => {
     try {
       return localStorage.getItem('apiServerUrl') || (import.meta as any).env?.VITE_API_SERVER_URL || 'http://localhost:3333';
@@ -285,6 +289,7 @@ export default function App() {
     setLocalStatusMsg("Rozpoczynanie generowania modlitwy na serwerze...");
     setLocalDownloadReady(false);
     setClientVideoUrl(null);
+    setYoutubeUploadedUrl(null);
 
     try {
       const fullText = steps.map((step) => {
@@ -294,7 +299,13 @@ export default function App() {
       const res = await fetch(`${apiServerUrl}/api/generate-mp4`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: fullText })
+        body: JSON.stringify({
+          text: fullText,
+          autoUploadYoutube,
+          playlistId: youtubePlaylistId,
+          title: `RHZ365 Modlitwa Różańcowa - ${selectedDate.toLocaleDateString('pl-PL')}`,
+          privacy: youtubePrivacy
+        })
       });
 
       if (!res.ok) throw new Error(`HTTP Status ${res.status}`);
@@ -325,6 +336,9 @@ export default function App() {
         }
         if (data.message) {
           setLocalStatusMsg(data.message);
+        }
+        if (data.youtubeUrl) {
+          setYoutubeUploadedUrl(data.youtubeUrl);
         }
 
         if (data.status === "done") {
@@ -1784,6 +1798,51 @@ export default function App() {
                       </div>
                     </div>
 
+                    {/* YOUTUBE AUTO-UPLOAD OPTIONS */}
+                    <div className="p-3 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2 text-xs">
+                      <label className="flex items-center gap-2 text-slate-300 font-medium cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={autoUploadYoutube}
+                          onChange={(e) => setAutoUploadYoutube(e.target.checked)}
+                          className="w-4 h-4 accent-red-500 rounded cursor-pointer"
+                        />
+                        <span className="text-red-400 font-bold">▶ Auto-publikacja na YouTube</span>
+                      </label>
+
+                      {autoUploadYoutube && (
+                        <div className="space-y-2 pt-1">
+                          <div>
+                            <label className="block text-[10px] uppercase font-semibold text-slate-400 mb-1">
+                              ID Playlisty YouTube (opcjonalnie)
+                            </label>
+                            <input
+                              type="text"
+                              placeholder="np. PL1234567890abcdef (lub puste)"
+                              value={youtubePlaylistId}
+                              onChange={(e) => setYoutubePlaylistId(e.target.value)}
+                              className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1.5 text-slate-200 text-xs font-mono focus:border-red-500 focus:outline-none"
+                            />
+                          </div>
+
+                          <div>
+                            <label className="block text-[10px] uppercase font-semibold text-slate-400 mb-1">
+                              Widoczność filmu
+                            </label>
+                            <select
+                              value={youtubePrivacy}
+                              onChange={(e) => setYoutubePrivacy(e.target.value)}
+                              className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 py-1.5 text-slate-200 text-xs focus:border-red-500 focus:outline-none"
+                            >
+                              <option value="public">Publiczny (Widoczny dla wszystkich)</option>
+                              <option value="unlisted">Niepubliczny (Tylko z linkiem)</option>
+                              <option value="private">Prywatny (Tylko Ty)</option>
+                            </select>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
                     <div className="pt-2 flex flex-col gap-2">
                       <button
                         onClick={handleGenerateLocalMp4}
@@ -1803,7 +1862,19 @@ export default function App() {
                           className="w-full px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer text-center animate-pulse"
                         >
                           <Download className="w-3.5 h-3.5 shrink-0" />
-                          <span>Pobierz wideo MP4 (YouTube)</span>
+                          <span>Pobierz wideo MP4</span>
+                        </a>
+                      )}
+
+                      {youtubeUploadedUrl && (
+                        <a
+                          href={youtubeUploadedUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full px-4 py-2.5 bg-red-600 hover:bg-red-500 text-white font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer text-center"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                          <span>Zobacz opublikowany film na YouTube</span>
                         </a>
                       )}
                     </div>

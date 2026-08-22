@@ -49,6 +49,18 @@ class LocalAPIServer(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps({"ok": True, "version": "1.0.0-py"}).encode('utf-8'))
             return
 
+        elif parsed_path.path == "/api/youtube/playlists":
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            try:
+                from youtube_uploader import fetch_user_playlists
+                playlists = fetch_user_playlists()
+                self.wfile.write(json.dumps({"playlists": playlists}).encode('utf-8'))
+            except Exception as e:
+                self.wfile.write(json.dumps({"playlists": [], "error": str(e)}).encode('utf-8'))
+            return
+
         elif parsed_path.path == "/api/generate-mp4/status":
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
@@ -59,6 +71,7 @@ class LocalAPIServer(BaseHTTPRequestHandler):
                     "status": current_job["status"],
                     "progress": current_job["progress"],
                     "message": current_job["message"],
+                    "youtubeUrl": current_job.get("youtubeUrl"),
                     "downloadReady": current_job["status"] == "done",
                     "downloadUrl": "/api/generate-mp4/download" if current_job["status"] == "done" else None
                 }
@@ -105,6 +118,11 @@ class LocalAPIServer(BaseHTTPRequestHandler):
                     self.wfile.write(json.dumps({"error": "Brak tekstu modlitwy (pole 'text' musi mieć min. 5 znaków)."}).encode('utf-8'))
                     return
 
+                auto_upload_yt = body.get("autoUploadYoutube", False)
+                playlist_id = body.get("playlistId", "")
+                yt_title = body.get("title", "RHZ365 / WnR365 - Rozważania Modlitewne")
+                yt_privacy = body.get("privacy", "public")
+
                 with job_lock:
                     if current_job["status"] == "running":
                         self.send_response(409)
@@ -120,14 +138,48 @@ class LocalAPIServer(BaseHTTPRequestHandler):
                     current_job["progress"] = 5
                     current_job["message"] = "Rozpoczynanie generowania modlitwy..."
                     current_job["output_mp4"] = OUTPUT_MP4
+                    current_job["youtubeUrl"] = None
 
-                # Uruchom potok w osobnym wątku leżącym w tle
-                threading.Thread(target=run_pipeline_worker, args=(text_to_generate.strip(),), daemon=True).start()
+                # Uruchom potok w osobnym wątku w tle
+                threading.Thread(
+                    target=run_pipeline_worker,
+                    args=(text_to_generate.strip(), auto_upload_yt, playlist_id, yt_title, yt_privacy),
+                    daemon=True
+                ).start()
 
                 self.send_response(200)
                 self.send_header("Content-Type", "application/json")
                 self.end_headers()
                 self.wfile.write(json.dumps({"jobId": job_id, "status": "started"}).encode('utf-8'))
+                return
+
+            elif parsed_path.path == "/api/youtube/upload":
+                content_length = int(self.headers.get('Content-Length', 0))
+                post_data = self.rfile.read(content_length) if content_length > 0 else b"{}"
+                try:
+                    body = json.loads(post_data.decode('utf-8'))
+                except Exception:
+                    body = {}
+
+                playlist_id = body.get("playlistId", "")
+                yt_title = body.get("title", "RHZ365 / WnR365 - Film Modlitewny")
+                yt_desc = body.get("description", "Oficjalny film modlitewny ze strony widokinaraj.pl")
+                yt_privacy = body.get("privacy", "public")
+
+                if not os.path.exists(OUTPUT_MP4):
+                    self.send_response(400)
+                    self.send_header("Content-Type", "application/json")
+                    self.end_headers()
+                    self.wfile.write(json.dumps({"error": "Brak wygenerowanego pliku MP4 na serwerze."}).encode('utf-8'))
+                    return
+
+                from youtube_uploader import upload_video_to_youtube
+                upload_res = upload_video_to_youtube(OUTPUT_MP4, yt_title, yt_desc, playlist_id, yt_privacy)
+
+                self.send_response(200 if upload_res.get("success") else 500)
+                self.send_header("Content-Type", "application/json")
+                self.end_headers()
+                self.wfile.write(json.dumps(upload_res).encode('utf-8'))
                 return
             else:
                 self.send_response(404)
@@ -143,7 +195,7 @@ class LocalAPIServer(BaseHTTPRequestHandler):
                 pass
 
 
-def run_pipeline_worker(text: str):
+def run_pipeline_worker(text: str, auto_upload_yt: bool = False, playlist_id: str = None, yt_title: str = None, yt_privacy: str = "public"):
     print(f"[WORKER] Rozpoczęto zadanie generowania w tle.")
     try:
         # Wywołanie pipeline.py w trybie bez buforowania (-u)
@@ -193,7 +245,7 @@ def run_pipeline_worker(text: str):
             elif "PHASE 4" in line_str or "ffmpeg" in line_str.lower():
                 prog, msg = 85, "Montowanie wideo MP4 (FFmpeg)..."
             elif "[SUCCESS]" in line_str:
-                prog, msg = 100, "Wideo wygenerowane pomyślnie!"
+                prog, msg = 90, "Wideo MP4 wyrenderowane! Przygotowanie publikacji..."
 
             if prog is not None or msg is not None:
                 with job_lock:
@@ -206,10 +258,27 @@ def run_pipeline_worker(text: str):
         
         # Weryfikacja wyniku
         if process.returncode == 0 and os.path.exists(OUTPUT_MP4) and os.path.getsize(OUTPUT_MP4) > 1000:
+            yt_url = None
+            if auto_upload_yt or playlist_id:
+                with job_lock:
+                    current_job["progress"] = 92
+                    current_job["message"] = "Przesyłanie filmu na YouTube i dodawanie do playlisty..."
+                try:
+                    from youtube_uploader import upload_video_to_youtube
+                    title = yt_title or "RHZ365 / WnR365 - Rozważania Modlitewne"
+                    desc = f"Film modlitewny wygenerowany automatycznie na stronie widokinaraj.pl\n\nTreść:\n{text[:500]}..."
+                    res_yt = upload_video_to_youtube(OUTPUT_MP4, title, desc, playlist_id, yt_privacy)
+                    if res_yt.get("success"):
+                        yt_url = res_yt.get("youtubeUrl")
+                        print(f"[WORKER] ✅ Wygenerowano i przesłano na YouTube: {yt_url}")
+                except Exception as ex_yt:
+                    print(f"[WORKER ERROR] Publikacja YouTube nie powiodła się: {ex_yt}")
+
             with job_lock:
                 current_job["status"] = "done"
                 current_job["progress"] = 100
-                current_job["message"] = "Gotowe! Wideo wygenerowane poprawnie."
+                current_job["youtubeUrl"] = yt_url
+                current_job["message"] = "Gotowe! Wideo wygenerowane poprawnie." if not yt_url else f"Gotowe! Opublikowano na YouTube: {yt_url}"
             print(f"[WORKER] ✅ Sukces. Wyjściowy plik MP4: {OUTPUT_MP4}")
         else:
             err_detail = " | ".join(output_lines[-3:]) if output_lines else f"Kod: {process.returncode}"

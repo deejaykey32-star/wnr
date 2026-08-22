@@ -22,6 +22,7 @@ COPY server.py .
 COPY pipeline.py .
 COPY generate_media.py .
 COPY assemble_video.py .
+COPY youtube_uploader.py .
 COPY VID-20260727-WA0000.mp3 .
 
 # Create output folder
