@@ -285,7 +285,7 @@ export default function App() {
   const [youtubeRefreshToken, setYoutubeRefreshToken] = useState<string>(() => {
     try { return localStorage.getItem('yt_refresh_token') || ''; } catch { return ''; }
   });
-  const [ttsVoice, setTtsVoice] = useState<string>('pl-PL-MarekNeural');
+  const [ttsVoice, setTtsVoice] = useState<string>('elevenlabs');
   const [ttsRate, setTtsRate] = useState<string>('-18%');
   const [youtubeUploadedUrl, setYoutubeUploadedUrl] = useState<string | null>(null);
   const [apiServerUrl, setApiServerUrl] = useState<string>(() => {
@@ -1883,7 +1883,8 @@ export default function App() {
                             onChange={(e) => setTtsVoice(e.target.value)}
                             className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 py-1.5 text-slate-200 text-xs focus:border-amber-500 focus:outline-none cursor-pointer"
                           >
-                            <option value="clone">🎙️ Mój Głos (Klonowanie z pliku VID-20260727-WA0000.mp3)</option>
+                            <option value="elevenlabs">🎙️ ElevenLabs - Mój Głos (yu6bC9aJwpEUndYOjPEg)</option>
+                            <option value="fish">🎙️ Fish.audio - Mój Głos (Klonowanie z MP3)</option>
                             <option value="pl-PL-MarekNeural">Marek (Męski - Głęboki, Spokojny)</option>
                             <option value="pl-PL-ZofiaNeural">Zofia (Żeński - Łagodna, Pokorna)</option>
                           </select>

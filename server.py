@@ -226,9 +226,11 @@ def run_pipeline_worker(text: str, auto_upload_yt: bool = False, playlist_id: st
         
         env = os.environ.copy()
         env["PYTHONUNBUFFERED"] = "1"
-        env["EDGE_VOICE"] = tts_voice or "pl-PL-MarekNeural"
+        env["EDGE_VOICE"] = tts_voice or "elevenlabs"
         env["TTS_RATE"] = tts_rate or "-18%"
         env["FISH_AUDIO_API_KEY"] = os.getenv("FISH_AUDIO_API_KEY", "sk-fish-Kd92IxqmbXbNDpyj24-Bf4e84y8iuNXsA_idr7nQD4o")
+        env["ELEVENLABS_API_KEY"] = os.getenv("ELEVENLABS_API_KEY", "014b83ad6adba049d850cd8cca0db3ace4de04c69af7b601a2dafea845eecda8")
+        env["ELEVENLABS_VOICE_ID"] = os.getenv("ELEVENLABS_VOICE_ID", "yu6bC9aJwpEUndYOjPEg")
 
         process = subprocess.Popen(
             cmd,
