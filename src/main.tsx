@@ -75,19 +75,7 @@ class ErrorBoundary extends Component<Props, State> {
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error('[eMBiK365] React render error caught:', error, errorInfo);
-
-    // Auto-reload once silently — never show an error screen
-    const alreadyReloaded = sessionStorage.getItem(BOUNDARY_RELOAD_FLAG);
-    if (!alreadyReloaded) {
-      sessionStorage.setItem(BOUNDARY_RELOAD_FLAG, '1');
-      setTimeout(() => {
-        window.location.reload();
-      }, 100);
-      this.setState({ reloadAttempted: true });
-    } else {
-      // Second crash after reload — clear session flag so next visit is clean
-      sessionStorage.removeItem(BOUNDARY_RELOAD_FLAG);
-    }
+    // Don't auto-reload on runtime render errors to avoid wiping user session / video progress
   }
 
   public render() {

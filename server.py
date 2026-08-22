@@ -16,11 +16,11 @@ current_job = {
     "output_mp4": None
 }
 
-PORT = 3333
+PORT = int(os.environ.get("PORT", 7860))
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(BASE_DIR, "output")
 OUTPUT_MP4 = os.path.join(OUTPUT_DIR, "final_widokinaraj_169.mp4")
-PYTHON_BIN = os.path.join(BASE_DIR, "venv", "Scripts", "python.exe")
+PYTHON_BIN = sys.executable
 PIPELINE_SCRIPT = os.path.join(BASE_DIR, "pipeline.py")
 
 # Upewnij się, że katalog wyjściowy istnieje
@@ -216,8 +216,8 @@ def run_pipeline_worker(text: str):
         print(f"[WORKER] ❌ Wyjątek: {e}")
 
 if __name__ == "__main__":
-    server = HTTPServer(('localhost', PORT), LocalAPIServer)
-    print(f"\n[SERVER] Local API Server (Python) running on http://localhost:{PORT}")
+    server = HTTPServer(('0.0.0.0', PORT), LocalAPIServer)
+    print(f"\n[SERVER] API Server (Python) running on http://0.0.0.0:{PORT}")
     print(f"   Przycisk 'Generuj MP4' wywola teraz ten proces w tle.")
     print(f"   Wymagany wlaczony serwer do generowania filmow.\n")
     try:

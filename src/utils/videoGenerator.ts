@@ -164,6 +164,174 @@ function drawBeadStrip(
   });
 }
 
+interface SceneChunk {
+  text: string;
+  label: string;
+  steps: { text: string; rgbaBeadId: string; cmykBeadId: string; label: string }[];
+  promptKeywords: string;
+}
+
+function buildSceneChunks(
+  textInput: string,
+  stepsData?: PrayerStep[],
+  titleFallback: string = 'Modlitwa'
+): SceneChunk[] {
+  const chunks: SceneChunk[] = [];
+  const TARGET_WORDS_PER_SCENE = 30; // ~12-15s czas czytania lektora (ok. 2.2 słów/sek)
+
+  if (stepsData && stepsData.length > 0) {
+    let currentSteps: { text: string; rgbaBeadId: string; cmykBeadId: string; label: string }[] = [];
+    let currentWords = 0;
+    let currentLabel = '';
+
+    for (const step of stepsData) {
+      const stepText = (step.text || '').trim();
+      if (!stepText) continue;
+
+      const wordsInStep = stepText.split(/\s+/).length;
+      if (!currentLabel) currentLabel = step.label || titleFallback;
+
+      currentSteps.push({
+        text: stepText,
+        rgbaBeadId: step.rgbaBeadId || '',
+        cmykBeadId: step.cmykBeadId || '',
+        label: step.label || ''
+      });
+      currentWords += wordsInStep;
+
+      // Gdy zgromadzimy ok. 30 słów (12-15 sekund) domykamy scenę
+      if (currentWords >= TARGET_WORDS_PER_SCENE) {
+        const fullText = currentSteps.map(s => s.text).join(' ');
+        chunks.push({
+          text: fullText,
+          label: currentLabel,
+          steps: [...currentSteps],
+          promptKeywords: fullText.slice(0, 120)
+        });
+        currentSteps = [];
+        currentWords = 0;
+        currentLabel = '';
+      }
+    }
+
+    if (currentSteps.length > 0) {
+      const fullText = currentSteps.map(s => s.text).join(' ');
+      chunks.push({
+        text: fullText,
+        label: currentLabel || titleFallback,
+        steps: [...currentSteps],
+        promptKeywords: fullText.slice(0, 120)
+      });
+    }
+  } else {
+    // Tekst zebrany z wpisu blogowego WnR365
+    const paragraphs = textInput.split(/\n+/).filter(p => p.trim().length > 0);
+    const rawSentences: string[] = [];
+    for (const para of paragraphs) {
+      const sents = para.split(/[.!?]\s+/).filter(s => s.trim().length > 0);
+      rawSentences.push(...sents);
+    }
+    if (rawSentences.length === 0) rawSentences.push(textInput);
+
+    let curSentenceGroup: string[] = [];
+    let curWords = 0;
+
+    for (const sentence of rawSentences) {
+      const words = sentence.trim().split(/\s+/).length;
+      curSentenceGroup.push(sentence.trim());
+      curWords += words;
+
+      if (curWords >= TARGET_WORDS_PER_SCENE) {
+        const fullText = curSentenceGroup.join('. ') + '.';
+        chunks.push({
+          text: fullText,
+          label: titleFallback,
+          steps: [{ text: fullText, rgbaBeadId: '', cmykBeadId: '', label: titleFallback }],
+          promptKeywords: fullText.slice(0, 120)
+        });
+        curSentenceGroup = [];
+        curWords = 0;
+      }
+    }
+
+    if (curSentenceGroup.length > 0) {
+      const fullText = curSentenceGroup.join('. ') + '.';
+      chunks.push({
+        text: fullText,
+        label: titleFallback,
+        steps: [{ text: fullText, rgbaBeadId: '', cmykBeadId: '', label: titleFallback }],
+        promptKeywords: fullText.slice(0, 120)
+      });
+    }
+  }
+
+  if (chunks.length === 0) {
+    chunks.push({
+      text: textInput || titleFallback,
+      label: titleFallback,
+      steps: [{ text: textInput || titleFallback, rgbaBeadId: '', cmykBeadId: '', label: titleFallback }],
+      promptKeywords: titleFallback
+    });
+  }
+
+  return chunks;
+}
+
+async function fetchTTSForText(
+  text: string,
+  audioContext: AudioContext
+): Promise<AudioBuffer> {
+  const words = text.split(/\s+/);
+  const subChunks: string[] = [];
+  let currentChunk = '';
+
+  for (const word of words) {
+    if ((currentChunk + ' ' + word).length > 150) {
+      if (currentChunk) subChunks.push(currentChunk);
+      currentChunk = word;
+    } else {
+      currentChunk = currentChunk ? currentChunk + ' ' + word : word;
+    }
+  }
+  if (currentChunk) subChunks.push(currentChunk);
+
+  const buffers: AudioBuffer[] = [];
+  for (const chunkText of subChunks) {
+    if (!chunkText.trim()) continue;
+    try {
+      const ttsUrl = `/api/tts?lang=pl&text=${encodeURIComponent(chunkText.trim())}`;
+      const res = await fetch(ttsUrl);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const arrayBuf = await res.arrayBuffer();
+      const decoded = await audioContext.decodeAudioData(arrayBuf);
+      buffers.push(decoded);
+    } catch (e) {
+      // Cicha pauza jako fallback
+      const silent = audioContext.createBuffer(1, audioContext.sampleRate * 1.0, audioContext.sampleRate);
+      buffers.push(silent);
+    }
+  }
+
+  if (buffers.length === 0) {
+    return audioContext.createBuffer(1, audioContext.sampleRate * 2.0, audioContext.sampleRate);
+  }
+
+  const totalLength = buffers.reduce((acc, b) => acc + b.length, 0);
+  const result = audioContext.createBuffer(
+    buffers[0].numberOfChannels,
+    totalLength,
+    buffers[0].sampleRate
+  );
+  let offset = 0;
+  for (const b of buffers) {
+    for (let ch = 0; ch < b.numberOfChannels; ch++) {
+      result.getChannelData(ch).set(b.getChannelData(ch), offset);
+    }
+    offset += b.length;
+  }
+  return result;
+}
+
 export const generateVideoClientSide = async (
   text: string,
   fishApiKey: string,
@@ -175,149 +343,113 @@ export const generateVideoClientSide = async (
   titleFallback: string = 'Modlitwa Różańcowa'
 ): Promise<string> => {
   try {
-    // 1. Podział tekstu na sceny (po jednym kroku modlitwy)
-    onProgress({ progress: 10, message: 'Przygotowywanie scen modlitwy...' });
-    
-    // Jeśli mamy steps, każdy step to osobna scena
-    let scenes: { text: string; rgbaBeadId: string; cmykBeadId: string; label: string }[] = [];
-    if (stepsData && stepsData.length > 0) {
-      scenes = stepsData
-        .map(step => ({
-          text: step.text?.trim() || '',
-          rgbaBeadId: step.rgbaBeadId || '',
-          cmykBeadId: step.cmykBeadId || '',
-          label: step.label || ''
-        }))
-        .filter(s => s.text.length > 2);
-    } else {
-      const sentences = text.split(/[.!?]\s+/).filter(s => s.trim().length > 3);
-      if (sentences.length === 0) sentences.push(text);
-      scenes = sentences.map(s => ({ text: s, rgbaBeadId: '', cmykBeadId: '', label: '' }));
-    }
+    // 1. Podział na sceny trwające co kilkanaście sekund (12-15s)
+    onProgress({ progress: 10, message: 'Przygotowywanie scen 12–15-sekundowych...' });
+    const sceneChunks = buildSceneChunks(text, stepsData, titleFallback);
 
-    // 2. Generowanie obrazów w tle (Pollinations.ai) — jeden obraz na scenę
-    onProgress({ progress: 15, message: `Generowanie ${scenes.length} obrazów sakralnych 16:9...` });
+    // 2. Pobieranie obrazów sakralnych dopasowanych do treści sceny z Pollinations.ai
+    onProgress({ progress: 15, message: `Pobieranie ${sceneChunks.length} ilustracji sakralnych 16:9 (zmiana co 12–15s)...` });
     
     const images: HTMLImageElement[] = [];
-    // Ładowanie obrazów sekwencyjnie z opóźnieniem aby uniknąć limitów Pollinations.ai (HTTP 429)
-    for (let i = 0; i < scenes.length; i++) {
-      onProgress({ progress: 15 + Math.floor((i / scenes.length) * 20), message: `Obraz ${i + 1}/${scenes.length}...` });
-      
-      const scene = scenes[i];
-      const cleanPrompt = encodeURIComponent(`holy sacred christian painting, baroque style, soft light, ${scene.text.slice(0, 80)}`);
+    for (let i = 0; i < sceneChunks.length; i++) {
+      onProgress({
+        progress: 15 + Math.floor((i / sceneChunks.length) * 20),
+        message: `Generowanie obrazu dla sceny ${i + 1}/${sceneChunks.length}...`
+      });
+
+      const chunk = sceneChunks[i];
+      const cleanPrompt = encodeURIComponent(`holy sacred christian painting, baroque style, soft cinematic light, ${chunk.promptKeywords}`);
       const seed = Math.floor(Math.random() * 1000000);
       const url = `https://image.pollinations.ai/prompt/${cleanPrompt}?width=1280&height=720&nologo=true&seed=${seed}`;
 
       const img = await new Promise<HTMLImageElement>((resolve) => {
         const image = new Image();
         image.crossOrigin = 'anonymous';
-        
-        let timeoutId: NodeJS.Timeout;
-        
+        let timeoutId: any;
+
         const finish = (result: HTMLImageElement) => {
           clearTimeout(timeoutId);
           resolve(result);
         };
-        
+
         image.onload = () => finish(image);
-        
+
         const handleFallback = () => {
           const canvas = document.createElement('canvas');
           canvas.width = 1280; canvas.height = 720;
           const c = canvas.getContext('2d')!;
-          c.fillStyle = '#0f172a';
+          const grd = c.createRadialGradient(640, 360, 50, 640, 360, 600);
+          grd.addColorStop(0, '#1e1b4b');
+          grd.addColorStop(1, '#090d16');
+          c.fillStyle = grd;
           c.fillRect(0, 0, 1280, 720);
           c.fillStyle = '#fbbf24';
           c.font = 'bold 36px serif';
           c.textAlign = 'center';
-          c.fillText(titleFallback, 640, 360);
+          c.fillText(chunk.label || titleFallback, 640, 340);
+          c.fillStyle = '#94a3b8';
+          c.font = '18px sans-serif';
+          c.fillText('WnR365 • RHZ365', 640, 390);
+
           const fb = new Image();
           fb.onload = () => finish(fb);
           fb.src = canvas.toDataURL();
         };
-        
+
         image.onerror = handleFallback;
-        
-        // Timeout 15s na każdy obraz, potem wymuś fallback
         timeoutId = setTimeout(() => {
           image.src = '';
           handleFallback();
-        }, 15000);
+        }, 8000);
 
         image.src = url;
       });
-      
+
       images.push(img);
-      // Małe opóźnienie aby odciążyć połączenia (400ms)
-      await new Promise(r => setTimeout(r, 400));
+      await new Promise(r => setTimeout(r, 300));
     }
 
-    // 3. Synteza lektora (Google Translate TTS przez Cloudflare Pages Function)
-    onProgress({ progress: 40, message: 'Synteza głosu lektora (TTS)...' });
-    let audioBuffer: AudioBuffer | null = null;
+    // 3. Synteza głosu lektora TTS dla każdej sceny
+    onProgress({ progress: 40, message: 'Synteza lektora AI TTS dla pełnej treści...' });
     const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
 
     interface SceneTiming { start: number; end: number; duration: number; }
     const sceneTimings: SceneTiming[] = [];
+    const sceneBuffers: AudioBuffer[] = [];
 
-    try {
-      onProgress({ progress: 42, message: 'Generowanie audio lektora pl-PL...' });
-      const sentenceBuffers: AudioBuffer[] = [];
+    for (let i = 0; i < sceneChunks.length; i++) {
+      onProgress({
+        progress: 40 + Math.floor((i / sceneChunks.length) * 20),
+        message: `Nagrywanie lektora: scena ${i + 1}/${sceneChunks.length}...`
+      });
 
-      for (let i = 0; i < scenes.length; i++) {
-        const sentence = scenes[i].text.slice(0, 200);
-        onProgress({
-          progress: 42 + Math.floor((i / scenes.length) * 15),
-          message: `Audio scena ${i + 1}/${scenes.length}...`
-        });
-        try {
-          const ttsUrl = `/api/tts?lang=pl&text=${encodeURIComponent(sentence)}`;
-          const ttsRes = await fetch(ttsUrl);
-          if (!ttsRes.ok) throw new Error(`TTS HTTP ${ttsRes.status}`);
-          const audioData = await ttsRes.arrayBuffer();
-          const decoded = await audioContext.decodeAudioData(audioData);
-          sentenceBuffers.push(decoded);
-        } catch (e) {
-          // Silent fallback for this scene (0.5s silence)
-          const silentBuf = audioContext.createBuffer(1, audioContext.sampleRate * 0.5, audioContext.sampleRate);
-          sentenceBuffers.push(silentBuf);
-        }
-      }
-
-      if (sentenceBuffers.length > 0) {
-        const totalLength = sentenceBuffers.reduce((a, b) => a + b.length, 0);
-        audioBuffer = audioContext.createBuffer(
-          sentenceBuffers[0].numberOfChannels,
-          totalLength,
-          sentenceBuffers[0].sampleRate
-        );
-        let offset = 0;
-        for (const buf of sentenceBuffers) {
-          const startSec = offset / buf.sampleRate;
-          const durationSec = buf.duration;
-          sceneTimings.push({ start: startSec, end: startSec + durationSec, duration: durationSec });
-          for (let ch = 0; ch < buf.numberOfChannels; ch++) {
-            audioBuffer.getChannelData(ch).set(buf.getChannelData(ch), offset);
-          }
-          offset += buf.length;
-        }
-      }
-    } catch (e) {
-      console.warn('[VideoGen] TTS failed, generating silent video:', e);
+      const buf = await fetchTTSForText(sceneChunks[i].text, audioContext);
+      sceneBuffers.push(buf);
     }
 
-    // Fallback timingów jeśli brak audio
-    if (sceneTimings.length < scenes.length) {
-      sceneTimings.length = 0;
-      const dur = audioBuffer ? audioBuffer.duration : scenes.length * 6.0;
-      const avg = dur / scenes.length;
-      for (let i = 0; i < scenes.length; i++) {
-        sceneTimings.push({ start: i * avg, end: (i + 1) * avg, duration: avg });
+    // Połączenie ścieżek audio scen
+    let totalSamples = sceneBuffers.reduce((a, b) => a + b.length, 0);
+    if (totalSamples === 0) totalSamples = audioContext.sampleRate * 5;
+
+    const audioBuffer = audioContext.createBuffer(
+      sceneBuffers[0]?.numberOfChannels || 1,
+      totalSamples,
+      sceneBuffers[0]?.sampleRate || audioContext.sampleRate
+    );
+
+    let offset = 0;
+    for (const buf of sceneBuffers) {
+      const startSec = offset / buf.sampleRate;
+      const durationSec = buf.duration;
+      sceneTimings.push({ start: startSec, end: startSec + durationSec, duration: durationSec });
+      for (let ch = 0; ch < buf.numberOfChannels; ch++) {
+        audioBuffer.getChannelData(ch).set(buf.getChannelData(ch), offset);
       }
+      offset += buf.length;
     }
 
-    // 4. Montaż wideo na HTML Canvas z animacją różańca
-    onProgress({ progress: 60, message: 'Inicjalizacja renderowania wideo 16:9...' });
+    // 4. Montaż wideo na HTML Canvas
+    onProgress({ progress: 65, message: 'Rozpoczynanie nagrywania pliku wideo 16:9...' });
 
     const W = 1280, H = 720;
     const canvas = document.createElement('canvas');
@@ -334,7 +466,7 @@ export const generateVideoClientSide = async (
       bufferSource = audioContext.createBufferSource();
       bufferSource.buffer = audioBuffer;
       bufferSource.connect(dest);
-      // Aktywny sink (0 gain) — wymuszony render audio w przeglądarce
+
       const gain = audioContext.createGain();
       gain.gain.value = 0;
       bufferSource.connect(gain);
@@ -359,8 +491,7 @@ export const generateVideoClientSide = async (
     const chunks: Blob[] = [];
     mediaRecorder.ondataavailable = (e) => { if (e.data?.size > 0) chunks.push(e.data); };
 
-    const totalDuration = audioBuffer ? audioBuffer.duration : scenes.length * 6.0;
-
+    const totalDuration = audioBuffer.duration;
     const audioStartTime = audioContext.currentTime;
 
     return new Promise<string>((resolve) => {
@@ -369,27 +500,26 @@ export const generateVideoClientSide = async (
         resolve(URL.createObjectURL(blob));
       };
 
-      mediaRecorder.start(1000); // 1-second chunks to prevent memory bloat/crash
+      mediaRecorder.start(1000);
       const startTime = performance.now();
 
       const renderLoop = () => {
-        // Używamy czasu audioContext.currentTime dla absolutnie idealnej synchronizacji z odtwarzanym dźwiękiem.
         const t = audioBuffer 
           ? (audioContext.currentTime - audioStartTime) 
           : ((performance.now() - startTime) / 1000);
 
         if (t >= totalDuration) {
           mediaRecorder.stop();
-          stream.getTracks().forEach(track => track.stop()); // Wymuszenie zakończenia wszystkich ścieżek
+          stream.getTracks().forEach(track => track.stop());
           try { bufferSource?.stop(); } catch {}
           return;
         }
 
-        const pct = 60 + Math.floor((t / totalDuration) * 38);
-        onProgress({ progress: pct, message: `Renderowanie: ${t.toFixed(1)}s / ${totalDuration.toFixed(1)}s (NIE ZMIENIAJ KARTY)` });
+        const pct = 65 + Math.floor((t / totalDuration) * 33);
+        onProgress({ progress: pct, message: `Renderowanie wideo: ${t.toFixed(1)}s / ${totalDuration.toFixed(1)}s` });
 
-        // Wyznacz aktywną scenę
-        let sceneIndex = scenes.length - 1;
+        // Wybór aktywnej sceny (zmiana obrazka co kilkanaście sekund)
+        let sceneIndex = sceneTimings.length - 1;
         for (let i = 0; i < sceneTimings.length; i++) {
           if (t >= sceneTimings[i].start && t < sceneTimings[i].end) {
             sceneIndex = i;
@@ -398,47 +528,54 @@ export const generateVideoClientSide = async (
         }
         if (sceneIndex < 0) sceneIndex = 0;
 
-        const scene = scenes[sceneIndex];
+        const currentChunk = sceneChunks[sceneIndex];
         const img = images[sceneIndex];
 
-        // ── TŁO: obraz Pollinations ──────────────────────────────
+        // Wyznaczenie aktywnego kroku/paciorka wewnątrz sceny
+        const sceneTiming = sceneTimings[sceneIndex];
+        const relTime = t - sceneTiming.start;
+        const subRatio = sceneTiming.duration > 0 ? relTime / sceneTiming.duration : 0;
+        const stepIdx = Math.min(
+          Math.floor(subRatio * currentChunk.steps.length),
+          currentChunk.steps.length - 1
+        );
+        const activeStep = currentChunk.steps[stepIdx] || currentChunk.steps[0];
+
+        // ── TŁO: Obraz z Pollinations (zmiana co 12-15s) ─────────
         ctx.drawImage(img, 0, 0, W, H);
 
-        // Ciemna winietka na krawędziach (dla czytelności pasków różańca)
+        // Winieta po bokach i na dole
         const vigL = ctx.createLinearGradient(0, 0, 260, 0);
-        vigL.addColorStop(0, 'rgba(0,0,0,0.78)');
+        vigL.addColorStop(0, 'rgba(0,0,0,0.8)');
         vigL.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.fillStyle = vigL;
         ctx.fillRect(0, 0, 260, H);
 
         const vigR = ctx.createLinearGradient(W, 0, W - 260, 0);
-        vigR.addColorStop(0, 'rgba(0,0,0,0.78)');
+        vigR.addColorStop(0, 'rgba(0,0,0,0.8)');
         vigR.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.fillStyle = vigR;
         ctx.fillRect(W - 260, 0, 260, H);
 
-        // Gradient dołu dla napisów
-        const botGrad = ctx.createLinearGradient(0, H - 220, 0, H);
+        const botGrad = ctx.createLinearGradient(0, H - 240, 0, H);
         botGrad.addColorStop(0, 'rgba(0,0,0,0)');
-        botGrad.addColorStop(1, 'rgba(0,0,0,0.9)');
+        botGrad.addColorStop(1, 'rgba(0,0,0,0.92)');
         ctx.fillStyle = botGrad;
-        ctx.fillRect(0, H - 220, W, 220);
+        ctx.fillRect(0, H - 240, W, 240);
 
-        // ── PASKI RÓŻAŃCA (lub centralny paciorek dla bloga) ─────────────────────────
-        if (rgbaBeads && cmykBeads && scene.rgbaBeadId && scene.cmykBeadId) {
+        // ── PASKI RÓŻAŃCA (RGBA & CMYK) ──────────────────────────
+        if (rgbaBeads && cmykBeads && activeStep?.rgbaBeadId && activeStep?.cmykBeadId) {
           ctx.save();
-          drawBeadStrip(ctx, rgbaBeads, scene.rgbaBeadId, 100, H / 2, true, t);
+          drawBeadStrip(ctx, rgbaBeads, activeStep.rgbaBeadId, 100, H / 2, true, t);
           ctx.restore();
 
           ctx.save();
-          drawBeadStrip(ctx, cmykBeads, scene.cmykBeadId, W - 100, H / 2, false, t);
+          drawBeadStrip(ctx, cmykBeads, activeStep.cmykBeadId, W - 100, H / 2, false, t);
           ctx.restore();
         } else {
-          // Fallback: jeden animowany paciorek (np. w Blogu WnR365)
+          // Środkowy pulsujący symbol IHS
           const bPulse = 24 + Math.sin(t * 5) * 6;
           ctx.save();
-          
-          // Outer glow
           const grd = ctx.createRadialGradient(W/2, H - 280, bPulse*0.3, W/2, H - 280, bPulse*1.8);
           grd.addColorStop(0, 'rgba(251,191,36,0.5)');
           grd.addColorStop(1, 'rgba(0,0,0,0)');
@@ -447,7 +584,6 @@ export const generateVideoClientSide = async (
           ctx.arc(W/2, H - 280, bPulse*1.8, 0, Math.PI * 2);
           ctx.fill();
 
-          // Bead
           const grad = ctx.createRadialGradient(W/2 - bPulse*0.3, H - 280 - bPulse*0.3, bPulse*0.1, W/2, H - 280, bPulse);
           grad.addColorStop(0, '#fcd34d');
           grad.addColorStop(1, '#d97706');
@@ -460,7 +596,6 @@ export const generateVideoClientSide = async (
           ctx.fill();
           ctx.shadowBlur = 0;
           
-          // Symbol IHS
           ctx.fillStyle = '#78350f';
           ctx.font = `bold ${Math.floor(bPulse*0.6)}px serif`;
           ctx.textAlign = 'center';
@@ -471,27 +606,27 @@ export const generateVideoClientSide = async (
 
         // ── ŚRODKOWY TEKST MODLITWY ──────────────────────────────
         const textMaxW = W - 540, textBaseY = H - 130;
+        const activeLabel = activeStep?.label || currentChunk.label;
 
-        // Etykieta (nazwa kroku)
-        if (scene.label) {
+        if (activeLabel) {
           ctx.save();
           ctx.fillStyle = 'rgba(56,189,248,0.9)';
           ctx.font = 'bold 13px monospace';
           ctx.textAlign = 'center';
-          ctx.letterSpacing = '3px';
-          ctx.fillText(scene.label.toUpperCase(), W / 2, textBaseY - 50);
+          ctx.fillText(activeLabel.toUpperCase(), W / 2, textBaseY - 50);
           ctx.restore();
         }
 
-        // Tekst modlitwy z zawijaniem
+        // Zawijanie tekstu aktywnego kroku
+        const displayText = activeStep?.text || currentChunk.text;
         ctx.save();
         ctx.fillStyle = '#ffffff';
-        ctx.font = 'bold 28px sans-serif';
+        ctx.font = 'bold 26px sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
 
-        const words = scene.text.split(' ');
-        const lineH = 38;
+        const words = displayText.split(' ');
+        const lineH = 36;
         let curLine = '';
         const wrappedLines: string[] = [];
         for (const word of words) {
@@ -524,13 +659,10 @@ export const generateVideoClientSide = async (
         ctx.fillStyle = progGrad;
         ctx.fillRect(0, H - 4, progW, 4);
         ctx.restore();
-        
-        // Zamiast polegać w 100% na animFrame (które pauzuje się w tle), używamy timeout dla pewności nagrania w WebM.
-        // Jednak MediaRecorder rejestruje klatki asynchronicznie, więc setTimeout 40ms wymusi stałe renderowanie.
-        setTimeout(renderLoop, 40); // 25fps = 40ms
+
+        setTimeout(renderLoop, 40);
       };
 
-      // Zastąp requestAnimationFrame timerem
       setTimeout(renderLoop, 40);
     });
 
