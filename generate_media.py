@@ -401,7 +401,8 @@ def process_media_generation(segments_file: str, output_dir: str = "output"):
         generate_image(seg["prompt"], seg["negative_prompt"], img_path)
 
     # 2. Combine text and generate narration audio & timestamps (Voice Cloning from MP3 / Edge TTS)
-    full_text = "\n\n".join([seg["text"] for seg in segments])
+    from analyze import clean_text_for_speech
+    full_text = "\n\n".join([clean_text_for_speech(seg["text"]) for seg in segments if clean_text_for_speech(seg["text"])])
     audio_path = os.path.join(output_dir, "narration.mp3")
     timing_path = os.path.join(output_dir, "narration_timestamps.json")
     alignment = generate_narration_audio(full_text, output_audio=audio_path, output_timing=timing_path)

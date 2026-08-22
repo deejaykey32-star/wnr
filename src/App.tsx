@@ -290,9 +290,14 @@ export default function App() {
   const [youtubeUploadedUrl, setYoutubeUploadedUrl] = useState<string | null>(null);
   const [apiServerUrl, setApiServerUrl] = useState<string>(() => {
     try {
-      return localStorage.getItem('apiServerUrl') || (import.meta as any).env?.VITE_API_SERVER_URL || 'https://wnr-mp4-backend.onrender.com';
+      const saved = localStorage.getItem('apiServerUrl');
+      if (!saved || saved.includes('localhost') || saved.includes('127.0.0.1')) {
+        localStorage.setItem('apiServerUrl', 'https://wnr-mp4-backend.onrender.com');
+        return 'https://wnr-mp4-backend.onrender.com';
+      }
+      return saved;
     } catch (e) {
-      return (import.meta as any).env?.VITE_API_SERVER_URL || 'https://wnr-mp4-backend.onrender.com';
+      return 'https://wnr-mp4-backend.onrender.com';
     }
   });
 

@@ -6,14 +6,79 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+import re
+
 PROMPT_PREFIX = "Minimalist art style, clean composition, tranquil background, high quality, soft pastel lighting"
 DEFAULT_NEGATIVE_PROMPT = "ugly, overcrowded, blurry, text, watermark, complex details, saturated colors"
+
+def clean_text_for_speech(text: str) -> str:
+    """
+    Cleans prayer and blog text for TTS narration by removing:
+    - Bible citations (e.g. Mt 5, 1-12, Łk 1, 26-38, Ps 23)
+    - Bracketed text [..], {..}, (...) containing citations/headers/decorations
+    - Emojis, icons (🌹, 📿, ✨, ✦, ---)
+    - Header labels (e.g. Cykl II, Dzień 58 z 175, Różaniec Tradycyjny)
+    - Common Polish abbreviations expanded for speech (św. -> Święty, ks. -> Ksiądz)
+    """
+    if not text:
+        return ""
+
+    cleaned = text
+
+    # 1. Remove bracketed contents [..] or {..}
+    cleaned = re.sub(r'\[.*?\]', '', cleaned)
+    cleaned = re.sub(r'\{.*?\}', '', cleaned)
+
+    # 2. Remove Bible citations inside parentheses e.g. (Łk 1, 26-38), (por. Mt 1, 18-24), (2 J 1, 3)
+    cleaned = re.sub(r'\([^\)]*(?:Mt|Marek|Łk|Łukasz|J|Jan|Dz|Rz|1\s*Kor|2\s*Kor|Ga|Ef|Flp|Kol|1\s*Tes|2\s*Tes|1\s*Tm|2\s*Tm|Tt|Flm|Hbr|Jk|1\s*P|2\s*P|1\s*J|2\s*J|3\s*J|Jd|Ap|Rdz|Wyj|Kpł|Licz|Pwt|Joz|Sdz|Rut|1\s*Sam|2\s*Sam|1\s*Krl|2\s*Krl|1\s*Krn|2\s*Krn|Ezd|Ne|Tb|Jdt|Est|1\s*Mch|2\s*Mch|Hi|Ps|Prz|Koh|Pieśń|Mąd|Syr|Iz|Jer|Lm|Bar|Ez|Dn|Oz|Joel|Am|Ob|Jon|Mik|Nah|Hab|Sof|Ag|Zach|Mal|por\.|zob\.|cyt\.)[^\)]*\)', '', cleaned, flags=re.IGNORECASE)
+
+    # 3. Remove header tags in parentheses e.g. (Różaniec Tradycyjny), (Cykl I), (Cykl II)
+    cleaned = re.sub(r'\([^\)]*(?:Różaniec|Cykl|Dzień|Tajemnica)[^\)]*\)', '', cleaned, flags=re.IGNORECASE)
+
+    # 4. Remove standalone Bible citations e.g. "Mt 5, 1-12", "Łk 1, 26"
+    cleaned = re.sub(r'\b(?:Mt|Łk|Dz|Rz|1\s*Kor|2\s*Kor|Ga|Ef|Flp|Kol|1\s*J|2\s*J|Ap|Ps)\.?\s*\d+[\,\:\d\s\-\–]*\b', '', cleaned, flags=re.IGNORECASE)
+
+    # 5. Remove header labels e.g. "Cykl II", "Dzień 58 z 175"
+    cleaned = re.sub(r'\b(?:Cykl\s+[I|V|X\d]+|Dzień\s+\d+\s+z\s+\d+)\b', '', cleaned, flags=re.IGNORECASE)
+
+    # 6. Remove emojis and decorative symbols
+    cleaned = re.sub(r'[\U00010000-\U0010FFFF\u2600-\u27BF\u2300-\u23FF\u2B50\u200D\uFE0F]', '', cleaned)
+    cleaned = re.sub(r'[\✦\★\☆\•\▪\■\□\▲\▼\◆\◇\–\—\=\-\*]{2,}', ' ', cleaned)
+
+    # 7. Expand common Polish abbreviations for smooth natural speech
+    abbrevs = [
+        (r'\bśw\.\b', 'święty'),
+        (r'\bŚw\.\b', 'Święty'),
+        (r'\bks\.\b', 'ksiądz'),
+        (r'\bKs\.\b', 'Ksiądz'),
+        (r'\bbł\.\b', 'błogosławiony'),
+        (r'\bBł\.\b', 'Błogosławiony'),
+        (r'\bbp\.\b', 'biskup'),
+        (r'\bBp\.\b', 'Biskup'),
+        (r'\bitd\.\b', 'i tak dalej'),
+        (r'\bitp\.\b', 'i tym podobne'),
+        (r'\bnp\.\b', 'na przykład'),
+        (r'\bok\.\b', 'około'),
+        (r'\bo\.\b', 'ojciec'),
+        (r'\bO\.\b', 'Ojciec'),
+    ]
+    for pat, repl in abbrevs:
+        cleaned = re.sub(pat, repl, cleaned)
+
+    # 8. Cleanup leftover empty parentheses (), trailing punctuation, and whitespace
+    cleaned = re.sub(r'\(\s*\)', '', cleaned)
+    cleaned = re.sub(r'\[\s*\]', '', cleaned)
+    cleaned = re.sub(r'^\s*[\-\–\—\:\.]+\s*', '', cleaned)
+    cleaned = re.sub(r'\s*\.\s*\.', '.', cleaned)
+    cleaned = re.sub(r'[ \t]+', ' ', cleaned)
+    return cleaned.strip()
 
 def analyze_text(text_input: str, input_type: str = "blog", api_key: str = None) -> list:
     """
     Parses text_input based on input_type ('blog' or 'prayer') using OpenAI GPT-4o.
     Returns a list of segment dictionaries with text, prompt, and negative_prompt.
     """
+    text_input = clean_text_for_speech(text_input)
     key = api_key or os.getenv("OPENAI_API_KEY")
     
     if not key or key == "your_openai_api_key_here":
