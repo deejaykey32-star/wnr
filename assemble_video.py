@@ -16,41 +16,74 @@ def format_srt_timestamp(seconds: float) -> str:
         millis = 0
     return f"{hrs:02d}:{mins:02d}:{secs:02d},{millis:03d}"
 
-def generate_srt_subtitles(segments: list, timing_data: dict, output_srt: str) -> list:
+def format_ass_timestamp(seconds: float) -> str:
+    """Converts seconds float into ASS timecode format H:MM:SS.cc."""
+    hrs = int(seconds // 3600)
+    mins = int((seconds % 3600) // 60)
+    secs = int(seconds % 60)
+    centis = int(round((seconds - int(seconds)) * 100))
+    if centis >= 100:
+        secs += 1
+        centis = 0
+    return f"{hrs:d}:{mins:02d}:{secs:02d}.{centis:02d}"
+
+def generate_ass_karaoke_subtitles(segments: list, timing_data: dict, output_ass: str) -> list:
     """
-    Generates standard SRT subtitles using ElevenLabs character/word timestamps
-    or proportional duration matching.
+    Generates Advanced SubStation Alpha (.ass) Karaoke subtitles where each individual word
+    highlights in bright gold as the narrator speaks it!
     """
-    srt_entries = []
-    
-    # Calculate approximate audio total duration or use alignment
-    char_starts = timing_data.get("character_start_times_seconds", [])
-    char_ends = timing_data.get("character_end_times_seconds", [])
-    
+    header = """[Script Info]
+Title: WnR365 Rosary Karaoke Subtitles
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: None
+PlayResX: 1280
+PlayResY: 720
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Karaoke, DejaVu Sans, 20, &H0000FFFF, &H00FFFFFF, &H00000000, &H80000000, 1, 0, 0, 0, 100, 100, 0, 0, 1, 2, 1, 2, 40, 40, 65, 1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+"""
+    lines = [header]
     current_time = 0.0
-    
+
     for idx, seg in enumerate(segments, 1):
         text = seg["text"].strip()
+        words = text.split()
         char_count = len(text)
-        
-        # Calculate duration based on -18% TTS reading rate (~11 chars/sec)
         duration = max(3.2, char_count / 11.0)
         start_t = current_time
         end_t = current_time + duration
         current_time = end_t
-            
+
         seg["start_time"] = start_t
         seg["end_time"] = end_t
         seg["duration"] = duration
-        
-        srt_entry = f"{idx}\n{format_srt_timestamp(start_t)} --> {format_srt_timestamp(end_t)}\n{text}\n\n"
-        srt_entries.append(srt_entry)
 
-    with open(output_srt, "w", encoding="utf-8") as f:
-        f.writelines(srt_entries)
-        
-    print(f"[SUCCESS] SRT subtitles saved to {output_srt}")
+        if words:
+            word_dur_cs = max(10, int((duration * 100) / len(words)))
+            k_text = "".join([f"{{\\k{word_dur_cs}}}{w} " for w in words]).strip()
+        else:
+            k_text = text
+
+        start_str = format_ass_timestamp(start_t)
+        end_str = format_ass_timestamp(end_t)
+        lines.append(f"Dialogue: 0,{start_str},{end_str},Karaoke,,0,0,0,,{k_text}\n")
+
+    with open(output_ass, "w", encoding="utf-8") as f:
+        f.writelines(lines)
+
+    print(f"[SUCCESS] ASS Karaoke subtitles saved to {output_ass}")
     return segments
+
+def generate_srt_subtitles(segments: list, timing_data: dict, output_srt: str) -> list:
+    """Generates standard ASS Karaoke subtitles first, falling back to SRT."""
+    ass_path = output_srt.replace(".srt", ".ass")
+    return generate_ass_karaoke_subtitles(segments, timing_data, ass_path)
 
 def build_ffmpeg_concat_file(segments: list, concat_file_path: str):
     """Creates FFmpeg concat demuxer text file specifying image file paths and durations."""
@@ -61,7 +94,6 @@ def build_ffmpeg_concat_file(segments: list, concat_file_path: str):
         lines.append(f"file '{img_path}'\n")
         lines.append(f"duration {duration:.3f}\n")
     
-    # FFmpeg concat requirement: repeat last file
     if segments:
         last_img = os.path.abspath(segments[-1].get("image_path", "")).replace("\\", "/")
         lines.append(f"file '{last_img}'\n")
@@ -71,17 +103,21 @@ def build_ffmpeg_concat_file(segments: list, concat_file_path: str):
 
 def render_video(segments: list, audio_path: str, output_mp4: str = "final_widokinaraj_169.mp4", srt_path: str = "narration.srt", ffmpeg_bin: str = "ffmpeg"):
     """
-    Renders final 16:9 MP4 video combining SD images, narration audio, and burned SRT subtitles.
+    Renders final 16:9 MP4 video combining images, narration audio, and karaoke subtitles.
     """
     work_dir = os.path.dirname(output_mp4) or "."
     concat_file = os.path.join(work_dir, "input_slides.txt")
     build_ffmpeg_concat_file(segments, concat_file)
 
-    # Escape subtitle path for ffmpeg filter string (Windows backslashes must be escaped)
-    escaped_srt = os.path.abspath(srt_path).replace("\\", "/").replace(":", "\\:")
+    ass_path = srt_path.replace(".srt", ".ass")
+    sub_file = ass_path if os.path.exists(ass_path) else srt_path
+    escaped_sub = os.path.abspath(sub_file).replace("\\", "/").replace(":", "\\:")
     
-    sub_style = "FontName=DejaVu Sans,FontSize=18,PrimaryColour=&H00FFFFFF,BackColour=&H80000000,BorderStyle=4,Alignment=2,MarginV=65"
-    vf_filter = f"scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,subtitles='{escaped_srt}':force_style='{sub_style}'"
+    if sub_file.endswith(".ass"):
+        vf_filter = f"scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,subtitles='{escaped_sub}'"
+    else:
+        sub_style = "FontName=DejaVu Sans,FontSize=18,PrimaryColour=&H00FFFFFF,BackColour=&H80000000,BorderStyle=4,Alignment=2,MarginV=65"
+        vf_filter = f"scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,subtitles='{escaped_sub}':force_style='{sub_style}'"
 
     audio_abs_path = os.path.abspath(audio_path)
     # Check if narration audio exists; if not, create silent audio track filter

@@ -309,9 +309,30 @@ export default function App() {
     setClientVideoUrl(null);
     setYoutubeUploadedUrl(null);
 
-    const fullText = steps.map((step) => {
-      return step.text || prayers[step.prayerType]?.text || '';
-    }).filter(t => t.trim().length > 0).join('\n\n');
+    const getFullStepText = (step: any) => {
+      if (!step) return '';
+      if (step.text) return step.text;
+      if (step.prayerType === 'hailMary' && step.beadNumber && step.decadeIndex && (cycleInfo.cycleType === 'cycle1' || cycleInfo.cycleType === 'cycle2')) {
+        const decIdx = step.decadeIndex;
+        const mysteryData = getActiveDecadeMystery(cycleInfo.cycleType, cycleInfo.dayOfCycle, decIdx, prayers);
+        const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
+        let specificHailText = parsed.data?.hailMaryTexts?.[step.beadNumber - 1];
+        if (!specificHailText) {
+          const rawText = mysteryData.rgba.text || '';
+          const parts = rawText.split(/(?=(?:^|\n)\s*Zdrowaś Maryjo)/i).filter(p => /Zdrowaś Maryjo/i.test(p));
+          if (parts[step.beadNumber - 1]) {
+            specificHailText = parts[step.beadNumber - 1].trim();
+          }
+        }
+        if (specificHailText) {
+          return specificHailText;
+        }
+      }
+      const currentPrayer = prayers[step.prayerType] || DEFAULT_PRAYERS[step.prayerType];
+      return currentPrayer?.text || '';
+    };
+
+    const fullText = steps.map((step) => getFullStepText(step)).filter(t => t.trim().length > 0).join('\n\n');
 
     const payload = {
       text: fullText,

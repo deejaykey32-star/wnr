@@ -96,28 +96,46 @@ def generate_image(prompt: str, negative_prompt: str, output_path: str, provider
     return _generate_placeholder_image(prompt, output_path)
 
 def _generate_placeholder_image(prompt: str, output_path: str) -> bool:
-    """Generates an elegant 16:9 minimalist sacred gold/pastel artwork canvas in 0.01 seconds."""
+    """Generates a rich 16:9 sacred painting scene background with warm golden rays and divine halos."""
     try:
         from PIL import Image, ImageDraw
+        import random
         width, height = 1280, 720
-        img = Image.new("RGB", (width, height), color=(26, 24, 36))
+
+        # Varied warm Renaissance oil painting color palettes
+        palettes = [
+            ((35, 25, 45), (180, 140, 70), (220, 185, 100)), # Royal Violet & Gold
+            ((40, 20, 20), (190, 130, 60), (230, 175, 90)),  # Sacred Crimson & Ochre
+            ((20, 35, 45), (150, 160, 90), (200, 210, 130)), # Deep Azure & Olive
+            ((35, 30, 25), (175, 150, 80), (225, 195, 110)), # Warm Sepia & Amber
+        ]
+        bg_col, mid_col, glow_col = random.choice(palettes)
+
+        img = Image.new("RGB", (width, height), color=bg_col)
         draw = ImageDraw.Draw(img)
 
-        # Draw glowing divine golden halo in center
-        cx, cy = width // 2, height // 2 - 20
-        for r in range(220, 0, -20):
-            draw.ellipse([cx - int(r*1.6), cy - r, cx + int(r*1.6), cy + r], fill=(45 + int(r*0.4), 40 + int(r*0.4), 60 + int(r*0.3)))
+        # Radiant divine light rays from top center
+        cx, cy = width // 2, 80
+        for angle in range(-60, 65, 10):
+            rad = math.radians(angle + 90)
+            ex = cx + int(1000 * math.cos(rad))
+            ey = cy + int(1000 * math.sin(rad))
+            draw.line([cx, cy, ex, ey], fill=(glow_col[0], glow_col[1], glow_col[2]), width=12)
+
+        # Glowing divine halo in center
+        for r in range(250, 0, -25):
+            factor = (250 - r) / 250.0
+            r_c = int(mid_col[0] * factor + bg_col[0] * (1 - factor))
+            g_c = int(mid_col[1] * factor + bg_col[1] * (1 - factor))
+            b_c = int(mid_col[2] * factor + bg_col[2] * (1 - factor))
+            draw.ellipse([cx - int(r*1.5), cy + 180 - r, cx + int(r*1.5), cy + 180 + r], fill=(r_c, g_c, b_c))
 
         # Golden Cross Symbol in center
-        draw.line([cx, cy - 70, cx, cy + 90], fill=(212, 175, 55), width=6)
-        draw.line([cx - 50, cy - 25, cx + 50, cy - 25], fill=(212, 175, 55), width=6)
-
-        # Subtle elegant footer caption
-        draw.rectangle([0, height - 55, width, height], fill=(16, 14, 24))
-        draw.text((40, height - 38), "WnR365 | Widoki na Raj - Modlitwa Różańcowa", fill=(212, 175, 55))
+        draw.line([cx, cy + 110, cx, cy + 270], fill=(212, 175, 55), width=6)
+        draw.line([cx - 50, cy + 155, cx + 50, cy + 155], fill=(212, 175, 55), width=6)
 
         img.save(output_path)
-        print(f"[SUCCESS] Created sacred minimalist canvas at {output_path}")
+        print(f"[SUCCESS] Created rich sacred painting canvas at {output_path}")
         return True
     except Exception as e:
         print(f"[ERROR] Failed to generate placeholder image: {e}")
