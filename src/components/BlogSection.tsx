@@ -1131,7 +1131,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                         onChange={setEditText} 
                         textareaId="blog-editor-textarea" 
                         placeholder="Zapisz natchnioną treść dla chwały Jezusa w Bogu Ojcu..." 
-                        theme={theme}
+                        theme={isLight ? 'light' : 'dark'}
+                        onThemeToggle={() => {}}
                       />
                     </div>
 
@@ -1172,7 +1173,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                     <div style={isLight ? { color: '#000000' } : undefined} className={`text-sm leading-relaxed font-sans pt-1 min-h-[160px] border-l-2 pl-4 text-justify ${
                       isLight ? 'light-mode-text border-slate-300' : 'text-slate-300 border-amber-500/20'
                     }`}>
-                      <RichTextRenderer text={activeEntry.text} theme={theme} />
+                      <RichTextRenderer text={activeEntry.text} theme={isLight ? 'light' : 'dark'} />
                     </div>
 
                     {activeEntry.updatedBy && (

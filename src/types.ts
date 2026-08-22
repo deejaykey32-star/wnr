@@ -33,4 +33,5 @@ export interface PrayerStep {
   cmykBeadId: string;
   decadeIndex?: number; // 1 to 5
   beadNumber?: number; // 1 to 10 for Hail Marys
+  text?: string;
 }

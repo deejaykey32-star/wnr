@@ -133,8 +133,8 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
           await setDoc(doc(db, 'prayers', k), {
             title: item.title,
             text: item.text,
-            updatedBy: item.updatedBy || 'Admin Sync',
-            updatedAt: item.updatedAt || new Date().toISOString()
+            updatedBy: (item as any).updatedBy || 'Admin Sync',
+            updatedAt: (item as any).updatedAt || new Date().toISOString()
           });
           count++;
         }

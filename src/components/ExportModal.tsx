@@ -129,8 +129,8 @@ export const ExportModal: React.FC<ExportModalProps> = ({
             ...item,
             title: custom?.title || item.title,
             text: custom?.text || item.text,
-            updatedBy: custom?.updatedBy,
-            updatedAt: custom?.updatedAt
+            updatedBy: (custom as any)?.updatedBy,
+            updatedAt: (custom as any)?.updatedAt
           };
         });
       }

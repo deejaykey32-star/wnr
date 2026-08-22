@@ -797,7 +797,7 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
             onChange={setEditText} 
             textareaId="prayer-editor-textarea" 
             placeholder="Wpisz natchnioną treść rozważania..." 
-            theme={theme}
+            theme={theme as 'dark' | 'light'}
             onThemeToggle={onThemeToggle}
           />
         </div>
