@@ -275,16 +275,16 @@ def render_api_video_overlay(image_path: str, current_idx: int, total_count: int
 
             if i == 0:  # Cross
                 color = (255, 235, 120) if is_active else (212, 175, 55)
-                r = 10 if is_active else 6
-            elif i in (1, 5, 16):  # Large beads
-                color = (255, 235, 120) if is_active else (220, 160, 60)
-                r = 9 if is_active else 6
-            else:  # Small beads
-                color = (255, 235, 120) if is_active else (70, 130, 200)
-                r = 7 if is_active else 4
+                r = 11 if is_active else 7
+            elif i in (1, 5, 16):  # DUŻE PACIORKI (Ojcze Nasz / Chwała Ojcu)
+                color = (255, 220, 100) if is_active else (230, 170, 50)
+                r = 12 if is_active else 8
+            else:  # MAŁE PACIORKI (Zdrowaś Maryjo)
+                color = (255, 235, 120) if is_active else (60, 120, 190)
+                r = 6 if is_active else 4
 
             if is_active:
-                draw.ellipse([left_x - r - 4, by - r - 4, left_x + r + 4, by + r + 4], fill=(255, 235, 120), outline=(255, 215, 0), width=2)
+                draw.ellipse([left_x - r - 4, by - r - 4, left_x + r + 4, by + r + 4], fill=(255, 235, 120), outline=(255, 215, 0), width=3)
             else:
                 draw.ellipse([left_x - r, by - r, left_x + r, by + r], fill=color)
 
@@ -298,16 +298,16 @@ def render_api_video_overlay(image_path: str, current_idx: int, total_count: int
 
             if i == 0:  # Cross
                 color = (255, 215, 100) if is_active else (212, 175, 55)
-                r = 10 if is_active else 6
-            elif i in (1, 5, 16):  # Large beads
-                color = (255, 215, 100) if is_active else (210, 130, 60)
-                r = 9 if is_active else 6
-            else:  # Small beads
-                color = (255, 215, 100) if is_active else (180, 90, 60)
-                r = 7 if is_active else 4
+                r = 11 if is_active else 7
+            elif i in (1, 5, 16):  # DUŻE PACIORKI (Ojcze Nasz / Chwała Ojcu)
+                color = (255, 215, 100) if is_active else (220, 140, 50)
+                r = 12 if is_active else 8
+            else:  # MAŁE PACIORKI (Zdrowaś Maryjo)
+                color = (255, 215, 100) if is_active else (170, 90, 60)
+                r = 6 if is_active else 4
 
             if is_active:
-                draw.ellipse([right_x - r - 4, by - r - 4, right_x + r + 4, by + r + 4], fill=(255, 215, 100), outline=(255, 180, 0), width=2)
+                draw.ellipse([right_x - r - 4, by - r - 4, right_x + r + 4, by + r + 4], fill=(255, 215, 100), outline=(255, 180, 0), width=3)
             else:
                 draw.ellipse([right_x - r, by - r, right_x + r, by + r], fill=color)
 
