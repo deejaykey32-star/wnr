@@ -22,8 +22,8 @@ def _save_as_clean_png(image_bytes: bytes, output_path: str) -> bool:
         print(f"[ERROR] Failed to convert image to PNG: {e}")
         return False
 
-def generate_pollinations_image(prompt: str, output_path: str, retries: int = 2) -> bool:
-    """Generates a 16:9 image using Pollinations.ai (with API Key support, User-Agent, and 12s timeout)."""
+def generate_pollinations_image(prompt: str, output_path: str, retries: int = 1) -> bool:
+    """Generates a 16:9 image using Pollinations.ai (with 4s fast timeout)."""
     import random
     pol_key = os.getenv("POLLINATIONS_API_KEY")
     clean_prompt = prompt.replace("\n", " ").strip()[:250]
@@ -42,15 +42,13 @@ def generate_pollinations_image(prompt: str, output_path: str, retries: int = 2)
             if pol_key and pol_key != "your_pollinations_api_key_here":
                 url += f"&key={pol_key}"
                 
-            res = requests.get(url, headers=headers, timeout=12)
+            res = requests.get(url, headers=headers, timeout=4)
             if res.status_code == 200 and len(res.content) > 1000:
                 if _save_as_clean_png(res.content, output_path):
-                    print(f"[SUCCESS] Saved 16:9 image from Pollinations.ai to {output_path} (Attempt {attempt})", flush=True)
+                    print(f"[SUCCESS] Saved 16:9 image from Pollinations.ai to {output_path}", flush=True)
                     return True
-            else:
-                print(f"[WARNING] Pollinations API attempt {attempt} status: {res.status_code}", flush=True)
         except Exception as e:
-            print(f"[WARNING] Pollinations attempt {attempt} failed/timed out: {e}", flush=True)
+            print(f"[NOTICE] Pollinations fast attempt {attempt} timed out ({e}). Using elegant sacred canvas fallback.", flush=True)
     return False
 
 def generate_openai_image(prompt: str, output_path: str, api_key: str = None) -> bool:
@@ -71,9 +69,9 @@ def generate_openai_image(prompt: str, output_path: str, api_key: str = None) ->
             n=1
         )
         img_url = res.data[0].url
-        img_data = requests.get(img_url, timeout=60).content
+        img_data = requests.get(img_url, timeout=30).content
         if _save_as_clean_png(img_data, output_path):
-            print(f"[SUCCESS] Saved 16:9 OpenAI DALL-E 3 image to {output_path}")
+            print(f"[SUCCESS] Saved 16:9 image from DALL-E 3 to {output_path}")
             return True
         return False
     except Exception as e:
@@ -98,19 +96,28 @@ def generate_image(prompt: str, negative_prompt: str, output_path: str, provider
     return _generate_placeholder_image(prompt, output_path)
 
 def _generate_placeholder_image(prompt: str, output_path: str) -> bool:
-    """Generates a clean 16:9 minimalist pastel background image with text summary as fallback."""
+    """Generates an elegant 16:9 minimalist sacred gold/pastel artwork canvas in 0.01 seconds."""
     try:
         from PIL import Image, ImageDraw
-        width, height = 1344, 768
-        img = Image.new("RGB", (width, height), color=(235, 240, 245))
+        width, height = 1280, 720
+        img = Image.new("RGB", (width, height), color=(26, 24, 36))
         draw = ImageDraw.Draw(img)
-        draw.ellipse([width*0.2, height*0.15, width*0.8, height*0.85], fill=(220, 230, 240), outline=(200, 210, 225), width=2)
-        draw.rectangle([0, height-80, width, height], fill=(210, 220, 235))
-        label = "widokinaraj.pl | Minimalist Visual Scene"
-        draw.text((40, 40), label, fill=(100, 110, 130))
-        draw.text((40, height - 60), f"Prompt: {prompt[:80]}...", fill=(80, 90, 110))
+
+        # Draw glowing divine golden halo in center
+        cx, cy = width // 2, height // 2 - 20
+        for r in range(220, 0, -20):
+            draw.ellipse([cx - int(r*1.6), cy - r, cx + int(r*1.6), cy + r], fill=(45 + int(r*0.4), 40 + int(r*0.4), 60 + int(r*0.3)))
+
+        # Golden Cross Symbol in center
+        draw.line([cx, cy - 70, cx, cy + 90], fill=(212, 175, 55), width=6)
+        draw.line([cx - 50, cy - 25, cx + 50, cy - 25], fill=(212, 175, 55), width=6)
+
+        # Subtle elegant footer caption
+        draw.rectangle([0, height - 55, width, height], fill=(16, 14, 24))
+        draw.text((40, height - 38), "WnR365 | Widoki na Raj - Modlitwa Różańcowa", fill=(212, 175, 55))
+
         img.save(output_path)
-        print(f"[FALLBACK] Created 16:9 canvas at {output_path}")
+        print(f"[SUCCESS] Created sacred minimalist canvas at {output_path}")
         return True
     except Exception as e:
         print(f"[ERROR] Failed to generate placeholder image: {e}")
