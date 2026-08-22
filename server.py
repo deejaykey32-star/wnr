@@ -122,6 +122,9 @@ class LocalAPIServer(BaseHTTPRequestHandler):
                 playlist_id = body.get("playlistId", "")
                 yt_title = body.get("title", "RHZ365 / WnR365 - Rozważania Modlitewne")
                 yt_privacy = body.get("privacy", "public")
+                yt_client_id = body.get("youtubeClientId", "")
+                yt_client_secret = body.get("youtubeClientSecret", "")
+                yt_refresh_token = body.get("youtubeRefreshToken", "")
 
                 with job_lock:
                     if current_job["status"] == "running":
@@ -143,7 +146,10 @@ class LocalAPIServer(BaseHTTPRequestHandler):
                 # Uruchom potok w osobnym wątku w tle
                 threading.Thread(
                     target=run_pipeline_worker,
-                    args=(text_to_generate.strip(), auto_upload_yt, playlist_id, yt_title, yt_privacy),
+                    args=(
+                        text_to_generate.strip(), auto_upload_yt, playlist_id, yt_title, yt_privacy,
+                        yt_client_id, yt_client_secret, yt_refresh_token
+                    ),
                     daemon=True
                 ).start()
 
@@ -165,6 +171,9 @@ class LocalAPIServer(BaseHTTPRequestHandler):
                 yt_title = body.get("title", "RHZ365 / WnR365 - Film Modlitewny")
                 yt_desc = body.get("description", "Oficjalny film modlitewny ze strony widokinaraj.pl")
                 yt_privacy = body.get("privacy", "public")
+                yt_client_id = body.get("youtubeClientId", "")
+                yt_client_secret = body.get("youtubeClientSecret", "")
+                yt_refresh_token = body.get("youtubeRefreshToken", "")
 
                 if not os.path.exists(OUTPUT_MP4):
                     self.send_response(400)
@@ -174,7 +183,10 @@ class LocalAPIServer(BaseHTTPRequestHandler):
                     return
 
                 from youtube_uploader import upload_video_to_youtube
-                upload_res = upload_video_to_youtube(OUTPUT_MP4, yt_title, yt_desc, playlist_id, yt_privacy)
+                upload_res = upload_video_to_youtube(
+                    OUTPUT_MP4, yt_title, yt_desc, playlist_id, yt_privacy,
+                    client_id=yt_client_id, client_secret=yt_client_secret, refresh_token=yt_refresh_token
+                )
 
                 self.send_response(200 if upload_res.get("success") else 500)
                 self.send_header("Content-Type", "application/json")
@@ -195,7 +207,7 @@ class LocalAPIServer(BaseHTTPRequestHandler):
                 pass
 
 
-def run_pipeline_worker(text: str, auto_upload_yt: bool = False, playlist_id: str = None, yt_title: str = None, yt_privacy: str = "public"):
+def run_pipeline_worker(text: str, auto_upload_yt: bool = False, playlist_id: str = None, yt_title: str = None, yt_privacy: str = "public", yt_client_id: str = None, yt_client_secret: str = None, yt_refresh_token: str = None):
     print(f"[WORKER] Rozpoczęto zadanie generowania w tle.")
     try:
         # Wywołanie pipeline.py w trybie bez buforowania (-u)
@@ -267,7 +279,10 @@ def run_pipeline_worker(text: str, auto_upload_yt: bool = False, playlist_id: st
                     from youtube_uploader import upload_video_to_youtube
                     title = yt_title or "RHZ365 / WnR365 - Rozważania Modlitewne"
                     desc = f"Film modlitewny wygenerowany automatycznie na stronie widokinaraj.pl\n\nTreść:\n{text[:500]}..."
-                    res_yt = upload_video_to_youtube(OUTPUT_MP4, title, desc, playlist_id, yt_privacy)
+                    res_yt = upload_video_to_youtube(
+                        OUTPUT_MP4, title, desc, playlist_id, yt_privacy,
+                        client_id=yt_client_id, client_secret=yt_client_secret, refresh_token=yt_refresh_token
+                    )
                     if res_yt.get("success"):
                         yt_url = res_yt.get("youtubeUrl")
                         print(f"[WORKER] ✅ Wygenerowano i przesłano na YouTube: {yt_url}")

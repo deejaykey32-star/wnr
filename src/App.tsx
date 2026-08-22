@@ -272,8 +272,19 @@ export default function App() {
   const [localShowPanel, setLocalShowPanel] = useState<boolean>(false);
   const [clientVideoUrl, setClientVideoUrl] = useState<string | null>(null);
   const [autoUploadYoutube, setAutoUploadYoutube] = useState<boolean>(false);
-  const [youtubePlaylistId, setYoutubePlaylistId] = useState<string>('');
+  const [youtubePlaylistId, setYoutubePlaylistId] = useState<string>(() => {
+    try { return localStorage.getItem('yt_playlist_id') || ''; } catch { return ''; }
+  });
   const [youtubePrivacy, setYoutubePrivacy] = useState<string>('public');
+  const [youtubeClientId, setYoutubeClientId] = useState<string>(() => {
+    try { return localStorage.getItem('yt_client_id') || ''; } catch { return ''; }
+  });
+  const [youtubeClientSecret, setYoutubeClientSecret] = useState<string>(() => {
+    try { return localStorage.getItem('yt_client_secret') || ''; } catch { return ''; }
+  });
+  const [youtubeRefreshToken, setYoutubeRefreshToken] = useState<string>(() => {
+    try { return localStorage.getItem('yt_refresh_token') || ''; } catch { return ''; }
+  });
   const [youtubeUploadedUrl, setYoutubeUploadedUrl] = useState<string | null>(null);
   const [apiServerUrl, setApiServerUrl] = useState<string>(() => {
     try {
@@ -304,7 +315,10 @@ export default function App() {
           autoUploadYoutube,
           playlistId: youtubePlaylistId,
           title: `RHZ365 Modlitwa Różańcowa - ${selectedDate.toLocaleDateString('pl-PL')}`,
-          privacy: youtubePrivacy
+          privacy: youtubePrivacy,
+          youtubeClientId,
+          youtubeClientSecret,
+          youtubeRefreshToken
         })
       });
 
@@ -1799,7 +1813,7 @@ export default function App() {
                     </div>
 
                     {/* YOUTUBE AUTO-UPLOAD OPTIONS */}
-                    <div className="p-3 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2 text-xs">
+                    <div className="p-3 bg-slate-900/80 border border-slate-800 rounded-xl space-y-3 text-xs">
                       <label className="flex items-center gap-2 text-slate-300 font-medium cursor-pointer">
                         <input
                           type="checkbox"
@@ -1811,7 +1825,7 @@ export default function App() {
                       </label>
 
                       {autoUploadYoutube && (
-                        <div className="space-y-2 pt-1">
+                        <div className="space-y-2.5 pt-1 border-t border-slate-800/80">
                           <div>
                             <label className="block text-[10px] uppercase font-semibold text-slate-400 mb-1">
                               ID Playlisty YouTube (opcjonalnie)
@@ -1820,7 +1834,10 @@ export default function App() {
                               type="text"
                               placeholder="np. PL1234567890abcdef (lub puste)"
                               value={youtubePlaylistId}
-                              onChange={(e) => setYoutubePlaylistId(e.target.value)}
+                              onChange={(e) => {
+                                setYoutubePlaylistId(e.target.value);
+                                try { localStorage.setItem('yt_playlist_id', e.target.value); } catch {}
+                              }}
                               className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1.5 text-slate-200 text-xs font-mono focus:border-red-500 focus:outline-none"
                             />
                           </div>
@@ -1838,6 +1855,54 @@ export default function App() {
                               <option value="unlisted">Niepubliczny (Tylko z linkiem)</option>
                               <option value="private">Prywatny (Tylko Ty)</option>
                             </select>
+                          </div>
+
+                          <div className="pt-2 border-t border-slate-800/60 space-y-2">
+                            <span className="block text-[10px] uppercase font-bold text-red-400 tracking-wider">
+                              Konfiguracja Danych YouTube OAuth2 API:
+                            </span>
+
+                            <div>
+                              <label className="block text-[10px] text-slate-400 mb-0.5">YOUTUBE_CLIENT_ID</label>
+                              <input
+                                type="text"
+                                placeholder="xxx.apps.googleusercontent.com"
+                                value={youtubeClientId}
+                                onChange={(e) => {
+                                  setYoutubeClientId(e.target.value);
+                                  try { localStorage.setItem('yt_client_id', e.target.value); } catch {}
+                                }}
+                                className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 py-1 text-slate-300 text-[11px] font-mono focus:border-red-500 focus:outline-none"
+                              />
+                            </div>
+
+                            <div>
+                              <label className="block text-[10px] text-slate-400 mb-0.5">YOUTUBE_CLIENT_SECRET</label>
+                              <input
+                                type="password"
+                                placeholder="GOCSPX-xxxxxxxxx"
+                                value={youtubeClientSecret}
+                                onChange={(e) => {
+                                  setYoutubeClientSecret(e.target.value);
+                                  try { localStorage.setItem('yt_client_secret', e.target.value); } catch {}
+                                }}
+                                className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 py-1 text-slate-300 text-[11px] font-mono focus:border-red-500 focus:outline-none"
+                              />
+                            </div>
+
+                            <div>
+                              <label className="block text-[10px] text-slate-400 mb-0.5">YOUTUBE_REFRESH_TOKEN</label>
+                              <input
+                                type="password"
+                                placeholder="1//04xxxxxxxxx"
+                                value={youtubeRefreshToken}
+                                onChange={(e) => {
+                                  setYoutubeRefreshToken(e.target.value);
+                                  try { localStorage.setItem('yt_refresh_token', e.target.value); } catch {}
+                                }}
+                                className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 py-1 text-slate-300 text-[11px] font-mono focus:border-red-500 focus:outline-none"
+                              />
+                            </div>
                           </div>
                         </div>
                       )}
