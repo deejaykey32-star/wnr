@@ -373,14 +373,46 @@ def run_api_pipeline(text: str, output_dir: str = "output", output_mp4: str = "f
     audio_path = os.path.join(output_dir, "narration.mp3")
     word_timestamps = fetch_elevenlabs_voice_with_timestamps(full_text, audio_path)
 
+    # STRICT VALIDATION: "ALBO WSZYSTKO ALBO NIC"
+    # 1. Verify ElevenLabs Audio File
+    if not os.path.exists(audio_path) or os.path.getsize(audio_path) < 1000:
+        raise RuntimeError(
+            "[STRICT ABORT] ElevenLabs Voice Cloning failed to generate valid audio file. "
+            "Process aborted as requested ('albo wszystko albo nic'). Please check ELEVENLABS_API_KEY in .env."
+        )
+
+    # 2. Verify AI Image Files
+    for idx, seg in enumerate(segments, 1):
+        img_p = seg.get("image_path")
+        if not img_p or not os.path.exists(img_p) or os.path.getsize(img_p) < 2000:
+            raise RuntimeError(
+                f"[STRICT ABORT] Image generation failed for bead {idx}. "
+                "Process aborted as requested ('albo wszystko albo nic'). Please check image API keys."
+            )
+
     # 4. Generate ASS Karaoke Subtitles with intact word splitting
     from assemble_video import generate_ass_karaoke_subtitles, render_video
     ass_path = os.path.join(output_dir, "narration.ass")
     generate_ass_karaoke_subtitles(segments, {}, ass_path)
 
+    # 3. Verify Subtitles File
+    if not os.path.exists(ass_path) or os.path.getsize(ass_path) < 50:
+        raise RuntimeError(
+            "[STRICT ABORT] Subtitles ASS generation failed. "
+            "Process aborted as requested ('albo wszystko albo nic')."
+        )
+
     # 5. Assemble final video via FFmpeg
     render_video(segments, audio_path, output_mp4, srt_path=ass_path)
-    print(f"[API PIPELINE SUCCESS] Final video rendered to {output_mp4}", flush=True)
+
+    # 4. Verify Final MP4 Output File
+    if not os.path.exists(output_mp4) or os.path.getsize(output_mp4) < 10000:
+        raise RuntimeError(
+            f"[STRICT ABORT] FFmpeg final video rendering failed or output file is empty ({output_mp4}). "
+            "Process aborted as requested ('albo wszystko albo nic')."
+        )
+
+    print(f"[API PIPELINE SUCCESS] Final video rendered cleanly to {output_mp4}", flush=True)
     return output_mp4
 
 if __name__ == "__main__":

@@ -44,15 +44,14 @@ def run_pipeline(text_input: str, input_type: str = "blog", output_dir: str = "o
     print("\n--- PHASE 4: Video Assembly (FFmpeg & Subtitles) ---")
     assemble_video_pipeline(segments_file, output_dir=output_dir, output_mp4=final_video, ffmpeg_bin=ffmpeg_bin)
     
-    # Phase 5: Verification & Deliverables
-    print("\n--- PHASE 5: Verification & Deliverables ---")
-    if os.path.exists(final_video) and os.path.getsize(final_video) > 0:
+    # Phase 5: Verification & Deliverables (STRICT MODE: "Albo wszystko albo nic")
+    print("\n--- PHASE 5: Strict Verification & Deliverables ---", flush=True)
+    if os.path.exists(final_video) and os.path.getsize(final_video) > 10000:
         size_mb = os.path.getsize(final_video) / (1024 * 1024)
-        print(f"[SUCCESS] Video successfully rendered: {final_video} ({size_mb:.2f} MB)")
+        print(f"[SUCCESS] Video successfully rendered with 100% strict verification: {final_video} ({size_mb:.2f} MB)", flush=True)
         return True
     else:
-        print(f"[ERROR] Failed to find rendered output video at {final_video}")
-        return False
+        raise RuntimeError(f"[STRICT ERROR] Failed to render complete video at {final_video}. Process aborted as requested ('albo wszystko albo nic').")
 
 def main():
     parser = argparse.ArgumentParser(description="Automated Video Pipeline for widokinaraj.pl")
