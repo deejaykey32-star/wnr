@@ -180,88 +180,50 @@ function buildSceneChunks(
   const TARGET_WORDS_PER_SCENE = 30; // ~12-15s czas czytania lektora (ok. 2.2 słów/sek)
 
   if (stepsData && stepsData.length > 0) {
-    let currentSteps: { text: string; rgbaBeadId: string; cmykBeadId: string; label: string }[] = [];
-    let currentWords = 0;
-    let currentLabel = '';
-
-    for (const step of stepsData) {
+    // Exactly 1 image per prayer bead step (16 beads = 16 images)
+    for (let i = 0; i < stepsData.length; i++) {
+      const step = stepsData[i];
       const stepText = (step.text || '').trim();
       if (!stepText) continue;
-
-      const wordsInStep = stepText.split(/\s+/).length;
-      if (!currentLabel) currentLabel = step.label || titleFallback;
-
-      currentSteps.push({
-        text: stepText,
-        rgbaBeadId: step.rgbaBeadId || '',
-        cmykBeadId: step.cmykBeadId || '',
-        label: step.label || ''
-      });
-      currentWords += wordsInStep;
-
-      // Gdy zgromadzimy ok. 30 słów (12-15 sekund) domykamy scenę
-      if (currentWords >= TARGET_WORDS_PER_SCENE) {
-        const fullText = currentSteps.map(s => s.text).join(' ');
-        chunks.push({
-          text: fullText,
-          label: currentLabel,
-          steps: [...currentSteps],
-          promptKeywords: fullText.slice(0, 120)
-        });
-        currentSteps = [];
-        currentWords = 0;
-        currentLabel = '';
-      }
-    }
-
-    if (currentSteps.length > 0) {
-      const fullText = currentSteps.map(s => s.text).join(' ');
       chunks.push({
-        text: fullText,
-        label: currentLabel || titleFallback,
-        steps: [...currentSteps],
-        promptKeywords: fullText.slice(0, 120)
+        text: stepText,
+        label: step.label || `Paciorek ${i + 1}`,
+        steps: [{
+          text: stepText,
+          rgbaBeadId: step.rgbaBeadId || '',
+          cmykBeadId: step.cmykBeadId || '',
+          label: step.label || ''
+        }],
+        promptKeywords: stepText.slice(0, 120)
       });
     }
   } else {
-    // Tekst zebrany z wpisu blogowego WnR365
-    const paragraphs = textInput.split(/\n+/).filter(p => p.trim().length > 0);
-    const rawSentences: string[] = [];
-    for (const para of paragraphs) {
-      const sents = para.split(/[.!?]\s+/).filter(s => s.trim().length > 0);
-      rawSentences.push(...sents);
-    }
+    // Balance text into exactly 16 scene chunks (16 images for 16 beads)
+    const TARGET_CHUNKS = 16;
+    const rawSentences = textInput.split(/[.!?]\s+/).map(s => s.trim()).filter(s => s.length > 0);
     if (rawSentences.length === 0) rawSentences.push(textInput);
 
-    let curSentenceGroup: string[] = [];
-    let curWords = 0;
-
-    for (const sentence of rawSentences) {
-      const words = sentence.trim().split(/\s+/).length;
-      curSentenceGroup.push(sentence.trim());
-      curWords += words;
-
-      if (curWords >= TARGET_WORDS_PER_SCENE) {
-        const fullText = curSentenceGroup.join('. ') + '.';
+    if (rawSentences.length <= TARGET_CHUNKS) {
+      for (const sent of rawSentences) {
+        chunks.push({
+          text: sent,
+          label: titleFallback,
+          steps: [{ text: sent, rgbaBeadId: '', cmykBeadId: '', label: titleFallback }],
+          promptKeywords: sent.slice(0, 120)
+        });
+      }
+    } else {
+      const groupSize = Math.ceil(rawSentences.length / TARGET_CHUNKS);
+      for (let i = 0; i < rawSentences.length; i += groupSize) {
+        const fullText = rawSentences.slice(i, i + groupSize).join('. ') + '.';
         chunks.push({
           text: fullText,
           label: titleFallback,
           steps: [{ text: fullText, rgbaBeadId: '', cmykBeadId: '', label: titleFallback }],
           promptKeywords: fullText.slice(0, 120)
         });
-        curSentenceGroup = [];
-        curWords = 0;
+        if (chunks.length === TARGET_CHUNKS) break;
       }
-    }
-
-    if (curSentenceGroup.length > 0) {
-      const fullText = curSentenceGroup.join('. ') + '.';
-      chunks.push({
-        text: fullText,
-        label: titleFallback,
-        steps: [{ text: fullText, rgbaBeadId: '', cmykBeadId: '', label: titleFallback }],
-        promptKeywords: fullText.slice(0, 120)
-      });
     }
   }
 

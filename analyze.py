@@ -134,28 +134,31 @@ def analyze_text(text_input: str, input_type: str = "blog", api_key: str = None)
 def _fallback_chunking(text_input: str, input_type: str) -> list:
     """Rule-based text chunker fallback that splits text into distinct sentence/bead segments."""
     import re
+    import math
     
     cleaned_text = clean_text_for_speech(text_input.strip())
     sentences = [s.strip() for s in re.split(r'(?<=[.!?;\n])\s+', cleaned_text) if s.strip()]
+    if not sentences:
+        sentences = [cleaned_text]
     
+    TARGET_BEADS = 16 if input_type == "prayer" else 10
+    
+    # Balance sentences into exactly TARGET_BEADS chunks
     chunks = []
-    current_chunk = ""
-    
-    for sentence in sentences:
-        if not sentence:
-            continue
-        if current_chunk:
-            if len(current_chunk) + len(sentence) < 85:
-                current_chunk += " " + sentence
-            else:
-                chunks.append(current_chunk.strip())
-                current_chunk = sentence
-        else:
-            current_chunk = sentence
-            
-    if current_chunk.strip():
-        chunks.append(current_chunk.strip())
-        
+    if len(sentences) <= TARGET_BEADS:
+        chunks = sentences
+    else:
+        group_size = max(1, math.ceil(len(sentences) / TARGET_BEADS))
+        for i in range(0, len(sentences), group_size):
+            chunk_group = " ".join(sentences[i:i + group_size])
+            if chunk_group.strip():
+                chunks.append(chunk_group.strip())
+            if len(chunks) == TARGET_BEADS:
+                remainder = " ".join(sentences[i + group_size:])
+                if remainder.strip():
+                    chunks[-1] += " " + remainder.strip()
+                break
+
     if not chunks:
         chunks = [cleaned_text]
     
@@ -173,7 +176,7 @@ def _fallback_chunking(text_input: str, input_type: str) -> list:
             "negative_prompt": DEFAULT_NEGATIVE_PROMPT
         })
         
-    print(f"[ANALYZE] Created {len(segments)} distinct prayer/bead segments.")
+    print(f"[ANALYZE] Created exactly {len(segments)} distinct prayer/bead segments (Target: {TARGET_BEADS}).")
     return segments
 
 def main():
