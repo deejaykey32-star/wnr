@@ -266,7 +266,6 @@ def generate_openai_audio(full_text: str, voice: str = "alloy", output_audio: st
         print(f"[ERROR] OpenAI TTS generation failed: {e}")
         return None
 
-def generate_narration_audio(full_text: str, output_audio: str = "narration.mp3", output_timing: str = "narration_timestamps.json") -> dict:
 def generate_elevenlabs_voice_clone(full_text: str, speaker_wav: str = None, output_audio: str = "narration.mp3", output_timing: str = "narration_timestamps.json") -> dict:
     """
     Clones voice from reference MP3 sample (VID-20260727-WA0000.mp3) using ElevenLabs API.
