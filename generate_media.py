@@ -436,35 +436,15 @@ def generate_elevenlabs_voice_clone(full_text: str, voice_id: str = None, speake
 def generate_narration_audio(full_text: str, output_audio: str = "narration.mp3", output_timing: str = "narration_timestamps.json") -> dict:
     """
     Main voice/audio router.
-    Supports:
-    - 'elevenlabs' (ElevenLabs Voice ID yu6bC9aJwpEUndYOjPEg)
-    - 'fish' or 'clone' (Fish.audio Voice Cloning)
-    - 'pl-PL-MarekNeural' / 'pl-PL-ZofiaNeural' (Edge Neural TTS - Free)
+    Enforces ElevenLabs Voice Cloning (Voice ID: yu6bC9aJwpEUndYOjPEg).
     """
-    voice_setting = os.getenv("EDGE_VOICE", "elevenlabs")
-    
-    if voice_setting == "elevenlabs":
-        print(f"[VOICE CLONING] Attempting ElevenLabs Voice Cloning (Voice ID: yu6bC9aJwpEUndYOjPEg)...")
-        alignment = generate_elevenlabs_voice_clone(full_text, voice_id="yu6bC9aJwpEUndYOjPEg", output_audio=output_audio, output_timing=output_timing)
-        if alignment:
-            return alignment
-
-    if voice_setting in ("fish", "clone"):
-        print(f"[VOICE CLONING] Attempting Fish.audio Voice Cloning...")
-        alignment = generate_fish_audio_voice_clone(full_text, output_audio=output_audio, output_timing=output_timing)
-        if alignment:
-            return alignment
-
-    # Default & primary: Edge Neural TTS (Free)
-    voice_name = "pl-PL-MarekNeural" if voice_setting in ("elevenlabs", "fish", "clone") else voice_setting
-    alignment = generate_edge_tts_audio(full_text, voice=voice_name, output_audio=output_audio, output_timing=output_timing)
+    print(f"[VOICE CLONING] Enforcing ElevenLabs Voice Cloning (Voice ID: yu6bC9aJwpEUndYOjPEg)...", flush=True)
+    alignment = generate_elevenlabs_voice_clone(full_text, voice_id="yu6bC9aJwpEUndYOjPEg", output_audio=output_audio, output_timing=output_timing)
     if alignment:
         return alignment
 
-    # Fallback to OpenAI TTS
-    alignment = generate_openai_audio(full_text, output_audio=output_audio, output_timing=output_timing)
-    if alignment:
-        return alignment
+    print("[ERROR] ElevenLabs Voice Cloning failed. Please check ELEVENLABS_API_KEY in .env", flush=True)
+    return _generate_fallback_audio(full_text, output_audio, output_timing)
 
     return _generate_fallback_audio(full_text, output_audio, output_timing)
 

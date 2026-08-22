@@ -28,10 +28,10 @@ def fetch_elevenlabs_voice_with_timestamps(text: str, output_audio: str, voice_i
     Calls ElevenLabs API with-timestamps endpoint to generate TTS narration audio with exact word timing.
     Returns list of dicts: [{"word": str, "start": float, "end": float}]
     """
-    api_key = ELEVENLABS_API_KEY or os.getenv("ELEVEN_API_KEY", "")
+    api_key = os.getenv("ELEVENLABS_API_KEY") or "sk_1776a5dc766a64259eeb7dfe960e0d303217939568f6462c"
     if not api_key:
-        print("[ELEVENLABS] API Key not set. Using Edge TTS fallback.", flush=True)
-        return _fallback_edge_tts_with_timestamps(text, output_audio)
+        print("[ELEVENLABS ERROR] API Key missing.", flush=True)
+        return []
 
     url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps"
     headers = {

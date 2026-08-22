@@ -213,8 +213,8 @@ class LocalAPIServer(BaseHTTPRequestHandler):
                 pass
 
 
-def run_pipeline_worker(text: str, auto_upload_yt: bool = False, playlist_id: str = None, yt_title: str = None, yt_privacy: str = "public", yt_client_id: str = None, yt_client_secret: str = None, yt_refresh_token: str = None, tts_voice: str = "pl-PL-MarekNeural", tts_rate: str = "-18%"):
-    print(f"[WORKER] Rozpoczęto zadanie generowania w tle (głos: {tts_voice}, tempo: {tts_rate}).")
+def run_pipeline_worker(text: str, auto_upload_yt: bool = False, playlist_id: str = None, yt_title: str = None, yt_privacy: str = "public", yt_client_id: str = None, yt_client_secret: str = None, yt_refresh_token: str = None, tts_voice: str = "elevenlabs", tts_rate: str = "-18%"):
+    print(f"[WORKER] Rozpoczęto zadanie generowania w tle (głos: ElevenLabs Voice Cloning).")
     try:
         # Wywołanie pipeline.py w trybie bez buforowania (-u)
         cmd = [
@@ -231,9 +231,9 @@ def run_pipeline_worker(text: str, auto_upload_yt: bool = False, playlist_id: st
         env["PYTHONUNBUFFERED"] = "1"
         env["IMAGE_PROVIDER"] = "openai"
         env["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY", "")
-        env["EDGE_VOICE"] = tts_voice or "elevenlabs"
+        env["EDGE_VOICE"] = "elevenlabs"
         env["TTS_RATE"] = tts_rate or "-18%"
-        env["ELEVENLABS_API_KEY"] = os.getenv("ELEVENLABS_API_KEY", "")
+        env["ELEVENLABS_API_KEY"] = os.getenv("ELEVENLABS_API_KEY", "sk_1776a5dc766a64259eeb7dfe960e0d303217939568f6462c")
         env["ELEVENLABS_VOICE_ID"] = os.getenv("ELEVENLABS_VOICE_ID", "yu6bC9aJwpEUndYOjPEg")
 
         process = subprocess.Popen(
