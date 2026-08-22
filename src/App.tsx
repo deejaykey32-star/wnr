@@ -360,19 +360,28 @@ export default function App() {
           setLocalProgress(100);
           setLocalDownloadReady(true);
           setLocalGenerating(false);
-          setLocalStatusMsg("✅ Wideo MP4 wygenerowane pomyślnie na serwerze! Pobieranie pliku...");
+          setLocalStatusMsg("✅ Wideo MP4 wygenerowane pomyślnie na serwerze!");
 
-          try {
-            const link = document.createElement('a');
-            link.href = `${apiServerUrl}/api/generate-mp4/download`;
-            link.download = 'rhz365_rosary_video.mp4';
-            link.target = '_blank';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-          } catch (e) {
-            console.error('Auto download error:', e);
-          }
+          fetch(`${apiServerUrl}/api/generate-mp4/download`)
+            .then(res => {
+              if (!res.ok) throw new Error("Plik nie jest dostępny");
+              return res.blob();
+            })
+            .then(blob => {
+              const url = window.URL.createObjectURL(blob);
+              const link = document.createElement('a');
+              link.href = url;
+              link.download = `rhz365_rosary_video_${selectedDate.toISOString().slice(0,10)}.mp4`;
+              document.body.appendChild(link);
+              link.click();
+              window.URL.revokeObjectURL(url);
+              document.body.removeChild(link);
+              setLocalStatusMsg("✅ Wygenerowano i pobrano wideo MP4!");
+            })
+            .catch(e => {
+              console.error('Auto blob download error:', e);
+              setLocalStatusMsg("✅ Wideo MP4 wygenerowane! Kliknij zielony przycisk poniżej, aby pobrać.");
+            });
         } else if (data.status === "error") {
           clearInterval(interval);
           setLocalGenerating(false);

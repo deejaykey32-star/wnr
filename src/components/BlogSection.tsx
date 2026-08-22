@@ -265,19 +265,28 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
           setLocalProgress(100);
           setLocalDownloadReady(true);
           setLocalGenerating(false);
-          setLocalStatusMsg("✅ Wideo MP4 wygenerowane pomyślnie na serwerze! Pobieranie pliku...");
+          setLocalStatusMsg("✅ Wideo MP4 wygenerowane pomyślnie na serwerze!");
 
-          try {
-            const link = document.createElement('a');
-            link.href = `${apiServerUrl}/api/generate-mp4/download`;
-            link.download = `wnr365_blog_${cycleInfo.dayIndex}.mp4`;
-            link.target = '_blank';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-          } catch (e) {
-            console.error('Auto download error:', e);
-          }
+          fetch(`${apiServerUrl}/api/generate-mp4/download`)
+            .then(res => {
+              if (!res.ok) throw new Error("Plik nie jest dostępny");
+              return res.blob();
+            })
+            .then(blob => {
+              const url = window.URL.createObjectURL(blob);
+              const link = document.createElement('a');
+              link.href = url;
+              link.download = `wnr365_blog_${cycleInfo.dayIndex}.mp4`;
+              document.body.appendChild(link);
+              link.click();
+              window.URL.revokeObjectURL(url);
+              document.body.removeChild(link);
+              setLocalStatusMsg("✅ Wygenerowano i pobrano wideo MP4!");
+            })
+            .catch(e => {
+              console.error('Auto blob download error:', e);
+              setLocalStatusMsg("✅ Wideo MP4 wygenerowane! Kliknij zielony przycisk poniżej, aby pobrać.");
+            });
         } else if (data.status === "error") {
           clearInterval(interval);
           setLocalGenerating(false);
