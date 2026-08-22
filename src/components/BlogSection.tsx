@@ -247,7 +247,19 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
           setLocalProgress(100);
           setLocalDownloadReady(true);
           setLocalGenerating(false);
-          setLocalStatusMsg("✅ Wideo MP4 wygenerowane pomyślnie na serwerze!");
+          setLocalStatusMsg("✅ Wideo MP4 wygenerowane pomyślnie na serwerze! Pobieranie pliku...");
+
+          try {
+            const link = document.createElement('a');
+            link.href = `${apiServerUrl}/api/generate-mp4/download`;
+            link.download = `wnr365_blog_${cycleInfo.dayIndex}.mp4`;
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          } catch (e) {
+            console.error('Auto download error:', e);
+          }
         } else if (data.status === "error") {
           clearInterval(interval);
           setLocalGenerating(false);
@@ -744,6 +756,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                     {localDownloadReady && (
                       <a
                         href={`${apiServerUrl}/api/generate-mp4/download`}
+                        download={`wnr365_blog_${cycleInfo.dayIndex}.mp4`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-full px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer text-center animate-pulse"
