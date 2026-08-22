@@ -14,7 +14,10 @@ import math
 import re
 import requests
 import subprocess
+from dotenv import load_dotenv
 from PIL import Image, ImageDraw, ImageFont
+
+load_dotenv()
 
 ELEVENLABS_VOICE_ID = os.getenv("ELEVENLABS_VOICE_ID", "yu6bC9aJwpEUndYOjPEg")
 ELEVENLABS_API_KEY = os.getenv("ELEVENLABS_API_KEY", "")
@@ -137,6 +140,28 @@ def fetch_ai_image(prompt: str, output_path: str, bead_idx: int = 1) -> bool:
         f"hyperrealistic biblical oil painting masterpiece, classical Renaissance art style, "
         f"sacred scene depicting: {clean_text[:90]}, Rembrandt lighting, divine atmosphere, 8k cinematic masterpiece, 16:9"
     )
+
+    openai_key = os.getenv("OPENAI_API_KEY")
+    if openai_key and openai_key != "your_openai_api_key_here":
+        try:
+            print(f"[OPENAI DALL-E 3] Requesting 16:9 sacred art image for bead {bead_idx}...", flush=True)
+            from openai import OpenAI
+            client = OpenAI(api_key=openai_key)
+            res = client.images.generate(
+                model="dall-e-3",
+                prompt=sacred_prompt,
+                size="1792x1024",
+                quality="standard",
+                n=1
+            )
+            img_url = res.data[0].url
+            img_data = requests.get(img_url, timeout=30).content
+            with open(output_path, "wb") as f:
+                f.write(img_data)
+            print(f"[SUCCESS] Saved 16:9 DALL-E 3 masterpiece image to {output_path}", flush=True)
+            return True
+        except Exception as e:
+            print(f"[NOTICE] DALL-E 3 generation notice: {e}", flush=True)
 
     if REPLICATE_API_KEY:
         try:
