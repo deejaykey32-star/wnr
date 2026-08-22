@@ -393,8 +393,12 @@ def process_media_generation(segments_file: str, output_dir: str = "output"):
     with open(segments_file, "r", encoding="utf-8") as f:
         segments = json.load(f)
 
+    total_segs = max(len(segments), 1)
+
     # 1. Generate 16:9 images for each segment (Pollinations AI with API key / OpenAI DALL-E 3)
     for idx, seg in enumerate(segments, 1):
+        pct = 20 + int((idx / total_segs) * 45) # 20% to 65%
+        print(f"[PROGRESS {pct}%] Generowanie ilustracji paciorka {idx} z {total_segs}...", flush=True)
         img_filename = f"img_{idx:03d}.png"
         img_path = os.path.join(output_dir, img_filename)
         seg["image_path"] = img_path
@@ -405,13 +409,16 @@ def process_media_generation(segments_file: str, output_dir: str = "output"):
     full_text = "\n\n".join([clean_text_for_speech(seg["text"]) for seg in segments if clean_text_for_speech(seg["text"])])
     audio_path = os.path.join(output_dir, "narration.mp3")
     timing_path = os.path.join(output_dir, "narration_timestamps.json")
+    
+    print("[PROGRESS 70%] Generowanie nagrania głosu lektora (TTS)...", flush=True)
     alignment = generate_narration_audio(full_text, output_audio=audio_path, output_timing=timing_path)
+    print("[PROGRESS 80%] Nagranie lektora i znacznik czasu gotowe!", flush=True)
 
     # Update segments file with image paths
     with open(segments_file, "w", encoding="utf-8") as f:
         json.dump(segments, f, ensure_ascii=False, indent=2)
 
-    print(f"[SUCCESS] Media generation complete for {len(segments)} segments.")
+    print(f"[SUCCESS] Media generation complete for {len(segments)} segments.", flush=True)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate images & Voice audio (Voice Cloning / Edge Neural TTS / Pollinations).")

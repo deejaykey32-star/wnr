@@ -29,11 +29,12 @@ def run_pipeline(text_input: str, input_type: str = "blog", output_dir: str = "o
     segments_file = os.path.join(output_dir, "segments.json")
     
     # Phase 2: Content Parsing & Prompt Generation (GPT-4o)
-    print("\n--- PHASE 2: Content Parsing & Prompt Generation (GPT-4o) ---")
+    print("\n--- PHASE 2: Content Parsing & Prompt Generation (GPT-4o) ---", flush=True)
+    print("[PROGRESS 10%] Oczyszczanie tekstu modlitwy i usuwanie odnośników...", flush=True)
     segments = analyze_text(text_input, input_type=input_type)
     with open(segments_file, "w", encoding="utf-8") as f:
         json.dump(segments, f, ensure_ascii=False, indent=2)
-    print(f"[OK] Generated {len(segments)} visual segments with 16:9 SD prompts.")
+    print(f"[PROGRESS 15%] Przygotowano {len(segments)} segmentów modlitewnych.", flush=True)
     
     # Phase 3: Media Generation (Stable Diffusion 16:9 & ElevenLabs)
     print("\n--- PHASE 3: Media Generation (Stable Diffusion 16:9 & ElevenLabs) ---")

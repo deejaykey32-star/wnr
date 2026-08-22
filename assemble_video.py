@@ -144,10 +144,13 @@ def assemble_video_pipeline(segments_file: str, output_dir: str = "output", outp
             timing_data = json.load(f)
 
     srt_path = os.path.join(output_dir, "narration.srt")
+    print("[PROGRESS 82%] Generowanie napisów i osi czasu slajdów...", flush=True)
     updated_segments = generate_srt_subtitles(segments, timing_data, srt_path)
 
     audio_path = os.path.join(output_dir, "narration.mp3")
+    print("[PROGRESS 88%] Renderowanie końcowego filmu MP4 (FFmpeg)...", flush=True)
     render_video(updated_segments, audio_path, output_mp4=output_mp4, srt_path=srt_path, ffmpeg_bin=ffmpeg_bin)
+    print("[PROGRESS 95%] Montaż wideo ukończony pomyślnie!", flush=True)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Assemble 16:9 video with synced subtitles using FFmpeg.")

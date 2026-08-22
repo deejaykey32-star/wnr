@@ -251,15 +251,15 @@ def run_pipeline_worker(text: str, auto_upload_yt: bool = False, playlist_id: st
             # Mapowanie faz i logów na progress
             prog = None
             msg = None
-            if "PHASE 2" in line_str:
-                prog, msg = 15, "Analiza tekstu i planowanie scen modlitewnych..."
+            m = re.search(r'\[PROGRESS (\d+)%\] (.*)', line_str)
+            if m:
+                prog = int(m.group(1))
+                msg = m.group(2)
+            elif "PHASE 2" in line_str:
+                prog, msg = 10, "Analiza tekstu i planowanie scen modlitewnych..."
             elif "PHASE 3" in line_str:
-                prog, msg = 30, "Generowanie grafik (Pollinations) i głosu lektora..."
-            elif "img_" in line_str or "Saved 16:9" in line_str or "Pollinations" in line_str:
-                prog, msg = 50, "Pobieranie ilustracji 16:9 (Pollinations.ai)..."
-            elif "audio" in line_str.lower() or "tts" in line_str.lower() or "narration" in line_str.lower():
-                prog, msg = 70, "Generowanie głosu lektora (TTS)..."
-            elif "PHASE 4" in line_str or "ffmpeg" in line_str.lower():
+                prog, msg = 20, "Rozpoczynanie pobierania grafik (Pollinations)..."
+            elif "PHASE 4" in line_str:
                 prog, msg = 85, "Montowanie wideo MP4 (FFmpeg)..."
             elif "[SUCCESS]" in line_str:
                 prog, msg = 90, "Wideo MP4 wyrenderowane! Przygotowanie publikacji..."
