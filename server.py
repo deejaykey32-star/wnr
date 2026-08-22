@@ -227,6 +227,7 @@ def run_pipeline_worker(text: str, auto_upload_yt: bool = False, playlist_id: st
         env["PYTHONUNBUFFERED"] = "1"
         env["EDGE_VOICE"] = tts_voice or "pl-PL-MarekNeural"
         env["TTS_RATE"] = tts_rate or "-18%"
+        env["FISH_AUDIO_API_KEY"] = os.getenv("FISH_AUDIO_API_KEY", "sk-fish-Kd92IxqmbXbNDpyj24-Bf4e84y8iuNXsA_idr7nQD4o")
 
         process = subprocess.Popen(
             cmd,
