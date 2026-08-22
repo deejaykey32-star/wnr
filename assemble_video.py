@@ -80,26 +80,26 @@ def render_video(segments: list, audio_path: str, output_mp4: str = "final_widok
     # Escape subtitle path for ffmpeg filter string (Windows backslashes must be escaped)
     escaped_srt = os.path.abspath(srt_path).replace("\\", "/").replace(":", "\\:")
     
-    sub_style = "FontName=DejaVu Sans,FontSize=20,PrimaryColour=&H00FFFFFF,BackColour=&H80000000,BorderStyle=4,Alignment=2,MarginV=30"
-    vf_filter = f"scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,subtitles='{escaped_srt}':force_style='{sub_style}'"
+    sub_style = "FontName=DejaVu Sans,FontSize=18,PrimaryColour=&H00FFFFFF,BackColour=&H80000000,BorderStyle=4,Alignment=2,MarginV=65"
+    vf_filter = f"scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,subtitles='{escaped_srt}':force_style='{sub_style}'"
 
     audio_abs_path = os.path.abspath(audio_path)
     # Check if narration audio exists; if not, create silent audio track filter
     if os.path.exists(audio_abs_path):
         audio_input = ["-i", audio_abs_path]
-        audio_map = ["-c:a", "aac", "-b:a", "192k"]
+        audio_map = ["-c:a", "aac", "-b:a", "128k"]
     else:
         print("[WARNING] Narration audio not found, generating silent audio stream.")
         total_duration = sum(s.get("duration", 4.0) for s in segments)
         audio_input = ["-f", "lavfi", "-i", f"anullsrc=channel_layout=stereo:sample_rate=44100:duration={total_duration}"]
-        audio_map = ["-c:a", "aac", "-b:a", "192k"]
+        audio_map = ["-c:a", "aac", "-b:a", "128k"]
 
     cmd = [
         ffmpeg_bin, "-y",
         "-f", "concat", "-safe", "0", "-i", concat_file,
         *audio_input,
         "-vf", vf_filter,
-        "-c:v", "libx264", "-pix_fmt", "yuv420p", "-preset", "fast",
+        "-c:v", "libx264", "-pix_fmt", "yuv420p", "-preset", "ultrafast",
         *audio_map,
         "-shortest",
         output_mp4
@@ -118,8 +118,8 @@ def render_video(segments: list, audio_path: str, output_mp4: str = "final_widok
             ffmpeg_bin, "-y",
             "-f", "concat", "-safe", "0", "-i", concat_file,
             *audio_input,
-            "-vf", "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2",
-            "-c:v", "libx264", "-pix_fmt", "yuv420p",
+            "-vf", "scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2",
+            "-c:v", "libx264", "-pix_fmt", "yuv420p", "-preset", "ultrafast",
             *audio_map,
             "-shortest",
             output_mp4

@@ -395,6 +395,53 @@ def _generate_fallback_audio(text: str, output_audio: str, output_timing: str) -
     print(f"[FALLBACK] Generated estimated timestamps for {len(words)} words over {estimated_duration:.2f}s")
     return alignment
 
+def draw_rosary_beads_overlay(image_path: str, current_idx: int, total_count: int):
+    """
+    Draws a 16:9 minimalist rosary bead progress tracker bar across the bottom of the image.
+    Beads light up bead-by-bead as current_idx advances!
+    """
+    try:
+        from PIL import Image, ImageDraw
+        img = Image.open(image_path).convert("RGB")
+        width, height = img.size
+        draw = ImageDraw.Draw(img)
+
+        # Semi-transparent dark bar at the bottom
+        bar_height = 50
+        bar_y = height - bar_height
+        draw.rectangle([0, bar_y, width, height], fill=(16, 14, 24))
+
+        margin_x = 80
+        usable_width = width - (margin_x * 2)
+        step = usable_width / max(total_count - 1, 1)
+        bead_y = bar_y + 25
+
+        # Connecting line between beads
+        draw.line([margin_x, bead_y, width - margin_x, bead_y], fill=(60, 65, 80), width=2)
+
+        # Draw individual beads
+        for i in range(total_count):
+            bx = margin_x + int(i * step)
+            bead_num = i + 1
+
+            if bead_num < current_idx:
+                # Passed bead - solid gold
+                draw.ellipse([bx - 6, bead_y - 6, bx + 6, bead_y + 6], fill=(212, 175, 55))
+            elif bead_num == current_idx:
+                # ACTIVE CURRENT BEAD - Glowing Bright Gold with ring
+                draw.ellipse([bx - 10, bead_y - 10, bx + 10, bead_y + 10], fill=(255, 235, 120), outline=(255, 215, 0), width=3)
+            else:
+                # Future bead - translucent gray
+                draw.ellipse([bx - 5, bead_y - 5, bx + 5, bead_y + 5], fill=(70, 75, 90))
+
+        # Bead counter badge text (e.g. "Paciorek 3 z 22")
+        badge_text = f"📿 Paciorek {current_idx} z {total_count}"
+        draw.text((20, bar_y + 15), badge_text, fill=(240, 220, 140))
+
+        img.save(image_path)
+    except Exception as e:
+        print(f"[WARNING] Could not draw rosary overlay on {image_path}: {e}")
+
 def process_media_generation(segments_file: str, output_dir: str = "output"):
     os.makedirs(output_dir, exist_ok=True)
     with open(segments_file, "r", encoding="utf-8") as f:
@@ -410,6 +457,8 @@ def process_media_generation(segments_file: str, output_dir: str = "output"):
         img_path = os.path.join(output_dir, img_filename)
         seg["image_path"] = img_path
         generate_image(seg["prompt"], seg["negative_prompt"], img_path)
+        # Apply animated rosary bead progress overlay
+        draw_rosary_beads_overlay(img_path, idx, total_segs)
 
     # 2. Combine text and generate narration audio & timestamps (Voice Cloning from MP3 / Edge TTS)
     from analyze import clean_text_for_speech
