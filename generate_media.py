@@ -297,7 +297,7 @@ def generate_elevenlabs_voice_clone(full_text: str, voice_id: str = None, speake
     """
     Generates TTS using ElevenLabs API with user's cloned voice ID (default: yu6bC9aJwpEUndYOjPEg).
     """
-    key = os.getenv("ELEVENLABS_API_KEY", "014b83ad6adba049d850cd8cca0db3ace4de04c69af7b601a2dafea845eecda8")
+    key = os.getenv("ELEVENLABS_API_KEY", "sk_d74145d60d4d7fbf6946b24c1268cb668c5f2bae0d7d3173")
     target_voice_id = voice_id or os.getenv("ELEVENLABS_VOICE_ID", "yu6bC9aJwpEUndYOjPEg")
 
     if not key:
