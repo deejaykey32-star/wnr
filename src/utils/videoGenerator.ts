@@ -333,48 +333,33 @@ export const generateVideoClientSide = async (
       const seed = Math.floor(Math.random() * 1000000);
       const url = `https://image.pollinations.ai/prompt/${cleanPrompt}?width=1280&height=720&nologo=true&seed=${seed}`;
 
-      const img = await new Promise<HTMLImageElement>((resolve) => {
-        const image = new Image();
-        image.crossOrigin = 'anonymous';
-        let timeoutId: any;
+      const img = await new Promise<HTMLImageElement>(async (resolve) => {
+        const cleanPrompt = encodeURIComponent(`holy sacred christian painting, Renaissance masterpiece, divine cinematic light, ${chunk.promptKeywords}`);
+        const seed = Math.floor(Math.random() * 1000000);
+        
+        const candidateUrls = [
+          `https://image.pollinations.ai/prompt/${cleanPrompt}?width=1280&height=720&nologo=true&seed=${seed}&model=flux`,
+          `https://image.pollinations.ai/prompt/${cleanPrompt}?width=1280&height=720&nologo=true&seed=${seed}`,
+          `https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Michelangelo%27s_%22God%22%2C_from_%22the_Creation_of_Adam%22.jpg/1280px-Michelangelo%27s_%22God%22%2C_from_%22the_Creation_of_Adam%22.jpg`,
+          `https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/God_the_Father_and_angels%2C_Pietro_Perugino%2C_Stanza_dell%27Incendio_di_Borgo%2C_medalion%2C_part_of_the_ceiling%2C_Vatican_City_1.jpg/1280px-God_the_Father_and_angels%2C_Pietro_Perugino%2C_Stanza_dell%27Incendio_di_Borgo%2C_medalion%2C_part_of_the_ceiling%2C_Vatican_City_1.jpg`
+        ];
 
-        const finish = (result: HTMLImageElement) => {
-          clearTimeout(timeoutId);
-          imageCache.set(cacheKey, result);
-          resolve(result);
-        };
+        for (const candidateUrl of candidateUrls) {
+          const loaded = await new Promise<HTMLImageElement | null>((res) => {
+            const tempImg = new Image();
+            tempImg.crossOrigin = 'anonymous';
+            const tid = setTimeout(() => { tempImg.src = ''; res(null); }, 15000);
+            tempImg.onload = () => { clearTimeout(tid); res(tempImg); };
+            tempImg.onerror = () => { clearTimeout(tid); res(null); };
+            tempImg.src = candidateUrl;
+          });
 
-        image.onload = () => finish(image);
-
-        const handleFallback = () => {
-          const canvas = document.createElement('canvas');
-          canvas.width = 1280; canvas.height = 720;
-          const c = canvas.getContext('2d')!;
-          const grd = c.createRadialGradient(640, 360, 50, 640, 360, 600);
-          grd.addColorStop(0, '#1e1b4b');
-          grd.addColorStop(1, '#090d16');
-          c.fillStyle = grd;
-          c.fillRect(0, 0, 1280, 720);
-          c.fillStyle = '#fbbf24';
-          c.font = 'bold 36px serif';
-          c.textAlign = 'center';
-          c.fillText(chunk.label || titleFallback, 640, 340);
-          c.fillStyle = '#94a3b8';
-          c.font = '18px sans-serif';
-          c.fillText('WnR365 • RHZ365', 640, 390);
-
-          const fb = new Image();
-          fb.onload = () => finish(fb);
-          fb.src = canvas.toDataURL();
-        };
-
-        image.onerror = handleFallback;
-        timeoutId = setTimeout(() => {
-          image.src = '';
-          handleFallback();
-        }, 3000);
-
-        image.src = url;
+          if (loaded) {
+            imageCache.set(cacheKey, loaded);
+            resolve(loaded);
+            return;
+          }
+        }
       });
 
       images.push(img);
