@@ -81,25 +81,58 @@ def generate_openai_image(prompt: str, output_path: str, api_key: str = None) ->
         print(f"[ERROR] OpenAI DALL-E 3 image generation failed: {e}")
         return False
 
-def generate_wikimedia_sacred_art(prompt: str, output_path: str) -> bool:
+MYSTERY_PAINTING_QUERIES = [
+    (r'zwiastow|gabriel', 'Annunciation Virgin Mary painting'),
+    (r'nawiedz|elżbiet', 'Visitation Virgin Mary Elizabeth painting'),
+    (r'narodz|betlejem|żłób', 'Nativity Jesus Mary Joseph painting'),
+    (r'ofiarow|symeon', 'Presentation of Jesus in Temple painting'),
+    (r'odnalez|świątyn', 'Finding in Temple Jesus painting'),
+    (r'ogrój|getseman|kielich', 'Agony in Garden Jesus painting'),
+    (r'biczow|piłat', 'Flagellation of Christ painting'),
+    (r'cierni|korona', 'Crowning with Thorns Christ painting'),
+    (r'ukrzyż|golgot|śmierć', 'Crucifixion Jesus Christ painting'),
+    (r'dźwiga|kalwari|krzyż', 'Carrying Cross Jesus painting'),
+    (r'zmartwychwst', 'Resurrection Jesus Christ painting'),
+    (r'wniebowstąp', 'Ascension of Jesus painting'),
+    (r'zesłan|duch.*święt|wieczernik', 'Pentecost Descent Holy Spirit painting'),
+    (r'wniebowzięt', 'Assumption Virgin Mary painting'),
+    (r'ukoronow|królowa', 'Coronation Virgin Mary painting'),
+    (r'chrzest|jordan', 'Baptism of Christ painting'),
+    (r'kan[ie]|wino|wesele', 'Wedding at Cana painting'),
+    (r'przemien|tabor', 'Transfiguration of Jesus painting'),
+    (r'eucharysti|wieczerz|chleb', 'Last Supper Leonardo painting'),
+    (r'zdrowaś|maryj|matk', 'Virgin Mary painting'),
+    (r'ojcze|bóg|stworzyciel', 'God Father creation painting'),
+    (r'wierzę|apostoł', 'Apostles Creed painting')
+]
+
+def get_mystery_search_query(text: str) -> str:
+    """Finds exact biblical mystery search query matching the prayer text."""
+    for pattern, query in MYSTERY_PAINTING_QUERIES:
+        if re.search(pattern, text, re.IGNORECASE):
+            return query
+    return "sacred christian Renaissance painting"
+
+def generate_wikimedia_sacred_art(prompt: str, output_path: str, bead_idx: int = 0) -> bool:
     """
     Fetches real public-domain classical Renaissance sacred art masterpiece paintings
-    (Leonardo da Vinci, Raphael, Caravaggio, Titian, Murillo) matching the prayer theme.
+    (Leonardo da Vinci, Raphael, Caravaggio, Titian, Murillo) matched specifically to the prayer theme.
     """
     try:
         headers = {"User-Agent": "WnR365RosaryApp/1.0"}
-        clean_kw = re.sub(r'[^a-zA-Z0-9\s]', ' ', prompt)[:80].strip()
-        search_terms = f"painting sacred christian {clean_kw}"
-        url = f"https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch={urllib.parse.quote(search_terms)}&gsrnamespace=6&prop=imageinfo&iiprop=url&format=json"
+        search_query = get_mystery_search_query(prompt)
+        url = f"https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch={urllib.parse.quote(search_query)}&gsrnamespace=6&prop=imageinfo&iiprop=url&format=json"
         res = requests.get(url, headers=headers, timeout=6).json()
-        pages = res.get("query", {}).get("pages", {})
-        
-        for page_id, page_info in pages.items():
-            imageinfo = page_info.get("imageinfo", [])
+        pages = list(res.get("query", {}).get("pages", {}).values())
+
+        if pages:
+            # Cycle through available paintings for variety across beads
+            chosen_page = pages[bead_idx % len(pages)]
+            imageinfo = chosen_page.get("imageinfo", [])
             if imageinfo:
                 img_url = imageinfo[0].get("url")
                 if img_url and any(img_url.lower().split('?')[0].endswith(ext) for ext in [".jpg", ".png", ".jpeg"]):
-                    print(f"[WIKIMEDIA] Downloading sacred masterpiece painting from {img_url}...", flush=True)
+                    print(f"[WIKIMEDIA] Downloading sacred masterpiece ({search_query}) from {img_url}...", flush=True)
                     img_data = requests.get(img_url, headers=headers, timeout=8).content
                     if len(img_data) > 10000:
                         if _save_as_clean_png(img_data, output_path):
@@ -110,7 +143,7 @@ def generate_wikimedia_sacred_art(prompt: str, output_path: str) -> bool:
         print(f"[NOTICE] Wikimedia Commons sacred art search failed: {e}", flush=True)
         return False
 
-def generate_image(prompt: str, negative_prompt: str, output_path: str, provider: str = None) -> bool:
+def generate_image(prompt: str, negative_prompt: str, output_path: str, provider: str = None, bead_idx: int = 0) -> bool:
     """
     Main router for image generation.
     Supports providers: 'openai' (DALL-E 3), 'wikimedia' (Renaissance Paintings), 'pollinations' (Pollinations AI).
@@ -121,8 +154,8 @@ def generate_image(prompt: str, negative_prompt: str, output_path: str, provider
         if generate_openai_image(prompt, output_path):
             return True
 
-    # 1. Try fetching authentic Renaissance Sacred Art Masterpiece Painting
-    if generate_wikimedia_sacred_art(prompt, output_path):
+    # 1. Try fetching authentic Renaissance Sacred Art Masterpiece Painting matched to the prayer theme
+    if generate_wikimedia_sacred_art(prompt, output_path, bead_idx=bead_idx):
         return True
 
     # 2. Primary fallback: Pollinations.ai
@@ -504,7 +537,7 @@ def process_media_generation(segments_file: str, output_dir: str = "output"):
         img_filename = f"img_{idx:03d}.png"
         img_path = os.path.join(output_dir, img_filename)
         seg["image_path"] = img_path
-        generate_image(seg["prompt"], seg["negative_prompt"], img_path)
+        generate_image(seg.get("text", seg.get("prompt", "")), seg.get("negative_prompt", ""), img_path, bead_idx=idx)
         # Apply animated rosary bead progress overlay
         draw_rosary_beads_overlay(img_path, idx, total_segs)
 
