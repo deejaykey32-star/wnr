@@ -615,11 +615,17 @@ def draw_video_overlay(image_path: str, current_idx: int, total_count: int, is_r
             return
 
         # RHZ365 ROSARY OVERLAY
-        # 16 Beads Vertically on Left (RGBA) & Right (CMYK): 5 initial + 10 decade + 1 final
-        TOTAL_STRIP_BEADS = 16
+        # 17 Vertical Elements on Left (RGBA) & Right (CMYK):
+        # Index 0: Cross
+        # Index 1: 1 Large Bead (Ojcze Nasz)
+        # Index 2..4: 3 Small Beads (3x Zdrowaś)
+        # Index 5: 1 Large Bead (Chwała Ojcu)
+        # Index 6..15: 10 Small Beads (10x Zdrowaś dziesiątku)
+        # Index 16: 1 Large Bead (Chwała Ojcu / O mój Jezu)
+        TOTAL_STRIP_BEADS = 17
         active_bead_slot = (current_idx - 1) % TOTAL_STRIP_BEADS
 
-        # 1. Left RGBA Vertical Rosary Strip (16 beads)
+        # 1. Left RGBA Vertical Rosary Strip (17 elements)
         left_x = 40
         start_y, end_y = 65, height - 145
         draw.line([left_x, start_y, left_x, end_y], fill=(50, 70, 110), width=2)
@@ -630,23 +636,20 @@ def draw_video_overlay(image_path: str, current_idx: int, total_count: int, is_r
 
             if i == 0:  # Cross
                 color = (255, 235, 120) if is_active else (212, 175, 55)
+                r = 10 if is_active else 6
+            elif i in (1, 5, 16):  # Large beads (Ojcze Nasz / Chwała Ojcu)
+                color = (255, 235, 120) if is_active else (220, 160, 60)
                 r = 9 if is_active else 6
-            elif i in (1, 2, 3, 4):  # Initial 4 beads (Ojcze Nasz + 3x Zdrowaś)
-                color = (255, 235, 120) if is_active else (70, 120, 180)
-                r = 8 if is_active else 5
-            elif i == 15:  # Final bead
-                color = (255, 235, 120) if is_active else (180, 140, 70)
-                r = 8 if is_active else 5
-            else:  # 10 decade beads (indices 5..14)
-                color = (255, 235, 120) if is_active else (80, 100, 150)
-                r = 8 if is_active else 5
+            else:  # Small beads (3x Zdrowaś initial, 10x Zdrowaś decade)
+                color = (255, 235, 120) if is_active else (70, 130, 200)
+                r = 7 if is_active else 4
 
             if is_active:
-                draw.ellipse([left_x - r - 3, by - r - 3, left_x + r + 3, by + r + 3], fill=(255, 235, 120), outline=(255, 215, 0), width=2)
+                draw.ellipse([left_x - r - 4, by - r - 4, left_x + r + 4, by + r + 4], fill=(255, 235, 120), outline=(255, 215, 0), width=2)
             else:
                 draw.ellipse([left_x - r, by - r, left_x + r, by + r], fill=color)
 
-        # 2. Right CMYK Vertical Rosary Strip (16 beads)
+        # 2. Right CMYK Vertical Rosary Strip (17 elements)
         right_x = width - 40
         draw.line([right_x, start_y, right_x, end_y], fill=(110, 70, 50), width=2)
 
@@ -654,21 +657,18 @@ def draw_video_overlay(image_path: str, current_idx: int, total_count: int, is_r
             by = int(start_y + i * ((end_y - start_y) / (TOTAL_STRIP_BEADS - 1)))
             is_active = (i == active_bead_slot)
 
-            if i == 0:
+            if i == 0:  # Cross
                 color = (255, 215, 100) if is_active else (212, 175, 55)
+                r = 10 if is_active else 6
+            elif i in (1, 5, 16):  # Large beads
+                color = (255, 215, 100) if is_active else (210, 130, 60)
                 r = 9 if is_active else 6
-            elif i in (1, 2, 3, 4):
-                color = (255, 215, 100) if is_active else (180, 100, 70)
-                r = 8 if is_active else 5
-            elif i == 15:
-                color = (255, 215, 100) if is_active else (180, 140, 70)
-                r = 8 if is_active else 5
-            else:
-                color = (255, 215, 100) if is_active else (140, 80, 60)
-                r = 8 if is_active else 5
+            else:  # Small beads
+                color = (255, 215, 100) if is_active else (180, 90, 60)
+                r = 7 if is_active else 4
 
             if is_active:
-                draw.ellipse([right_x - r - 3, by - r - 3, right_x + r + 3, by + r + 3], fill=(255, 215, 100), outline=(255, 180, 0), width=2)
+                draw.ellipse([right_x - r - 4, by - r - 4, right_x + r + 4, by + r + 4], fill=(255, 215, 100), outline=(255, 180, 0), width=2)
             else:
                 draw.ellipse([right_x - r, by - r, right_x + r, by + r], fill=color)
 
