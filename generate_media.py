@@ -117,7 +117,8 @@ def generate_fish_audio_voice_clone(full_text: str, speaker_wav: str = None, out
     """
     Clones voice from sample audio file (e.g. VID-20260727-WA0000.mp3) using Fish.audio API.
     """
-    wav_path = speaker_wav or os.getenv("VOICE_SAMPLE_PATH", r"c:\proj\wnr\VID-20260727-WA0000.mp3")
+    default_wav = "VID-20260727-WA0000.mp3" if os.path.exists("VID-20260727-WA0000.mp3") else r"c:\proj\wnr\VID-20260727-WA0000.mp3"
+    wav_path = speaker_wav or os.getenv("VOICE_SAMPLE_PATH", default_wav)
     fish_key = os.getenv("FISH_AUDIO_API_KEY")
 
     if not fish_key or fish_key == "your_fish_audio_api_key_here":
