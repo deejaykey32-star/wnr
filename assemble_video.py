@@ -89,7 +89,7 @@ def render_video(segments: list, audio_path: str, output_mp4: str = "final_widok
     # Escape subtitle path for ffmpeg filter string (Windows backslashes must be escaped)
     escaped_srt = os.path.abspath(srt_path).replace("\\", "/").replace(":", "\\:")
     
-    sub_style = "FontName=Arial,FontSize=20,PrimaryColour=&H00FFFFFF,BackColour=&H80000000,BorderStyle=4,Alignment=2,MarginV=30"
+    sub_style = "FontName=DejaVu Sans,FontSize=20,PrimaryColour=&H00FFFFFF,BackColour=&H80000000,BorderStyle=4,Alignment=2,MarginV=30"
     vf_filter = f"scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,subtitles='{escaped_srt}':force_style='{sub_style}'"
 
     audio_abs_path = os.path.abspath(audio_path)

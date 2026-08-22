@@ -166,11 +166,13 @@ def run_pipeline_worker(text: str):
             bufsize=1
         )
 
+        output_lines = []
         for line in process.stdout:
             line_str = line.strip()
             if not line_str:
                 continue
             print(f"[PIPELINE-STDOUT] {line_str}")
+            output_lines.append(line_str)
             
             # Mapowanie faz i logów na progress
             prog = None
@@ -178,17 +180,17 @@ def run_pipeline_worker(text: str):
             if "PHASE 2" in line_str:
                 prog, msg = 15, "Analiza tekstu i planowanie scen modlitewnych..."
             elif "PHASE 3" in line_str:
-                prog, msg = 30, "Generowanie grafik (Pollinations) i głosu lektora (Fish.audio)..."
+                prog, msg = 30, "Generowanie grafik (Pollinations) i głosu lektora (TTS)..."
             elif "img_001" in line_str:
                 prog, msg = 45, "Generowanie grafiki dla sceny 1..."
             elif "img_002" in line_str:
                 prog, msg = 55, "Generowanie grafiki dla sceny 2..."
             elif "img_003" in line_str:
                 prog, msg = 65, "Generowanie grafiki dla sceny 3..."
-            elif "Voice Cloning" in line_str or "cloned voice saved" in line_str or "narration.mp3" in line_str:
-                prog, msg = 75, "Klonowanie głosu lektora za pomocą Fish.audio API..."
+            elif "narration.mp3" in line_str or "TTS" in line_str:
+                prog, msg = 75, "Generowanie lektora..."
             elif "PHASE 4" in line_str:
-                prog, msg = 85, "Montowanie wideo MP4 z przewijanym tekstem i lektorem..."
+                prog, msg = 85, "Montowanie wideo MP4 z tekstem i lektorem..."
             elif "[SUCCESS]" in line_str:
                 prog, msg = 100, "Wideo wygenerowane pomyślnie!"
 
@@ -209,10 +211,11 @@ def run_pipeline_worker(text: str):
                 current_job["message"] = "Gotowe! Wideo wygenerowane poprawnie."
             print(f"[WORKER] ✅ Sukces. Wyjściowy plik MP4: {OUTPUT_MP4}")
         else:
+            err_detail = " | ".join(output_lines[-3:]) if output_lines else f"Kod: {process.returncode}"
             with job_lock:
                 current_job["status"] = "error"
                 current_job["progress"] = 0
-                current_job["message"] = f"Błąd w skrypcie montującym. Kod powrotu: {process.returncode}"
+                current_job["message"] = f"Błąd montowania: {err_detail}"
             print(f"[WORKER] ❌ Błąd rurociągu (kod: {process.returncode})")
 
     except Exception as e:
