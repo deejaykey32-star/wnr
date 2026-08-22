@@ -236,7 +236,13 @@ def generate_openai_audio(full_text: str, voice: str = "alloy", output_audio: st
             voice=voice,
             input=full_text
         )
-        response.stream_to_file(output_audio)
+        if hasattr(response, "write_to_file"):
+            response.write_to_file(output_audio)
+        elif hasattr(response, "stream_to_file"):
+            response.stream_to_file(output_audio)
+        else:
+            with open(output_audio, "wb") as f:
+                f.write(getattr(response, "content", b""))
         
         total_chars = max(len(full_text), 1)
         duration_sec = max(3.0, total_chars / 14.5)
