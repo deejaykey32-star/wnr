@@ -135,24 +135,23 @@ def _fallback_chunking(text_input: str, input_type: str) -> list:
     """Rule-based text chunker fallback that splits text into distinct sentence/bead segments."""
     import re
     
-    # Clean up text and split by newlines, periods, exclamation, question marks, or semicolons
-    cleaned_text = text_input.strip()
-    
-    # Split by explicit prayer markers or punctuation
-    raw_lines = re.split(r'(\n+|\. |\! |\? |\; )', cleaned_text)
+    cleaned_text = clean_text_for_speech(text_input.strip())
+    sentences = [s.strip() for s in re.split(r'(?<=[.!?;\n])\s+', cleaned_text) if s.strip()]
     
     chunks = []
     current_chunk = ""
     
-    for item in raw_lines:
-        item_str = item.strip()
-        if not item_str:
+    for sentence in sentences:
+        if not sentence:
             continue
-        current_chunk += (" " + item_str if current_chunk else item_str)
-        # Create a new segment if current_chunk is at least 35 characters or ends with sentence punctuation
-        if len(current_chunk) >= 35 or item_str in [".", "!", "?", ";"]:
-            chunks.append(current_chunk.strip())
-            current_chunk = ""
+        if current_chunk:
+            if len(current_chunk) + len(sentence) < 85:
+                current_chunk += " " + sentence
+            else:
+                chunks.append(current_chunk.strip())
+                current_chunk = sentence
+        else:
+            current_chunk = sentence
             
     if current_chunk.strip():
         chunks.append(current_chunk.strip())
@@ -162,14 +161,14 @@ def _fallback_chunking(text_input: str, input_type: str) -> list:
     
     segments = []
     for idx, chunk in enumerate(chunks, 1):
-        # Generate specific prompt variations for each segment/bead
+        clean_chunk = chunk.strip()
         visual_desc = (
-            f"peaceful sacred christian art, spiritual reflection, serene soft lighting, "
-            f"scene depicting: {chunk[:60]}"
+            f"peaceful sacred christian oil painting masterpiece, divine light, "
+            f"scene depicting: {clean_chunk[:80]}"
         )
         segments.append({
             "id": idx,
-            "text": chunk,
+            "text": clean_chunk,
             "prompt": f"{PROMPT_PREFIX}, {visual_desc}",
             "negative_prompt": DEFAULT_NEGATIVE_PROMPT
         })

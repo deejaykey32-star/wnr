@@ -53,10 +53,17 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     current_time = 0.0
 
     for idx, seg in enumerate(segments, 1):
-        text = seg["text"].strip()
-        words = text.split()
-        char_count = len(text)
-        duration = max(3.2, char_count / 11.0)
+        raw_text = seg.get("text", "").strip()
+        if not raw_text:
+            continue
+
+        # Split strictly by whitespace so words like "Stworzyciela" stay 100% intact
+        words = [w for w in re.split(r'\s+', raw_text) if w.strip()]
+        if not words:
+            continue
+
+        char_count = len(raw_text)
+        duration = seg.get("duration") or max(3.5, char_count / 11.0)
         start_t = current_time
         end_t = current_time + duration
         current_time = end_t
@@ -65,11 +72,8 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         seg["end_time"] = end_t
         seg["duration"] = duration
 
-        if words:
-            word_dur_cs = max(10, int((duration * 100) / len(words)))
-            k_text = "".join([f"{{\\k{word_dur_cs}}}{w} " for w in words]).strip()
-        else:
-            k_text = text
+        word_dur_cs = max(12, int((duration * 100) / len(words)))
+        k_text = "".join([f"{{\\k{word_dur_cs}}}{w} " for w in words]).strip()
 
         start_str = format_ass_timestamp(start_t)
         end_str = format_ass_timestamp(end_t)
