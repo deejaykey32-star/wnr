@@ -82,8 +82,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   const [ttsRate, setTtsRate] = useState<string>('-18%');
   const [youtubeUploadedUrl, setYoutubeUploadedUrl] = useState<string | null>(null);
   const [apiServerUrl, setApiServerUrl] = useState<string>(() => {
-    try { return localStorage.getItem('apiServerUrl') || (import.meta as any).env?.VITE_API_SERVER_URL || 'http://localhost:3333'; } 
-    catch { return (import.meta as any).env?.VITE_API_SERVER_URL || 'http://localhost:3333'; }
+    try { return localStorage.getItem('apiServerUrl') || (import.meta as any).env?.VITE_API_SERVER_URL || 'https://wnr-mp4-backend.onrender.com'; } 
+    catch { return (import.meta as any).env?.VITE_API_SERVER_URL || 'https://wnr-mp4-backend.onrender.com'; }
   });
   // Continuous playback & completed days state (WnR365)
   const [completedWnrDays, setCompletedWnrDays] = useState<Record<number, boolean>>(() => getCompletedWnrDays());
@@ -766,13 +766,13 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                             setApiServerUrl(val);
                             try { localStorage.setItem('apiServerUrl', val); } catch (err) {}
                           }}
-                          placeholder="http://localhost:3333"
+                          placeholder="https://wnr-mp4-backend.onrender.com"
                           className="flex-1 bg-slate-900 border border-slate-800 text-slate-200 px-3 py-1.5 rounded-lg text-xs font-mono focus:outline-none focus:border-amber-500"
                         />
                         <button
                           onClick={() => {
-                            setApiServerUrl('http://localhost:3333');
-                            try { localStorage.setItem('apiServerUrl', 'http://localhost:3333'); } catch (err) {}
+                            setApiServerUrl('https://wnr-mp4-backend.onrender.com');
+                            try { localStorage.setItem('apiServerUrl', 'https://wnr-mp4-backend.onrender.com'); } catch (err) {}
                           }}
                           className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-mono transition cursor-pointer"
                         >

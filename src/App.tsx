@@ -290,9 +290,9 @@ export default function App() {
   const [youtubeUploadedUrl, setYoutubeUploadedUrl] = useState<string | null>(null);
   const [apiServerUrl, setApiServerUrl] = useState<string>(() => {
     try {
-      return localStorage.getItem('apiServerUrl') || (import.meta as any).env?.VITE_API_SERVER_URL || 'http://localhost:3333';
+      return localStorage.getItem('apiServerUrl') || (import.meta as any).env?.VITE_API_SERVER_URL || 'https://wnr-mp4-backend.onrender.com';
     } catch (e) {
-      return (import.meta as any).env?.VITE_API_SERVER_URL || 'http://localhost:3333';
+      return (import.meta as any).env?.VITE_API_SERVER_URL || 'https://wnr-mp4-backend.onrender.com';
     }
   });
 
@@ -1807,14 +1807,14 @@ export default function App() {
                                 localStorage.setItem('apiServerUrl', val);
                               } catch (err) {}
                             }}
-                            placeholder="http://localhost:3333"
+                            placeholder="https://wnr-mp4-backend.onrender.com"
                             className="flex-1 bg-slate-900 border border-slate-800 text-slate-200 px-3 py-1.5 rounded-lg text-xs font-mono focus:outline-none focus:border-amber-500"
                           />
                           <button
                             onClick={() => {
-                              setApiServerUrl('http://localhost:3333');
+                              setApiServerUrl('https://wnr-mp4-backend.onrender.com');
                               try {
-                                localStorage.setItem('apiServerUrl', 'http://localhost:3333');
+                                localStorage.setItem('apiServerUrl', 'https://wnr-mp4-backend.onrender.com');
                               } catch (err) {}
                             }}
                             className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-mono transition cursor-pointer"
