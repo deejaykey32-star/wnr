@@ -13,16 +13,18 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy backend Python scripts
+# Copy all backend Python scripts and audio sample
+COPY analyze.py .
 COPY server.py .
 COPY pipeline.py .
 COPY generate_media.py .
 COPY assemble_video.py .
+COPY VID-20260727-WA0000.mp3 .
 
 # Create output folder
 RUN mkdir -p output && chmod 777 output
 
-# Expose default Hugging Face Spaces port
+# Expose default port
 EXPOSE 7860
 
 # Run Python server
