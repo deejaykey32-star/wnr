@@ -273,9 +273,9 @@ export default function App() {
   const [clientVideoUrl, setClientVideoUrl] = useState<string | null>(null);
   const [apiServerUrl, setApiServerUrl] = useState<string>(() => {
     try {
-      return localStorage.getItem('apiServerUrl') || 'http://localhost:3333';
+      return localStorage.getItem('apiServerUrl') || (import.meta as any).env?.VITE_API_SERVER_URL || 'http://localhost:3333';
     } catch (e) {
-      return 'http://localhost:3333';
+      return (import.meta as any).env?.VITE_API_SERVER_URL || 'http://localhost:3333';
     }
   });
 

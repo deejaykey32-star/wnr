@@ -65,8 +65,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   const [clientVideoUrl, setClientVideoUrl] = useState<string | null>(null);
   const [localShowPanel, setLocalShowPanel] = useState<boolean>(false);
   const [apiServerUrl, setApiServerUrl] = useState<string>(() => {
-    try { return localStorage.getItem('apiServerUrl') || 'http://localhost:3333'; } 
-    catch { return 'http://localhost:3333'; }
+    try { return localStorage.getItem('apiServerUrl') || (import.meta as any).env?.VITE_API_SERVER_URL || 'http://localhost:3333'; } 
+    catch { return (import.meta as any).env?.VITE_API_SERVER_URL || 'http://localhost:3333'; }
   });
   // Continuous playback & completed days state (WnR365)
   const [completedWnrDays, setCompletedWnrDays] = useState<Record<number, boolean>>(() => getCompletedWnrDays());
