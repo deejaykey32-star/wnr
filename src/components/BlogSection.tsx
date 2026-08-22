@@ -78,6 +78,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   const [youtubeRefreshToken, setYoutubeRefreshToken] = useState<string>(() => {
     try { return localStorage.getItem('yt_refresh_token') || ''; } catch { return ''; }
   });
+  const [ttsVoice, setTtsVoice] = useState<string>('pl-PL-MarekNeural');
+  const [ttsRate, setTtsRate] = useState<string>('-18%');
   const [youtubeUploadedUrl, setYoutubeUploadedUrl] = useState<string | null>(null);
   const [apiServerUrl, setApiServerUrl] = useState<string>(() => {
     try { return localStorage.getItem('apiServerUrl') || (import.meta as any).env?.VITE_API_SERVER_URL || 'http://localhost:3333'; } 
@@ -321,7 +323,9 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
           privacy: youtubePrivacy,
           youtubeClientId,
           youtubeClientSecret,
-          youtubeRefreshToken
+          youtubeRefreshToken,
+          voice: ttsVoice,
+          rate: ttsRate
         })
       });
 
@@ -774,6 +778,45 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                         >
                           Reset
                         </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* VOICE & SPEED OPTIONS */}
+                  <div className="p-3 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2 text-xs">
+                    <span className="block text-[10px] uppercase font-bold text-amber-400 tracking-wider">
+                      🎙️ Ustawienia Lektora i Tempa Modlitewnego:
+                    </span>
+                    
+                    <div className="grid grid-cols-2 gap-2 pt-1">
+                      <div>
+                        <label className="block text-[10px] uppercase font-semibold text-slate-400 mb-1">
+                          Głos Lektora
+                        </label>
+                        <select
+                          value={ttsVoice}
+                          onChange={(e) => setTtsVoice(e.target.value)}
+                          className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 py-1.5 text-slate-200 text-xs focus:border-amber-500 focus:outline-none"
+                        >
+                          <option value="pl-PL-MarekNeural">Marek (Męski - Głęboki, Spokojny)</option>
+                          <option value="pl-PL-ZofiaNeural">Zofia (Żeński - Łagodna, Pokorna)</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-[10px] uppercase font-semibold text-slate-400 mb-1">
+                          Tempo Czytania
+                        </label>
+                        <select
+                          value={ttsRate}
+                          onChange={(e) => setTtsRate(e.target.value)}
+                          className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 py-1.5 text-slate-200 text-xs focus:border-amber-500 focus:outline-none"
+                        >
+                          <option value="-22%">-22% (Bardzo powolne, Uroczysty spokój)</option>
+                          <option value="-18%">-18% (Powolne, Modlitewne - Zalecane)</option>
+                          <option value="-10%">-10% (Umiarkowane)</option>
+                          <option value="0%">0% (Standardowe tempo)</option>
+                        </select>
                       </div>
                     </div>
                   </div>

@@ -65,20 +65,49 @@ def analyze_text(text_input: str, input_type: str = "blog", api_key: str = None)
         return _fallback_chunking(text_input, input_type)
 
 def _fallback_chunking(text_input: str, input_type: str) -> list:
-    """Rule-based text chunker fallback when OpenAI API key is missing/fails."""
-    lines = [line.strip() for line in text_input.strip().split("\n") if line.strip()]
-    if not lines:
-        lines = [text_input.strip()]
+    """Rule-based text chunker fallback that splits text into distinct sentence/bead segments."""
+    import re
+    
+    # Clean up text and split by newlines, periods, exclamation, question marks, or semicolons
+    cleaned_text = text_input.strip()
+    
+    # Split by explicit prayer markers or punctuation
+    raw_lines = re.split(r'(\n+|\. |\! |\? |\; )', cleaned_text)
+    
+    chunks = []
+    current_chunk = ""
+    
+    for item in raw_lines:
+        item_str = item.strip()
+        if not item_str:
+            continue
+        current_chunk += (" " + item_str if current_chunk else item_str)
+        # Create a new segment if current_chunk is at least 35 characters or ends with sentence punctuation
+        if len(current_chunk) >= 35 or item_str in [".", "!", "?", ";"]:
+            chunks.append(current_chunk.strip())
+            current_chunk = ""
+            
+    if current_chunk.strip():
+        chunks.append(current_chunk.strip())
+        
+    if not chunks:
+        chunks = [cleaned_text]
     
     segments = []
-    for idx, line in enumerate(lines, 1):
-        visual_desc = f"tranquil scenery representing: {line[:40]}..."
+    for idx, chunk in enumerate(chunks, 1):
+        # Generate specific prompt variations for each segment/bead
+        visual_desc = (
+            f"peaceful sacred christian art, spiritual reflection, serene soft lighting, "
+            f"scene depicting: {chunk[:60]}"
+        )
         segments.append({
             "id": idx,
-            "text": line,
+            "text": chunk,
             "prompt": f"{PROMPT_PREFIX}, {visual_desc}",
             "negative_prompt": DEFAULT_NEGATIVE_PROMPT
         })
+        
+    print(f"[ANALYZE] Created {len(segments)} distinct prayer/bead segments.")
     return segments
 
 def main():

@@ -31,26 +31,17 @@ def generate_srt_subtitles(segments: list, timing_data: dict, output_srt: str) -
     
     for idx, seg in enumerate(segments, 1):
         text = seg["text"].strip()
+        char_count = len(text)
         
-        # Estimate duration if detailed char timing is absent
-        if not char_starts:
-            word_count = len(text.split())
-            duration = max(3.0, word_count * 0.4)
-            start_t = current_time
-            end_t = current_time + duration
-            current_time = end_t
-        else:
-            # Map segment text location to timing data
-            # Proportional mapping based on character indices
-            start_t = current_time
-            word_count = len(text.split())
-            duration = max(3.0, word_count * 0.45)
-            end_t = start_t + duration
-            current_time = end_t
+        # Calculate duration based on -18% TTS reading rate (~11 chars/sec)
+        duration = max(3.2, char_count / 11.0)
+        start_t = current_time
+        end_t = current_time + duration
+        current_time = end_t
             
         seg["start_time"] = start_t
         seg["end_time"] = end_t
-        seg["duration"] = end_t - start_t
+        seg["duration"] = duration
         
         srt_entry = f"{idx}\n{format_srt_timestamp(start_t)} --> {format_srt_timestamp(end_t)}\n{text}\n\n"
         srt_entries.append(srt_entry)

@@ -187,20 +187,23 @@ def generate_fish_audio_voice_clone(full_text: str, speaker_wav: str = None, out
 def generate_edge_tts_audio(full_text: str, voice: str = None, output_audio: str = "narration.mp3", output_timing: str = "narration_timestamps.json") -> dict:
     """
     Generates narration using Microsoft Edge Neural TTS (100% FREE, zero cost, no API keys).
+    Sets rate to -18% for a calm, reverent, peaceful prayer reading speed.
     """
     voice_name = voice or os.getenv("EDGE_VOICE", "pl-PL-MarekNeural")
+    rate_speed = os.getenv("TTS_RATE", "-18%")
     try:
         import edge_tts
         
         async def _run():
-            communicate = edge_tts.Communicate(full_text, voice_name)
+            communicate = edge_tts.Communicate(full_text, voice_name, rate=rate_speed)
             await communicate.save(output_audio)
             
         asyncio.run(_run())
         
         if os.path.exists(output_audio) and os.path.getsize(output_audio) > 0:
             total_chars = max(len(full_text), 1)
-            duration_sec = max(3.0, total_chars / 14.5)
+            # At -18% rate, narration speed is approx 11.0 characters per second
+            duration_sec = max(3.0, total_chars / 11.0)
             characters = list(full_text)
             char_dur = duration_sec / total_chars
             
@@ -212,7 +215,7 @@ def generate_edge_tts_audio(full_text: str, voice: str = None, output_audio: str
             with open(output_timing, "w", encoding="utf-8") as f:
                 json.dump(alignment, f, ensure_ascii=False, indent=2)
                 
-            print(f"[SUCCESS] Edge Neural TTS ({voice_name}) audio saved to {output_audio}")
+            print(f"[SUCCESS] Edge Neural TTS ({voice_name}, rate={rate_speed}) audio saved to {output_audio}")
             return alignment
         else:
             return None

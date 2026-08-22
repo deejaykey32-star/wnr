@@ -125,6 +125,8 @@ class LocalAPIServer(BaseHTTPRequestHandler):
                 yt_client_id = body.get("youtubeClientId", "")
                 yt_client_secret = body.get("youtubeClientSecret", "")
                 yt_refresh_token = body.get("youtubeRefreshToken", "")
+                tts_voice = body.get("voice", "pl-PL-MarekNeural")
+                tts_rate = body.get("rate", "-18%")
 
                 with job_lock:
                     if current_job["status"] == "running":
@@ -148,7 +150,7 @@ class LocalAPIServer(BaseHTTPRequestHandler):
                     target=run_pipeline_worker,
                     args=(
                         text_to_generate.strip(), auto_upload_yt, playlist_id, yt_title, yt_privacy,
-                        yt_client_id, yt_client_secret, yt_refresh_token
+                        yt_client_id, yt_client_secret, yt_refresh_token, tts_voice, tts_rate
                     ),
                     daemon=True
                 ).start()
@@ -207,8 +209,8 @@ class LocalAPIServer(BaseHTTPRequestHandler):
                 pass
 
 
-def run_pipeline_worker(text: str, auto_upload_yt: bool = False, playlist_id: str = None, yt_title: str = None, yt_privacy: str = "public", yt_client_id: str = None, yt_client_secret: str = None, yt_refresh_token: str = None):
-    print(f"[WORKER] Rozpoczęto zadanie generowania w tle.")
+def run_pipeline_worker(text: str, auto_upload_yt: bool = False, playlist_id: str = None, yt_title: str = None, yt_privacy: str = "public", yt_client_id: str = None, yt_client_secret: str = None, yt_refresh_token: str = None, tts_voice: str = "pl-PL-MarekNeural", tts_rate: str = "-18%"):
+    print(f"[WORKER] Rozpoczęto zadanie generowania w tle (głos: {tts_voice}, tempo: {tts_rate}).")
     try:
         # Wywołanie pipeline.py w trybie bez buforowania (-u)
         cmd = [
@@ -223,6 +225,8 @@ def run_pipeline_worker(text: str, auto_upload_yt: bool = False, playlist_id: st
         
         env = os.environ.copy()
         env["PYTHONUNBUFFERED"] = "1"
+        env["EDGE_VOICE"] = tts_voice or "pl-PL-MarekNeural"
+        env["TTS_RATE"] = tts_rate or "-18%"
 
         process = subprocess.Popen(
             cmd,
