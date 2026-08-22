@@ -101,6 +101,36 @@ def build_ffmpeg_concat_file(segments: list, concat_file_path: str):
     with open(concat_file_path, "w", encoding="utf-8") as f:
         f.writelines(lines)
 
+def run_ffmpeg_cmd(cmd: list) -> bool:
+    """
+    Executes FFmpeg while continuously draining stderr to prevent OS pipe buffer deadlocks.
+    Parses real-time progress timestamps to keep UI progress advancing!
+    """
+    print(f"[FFMPEG] Running command: {' '.join(cmd)}", flush=True)
+    try:
+        proc = subprocess.Popen(
+            cmd,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.PIPE,
+            text=True,
+            encoding="utf-8",
+            errors="ignore",
+            bufsize=1
+        )
+        for line in proc.stderr:
+            line_str = line.strip()
+            if "time=" in line_str:
+                m = re.search(r'time=(\d+:\d+:\d+\.\d+)', line_str)
+                if m:
+                    print(f"[PROGRESS 92%] Montowanie wideo FFmpeg (czas: {m.group(1)})...", flush=True)
+            elif any(kw in line_str.lower() for kw in ["error", "invalid", "failed", "fatal"]):
+                print(f"[FFMPEG LOG] {line_str}", flush=True)
+        proc.wait()
+        return proc.returncode == 0
+    except Exception as e:
+        print(f"[FFMPEG EXCEPTION] {e}", flush=True)
+        return False
+
 def render_video(segments: list, audio_path: str, output_mp4: str = "final_widokinaraj_169.mp4", srt_path: str = "narration.srt", ffmpeg_bin: str = "ffmpeg"):
     """
     Renders final 16:9 MP4 video combining images, narration audio, and karaoke subtitles.
@@ -116,11 +146,10 @@ def render_video(segments: list, audio_path: str, output_mp4: str = "final_widok
     if sub_file.endswith(".ass"):
         vf_filter = f"scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,subtitles='{escaped_sub}'"
     else:
-        sub_style = "FontName=DejaVu Sans,FontSize=18,PrimaryColour=&H00FFFFFF,BackColour=&H80000000,BorderStyle=4,Alignment=2,MarginV=65"
+        sub_style = "FontName=Arial,FontSize=18,PrimaryColour=&H00FFFFFF,BackColour=&H80000000,BorderStyle=4,Alignment=2,MarginV=65"
         vf_filter = f"scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,subtitles='{escaped_sub}':force_style='{sub_style}'"
 
     audio_abs_path = os.path.abspath(audio_path)
-    # Check if narration audio exists; if not, create silent audio track filter
     if os.path.exists(audio_abs_path):
         audio_input = ["-i", audio_abs_path]
         audio_map = ["-c:a", "aac", "-b:a", "128k"]
@@ -141,15 +170,12 @@ def render_video(segments: list, audio_path: str, output_mp4: str = "final_widok
         output_mp4
     ]
 
-    print(f"[FFMPEG] Running command: {' '.join(cmd)}")
-    result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-
-    if result.returncode == 0:
-        print(f"[SUCCESS] Rendered final 16:9 video to {output_mp4}")
+    print("[PROGRESS 88%] Renderowanie klatek wideo MP4 (FFmpeg)...", flush=True)
+    if run_ffmpeg_cmd(cmd):
+        print(f"[SUCCESS] Rendered final 16:9 video to {output_mp4}", flush=True)
         return True
     else:
-        print(f"[ERROR] FFmpeg rendering failed:\n{result.stderr}")
-        # Try simple fallback command without subtitles filter if subtitle filter failed
+        print("[NOTICE] FFmpeg subtitle render failed/timed out, attempting fallback without subtitles...", flush=True)
         fallback_cmd = [
             ffmpeg_bin, "-y",
             "-f", "concat", "-safe", "0", "-i", concat_file,
@@ -160,13 +186,11 @@ def render_video(segments: list, audio_path: str, output_mp4: str = "final_widok
             "-shortest",
             output_mp4
         ]
-        print(f"[FFMPEG FALLBACK] Running fallback command without burned subtitles...")
-        fb_res = subprocess.run(fallback_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        if fb_res.returncode == 0:
-            print(f"[SUCCESS] Rendered fallback video (without subtitles filter) to {output_mp4}")
+        if run_ffmpeg_cmd(fallback_cmd):
+            print(f"[SUCCESS] Rendered fallback video to {output_mp4}", flush=True)
             return True
         else:
-            print(f"[ERROR] Fallback render failed: {fb_res.stderr}")
+            print("[ERROR] Fallback video render also failed.", flush=True)
             return False
 
 def assemble_video_pipeline(segments_file: str, output_dir: str = "output", output_mp4: str = "final_widokinaraj_169.mp4", ffmpeg_bin: str = "ffmpeg"):
@@ -185,8 +209,11 @@ def assemble_video_pipeline(segments_file: str, output_dir: str = "output", outp
 
     audio_path = os.path.join(output_dir, "narration.mp3")
     print("[PROGRESS 88%] Renderowanie końcowego filmu MP4 (FFmpeg)...", flush=True)
-    render_video(updated_segments, audio_path, output_mp4=output_mp4, srt_path=srt_path, ffmpeg_bin=ffmpeg_bin)
-    print("[PROGRESS 95%] Montaż wideo ukończony pomyślnie!", flush=True)
+    success = render_video(updated_segments, audio_path, output_mp4=output_mp4, srt_path=srt_path, ffmpeg_bin=ffmpeg_bin)
+    if success:
+        print("[PROGRESS 98%] Montaż wideo ukończony pomyślnie!", flush=True)
+    else:
+        print("[ERROR] Montaż wideo nie powiódł się.", flush=True)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Assemble 16:9 video with synced subtitles using FFmpeg.")
