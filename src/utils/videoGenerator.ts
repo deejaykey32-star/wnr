@@ -329,141 +329,133 @@ export const generateVideoClientSide = async (
         continue;
       }
 
-      const cleanPrompt = encodeURIComponent(`holy sacred christian painting, baroque style, soft cinematic light, ${chunk.promptKeywords}`);
-      const seed = Math.floor(Math.random() * 1000000);
-      const url = `https://image.pollinations.ai/prompt/${cleanPrompt}?width=1280&height=720&nologo=true&seed=${seed}`;
-
-      const img = await new Promise<HTMLImageElement>(async (resolve) => {
-        const cleanPrompt = encodeURIComponent(`holy sacred christian painting, Renaissance masterpiece, divine cinematic light, ${chunk.promptKeywords}`);
-        const seed = Math.floor(Math.random() * 1000000);
-        
-        const candidateUrls = [
-          `https://image.pollinations.ai/prompt/${cleanPrompt}?width=1280&height=720&nologo=true&seed=${seed}&model=flux`,
-          `https://image.pollinations.ai/prompt/${cleanPrompt}?width=1280&height=720&nologo=true&seed=${seed}`,
-          `https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Michelangelo%27s_%22God%22%2C_from_%22the_Creation_of_Adam%22.jpg/1280px-Michelangelo%27s_%22God%22%2C_from_%22the_Creation_of_Adam%22.jpg`,
-          `https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/God_the_Father_and_angels%2C_Pietro_Perugino%2C_Stanza_dell%27Incendio_di_Borgo%2C_medalion%2C_part_of_the_ceiling%2C_Vatican_City_1.jpg/1280px-God_the_Father_and_angels%2C_Pietro_Perugino%2C_Stanza_dell%27Incendio_di_Borgo%2C_medalion%2C_part_of_the_ceiling%2C_Vatican_City_1.jpg`
+      const MASTERPIECE_SACRED_URLS = [
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Leonardo_da_Vinci_%281452-1519%29_-_The_Last_Supper_%281495-1498%29.jpg/1280px-Leonardo_da_Vinci_%281452-1519%29_-_The_Last_Supper_%281495-1498%29.jpg",
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Fra_Angelico_-_The_Annunciation_-_WGA00473.jpg/1280px-Fra_Angelico_-_The_Annunciation_-_WGA00473.jpg",
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/RAFAEL_-_Madonna_Sixtina_%28Gem%C3%A4ldegalerie_Alter_Meister%2C_Dresden%2C_1513-14._%C3%93leo_sobre_lienzo%2C_265_x_196_cm%29.jpg/1280px-RAFAEL_-_Madonna_Sixtina_%28Gem%C3%A4ldegalerie_Alter_Meister%2C_Dresden%2C_1513-14._%C3%93leo_sobre_lienzo%2C_265_x_196_cm%29.jpg",
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Michelangelo%27s_%22God%22%2C_from_%22the_Creation_of_Adam%22.jpg/1280px-Michelangelo%27s_%22God%22%2C_from_%22the_Creation_of_Adam%22.jpg",
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/God_the_Father_and_angels%2C_Pietro_Perugino%2C_Stanza_dell%27Incendio_di_Borgo%2C_medalion%2C_part_of_the_ceiling%2C_Vatican_City_1.jpg/1280px-God_the_Father_and_angels%2C_Pietro_Perugino%2C_Stanza_dell%27Incendio_di_Borgo%2C_medalion%2C_part_of_the_ceiling%2C_Vatican_City_1.jpg",
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bartolom%C3%A9_Esteban_Murillo_-_The_Immaculate_Conception_of_Los_Venerables_-_Prado.jpg/1280px-Bartolom%C3%A9_Esteban_Murillo_-_The_Immaculate_Conception_of_Los_Venerables_-_Prado.jpg"
         ];
 
-        for (const candidateUrl of candidateUrls) {
-          const loaded = await new Promise<HTMLImageElement | null>((res) => {
-            const tempImg = new Image();
-            tempImg.crossOrigin = 'anonymous';
-            const tid = setTimeout(() => { tempImg.src = ''; res(null); }, 15000);
-            tempImg.onload = () => { clearTimeout(tid); res(tempImg); };
-            tempImg.onerror = () => { clearTimeout(tid); res(null); };
-            tempImg.src = candidateUrl;
-          });
+        const selectedMasterpieceUrl = MASTERPIECE_SACRED_URLS[i % MASTERPIECE_SACRED_URLS.length];
 
-          if (loaded) {
-            imageCache.set(cacheKey, loaded);
-            resolve(loaded);
-            return;
-          }
-        }
-      });
+        const loaded = await new Promise<HTMLImageElement>((res) => {
+          const tempImg = new Image();
+          tempImg.crossOrigin = 'anonymous';
+          tempImg.onload = () => res(tempImg);
+          tempImg.onerror = () => {
+            // High-detail Renaissance fallback canvas
+            const fbCanvas = document.createElement('canvas');
+            fbCanvas.width = 1280; fbCanvas.height = 720;
+            const c = fbCanvas.getContext('2d')!;
+            const g = c.createRadialGradient(640, 200, 30, 640, 200, 600);
+            g.addColorStop(0, '#312e81');
+            g.addColorStop(0.6, '#0f172a');
+            g.addColorStop(1, '#020617');
+            c.fillStyle = g;
+            c.fillRect(0, 0, 1280, 720);
+            const fbImg = new Image();
+            fbImg.onload = () => res(fbImg);
+            fbImg.src = fbCanvas.toDataURL();
+          };
+          tempImg.src = selectedMasterpieceUrl;
+        });
 
-      images.push(img);
-      await new Promise(r => setTimeout(r, 100));
-    }
-
-    // 3. Synteza głosu lektora TTS dla każdej sceny
-    onProgress({ progress: 40, message: 'Synteza lektora AI TTS dla pełnej treści...' });
-    const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
-
-    interface SceneTiming { start: number; end: number; duration: number; }
-    const sceneTimings: SceneTiming[] = [];
-    const sceneBuffers: AudioBuffer[] = [];
-
-    for (let i = 0; i < sceneChunks.length; i++) {
-      onProgress({
-        progress: 40 + Math.floor((i / sceneChunks.length) * 20),
-        message: `Nagrywanie lektora: scena ${i + 1}/${sceneChunks.length}...`
-      });
-
-      const buf = await fetchTTSForText(sceneChunks[i].text, audioContext);
-      sceneBuffers.push(buf);
-    }
-
-    // Połączenie ścieżek audio scen
-    let totalSamples = sceneBuffers.reduce((a, b) => a + b.length, 0);
-    if (totalSamples === 0) totalSamples = audioContext.sampleRate * 5;
-
-    const audioBuffer = audioContext.createBuffer(
-      sceneBuffers[0]?.numberOfChannels || 1,
-      totalSamples,
-      sceneBuffers[0]?.sampleRate || audioContext.sampleRate
-    );
-
-    let offset = 0;
-    for (const buf of sceneBuffers) {
-      const startSec = offset / buf.sampleRate;
-      const durationSec = buf.duration;
-      sceneTimings.push({ start: startSec, end: startSec + durationSec, duration: durationSec });
-      for (let ch = 0; ch < buf.numberOfChannels; ch++) {
-        audioBuffer.getChannelData(ch).set(buf.getChannelData(ch), offset);
+        imageCache.set(cacheKey, loaded);
+        images.push(loaded);
+        await new Promise(r => setTimeout(r, 50));
       }
-      offset += buf.length;
-    }
 
-    // 4. Montaż wideo na HTML Canvas
-    onProgress({ progress: 65, message: 'Rozpoczynanie nagrywania pliku wideo 16:9...' });
+      // 3. Synteza głosu lektora TTS dla każdej sceny
+      onProgress({ progress: 40, message: 'Przygotowywanie ścieżki lektora...' });
+      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
 
-    const W = 1280, H = 720;
-    const canvas = document.createElement('canvas');
-    canvas.width = W; canvas.height = H;
-    const ctx = canvas.getContext('2d')!;
+      interface SceneTiming { start: number; end: number; duration: number; }
+      const sceneTimings: SceneTiming[] = [];
+      const sceneBuffers: AudioBuffer[] = [];
 
-    const stream = canvas.captureStream(25);
-    let mediaRecorder: MediaRecorder;
-    const audioTracks: MediaStreamTrack[] = [];
-    let bufferSource: AudioBufferSourceNode | null = null;
+      for (let i = 0; i < sceneChunks.length; i++) {
+        onProgress({
+          progress: 40 + Math.floor((i / sceneChunks.length) * 20),
+          message: `Lektor: scena ${i + 1}/${sceneChunks.length}...`
+        });
 
-    if (audioBuffer) {
+        const buf = await fetchTTSForText(sceneChunks[i].text, audioContext);
+        sceneBuffers.push(buf);
+      }
+
+      // Połączenie ścieżek audio scen
+      let totalSamples = sceneBuffers.reduce((a, b) => a + b.length, 0);
+      if (totalSamples === 0) totalSamples = audioContext.sampleRate * 5;
+
+      const audioBuffer = audioContext.createBuffer(
+        sceneBuffers[0]?.numberOfChannels || 1,
+        totalSamples,
+        sceneBuffers[0]?.sampleRate || audioContext.sampleRate
+      );
+
+      let offset = 0;
+      for (const buf of sceneBuffers) {
+        const startSec = offset / buf.sampleRate;
+        const durationSec = buf.duration;
+        sceneTimings.push({ start: startSec, end: startSec + durationSec, duration: durationSec });
+        for (let ch = 0; ch < buf.numberOfChannels; ch++) {
+          audioBuffer.getChannelData(ch).set(b.getChannelData(ch), offset);
+        }
+        offset += buf.length;
+      }
+
+      const totalDuration = audioBuffer.duration || 5;
+
+      // 4. Renderowanie wideo na Canvas i nagrywanie MediaRecorder
+      onProgress({ progress: 65, message: 'Montowanie wideo MP4 z podświetlaniem tekstu...' });
+
+      const canvas = document.createElement('canvas');
+      canvas.width = 1280;
+      canvas.height = 720;
+      const ctx = canvas.getContext('2d')!;
+      const W = canvas.width, H = canvas.height;
+
+      const stream = canvas.captureStream(30);
       const dest = audioContext.createMediaStreamDestination();
-      bufferSource = audioContext.createBufferSource();
+      const bufferSource = audioContext.createBufferSource();
       bufferSource.buffer = audioBuffer;
       bufferSource.connect(dest);
 
-      const gain = audioContext.createGain();
-      gain.gain.value = 0;
-      bufferSource.connect(gain);
-      gain.connect(audioContext.destination);
-      dest.stream.getAudioTracks().forEach(t => audioTracks.push(t));
+      const combinedStream = new MediaStream([
+        ...stream.getVideoTracks(),
+        ...dest.stream.getAudioTracks()
+      ]);
 
-      const combined = new MediaStream([...stream.getVideoTracks(), ...audioTracks]);
-      let mime = 'video/webm;codecs=vp9,opus';
-      if (!MediaRecorder.isTypeSupported(mime)) mime = 'video/webm;codecs=vp8,opus';
-      if (!MediaRecorder.isTypeSupported(mime)) mime = 'video/webm';
-      mediaRecorder = new MediaRecorder(combined, { mimeType: mime });
+      const mimeType = MediaRecorder.isTypeSupported('video/webm;codecs=vp9,opus')
+        ? 'video/webm;codecs=vp9,opus'
+        : 'video/webm';
 
-      if (audioContext.state === 'suspended') await audioContext.resume();
-      bufferSource.start(0);
-    } else {
-      let mime = 'video/webm;codecs=vp9';
-      if (!MediaRecorder.isTypeSupported(mime)) mime = 'video/webm;codecs=vp8';
-      if (!MediaRecorder.isTypeSupported(mime)) mime = 'video/webm';
-      mediaRecorder = new MediaRecorder(stream, { mimeType: mime });
-    }
+      const mediaRecorder = new MediaRecorder(combinedStream, {
+        mimeType,
+        videoBitsPerSecond: 4000000
+      });
 
-    const chunks: Blob[] = [];
-    mediaRecorder.ondataavailable = (e) => { if (e.data?.size > 0) chunks.push(e.data); };
-
-    const totalDuration = audioBuffer.duration;
-    const audioStartTime = audioContext.currentTime;
-
-    return new Promise<string>((resolve) => {
-      mediaRecorder.onstop = () => {
-        const blob = new Blob(chunks, { type: 'video/webm' });
-        resolve(URL.createObjectURL(blob));
+      const chunks: Blob[] = [];
+      mediaRecorder.ondataavailable = (e) => {
+        if (e.data.size > 0) chunks.push(e.data);
       };
 
-      mediaRecorder.start(1000);
-      const startTime = performance.now();
+      return new Promise<string>((resolve) => {
+        mediaRecorder.onstop = () => {
+          const blob = new Blob(chunks, { type: mimeType });
+          resolve(URL.createObjectURL(blob));
+        };
+
+        mediaRecorder.start(100);
+        bufferSource.start(0);
+
+        const startTime = performance.now();
 
       const renderLoop = () => {
-        const t = audioBuffer 
-          ? (audioContext.currentTime - audioStartTime) 
-          : ((performance.now() - startTime) / 1000);
+        const now = performance.now();
+        const t = (now - startTime) / 1000;
 
         if (t >= totalDuration) {
           mediaRecorder.stop();
@@ -475,7 +467,6 @@ export const generateVideoClientSide = async (
         const pct = 65 + Math.floor((t / totalDuration) * 33);
         onProgress({ progress: pct, message: `Renderowanie wideo: ${t.toFixed(1)}s / ${totalDuration.toFixed(1)}s` });
 
-        // Wybór aktywnej sceny (zmiana obrazka co kilkanaście sekund)
         let sceneIndex = sceneTimings.length - 1;
         for (let i = 0; i < sceneTimings.length; i++) {
           if (t >= sceneTimings[i].start && t < sceneTimings[i].end) {
@@ -488,7 +479,6 @@ export const generateVideoClientSide = async (
         const currentChunk = sceneChunks[sceneIndex];
         const img = images[sceneIndex];
 
-        // Wyznaczenie aktywnego kroku/paciorka wewnątrz sceny
         const sceneTiming = sceneTimings[sceneIndex];
         const relTime = t - sceneTiming.start;
         const subRatio = sceneTiming.duration > 0 ? relTime / sceneTiming.duration : 0;
@@ -498,25 +488,25 @@ export const generateVideoClientSide = async (
         );
         const activeStep = currentChunk.steps[stepIdx] || currentChunk.steps[0];
 
-        // ── TŁO: Obraz z Pollinations (zmiana co 12-15s) ─────────
+        // ── TŁO: Klasyczne arcydzieło sakralne ────────────────────
         ctx.drawImage(img, 0, 0, W, H);
 
-        // Winieta po bokach i na dole
+        // Winieta
         const vigL = ctx.createLinearGradient(0, 0, 260, 0);
-        vigL.addColorStop(0, 'rgba(0,0,0,0.8)');
+        vigL.addColorStop(0, 'rgba(0,0,0,0.85)');
         vigL.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.fillStyle = vigL;
         ctx.fillRect(0, 0, 260, H);
 
         const vigR = ctx.createLinearGradient(W, 0, W - 260, 0);
-        vigR.addColorStop(0, 'rgba(0,0,0,0.8)');
+        vigR.addColorStop(0, 'rgba(0,0,0,0.85)');
         vigR.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.fillStyle = vigR;
         ctx.fillRect(W - 260, 0, 260, H);
 
         const botGrad = ctx.createLinearGradient(0, H - 240, 0, H);
         botGrad.addColorStop(0, 'rgba(0,0,0,0)');
-        botGrad.addColorStop(1, 'rgba(0,0,0,0.92)');
+        botGrad.addColorStop(1, 'rgba(10,12,22,0.96)');
         ctx.fillStyle = botGrad;
         ctx.fillRect(0, H - 240, W, 240);
 
@@ -529,82 +519,81 @@ export const generateVideoClientSide = async (
           ctx.save();
           drawBeadStrip(ctx, cmykBeads, activeStep.cmykBeadId, W - 100, H / 2, false, t);
           ctx.restore();
-        } else {
-          // Środkowy pulsujący symbol IHS
-          const bPulse = 24 + Math.sin(t * 5) * 6;
-          ctx.save();
-          const grd = ctx.createRadialGradient(W/2, H - 280, bPulse*0.3, W/2, H - 280, bPulse*1.8);
-          grd.addColorStop(0, 'rgba(251,191,36,0.5)');
-          grd.addColorStop(1, 'rgba(0,0,0,0)');
-          ctx.fillStyle = grd;
-          ctx.beginPath();
-          ctx.arc(W/2, H - 280, bPulse*1.8, 0, Math.PI * 2);
-          ctx.fill();
-
-          const grad = ctx.createRadialGradient(W/2 - bPulse*0.3, H - 280 - bPulse*0.3, bPulse*0.1, W/2, H - 280, bPulse);
-          grad.addColorStop(0, '#fcd34d');
-          grad.addColorStop(1, '#d97706');
-          
-          ctx.beginPath();
-          ctx.arc(W/2, H - 280, bPulse, 0, Math.PI * 2);
-          ctx.fillStyle = grad;
-          ctx.shadowColor = 'rgba(251,191,36,0.8)';
-          ctx.shadowBlur = 20;
-          ctx.fill();
-          ctx.shadowBlur = 0;
-          
-          ctx.fillStyle = '#78350f';
-          ctx.font = `bold ${Math.floor(bPulse*0.6)}px serif`;
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-          ctx.fillText('IHS', W/2, H - 280);
-          ctx.restore();
         }
 
-        // ── ŚRODKOWY TEKST MODLITWY ──────────────────────────────
-        const textMaxW = W - 540, textBaseY = H - 130;
+        // ── ŚRODKOWY TEKST MODLITWY Z AKTYWNYM KARAOKE (SŁOWO PO SŁOWIE) ──
+        const textMaxW = W - 540, textBaseY = H - 110;
         const activeLabel = activeStep?.label || currentChunk.label;
 
         if (activeLabel) {
           ctx.save();
-          ctx.fillStyle = 'rgba(56,189,248,0.9)';
-          ctx.font = 'bold 13px monospace';
+          ctx.fillStyle = '#fbbf24';
+          ctx.font = 'bold 14px monospace';
           ctx.textAlign = 'center';
-          ctx.fillText(activeLabel.toUpperCase(), W / 2, textBaseY - 50);
+          ctx.fillText(`📿 ${activeLabel.toUpperCase()}`, W / 2, textBaseY - 60);
           ctx.restore();
         }
 
-        // Zawijanie tekstu aktywnego kroku
         const displayText = activeStep?.text || currentChunk.text;
+        const words = displayText.split(/\s+/).filter(w => w.length > 0);
+        const activeWordIdx = Math.min(
+          Math.floor((relTime / Math.max(sceneTiming.duration, 0.1)) * words.length),
+          words.length - 1
+        );
+
         ctx.save();
-        ctx.fillStyle = '#ffffff';
-        ctx.font = 'bold 26px sans-serif';
-        ctx.textAlign = 'center';
+        ctx.font = 'bold 24px serif';
         ctx.textBaseline = 'middle';
 
-        const words = displayText.split(' ');
-        const lineH = 36;
-        let curLine = '';
-        const wrappedLines: string[] = [];
-        for (const word of words) {
-          const test = curLine ? curLine + ' ' + word : word;
-          if (ctx.measureText(test).width > textMaxW) {
-            if (curLine) wrappedLines.push(curLine);
-            curLine = word;
-          } else {
-            curLine = test;
-          }
-        }
-        if (curLine) wrappedLines.push(curLine);
+        const linesWithWords: { word: string; idx: number }[][] = [];
+        let currentLineWords: { word: string; idx: number }[] = [];
+        let currentLineWidth = 0;
 
-        const totalTextH = wrappedLines.length * lineH;
+        for (let wi = 0; wi < words.length; wi++) {
+          const w = words[wi];
+          const wWidth = ctx.measureText(w + ' ').width;
+          if (currentLineWidth + wWidth > textMaxW && currentLineWords.length > 0) {
+            linesWithWords.push(currentLineWords);
+            currentLineWords = [];
+            currentLineWidth = 0;
+          }
+          currentLineWords.push({ word: w, idx: wi });
+          currentLineWidth += wWidth;
+        }
+        if (currentLineWords.length > 0) linesWithWords.push(currentLineWords);
+
+        const lineH = 36;
+        const totalTextH = linesWithWords.length * lineH;
         const startY = textBaseY - totalTextH / 2 + lineH / 2;
-        wrappedLines.forEach((line, i) => {
-          ctx.fillText(line, W / 2, startY + i * lineH);
+
+        linesWithWords.forEach((lWords, li) => {
+          const lY = startY + li * lineH;
+          const fullLineText = lWords.map(lw => lw.word).join(' ');
+          const fullLineWidth = ctx.measureText(fullLineText).width;
+          let curX = (W - fullLineWidth) / 2;
+
+          lWords.forEach(lw => {
+            const isWordActive = lw.idx === activeWordIdx;
+            const isWordPast = lw.idx < activeWordIdx;
+
+            if (isWordActive) {
+              ctx.fillStyle = '#fbbf24'; // Active word: glowing gold
+              ctx.shadowColor = 'rgba(251,191,36,0.9)';
+              ctx.shadowBlur = 16;
+            } else if (isWordPast) {
+              ctx.fillStyle = '#fef08a'; // Past words: light warm gold
+              ctx.shadowBlur = 0;
+            } else {
+              ctx.fillStyle = '#cbd5e1'; // Upcoming words: light slate
+              ctx.shadowBlur = 0;
+            }
+
+            ctx.fillText(lw.word, curX, lY);
+            curX += ctx.measureText(lw.word + ' ').width;
+          });
         });
         ctx.restore();
 
-        // Pasek postępu na dole
         const progW = (t / totalDuration) * W;
         ctx.save();
         ctx.fillStyle = 'rgba(255,255,255,0.08)';
