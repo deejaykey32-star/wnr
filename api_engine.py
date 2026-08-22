@@ -128,6 +128,99 @@ def _fallback_edge_tts_with_timestamps(text: str, output_audio: str) -> list:
         })
     return words_timing
 
+def _format_ass_ts(seconds: float) -> str:
+    """Convert seconds to ASS timestamp H:MM:SS.cc"""
+    h = int(seconds // 3600)
+    m = int((seconds % 3600) // 60)
+    s = int(seconds % 60)
+    cs = int(round((seconds - int(seconds)) * 100))
+    if cs >= 100:
+        s += 1
+        cs = 0
+    return f"{h:d}:{m:02d}:{s:02d}.{cs:02d}"
+
+def _generate_precise_karaoke_ass(segments: list, word_timestamps: list, output_ass: str):
+    """
+    Generates ASS karaoke subtitles with PRECISE per-word timing from ElevenLabs API.
+    Each word highlights exactly when spoken — no uniform timing.
+    """
+    header = """[Script Info]
+Title: WnR365 Rosary Karaoke Subtitles
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: None
+PlayResX: 1280
+PlayResY: 720
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Karaoke, Arial, 24, &H0000D4FF, &H00FFFFFF, &H00000000, &H96000000, 1, 0, 0, 0, 100, 100, 0, 0, 1, 2, 1, 2, 40, 40, 60, 1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+"""
+    lines = [header]
+
+    if not word_timestamps or len(word_timestamps) == 0:
+        # Fallback: use segment-level uniform timing
+        print("[WARNING] No word timestamps available — using uniform karaoke timing.", flush=True)
+        current_time = 0.0
+        for seg in segments:
+            text = seg.get("text", "").strip()
+            if not text:
+                continue
+            words = text.split()
+            dur = seg.get("duration") or max(3.5, len(text) / 11.0)
+            end_t = current_time + dur
+            word_cs = max(12, int((dur * 100) / max(len(words), 1)))
+            k_text = "".join([f"{{\\kf{word_cs}}}{w} " for w in words]).strip()
+            lines.append(f"Dialogue: 0,{_format_ass_ts(current_time)},{_format_ass_ts(end_t)},Karaoke,,0,0,0,,{k_text}\n")
+            seg["start_time"] = current_time
+            seg["end_time"] = end_t
+            seg["duration"] = dur
+            current_time = end_t
+    else:
+        # Build dialogue lines from real word timestamps, grouping by segment
+        wt_idx = 0
+        for seg in segments:
+            seg_text = seg.get("text", "").strip()
+            if not seg_text:
+                continue
+            seg_words = seg_text.split()
+            n_words = len(seg_words)
+
+            # Find matching word timestamps for this segment
+            matched = []
+            for _ in range(n_words):
+                if wt_idx < len(word_timestamps):
+                    matched.append(word_timestamps[wt_idx])
+                    wt_idx += 1
+
+            if not matched:
+                continue
+
+            line_start = matched[0]["start"]
+            line_end = matched[-1]["end"]
+
+            seg["start_time"] = line_start
+            seg["end_time"] = line_end
+            seg["duration"] = line_end - line_start
+
+            # Build karaoke tags with \kf (fill) using per-word centisecond durations
+            k_parts = []
+            for i, wt in enumerate(matched):
+                dur_cs = max(5, int(round((wt["end"] - wt["start"]) * 100)))
+                display_word = seg_words[i] if i < len(seg_words) else wt["word"]
+                k_parts.append(f"{{\\kf{dur_cs}}}{display_word}")
+
+            k_text = " ".join(k_parts)
+            lines.append(f"Dialogue: 0,{_format_ass_ts(line_start)},{_format_ass_ts(line_end)},Karaoke,,0,0,0,,{k_text}\n")
+
+    with open(output_ass, "w", encoding="utf-8") as f:
+        f.writelines(lines)
+    print(f"[SUCCESS] Precise karaoke ASS subtitles saved to {output_ass} ({len(lines)-1} dialogue lines)", flush=True)
+
 def fetch_ai_image(prompt: str, output_path: str, bead_idx: int = 1) -> bool:
     """
     Generates a 16:9 sacred art painting via Replicate API or Pollinations API.
@@ -144,24 +237,30 @@ def fetch_ai_image(prompt: str, output_path: str, bead_idx: int = 1) -> bool:
     openai_key = os.getenv("OPENAI_API_KEY")
     if openai_key and openai_key != "your_openai_api_key_here":
         try:
-            print(f"[OPENAI DALL-E 3] Requesting 16:9 sacred art image for bead {bead_idx}...", flush=True)
+            print(f"[OPENAI gpt-image-1] Requesting 16:9 sacred art image for bead {bead_idx}...", flush=True)
             from openai import OpenAI
             client = OpenAI(api_key=openai_key)
             res = client.images.generate(
-                model="dall-e-3",
+                model="gpt-image-1",
                 prompt=sacred_prompt,
-                size="1792x1024",
-                quality="standard",
+                size="1536x1024",
+                quality="medium",
                 n=1
             )
-            img_url = res.data[0].url
-            img_data = requests.get(img_url, timeout=30).content
+            # gpt-image-1 returns base64 data
+            import base64 as b64
+            if hasattr(res.data[0], 'b64_json') and res.data[0].b64_json:
+                img_data = b64.b64decode(res.data[0].b64_json)
+            elif hasattr(res.data[0], 'url') and res.data[0].url:
+                img_data = requests.get(res.data[0].url, timeout=30).content
+            else:
+                raise ValueError("No image data returned from gpt-image-1")
             with open(output_path, "wb") as f:
                 f.write(img_data)
-            print(f"[SUCCESS] Saved 16:9 DALL-E 3 masterpiece image to {output_path}", flush=True)
+            print(f"[SUCCESS] Saved 16:9 gpt-image-1 masterpiece image to {output_path}", flush=True)
             return True
         except Exception as e:
-            print(f"[NOTICE] DALL-E 3 generation notice: {e}", flush=True)
+            print(f"[NOTICE] gpt-image-1 generation notice: {e}", flush=True)
 
     if REPLICATE_API_KEY:
         try:
@@ -390,10 +489,10 @@ def run_api_pipeline(text: str, output_dir: str = "output", output_mp4: str = "f
                 "Process aborted as requested ('albo wszystko albo nic'). Please check image API keys."
             )
 
-    # 4. Generate ASS Karaoke Subtitles with intact word splitting
-    from assemble_video import generate_ass_karaoke_subtitles, render_video
+    # 4. Generate ASS Karaoke Subtitles using REAL ElevenLabs word timestamps
+    from assemble_video import render_video
     ass_path = os.path.join(output_dir, "narration.ass")
-    generate_ass_karaoke_subtitles(segments, {}, ass_path)
+    _generate_precise_karaoke_ass(segments, word_timestamps, ass_path)
 
     # 3. Verify Subtitles File
     if not os.path.exists(ass_path) or os.path.getsize(ass_path) < 50:

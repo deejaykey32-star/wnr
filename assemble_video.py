@@ -176,15 +176,23 @@ def render_video(segments: list, audio_path: str, output_mp4: str = "final_widok
     else:
         sub_style = "FontName=Arial,FontSize=20,PrimaryColour=&H00FFFFFF,BackColour=&H80000000,BorderStyle=4,Alignment=2,MarginV=65"
         vf_filter = f"scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,subtitles='{sub_filename}':force_style='{sub_style}'"
+    # Ensure audio file is accessible from work_dir
+    audio_abs = os.path.abspath(audio_path)
+    audio_in_workdir = os.path.join(work_dir, audio_filename)
+    if os.path.exists(audio_abs) and not os.path.exists(audio_in_workdir):
+        import shutil
+        shutil.copy2(audio_abs, audio_in_workdir)
+        print(f"[FFMPEG] Copied audio file to work_dir: {audio_in_workdir}", flush=True)
 
-    if os.path.exists(os.path.join(work_dir, audio_filename)):
+    if os.path.exists(audio_in_workdir):
         audio_input = ["-i", audio_filename]
         audio_map = ["-c:a", "aac", "-b:a", "128k"]
-    else:
-        print("[WARNING] Narration audio not found, generating silent audio stream.")
-        total_duration = sum(s.get("duration", 4.0) for s in segments)
-        audio_input = ["-f", "lavfi", "-i", f"anullsrc=channel_layout=stereo:sample_rate=44100:duration={total_duration}"]
+    elif os.path.exists(audio_abs):
+        audio_input = ["-i", audio_abs]
         audio_map = ["-c:a", "aac", "-b:a", "128k"]
+    else:
+        print("[STRICT ABORT] Narration audio file NOT FOUND — aborting ('albo wszystko albo nic').", flush=True)
+        raise RuntimeError(f"Audio file not found: {audio_path}")
 
     cmd = [
         ffmpeg_exe, "-y",
