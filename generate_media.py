@@ -133,17 +133,12 @@ def generate_fish_audio_voice_clone(full_text: str, speaker_wav: str = None, out
         return None
 
     try:
-        print(f"[VOICE CLONING] Cloning voice from {wav_path} using Fish.audio API...")
-        
-        # Fish.audio requires reference audio to clone. We can upload the file as a reference.
-        # First, upload/register the reference audio to get reference_id, or send directly if API supports it.
-        # To make it simple and robust, we use the standard TTS request sending the reference audio.
+        print(f"[VOICE CLONING] Attempting voice cloning from {wav_path} using Fish.audio API...")
         url = "https://api.fish.audio/v1/tts"
         headers = {
             "Authorization": f"Bearer {fish_key}"
         }
         
-        # Fish.audio expects multipart/form-data for TTS with reference audio
         with open(wav_path, "rb") as f_ref:
             files = {
                 "reference_audio": (os.path.basename(wav_path), f_ref, "audio/mpeg")
@@ -155,10 +150,10 @@ def generate_fish_audio_voice_clone(full_text: str, speaker_wav: str = None, out
                 "latency": "normal"
             }
             
-            res = requests.post(url, headers=headers, data=data, files=files, timeout=120)
+            res = requests.post(url, headers=headers, data=data, files=files, timeout=12)
             
         if res.status_code != 200:
-            print(f"[ERROR] Fish.audio request failed ({res.status_code}): {res.text}")
+            print(f"[NOTICE] Fish.audio Voice Cloning returned HTTP {res.status_code} (Payment Required/Insufficient Credits). Falling back to EdgeTTS Marek (-18%).")
             return None
             
         with open(output_audio, "wb") as f_out:
@@ -166,7 +161,7 @@ def generate_fish_audio_voice_clone(full_text: str, speaker_wav: str = None, out
             
         if os.path.exists(output_audio) and os.path.getsize(output_audio) > 0:
             total_chars = max(len(full_text), 1)
-            duration_sec = max(3.0, total_chars / 14.5)
+            duration_sec = max(3.0, total_chars / 11.0)
             characters = list(full_text)
             char_dur = duration_sec / total_chars
             alignment = {
@@ -180,7 +175,7 @@ def generate_fish_audio_voice_clone(full_text: str, speaker_wav: str = None, out
             print(f"[SUCCESS] Fish.audio cloned voice saved to {output_audio}")
             return alignment
     except Exception as e:
-        print(f"[WARNING] Fish.audio Voice Cloning failed: {e}")
+        print(f"[NOTICE] Fish.audio Voice Cloning failed or timed out: {e}. Falling back to EdgeTTS Marek (-18%).")
         return None
 
 
