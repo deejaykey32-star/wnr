@@ -22,13 +22,16 @@ def _save_as_clean_png(image_bytes: bytes, output_path: str) -> bool:
         print(f"[ERROR] Failed to convert image to PNG: {e}")
         return False
 
-def generate_pollinations_image(prompt: str, output_path: str, retries: int = 3) -> bool:
-    """Generates a 16:9 image using Pollinations.ai (with API Key support and retries)."""
+def generate_pollinations_image(prompt: str, output_path: str, retries: int = 2) -> bool:
+    """Generates a 16:9 image using Pollinations.ai (with API Key support, User-Agent, and 12s timeout)."""
     import random
     pol_key = os.getenv("POLLINATIONS_API_KEY")
-    encoded_prompt = urllib.parse.quote(prompt)
+    clean_prompt = prompt.replace("\n", " ").strip()[:250]
+    encoded_prompt = urllib.parse.quote(clean_prompt)
     
-    headers = {}
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    }
     if pol_key and pol_key != "your_pollinations_api_key_here":
         headers["Authorization"] = f"Bearer {pol_key}"
 
@@ -39,15 +42,15 @@ def generate_pollinations_image(prompt: str, output_path: str, retries: int = 3)
             if pol_key and pol_key != "your_pollinations_api_key_here":
                 url += f"&key={pol_key}"
                 
-            res = requests.get(url, headers=headers, timeout=30)
+            res = requests.get(url, headers=headers, timeout=12)
             if res.status_code == 200 and len(res.content) > 1000:
                 if _save_as_clean_png(res.content, output_path):
-                    print(f"[SUCCESS] Saved 16:9 image from Pollinations.ai (API Key Active) to {output_path} (Attempt {attempt})")
+                    print(f"[SUCCESS] Saved 16:9 image from Pollinations.ai to {output_path} (Attempt {attempt})", flush=True)
                     return True
             else:
-                print(f"[WARNING] Pollinations API attempt {attempt} status: {res.status_code}")
+                print(f"[WARNING] Pollinations API attempt {attempt} status: {res.status_code}", flush=True)
         except Exception as e:
-            print(f"[WARNING] Pollinations attempt {attempt} failed: {e}")
+            print(f"[WARNING] Pollinations attempt {attempt} failed/timed out: {e}", flush=True)
     return False
 
 def generate_openai_image(prompt: str, output_path: str, api_key: str = None) -> bool:
