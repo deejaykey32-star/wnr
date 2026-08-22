@@ -796,8 +796,9 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                         <select
                           value={ttsVoice}
                           onChange={(e) => setTtsVoice(e.target.value)}
-                          className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 py-1.5 text-slate-200 text-xs focus:border-amber-500 focus:outline-none"
+                          className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 py-1.5 text-slate-200 text-xs focus:border-amber-500 focus:outline-none cursor-pointer"
                         >
+                          <option value="clone">🎙️ Mój Głos (Klonowanie z pliku VID-20260727-WA0000.mp3)</option>
                           <option value="pl-PL-MarekNeural">Marek (Męski - Głęboki, Spokojny)</option>
                           <option value="pl-PL-ZofiaNeural">Zofia (Żeński - Łagodna, Pokorna)</option>
                         </select>

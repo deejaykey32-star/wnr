@@ -267,27 +267,88 @@ def generate_openai_audio(full_text: str, voice: str = "alloy", output_audio: st
         return None
 
 def generate_narration_audio(full_text: str, output_audio: str = "narration.mp3", output_timing: str = "narration_timestamps.json") -> dict:
+def generate_elevenlabs_voice_clone(full_text: str, speaker_wav: str = None, output_audio: str = "narration.mp3", output_timing: str = "narration_timestamps.json") -> dict:
+    """
+    Clones voice from reference MP3 sample (VID-20260727-WA0000.mp3) using ElevenLabs API.
+    """
+    key = os.getenv("ELEVENLABS_API_KEY")
+    if not key or key == "your_elevenlabs_api_key_here":
+        return None
+
+    default_wav = "VID-20260727-WA0000.mp3" if os.path.exists("VID-20260727-WA0000.mp3") else r"c:\proj\wnr1\VID-20260727-WA0000.mp3"
+    wav_path = speaker_wav or os.getenv("VOICE_SAMPLE_PATH", default_wav)
+
+    if not os.path.exists(wav_path):
+        print(f"[WARNING] Sample audio file for ElevenLabs voice cloning not found: {wav_path}")
+        return None
+
+    try:
+        print(f"[VOICE CLONING] Cloning voice from {wav_path} using ElevenLabs API...")
+        url_add = "https://api.elevenlabs.io/v1/voices/add"
+        headers = {"xi-api-key": key}
+        with open(wav_path, "rb") as f_wav:
+            files = {"files": (os.path.basename(wav_path), f_wav, "audio/mpeg")}
+            data = {"name": "WnR365 User Cloned Voice", "description": "User voice sample"}
+            res = requests.post(url_add, headers=headers, data=data, files=files, timeout=40)
+            
+        if res.status_code != 200:
+            print(f"[ERROR] ElevenLabs voice creation failed ({res.status_code}): {res.text}")
+            return None
+
+        voice_id = res.json().get("voice_id")
+        
+        url_tts = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
+        tts_body = {
+            "text": full_text,
+            "model_id": "eleven_multilingual_v2",
+            "voice_settings": {"stability": 0.5, "similarity_boost": 0.8}
+        }
+        res_tts = requests.post(url_tts, headers=headers, json=tts_body, timeout=120)
+        if res_tts.status_code == 200:
+            with open(output_audio, "wb") as f_out:
+                f_out.write(res_tts.content)
+            total_chars = max(len(full_text), 1)
+            duration_sec = max(3.0, total_chars / 11.0)
+            alignment = {
+                "characters": list(full_text),
+                "character_start_times_seconds": [i * (duration_sec / total_chars) for i in range(total_chars)],
+                "character_end_times_seconds": [(i + 1) * (duration_sec / total_chars) for i in range(total_chars)]
+            }
+            with open(output_timing, "w", encoding="utf-8") as f:
+                json.dump(alignment, f, ensure_ascii=False, indent=2)
+            print(f"[SUCCESS] ElevenLabs cloned voice saved to {output_audio}")
+            return alignment
+        else:
+            print(f"[ERROR] ElevenLabs TTS generation failed ({res_tts.status_code}): {res_tts.text}")
+            return None
+    except Exception as e:
+        print(f"[ERROR] ElevenLabs voice cloning exception: {e}")
+        return None
+
+def generate_narration_audio(full_text: str, output_audio: str = "narration.mp3", output_timing: str = "narration_timestamps.json") -> dict:
     """
     Main voice/audio router.
-    1. Tries Voice Cloning ('clone') from sample mp3 (VID-20260727-WA0000.mp3).
-    2. Tries Microsoft Edge Neural TTS ('edge' - 100% Free).
-    3. Tries OpenAI TTS ('openai').
-    4. Fallback to synthetic timing.
+    1. Tries Voice Cloning ('clone') from sample mp3 (VID-20260727-WA0000.mp3) via Fish.audio / ElevenLabs.
+    2. Fallback to Microsoft Edge Neural TTS (100% Free).
     """
-    provider = os.getenv("VOICE_PROVIDER", "clone").lower()
+    voice_setting = os.getenv("EDGE_VOICE", "pl-PL-MarekNeural")
+    provider = os.getenv("VOICE_PROVIDER", "clone" if voice_setting == "clone" else "edge").lower()
     
-    if provider == "clone":
+    if voice_setting == "clone" or provider == "clone":
+        print(f"[VOICE CLONING] Attempting voice cloning from sample audio VID-20260727-WA0000.mp3...")
         alignment = generate_fish_audio_voice_clone(full_text, output_audio=output_audio, output_timing=output_timing)
         if alignment:
             return alignment
-
-    if provider == "openai":
-        alignment = generate_openai_audio(full_text, output_audio=output_audio, output_timing=output_timing)
+            
+        alignment = generate_elevenlabs_voice_clone(full_text, output_audio=output_audio, output_timing=output_timing)
         if alignment:
             return alignment
+            
+        print("[NOTICE] Voice Cloning API key (FISH_AUDIO_API_KEY or ELEVENLABS_API_KEY) not provided. Falling back to calm Edge Neural TTS voice.")
 
     # Default & primary: Edge Neural TTS (Free)
-    alignment = generate_edge_tts_audio(full_text, output_audio=output_audio, output_timing=output_timing)
+    voice_name = "pl-PL-MarekNeural" if voice_setting == "clone" else voice_setting
+    alignment = generate_edge_tts_audio(full_text, voice=voice_name, output_audio=output_audio, output_timing=output_timing)
     if alignment:
         return alignment
 
