@@ -713,7 +713,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     <div className="w-full flex flex-col gap-8">
       {/* WERSJA MINIMALISTYCZNA FRAME VIEW */}
       {isYoutubeMode ? (
-        <div id="youtube-frame-blog" className={`w-full max-w-5xl min-h-[480px] sm:min-h-0 sm:aspect-video border-2 sm:border-4 rounded-2xl shadow-2xl relative flex flex-col justify-between overflow-hidden mx-auto ${isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'}`}>
+        <div id="youtube-frame-blog" className={`w-full max-w-5xl border-2 sm:border-4 rounded-2xl shadow-2xl relative flex flex-col justify-between overflow-y-auto max-h-[90vh] sm:max-h-[92vh] mx-auto ${isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'}`}>
           {/* Top Header */}
           <div className={`backdrop-blur-md px-3 sm:px-6 py-2.5 sm:py-3 flex flex-col sm:flex-row items-center justify-between border-b gap-2 w-full max-w-full overflow-hidden text-center sm:text-left ${isLight ? 'bg-slate-100/90 border-slate-200' : 'bg-slate-900/90 border-slate-800'}`}>
             <div className="flex items-center justify-center gap-2 min-w-0 max-w-full">
@@ -749,7 +749,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
 
           {/* COLLAPSIBLE LOCAL MP4/WEBM GENERATOR PANEL */}
           {localShowPanel && (
-            <div className="bg-slate-900 border-b border-indigo-900/60 p-4 sm:p-6 flex flex-col gap-5 text-left animate-fadeIn">
+            <div className="bg-slate-900 border-b border-indigo-900/60 p-4 sm:p-6 flex flex-col gap-5 text-left animate-fadeIn overflow-y-auto max-h-[75vh]">
               <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-5 h-5 text-amber-400" />

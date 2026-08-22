@@ -1740,7 +1740,7 @@ export default function App() {
         {activeTab === 'rosary' ? (
           /* WERSJA MINIMALISTYCZNA FRAME */
           (isYoutubeMode && isAuthorized) ? (
-          <div id="youtube-frame" className={`w-full max-w-5xl border-2 sm:border-4 rounded-2xl shadow-2xl relative flex flex-col justify-between overflow-hidden mx-auto transition-all duration-300 ${isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'}`}>
+          <div id="youtube-frame" className={`w-full max-w-5xl border-2 sm:border-4 rounded-2xl shadow-2xl relative flex flex-col justify-between overflow-y-auto max-h-[90vh] sm:max-h-[92vh] mx-auto transition-all duration-300 ${isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'}`}>
             
             {/* Top status & detailed progress bar of minimalist view */}
             <div className={`backdrop-blur-md px-3 sm:px-6 py-2.5 sm:py-3 flex flex-col border-b gap-2 w-full max-w-full overflow-hidden ${isLight ? 'bg-slate-100/90 border-slate-200' : 'bg-slate-900/90 border-slate-800'}`}>
@@ -1809,7 +1809,7 @@ export default function App() {
 
             {/* COLLAPSIBLE LOCAL MP4 GENERATOR PANEL */}
             {localShowPanel && (
-              <div className="bg-slate-900 border-b border-indigo-900/60 p-4 sm:p-6 flex flex-col gap-5 text-left animate-fadeIn">
+              <div className="bg-slate-900 border-b border-indigo-900/60 p-4 sm:p-6 flex flex-col gap-5 text-left animate-fadeIn overflow-y-auto max-h-[75vh]">
                 <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                   <div className="flex items-center gap-2">
                     <Sparkles className="w-5 h-5 text-amber-400" />
