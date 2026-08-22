@@ -299,41 +299,54 @@ export default function App() {
   const handleGenerateLocalMp4 = async () => {
     setLocalGenerating(true);
     setLocalProgress(5);
-    setLocalStatusMsg("Rozpoczynanie generowania modlitwy na serwerze...");
+    setLocalStatusMsg("Rozpoczynanie generowania modlitwy na serwerze (wybudzanie chmury)...");
     setLocalDownloadReady(false);
     setClientVideoUrl(null);
     setYoutubeUploadedUrl(null);
 
-    try {
-      const fullText = steps.map((step) => {
-        return step.text || prayers[step.prayerType]?.text || '';
-      }).filter(t => t.trim().length > 0).join('\n\n');
+    const fullText = steps.map((step) => {
+      return step.text || prayers[step.prayerType]?.text || '';
+    }).filter(t => t.trim().length > 0).join('\n\n');
 
-      const res = await fetch(`${apiServerUrl}/api/generate-mp4`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          text: fullText,
-          autoUploadYoutube,
-          playlistId: youtubePlaylistId,
-          title: `RHZ365 Modlitwa Różańcowa - ${selectedDate.toLocaleDateString('pl-PL')}`,
-          privacy: youtubePrivacy,
-          youtubeClientId,
-          youtubeClientSecret,
-          youtubeRefreshToken,
-          voice: ttsVoice,
-          rate: ttsRate
-        })
-      });
+    const payload = {
+      text: fullText,
+      autoUploadYoutube,
+      playlistId: youtubePlaylistId,
+      title: `RHZ365 Modlitwa Różańcowa - ${selectedDate.toLocaleDateString('pl-PL')}`,
+      privacy: youtubePrivacy,
+      youtubeClientId,
+      youtubeClientSecret,
+      youtubeRefreshToken,
+      voice: ttsVoice,
+      rate: ttsRate
+    };
 
-      if (!res.ok) throw new Error(`HTTP Status ${res.status}`);
+    let res: Response | null = null;
 
-      setLocalStatusMsg("Rozpoczęto generowanie filmu na serwerze...");
-      pollLocalGenerationStatus();
-    } catch (err: any) {
-      setLocalStatusMsg(`❌ Błąd: ${err?.message || err}. Upewnij się, że serwer (server.py) jest uruchomiony pod adresem ${apiServerUrl}.`);
-      setLocalGenerating(false);
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        res = await fetch(`${apiServerUrl}/api/generate-mp4`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (res.ok) break;
+      } catch (err: any) {
+        if (attempt < 3) {
+          setLocalStatusMsg(`Wybudzanie serwera w chmurze (próba ${attempt}/3)... Poczekaj chwilkę.`);
+          await new Promise(r => setTimeout(r, 4500));
+        }
+      }
     }
+
+    if (!res || !res.ok) {
+      setLocalStatusMsg(`❌ Błąd połączenia: Serwer w chmurze dopiero się uruchamiał. Kliknij 'Generuj MP4 na Serwerze' ponowie!`);
+      setLocalGenerating(false);
+      return;
+    }
+
+    setLocalStatusMsg("Rozpoczęto generowanie filmu na serwerze...");
+    pollLocalGenerationStatus();
   };
 
   const pollLocalGenerationStatus = () => {

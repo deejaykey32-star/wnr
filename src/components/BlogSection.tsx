@@ -305,41 +305,51 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   const handleGenerateLocalMp4 = async () => {
     setLocalGenerating(true);
     setLocalProgress(5);
-    setLocalStatusMsg("Wysyłanie zlecenia wygenerowania MP4 na serwer...");
+    setLocalStatusMsg("Wysyłanie zlecenia wygenerowania MP4 na serwer (wybudzanie chmury)...");
     setLocalDownloadReady(false);
     setYoutubeUploadedUrl(null);
     
-    try {
-      const response = await fetch(`${apiServerUrl}/api/generate-mp4`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          text: activeEntry.text,
-          voiceSampleUrl: '/VID-20260727-WA0000.mp3',
-          outputFilename: `wnr365_blog_${cycleInfo.dayIndex}.mp4`,
-          autoUploadYoutube,
-          playlistId: youtubePlaylistId,
-          title: `WnR365 Blog - ${activeEntry.title || 'Dzień ' + cycleInfo.dayIndex}`,
-          privacy: youtubePrivacy,
-          youtubeClientId,
-          youtubeClientSecret,
-          youtubeRefreshToken,
-          voice: ttsVoice,
-          rate: ttsRate
-        })
-      });
+    const payload = {
+      text: activeEntry.text,
+      voiceSampleUrl: '/VID-20260727-WA0000.mp3',
+      outputFilename: `wnr365_blog_${cycleInfo.dayIndex}.mp4`,
+      autoUploadYoutube,
+      playlistId: youtubePlaylistId,
+      title: `WnR365 Blog - ${activeEntry.title || 'Dzień ' + cycleInfo.dayIndex}`,
+      privacy: youtubePrivacy,
+      youtubeClientId,
+      youtubeClientSecret,
+      youtubeRefreshToken,
+      voice: ttsVoice,
+      rate: ttsRate
+    };
 
-      if (!response.ok) {
-        throw new Error(`Błąd serwera: ${response.status} ${response.statusText}`);
+    let response: Response | null = null;
+
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        response = await fetch(`${apiServerUrl}/api/generate-mp4`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (response.ok) break;
+      } catch (err: any) {
+        if (attempt < 3) {
+          setLocalStatusMsg(`Wybudzanie serwera w chmurze (próba ${attempt}/3)... Poczekaj chwilkę.`);
+          await new Promise(r => setTimeout(r, 4500));
+        }
       }
-      
-      setLocalStatusMsg("Rozpoczęto montowanie wideo MP4 na serwerze...");
-      pollLocalGenerationStatus();
-    } catch (err: any) {
-      console.error(err);
-      setLocalStatusMsg(`❌ Błąd połączenia z serwerem MP4: ${err.message}`);
-      setLocalGenerating(false);
     }
+
+    if (!response || !response.ok) {
+      setLocalStatusMsg(`❌ Błąd połączenia: Serwer w chmurze dopiero się uruchamiał. Kliknij 'Generuj MP4 na Serwerze' ponownie!`);
+      setLocalGenerating(false);
+      return;
+    }
+
+    setLocalStatusMsg("Rozpoczęto montowanie wideo MP4 na serwerze...");
+    pollLocalGenerationStatus();
   };
 
   const handleGenerateClientVideo = async () => {
