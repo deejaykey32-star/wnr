@@ -86,55 +86,61 @@ class LocalAPIServer(BaseHTTPRequestHandler):
             self.end_headers()
 
     def do_POST(self):
-        parsed_path = urlparse(self.path)
-        
-        if parsed_path.path == "/api/generate-mp4":
-            content_length = int(self.headers['Content-Length'])
-            post_data = self.rfile.read(content_length)
-            try:
-                body = json.loads(post_data.decode('utf-8'))
-            except Exception:
-                self.send_response(400)
-                self.send_header("Content-Type", "application/json")
-                self.end_headers()
-                self.wfile.write(json.dumps({"error": "Niepoprawny format JSON body."}).encode('utf-8'))
-                return
+        try:
+            parsed_path = urlparse(self.path)
+            
+            if parsed_path.path == "/api/generate-mp4":
+                content_length = int(self.headers.get('Content-Length', 0))
+                post_data = self.rfile.read(content_length) if content_length > 0 else b"{}"
+                try:
+                    body = json.loads(post_data.decode('utf-8'))
+                except Exception:
+                    body = {}
 
-            text_to_generate = body.get("text", "")
-            if not text_to_generate or len(text_to_generate.strip()) < 5:
-                self.send_response(400)
-                self.send_header("Content-Type", "application/json")
-                self.end_headers()
-                self.wfile.write(json.dumps({"error": "Brak tekstu modlitwy (pole 'text' musi mieć min. 5 znaków)."}).encode('utf-8'))
-                return
-
-            with job_lock:
-                if current_job["status"] == "running":
-                    self.send_response(409)
+                text_to_generate = body.get("text", "")
+                if not text_to_generate or len(text_to_generate.strip()) < 5:
+                    self.send_response(400)
                     self.send_header("Content-Type", "application/json")
                     self.end_headers()
-                    self.wfile.write(json.dumps({"error": "Generowanie wideo już trwa w tle. Poczekaj na ukończenie."}).encode('utf-8'))
+                    self.wfile.write(json.dumps({"error": "Brak tekstu modlitwy (pole 'text' musi mieć min. 5 znaków)."}).encode('utf-8'))
                     return
 
-                # Zainicjuj nowe zadanie
-                job_id = f"job_{int(time.time() * 1000)}"
-                current_job["jobId"] = job_id
-                current_job["status"] = "running"
-                current_job["progress"] = 5
-                current_job["message"] = "Rozpoczynanie generowania modlitwy..."
-                current_job["output_mp4"] = OUTPUT_MP4
+                with job_lock:
+                    if current_job["status"] == "running":
+                        self.send_response(409)
+                        self.send_header("Content-Type", "application/json")
+                        self.end_headers()
+                        self.wfile.write(json.dumps({"error": "Generowanie wideo już trwa w tle. Poczekaj na ukończenie."}).encode('utf-8'))
+                        return
 
-            # Uruchom potok w osobnym wątku leżącym w tle
-            threading.Thread(target=run_pipeline_worker, args=(text_to_generate.strip(),), daemon=True).start()
+                    # Zainicjuj nowe zadanie
+                    job_id = f"job_{int(time.time() * 1000)}"
+                    current_job["jobId"] = job_id
+                    current_job["status"] = "running"
+                    current_job["progress"] = 5
+                    current_job["message"] = "Rozpoczynanie generowania modlitwy..."
+                    current_job["output_mp4"] = OUTPUT_MP4
 
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json")
-            self.end_headers()
-            self.wfile.write(json.dumps({"jobId": job_id, "status": "started"}).encode('utf-8'))
-            return
-        else:
-            self.send_response(404)
-            self.end_headers()
+                # Uruchom potok w osobnym wątku leżącym w tle
+                threading.Thread(target=run_pipeline_worker, args=(text_to_generate.strip(),), daemon=True).start()
+
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json")
+                self.end_headers()
+                self.wfile.write(json.dumps({"jobId": job_id, "status": "started"}).encode('utf-8'))
+                return
+            else:
+                self.send_response(404)
+                self.end_headers()
+        except Exception as err:
+            print(f"[POST-ERROR] {err}")
+            try:
+                self.send_response(500)
+                self.send_header("Content-Type", "application/json")
+                self.end_headers()
+                self.wfile.write(json.dumps({"error": str(err)}).encode('utf-8'))
+            except Exception:
+                pass
 
 
 def run_pipeline_worker(text: str):
