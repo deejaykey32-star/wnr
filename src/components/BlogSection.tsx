@@ -222,9 +222,49 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     return [titleText, ...getPrayerSegments(cleanBody)];
   }, [activeEntry]);
 
+  const pollLocalGenerationStatus = () => {
+    let failCount = 0;
+    const interval = setInterval(async () => {
+      try {
+        const res = await fetch(`${apiServerUrl}/api/generate-mp4/status`);
+        if (!res.ok) {
+          failCount++;
+          if (failCount > 10) throw new Error(`HTTP ${res.status}`);
+          return;
+        }
+        failCount = 0;
+        const data = await res.json();
+
+        if (typeof data.progress === 'number' && data.progress > 0) {
+          setLocalProgress(data.progress);
+        }
+        if (data.message) {
+          setLocalStatusMsg(data.message);
+        }
+
+        if (data.status === "done") {
+          clearInterval(interval);
+          setLocalProgress(100);
+          setLocalDownloadReady(true);
+          setLocalGenerating(false);
+          setLocalStatusMsg("✅ Wideo MP4 wygenerowane pomyślnie na serwerze!");
+        } else if (data.status === "error") {
+          clearInterval(interval);
+          setLocalGenerating(false);
+          setLocalStatusMsg(`❌ Błąd serwera: ${data.message || 'Nieokreślony błąd'}`);
+        }
+      } catch (err: any) {
+        clearInterval(interval);
+        setLocalGenerating(false);
+        setLocalStatusMsg(`❌ Błąd połączenia z serwerem: ${err?.message || err}`);
+      }
+    }, 2500);
+  };
+
   const handleGenerateLocalMp4 = async () => {
     setLocalGenerating(true);
-    setLocalStatusMsg("Wysyłanie zlecenia wygenerowania MP4 (Fish.audio)...");
+    setLocalProgress(5);
+    setLocalStatusMsg("Wysyłanie zlecenia wygenerowania MP4 na serwer...");
     setLocalDownloadReady(false);
     
     try {
@@ -242,13 +282,11 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         throw new Error(`Błąd serwera: ${response.status} ${response.statusText}`);
       }
       
-      const data = await response.json();
-      setLocalStatusMsg(`Generowanie rozpoczęte: ${data.message || 'W toku'}. Serwer montuje MP4...`);
-      setLocalDownloadReady(true);
+      setLocalStatusMsg("Rozpoczęto montowanie wideo MP4 na serwerze...");
+      pollLocalGenerationStatus();
     } catch (err: any) {
       console.error(err);
-      setLocalStatusMsg(`❌ Błąd połączenia z lokalnym serwerem MP4: ${err.message}`);
-    } finally {
+      setLocalStatusMsg(`❌ Błąd połączenia z serwerem MP4: ${err.message}`);
       setLocalGenerating(false);
     }
   };

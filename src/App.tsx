@@ -308,31 +308,42 @@ export default function App() {
   };
 
   const pollLocalGenerationStatus = () => {
+    let failCount = 0;
     const interval = setInterval(async () => {
       try {
         const res = await fetch(`${apiServerUrl}/api/generate-mp4/status`);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        if (!res.ok) {
+          failCount++;
+          if (failCount > 10) throw new Error(`HTTP ${res.status}`);
+          return;
+        }
+        failCount = 0;
         const data = await res.json();
 
-        setLocalProgress(data.progress || 0);
-        setLocalStatusMsg(data.message || "");
+        if (typeof data.progress === 'number' && data.progress > 0) {
+          setLocalProgress(data.progress);
+        }
+        if (data.message) {
+          setLocalStatusMsg(data.message);
+        }
 
         if (data.status === "done") {
           clearInterval(interval);
+          setLocalProgress(100);
           setLocalDownloadReady(true);
           setLocalGenerating(false);
           setLocalStatusMsg("✅ Wideo MP4 wygenerowane pomyślnie na serwerze!");
         } else if (data.status === "error") {
           clearInterval(interval);
           setLocalGenerating(false);
-          setLocalStatusMsg(`❌ Błąd serwera: ${data.message}`);
+          setLocalStatusMsg(`❌ Błąd serwera: ${data.message || 'Nieokreślony błąd'}`);
         }
       } catch (err: any) {
         clearInterval(interval);
         setLocalGenerating(false);
         setLocalStatusMsg(`❌ Błąd połączenia z serwerem: ${err?.message || err}`);
       }
-    }, 2000);
+    }, 2500);
   };
 
   const handleGenerateClientVideo = async () => {
