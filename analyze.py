@@ -59,10 +59,6 @@ def clean_text_for_speech(text: str) -> str:
         (r'\bitp\.\b', 'i tym podobne'),
         (r'\bnp\.\b', 'na przykład'),
         (r'\bok\.\b', 'około'),
-        (r'\bMaryi\b', 'Maryji'),
-        (r'\bmaryi\b', 'maryji'),
-        (r'\bo\.\b', 'ojciec'),
-        (r'\bO\.\b', 'Ojciec'),
     ]
     for pat, repl in abbrevs:
         cleaned = re.sub(pat, repl, cleaned)

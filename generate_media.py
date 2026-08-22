@@ -540,42 +540,23 @@ def generate_image(prompt: str, negative_prompt: str, output_path: str, provider
     return True
 
 def _generate_placeholder_image(prompt: str, output_path: str) -> bool:
-    """Generates a rich 16:9 sacred painting scene background with warm golden rays and divine halos."""
+    """Generates a rich 16:9 dark atmospheric Renaissance sacred oil canvas background."""
     try:
         from PIL import Image, ImageDraw
-        import random
         width, height = 1280, 720
-
-        palettes = [
-            ((35, 25, 45), (180, 140, 70), (220, 185, 100)),
-            ((40, 20, 20), (190, 130, 60), (230, 175, 90)),
-            ((20, 35, 45), (150, 160, 90), (200, 210, 130)),
-            ((35, 30, 25), (175, 150, 80), (225, 195, 110)),
-        ]
-        bg_col, mid_col, glow_col = random.choice(palettes)
-
-        img = Image.new("RGB", (width, height), color=bg_col)
+        img = Image.new("RGB", (width, height), color=(18, 14, 26))
         draw = ImageDraw.Draw(img)
 
-        cx, cy = width // 2, 80
-        for angle in range(-60, 65, 10):
-            rad = math.radians(angle + 90)
-            ex = cx + int(1000 * math.cos(rad))
-            ey = cy + int(1000 * math.sin(rad))
-            draw.line([cx, cy, ex, ey], fill=(glow_col[0], glow_col[1], glow_col[2]), width=12)
-
-        for r in range(250, 0, -25):
-            factor = (250 - r) / 250.0
-            r_c = int(mid_col[0] * factor + bg_col[0] * (1 - factor))
-            g_c = int(mid_col[1] * factor + bg_col[1] * (1 - factor))
-            b_c = int(mid_col[2] * factor + bg_col[2] * (1 - factor))
-            draw.ellipse([cx - int(r*1.5), cy + 180 - r, cx + int(r*1.5), cy + 180 + r], fill=(r_c, g_c, b_c))
-
-        draw.line([cx, cy + 110, cx, cy + 270], fill=(212, 175, 55), width=6)
-        draw.line([cx - 50, cy + 155, cx + 50, cy + 155], fill=(212, 175, 55), width=6)
+        cx, cy = width // 2, 120
+        for r in range(350, 0, -10):
+            alpha_ratio = (350 - r) / 350.0
+            r_c = int(180 * alpha_ratio + 18 * (1 - alpha_ratio))
+            g_c = int(140 * alpha_ratio + 14 * (1 - alpha_ratio))
+            b_c = int(70 * alpha_ratio + 26 * (1 - alpha_ratio))
+            draw.ellipse([cx - int(r * 1.6), cy - r, cx + int(r * 1.6), cy + r], fill=(r_c, g_c, b_c))
 
         img.save(output_path)
-        print(f"[SUCCESS] Created rich sacred painting canvas at {output_path}")
+        print(f"[SUCCESS] Created atmospheric sacred oil painting canvas at {output_path}")
         return True
     except Exception as e:
         print(f"[ERROR] Failed to generate placeholder image: {e}")

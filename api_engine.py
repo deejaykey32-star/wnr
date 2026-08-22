@@ -129,11 +129,14 @@ def fetch_ai_image(prompt: str, output_path: str, bead_idx: int = 1) -> bool:
     """
     Generates a 16:9 sacred art painting via Replicate API or Pollinations API.
     1. Replicate API (FLUX.1-schnell / SDXL) if REPLICATE_API_KEY is available.
-    2. Pollinations AI (16:9 sacred prompt).
-    3. Procedural AI sacred canvas background fallback.
+    2. Pollinations AI (16:9 sacred prompt with retries).
+    3. Smooth Renaissance sacred oil painting canvas fallback.
     """
     clean_text = prompt.replace("\n", " ").strip()
-    sacred_prompt = f"holy sacred christian masterpiece oil painting, divine soft lighting, 16:9 widescreen, depiction of: {clean_text[:90]}"
+    sacred_prompt = (
+        f"hyperrealistic biblical oil painting masterpiece, classical Renaissance art style, "
+        f"sacred scene depicting: {clean_text[:90]}, Rembrandt lighting, divine atmosphere, 8k cinematic masterpiece, 16:9"
+    )
 
     if REPLICATE_API_KEY:
         try:
@@ -151,7 +154,7 @@ def fetch_ai_image(prompt: str, output_path: str, bead_idx: int = 1) -> bool:
                         "aspect_ratio": "16:9"
                     }
                 },
-                timeout=10
+                timeout=12
             )
             if res.status_code == 201:
                 prediction = res.json()
@@ -173,45 +176,48 @@ def fetch_ai_image(prompt: str, output_path: str, bead_idx: int = 1) -> bool:
         except Exception as e:
             print(f"[NOTICE] Replicate API attempt failed: {e}", flush=True)
 
-    # Pollinations AI Primary Provider
-    try:
-        encoded_prompt = requests.utils.quote(sacred_prompt)
-        url = f"https://image.pollinations.ai/prompt/{encoded_prompt}?width=1280&height=720&nologo=true&seed={(bead_idx * 7919) % 99999}"
-        print(f"[POLLINATIONS AI] Requesting 16:9 sacred image for bead {bead_idx}...", flush=True)
-        res = requests.get(url, timeout=5)
-        if res.status_code == 200 and len(res.content) > 5000:
-            with open(output_path, "wb") as f:
-                f.write(res.content)
-            print(f"[SUCCESS] Saved Pollinations 16:9 image to {output_path}", flush=True)
-            return True
-    except Exception as e:
-        print(f"[NOTICE] Pollinations AI request timed out: {e}", flush=True)
+    # Pollinations AI Primary Provider with 12s timeout & retries
+    encoded_prompt = requests.utils.quote(sacred_prompt)
+    seed = (bead_idx * 7919 + int(time.time())) % 99999
+    urls = [
+        f"https://image.pollinations.ai/prompt/{encoded_prompt}?width=1280&height=720&nologo=true&seed={seed}&model=flux",
+        f"https://image.pollinations.ai/prompt/{encoded_prompt}?width=1280&height=720&nologo=true&seed={seed}",
+    ]
+    
+    for attempt, url in enumerate(urls, 1):
+        try:
+            print(f"[POLLINATIONS AI] Requesting 16:9 sacred image (attempt {attempt}) for bead {bead_idx}...", flush=True)
+            res = requests.get(url, timeout=12)
+            if res.status_code == 200 and len(res.content) > 5000:
+                with open(output_path, "wb") as f:
+                    f.write(res.content)
+                print(f"[SUCCESS] Saved Pollinations 16:9 biblical masterpiece to {output_path}", flush=True)
+                return True
+        except Exception as e:
+            print(f"[NOTICE] Pollinations AI attempt {attempt} timed out: {e}", flush=True)
 
-    # Procedural AI Sacred Canvas Background Fallback
+    # Smooth Renaissance Sacred Oil Canvas Background Fallback (NO harsh geometric lines or circles)
     return _create_procedural_sacred_canvas(sacred_prompt, output_path)
 
 def _create_procedural_sacred_canvas(prompt: str, output_path: str) -> bool:
-    """Generates an elegant local procedural oil painting canvas background."""
+    """Generates a rich, dark atmospheric Renaissance sacred oil canvas background."""
     try:
         width, height = 1280, 720
-        bg_col = (25, 20, 35)
-        glow_col = (220, 180, 90)
-
-        img = Image.new("RGB", (width, height), color=bg_col)
+        # Dark royal indigo / warm sepia ambient canvas
+        img = Image.new("RGB", (width, height), color=(18, 14, 26))
         draw = ImageDraw.Draw(img)
 
-        cx, cy = width // 2, 90
-        for angle in range(-60, 65, 8):
-            rad = math.radians(angle + 90)
-            ex = cx + int(1000 * math.cos(rad))
-            ey = cy + int(1000 * math.sin(rad))
-            draw.line([cx, cy, ex, ey], fill=glow_col, width=10)
-
-        draw.line([cx, cy + 100, cx, cy + 260], fill=(212, 175, 55), width=6)
-        draw.line([cx - 45, cy + 145, cx + 45, cy + 145], fill=(212, 175, 55), width=6)
+        # Smooth soft golden halo vignette in top-center (NO geometric lines)
+        cx, cy = width // 2, 120
+        for r in range(350, 0, -10):
+            alpha_ratio = (350 - r) / 350.0
+            r_c = int(180 * alpha_ratio + 18 * (1 - alpha_ratio))
+            g_c = int(140 * alpha_ratio + 14 * (1 - alpha_ratio))
+            b_c = int(70 * alpha_ratio + 26 * (1 - alpha_ratio))
+            draw.ellipse([cx - int(r * 1.6), cy - r, cx + int(r * 1.6), cy + r], fill=(r_c, g_c, b_c))
 
         img.save(output_path)
-        print(f"[SUCCESS] Created procedural sacred canvas background at {output_path}", flush=True)
+        print(f"[SUCCESS] Created atmospheric sacred oil painting canvas at {output_path}", flush=True)
         return True
     except Exception as e:
         print(f"[ERROR] Failed to create sacred canvas: {e}", flush=True)
