@@ -81,18 +81,51 @@ def generate_openai_image(prompt: str, output_path: str, api_key: str = None) ->
         print(f"[ERROR] OpenAI DALL-E 3 image generation failed: {e}")
         return False
 
+def generate_wikimedia_sacred_art(prompt: str, output_path: str) -> bool:
+    """
+    Fetches real public-domain classical Renaissance sacred art masterpiece paintings
+    (Leonardo da Vinci, Raphael, Caravaggio, Titian, Murillo) matching the prayer theme.
+    """
+    try:
+        headers = {"User-Agent": "WnR365RosaryApp/1.0"}
+        clean_kw = re.sub(r'[^a-zA-Z0-9\s]', ' ', prompt)[:80].strip()
+        search_terms = f"painting sacred christian {clean_kw}"
+        url = f"https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch={urllib.parse.quote(search_terms)}&gsrnamespace=6&prop=imageinfo&iiprop=url&format=json"
+        res = requests.get(url, headers=headers, timeout=6).json()
+        pages = res.get("query", {}).get("pages", {})
+        
+        for page_id, page_info in pages.items():
+            imageinfo = page_info.get("imageinfo", [])
+            if imageinfo:
+                img_url = imageinfo[0].get("url")
+                if img_url and any(img_url.lower().split('?')[0].endswith(ext) for ext in [".jpg", ".png", ".jpeg"]):
+                    print(f"[WIKIMEDIA] Downloading sacred masterpiece painting from {img_url}...", flush=True)
+                    img_data = requests.get(img_url, headers=headers, timeout=8).content
+                    if len(img_data) > 10000:
+                        if _save_as_clean_png(img_data, output_path):
+                            print(f"[SUCCESS] Saved Renaissance sacred painting to {output_path}", flush=True)
+                            return True
+        return False
+    except Exception as e:
+        print(f"[NOTICE] Wikimedia Commons sacred art search failed: {e}", flush=True)
+        return False
+
 def generate_image(prompt: str, negative_prompt: str, output_path: str, provider: str = None) -> bool:
     """
     Main router for image generation.
-    Supports providers: 'pollinations' (Pollinations AI with API key), 'openai' (DALL-E 3).
+    Supports providers: 'openai' (DALL-E 3), 'wikimedia' (Renaissance Paintings), 'pollinations' (Pollinations AI).
     """
-    chosen_provider = (provider or os.getenv("IMAGE_PROVIDER", "pollinations")).lower()
+    chosen_provider = (provider or os.getenv("IMAGE_PROVIDER", "auto")).lower()
 
-    if chosen_provider == "openai":
+    if chosen_provider == "openai" or (os.getenv("OPENAI_API_KEY") and os.getenv("OPENAI_API_KEY") != "your_openai_api_key_here"):
         if generate_openai_image(prompt, output_path):
             return True
 
-    # Primary: Pollinations.ai
+    # 1. Try fetching authentic Renaissance Sacred Art Masterpiece Painting
+    if generate_wikimedia_sacred_art(prompt, output_path):
+        return True
+
+    # 2. Primary fallback: Pollinations.ai
     if generate_pollinations_image(prompt, output_path):
         return True
 
