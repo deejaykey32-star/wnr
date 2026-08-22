@@ -351,6 +351,8 @@ export const generateVideoClientSide = async (
     onProgress({ progress: 15, message: `Pobieranie ${sceneChunks.length} ilustracji sakralnych 16:9 (zmiana co 12–15s)...` });
     
     const images: HTMLImageElement[] = [];
+    const imageCache = new Map<string, HTMLImageElement>();
+
     for (let i = 0; i < sceneChunks.length; i++) {
       onProgress({
         progress: 15 + Math.floor((i / sceneChunks.length) * 20),
@@ -358,6 +360,13 @@ export const generateVideoClientSide = async (
       });
 
       const chunk = sceneChunks[i];
+      const cacheKey = chunk.promptKeywords.slice(0, 40);
+
+      if (imageCache.has(cacheKey)) {
+        images.push(imageCache.get(cacheKey)!);
+        continue;
+      }
+
       const cleanPrompt = encodeURIComponent(`holy sacred christian painting, baroque style, soft cinematic light, ${chunk.promptKeywords}`);
       const seed = Math.floor(Math.random() * 1000000);
       const url = `https://image.pollinations.ai/prompt/${cleanPrompt}?width=1280&height=720&nologo=true&seed=${seed}`;
@@ -369,6 +378,7 @@ export const generateVideoClientSide = async (
 
         const finish = (result: HTMLImageElement) => {
           clearTimeout(timeoutId);
+          imageCache.set(cacheKey, result);
           resolve(result);
         };
 
@@ -400,13 +410,13 @@ export const generateVideoClientSide = async (
         timeoutId = setTimeout(() => {
           image.src = '';
           handleFallback();
-        }, 8000);
+        }, 3000);
 
         image.src = url;
       });
 
       images.push(img);
-      await new Promise(r => setTimeout(r, 300));
+      await new Promise(r => setTimeout(r, 100));
     }
 
     // 3. Synteza głosu lektora TTS dla każdej sceny

@@ -25,8 +25,10 @@ def _save_as_clean_png(image_bytes: bytes, output_path: str) -> bool:
         print(f"[ERROR] Failed to convert image to PNG: {e}")
         return False
 
+_IMAGE_CACHE = {}
+
 def generate_pollinations_image(prompt: str, output_path: str, retries: int = 1) -> bool:
-    """Generates a 16:9 image using Pollinations.ai (with 4s fast timeout)."""
+    """Generates a 16:9 image using Pollinations.ai (with 3s fast timeout)."""
     import random
     pol_key = os.getenv("POLLINATIONS_API_KEY")
     clean_prompt = prompt.replace("\n", " ").strip()[:250]
@@ -45,7 +47,7 @@ def generate_pollinations_image(prompt: str, output_path: str, retries: int = 1)
             if pol_key and pol_key != "your_pollinations_api_key_here":
                 url += f"&key={pol_key}"
                 
-            res = requests.get(url, headers=headers, timeout=4)
+            res = requests.get(url, headers=headers, timeout=3)
             if res.status_code == 200 and len(res.content) > 1000:
                 if _save_as_clean_png(res.content, output_path):
                     print(f"[SUCCESS] Saved 16:9 image from Pollinations.ai to {output_path}", flush=True)
@@ -122,50 +124,72 @@ def generate_wikimedia_sacred_art(prompt: str, output_path: str, bead_idx: int =
         headers = {"User-Agent": "WnR365Bot/1.0 (https://widokinaraj.pl; contact@widokinaraj.pl)"}
         search_query = get_mystery_search_query(prompt)
         url_search = f"https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch={urllib.parse.quote(search_query)}&srnamespace=6&format=json"
-        res = requests.get(url_search, headers=headers, timeout=6).json()
+        res = requests.get(url_search, headers=headers, timeout=3).json()
         search_hits = res.get("query", {}).get("search", [])
 
         if search_hits:
             hit_title = search_hits[bead_idx % len(search_hits)]["title"]
-            url_info = f"https://commons.wikimedia.org/w/api.php?action=query&titles={urllib.parse.quote(hit_title)}&prop=imageinfo&iiprop=url&format=json"
-            res2 = requests.get(url_info, headers=headers, timeout=6).json()
+            url_info = f"https://commons.wikimedia.org/w/api.php?action=query&titles={urllib.parse.quote(hit_title)}&prop=imageinfo&iiprop=url&iiurlwidth=1280&format=json"
+            res2 = requests.get(url_info, headers=headers, timeout=3).json()
             pages = list(res2.get("query", {}).get("pages", {}).values())
             if pages and "imageinfo" in pages[0]:
-                img_url = pages[0]["imageinfo"][0].get("url")
+                img_info = pages[0]["imageinfo"][0]
+                img_url = img_info.get("thumburl") or img_info.get("url")
                 if img_url:
                     clean_url = img_url.split("?")[0]
-                    if any(clean_url.lower().endswith(ext) for ext in [".jpg", ".jpeg", ".png"]):
-                        print(f"[WIKIMEDIA] Downloading sacred masterpiece ({search_query}) from {clean_url}...", flush=True)
-                        img_data = requests.get(img_url, headers=headers, timeout=10).content
-                        if len(img_data) > 10000:
+                    print(f"[WIKIMEDIA] Downloading sacred masterpiece ({search_query}) thumbnail from {clean_url}...", flush=True)
+                    res_img = requests.get(img_url, headers=headers, timeout=4, stream=True)
+                    if res_img.status_code == 200:
+                        img_data = res_img.content
+                        if len(img_data) > 5000:
                             if _save_as_clean_png(img_data, output_path):
                                 print(f"[SUCCESS] Saved Renaissance sacred painting to {output_path}", flush=True)
                                 return True
         return False
     except Exception as e:
-        print(f"[NOTICE] Wikimedia Commons sacred art search failed: {e}", flush=True)
+        print(f"[NOTICE] Wikimedia Commons sacred art search fast timeout/fail: {e}", flush=True)
         return False
 
 def generate_image(prompt: str, negative_prompt: str, output_path: str, provider: str = None, bead_idx: int = 0) -> bool:
     """
     Main router for image generation.
     Supports providers: 'openai' (DALL-E 3), 'wikimedia' (Renaissance Paintings), 'pollinations' (Pollinations AI).
+    Includes prompt/query caching to avoid redundant API hits & rate limiting.
     """
+    import shutil
+    search_query = get_mystery_search_query(prompt)
+    cache_key = f"{search_query}_{bead_idx % 5}"  # cycle 5 visual variants per mystery theme
+
+    if cache_key in _IMAGE_CACHE and os.path.exists(_IMAGE_CACHE[cache_key]):
+        try:
+            shutil.copyfile(_IMAGE_CACHE[cache_key], output_path)
+            print(f"[CACHE HIT] Reused sacred art ({search_query}) -> {output_path}", flush=True)
+            return True
+        except Exception:
+            pass
+
     chosen_provider = (provider or os.getenv("IMAGE_PROVIDER", "auto")).lower()
 
     if chosen_provider == "openai" or (os.getenv("OPENAI_API_KEY") and os.getenv("OPENAI_API_KEY") != "your_openai_api_key_here"):
         if generate_openai_image(prompt, output_path):
+            _IMAGE_CACHE[cache_key] = output_path
             return True
 
     # 1. Try fetching authentic Renaissance Sacred Art Masterpiece Painting matched to the prayer theme
     if generate_wikimedia_sacred_art(prompt, output_path, bead_idx=bead_idx):
+        _IMAGE_CACHE[cache_key] = output_path
         return True
 
     # 2. Primary fallback: Pollinations.ai
     if generate_pollinations_image(prompt, output_path):
+        _IMAGE_CACHE[cache_key] = output_path
         return True
 
-    return _generate_placeholder_image(prompt, output_path)
+    # 3. Guaranteed instant local fallback
+    _generate_placeholder_image(prompt, output_path)
+    if os.path.exists(output_path):
+        _IMAGE_CACHE[cache_key] = output_path
+    return True
 
 def _generate_placeholder_image(prompt: str, output_path: str) -> bool:
     """Generates a rich 16:9 sacred painting scene background with warm golden rays and divine halos."""

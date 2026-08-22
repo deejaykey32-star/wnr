@@ -2,6 +2,7 @@ import os
 import sys
 import json
 import math
+import re
 import subprocess
 import argparse
 
@@ -101,6 +102,23 @@ def build_ffmpeg_concat_file(segments: list, concat_file_path: str):
     with open(concat_file_path, "w", encoding="utf-8") as f:
         f.writelines(lines)
 
+def get_ffmpeg_bin(custom_path: str = "ffmpeg") -> str:
+    """Resolves working FFmpeg executable path (system PATH, imageio_ffmpeg, or custom path)."""
+    import shutil
+    if custom_path and custom_path != "ffmpeg" and os.path.exists(custom_path):
+        return custom_path
+    if custom_path and shutil.which(custom_path):
+        return custom_path
+    try:
+        import imageio_ffmpeg
+        exe = imageio_ffmpeg.get_ffmpeg_exe()
+        if os.path.exists(exe):
+            print(f"[FFMPEG] Using imageio_ffmpeg binary at: {exe}", flush=True)
+            return exe
+    except Exception:
+        pass
+    return custom_path or "ffmpeg"
+
 def run_ffmpeg_cmd(cmd: list) -> bool:
     """
     Executes FFmpeg while continuously draining stderr to prevent OS pipe buffer deadlocks.
@@ -135,6 +153,7 @@ def render_video(segments: list, audio_path: str, output_mp4: str = "final_widok
     """
     Renders final 16:9 MP4 video combining images, narration audio, and karaoke subtitles.
     """
+    ffmpeg_exe = get_ffmpeg_bin(ffmpeg_bin)
     work_dir = os.path.dirname(output_mp4) or "."
     concat_file = os.path.join(work_dir, "input_slides.txt")
     build_ffmpeg_concat_file(segments, concat_file)
@@ -160,7 +179,7 @@ def render_video(segments: list, audio_path: str, output_mp4: str = "final_widok
         audio_map = ["-c:a", "aac", "-b:a", "128k"]
 
     cmd = [
-        ffmpeg_bin, "-y",
+        ffmpeg_exe, "-y",
         "-f", "concat", "-safe", "0", "-i", concat_file,
         *audio_input,
         "-vf", vf_filter,
@@ -177,7 +196,7 @@ def render_video(segments: list, audio_path: str, output_mp4: str = "final_widok
     else:
         print("[NOTICE] FFmpeg subtitle render failed/timed out, attempting fallback without subtitles...", flush=True)
         fallback_cmd = [
-            ffmpeg_bin, "-y",
+            ffmpeg_exe, "-y",
             "-f", "concat", "-safe", "0", "-i", concat_file,
             *audio_input,
             "-vf", "scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2",
