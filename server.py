@@ -146,9 +146,10 @@ class LocalAPIServer(BaseHTTPRequestHandler):
 def run_pipeline_worker(text: str):
     print(f"[WORKER] Rozpoczęto zadanie generowania w tle.")
     try:
-        # Wywołanie pipeline.py
+        # Wywołanie pipeline.py w trybie bez buforowania (-u)
         cmd = [
             PYTHON_BIN,
+            "-u",
             PIPELINE_SCRIPT,
             "--text", text,
             "--type", "prayer",
@@ -156,6 +157,9 @@ def run_pipeline_worker(text: str):
             "--output-mp4", OUTPUT_MP4
         ]
         
+        env = os.environ.copy()
+        env["PYTHONUNBUFFERED"] = "1"
+
         process = subprocess.Popen(
             cmd,
             stdout=subprocess.PIPE,
@@ -163,7 +167,8 @@ def run_pipeline_worker(text: str):
             text=True,
             encoding='utf-8',
             errors='ignore',
-            bufsize=1
+            bufsize=1,
+            env=env
         )
 
         output_lines = []
@@ -171,7 +176,7 @@ def run_pipeline_worker(text: str):
             line_str = line.strip()
             if not line_str:
                 continue
-            print(f"[PIPELINE-STDOUT] {line_str}")
+            print(f"[PIPELINE-STDOUT] {line_str}", flush=True)
             output_lines.append(line_str)
             
             # Mapowanie faz i logów na progress
@@ -180,17 +185,13 @@ def run_pipeline_worker(text: str):
             if "PHASE 2" in line_str:
                 prog, msg = 15, "Analiza tekstu i planowanie scen modlitewnych..."
             elif "PHASE 3" in line_str:
-                prog, msg = 30, "Generowanie grafik (Pollinations) i głosu lektora (TTS)..."
-            elif "img_001" in line_str:
-                prog, msg = 45, "Generowanie grafiki dla sceny 1..."
-            elif "img_002" in line_str:
-                prog, msg = 55, "Generowanie grafiki dla sceny 2..."
-            elif "img_003" in line_str:
-                prog, msg = 65, "Generowanie grafiki dla sceny 3..."
-            elif "narration.mp3" in line_str or "TTS" in line_str:
-                prog, msg = 75, "Generowanie lektora..."
-            elif "PHASE 4" in line_str:
-                prog, msg = 85, "Montowanie wideo MP4 z tekstem i lektorem..."
+                prog, msg = 30, "Generowanie grafik (Pollinations) i głosu lektora..."
+            elif "img_" in line_str or "Saved 16:9" in line_str or "Pollinations" in line_str:
+                prog, msg = 50, "Pobieranie ilustracji 16:9 (Pollinations.ai)..."
+            elif "audio" in line_str.lower() or "tts" in line_str.lower() or "narration" in line_str.lower():
+                prog, msg = 70, "Generowanie głosu lektora (TTS)..."
+            elif "PHASE 4" in line_str or "ffmpeg" in line_str.lower():
+                prog, msg = 85, "Montowanie wideo MP4 (FFmpeg)..."
             elif "[SUCCESS]" in line_str:
                 prog, msg = 100, "Wideo wygenerowane pomyślnie!"
 

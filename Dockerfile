@@ -1,5 +1,8 @@
 FROM python:3.10-slim
 
+# Force Python stdout/stderr unbuffered mode
+ENV PYTHONUNBUFFERED=1
+
 # Install FFmpeg and system dependencies
 RUN apt-get update && apt-get install -y \
     ffmpeg \
@@ -27,5 +30,5 @@ RUN mkdir -p output && chmod 777 output
 # Expose default port
 EXPOSE 7860
 
-# Run Python server
-CMD ["python", "server.py"]
+# Run Python server unbuffered
+CMD ["python", "-u", "server.py"]
