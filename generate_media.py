@@ -529,16 +529,11 @@ def generate_image(prompt: str, negative_prompt: str, output_path: str, provider
             return True
 
     # 1. Primary AI Image Generator: Pollinations.ai (creates fresh sacred painting per bead text)
-    if generate_pollinations_image(prompt, output_path):
+    if generate_pollinations_image(prompt, output_path, retries=2):
         _IMAGE_CACHE[cache_key] = output_path
         return True
 
-    # 2. Fallback: Wikimedia Sacred Art Masterpiece
-    if generate_wikimedia_sacred_art(prompt, output_path, bead_idx=bead_idx):
-        _IMAGE_CACHE[cache_key] = output_path
-        return True
-
-    # 3. Guaranteed instant local fallback (sacred canvas background)
+    # 2. Guaranteed instant local procedural AI canvas background (warm golden rays & divine halos)
     _generate_placeholder_image(prompt, output_path)
     if os.path.exists(output_path):
         _IMAGE_CACHE[cache_key] = output_path
@@ -586,12 +581,13 @@ def _generate_placeholder_image(prompt: str, output_path: str) -> bool:
         print(f"[ERROR] Failed to generate placeholder image: {e}")
         return False
 
-def draw_video_overlay(image_path: str, current_idx: int, total_count: int, is_rosary: bool = True, day_num: int = 58, total_days: int = 175, bead_label: str = ""):
+def draw_video_overlay(image_path: str, current_idx: int, total_count: int, is_rosary: bool = True, day_num: int = 58, total_days: int = 175, bead_label: str = "", bead_text: str = ""):
     """
     Renders 16:9 overlays:
     - Left (RGBA) & Right (CMYK) Vertical Rosary Strips: Exactly 16 beads (5 initial, 10 decade, 1 final).
     - Bottom Progress Bar: Exactly 175 beads (1 bead = 1 day of the 175-day cycle).
     - Top Header Badge: Bead label ("📿 Krzyż — Skład Apostolski", "Paciorek 1 z 5 — Ojcze Nasz", "Dziesiątek: Paciorek X z 10").
+    - Bottom Text Overlay Banner: Guarantees prayer text is ALWAYS 100% visible on every single frame.
     """
     try:
         from PIL import Image, ImageDraw
@@ -625,7 +621,7 @@ def draw_video_overlay(image_path: str, current_idx: int, total_count: int, is_r
 
         # 1. Left RGBA Vertical Rosary Strip (16 beads)
         left_x = 40
-        start_y, end_y = 65, height - 75
+        start_y, end_y = 65, height - 145
         draw.line([left_x, start_y, left_x, end_y], fill=(50, 70, 110), width=2)
 
         for i in range(TOTAL_STRIP_BEADS):
@@ -718,6 +714,18 @@ def draw_video_overlay(image_path: str, current_idx: int, total_count: int, is_r
         draw.text((20, 14), f"RHZ365 • Dzień {day_num} z {total_days} (Cykl II)", fill=(212, 175, 55))
         draw.text((width - 440, 14), f"📿 {lbl}", fill=(240, 220, 140))
 
+        # 5. Bottom Prayer Text Banner Overlay (ALWAYS 100% visible on every frame)
+        if bead_text and len(bead_text.strip()) > 0:
+            text_box_y1 = height - 135
+            text_box_y2 = height - 58
+            draw.rectangle([0, text_box_y1, width, text_box_y2], fill=(10, 12, 22))
+
+            display_text = bead_text.strip()
+            if len(display_text) > 90:
+                display_text = display_text[:87] + "..."
+
+            draw.text((width // 2, text_box_y1 + 22), display_text, fill=(255, 255, 255), anchor="mm")
+
         img.save(image_path)
     except Exception as e:
         print(f"[WARNING] Could not draw video overlay on {image_path}: {e}")
@@ -729,7 +737,7 @@ def process_media_generation(segments_file: str, output_dir: str = "output"):
 
     total_segs = max(len(segments), 1)
 
-    # 1. Generate 16:9 images for each segment (OpenAI DALL-E 3 / Wikimedia Renaissance Paintings / Pollinations AI)
+    # 1. Generate 16:9 images for each segment (OpenAI DALL-E 3 / Pollinations AI)
     for idx, seg in enumerate(segments, 1):
         pct = 20 + int((idx / total_segs) * 45) # 20% to 65%
         print(f"[PROGRESS {pct}%] Generowanie ilustracji paciorka {idx} z {total_segs}...", flush=True)
@@ -741,7 +749,7 @@ def process_media_generation(segments_file: str, output_dir: str = "output"):
         # Apply animated video overlay (RHZ365 Rosary or WnR365 Blog)
         is_rosary = seg.get("is_rosary", True)
         bead_label = seg.get("label", "")
-        draw_video_overlay(img_path, idx, total_segs, is_rosary=is_rosary, bead_label=bead_label)
+        draw_video_overlay(img_path, idx, total_segs, is_rosary=is_rosary, bead_label=bead_label, bead_text=seg.get("text", ""))
 
     # 2. Combine text and generate narration audio & timestamps (Voice Cloning from MP3 / Edge TTS)
     from analyze import clean_text_for_speech

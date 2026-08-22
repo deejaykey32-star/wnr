@@ -123,12 +123,12 @@ def get_ffmpeg_bin(custom_path: str = "ffmpeg") -> str:
         pass
     return custom_path or "ffmpeg"
 
-def run_ffmpeg_cmd(cmd: list) -> bool:
+def run_ffmpeg_cmd(cmd: list, cwd: str = None) -> bool:
     """
     Executes FFmpeg while continuously draining stderr to prevent OS pipe buffer deadlocks.
     Parses real-time progress timestamps to keep UI progress advancing!
     """
-    print(f"[FFMPEG] Running command: {' '.join(cmd)}", flush=True)
+    print(f"[FFMPEG] Running command in {cwd or '.'}: {' '.join(cmd)}", flush=True)
     try:
         proc = subprocess.Popen(
             cmd,
@@ -137,7 +137,8 @@ def run_ffmpeg_cmd(cmd: list) -> bool:
             text=True,
             encoding="utf-8",
             errors="ignore",
-            bufsize=1
+            bufsize=1,
+            cwd=cwd
         )
         for line in proc.stderr:
             line_str = line.strip()
@@ -158,23 +159,26 @@ def render_video(segments: list, audio_path: str, output_mp4: str = "final_widok
     Renders final 16:9 MP4 video combining images, narration audio, and karaoke subtitles.
     """
     ffmpeg_exe = get_ffmpeg_bin(ffmpeg_bin)
-    work_dir = os.path.dirname(output_mp4) or "."
+    work_dir = os.path.abspath(os.path.dirname(output_mp4) or ".")
     concat_file = os.path.join(work_dir, "input_slides.txt")
     build_ffmpeg_concat_file(segments, concat_file)
 
     ass_path = srt_path.replace(".srt", ".ass")
     sub_file = ass_path if os.path.exists(ass_path) else srt_path
-    escaped_sub = os.path.abspath(sub_file).replace("\\", "/").replace(":", "\\:")
     
-    if sub_file.endswith(".ass"):
-        vf_filter = f"scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,subtitles='{escaped_sub}'"
-    else:
-        sub_style = "FontName=Arial,FontSize=18,PrimaryColour=&H00FFFFFF,BackColour=&H80000000,BorderStyle=4,Alignment=2,MarginV=65"
-        vf_filter = f"scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,subtitles='{escaped_sub}':force_style='{sub_style}'"
+    sub_filename = os.path.basename(sub_file)
+    audio_filename = os.path.basename(audio_path)
+    concat_filename = "input_slides.txt"
+    output_filename = os.path.basename(output_mp4)
 
-    audio_abs_path = os.path.abspath(audio_path)
-    if os.path.exists(audio_abs_path):
-        audio_input = ["-i", audio_abs_path]
+    if sub_filename.endswith(".ass"):
+        vf_filter = f"scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,subtitles='{sub_filename}'"
+    else:
+        sub_style = "FontName=Arial,FontSize=20,PrimaryColour=&H00FFFFFF,BackColour=&H80000000,BorderStyle=4,Alignment=2,MarginV=65"
+        vf_filter = f"scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,subtitles='{sub_filename}':force_style='{sub_style}'"
+
+    if os.path.exists(os.path.join(work_dir, audio_filename)):
+        audio_input = ["-i", audio_filename]
         audio_map = ["-c:a", "aac", "-b:a", "128k"]
     else:
         print("[WARNING] Narration audio not found, generating silent audio stream.")
@@ -184,35 +188,37 @@ def render_video(segments: list, audio_path: str, output_mp4: str = "final_widok
 
     cmd = [
         ffmpeg_exe, "-y",
-        "-f", "concat", "-safe", "0", "-i", concat_file,
+        "-f", "concat", "-safe", "0", "-i", concat_filename,
         *audio_input,
         "-vf", vf_filter,
         "-c:v", "libx264", "-pix_fmt", "yuv420p", "-preset", "ultrafast",
         *audio_map,
         "-shortest",
-        output_mp4
+        output_filename
     ]
 
     print("[PROGRESS 88%] Renderowanie klatek wideo MP4 (FFmpeg)...", flush=True)
-    if run_ffmpeg_cmd(cmd):
+    if run_ffmpeg_cmd(cmd, cwd=work_dir):
         print(f"[SUCCESS] Rendered final 16:9 video to {output_mp4}", flush=True)
         return True
     else:
         print("[NOTICE] FFmpeg subtitle render failed/timed out, attempting fallback without subtitles...", flush=True)
         fallback_cmd = [
             ffmpeg_exe, "-y",
-            "-f", "concat", "-safe", "0", "-i", concat_file,
+            "-f", "concat", "-safe", "0", "-i", concat_filename,
             *audio_input,
             "-vf", "scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2",
             "-c:v", "libx264", "-pix_fmt", "yuv420p", "-preset", "ultrafast",
             *audio_map,
             "-shortest",
-            output_mp4
+            output_filename
         ]
-        if run_ffmpeg_cmd(fallback_cmd):
+        if run_ffmpeg_cmd(fallback_cmd, cwd=work_dir):
             print(f"[SUCCESS] Rendered fallback video to {output_mp4}", flush=True)
             return True
         else:
+            print("[ERROR] Fallback video render also failed.", flush=True)
+            return False
             print("[ERROR] Fallback video render also failed.", flush=True)
             return False
 
