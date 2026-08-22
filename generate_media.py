@@ -119,25 +119,28 @@ def generate_wikimedia_sacred_art(prompt: str, output_path: str, bead_idx: int =
     (Leonardo da Vinci, Raphael, Caravaggio, Titian, Murillo) matched specifically to the prayer theme.
     """
     try:
-        headers = {"User-Agent": "WnR365RosaryApp/1.0"}
+        headers = {"User-Agent": "WnR365Bot/1.0 (https://widokinaraj.pl; contact@widokinaraj.pl)"}
         search_query = get_mystery_search_query(prompt)
-        url = f"https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch={urllib.parse.quote(search_query)}&gsrnamespace=6&prop=imageinfo&iiprop=url&format=json"
-        res = requests.get(url, headers=headers, timeout=6).json()
-        pages = list(res.get("query", {}).get("pages", {}).values())
+        url_search = f"https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch={urllib.parse.quote(search_query)}&srnamespace=6&format=json"
+        res = requests.get(url_search, headers=headers, timeout=6).json()
+        search_hits = res.get("query", {}).get("search", [])
 
-        if pages:
-            # Cycle through available paintings for variety across beads
-            chosen_page = pages[bead_idx % len(pages)]
-            imageinfo = chosen_page.get("imageinfo", [])
-            if imageinfo:
-                img_url = imageinfo[0].get("url")
-                if img_url and any(img_url.lower().split('?')[0].endswith(ext) for ext in [".jpg", ".png", ".jpeg"]):
-                    print(f"[WIKIMEDIA] Downloading sacred masterpiece ({search_query}) from {img_url}...", flush=True)
-                    img_data = requests.get(img_url, headers=headers, timeout=8).content
-                    if len(img_data) > 10000:
-                        if _save_as_clean_png(img_data, output_path):
-                            print(f"[SUCCESS] Saved Renaissance sacred painting to {output_path}", flush=True)
-                            return True
+        if search_hits:
+            hit_title = search_hits[bead_idx % len(search_hits)]["title"]
+            url_info = f"https://commons.wikimedia.org/w/api.php?action=query&titles={urllib.parse.quote(hit_title)}&prop=imageinfo&iiprop=url&format=json"
+            res2 = requests.get(url_info, headers=headers, timeout=6).json()
+            pages = list(res2.get("query", {}).get("pages", {}).values())
+            if pages and "imageinfo" in pages[0]:
+                img_url = pages[0]["imageinfo"][0].get("url")
+                if img_url:
+                    clean_url = img_url.split("?")[0]
+                    if any(clean_url.lower().endswith(ext) for ext in [".jpg", ".jpeg", ".png"]):
+                        print(f"[WIKIMEDIA] Downloading sacred masterpiece ({search_query}) from {clean_url}...", flush=True)
+                        img_data = requests.get(img_url, headers=headers, timeout=10).content
+                        if len(img_data) > 10000:
+                            if _save_as_clean_png(img_data, output_path):
+                                print(f"[SUCCESS] Saved Renaissance sacred painting to {output_path}", flush=True)
+                                return True
         return False
     except Exception as e:
         print(f"[NOTICE] Wikimedia Commons sacred art search failed: {e}", flush=True)
@@ -476,10 +479,11 @@ def _generate_fallback_audio(text: str, output_audio: str, output_timing: str) -
     print(f"[FALLBACK] Generated estimated timestamps for {len(words)} words over {estimated_duration:.2f}s")
     return alignment
 
-def draw_rosary_beads_overlay(image_path: str, current_idx: int, total_count: int):
+def draw_video_overlay(image_path: str, current_idx: int, total_count: int, is_rosary: bool = True, day_num: int = 58, total_days: int = 175, bead_label: str = ""):
     """
-    Draws a 16:9 minimalist rosary bead progress tracker bar across the bottom of the image.
-    Beads light up bead-by-bead as current_idx advances!
+    Renders 16:9 overlays:
+    - RHZ365: Left (RGBA), Right (CMYK), Bottom (175 Cycle Days), and Bead Badge (Krzyż, 5 paciorków wstępnych, 10 w dziesiątku).
+    - WnR365: Clean reading progress bar (Strona X z Y, %).
     """
     try:
         from PIL import Image, ImageDraw
@@ -487,41 +491,90 @@ def draw_rosary_beads_overlay(image_path: str, current_idx: int, total_count: in
         width, height = img.size
         draw = ImageDraw.Draw(img)
 
-        # Semi-transparent dark bar at the bottom
-        bar_height = 50
-        bar_y = height - bar_height
-        draw.rectangle([0, bar_y, width, height], fill=(16, 14, 24))
+        if not is_rosary:
+            # WnR365 BLOG READING PROGRESS BAR (NO ROSARY BEADS)
+            bar_height = 45
+            bar_y = height - bar_height
+            draw.rectangle([0, bar_y, width, height], fill=(16, 14, 24))
+            
+            pct = current_idx / max(total_count, 1)
+            margin_x = 40
+            usable_w = width - (margin_x * 2)
+            fill_w = int(usable_w * pct)
+            
+            draw.rectangle([margin_x, bar_y + 20, margin_x + usable_w, bar_y + 26], fill=(40, 45, 60))
+            if fill_w > 0:
+                draw.rectangle([margin_x, bar_y + 20, margin_x + fill_w, bar_y + 26], fill=(212, 175, 55))
+                
+            badge = f"WnR365 | Postęp czytania: Strona {current_idx} z {total_count} ({int(pct * 100)}%)"
+            draw.text((margin_x, bar_y + 5), badge, fill=(240, 220, 140))
+            img.save(image_path)
+            return
 
-        margin_x = 80
-        usable_width = width - (margin_x * 2)
-        step = usable_width / max(total_count - 1, 1)
-        bead_y = bar_y + 25
-
-        # Connecting line between beads
-        draw.line([margin_x, bead_y, width - margin_x, bead_y], fill=(60, 65, 80), width=2)
-
-        # Draw individual beads
-        for i in range(total_count):
-            bx = margin_x + int(i * step)
-            bead_num = i + 1
-
-            if bead_num < current_idx:
-                # Passed bead - solid gold
-                draw.ellipse([bx - 6, bead_y - 6, bx + 6, bead_y + 6], fill=(212, 175, 55))
-            elif bead_num == current_idx:
-                # ACTIVE CURRENT BEAD - Glowing Bright Gold with ring
-                draw.ellipse([bx - 10, bead_y - 10, bx + 10, bead_y + 10], fill=(255, 235, 120), outline=(255, 215, 0), width=3)
+        # RHZ365 ROSARY OVERLAY
+        # 1. Left RGBA Vertical Rosary Strip
+        left_x = 40
+        draw.line([left_x, 60, left_x, height - 80], fill=(60, 80, 120), width=2)
+        for i in range(7):
+            by = 80 + i * int((height - 160) / 6)
+            if i == (current_idx % 7):
+                draw.ellipse([left_x - 9, by - 9, left_x + 9, by + 9], fill=(255, 235, 120), outline=(255, 215, 0), width=2)
             else:
-                # Future bead - translucent gray
-                draw.ellipse([bx - 5, bead_y - 5, bx + 5, bead_y + 5], fill=(70, 75, 90))
+                draw.ellipse([left_x - 5, by - 5, left_x + 5, by + 5], fill=(70, 90, 130))
 
-        # Bead counter badge text (e.g. "Paciorek 3 z 22")
-        badge_text = f"📿 Paciorek {current_idx} z {total_count}"
-        draw.text((20, bar_y + 15), badge_text, fill=(240, 220, 140))
+        # 2. Right CMYK Vertical Rosary Strip
+        right_x = width - 40
+        draw.line([right_x, 60, right_x, height - 80], fill=(120, 80, 60), width=2)
+        for i in range(7):
+            by = 80 + i * int((height - 160) / 6)
+            if i == (current_idx % 7):
+                draw.ellipse([right_x - 9, by - 9, right_x + 9, by + 9], fill=(255, 215, 100), outline=(255, 180, 0), width=2)
+            else:
+                draw.ellipse([right_x - 5, by - 5, right_x + 5, by + 5], fill=(130, 80, 70))
+
+        # 3. Bottom 175 Cycle Days Progress Bar
+        bar_height = 55
+        bar_y = height - bar_height
+        draw.rectangle([0, bar_y, width, height], fill=(12, 10, 20))
+
+        margin_x = 70
+        usable_w = width - (margin_x * 2)
+        day_step = usable_w / max(total_days - 1, 1)
+        bead_y = bar_y + 32
+
+        draw.line([margin_x, bead_y, width - margin_x, bead_y], fill=(45, 50, 65), width=2)
+        for d in range(total_days):
+            bx = margin_x + int(d * day_step)
+            d_num = d + 1
+            if d_num < day_num:
+                draw.ellipse([bx - 2, bead_y - 2, bx + 2, bead_y + 2], fill=(212, 175, 55))
+            elif d_num == day_num:
+                draw.ellipse([bx - 6, bead_y - 6, bx + 6, bead_y + 6], fill=(255, 235, 120), outline=(255, 215, 0), width=2)
+
+        # 4. Top Header & Bead Label Badge (Krzyż, 5 paciorków wstępnych, 10 w dziesiątku)
+        draw.rectangle([0, 0, width, 45], fill=(18, 16, 28))
+
+        if not bead_label:
+            if current_idx <= 1:
+                lbl = "Krzyż — Skład Apostolski (Wierzę w Boga)"
+            elif current_idx == 2:
+                lbl = "Paciorek 1 z 5 — Ojcze Nasz"
+            elif current_idx in (3, 4, 5):
+                lbl = f"Paciorek {current_idx - 1} z 5 — Zdrowaś Maryjo"
+            elif current_idx == 6:
+                lbl = "Paciorek 5 z 5 — Chwała Ojcu"
+            else:
+                decade_bead = (current_idx - 6)
+                lbl = f"Dziesiątek: Paciorek {decade_bead} z 10"
+        else:
+            lbl = bead_label
+
+        draw.text((20, 14), f"RHZ365 • Dzień {day_num} z {total_days} (Cykl II)", fill=(212, 175, 55))
+        draw.text((width - 380, 14), f"📿 {lbl}", fill=(240, 220, 140))
 
         img.save(image_path)
     except Exception as e:
-        print(f"[WARNING] Could not draw rosary overlay on {image_path}: {e}")
+        print(f"[WARNING] Could not draw video overlay on {image_path}: {e}")
 
 def process_media_generation(segments_file: str, output_dir: str = "output"):
     os.makedirs(output_dir, exist_ok=True)
@@ -530,7 +583,7 @@ def process_media_generation(segments_file: str, output_dir: str = "output"):
 
     total_segs = max(len(segments), 1)
 
-    # 1. Generate 16:9 images for each segment (Pollinations AI with API key / OpenAI DALL-E 3)
+    # 1. Generate 16:9 images for each segment (OpenAI DALL-E 3 / Wikimedia Renaissance Paintings / Pollinations AI)
     for idx, seg in enumerate(segments, 1):
         pct = 20 + int((idx / total_segs) * 45) # 20% to 65%
         print(f"[PROGRESS {pct}%] Generowanie ilustracji paciorka {idx} z {total_segs}...", flush=True)
@@ -538,8 +591,11 @@ def process_media_generation(segments_file: str, output_dir: str = "output"):
         img_path = os.path.join(output_dir, img_filename)
         seg["image_path"] = img_path
         generate_image(seg.get("text", seg.get("prompt", "")), seg.get("negative_prompt", ""), img_path, bead_idx=idx)
-        # Apply animated rosary bead progress overlay
-        draw_rosary_beads_overlay(img_path, idx, total_segs)
+        
+        # Apply animated video overlay (RHZ365 Rosary or WnR365 Blog)
+        is_rosary = seg.get("is_rosary", True)
+        bead_label = seg.get("label", "")
+        draw_video_overlay(img_path, idx, total_segs, is_rosary=is_rosary, bead_label=bead_label)
 
     # 2. Combine text and generate narration audio & timestamps (Voice Cloning from MP3 / Edge TTS)
     from analyze import clean_text_for_speech
