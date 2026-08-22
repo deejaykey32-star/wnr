@@ -143,39 +143,46 @@ def _generate_placeholder_image(prompt: str, output_path: str) -> bool:
 
 def generate_fish_audio_voice_clone(full_text: str, speaker_wav: str = None, output_audio: str = "narration.mp3", output_timing: str = "narration_timestamps.json") -> dict:
     """
-    Clones voice from sample audio file (e.g. VID-20260727-WA0000.mp3) using Fish.audio API.
+    Clones voice from sample audio file using Fish.audio API.
+    Reuses existing FISH_AUDIO_MODEL_ID if available to save 95% of credits!
     """
-    default_wav = "VID-20260727-WA0000.mp3" if os.path.exists("VID-20260727-WA0000.mp3") else r"c:\proj\wnr\VID-20260727-WA0000.mp3"
-    wav_path = speaker_wav or os.getenv("VOICE_SAMPLE_PATH", default_wav)
     fish_key = os.getenv("FISH_AUDIO_API_KEY", "sk-fish-Kd92IxqmbXbNDpyj24-Bf4e84y8iuNXsA_idr7nQD4o")
+    model_id = os.getenv("FISH_AUDIO_MODEL_ID")
 
     if not fish_key or fish_key == "your_fish_audio_api_key_here":
         print("[WARNING] FISH_AUDIO_API_KEY missing. Fallback to other providers.")
         return None
 
-    if not os.path.exists(wav_path):
-        print(f"[WARNING] Sample audio for voice cloning not found at {wav_path}")
-        return None
-
     try:
-        print(f"[VOICE CLONING] Attempting voice cloning from {wav_path} using Fish.audio API...")
         url = "https://api.fish.audio/v1/tts"
-        headers = {
-            "Authorization": f"Bearer {fish_key}"
-        }
-        
-        with open(wav_path, "rb") as f_ref:
-            files = {
-                "reference_audio": (os.path.basename(wav_path), f_ref, "audio/mpeg")
+
+        # If model_id is provided, use reference_id (saves 95% credits!)
+        if model_id:
+            print(f"[VOICE CLONING] Using saved Fish.audio Model ID: {model_id}...")
+            headers = {
+                "Authorization": f"Bearer {fish_key}",
+                "Content-Type": "application/json"
             }
-            data = {
+            payload = {
                 "text": full_text,
                 "format": "mp3",
-                "normalize": "true",
-                "latency": "normal"
+                "reference_id": model_id
             }
-            
-            res = requests.post(url, headers=headers, data=data, files=files, timeout=12)
+            res = requests.post(url, headers=headers, json=payload, timeout=12)
+        else:
+            default_wav = "VID-20260727-WA0000.mp3" if os.path.exists("VID-20260727-WA0000.mp3") else r"c:\proj\wnr1\VID-20260727-WA0000.mp3"
+            wav_path = speaker_wav or os.getenv("VOICE_SAMPLE_PATH", default_wav)
+
+            if not os.path.exists(wav_path):
+                print(f"[WARNING] Sample audio for voice cloning not found at {wav_path}")
+                return None
+
+            print(f"[VOICE CLONING] Attempting voice cloning from {wav_path} using Fish.audio API...")
+            headers = {"Authorization": f"Bearer {fish_key}"}
+            with open(wav_path, "rb") as f_ref:
+                files = {"reference_audio": (os.path.basename(wav_path), f_ref, "audio/mpeg")}
+                data = {"text": full_text, "format": "mp3", "normalize": "true", "latency": "normal"}
+                res = requests.post(url, headers=headers, data=data, files=files, timeout=12)
             
         if res.status_code != 200:
             print(f"[NOTICE] Fish.audio Voice Cloning returned HTTP {res.status_code} (Payment Required/Insufficient Credits). Falling back to EdgeTTS Marek (-18%).")
