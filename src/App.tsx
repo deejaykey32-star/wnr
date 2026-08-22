@@ -361,7 +361,7 @@ export default function App() {
         const res = await fetch(`${apiServerUrl}/api/generate-mp4/status`);
         if (!res.ok) {
           failCount++;
-          if (failCount > 10) throw new Error(`HTTP ${res.status}`);
+          if (failCount > 15) throw new Error(`HTTP Status ${res.status}`);
           return;
         }
         failCount = 0;
@@ -410,9 +410,12 @@ export default function App() {
           setLocalStatusMsg(`❌ Błąd serwera: ${data.message || 'Nieokreślony błąd'}`);
         }
       } catch (err: any) {
-        clearInterval(interval);
-        setLocalGenerating(false);
-        setLocalStatusMsg(`❌ Błąd połączenia z serwerem: ${err?.message || err}`);
+        failCount++;
+        if (failCount > 15) {
+          clearInterval(interval);
+          setLocalGenerating(false);
+          setLocalStatusMsg(`❌ Błąd połączenia z serwerem po wielu próbach: ${err?.message || err}`);
+        }
       }
     }, 2500);
   };
