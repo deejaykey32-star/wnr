@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import time
 import subprocess
 import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
@@ -116,7 +117,7 @@ class LocalAPIServer(BaseHTTPRequestHandler):
                     return
 
                 # Zainicjuj nowe zadanie
-                job_id = f"job_{int(threading.Event()._time() * 1000)}"
+                job_id = f"job_{int(time.time() * 1000)}"
                 current_job["jobId"] = job_id
                 current_job["status"] = "running"
                 current_job["progress"] = 5
