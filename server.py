@@ -8,6 +8,9 @@ import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 
+from dotenv import load_dotenv
+load_dotenv()
+
 # Globalny stan zadania generowania wideo
 job_lock = threading.Lock()
 current_job = {
@@ -226,10 +229,11 @@ def run_pipeline_worker(text: str, auto_upload_yt: bool = False, playlist_id: st
         
         env = os.environ.copy()
         env["PYTHONUNBUFFERED"] = "1"
+        env["IMAGE_PROVIDER"] = "openai"
+        env["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY", "")
         env["EDGE_VOICE"] = tts_voice or "elevenlabs"
         env["TTS_RATE"] = tts_rate or "-18%"
-        env["FISH_AUDIO_API_KEY"] = os.getenv("FISH_AUDIO_API_KEY", "sk-fish-Kd92IxqmbXbNDpyj24-Bf4e84y8iuNXsA_idr7nQD4o")
-        env["ELEVENLABS_API_KEY"] = os.getenv("ELEVENLABS_API_KEY", "sk_d74145d60d4d7fbf6946b24c1268cb668c5f2bae0d7d3173")
+        env["ELEVENLABS_API_KEY"] = os.getenv("ELEVENLABS_API_KEY", "")
         env["ELEVENLABS_VOICE_ID"] = os.getenv("ELEVENLABS_VOICE_ID", "yu6bC9aJwpEUndYOjPEg")
 
         process = subprocess.Popen(
