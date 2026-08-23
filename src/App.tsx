@@ -1017,6 +1017,7 @@ export default function App() {
       const resUser = await loginWithGoogle();
       if (resUser) {
         setShowAuthModal(false);
+        setShowAdminSync(true);
       }
     } catch (err: any) {
       if (err?.code === 'auth/unauthorized-domain') {
@@ -1034,7 +1035,16 @@ export default function App() {
     localStorage.setItem('local_editor_auth', 'true');
     setLocalAuth(true);
     setShowAuthModal(false);
+    setShowAdminSync(true);
     setAuthErrorMsg(null);
+  };
+
+  const handleOpenAdminPanel = () => {
+    if (isAuthorized) {
+      setShowAdminSync(true);
+    } else {
+      setShowAuthModal(true);
+    }
   };
 
   const handleLogout = async () => {
@@ -1043,6 +1053,7 @@ export default function App() {
       setLocalAuth(false);
       await logout();
       setShowEditor(false);
+      setShowAdminSync(false);
     } catch (err) {
       console.error(err);
     }
@@ -1527,7 +1538,7 @@ export default function App() {
                   {isAuthorized && (
                     <button
                       onClick={() => setShowEditor(!showEditor)}
-                      className={`px-1.5 py-0.5 rounded-full transition flex items-center justify-center gap-0.5 text-[10px] font-semibold cursor-pointer shrink-0 ${
+                      className={`px-2 py-1 rounded-full transition flex items-center justify-center gap-1 text-[11px] font-semibold cursor-pointer shrink-0 ${
                         showEditor 
                           ? 'bg-emerald-600/80 text-white hover:bg-emerald-500/90' 
                           : isLight
@@ -1535,37 +1546,56 @@ export default function App() {
                             : 'bg-slate-700/50 text-slate-300 hover:bg-slate-700 border border-slate-600'
                       }`}
                     >
-                      <Edit3 className="w-2.5 h-2.5" />
+                      <Edit3 className="w-3 h-3" />
                       <span>{showEditor ? 'Podgląd' : 'Edytor'}</span>
                     </button>
                   )}
                   <button
-                    onClick={() => setShowAdminSync(true)}
-                    title="Panel synchronizacji danych (Firestore ↔ Lokalny)"
-                    className="p-0.5 bg-amber-600/10 text-amber-500 hover:bg-amber-600/20 rounded transition-colors cursor-pointer shrink-0"
+                    onClick={handleOpenAdminPanel}
+                    title="Panel synchronizacji bazy NoSQL (Firestore ↔ Lokalny)"
+                    className={`px-2 py-1 rounded-full transition flex items-center justify-center gap-1 text-[11px] font-semibold cursor-pointer shrink-0 border ${
+                      isLight
+                        ? 'bg-amber-100 text-amber-900 border-amber-300 hover:bg-amber-200'
+                        : 'bg-amber-600/20 text-amber-300 border-amber-500/40 hover:bg-amber-600/30'
+                    }`}
                   >
-                    <RefreshCw className="w-3 h-3" />
+                    <Database className="w-3 h-3 text-amber-400" />
+                    <span>Baza NoSQL</span>
                   </button>
                   <button
                     onClick={handleLogout}
                     title="Wyloguj się"
-                    className="p-0.5 bg-indigo-600/10 text-indigo-500 hover:bg-indigo-600/20 rounded transition-colors cursor-pointer shrink-0"
+                    className="p-1 bg-indigo-600/10 text-indigo-500 hover:bg-indigo-600/20 rounded-full transition-colors cursor-pointer shrink-0"
                   >
-                    <LogOut className="w-3 h-3" />
+                    <LogOut className="w-3.5 h-3.5" />
                   </button>
                 </div>
               ) : (
-                <button
-                  onClick={() => setShowAuthModal(true)}
-                  className={`px-2 py-1.5 border text-[11px] sm:text-xs font-semibold rounded-full transition active:scale-95 cursor-pointer flex items-center justify-center gap-1 w-full sm:w-auto min-w-0 ${
-                    isLight
-                      ? 'bg-white hover:bg-slate-100 border-slate-300 text-slate-700 shadow-sm'
-                      : 'bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-slate-200'
-                  }`}
-                >
-                  <LogIn className="w-3.5 h-3.5 text-indigo-500 shrink-0" />
-                  <span className="truncate">Zaloguj</span>
-                </button>
+                <div className="flex items-center gap-1">
+                  <button
+                    onClick={handleOpenAdminPanel}
+                    title="Otwórz panel bazy danych i synchronizacji NoSQL"
+                    className={`px-2.5 py-1.5 border text-[11px] sm:text-xs font-semibold rounded-full transition active:scale-95 cursor-pointer flex items-center justify-center gap-1 w-full sm:w-auto min-w-0 ${
+                      isLight
+                        ? 'bg-amber-50 hover:bg-amber-100 border-amber-200 text-amber-800 shadow-sm'
+                        : 'bg-amber-950/40 hover:bg-amber-900/50 border-amber-800/60 text-amber-300'
+                    }`}
+                  >
+                    <Database className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                    <span className="truncate">Baza NoSQL</span>
+                  </button>
+                  <button
+                    onClick={() => setShowAuthModal(true)}
+                    className={`px-2 py-1.5 border text-[11px] sm:text-xs font-semibold rounded-full transition active:scale-95 cursor-pointer flex items-center justify-center gap-1 w-full sm:w-auto min-w-0 ${
+                      isLight
+                        ? 'bg-white hover:bg-slate-100 border-slate-300 text-slate-700 shadow-sm'
+                        : 'bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-slate-200'
+                    }`}
+                  >
+                    <LogIn className="w-3.5 h-3.5 text-indigo-500 shrink-0" />
+                    <span className="truncate">Zaloguj</span>
+                  </button>
+                </div>
               )}
             </div>
           </div>
@@ -2814,7 +2844,7 @@ export default function App() {
 
       {/* Auth Modal / Help Modal */}
       {showAuthModal && (
-        <div className="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/75 backdrop-blur-sm z-[9999] flex items-center justify-center p-4">
           <div className="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-5 text-left relative">
             <button
               onClick={() => setShowAuthModal(false)}

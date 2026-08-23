@@ -50,13 +50,25 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
   const subText = isDark ? 'text-slate-400' : 'text-slate-500';
   const cardBg = isDark ? 'bg-slate-800/60 border-slate-700' : 'bg-slate-50 border-slate-200';
 
+  // Timeout wrapper to prevent hanging spinners on slow/blocked connections
+  const withTimeout = <T,>(promise: Promise<T>, timeoutMs = 12000, errorMsg = 'Przekroczono limit czasu połączenia z Firestore (12s).'): Promise<T> => {
+    return Promise.race([
+      promise,
+      new Promise<T>((_, reject) => setTimeout(() => reject(new Error(errorMsg)), timeoutMs))
+    ]);
+  };
+
   // ── MASTER FULL NOSQL SNAPSHOT (RHZ365 + WNR365 + INTRO) ──────────────────────
 
   const downloadFullFirestoreBackup = async () => {
-    setMasterStatus({ type: 'loading', message: 'Pobieram pełną bazę (wszystkie modlitwy i wpisy) z Firestore...' });
+    setMasterStatus({ type: 'loading', message: 'Łączenie z Firestore i pobieranie pełnej bazy...' });
     try {
-      // 1. Fetch all blog entries from Firestore
-      const blogSnap = await getDocs(collection(db, 'blog_entries'));
+      // 1. Fetch all blog entries from Firestore with timeout
+      const blogSnap = await withTimeout(
+        getDocs(collection(db, 'blog_entries')),
+        12000,
+        'Przekroczono limit czasu pobierania blog_entries z Firestore.'
+      );
       const fetchedBlogEntries: Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }> = { ...blogEntries };
       let blogCount = 0;
       blogSnap.forEach(docSnap => {
@@ -73,8 +85,12 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         }
       });
 
-      // 2. Fetch all prayers from Firestore
-      const prayerSnap = await getDocs(collection(db, 'prayers'));
+      // 2. Fetch all prayers from Firestore with timeout
+      const prayerSnap = await withTimeout(
+        getDocs(collection(db, 'prayers')),
+        12000,
+        'Przekroczono limit czasu pobierania prayers z Firestore.'
+      );
       const fetchedPrayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }> = { ...prayers };
       let prayerCount = 0;
       prayerSnap.forEach(docSnap => {
@@ -117,7 +133,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
     } catch (err) {
       setMasterStatus({
         type: 'error',
-        message: `❌ Błąd pobierania z Firestore: ${err instanceof Error ? err.message : 'Nieznany błąd'}`
+        message: `❌ ${err instanceof Error ? err.message : 'Błąd połączenia z Firestore'}`
       });
     }
   };
@@ -199,6 +215,91 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
   // ── BLOG ENTRIES ─────────────────────────────────────────────────────────────
 
+  const pushBlogToFirestore = async () => {
+    setBlogStatus({ type: 'loading', message: 'Wysyłam wpisy do Firestore...' });
+    try {
+      const local = await getAllLocalBlogEntries();
+      const entries = Object.entries(local);
+      let count = 0;
+
+      for (const [docId, entry] of entries) {
+        await withTimeout(
+          setDoc(doc(db, 'blog_entries', docId), {
+            title: entry.title,
+            text: entry.text,
+            dayIndex: entry.dayIndex,
+            updatedBy: entry.updatedBy || 'Admin Sync',
+            updatedAt: entry.updatedAt || new Date().toISOString()
+          }),
+          10000,
+          `Limit czasu zapisu wpisu ${docId}`
+        );
+        count++;
+        if (count % 50 === 0) {
+          setBlogStatus({ type: 'loading', message: `Wysyłam... ${count}/${entries.length}` });
+        }
+      }
+
+      setBlogStatus({ type: 'success', message: `✅ Wysłano ${count} wpisów do Firestore (kopia zapasowa)` });
+    } catch (err) {
+      setBlogStatus({ type: 'error', message: `❌ Błąd: ${err instanceof Error ? err.message : 'Nieznany błąd'}` });
+    }
+  };
+
+  const pullBlogFromFirestore = async () => {
+    if (!window.confirm('Czy na pewno pobrać wpisy z Firestore? Nadpisze lokalne edycje.')) return;
+    setBlogStatus({ type: 'loading', message: 'Pobieram wpisy z Firestore...' });
+    try {
+      const snapshot = await withTimeout(
+        getDocs(collection(db, 'blog_entries')),
+        12000,
+        'Przekroczono limit czasu połączenia z Firestore.'
+      );
+      const updated: Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }> = { ...blogEntries };
+      let count = 0;
+
+      for (const docSnap of snapshot.docs) {
+        const data = docSnap.data();
+        if (data && data.title && data.text) {
+          const isGeneric = data.text.includes('Chwała Jezusowi w Bogu Ojcu!') ||
+                            data.text.includes('To jest Twój wpis blogowy');
+          if (!isGeneric) {
+            const entry = {
+              title: data.title,
+              text: data.text,
+              dayIndex: data.dayIndex ?? 0,
+              updatedBy: data.updatedBy,
+              updatedAt: data.updatedAt
+            };
+            updated[docSnap.id] = entry;
+            await saveLocalBlogEntry(docSnap.id, entry);
+            count++;
+          }
+        }
+      }
+
+      onBlogEntriesUpdated(updated);
+      setBlogStatus({ type: 'success', message: `✅ Pobrano ${count} wpisów z Firestore do lokalnej bazy` });
+    } catch (err) {
+      setBlogStatus({ type: 'error', message: `❌ Błąd: ${err instanceof Error ? err.message : 'Brak dostępu do Firestore'}` });
+    }
+  };
+
+  const resetBlogToSeed = async () => {
+    if (!window.confirm('Czy na pewno zresetować wszystkie wpisy do bazowych danych z PDF? Straci lokalne edycje.')) return;
+    setBlogStatus({ type: 'loading', message: 'Resetuję do danych z PDF...' });
+    try {
+      await resetLocalToSeedData();
+      const fresh = await getAllLocalBlogEntries();
+      onBlogEntriesUpdated(fresh);
+      setBlogStatus({ type: 'success', message: `✅ Zresetowano ${Object.keys(fresh).length} wpisów do danych z PDF` });
+    } catch (err) {
+      setBlogStatus({ type: 'error', message: `❌ Błąd resetowania: ${err instanceof Error ? err.message : ''}` });
+    }
+  };
+
+  // ── INTRO BLOCKS (Wstęp Główny & Misja eMBiK365) ────────────────────────────
+
   const pushIntroToFirestore = async () => {
     setIntroStatus({ type: 'loading', message: 'Wysyłam treść Wstępu i Misji do Firestore...' });
     try {
@@ -231,7 +332,11 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       const updated = { ...prayers };
       let count = 0;
       for (const k of keys) {
-        const docSnap = await getDoc(doc(db, 'prayers', k));
+        const docSnap = await withTimeout(
+          getDoc(doc(db, 'prayers', k)),
+          10000,
+          `Przekroczono limit czasu pobierania ${k} z Firestore.`
+        );
         if (docSnap.exists()) {
           const data = docSnap.data();
           if (data && data.title && data.text) {
@@ -263,12 +368,16 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       for (const [prayerId, prayer] of entries) {
         const typedPrayer = prayer as { title?: string; text?: string; updatedBy?: string; updatedAt?: string };
         if (typedPrayer && typedPrayer.text && typedPrayer.title) {
-          await setDoc(doc(db, 'prayers', prayerId), {
-            title: typedPrayer.title,
-            text: typedPrayer.text,
-            updatedBy: typedPrayer.updatedBy || 'Admin Sync',
-            updatedAt: typedPrayer.updatedAt || new Date().toISOString()
-          });
+          await withTimeout(
+            setDoc(doc(db, 'prayers', prayerId), {
+              title: typedPrayer.title,
+              text: typedPrayer.text,
+              updatedBy: typedPrayer.updatedBy || 'Admin Sync',
+              updatedAt: typedPrayer.updatedAt || new Date().toISOString()
+            }),
+            10000,
+            `Limit czasu zapisu modlitwy ${prayerId}`
+          );
           count++;
         }
       }
@@ -284,7 +393,11 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
     if (!window.confirm('Czy na pewno pobrać modlitwy z Firestore? Nadpisze lokalne edycje.')) return;
     setPrayerStatus({ type: 'loading', message: 'Pobieram modlitwy z Firestore...' });
     try {
-      const snapshot = await getDocs(collection(db, 'prayers'));
+      const snapshot = await withTimeout(
+        getDocs(collection(db, 'prayers')),
+        12000,
+        'Przekroczono limit czasu pobierania modlitw z Firestore.'
+      );
       const updated: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }> = { ...DEFAULT_PRAYERS };
       let count = 0;
 
@@ -324,10 +437,19 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
     );
   };
 
+  // Close on Escape key
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
   return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
 
       {/* Panel */}
       <div className={`relative w-full max-w-xl rounded-2xl border shadow-2xl ${bg} ${text} overflow-hidden`} style={{ maxHeight: '90vh', overflowY: 'auto' }}>
