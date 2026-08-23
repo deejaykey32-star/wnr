@@ -703,6 +703,11 @@ export default function App() {
   // LOCAL-FIRST: Load blog entries and prayers from local NoSQL (PDF JSON + IndexedDB).
   // Firestore is NEVER auto-synced. Use AdminSyncPanel for manual Firestore operations.
   useEffect(() => {
+    // Safety timer: Never allow infinite loading screen under ANY circumstance
+    const safetyTimer = setTimeout(() => {
+      setIsDataLoaded(true);
+    }, 1200);
+
     // Load dynamically split JSON assets and initialize IndexedDB
     Promise.all([
       initLocalNoSqlDb(),
@@ -721,12 +726,16 @@ export default function App() {
       } catch (err) {
         console.warn('[App] Local NoSQL loading fallback:', err);
       } finally {
+        clearTimeout(safetyTimer);
         setIsDataLoaded(true);
       }
     }).catch(err => {
       console.warn('[App] initLocalNoSqlDb or dynamic data load failed:', err);
+      clearTimeout(safetyTimer);
       setIsDataLoaded(true); // fallback to render anyway
     });
+
+    return () => clearTimeout(safetyTimer);
   }, []);
 
   const handleExportPdf = async () => {

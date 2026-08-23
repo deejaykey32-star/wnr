@@ -8,7 +8,7 @@ export interface LocalBlogEntry {
 }
 
 const DB_NAME = 'WnR365LocalNoSqlDb';
-const DB_VERSION = 1;
+const DB_VERSION = 2;
 const BLOG_STORE = 'blog_entries';
 const PRAYERS_STORE = 'prayers';
 
@@ -45,6 +45,9 @@ function openDb(): Promise<IDBDatabase> {
         dbPromise = null; // Clear it so we don't cache the error
         reject(request.error || new Error('Failed to open IndexedDB'));
       };
+      request.onblocked = () => {
+        console.warn('[NoSQL] IndexedDB open blocked by older tab.');
+      };
     } catch (err) {
       dbPromise = null;
       reject(err);
@@ -75,7 +78,7 @@ export async function initLocalNoSqlDb(): Promise<void> {
     const db = await openDb();
 
     // If version matches, check if the store is empty (e.g. if DB was cleared manually)
-    if (!needsReseed) {
+    if (!needsReseed && db.objectStoreNames.contains(BLOG_STORE)) {
       try {
         const isEmpty = await new Promise<boolean>((resolve) => {
           const tx = db.transaction(BLOG_STORE, 'readonly');
@@ -120,47 +123,60 @@ export async function initLocalNoSqlDb(): Promise<void> {
       }
 
       // 2. Perform clear and seed in a readwrite transaction
-      await new Promise<void>((resolve, reject) => {
+      await new Promise<void>((resolve) => {
         try {
-          const tx = db.transaction([BLOG_STORE, PRAYERS_STORE], 'readwrite');
-          const store = tx.objectStore(BLOG_STORE);
-          const prayersStore = tx.objectStore(PRAYERS_STORE);
+          const storeNames: string[] = [];
+          if (db.objectStoreNames.contains(BLOG_STORE)) storeNames.push(BLOG_STORE);
+          if (db.objectStoreNames.contains(PRAYERS_STORE)) storeNames.push(PRAYERS_STORE);
+
+          if (storeNames.length === 0) {
+            resolve();
+            return;
+          }
+
+          const tx = db.transaction(storeNames, 'readwrite');
+          const store = db.objectStoreNames.contains(BLOG_STORE) ? tx.objectStore(BLOG_STORE) : null;
+          const prayersStore = db.objectStoreNames.contains(PRAYERS_STORE) ? tx.objectStore(PRAYERS_STORE) : null;
 
           tx.onerror = (e) => {
             console.warn('[NoSQL] Seeding transaction error:', e);
-            reject(tx.error || new Error('Transaction failed'));
+            resolve();
           };
           tx.onabort = (e) => {
             console.warn('[NoSQL] Seeding transaction aborted:', e);
-            reject(new Error('Transaction aborted'));
+            resolve();
           };
 
           // Clear old data so stale entries don't persist
-          store.clear();
-          prayersStore.clear();
+          if (store) store.clear();
+          if (prayersStore) prayersStore.clear();
 
           // Seed prayers
-          Object.entries(prayersMap).forEach(([docId, p]: [string, any]) => {
-            if (p && p.text) {
-              prayersStore.put({ docId, ...p });
-            }
-          });
+          if (prayersStore) {
+            Object.entries(prayersMap).forEach(([docId, p]: [string, any]) => {
+              if (p && p.text) {
+                prayersStore.put({ docId, ...p });
+              }
+            });
+          }
 
           // Seed blog entries
-          Object.entries(wnrPdfMap).forEach(([docId, entry]: [string, any]) => {
-            try {
-              store.put({
-                docId,
-                dayIndex: entry.dayIndex ?? 0,
-                title: entry.title,
-                text: entry.text,
-                updatedBy: entry.updatedBy || 'NoSQL Snapshot (GitHub / Cloudflare)',
-                updatedAt: entry.updatedAt || new Date().toISOString()
-              });
-            } catch (putErr) {
-              console.warn(`[NoSQL] Error putting entry ${docId}:`, putErr);
-            }
-          });
+          if (store) {
+            Object.entries(wnrPdfMap).forEach(([docId, entry]: [string, any]) => {
+              try {
+                store.put({
+                  docId,
+                  dayIndex: entry.dayIndex ?? 0,
+                  title: entry.title,
+                  text: entry.text,
+                  updatedBy: entry.updatedBy || 'NoSQL Snapshot (GitHub / Cloudflare)',
+                  updatedAt: entry.updatedAt || new Date().toISOString()
+                });
+              } catch (putErr) {
+                console.warn(`[NoSQL] Error putting entry ${docId}:`, putErr);
+              }
+            });
+          }
 
           tx.oncomplete = () => {
             try {
@@ -170,7 +186,8 @@ export async function initLocalNoSqlDb(): Promise<void> {
             resolve();
           };
         } catch (txErr) {
-          reject(txErr);
+          console.warn('[NoSQL] Seeding error:', txErr);
+          resolve();
         }
       });
     }
