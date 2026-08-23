@@ -59,7 +59,7 @@ function openDb(): Promise<IDBDatabase> {
 
 // Increment this version whenever wnr365_pdf_entries.json content changes significantly.
 // This forces a full IndexedDB reseed on next app load, clearing stale cached data.
-const DATA_VERSION = '2026-08-17-sync-1787449546945';
+const DATA_VERSION = '2026-08-23-sync-1787503453287';
 const DATA_VERSION_KEY = 'wnr365_db_data_version';
 
 /**
@@ -97,9 +97,27 @@ export async function initLocalNoSqlDb(): Promise<void> {
 
       // 1. Preload JSON data dynamically BEFORE starting the transaction
       // to avoid TransactionInactiveError while awaiting imports.
-      const module = await import('../data/wnr365_pdf_entries.json');
-      const wnrPdfEntriesData = module.default;
-      const wnrPdfMap = wnrPdfEntriesData as Record<string, { dayIndex: number; title: string; text: string; updatedBy?: string; updatedAt?: string }>;
+      let wnrPdfMap: Record<string, any> = {};
+      let prayersMap: Record<string, any> = {};
+
+      try {
+        const snapshotModule = await import('../data/db_snapshot.json');
+        const snapshotData = snapshotModule.default;
+        if (snapshotData) {
+          if (snapshotData.blogEntries) wnrPdfMap = snapshotData.blogEntries;
+          if (snapshotData.prayers) prayersMap = { ...snapshotData.prayers };
+          if (snapshotData.intro) {
+            Object.assign(prayersMap, snapshotData.intro);
+          }
+        }
+      } catch (snapErr) {
+        console.warn('[NoSQL] db_snapshot.json dynamic import fallback:', snapErr);
+      }
+
+      if (Object.keys(wnrPdfMap).length === 0) {
+        const module = await import('../data/wnr365_pdf_entries.json');
+        wnrPdfMap = module.default as Record<string, any>;
+      }
 
       // 2. Perform clear and seed in a readwrite transaction
       await new Promise<void>((resolve, reject) => {
@@ -121,14 +139,22 @@ export async function initLocalNoSqlDb(): Promise<void> {
           store.clear();
           prayersStore.clear();
 
-          Object.entries(wnrPdfMap).forEach(([docId, entry]) => {
+          // Seed prayers
+          Object.entries(prayersMap).forEach(([docId, p]: [string, any]) => {
+            if (p && p.text) {
+              prayersStore.put({ docId, ...p });
+            }
+          });
+
+          // Seed blog entries
+          Object.entries(wnrPdfMap).forEach(([docId, entry]: [string, any]) => {
             try {
               store.put({
                 docId,
-                dayIndex: entry.dayIndex,
+                dayIndex: entry.dayIndex ?? 0,
                 title: entry.title,
                 text: entry.text,
-                updatedBy: entry.updatedBy || 'eMBiK365 Księga A5 PDF',
+                updatedBy: entry.updatedBy || 'NoSQL Snapshot (GitHub / Cloudflare)',
                 updatedAt: entry.updatedAt || new Date().toISOString()
               });
             } catch (putErr) {
@@ -338,4 +364,101 @@ export async function getLocalPrayers(): Promise<Record<string, { title: string;
   } catch {
     return null;
   }
+}
+
+export interface FullNoSqlSnapshot {
+  version: string;
+  exportedAt: string;
+  source: string;
+  intro: {
+    introTextMain?: { title: string; text: string; updatedBy?: string; updatedAt?: string };
+    introTextMission?: { title: string; text: string; updatedBy?: string; updatedAt?: string };
+    [key: string]: any;
+  };
+  prayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>;
+  blogEntries: Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>;
+}
+
+/**
+ * Creates a complete, unified NoSQL database snapshot containing all days of RHZ365, WnR365, and Intro blocks.
+ */
+export function createNoSqlSnapshot(
+  prayersData: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>,
+  blogEntriesData: Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>
+): FullNoSqlSnapshot {
+  const introBlocks: Record<string, any> = {};
+  if (prayersData['introTextMain']) introBlocks['introTextMain'] = prayersData['introTextMain'];
+  if (prayersData['introTextMission']) introBlocks['introTextMission'] = prayersData['introTextMission'];
+
+  return {
+    version: `wnr365-snapshot-${new Date().toISOString().slice(0, 10)}`,
+    exportedAt: new Date().toISOString(),
+    source: 'widokinaraj.pl NoSQL Core (GitHub / Cloudflare Pages)',
+    intro: introBlocks,
+    prayers: prayersData,
+    blogEntries: blogEntriesData
+  };
+}
+
+/**
+ * Imports a full NoSQL snapshot into IndexedDB in a single clean transaction.
+ */
+export async function importFullNoSqlSnapshot(snapshot: FullNoSqlSnapshot): Promise<{ prayersCount: number; blogCount: number }> {
+  const db = await openDb();
+
+  return new Promise<{ prayersCount: number; blogCount: number }>((resolve, reject) => {
+    try {
+      const tx = db.transaction([BLOG_STORE, PRAYERS_STORE], 'readwrite');
+      const blogStore = tx.objectStore(BLOG_STORE);
+      const prayersStore = tx.objectStore(PRAYERS_STORE);
+
+      let prayersCount = 0;
+      let blogCount = 0;
+
+      if (snapshot.prayers) {
+        Object.entries(snapshot.prayers).forEach(([docId, prayer]) => {
+          if (prayer && prayer.title && prayer.text) {
+            prayersStore.put({ docId, ...prayer });
+            prayersCount++;
+          }
+        });
+      }
+
+      if (snapshot.intro) {
+        Object.entries(snapshot.intro).forEach(([docId, introBlock]) => {
+          if (introBlock && introBlock.title && introBlock.text) {
+            prayersStore.put({ docId, ...introBlock });
+            prayersCount++;
+          }
+        });
+      }
+
+      if (snapshot.blogEntries) {
+        Object.entries(snapshot.blogEntries).forEach(([docId, entry]) => {
+          if (entry && entry.title && entry.text) {
+            blogStore.put({
+              docId,
+              dayIndex: entry.dayIndex ?? 0,
+              title: entry.title,
+              text: entry.text,
+              updatedBy: entry.updatedBy || 'NoSQL Snapshot Import',
+              updatedAt: entry.updatedAt || new Date().toISOString()
+            });
+            blogCount++;
+          }
+        });
+      }
+
+      tx.oncomplete = () => {
+        try {
+          localStorage.setItem(DATA_VERSION_KEY, snapshot.version || DATA_VERSION);
+        } catch {}
+        resolve({ prayersCount, blogCount });
+      };
+
+      tx.onerror = (e) => reject(tx.error || e);
+    } catch (err) {
+      reject(err);
+    }
+  });
 }

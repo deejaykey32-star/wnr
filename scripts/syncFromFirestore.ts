@@ -135,23 +135,61 @@ async function syncAllFromFirestore() {
     console.log(`✅ Updated ${updatedPrayersTs} prayer blocks in src/data/prayers.ts`);
   }
 
-  // ── C. UPDATE DATA VERSION IF CHANGES MADE ──────────────────────────────
+  // ── C. GENERATE src/data/db_snapshot.json ─────────────────────────────────
+  const snapshotJsonPath = resolve(process.cwd(), 'src/data/db_snapshot.json');
+  const publicSnapshotPath = resolve(process.cwd(), 'public/data/db_snapshot.json');
+
+  const allPrayersMap: Record<string, any> = {};
+  prayersSnap.forEach(docSnap => {
+    const data = docSnap.data();
+    if (data && data.text) {
+      allPrayersMap[docSnap.id] = {
+        title: data.title || '',
+        text: data.text || '',
+        updatedBy: data.updatedBy || 'Firestore Sync',
+        updatedAt: data.updatedAt || new Date().toISOString()
+      };
+    }
+  });
+
+  const fullSnapshot = {
+    version: `wnr365-snapshot-${new Date().toISOString().slice(0, 10)}`,
+    exportedAt: new Date().toISOString(),
+    source: 'widokinaraj.pl NoSQL Core (GitHub / Cloudflare Pages)',
+    intro: {
+      introTextMain: allPrayersMap['introTextMain'] || null,
+      introTextMission: allPrayersMap['introTextMission'] || null
+    },
+    prayers: allPrayersMap,
+    blogEntries: wnrData
+  };
+
+  writeFileSync(snapshotJsonPath, JSON.stringify(fullSnapshot, null, 2), 'utf-8');
+  console.log(`📦 Generated standalone NoSQL snapshot in src/data/db_snapshot.json (${Object.keys(allPrayersMap).length} prayers, ${Object.keys(wnrData).length} blog entries)`);
+
+  try {
+    const publicDataDir = resolve(process.cwd(), 'public/data');
+    const fs = await import('fs');
+    if (!fs.existsSync(publicDataDir)) fs.mkdirSync(publicDataDir, { recursive: true });
+    writeFileSync(publicSnapshotPath, JSON.stringify(fullSnapshot, null, 2), 'utf-8');
+    console.log(`📦 Copied snapshot to public/data/db_snapshot.json for direct CDN access.`);
+  } catch (e) {
+    // optional
+  }
+
+  // ── D. UPDATE DATA VERSION IF CHANGES MADE ──────────────────────────────
   const localNoSqlPath = resolve(process.cwd(), 'src/utils/localNoSqlDb.ts');
   let localNoSqlContent = readFileSync(localNoSqlPath, 'utf-8');
 
-  const newVersion = `2026-08-17-sync-${Date.now()}`;
-  if (changesCount > 0) {
-    localNoSqlContent = localNoSqlContent.replace(
-      /const DATA_VERSION = '[^']+';/,
-      `const DATA_VERSION = '${newVersion}';`
-    );
-    writeFileSync(localNoSqlPath, localNoSqlContent, 'utf-8');
-    console.log(`🚀 Updated DATA_VERSION in localNoSqlDb.ts to '${newVersion}' to force browser cache refresh.`);
-  } else {
-    console.log('✨ No changes detected between Firestore and local JSON files.');
-  }
+  const newVersion = `2026-08-23-sync-${Date.now()}`;
+  localNoSqlContent = localNoSqlContent.replace(
+    /const DATA_VERSION = '[^']+';/,
+    `const DATA_VERSION = '${newVersion}';`
+  );
+  writeFileSync(localNoSqlPath, localNoSqlContent, 'utf-8');
+  console.log(`🚀 Updated DATA_VERSION in localNoSqlDb.ts to '${newVersion}' to force browser cache refresh.`);
 
-  console.log(`\n🎉 Sync finished successfully! Total changes synced: ${changesCount}`);
+  console.log(`\n🎉 Full NoSQL Sync finished successfully! Total changes synced: ${changesCount}`);
   process.exit(0);
 }
 

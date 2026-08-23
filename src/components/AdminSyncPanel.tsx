@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { db } from '../firebase';
 import {
   collection, doc, setDoc, getDocs, getDoc
 } from 'firebase/firestore';
 import {
   Cloud, CloudDownload, CloudUpload, RefreshCw, X,
-  CheckCircle, AlertCircle, Loader, Database, RotateCcw, FileText
+  CheckCircle, AlertCircle, Loader, Database, RotateCcw, FileText,
+  Download, Upload, Sparkles, Check, Copy, HardDrive, ShieldCheck
 } from 'lucide-react';
-import { getAllLocalBlogEntries, saveLocalBlogEntry, resetLocalToSeedData, saveLocalPrayers, getLocalPrayers } from '../utils/localNoSqlDb';
+import {
+  getAllLocalBlogEntries, saveLocalBlogEntry, resetLocalToSeedData,
+  saveLocalPrayers, getLocalPrayers, createNoSqlSnapshot,
+  importFullNoSqlSnapshot, FullNoSqlSnapshot
+} from '../utils/localNoSqlDb';
 import { DEFAULT_PRAYERS } from '../data/prayers';
 
 interface AdminSyncPanelProps {
@@ -32,9 +37,12 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
   onBlogEntriesUpdated,
   onPrayersUpdated
 }) => {
+  const [masterStatus, setMasterStatus] = useState<SyncStatus>({ type: 'idle', message: '' });
   const [blogStatus, setBlogStatus] = useState<SyncStatus>({ type: 'idle', message: '' });
   const [prayerStatus, setPrayerStatus] = useState<SyncStatus>({ type: 'idle', message: '' });
   const [introStatus, setIntroStatus] = useState<SyncStatus>({ type: 'idle', message: '' });
+
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const isDark = theme === 'dark';
   const bg = isDark ? 'bg-slate-900 border-slate-700' : 'bg-white border-slate-200';
@@ -42,85 +50,154 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
   const subText = isDark ? 'text-slate-400' : 'text-slate-500';
   const cardBg = isDark ? 'bg-slate-800/60 border-slate-700' : 'bg-slate-50 border-slate-200';
 
-  // ── BLOG ENTRIES ─────────────────────────────────────────────────────────────
+  // ── MASTER FULL NOSQL SNAPSHOT (RHZ365 + WNR365 + INTRO) ──────────────────────
 
-  const pushBlogToFirestore = async () => {
-    setBlogStatus({ type: 'loading', message: 'Wysyłam wpisy do Firestore...' });
+  const downloadFullFirestoreBackup = async () => {
+    setMasterStatus({ type: 'loading', message: 'Pobieram pełną bazę (wszystkie modlitwy i wpisy) z Firestore...' });
     try {
-      const local = await getAllLocalBlogEntries();
-      const entries = Object.entries(local);
-      let count = 0;
-
-      for (const [docId, entry] of entries) {
-        await setDoc(doc(db, 'blog_entries', docId), {
-          title: entry.title,
-          text: entry.text,
-          dayIndex: entry.dayIndex,
-          updatedBy: entry.updatedBy || 'Admin Sync',
-          updatedAt: entry.updatedAt || new Date().toISOString()
-        });
-        count++;
-        if (count % 50 === 0) {
-          setBlogStatus({ type: 'loading', message: `Wysyłam... ${count}/${entries.length}` });
-        }
-      }
-
-      setBlogStatus({ type: 'success', message: `✅ Wysłano ${count} wpisów do Firestore (kopia zapasowa)` });
-    } catch (err) {
-      setBlogStatus({ type: 'error', message: `❌ Błąd: ${err instanceof Error ? err.message : 'Nieznany błąd'}` });
-    }
-  };
-
-  const pullBlogFromFirestore = async () => {
-    if (!window.confirm('Czy na pewno pobrać wpisy z Firestore? Nadpisze lokalne edycje.')) return;
-    setBlogStatus({ type: 'loading', message: 'Pobieram wpisy z Firestore...' });
-    try {
-      const snapshot = await getDocs(collection(db, 'blog_entries'));
-      const updated: Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }> = { ...blogEntries };
-      let count = 0;
-
-      for (const docSnap of snapshot.docs) {
+      // 1. Fetch all blog entries from Firestore
+      const blogSnap = await getDocs(collection(db, 'blog_entries'));
+      const fetchedBlogEntries: Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }> = { ...blogEntries };
+      let blogCount = 0;
+      blogSnap.forEach(docSnap => {
         const data = docSnap.data();
         if (data && data.title && data.text) {
-          const isGeneric = data.text.includes('Chwała Jezusowi w Bogu Ojcu!') ||
-                            data.text.includes('To jest Twój wpis blogowy');
-          if (!isGeneric) {
-            const entry = {
-              title: data.title,
-              text: data.text,
-              dayIndex: data.dayIndex ?? 0,
-              updatedBy: data.updatedBy,
-              updatedAt: data.updatedAt
-            };
-            updated[docSnap.id] = entry;
-            // Save to local IndexedDB too
-            await saveLocalBlogEntry(docSnap.id, entry);
-            count++;
-          }
+          fetchedBlogEntries[docSnap.id] = {
+            title: data.title,
+            text: data.text,
+            dayIndex: data.dayIndex ?? 0,
+            updatedBy: data.updatedBy || 'Firestore Backup',
+            updatedAt: data.updatedAt || new Date().toISOString()
+          };
+          blogCount++;
         }
-      }
+      });
 
-      onBlogEntriesUpdated(updated);
-      setBlogStatus({ type: 'success', message: `✅ Pobrano ${count} wpisów z Firestore do lokalnej bazy` });
+      // 2. Fetch all prayers from Firestore
+      const prayerSnap = await getDocs(collection(db, 'prayers'));
+      const fetchedPrayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }> = { ...prayers };
+      let prayerCount = 0;
+      prayerSnap.forEach(docSnap => {
+        const data = docSnap.data();
+        if (data && data.title && data.text) {
+          fetchedPrayers[docSnap.id] = {
+            title: data.title,
+            text: data.text,
+            updatedBy: data.updatedBy || 'Firestore Backup',
+            updatedAt: data.updatedAt || new Date().toISOString()
+          };
+          prayerCount++;
+        }
+      });
+
+      // 3. Build snapshot
+      const snapshot = createNoSqlSnapshot(fetchedPrayers, fetchedBlogEntries);
+
+      // 4. Save to local IndexedDB and update React state immediately
+      await importFullNoSqlSnapshot(snapshot);
+      onPrayersUpdated(fetchedPrayers);
+      onBlogEntriesUpdated(fetchedBlogEntries);
+
+      // 5. Trigger download of JSON file
+      const jsonStr = JSON.stringify(snapshot, null, 2);
+      const blob = new Blob([jsonStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `db_snapshot.json`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+
+      setMasterStatus({
+        type: 'success',
+        message: `✅ Sukces! Pobrano i zaktualizowano lokalnie ${blogCount} wpisów WnR365 i ${prayerCount} modlitw RHZ365 ze Wstępem. Plik db_snapshot.json został pobrany na dysk.`
+      });
     } catch (err) {
-      setBlogStatus({ type: 'error', message: `❌ Błąd: ${err instanceof Error ? err.message : 'Brak dostępu do Firestore'}` });
+      setMasterStatus({
+        type: 'error',
+        message: `❌ Błąd pobierania z Firestore: ${err instanceof Error ? err.message : 'Nieznany błąd'}`
+      });
     }
   };
 
-  const resetBlogToSeed = async () => {
-    if (!window.confirm('Czy na pewno zresetować wszystkie wpisy do bazowych danych z PDF? Straci lokalne edycje.')) return;
-    setBlogStatus({ type: 'loading', message: 'Resetuję do danych z PDF...' });
+  const downloadCurrentLocalNoSqlBackup = () => {
     try {
-      await resetLocalToSeedData();
-      const fresh = await getAllLocalBlogEntries();
-      onBlogEntriesUpdated(fresh);
-      setBlogStatus({ type: 'success', message: `✅ Zresetowano ${Object.keys(fresh).length} wpisów do danych z PDF` });
+      const snapshot = createNoSqlSnapshot(prayers, blogEntries);
+      const jsonStr = JSON.stringify(snapshot, null, 2);
+      const blob = new Blob([jsonStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `db_snapshot.json`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+
+      setMasterStatus({
+        type: 'success',
+        message: `✅ Pobrano aktualny stan lokalnej bazy do pliku db_snapshot.json (gotowy do umieszczenia w repozytorium GitHub).`
+      });
     } catch (err) {
-      setBlogStatus({ type: 'error', message: `❌ Błąd resetowania: ${err instanceof Error ? err.message : ''}` });
+      setMasterStatus({
+        type: 'error',
+        message: `❌ Błąd eksportu: ${err instanceof Error ? err.message : ''}`
+      });
     }
   };
 
-  // ── INTRO BLOCKS (Wstęp Główny & Misja eMBiK365) ────────────────────────────
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    setMasterStatus({ type: 'loading', message: `Wczytuję plik ${file.name}...` });
+
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      try {
+        const content = e.target?.result as string;
+        const parsed = JSON.parse(content) as FullNoSqlSnapshot;
+
+        if (!parsed || (!parsed.prayers && !parsed.blogEntries)) {
+          throw new Error('Nieprawidłowy format pliku snapshotu NoSQL (brak sekcji prayers lub blogEntries).');
+        }
+
+        const result = await importFullNoSqlSnapshot(parsed);
+
+        if (parsed.prayers) {
+          const mergedPrayers = { ...prayers, ...parsed.prayers };
+          if (parsed.intro) {
+            Object.assign(mergedPrayers, parsed.intro);
+          }
+          onPrayersUpdated(mergedPrayers);
+        }
+
+        if (parsed.blogEntries) {
+          onBlogEntriesUpdated({ ...blogEntries, ...parsed.blogEntries });
+        }
+
+        setMasterStatus({
+          type: 'success',
+          message: `✅ Zaimportowano pomyślnie z pliku ${file.name}: ${result.prayersCount} modlitw i ${result.blogCount} wpisów blogowych!`
+        });
+      } catch (err) {
+        setMasterStatus({
+          type: 'error',
+          message: `❌ Błąd importu pliku JSON: ${err instanceof Error ? err.message : 'Błąd parsowania'}`
+        });
+      } finally {
+        if (fileInputRef.current) fileInputRef.current.value = '';
+      }
+    };
+    reader.onerror = () => {
+      setMasterStatus({ type: 'error', message: '❌ Nie udało się odczytać pliku.' });
+    };
+    reader.readAsText(file);
+  };
+
+  // ── BLOG ENTRIES ─────────────────────────────────────────────────────────────
 
   const pushIntroToFirestore = async () => {
     setIntroStatus({ type: 'loading', message: 'Wysyłam treść Wstępu i Misji do Firestore...' });
@@ -277,11 +354,97 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         {/* Info banner */}
         <div className={`mx-5 mt-4 px-4 py-3 rounded-xl text-xs border ${isDark ? 'bg-amber-500/10 border-amber-500/30 text-amber-300' : 'bg-amber-50 border-amber-200 text-amber-700'}`}>
           <Database size={13} className="inline mr-1.5" />
-          <strong>Architektura:</strong> Użytkownicy widzą dane z lokalnego NoSQL (plik JSON z GitHub/Cloudflare).
-          Firestore jest tylko kopią zapasową — nigdy nie jest automatycznie pobierany.
+          <strong>Architektura Zerowych Kosztów:</strong> Użytkownicy strony <code>widokinaraj.pl</code> czytają treści w 100% z dedykowanego pliku NoSQL w kodzie aplikacji na GitHubie/Cloudflare.
+          Firestore służy jako opcjonalny backup administracyjny.
         </div>
 
         <div className="p-5 space-y-4">
+
+          {/* MASTER FULL NOSQL SNAPSHOT SECTION */}
+          <div className={`rounded-2xl border p-5 ${isDark ? 'bg-gradient-to-br from-indigo-950/60 via-slate-800/80 to-amber-950/40 border-amber-500/40 shadow-lg' : 'bg-gradient-to-br from-indigo-50 via-white to-amber-50 border-amber-300 shadow-md'}`}>
+            <div className="flex items-center justify-between gap-2 mb-2">
+              <h3 className="font-bold text-sm flex items-center gap-2 text-amber-400">
+                <Sparkles size={16} className="text-amber-400" />
+                Kompletny NoSQL Backup (Wszystko w 1 pliku JSON)
+              </h3>
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-mono border border-amber-500/30">
+                RHZ365 + WnR365 + Wstęp
+              </span>
+            </div>
+
+            <p className={`text-xs mb-4 leading-relaxed ${subText}`}>
+              Generuje kompletny zrzut bazy danych (wszystkie 365 dni rozważań WnR, cały Różaniec RHZ z tajemnicami i klauzulami oraz Wstęp i Misję eMBiK365). Plik <code>db_snapshot.json</code> jest gotowy do wgrania do repozytorium GitHub w folderze <code>src/data/</code>.
+            </p>
+
+            {/* Hidden file input */}
+            <input
+              type="file"
+              ref={fileInputRef}
+              onChange={handleFileUpload}
+              accept=".json"
+              className="hidden"
+            />
+
+            <div className="grid grid-cols-1 gap-2.5">
+              {/* Button 1: Download from Firestore */}
+              <button
+                onClick={downloadFullFirestoreBackup}
+                disabled={masterStatus.type === 'loading'}
+                className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold transition-all bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 shadow-md cursor-pointer disabled:opacity-50"
+              >
+                <div className="flex items-center gap-2">
+                  <CloudDownload size={16} />
+                  <span>1. Pobierz Pełny NoSQL Snapshot z Firestore (Wszystkie treści)</span>
+                </div>
+                {masterStatus.type === 'loading' ? <Loader size={14} className="animate-spin" /> : <Download size={14} />}
+              </button>
+
+              {/* Button 2: Download current local state */}
+              <button
+                onClick={downloadCurrentLocalNoSqlBackup}
+                disabled={masterStatus.type === 'loading'}
+                className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold transition-all border ${
+                  isDark
+                    ? 'bg-indigo-600/20 border-indigo-500/40 text-indigo-200 hover:bg-indigo-600/30 disabled:opacity-50'
+                    : 'bg-indigo-50 border-indigo-200 text-indigo-700 hover:bg-indigo-100 disabled:opacity-50'
+                }`}
+              >
+                <div className="flex items-center gap-2">
+                  <HardDrive size={15} />
+                  <span>2. Pobierz Obecny Stan Lokalnej Bazy (plik db_snapshot.json)</span>
+                </div>
+                <Download size={13} />
+              </button>
+
+              {/* Button 3: Import JSON file */}
+              <button
+                onClick={() => fileInputRef.current?.click()}
+                disabled={masterStatus.type === 'loading'}
+                className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold transition-all border ${
+                  isDark
+                    ? 'bg-emerald-600/20 border-emerald-500/40 text-emerald-300 hover:bg-emerald-600/30 disabled:opacity-50'
+                    : 'bg-emerald-50 border-emerald-200 text-emerald-700 hover:bg-emerald-100 disabled:opacity-50'
+                }`}
+              >
+                <div className="flex items-center gap-2">
+                  <Upload size={15} />
+                  <span>3. Wgraj i Zastosuj Plik Backup JSON do Aplikacji</span>
+                </div>
+                <FileText size={13} />
+              </button>
+            </div>
+
+            <StatusBar status={masterStatus} />
+
+            {/* GitHub sync instruction */}
+            <div className={`mt-3 p-3 rounded-xl text-[11px] border leading-relaxed ${isDark ? 'bg-slate-950/60 border-slate-700 text-slate-300' : 'bg-white/80 border-slate-200 text-slate-600'}`}>
+              <div className="font-semibold text-amber-400 mb-1 flex items-center gap-1.5">
+                <ShieldCheck size={13} />
+                Instrukcja aktualizacji strony bez łączenia z Firestore:
+              </div>
+              Pobrany plik <code className="text-amber-300 font-bold">db_snapshot.json</code> umieść w repozytorium w <code>src/data/db_snapshot.json</code> i wykonaj <code>git push</code>. Cloudflare Pages natychmiast zaktualizuje stronę dla wszystkich odwiedzających.
+            </div>
+          </div>
 
           {/* Blog Entries Section */}
           <div className={`rounded-xl border p-4 ${cardBg}`}>
