@@ -41,7 +41,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   blogEntries,
   prayers = {},
   theme = 'dark',
-  onOpenExportModal
+  onOpenExportModal,
+  onBlogEntriesUpdated
 }) => {
   const isLight = theme === 'light';
   const [editing, setEditing] = useState<boolean>(false);
