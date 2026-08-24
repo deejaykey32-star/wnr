@@ -19,11 +19,12 @@ import { DEFAULT_PRAYERS } from '../data/prayers';
 interface AdminSyncPanelProps {
   onClose: () => void;
   theme: 'dark' | 'light';
-  prayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>;
+  prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
   bibleEntries: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
-  onBlogEntriesUpdated: (entries: Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>) => void;
-  onPrayersUpdated: (prayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>) => void;
+  onBlogEntriesUpdated: (entries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>) => void;
+  onPrayersUpdated: (prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>) => void;
   onBibleEntriesUpdated: (entries: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>) => void;
+  blogEntries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
 }
 
 type SyncStatus = {
@@ -74,7 +75,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         12000,
         'Przekroczono limit czasu pobierania blog_entries z Firestore.'
       );
-      const fetchedBlogEntries: Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }> = { ...blogEntries };
+      const fetchedBlogEntries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }> = { ...blogEntries };
       let blogCount = 0;
       blogSnap.forEach(docSnap => {
         const data = docSnap.data();
@@ -83,6 +84,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
             title: data.title,
             text: data.text,
             dayIndex: data.dayIndex ?? 0,
+            notebookUrls: data.notebookUrls || [],
             updatedBy: data.updatedBy || 'Firestore Backup',
             updatedAt: data.updatedAt || new Date().toISOString()
           };
@@ -288,7 +290,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         12000,
         'Przekroczono limit czasu połączenia z Firestore.'
       );
-      const updated: Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }> = { ...blogEntries };
+      const updated: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }> = { ...blogEntries };
       let count = 0;
 
       for (const docSnap of snapshot.docs) {
@@ -301,6 +303,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
               title: data.title,
               text: data.text,
               dayIndex: data.dayIndex ?? 0,
+              notebookUrls: data.notebookUrls || [],
               updatedBy: data.updatedBy,
               updatedAt: data.updatedAt
             };

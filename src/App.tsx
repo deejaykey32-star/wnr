@@ -258,7 +258,7 @@ export default function App() {
   };
 
   // Blog entries: local-first pre-populated with bundled PDF JSON entries.
-  const [blogEntries, setBlogEntries] = useState<Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>>(() => {
+  const [blogEntries, setBlogEntries] = useState<Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>>(() => {
     try {
       return getAllLocalBlogEntriesSync();
     } catch {
