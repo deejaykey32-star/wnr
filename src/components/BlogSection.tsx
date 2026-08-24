@@ -47,7 +47,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   const [editing, setEditing] = useState<boolean>(false);
   const [editTitle, setEditTitle] = useState<string>('');
   const [editText, setEditText] = useState<string>('');
-  const [editUrls, setEditUrls] = useState<string[]>(Array(7).fill(''));
+  const [editUrls, setEditUrls] = useState<string[]>(Array(8).fill(''));
   const [saving, setSaving] = useState<boolean>(false);
   const [saveStatus, setSaveStatus] = useState<{ success?: boolean; message?: string } | null>(null);
   const [restoringCloud, setRestoringCloud] = useState<boolean>(false); // kept for UI compat
@@ -213,10 +213,10 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     setEditText(activeEntry.text);
     setEditing(false);
 
-    const urls = Array(7).fill('');
+    const urls = Array(8).fill('');
     if (activeEntry.notebookUrls && Array.isArray(activeEntry.notebookUrls)) {
       activeEntry.notebookUrls.forEach((u, i) => {
-        if (i < 7) urls[i] = u;
+        if (i < 8) urls[i] = u;
       });
     }
     setEditUrls(urls);

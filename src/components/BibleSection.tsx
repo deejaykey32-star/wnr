@@ -41,7 +41,7 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
   const [editingSlot, setEditingSlot] = useState<number | null>(null);
   const [editTitle, setEditTitle] = useState<string>('');
   const [editText, setEditText] = useState<string>('');
-  const [editUrls, setEditUrls] = useState<string[]>(Array(7).fill(''));
+  const [editUrls, setEditUrls] = useState<string[]>(Array(8).fill(''));
   const [saving, setSaving] = useState<boolean>(false);
   const [errorMsg, setErrorMsg] = useState<string>('');
   const [successMsg, setSuccessMsg] = useState<string>('');
@@ -103,10 +103,10 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
     setEditTitle(savedData?.title || defaultData.defaultTitle);
     setEditText(savedData?.text || defaultData.defaultText);
     
-    const urls = Array(7).fill('');
+    const urls = Array(8).fill('');
     if (savedData?.notebookUrls && Array.isArray(savedData.notebookUrls)) {
       savedData.notebookUrls.forEach((u, i) => {
-        if (i < 7) urls[i] = u;
+        if (i < 8) urls[i] = u;
       });
     }
     setEditUrls(urls);

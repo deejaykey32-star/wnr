@@ -6,10 +6,11 @@ import { WysiwygToolbar } from './WysiwygToolbar';
 import { executeUpsertSync, performDryRunSync, validateRHZJson, performPreImportAudit, DryRunReport, UpsertReport } from '../utils/rhzImporter';
 import { saveLocalPrayers } from '../utils/localNoSqlDb';
 import { parseDayText } from '../utils/rhzParser';
+import { GEMINI_ANALYSIS_TYPES } from './NotebookGeminiPanel';
 
 interface PrayerEditorProps {
   userEmail: string;
-  prayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>;
+  prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
   currentCycleType: 'cycle1' | 'cycle2' | 'break' | 'break2';
   currentDayNum: number;
   activeStep: {
@@ -30,7 +31,7 @@ interface PrayerEditorProps {
   }[];
   activeStepIndex: number;
   onChangeStepIndex: (idx: number) => void;
-  onPrayersUpdated?: (prayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>) => void;
+  onPrayersUpdated?: (prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>) => void;
   theme?: string;
   onThemeToggle?: () => void;
 }
@@ -67,6 +68,7 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
   const [editTitle, setEditTitle] = useState<string>('');
   const [editText, setEditText] = useState<string>('');
 
+  const [editUrls, setEditUrls] = useState<string[]>(Array(8).fill(''));
   const [saving, setSaving] = useState<boolean>(false);
   const [successMsg, setSuccessMsg] = useState<string>('');
   const [errorMsg, setErrorMsg] = useState<string>('');
@@ -268,6 +270,24 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
         setEditText(defaultText);
       }
     }
+
+    const urls = Array(8).fill('');
+    const targetKey = getFirestoreKey();
+    const targetEntry = prayers[targetKey];
+    if (targetEntry?.notebookUrls && Array.isArray(targetEntry.notebookUrls)) {
+      targetEntry.notebookUrls.forEach((u, i) => {
+        if (i < 8) urls[i] = u;
+      });
+    }
+    setEditUrls(urls);
+  };
+
+  const handleUrlChange = (idx: number, val: string) => {
+    setEditUrls(prev => {
+      const next = [...prev];
+      next[idx] = val;
+      return next;
+    });
   };
 
   const getFirestoreKey = () => {
@@ -296,12 +316,16 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
     try {
       const activeKey = getFirestoreKey();
 
-      const newEntry = {
+      const newEntry: any = {
         title: editTitle.trim(),
         text: editText.trim(),
         updatedBy: userEmail,
         updatedAt: new Date().toISOString()
       };
+
+      if (editorMode === 'cycle') {
+        newEntry.notebookUrls = editUrls;
+      }
 
       const nextPrayers = {
         ...prayers,
@@ -794,6 +818,33 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
             onThemeToggle={onThemeToggle}
           />
         </div>
+
+        {/* Gemini & YouTube URLs input (decade mysteries in cycle mode) */}
+        {editorMode === 'cycle' && (
+          <div className="pt-4 border-t border-slate-800/60 space-y-3">
+            <h4 className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${isLight ? 'text-indigo-600' : 'text-indigo-400'}`}>
+              Linki do analiz i filmu YouTube (8 pól)
+            </h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+              {GEMINI_ANALYSIS_TYPES.map((type, idx) => (
+                <div key={type.id} className="space-y-1">
+                  <label className={`block font-semibold font-sans ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
+                    {type.id}. {type.label} <span className={`font-normal text-[10px] ${isLight ? 'text-slate-400' : 'text-slate-500'}`}>({type.desc})</span>
+                  </label>
+                  <input
+                    type="url"
+                    value={editUrls[idx]}
+                    onChange={(e) => handleUrlChange(idx, e.target.value)}
+                    className={`w-full rounded-lg px-3 py-1.5 text-xs border focus:outline-none transition ${
+                      isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-850 text-slate-200'
+                    }`}
+                    placeholder="https://..."
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Audit trail */}
         {prayers[getFirestoreKey()]?.updatedBy && (

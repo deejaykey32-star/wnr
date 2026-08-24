@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { generateQrCodeDataUri } from '../utils/qrCodeGenerator';
-import { ExternalLink, BookOpen, HelpCircle, GraduationCap, History, FileText, Play, Info, Video } from 'lucide-react';
+import { ExternalLink, BookOpen, HelpCircle, GraduationCap, History, FileText, Play, Info, Video, Youtube } from 'lucide-react';
 
 export const GEMINI_ANALYSIS_TYPES = [
   { id: 1, label: 'Podsumowanie audio', desc: 'Dwugłosowy podcast AI (omówienie)', icon: Play, color: 'from-red-600 to-orange-500' },
@@ -9,7 +9,8 @@ export const GEMINI_ANALYSIS_TYPES = [
   { id: 4, label: 'Fiszki', desc: 'Zestaw kluczowych zagadnień', icon: Info, color: 'from-indigo-600 to-purple-600' },
   { id: 5, label: 'Test', desc: 'Pytania sprawdzające i quizy', icon: HelpCircle, color: 'from-violet-600 to-fuchsia-600' },
   { id: 6, label: 'Infografika', desc: 'Graficzny schemat i oś czasu', icon: GraduationCap, color: 'from-amber-600 to-orange-600' },
-  { id: 7, label: 'Raport', desc: 'Kompletne opracowanie merytoryczne', icon: FileText, color: 'from-rose-600 to-pink-600' }
+  { id: 7, label: 'Raport', desc: 'Kompletne opracowanie merytoryczne', icon: FileText, color: 'from-rose-600 to-pink-600' },
+  { id: 8, label: 'YouTube', desc: 'Nagranie wideo na YouTube', icon: Youtube, color: 'from-red-600 to-red-500' }
 ];
 
 interface ClickableQrCodeProps {
