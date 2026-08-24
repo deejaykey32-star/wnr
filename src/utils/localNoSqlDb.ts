@@ -279,7 +279,10 @@ export async function getAllLocalBlogEntries(): Promise<Record<string, LocalBlog
  * Saves a blog entry to local IndexedDB.
  * NEVER saves to Firestore automatically.
  */
-export async function saveLocalBlogEntry(docId: string, entry: { title: string; text: string; dayIndex: number; updatedBy?: string }): Promise<void> {
+export async function saveLocalBlogEntry(
+  docId: string, 
+  entry: { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }
+): Promise<void> {
   try {
     const db = await openDb();
     const tx = db.transaction(BLOG_STORE, 'readwrite');
@@ -290,8 +293,9 @@ export async function saveLocalBlogEntry(docId: string, entry: { title: string; 
       dayIndex: entry.dayIndex,
       title: entry.title,
       text: entry.text,
+      notebookUrls: entry.notebookUrls || [],
       updatedBy: entry.updatedBy || 'Edytor Lokalny',
-      updatedAt: new Date().toISOString()
+      updatedAt: entry.updatedAt || new Date().toISOString()
     };
 
     store.put(record);
