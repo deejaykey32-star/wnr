@@ -301,7 +301,7 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
                     {/* Gemini URLs input */}
                     <div className="pt-2 border-t border-slate-800/60 space-y-3">
                       <h4 className="text-xs font-bold uppercase tracking-wider text-indigo-400 flex items-center gap-1.5">
-                        <Link className="w-3.5 h-3.5" /> Linki do Zasobów "Notebook Gemini" (7 typów syntezy)
+                        <Link className="w-3.5 h-3.5" /> Linki do Zasobów i YouTube (8 pól)
                       </h4>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
                         {GEMINI_ANALYSIS_TYPES.map((type, idx) => (

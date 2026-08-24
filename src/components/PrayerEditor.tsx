@@ -323,7 +323,7 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
         updatedAt: new Date().toISOString()
       };
 
-      if (editorMode === 'cycle') {
+      if (editorMode === 'cycle' || (editorMode === 'step' && (steps.find(s => s.id === selectedStepId) || activeStep)?.prayerType === 'mystery')) {
         newEntry.notebookUrls = editUrls;
       }
 
@@ -819,8 +819,8 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
           />
         </div>
 
-        {/* Gemini & YouTube URLs input (decade mysteries in cycle mode) */}
-        {editorMode === 'cycle' && (
+        {/* Gemini & YouTube URLs input (decade mysteries in cycle or step mode) */}
+        {(editorMode === 'cycle' || (editorMode === 'step' && (steps.find(s => s.id === selectedStepId) || activeStep)?.prayerType === 'mystery')) && (
           <div className="pt-4 border-t border-slate-800/60 space-y-3">
             <h4 className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${isLight ? 'text-indigo-600' : 'text-indigo-400'}`}>
               Linki do analiz i filmu YouTube (8 pól)

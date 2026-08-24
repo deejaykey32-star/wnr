@@ -1156,6 +1156,7 @@ export default function App() {
     if (activeStep.prayerType === 'mystery') {
       const decIdx = activeStep.decadeIndex || 1;
       const mysteryData = getActiveDecadeMystery(cycleInfo.cycleType, cycleInfo.dayOfCycle, decIdx, prayers);
+      const mysteryUrls = prayers[`custom_step_${activeStep.id}`]?.notebookUrls || prayers[`day_${cycleInfo.dayOfCycle}_decade_rgba_${decIdx}`]?.notebookUrls || [];
 
       // Cykl I: Traditional RHZ365 Prayer Presentation (22-step structured view)
       if (activeStep.decadeIndex) {
@@ -1193,7 +1194,7 @@ export default function App() {
                 <div className={`text-base sm:text-lg leading-relaxed mt-4 font-serif text-justify ${isLight ? 'light-mode-text' : 'text-slate-200'}`}>
                   <RichTextRenderer text={parsed.data.reflectionText} theme={theme} />
                 </div>
-                <NotebookGeminiPanel notebookUrls={prayers[`day_${cycleInfo.dayOfCycle}_decade_rgba_${decIdx}`]?.notebookUrls || []} theme={theme as any} sectionName="RHZ365" />
+                <NotebookGeminiPanel notebookUrls={mysteryUrls} theme={theme as any} sectionName="RHZ365" />
               </div>
             </div>
           );
@@ -1218,7 +1219,7 @@ export default function App() {
             <div className={`text-base sm:text-lg leading-relaxed mt-4 font-serif text-justify ${isLight ? 'light-mode-text' : 'text-slate-200'}`}>
               <RichTextRenderer text={mysteryData.rgba.text} theme={theme} />
             </div>
-            <NotebookGeminiPanel notebookUrls={prayers[`day_${cycleInfo.dayOfCycle}_decade_rgba_${decIdx}`]?.notebookUrls || []} theme={theme as any} sectionName="RHZ365" />
+            <NotebookGeminiPanel notebookUrls={mysteryUrls} theme={theme as any} sectionName="RHZ365" />
           </div>
         </div>
       );

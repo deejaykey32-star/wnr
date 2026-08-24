@@ -1393,7 +1393,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                     {/* Gemini Notebook URLs Edit Section */}
                     <div className="pt-4 mt-4 border-t border-slate-800/60 space-y-3 text-left">
                       <h4 className="text-xs font-bold uppercase tracking-wider text-amber-500 flex items-center gap-1.5 font-sans">
-                        <Link className="w-3.5 h-3.5" /> Linki do Zasobów "Notebook Gemini" (7 typów syntezy)
+                        <Link className="w-3.5 h-3.5" /> Linki do Zasobów i YouTube (8 pól)
                       </h4>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                         {GEMINI_ANALYSIS_TYPES.map((type, idx) => (
