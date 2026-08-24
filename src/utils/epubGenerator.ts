@@ -216,8 +216,20 @@ p {
       manifestItems.push(`<item id="${introId}" href="${introHref}" media-type="application/xhtml+xml"/>`);
       spineRefs.push(`<itemref idref="${introId}"/>`);
 
-      const mainParas = (mainText || '').split(/\n\s*\n+/).map(p => `<p>${escapeXml(p.trim())}</p>`).join('');
-      const missionPara = missionText ? `<div className="box"><h3>Misja eMBiK365</h3><p><strong>${escapeXml(missionText.trim())}</strong></p></div>` : '';
+      const mainParas = formatParagraphsHtml(mainText || '');
+      const missionPara = missionText ? `<div class="box"><h3>Misja eMBiK365</h3>${formatParagraphsHtml(missionText)}</div>` : '';
+
+      // Extract and render QR Codes for the introduction if any links are inside
+      const introUrls = extractUrlsFromText(`${mainText || ''} ${missionText || ''}`);
+      let introQrHtml = '';
+      for (const urlItem of introUrls) {
+        const qrDataBase64 = await generateQrCodeDataUri(urlItem);
+        introQrHtml += `  <div class="qr-container">
+    <img src="${qrDataBase64}" class="qr-img" alt="Kod QR" />
+    <br/>
+    <a href="${escapeXml(urlItem)}" class="qr-url" target="_blank">${escapeXml(urlItem)}</a>
+  </div>\n`;
+      }
 
       const introHtml = `<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
@@ -228,6 +240,7 @@ p {
 </head>
 <body>
   <h1>${escapeXml(introTitle)}</h1>
+  ${introQrHtml}
   ${mainParas}
   ${missionPara}
 </body>

@@ -447,23 +447,13 @@ export const generateCustomScopePdf = async (
       y += 8;
 
       if (mainText) {
-        renderJustifiedParagraph(mainText, margin, contentWidth, 'normal', 11, [30, 41, 59]);
+        await renderRichContentWithEmbeddedQr(mainText, margin, contentWidth, 'normal', 11, [30, 41, 59]);
         y += 4;
       }
 
       if (missionText) {
-        doc.setFillColor(243, 244, 246);
-        doc.setDrawColor(209, 213, 219);
-        doc.rect(margin, y, contentWidth, 14, 'FD');
-        doc.setFont(fontName, 'bold');
-        doc.setFontSize(9);
-        doc.setTextColor(79, 70, 229);
-        doc.text("Misja eMBiK365:", margin + 3, y + 5);
-        doc.setFont(fontName, 'normal');
-        doc.setTextColor(51, 65, 85);
-        const splitMission = doc.splitTextToSize(missionText, contentWidth - 6);
-        doc.text(splitMission, margin + 3, y + 9.5);
-        y += 18;
+        await renderRichContentWithEmbeddedQr(missionText, margin, contentWidth, 'normal', 11, [30, 41, 59]);
+        y += 4;
       }
 
       doc.addPage();
