@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { generateQrCodeDataUri } from '../utils/qrCodeGenerator';
-import { ExternalLink, BookOpen, HelpCircle, GraduationCap, History, FileText, Play, Info } from 'lucide-react';
+import { ExternalLink, BookOpen, HelpCircle, GraduationCap, History, FileText, Play, Info, Video } from 'lucide-react';
 
 export const GEMINI_ANALYSIS_TYPES = [
   { id: 1, label: 'Briefing Document', desc: 'Podsumowanie i kluczowe wnioski', icon: BookOpen, color: 'from-blue-600 to-sky-600' },
@@ -10,6 +10,16 @@ export const GEMINI_ANALYSIS_TYPES = [
   { id: 5, label: 'Timeline (Oś czasu)', desc: 'Chronologia kluczowych wydarzeń', icon: History, color: 'from-amber-600 to-orange-600' },
   { id: 6, label: 'Custom Note (Notatka)', desc: 'Dodatkowa synteza i uwagi', icon: FileText, color: 'from-rose-600 to-pink-600' },
   { id: 7, label: 'Audio Overview (Podcast AI)', desc: 'Dwugłosowy podcast z omówieniem', icon: Play, color: 'from-red-600 to-orange-500' }
+];
+
+export const BIBLE_GEMINI_ANALYSIS_TYPES = [
+  { id: 1, label: 'Podsumowanie audio', desc: 'Dwugłosowy podcast AI (omówienie)', icon: Play, color: 'from-red-600 to-orange-500' },
+  { id: 2, label: 'Podsumowanie wideo', desc: 'Prezentacja wideo lub powiązany film', icon: Video, color: 'from-blue-600 to-sky-600' },
+  { id: 3, label: 'Prezentacja', desc: 'Streszczenie w formie slajdów', icon: BookOpen, color: 'from-emerald-600 to-teal-600' },
+  { id: 4, label: 'Fiszki', desc: 'Zestaw kluczowych zagadnień', icon: Info, color: 'from-indigo-600 to-purple-600' },
+  { id: 5, label: 'Test', desc: 'Pytania sprawdzające i quizy', icon: HelpCircle, color: 'from-violet-600 to-fuchsia-600' },
+  { id: 6, label: 'Infografika', desc: 'Graficzny schemat i oś czasu', icon: GraduationCap, color: 'from-amber-600 to-orange-600' },
+  { id: 7, label: 'Raport', desc: 'Kompletne opracowanie merytoryczne', icon: FileText, color: 'from-rose-600 to-pink-600' }
 ];
 
 interface ClickableQrCodeProps {
@@ -83,7 +93,8 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
   const isLight = theme === 'light';
 
   // Filter items that have a valid URL
-  const activeItems = GEMINI_ANALYSIS_TYPES.map((type, idx) => ({
+  const types = sectionName === 'Biblia365' ? BIBLE_GEMINI_ANALYSIS_TYPES : GEMINI_ANALYSIS_TYPES;
+  const activeItems = types.map((type, idx) => ({
     ...type,
     url: notebookUrls[idx] || ''
   })).filter(item => item.url.trim().length > 0);

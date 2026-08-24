@@ -6,7 +6,7 @@ import { parseDayText } from './rhzParser';
 import { getWnrDefaultBlogEntry } from './wnrBlogDefaults';
 import { normalizeTextParagraphs } from './richTextHelper';
 import { getBibleChapters, getBibleSlotForDate } from './bibleHelper';
-import { GEMINI_ANALYSIS_TYPES } from '../components/NotebookGeminiPanel';
+import { GEMINI_ANALYSIS_TYPES, BIBLE_GEMINI_ANALYSIS_TYPES } from '../components/NotebookGeminiPanel';
 
 import { ROBOTO_REGULAR_BASE64, ROBOTO_BOLD_BASE64 } from '../assets/robotoBase64';
 
@@ -354,11 +354,12 @@ export const generateCustomScopePdf = async (
 
   const renderGeminiNotebookQrBoxes = async (
     notebookUrls: string[] | undefined,
-    currentY: number
+    currentY: number,
+    analysisTypes: { label: string }[] = GEMINI_ANALYSIS_TYPES
   ): Promise<number> => {
     if (!notebookUrls || !Array.isArray(notebookUrls)) return currentY;
     const activeUrls = notebookUrls
-      .map((url, idx) => ({ url, type: GEMINI_ANALYSIS_TYPES[idx] }))
+      .map((url, idx) => ({ url, type: analysisTypes[idx] }))
       .filter(item => item.url && item.url.trim().length > 0 && item.type);
 
     if (activeUrls.length === 0) return currentY;
@@ -431,7 +432,7 @@ export const generateCustomScopePdf = async (
     y += 2;
 
     // Render Gemini Notebook URLs as QR Codes inside the PDF!
-    y = await renderGeminiNotebookQrBoxes(notebookUrls, y);
+    y = await renderGeminiNotebookQrBoxes(notebookUrls, y, BIBLE_GEMINI_ANALYSIS_TYPES);
     y += 4;
   };
 
