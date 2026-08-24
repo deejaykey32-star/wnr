@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { getBibleChapters, getBibleSlotForDate, BibleChapterData } from '../utils/bibleHelper';
 import { RichTextRenderer } from '../utils/richTextHelper';
-import { NotebookGeminiPanel, BIBLE_GEMINI_ANALYSIS_TYPES } from './NotebookGeminiPanel';
+import { NotebookGeminiPanel, GEMINI_ANALYSIS_TYPES } from './NotebookGeminiPanel';
 import { WysiwygToolbar } from './WysiwygToolbar';
 import { 
   Calendar, ChevronLeft, ChevronRight, Edit3, Save, X, BookOpen, Clock, AlertCircle, Link, Grid
@@ -304,7 +304,7 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
                         <Link className="w-3.5 h-3.5" /> Linki do Zasobów "Notebook Gemini" (7 typów syntezy)
                       </h4>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-                        {BIBLE_GEMINI_ANALYSIS_TYPES.map((type, idx) => (
+                        {GEMINI_ANALYSIS_TYPES.map((type, idx) => (
                           <div key={type.id} className="space-y-1">
                             <label className="block font-semibold text-slate-300 font-sans">
                               {type.id}. {type.label} <span className="font-normal text-[10px] text-slate-500">({type.desc})</span>
