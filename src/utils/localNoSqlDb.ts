@@ -117,6 +117,7 @@ export async function initLocalNoSqlDb(): Promise<void> {
       // to avoid TransactionInactiveError while awaiting imports.
       let wnrPdfMap: Record<string, any> = {};
       let prayersMap: Record<string, any> = {};
+      let biblePdfMap: Record<string, any> = {};
 
       try {
         const snapshotModule = await import('../data/db_snapshot.json');
@@ -124,6 +125,7 @@ export async function initLocalNoSqlDb(): Promise<void> {
         if (snapshotData) {
           if (snapshotData.blogEntries) wnrPdfMap = snapshotData.blogEntries;
           if (snapshotData.prayers) prayersMap = { ...snapshotData.prayers };
+          if (snapshotData.bibleEntries) biblePdfMap = snapshotData.bibleEntries;
           if (snapshotData.intro) {
             Object.assign(prayersMap, snapshotData.intro);
           }
@@ -132,13 +134,8 @@ export async function initLocalNoSqlDb(): Promise<void> {
         console.warn('[NoSQL] db_snapshot.json dynamic import fallback:', snapErr);
       }
 
-      if (Object.keys(wnrPdfMap).length === 0) {
-        const module = await import('../data/wnr365_pdf_entries.json');
-        wnrPdfMap = module.default as Record<string, any>;
-      }
-
       // 2. Perform clear and seed in a readwrite transaction
-      await new Promise<void>((resolve) => {
+      return new Promise<void>((resolve) => {
         try {
           const storeNames: string[] = [];
           if (db.objectStoreNames.contains(BLOG_STORE)) storeNames.push(BLOG_STORE);
@@ -153,6 +150,7 @@ export async function initLocalNoSqlDb(): Promise<void> {
           const tx = db.transaction(storeNames, 'readwrite');
           const store = db.objectStoreNames.contains(BLOG_STORE) ? tx.objectStore(BLOG_STORE) : null;
           const prayersStore = db.objectStoreNames.contains(PRAYERS_STORE) ? tx.objectStore(PRAYERS_STORE) : null;
+          const bibleStore = db.objectStoreNames.contains(BIBLE_STORE) ? tx.objectStore(BIBLE_STORE) : null;
 
           tx.onerror = (e) => {
             console.warn('[NoSQL] Seeding transaction error:', e);
@@ -166,6 +164,7 @@ export async function initLocalNoSqlDb(): Promise<void> {
           // Clear old data so stale entries don't persist
           if (store) store.clear();
           if (prayersStore) prayersStore.clear();
+          if (bibleStore) bibleStore.clear();
 
           // Seed prayers
           if (prayersStore) {
@@ -185,11 +184,31 @@ export async function initLocalNoSqlDb(): Promise<void> {
                   dayIndex: entry.dayIndex ?? 0,
                   title: entry.title,
                   text: entry.text,
+                  notebookUrls: entry.notebookUrls || [],
                   updatedBy: entry.updatedBy || 'NoSQL Snapshot (GitHub / Cloudflare)',
                   updatedAt: entry.updatedAt || new Date().toISOString()
                 });
               } catch (putErr) {
                 console.warn(`[NoSQL] Error putting entry ${docId}:`, putErr);
+              }
+            });
+          }
+
+          // Seed bible entries
+          if (bibleStore) {
+            Object.entries(biblePdfMap).forEach(([docId, entry]: [string, any]) => {
+              try {
+                bibleStore.put({
+                  docId,
+                  slotIndex: entry.slotIndex ?? 0,
+                  title: entry.title,
+                  text: entry.text,
+                  notebookUrls: entry.notebookUrls || [],
+                  updatedBy: entry.updatedBy || 'NoSQL Snapshot (GitHub / Cloudflare)',
+                  updatedAt: entry.updatedAt || new Date().toISOString()
+                });
+              } catch (putErr) {
+                console.warn(`[NoSQL] Error putting bible entry ${docId}:`, putErr);
               }
             });
           }

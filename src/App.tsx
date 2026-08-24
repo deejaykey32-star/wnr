@@ -840,6 +840,7 @@ export default function App() {
       await generateYearlyEmbikPdf(
         prayers,
         blogEntries,
+        bibleEntries,
         (msg, pct) => setPdfProgress(typeof pct === 'number' ? `${msg} (${pct}%)` : msg)
       );
     } catch (err) {
@@ -3025,6 +3026,7 @@ export default function App() {
             userEmail={userEmail}
             prayers={prayers}
             blogEntries={blogEntries}
+            bibleEntries={bibleEntries}
             theme={theme}
           />
         )}

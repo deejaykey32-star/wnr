@@ -11,8 +11,9 @@ interface ExportModalProps {
   dayOfCycle: number;
   isAuthorized: boolean;
   userEmail: string;
-  prayers: Record<string, { title: string; text: string }>;
-  blogEntries: Record<string, { title: string; text: string; dayIndex: number }>;
+  prayers: Record<string, { title: string; text: string; notebookUrls?: string[] }>;
+  blogEntries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[] }>;
+  bibleEntries: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[] }>;
   theme?: string;
 }
 
@@ -25,13 +26,14 @@ export const ExportModal: React.FC<ExportModalProps> = ({
   userEmail,
   prayers,
   blogEntries,
+  bibleEntries,
   theme = 'dark'
 }) => {
   const isLight = theme === 'light';
 
   // Export Settings State
   const [exportFormat, setExportFormat] = useState<'pdf' | 'epub'>('pdf');
-  const [exportScope, setExportScope] = useState<'rhz365' | 'wnr365' | 'both'>('both');
+  const [exportScope, setExportScope] = useState<'rhz365' | 'wnr365' | 'bible365' | 'all' | 'both'>('all');
   const [exportRange, setExportRange] = useState<'single' | 'full'>('single');
   const [includeCover, setIncludeCover] = useState<boolean>(true);
 
@@ -43,6 +45,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
   // Admin JSON Backup
   const [jsonRhz, setJsonRhz] = useState<boolean>(true);
   const [jsonWnr, setJsonWnr] = useState<boolean>(true);
+  const [jsonBible, setJsonBible] = useState<boolean>(true);
   const [isExportingJson, setIsExportingJson] = useState<boolean>(false);
   const [jsonExportSuccess, setJsonExportSuccess] = useState<boolean>(false);
 
@@ -65,25 +68,27 @@ export const ExportModal: React.FC<ExportModalProps> = ({
         // Lazy-load the 2.8 MB pdfGenerator chunk only on first use
         const { generateCustomScopePdf } = await import('../utils/pdfGenerator');
         await generateCustomScopePdf({
-          scope: exportScope,
+          scope: exportScope as any,
           range: exportRange,
           includeCover,
           selectedDate,
           dayOfCycle,
           prayers,
-          blogEntries
+          blogEntries,
+          bibleEntries
         }, onProgressCallback);
       } else {
         // Lazy-load the epubGenerator chunk only on first use
         const { generateEpubBook } = await import('../utils/epubGenerator');
         await generateEpubBook({
-          scope: exportScope,
+          scope: exportScope as any,
           range: exportRange,
           includeCover,
           selectedDate,
           dayOfCycle,
           prayers,
-          blogEntries
+          blogEntries,
+          bibleEntries
         }, onProgressCallback);
       }
     } catch (err) {
@@ -102,7 +107,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
       return;
     }
 
-    if (!jsonRhz && !jsonWnr) {
+    if (!jsonRhz && !jsonWnr && !jsonBible) {
       alert('Wybierz co najmniej jedną sekcję do eksportu JSON.');
       return;
     }
@@ -138,6 +143,11 @@ export const ExportModal: React.FC<ExportModalProps> = ({
       if (jsonWnr) {
         exportObject.sections.push('WnR365');
         exportObject.wnr365 = blogEntries;
+      }
+
+      if (jsonBible) {
+        exportObject.sections.push('Biblia365');
+        exportObject.bibleEntries = bibleEntries;
       }
 
       const jsonStr = JSON.stringify(exportObject, null, 2);
@@ -227,15 +237,15 @@ export const ExportModal: React.FC<ExportModalProps> = ({
           </div>
 
           {/* SECTION 2: SCOPE SELECTION */}
-          <div className="space-y-3">
+          <div className="space-y-3 font-sans">
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-400">
               2. Zakres Zawartości:
             </label>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               <button
                 type="button"
                 onClick={() => setExportScope('rhz365')}
-                className={`p-2.5 rounded-xl border text-xs font-bold transition flex items-center justify-center gap-1.5 min-h-[44px] ${
+                className={`p-2.5 rounded-xl border text-xs font-bold transition flex items-center justify-center gap-1.5 min-h-[44px] cursor-pointer ${
                   exportScope === 'rhz365'
                     ? 'bg-indigo-600 text-white border-indigo-500 shadow-sm'
                     : isLight ? 'bg-slate-100 text-slate-700 border-slate-200' : 'bg-slate-950 text-slate-400 border-slate-800'
@@ -246,24 +256,35 @@ export const ExportModal: React.FC<ExportModalProps> = ({
               <button
                 type="button"
                 onClick={() => setExportScope('wnr365')}
-                className={`p-2.5 rounded-xl border text-xs font-bold transition flex items-center justify-center gap-1.5 min-h-[44px] ${
+                className={`p-2.5 rounded-xl border text-xs font-bold transition flex items-center justify-center gap-1.5 min-h-[44px] cursor-pointer ${
                   exportScope === 'wnr365'
                     ? 'bg-amber-600 text-white border-amber-500 shadow-sm'
                     : isLight ? 'bg-slate-100 text-slate-700 border-slate-200' : 'bg-slate-950 text-slate-400 border-slate-800'
                 }`}
               >
-                WnR365 (Widoki na Raj)
+                WnR365 (Blog)
               </button>
               <button
                 type="button"
-                onClick={() => setExportScope('both')}
-                className={`p-2.5 rounded-xl border text-xs font-bold transition flex items-center justify-center gap-1.5 min-h-[44px] ${
-                  exportScope === 'both'
+                onClick={() => setExportScope('bible365')}
+                className={`p-2.5 rounded-xl border text-xs font-bold transition flex items-center justify-center gap-1.5 min-h-[44px] cursor-pointer ${
+                  exportScope === 'bible365'
                     ? 'bg-emerald-600 text-white border-emerald-500 shadow-sm'
                     : isLight ? 'bg-slate-100 text-slate-700 border-slate-200' : 'bg-slate-950 text-slate-400 border-slate-800'
                 }`}
               >
-                RHZ365 + WnR365
+                Biblia365 (Pismo Św.)
+              </button>
+              <button
+                type="button"
+                onClick={() => setExportScope('all')}
+                className={`p-2.5 rounded-xl border text-xs font-bold transition flex items-center justify-center gap-1.5 min-h-[44px] cursor-pointer ${
+                  exportScope === 'all'
+                    ? 'bg-gradient-to-r from-indigo-600 via-sky-600 to-emerald-600 text-white border-indigo-500 shadow-sm'
+                    : isLight ? 'bg-slate-100 text-slate-700 border-slate-200' : 'bg-slate-950 text-slate-400 border-slate-800'
+                }`}
+              >
+                Komplet Wszystko
               </button>
             </div>
           </div>
@@ -380,7 +401,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
                   <span className="text-xs font-bold text-slate-300">RHZ365</span>
                 </label>
 
-                <label className="flex items-center gap-2 cursor-pointer">
+                <label className="flex items-center gap-2 cursor-pointer font-sans">
                   <input
                     type="checkbox"
                     checked={jsonWnr}
@@ -388,6 +409,16 @@ export const ExportModal: React.FC<ExportModalProps> = ({
                     className="rounded text-amber-600 focus:ring-amber-500 w-4 h-4 cursor-pointer"
                   />
                   <span className="text-xs font-bold text-slate-300">WnR365</span>
+                </label>
+
+                <label className="flex items-center gap-2 cursor-pointer font-sans">
+                  <input
+                    type="checkbox"
+                    checked={jsonBible}
+                    onChange={(e) => setJsonBible(e.target.checked)}
+                    className="rounded text-emerald-600 focus:ring-emerald-500 w-4 h-4 cursor-pointer"
+                  />
+                  <span className="text-xs font-bold text-slate-300">Biblia365</span>
                 </label>
               </div>
 

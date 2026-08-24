@@ -3,13 +3,13 @@ import { generateQrCodeDataUri } from '../utils/qrCodeGenerator';
 import { ExternalLink, BookOpen, HelpCircle, GraduationCap, History, FileText, Play, Info } from 'lucide-react';
 
 export const GEMINI_ANALYSIS_TYPES = [
-  { id: 1, label: 'Streszczenie i wnioski', desc: 'Podsumowanie kluczowych punktów', icon: BookOpen, color: 'from-blue-600 to-sky-600' },
-  { id: 2, label: 'Słownik pojęć i tematów', desc: 'Wyjaśnienie terminologii', icon: Info, color: 'from-indigo-600 to-purple-600' },
-  { id: 3, label: 'Pytania i odpowiedzi (FAQ)', desc: 'Kluczowe pytania i odpowiedzi', icon: HelpCircle, color: 'from-violet-600 to-fuchsia-600' },
-  { id: 4, label: 'Przewodnik do nauki', desc: 'Konspekt do głębszej analizy', icon: GraduationCap, color: 'from-emerald-600 to-teal-600' },
-  { id: 5, label: 'Kontekst historyczny', desc: 'Tło historyczno-kulturowe', icon: History, color: 'from-amber-600 to-orange-600' },
-  { id: 6, label: 'Briefing i konspekt', desc: 'Streszczenie strukturalne', icon: FileText, color: 'from-rose-600 to-pink-600' },
-  { id: 7, label: 'Podcast Audio (Słuchowisko)', desc: 'Rozmowa AI (Audio Overview)', icon: Play, color: 'from-red-600 to-orange-500' }
+  { id: 1, label: 'Briefing Document', desc: 'Podsumowanie i kluczowe wnioski', icon: BookOpen, color: 'from-blue-600 to-sky-600' },
+  { id: 2, label: 'Glossary (Słowniczek)', desc: 'Definicje kluczowych pojęć i terminów', icon: Info, color: 'from-indigo-600 to-purple-600' },
+  { id: 3, label: 'FAQ (Często zadawane pytania)', desc: 'Odpowiedzi na najważniejsze pytania', icon: HelpCircle, color: 'from-violet-600 to-fuchsia-600' },
+  { id: 4, label: 'Study Guide (Przewodnik)', desc: 'Pytania kontrolne i tematy do dyskusji', icon: GraduationCap, color: 'from-emerald-600 to-teal-600' },
+  { id: 5, label: 'Timeline (Oś czasu)', desc: 'Chronologia kluczowych wydarzeń', icon: History, color: 'from-amber-600 to-orange-600' },
+  { id: 6, label: 'Custom Note (Notatka)', desc: 'Dodatkowa synteza i uwagi', icon: FileText, color: 'from-rose-600 to-pink-600' },
+  { id: 7, label: 'Audio Overview (Podcast AI)', desc: 'Dwugłosowy podcast z omówieniem', icon: Play, color: 'from-red-600 to-orange-500' }
 ];
 
 interface ClickableQrCodeProps {
