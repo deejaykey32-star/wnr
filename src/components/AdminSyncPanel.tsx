@@ -11,17 +11,19 @@ import {
 import {
   getAllLocalBlogEntries, saveLocalBlogEntry, resetLocalToSeedData,
   saveLocalPrayers, getLocalPrayers, createNoSqlSnapshot,
-  importFullNoSqlSnapshot, FullNoSqlSnapshot
+  importFullNoSqlSnapshot, FullNoSqlSnapshot,
+  getAllLocalBibleEntries, saveLocalBibleEntry
 } from '../utils/localNoSqlDb';
 import { DEFAULT_PRAYERS } from '../data/prayers';
 
 interface AdminSyncPanelProps {
   onClose: () => void;
   theme: 'dark' | 'light';
-  blogEntries: Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>;
   prayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>;
+  bibleEntries: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
   onBlogEntriesUpdated: (entries: Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>) => void;
   onPrayersUpdated: (prayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>) => void;
+  onBibleEntriesUpdated: (entries: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>) => void;
 }
 
 type SyncStatus = {
@@ -34,13 +36,16 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
   theme,
   blogEntries,
   prayers,
+  bibleEntries,
   onBlogEntriesUpdated,
-  onPrayersUpdated
+  onPrayersUpdated,
+  onBibleEntriesUpdated
 }) => {
   const [masterStatus, setMasterStatus] = useState<SyncStatus>({ type: 'idle', message: '' });
   const [blogStatus, setBlogStatus] = useState<SyncStatus>({ type: 'idle', message: '' });
   const [prayerStatus, setPrayerStatus] = useState<SyncStatus>({ type: 'idle', message: '' });
   const [introStatus, setIntroStatus] = useState<SyncStatus>({ type: 'idle', message: '' });
+  const [bibleStatus, setBibleStatus] = useState<SyncStatus>({ type: 'idle', message: '' });
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -106,13 +111,37 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         }
       });
 
+      // 2.5 Fetch all bible entries from Firestore with timeout
+      const bibleSnap = await withTimeout(
+        getDocs(collection(db, 'bible_entries')),
+        12000,
+        'Przekroczono limit czasu pobierania bible_entries z Firestore.'
+      );
+      const fetchedBibleEntries: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }> = { ...bibleEntries };
+      let bibleCount = 0;
+      bibleSnap.forEach(docSnap => {
+        const data = docSnap.data();
+        if (data && data.title && data.text) {
+          fetchedBibleEntries[docSnap.id] = {
+            title: data.title,
+            text: data.text,
+            slotIndex: data.slotIndex ?? 0,
+            notebookUrls: data.notebookUrls || [],
+            updatedBy: data.updatedBy || 'Firestore Backup',
+            updatedAt: data.updatedAt || new Date().toISOString()
+          };
+          bibleCount++;
+        }
+      });
+
       // 3. Build snapshot
-      const snapshot = createNoSqlSnapshot(fetchedPrayers, fetchedBlogEntries);
+      const snapshot = createNoSqlSnapshot(fetchedPrayers, fetchedBlogEntries, fetchedBibleEntries);
 
       // 4. Save to local IndexedDB and update React state immediately
       await importFullNoSqlSnapshot(snapshot);
       onPrayersUpdated(fetchedPrayers);
       onBlogEntriesUpdated(fetchedBlogEntries);
+      onBibleEntriesUpdated(fetchedBibleEntries);
 
       // 5. Trigger download of JSON file
       const jsonStr = JSON.stringify(snapshot, null, 2);
@@ -128,7 +157,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
       setMasterStatus({
         type: 'success',
-        message: `✅ Sukces! Pobrano i zaktualizowano lokalnie ${blogCount} wpisów WnR365 i ${prayerCount} modlitw RHZ365 ze Wstępem. Plik db_snapshot.json został pobrany na dysk.`
+        message: `✅ Sukces! Pobrano i zaktualizowano lokalnie ${blogCount} wpisów WnR365, ${prayerCount} modlitw RHZ365 oraz ${bibleCount} czytań Biblia365. Plik db_snapshot.json został pobrany na dysk.`
       });
     } catch (err) {
       setMasterStatus({
@@ -140,7 +169,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
   const downloadCurrentLocalNoSqlBackup = () => {
     try {
-      const snapshot = createNoSqlSnapshot(prayers, blogEntries);
+      const snapshot = createNoSqlSnapshot(prayers, blogEntries, bibleEntries);
       const jsonStr = JSON.stringify(snapshot, null, 2);
       const blob = new Blob([jsonStr], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
@@ -194,9 +223,13 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
           onBlogEntriesUpdated({ ...blogEntries, ...parsed.blogEntries });
         }
 
+        if (parsed.bibleEntries) {
+          onBibleEntriesUpdated({ ...bibleEntries, ...parsed.bibleEntries });
+        }
+
         setMasterStatus({
           type: 'success',
-          message: `✅ Zaimportowano pomyślnie z pliku ${file.name}: ${result.prayersCount} modlitw i ${result.blogCount} wpisów blogowych!`
+          message: `✅ Zaimportowano pomyślnie z pliku ${file.name}: ${result.prayersCount} modlitw, ${result.blogCount} wpisów i ${result.bibleCount} czytań biblijnych!`
         });
       } catch (err) {
         setMasterStatus({
@@ -423,6 +456,74 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
     }
   };
 
+  const pushBibleToFirestore = async () => {
+    setBibleStatus({ type: 'loading', message: 'Wysyłam czytania Biblia365 do Firestore...' });
+    try {
+      const local = await getAllLocalBibleEntries();
+      const entries = Object.entries(local);
+      let count = 0;
+
+      for (const [docId, entry] of entries) {
+        await withTimeout(
+          setDoc(doc(db, 'bible_entries', docId), {
+            title: entry.title,
+            text: entry.text,
+            slotIndex: entry.slotIndex,
+            notebookUrls: entry.notebookUrls || [],
+            updatedBy: entry.updatedBy || 'Admin Sync',
+            updatedAt: entry.updatedAt || new Date().toISOString()
+          }),
+          10000,
+          `Limit czasu zapisu czytania ${docId}`
+        );
+        count++;
+        if (count % 50 === 0) {
+          setBibleStatus({ type: 'loading', message: `Wysyłam... ${count}/${entries.length}` });
+        }
+      }
+
+      setBibleStatus({ type: 'success', message: `✅ Wysłano ${count} czytań Biblia365 do Firestore (backup)` });
+    } catch (err) {
+      setBibleStatus({ type: 'error', message: `❌ Błąd: ${err instanceof Error ? err.message : 'Nieznany błąd'}` });
+    }
+  };
+
+  const pullBibleFromFirestore = async () => {
+    if (!window.confirm('Czy na pewno pobrać czytania Biblia365 z Firestore? Nadpisze lokalne edycje.')) return;
+    setBibleStatus({ type: 'loading', message: 'Pobieram czytania Biblia365 z Firestore...' });
+    try {
+      const snapshot = await withTimeout(
+        getDocs(collection(db, 'bible_entries')),
+        12000,
+        'Przekroczono limit czasu połączenia z Firestore.'
+      );
+      const updated: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }> = { ...bibleEntries };
+      let count = 0;
+
+      for (const docSnap of snapshot.docs) {
+        const data = docSnap.data();
+        if (data && data.title && data.text) {
+          const entry = {
+            title: data.title,
+            text: data.text,
+            slotIndex: data.slotIndex ?? 0,
+            notebookUrls: data.notebookUrls || [],
+            updatedBy: data.updatedBy,
+            updatedAt: data.updatedAt
+          };
+          updated[docSnap.id] = entry;
+          await saveLocalBibleEntry(docSnap.id, entry);
+          count++;
+        }
+      }
+
+      onBibleEntriesUpdated(updated);
+      setBibleStatus({ type: 'success', message: `✅ Pobrano ${count} czytań z Firestore do lokalnej bazy` });
+    } catch (err) {
+      setBibleStatus({ type: 'error', message: `❌ Błąd: ${err instanceof Error ? err.message : 'Brak dostępu do Firestore'}` });
+    }
+  };
+
   const StatusBar: React.FC<{ status: SyncStatus }> = ({ status }) => {
     if (status.type === 'idle') return null;
     const icon = status.type === 'loading' ? <Loader size={14} className="animate-spin inline mr-1" /> :
@@ -619,6 +720,48 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
             </div>
 
             <StatusBar status={blogStatus} />
+          </div>
+
+          {/* Biblia365 Readings Section */}
+          <div className={`rounded-xl border p-4 ${cardBg}`}>
+            <h3 className="font-semibold text-sm mb-1 flex items-center gap-2">
+              <Database size={15} className="text-emerald-400" />
+              Czytania Biblia365 (1460 czytań z linkami Notebook Gemini)
+            </h3>
+            <p className={`text-xs mb-3 ${subText}`}>
+              Źródło: lokalne wartości proceduralne + IndexedDB (edycje tekstów i linków)
+            </p>
+
+            <div className="grid grid-cols-1 gap-2">
+              {/* Push to Firestore */}
+              <button
+                onClick={pushBibleToFirestore}
+                disabled={bibleStatus.type === 'loading'}
+                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all border cursor-pointer ${isDark
+                    ? 'bg-emerald-600/20 border-emerald-500/40 text-emerald-300 hover:bg-emerald-600/30 disabled:opacity-50'
+                    : 'bg-emerald-50 border-emerald-200 text-emerald-700 hover:bg-emerald-100 disabled:opacity-50'
+                  }`}
+              >
+                <CloudUpload size={15} />
+                Wyślij czytania Biblia365 i linki Gemini do Firestore (backup)
+                {bibleStatus.type === 'loading' && <Loader size={13} className="animate-spin ml-auto" />}
+              </button>
+
+              {/* Pull from Firestore */}
+              <button
+                onClick={pullBibleFromFirestore}
+                disabled={bibleStatus.type === 'loading'}
+                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all border cursor-pointer ${isDark
+                    ? 'bg-indigo-600/20 border-indigo-500/40 text-indigo-300 hover:bg-indigo-600/30 disabled:opacity-50'
+                    : 'bg-indigo-50 border-indigo-200 text-indigo-700 hover:bg-indigo-100 disabled:opacity-50'
+                  }`}
+              >
+                <CloudDownload size={15} />
+                Pobierz czytania Biblia365 z Firestore (nadpisz lokalne)
+              </button>
+            </div>
+
+            <StatusBar status={bibleStatus} />
           </div>
 
           {/* Intro Blocks Section (Widoki na Raj & Misja eMBiK365) */}
