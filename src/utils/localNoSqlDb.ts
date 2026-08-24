@@ -3,14 +3,26 @@ export interface LocalBlogEntry {
   dayIndex: number;
   title: string;
   text: string;
+  notebookUrls?: string[];
+  updatedBy: string;
+  updatedAt: string;
+}
+
+export interface LocalBibleEntry {
+  docId: string; // bible_slot_X
+  slotIndex: number; // 1 to 1460
+  title: string;
+  text: string;
+  notebookUrls?: string[];
   updatedBy: string;
   updatedAt: string;
 }
 
 const DB_NAME = 'WnR365LocalNoSqlDb';
-const DB_VERSION = 2;
+const DB_VERSION = 3;
 const BLOG_STORE = 'blog_entries';
 const PRAYERS_STORE = 'prayers';
+const BIBLE_STORE = 'bible_entries';
 
 let dbPromise: Promise<IDBDatabase> | null = null;
 
@@ -34,6 +46,9 @@ function openDb(): Promise<IDBDatabase> {
           }
           if (!db.objectStoreNames.contains(PRAYERS_STORE)) {
             db.createObjectStore(PRAYERS_STORE, { keyPath: 'docId' });
+          }
+          if (!db.objectStoreNames.contains(BIBLE_STORE)) {
+            db.createObjectStore(BIBLE_STORE, { keyPath: 'docId' });
           }
         } catch (err) {
           console.warn('[NoSQL] Error during onupgradeneeded:', err);
@@ -128,6 +143,7 @@ export async function initLocalNoSqlDb(): Promise<void> {
           const storeNames: string[] = [];
           if (db.objectStoreNames.contains(BLOG_STORE)) storeNames.push(BLOG_STORE);
           if (db.objectStoreNames.contains(PRAYERS_STORE)) storeNames.push(PRAYERS_STORE);
+          if (db.objectStoreNames.contains(BIBLE_STORE)) storeNames.push(BIBLE_STORE);
 
           if (storeNames.length === 0) {
             resolve();
@@ -267,6 +283,66 @@ export async function saveLocalBlogEntry(docId: string, entry: { title: string; 
 }
 
 /**
+ * Gets all local Bible entries: overlays default title/text with IndexedDB admin edits.
+ */
+export async function getAllLocalBibleEntries(): Promise<Record<string, LocalBibleEntry>> {
+  const result: Record<string, LocalBibleEntry> = {};
+
+  try {
+    const db = await openDb();
+    return new Promise((resolve) => {
+      const tx = db.transaction(BIBLE_STORE, 'readonly');
+      const store = tx.objectStore(BIBLE_STORE);
+      const req = store.getAll();
+
+      req.onsuccess = () => {
+        if (req.result && Array.isArray(req.result)) {
+          req.result.forEach((item: LocalBibleEntry) => {
+            if (item && item.docId) {
+              result[item.docId] = item;
+            }
+          });
+        }
+        resolve(result);
+      };
+
+      req.onerror = () => resolve(result);
+    });
+  } catch {
+    return result;
+  }
+}
+
+/**
+ * Saves a Bible chapter entry to local IndexedDB.
+ */
+export async function saveLocalBibleEntry(
+  docId: string,
+  entry: { title: string; text: string; slotIndex: number; notebookUrls?: string[]; updatedBy?: string }
+): Promise<void> {
+  try {
+    const db = await openDb();
+    const tx = db.transaction(BIBLE_STORE, 'readwrite');
+    const store = tx.objectStore(BIBLE_STORE);
+
+    const record: LocalBibleEntry = {
+      docId,
+      slotIndex: entry.slotIndex,
+      title: entry.title,
+      text: entry.text,
+      notebookUrls: entry.notebookUrls || [],
+      updatedBy: entry.updatedBy || 'Edytor Lokalny',
+      updatedAt: new Date().toISOString()
+    };
+
+    store.put(record);
+    console.log(`[NoSQL] Bible saved locally: ${docId}`);
+  } catch (err) {
+    console.warn('[NoSQL] Failed to save Bible to IndexedDB:', err);
+  }
+}
+
+/**
  * Resets IndexedDB back to the bundled PDF JSON seed data.
  * Admin only.
  */
@@ -392,16 +468,18 @@ export interface FullNoSqlSnapshot {
     introTextMission?: { title: string; text: string; updatedBy?: string; updatedAt?: string };
     [key: string]: any;
   };
-  prayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>;
-  blogEntries: Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>;
+  prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
+  blogEntries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
+  bibleEntries?: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
 }
 
 /**
- * Creates a complete, unified NoSQL database snapshot containing all days of RHZ365, WnR365, and Intro blocks.
+ * Creates a complete, unified NoSQL database snapshot containing all days of RHZ365, WnR365, Bible365, and Intro blocks.
  */
 export function createNoSqlSnapshot(
-  prayersData: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>,
-  blogEntriesData: Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>
+  prayersData: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>,
+  blogEntriesData: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>,
+  bibleEntriesData?: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>
 ): FullNoSqlSnapshot {
   const introBlocks: Record<string, any> = {};
   if (prayersData['introTextMain']) introBlocks['introTextMain'] = prayersData['introTextMain'];
@@ -413,24 +491,32 @@ export function createNoSqlSnapshot(
     source: 'widokinaraj.pl NoSQL Core (GitHub / Cloudflare Pages)',
     intro: introBlocks,
     prayers: prayersData,
-    blogEntries: blogEntriesData
+    blogEntries: blogEntriesData,
+    bibleEntries: bibleEntriesData || {}
   };
 }
 
 /**
  * Imports a full NoSQL snapshot into IndexedDB in a single clean transaction.
  */
-export async function importFullNoSqlSnapshot(snapshot: FullNoSqlSnapshot): Promise<{ prayersCount: number; blogCount: number }> {
+export async function importFullNoSqlSnapshot(snapshot: FullNoSqlSnapshot): Promise<{ prayersCount: number; blogCount: number; bibleCount: number }> {
   const db = await openDb();
 
-  return new Promise<{ prayersCount: number; blogCount: number }>((resolve, reject) => {
+  return new Promise<{ prayersCount: number; blogCount: number; bibleCount: number }>((resolve, reject) => {
     try {
-      const tx = db.transaction([BLOG_STORE, PRAYERS_STORE], 'readwrite');
+      const activeStores = [BLOG_STORE, PRAYERS_STORE];
+      if (db.objectStoreNames.contains(BIBLE_STORE)) {
+        activeStores.push(BIBLE_STORE);
+      }
+
+      const tx = db.transaction(activeStores, 'readwrite');
       const blogStore = tx.objectStore(BLOG_STORE);
       const prayersStore = tx.objectStore(PRAYERS_STORE);
+      const bibleStore = db.objectStoreNames.contains(BIBLE_STORE) ? tx.objectStore(BIBLE_STORE) : null;
 
       let prayersCount = 0;
       let blogCount = 0;
+      let bibleCount = 0;
 
       if (snapshot.prayers) {
         Object.entries(snapshot.prayers).forEach(([docId, prayer]) => {
@@ -458,6 +544,7 @@ export async function importFullNoSqlSnapshot(snapshot: FullNoSqlSnapshot): Prom
               dayIndex: entry.dayIndex ?? 0,
               title: entry.title,
               text: entry.text,
+              notebookUrls: entry.notebookUrls || [],
               updatedBy: entry.updatedBy || 'NoSQL Snapshot Import',
               updatedAt: entry.updatedAt || new Date().toISOString()
             });
@@ -466,11 +553,28 @@ export async function importFullNoSqlSnapshot(snapshot: FullNoSqlSnapshot): Prom
         });
       }
 
+      if (snapshot.bibleEntries && bibleStore) {
+        Object.entries(snapshot.bibleEntries).forEach(([docId, entry]) => {
+          if (entry && entry.title && entry.text) {
+            bibleStore.put({
+              docId,
+              slotIndex: entry.slotIndex ?? 0,
+              title: entry.title,
+              text: entry.text,
+              notebookUrls: itemNotebookUrls(entry),
+              updatedBy: entry.updatedBy || 'NoSQL Snapshot Import',
+              updatedAt: entry.updatedAt || new Date().toISOString()
+            });
+            bibleCount++;
+          }
+        });
+      }
+
       tx.oncomplete = () => {
         try {
           localStorage.setItem(DATA_VERSION_KEY, snapshot.version || DATA_VERSION);
         } catch {}
-        resolve({ prayersCount, blogCount });
+        resolve({ prayersCount, blogCount, bibleCount });
       };
 
       tx.onerror = (e) => reject(tx.error || e);
@@ -478,4 +582,9 @@ export async function importFullNoSqlSnapshot(snapshot: FullNoSqlSnapshot): Prom
       reject(err);
     }
   });
+}
+
+function itemNotebookUrls(entry: any): string[] {
+  if (Array.isArray(entry.notebookUrls)) return entry.notebookUrls;
+  return [];
 }

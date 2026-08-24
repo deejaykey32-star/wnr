@@ -8,11 +8,13 @@ import {
 } from './data/prayers';
 import { getWnrDefaultBlogEntry, loadWnrBlogDefaultsData } from './utils/wnrBlogDefaults';
 import { generateVideoClientSide } from './utils/videoGenerator';
-import { initLocalNoSqlDb, getAllLocalBlogEntries, getAllLocalBlogEntriesSync, saveLocalBlogEntry, getLocalPrayers, saveLocalPrayers } from './utils/localNoSqlDb';
+import { initLocalNoSqlDb, getAllLocalBlogEntries, getAllLocalBlogEntriesSync, saveLocalBlogEntry, getLocalPrayers, saveLocalPrayers, getAllLocalBibleEntries, saveLocalBibleEntry, LocalBibleEntry } from './utils/localNoSqlDb';
 import { RosaryRenderer } from './components/RosaryRenderer';
 import { PrayerEditor } from './components/PrayerEditor';
 import { BlogSection } from './components/BlogSection';
+import { BibleSection } from './components/BibleSection';
 import { AdminSyncPanel } from './components/AdminSyncPanel';
+import { NotebookGeminiPanel } from './components/NotebookGeminiPanel';
 import { RichTextRenderer } from './utils/richTextHelper';
 import { parseDayText } from './utils/rhzParser';
 import { playBeadChime } from './utils/audio';
@@ -31,7 +33,7 @@ import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { InlinePrayerEditor } from './components/InlinePrayerEditor';
 import { 
   Play, Pause, ChevronLeft, ChevronRight, RotateCcw, 
-  LogIn, LogOut, Video, Edit3, Sliders, Volume2, Info, BookOpen, Mic, MicOff, Calendar, FileDown,
+  LogIn, LogOut, Video, Edit3, Sliders, Volume2, Info, BookOpen, Book, Mic, MicOff, Calendar, FileDown,
   Sun, Moon, ShieldAlert, Key, X, ExternalLink, Search, Share2, Check, Smartphone, RefreshCw, Edit2,
   Bookmark, Repeat, Film, Download, Sparkles, ChevronDown, ChevronUp, Copy, Save, CheckCircle2, Zap, Database
 } from 'lucide-react';
@@ -82,11 +84,14 @@ export default function App() {
 
   const userEmail = user?.email || (localAuth ? 'kuta.dominik@gmail.com (Edytor)' : '');
 
-  // Main UI tab ('rosary' | 'blog')
-  const [activeTab, setActiveTab] = useState<'rosary' | 'blog'>('rosary');
+  // Main UI tab ('rosary' | 'blog' | 'bible')
+  const [activeTab, setActiveTab] = useState<'rosary' | 'blog' | 'bible'>('rosary');
+
+  // Bible state
+  const [bibleEntries, setBibleEntries] = useState<Record<string, LocalBibleEntry>>({});
 
   // Prayers state (synced with Firestore or fallback to defaults)
-  const [prayers, setPrayers] = useState<Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>>(DEFAULT_PRAYERS);
+  const [prayers, setPrayers] = useState<Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>>(DEFAULT_PRAYERS);
 
   // Inline edit states
   const [isEditingIntroMain, setIsEditingIntroMain] = useState(false);
@@ -557,12 +562,49 @@ export default function App() {
   }, []);
 
   // Helper to map activeTab and date to 1-365 sequential URL slug (supports hash routing for 100% web host compatibility)
-  const getSlugForTabAndDate = (tab: 'rosary' | 'blog', date: Date) => {
+  const handleSaveBibleEntry = async (docId: string, title: string, text: string, slotIndex: number, notebookUrls: string[]) => {
+    try {
+      await saveLocalBibleEntry(docId, { title, text, slotIndex, notebookUrls, updatedBy: userEmail });
+      setBibleEntries(prev => ({
+        ...prev,
+        [docId]: {
+          docId,
+          slotIndex,
+          title,
+          text,
+          notebookUrls,
+          updatedBy: userEmail,
+          updatedAt: new Date().toISOString()
+        }
+      }));
+
+      // Firestore backup
+      try {
+        const { doc, setDoc } = await import('firebase/firestore');
+        const docRef = doc(db, 'bible_entries', docId);
+        await setDoc(docRef, {
+          title,
+          text,
+          slotIndex,
+          notebookUrls,
+          updatedBy: userEmail,
+          updatedAt: new Date().toISOString()
+        });
+      } catch (cloudErr) {
+        console.warn('[App] Firestore Bible Backup skipped/failed:', cloudErr);
+      }
+    } catch (err) {
+      console.error(err);
+      throw err;
+    }
+  };
+
+  const getSlugForTabAndDate = (tab: 'rosary' | 'blog' | 'bible', date: Date) => {
     const cycleStart = new Date(2025, 11, 25, 12, 0, 0, 0); // Dec 25, 2025
     const diffMs = date.getTime() - cycleStart.getTime();
     const dayIndex = Math.max(0, Math.min(364, Math.floor(diffMs / 86400000)));
     const totalDayNum = dayIndex + 1; // 1 to 365
-    const prefix = tab === 'rosary' ? 'rhz365-day' : 'wnr365-day';
+    const prefix = tab === 'rosary' ? 'rhz365-day' : tab === 'blog' ? 'wnr365-day' : 'bible365-day';
     return `/#/${prefix}-${totalDayNum}`;
   };
 
@@ -581,8 +623,8 @@ export default function App() {
         return;
       }
 
-      // Flexible match for /rhz365-day-233, /#/rhz365-day-233, /wnr365-day-233, /#/wnr365-day-233, /day/233, /day-233, etc.
-      const match = rawPath.match(/(rhz365-day|wnr365-day|rhz365|wnr365|rhz|wnr|day)[-\/]?(\d+)/i);
+      // Flexible match for /rhz365-day-233, /#/rhz365-day-233, /wnr365-day-233, /#/wnr365-day-233, /bible365-day-233, /#/bible365-day-233, etc.
+      const match = rawPath.match(/(rhz365-day|wnr365-day|bible365-day|rhz365|wnr365|bible365|rhz|wnr|bible|day)[-\/]?(\d+)/i);
       if (match) {
         const routePrefix = match[1].toLowerCase();
         const totalDayNum = parseInt(match[2], 10);
@@ -592,8 +634,13 @@ export default function App() {
           const targetDate = new Date(cycleStart.getTime() + dayIndex * 86400000);
           setSelectedDate(targetDate);
           
-          const isBlogRoute = routePrefix.startsWith('wnr');
-          setActiveTab(isBlogRoute ? 'blog' : 'rosary');
+          if (routePrefix.startsWith('bible')) {
+            setActiveTab('bible');
+          } else if (routePrefix.startsWith('wnr')) {
+            setActiveTab('blog');
+          } else {
+            setActiveTab('rosary');
+          }
         }
       }
       setIsRouteInitialized(true);
@@ -722,6 +769,10 @@ export default function App() {
         const localPrayers = await getLocalPrayers();
         if (localPrayers && Object.keys(localPrayers).length > 0) {
           setPrayers(prev => ({ ...DEFAULT_PRAYERS, ...localPrayers }));
+        }
+        const localBible = await getAllLocalBibleEntries();
+        if (localBible && Object.keys(localBible).length > 0) {
+          setBibleEntries(localBible);
         }
       } catch (err) {
         console.warn('[App] Local NoSQL loading fallback:', err);
@@ -1141,6 +1192,7 @@ export default function App() {
                 <div className={`text-base sm:text-lg leading-relaxed mt-4 font-serif text-justify ${isLight ? 'light-mode-text' : 'text-slate-200'}`}>
                   <RichTextRenderer text={parsed.data.reflectionText} theme={theme} />
                 </div>
+                <NotebookGeminiPanel notebookUrls={prayers[`day_${cycleInfo.dayOfCycle}_decade_rgba_${decIdx}`]?.notebookUrls || []} theme={theme as any} sectionName="RHZ365" />
               </div>
             </div>
           );
@@ -1165,6 +1217,7 @@ export default function App() {
             <div className={`text-base sm:text-lg leading-relaxed mt-4 font-serif text-justify ${isLight ? 'light-mode-text' : 'text-slate-200'}`}>
               <RichTextRenderer text={mysteryData.rgba.text} theme={theme} />
             </div>
+            <NotebookGeminiPanel notebookUrls={prayers[`day_${cycleInfo.dayOfCycle}_decade_rgba_${decIdx}`]?.notebookUrls || []} theme={theme as any} sectionName="RHZ365" />
           </div>
         </div>
       );
@@ -1617,8 +1670,10 @@ export default function App() {
           theme={theme}
           blogEntries={blogEntries}
           prayers={prayers}
+          bibleEntries={bibleEntries}
           onBlogEntriesUpdated={setBlogEntries}
           onPrayersUpdated={setPrayers}
+          onBibleEntriesUpdated={setBibleEntries}
         />
       )}
 
@@ -1772,6 +1827,21 @@ export default function App() {
               <BookOpen className="w-4 h-4 shrink-0 text-amber-500" />
               <span className="hidden sm:inline">WnR365 — BLOG WIDOKI NA RAJ</span>
               <span className="inline sm:hidden truncate">WnR365 BLOG</span>
+            </button>
+            <button
+              id="tab-bible-trigger"
+              onClick={() => setActiveTab('bible')}
+              className={`flex-1 py-2.5 sm:py-3 px-2 sm:px-3 rounded-xl text-xs sm:text-sm font-semibold tracking-wide transition-all cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 min-w-0 w-full max-w-full ${
+                activeTab === 'bible'
+                  ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg font-black'
+                  : isLight 
+                    ? 'text-slate-600 hover:text-slate-950 hover:bg-white/60'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+              }`}
+            >
+              <Book className="w-4 h-4 shrink-0 text-emerald-500" />
+              <span className="hidden sm:inline">BIBLIA365 — CZTERY LATA Z PISMEM ŚWIĘTYM</span>
+              <span className="inline sm:hidden truncate">BIBLIA365</span>
             </button>
           </div>
         )}
@@ -2726,7 +2796,7 @@ export default function App() {
               </div>
             </div>
           </div>
-        )) : (
+        )) : activeTab === 'blog' ? (
           <BlogSection 
             user={user} 
             isAuthorized={isAuthorized} 
@@ -2736,6 +2806,17 @@ export default function App() {
             prayers={prayers}
             theme={theme}
             onOpenExportModal={() => setShowCustomExportModal(true)}
+            onBlogEntriesUpdated={setBlogEntries}
+          />
+        ) : (
+          <BibleSection
+            user={user}
+            isAuthorized={isAuthorized}
+            selectedDate={selectedDate}
+            setSelectedDate={setSelectedDate}
+            bibleEntries={bibleEntries}
+            onSaveBibleEntry={handleSaveBibleEntry}
+            theme={theme}
           />
         )}
       </main>

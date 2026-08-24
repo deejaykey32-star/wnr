@@ -262,7 +262,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         const data = docSnap.data();
         if (data && data.title && data.text) {
           const isGeneric = data.text.includes('Chwała Jezusowi w Bogu Ojcu!') ||
-                            data.text.includes('To jest Twój wpis blogowy');
+            data.text.includes('To jest Twój wpis blogowy');
           if (!isGeneric) {
             const entry = {
               title: data.title,
@@ -426,10 +426,10 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
   const StatusBar: React.FC<{ status: SyncStatus }> = ({ status }) => {
     if (status.type === 'idle') return null;
     const icon = status.type === 'loading' ? <Loader size={14} className="animate-spin inline mr-1" /> :
-                 status.type === 'success' ? <CheckCircle size={14} className="inline mr-1 text-emerald-400" /> :
-                 <AlertCircle size={14} className="inline mr-1 text-rose-400" />;
+      status.type === 'success' ? <CheckCircle size={14} className="inline mr-1 text-emerald-400" /> :
+        <AlertCircle size={14} className="inline mr-1 text-rose-400" />;
     const color = status.type === 'loading' ? 'text-amber-400' :
-                  status.type === 'success' ? 'text-emerald-400' : 'text-rose-400';
+      status.type === 'success' ? 'text-emerald-400' : 'text-rose-400';
     return (
       <div className={`mt-2 text-xs font-mono ${color} flex items-center gap-1 px-1`}>
         {icon}{status.message}
@@ -453,7 +453,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
       {/* Panel */}
       <div className={`relative w-full max-w-xl rounded-2xl border shadow-2xl ${bg} ${text} overflow-hidden`} style={{ maxHeight: '90vh', overflowY: 'auto' }}>
-        
+
         {/* Header */}
         <div className={`flex items-center justify-between px-5 py-4 border-b ${isDark ? 'border-slate-700 bg-slate-800/50' : 'border-slate-200 bg-slate-50'}`}>
           <div className="flex items-center gap-3">
@@ -525,11 +525,10 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
               <button
                 onClick={downloadCurrentLocalNoSqlBackup}
                 disabled={masterStatus.type === 'loading'}
-                className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold transition-all border ${
-                  isDark
+                className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold transition-all border ${isDark
                     ? 'bg-indigo-600/20 border-indigo-500/40 text-indigo-200 hover:bg-indigo-600/30 disabled:opacity-50'
                     : 'bg-indigo-50 border-indigo-200 text-indigo-700 hover:bg-indigo-100 disabled:opacity-50'
-                }`}
+                  }`}
               >
                 <div className="flex items-center gap-2">
                   <HardDrive size={15} />
@@ -542,11 +541,10 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
               <button
                 onClick={() => fileInputRef.current?.click()}
                 disabled={masterStatus.type === 'loading'}
-                className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold transition-all border ${
-                  isDark
+                className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold transition-all border ${isDark
                     ? 'bg-emerald-600/20 border-emerald-500/40 text-emerald-300 hover:bg-emerald-600/30 disabled:opacity-50'
                     : 'bg-emerald-50 border-emerald-200 text-emerald-700 hover:bg-emerald-100 disabled:opacity-50'
-                }`}
+                  }`}
               >
                 <div className="flex items-center gap-2">
                   <Upload size={15} />
@@ -583,11 +581,10 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
               <button
                 onClick={pushBlogToFirestore}
                 disabled={blogStatus.type === 'loading'}
-                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all border ${
-                  isDark
+                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all border ${isDark
                     ? 'bg-indigo-600/20 border-indigo-500/40 text-indigo-300 hover:bg-indigo-600/30 disabled:opacity-50'
                     : 'bg-indigo-50 border-indigo-200 text-indigo-700 hover:bg-indigo-100 disabled:opacity-50'
-                }`}
+                  }`}
               >
                 <CloudUpload size={15} />
                 Wyślij wszystkie wpisy do Firestore (backup)
@@ -598,11 +595,10 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
               <button
                 onClick={pullBlogFromFirestore}
                 disabled={blogStatus.type === 'loading'}
-                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all border ${
-                  isDark
+                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all border ${isDark
                     ? 'bg-emerald-600/20 border-emerald-500/40 text-emerald-300 hover:bg-emerald-600/30 disabled:opacity-50'
                     : 'bg-emerald-50 border-emerald-200 text-emerald-700 hover:bg-emerald-100 disabled:opacity-50'
-                }`}
+                  }`}
               >
                 <CloudDownload size={15} />
                 Pobierz wpisy z Firestore (nadpisz lokalne)
@@ -612,11 +608,10 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
               <button
                 onClick={resetBlogToSeed}
                 disabled={blogStatus.type === 'loading'}
-                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all border ${
-                  isDark
+                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all border ${isDark
                     ? 'bg-rose-600/20 border-rose-500/40 text-rose-300 hover:bg-rose-600/30 disabled:opacity-50'
                     : 'bg-rose-50 border-rose-200 text-rose-700 hover:bg-rose-100 disabled:opacity-50'
-                }`}
+                  }`}
               >
                 <RotateCcw size={15} />
                 Resetuj do danych z PDF (usuń edycje lokalne)
@@ -640,11 +635,10 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
               <button
                 onClick={pushIntroToFirestore}
                 disabled={introStatus.type === 'loading'}
-                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all border ${
-                  isDark
+                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all border ${isDark
                     ? 'bg-sky-600/20 border-sky-500/40 text-sky-300 hover:bg-sky-600/30 disabled:opacity-50'
                     : 'bg-sky-50 border-sky-200 text-sky-700 hover:bg-sky-100 disabled:opacity-50'
-                }`}
+                  }`}
               >
                 <CloudUpload size={15} />
                 Wyślij edytowany Wstęp i Misję do Firestore (backup)
@@ -654,11 +648,10 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
               <button
                 onClick={pullIntroFromFirestore}
                 disabled={introStatus.type === 'loading'}
-                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all border ${
-                  isDark
+                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all border ${isDark
                     ? 'bg-emerald-600/20 border-emerald-500/40 text-emerald-300 hover:bg-emerald-600/30 disabled:opacity-50'
                     : 'bg-emerald-50 border-emerald-200 text-emerald-700 hover:bg-emerald-100 disabled:opacity-50'
-                }`}
+                  }`}
               >
                 <CloudDownload size={15} />
                 Pobierz Wstęp i Misję z Firestore (nadpisz lokalne)
@@ -682,11 +675,10 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
               <button
                 onClick={pushPrayersToFirestore}
                 disabled={prayerStatus.type === 'loading'}
-                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all border ${
-                  isDark
+                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all border ${isDark
                     ? 'bg-violet-600/20 border-violet-500/40 text-violet-300 hover:bg-violet-600/30 disabled:opacity-50'
                     : 'bg-violet-50 border-violet-200 text-violet-700 hover:bg-violet-100 disabled:opacity-50'
-                }`}
+                  }`}
               >
                 <CloudUpload size={15} />
                 Wyślij bloki wstępu i modlitwy do Firestore (backup)
@@ -695,11 +687,10 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
               <button
                 onClick={pullPrayersFromFirestore}
                 disabled={prayerStatus.type === 'loading'}
-                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all border ${
-                  isDark
+                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all border ${isDark
                     ? 'bg-emerald-600/20 border-emerald-500/40 text-emerald-300 hover:bg-emerald-600/30 disabled:opacity-50'
                     : 'bg-emerald-50 border-emerald-200 text-emerald-700 hover:bg-emerald-100 disabled:opacity-50'
-                }`}
+                  }`}
               >
                 <CloudDownload size={15} />
                 Pobierz bloki wstępu i modlitwy z Firestore (nadpisz lokalne)

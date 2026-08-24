@@ -35,8 +35,8 @@ interface PrayerEditorProps {
   onThemeToggle?: () => void;
 }
 
-export const PrayerEditor: React.FC<PrayerEditorProps> = ({ 
-  userEmail, 
+export const PrayerEditor: React.FC<PrayerEditorProps> = ({
+  userEmail,
   prayers,
   currentCycleType,
   currentDayNum,
@@ -66,7 +66,7 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
   // Form Fields
   const [editTitle, setEditTitle] = useState<string>('');
   const [editText, setEditText] = useState<string>('');
-  
+
   const [saving, setSaving] = useState<boolean>(false);
   const [successMsg, setSuccessMsg] = useState<string>('');
   const [errorMsg, setErrorMsg] = useState<string>('');
@@ -295,7 +295,7 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
 
     try {
       const activeKey = getFirestoreKey();
-      
+
       const newEntry = {
         title: editTitle.trim(),
         text: editText.trim(),
@@ -375,22 +375,20 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
 
   const titleClass = isLight ? 'text-slate-900' : 'text-white';
   const labelClass = isLight ? 'text-slate-600 font-bold' : 'text-zinc-400 font-semibold';
-  const inputBgClass = isLight 
-    ? 'bg-white border-slate-300 text-slate-800 focus:border-indigo-500' 
+  const inputBgClass = isLight
+    ? 'bg-white border-slate-300 text-slate-800 focus:border-indigo-500'
     : 'bg-zinc-950 border-zinc-800 text-zinc-200 focus:border-zinc-700';
 
   return (
-    <div 
-      id="prayer-editor-panel" 
-      className={`w-full border rounded-2xl p-5 sm:p-6 shadow-xl text-left transition duration-300 ${
-        isLight 
-          ? 'bg-slate-50 border-slate-200 text-slate-900 shadow-lg' 
+    <div
+      id="prayer-editor-panel"
+      className={`w-full border rounded-2xl p-5 sm:p-6 shadow-xl text-left transition duration-300 ${isLight
+          ? 'bg-slate-50 border-slate-200 text-slate-900 shadow-lg'
           : 'bg-zinc-900 border-zinc-800 text-slate-100'
-      }`}
+        }`}
     >
-      <div className={`flex flex-col sm:flex-row sm:items-center justify-between mb-5 border-b pb-4 gap-3 ${
-        isLight ? 'border-slate-200' : 'border-zinc-800'
-      }`}>
+      <div className={`flex flex-col sm:flex-row sm:items-center justify-between mb-5 border-b pb-4 gap-3 ${isLight ? 'border-slate-200' : 'border-zinc-800'
+        }`}>
         <div>
           <h2 className={`text-lg font-bold flex items-center gap-2 ${titleClass}`}>
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -403,49 +401,45 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
         <div className="flex flex-wrap gap-1.5">
           <button
             onClick={() => setEditorMode('step')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition ${
-              editorMode === 'step'
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition ${editorMode === 'step'
                 ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-950/40'
-                : isLight 
+                : isLight
                   ? 'bg-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-300'
                   : 'bg-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-750'
-            }`}
+              }`}
           >
             Ten konkretny paciorek (Krok)
           </button>
           <button
             onClick={() => setEditorMode('cycle')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition ${
-              editorMode === 'cycle'
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition ${editorMode === 'cycle'
                 ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-950/40'
-                : isLight 
+                : isLight
                   ? 'bg-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-300'
                   : 'bg-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-750'
-            }`}
+              }`}
           >
             Tajemnice Dnia Cyklu
           </button>
           <button
             onClick={() => setEditorMode('general')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition ${
-              editorMode === 'general'
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition ${editorMode === 'general'
                 ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-950/40'
-                : isLight 
+                : isLight
                   ? 'bg-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-300'
                   : 'bg-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-750'
-            }`}
+              }`}
           >
             Modlitwy Stałe
           </button>
           <button
             onClick={() => setEditorMode('import_rhz' as any)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition flex items-center gap-1.5 ${
-              (editorMode as any) === 'import_rhz'
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition flex items-center gap-1.5 ${(editorMode as any) === 'import_rhz'
                 ? 'bg-amber-600 text-white shadow-lg shadow-amber-950/40 font-bold'
-                : isLight 
+                : isLight
                   ? 'bg-amber-100 text-amber-800 hover:bg-amber-200'
                   : 'bg-amber-950/60 text-amber-300 hover:bg-amber-900/60 border border-amber-800/40'
-            }`}
+              }`}
           >
             📦 Import RHZ365 (175 dni)
           </button>
@@ -489,7 +483,7 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
                 <span>🛡️</span> Absolutna Ochrona Danych (ZERO USUNIĘĆ / MERGE):
               </p>
               <p>
-                Synchronizacja pobierze poprawne dane z pliku JSON i bezpiecznie zaktualizuje (UPSERT) dokumenty w Firestore. 
+                Synchronizacja pobierze poprawne dane z pliku JSON i bezpiecznie zaktualizuje (UPSERT) dokumenty w Firestore.
                 Rekordy zostaną uaktualnione <strong>bez usuwania jakichkolwiek innych pól</strong> ani rekordów wykraczających poza plik JSON.
                 Liczba usunięć wynosi zawsze <strong>0</strong>.
               </p>
@@ -634,9 +628,9 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
                     <div key={r.documentId} className="flex justify-between border-b border-slate-900 pb-1">
                       <span>Dzień {r.dayNumber} → <span className="text-slate-400">{r.documentId}</span></span>
                       <span className={
-                        r.status === 'CREATED' ? 'text-sky-400 font-bold' : 
-                        r.status === 'UPDATED' ? 'text-amber-400 font-bold' : 
-                        r.status === 'UNCHANGED' ? 'text-emerald-400 font-bold' : 'text-red-400 font-bold'
+                        r.status === 'CREATED' ? 'text-sky-400 font-bold' :
+                          r.status === 'UPDATED' ? 'text-amber-400 font-bold' :
+                            r.status === 'UNCHANGED' ? 'text-emerald-400 font-bold' : 'text-red-400 font-bold'
                       }>
                         {r.status}
                       </span>
@@ -686,7 +680,7 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
                   <option value="cycle2">Cykl II (Tradycyjny)</option>
                 </select>
               </div>
-              
+
               <div>
                 <label className={`block text-xs uppercase tracking-wider mb-1.5 ${labelClass}`}>
                   Dzień (1 - 175)
@@ -737,9 +731,8 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
               </div>
             </div>
 
-            <div className={`p-2.5 px-3.5 rounded-xl border text-xs font-mono flex flex-wrap items-center justify-between gap-2 ${
-              isLight ? 'bg-indigo-50 border-indigo-200 text-indigo-800' : 'bg-indigo-950/40 border-indigo-850 text-indigo-300'
-            }`}>
+            <div className={`p-2.5 px-3.5 rounded-xl border text-xs font-mono flex flex-wrap items-center justify-between gap-2 ${isLight ? 'bg-indigo-50 border-indigo-200 text-indigo-800' : 'bg-indigo-950/40 border-indigo-850 text-indigo-300'
+              }`}>
               <span>✨ 1 Dzień = 1 Tajemnica: Dzień {editDay} &rarr; Aktywna Tajemnica {getDecadeForDay(editDay)} z 5</span>
               <span className="text-[11px] opacity-75">Tajemnica zmienia się cyklicznie co 5 dni</span>
             </div>
@@ -792,11 +785,11 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
           <label className={`block text-xs uppercase tracking-wider mb-2 ${labelClass}`}>
             Treść rozważania lub modlitwy
           </label>
-          <WysiwygToolbar 
-            text={editText} 
-            onChange={setEditText} 
-            textareaId="prayer-editor-textarea" 
-            placeholder="Wpisz natchnioną treść rozważania..." 
+          <WysiwygToolbar
+            text={editText}
+            onChange={setEditText}
+            textareaId="prayer-editor-textarea"
+            placeholder="Wpisz natchnioną treść rozważania..."
             theme={theme as 'dark' | 'light'}
             onThemeToggle={onThemeToggle}
           />
@@ -806,29 +799,27 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
         {prayers[getFirestoreKey()]?.updatedBy && (
           <div className={`text-right text-[10px] font-mono ${isLight ? 'text-slate-400' : 'text-zinc-500'}`}>
             Zmodyfikował: {prayers[getFirestoreKey()].updatedBy} (
-            {prayers[getFirestoreKey()].updatedAt 
-              ? new Date(prayers[getFirestoreKey()].updatedAt!).toLocaleString('pl-PL') 
+            {prayers[getFirestoreKey()].updatedAt
+              ? new Date(prayers[getFirestoreKey()].updatedAt!).toLocaleString('pl-PL')
               : 'brak daty'}
             )
           </div>
         )}
 
         {successMsg && (
-          <div className={`border text-xs px-4 py-2.5 rounded-lg transition-all ${
-            isLight 
-              ? 'bg-emerald-50 border-emerald-200 text-emerald-700' 
+          <div className={`border text-xs px-4 py-2.5 rounded-lg transition-all ${isLight
+              ? 'bg-emerald-50 border-emerald-200 text-emerald-700'
               : 'bg-emerald-950/30 border border-emerald-800 text-emerald-400'
-          }`}>
+            }`}>
             {successMsg}
           </div>
         )}
 
         {errorMsg && (
-          <div className={`border text-xs px-4 py-2.5 rounded-lg transition-all ${
-            isLight 
-              ? 'bg-red-50 border-red-200 text-red-700' 
+          <div className={`border text-xs px-4 py-2.5 rounded-lg transition-all ${isLight
+              ? 'bg-red-50 border-red-200 text-red-700'
               : 'bg-red-950/30 border border-red-900 text-red-400'
-          }`}>
+            }`}>
             {errorMsg}
           </div>
         )}
@@ -838,9 +829,8 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
             <button
               onClick={handleResetToDefault}
               disabled={saving}
-              className={`px-4 py-2.5 bg-red-950/40 hover:bg-red-900/30 text-red-400 border border-red-900/40 font-medium text-xs rounded-lg active:scale-95 transition flex items-center gap-2 cursor-pointer ${
-                saving ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
+              className={`px-4 py-2.5 bg-red-950/40 hover:bg-red-900/30 text-red-400 border border-red-900/40 font-medium text-xs rounded-lg active:scale-95 transition flex items-center gap-2 cursor-pointer ${saving ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
             >
               Przywróć domyślne
             </button>
@@ -849,9 +839,8 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
           <button
             onClick={handleSave}
             disabled={saving}
-            className={`px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs rounded-lg shadow-lg hover:shadow-emerald-900/20 active:scale-95 transition flex items-center gap-2 cursor-pointer ${
-              saving ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
+            className={`px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs rounded-lg shadow-lg hover:shadow-emerald-900/20 active:scale-95 transition flex items-center gap-2 cursor-pointer ${saving ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
           >
             {saving ? 'Zapisywanie...' : editorMode === 'step' ? 'Zapisz dla tego Paciorka' : 'Zapisz Rozważanie w Chmurze'}
           </button>
