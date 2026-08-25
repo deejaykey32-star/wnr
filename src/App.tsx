@@ -1880,13 +1880,6 @@ export default function App() {
                       text={prayers['introTextMain']?.text || DEFAULT_PRAYERS['introTextMain']?.text || ''} 
                       theme={theme} 
                     />
-                    <NotebookGeminiPanel 
-                      notebookUrls={prayers['introTextMain']?.notebookUrls || []} 
-                      theme={theme} 
-                      sectionName="Wstęp"
-                      isAuthorized={isAuthorized}
-                      onSaveUrls={handleSaveIntroUrls}
-                    />
                   </div>
                 )}
               </div>
