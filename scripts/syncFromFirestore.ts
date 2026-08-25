@@ -153,9 +153,25 @@ async function syncAllFromFirestore() {
     console.log(`✅ Updated ${updatedPrayersTs} prayer blocks in src/data/prayers.ts`);
   }
 
-  // ── C. SYNC BIBLIA365 ─────────────────────────────────────────────────────
-  console.log('📥 Fetching bible_entries from Firestore...');
+  // ── C. SYNC BIBLIA365 (1460 czytań = 4 x 365) ─────────────────────────────
+  console.log('📥 Initializing full 1460 chapters for Biblia365 (4 years × 365 days)...');
+  const { getBibleChapters } = await import('../src/utils/bibleHelper');
+  const allBibleDefaults = getBibleChapters();
   const bibleEntriesMap: Record<string, any> = {};
+
+  allBibleDefaults.forEach(ch => {
+    const docId = `bible_slot_${ch.slotIndex}`;
+    bibleEntriesMap[docId] = {
+      docId,
+      slotIndex: ch.slotIndex,
+      title: ch.defaultTitle,
+      text: ch.defaultText,
+      notebookUrls: [],
+      updatedBy: 'Pismo Święte Biblia365 (1460 czytań)',
+      updatedAt: new Date().toISOString()
+    };
+  });
+
   try {
     const bibleSnap = await getDocs(collection(db, 'bible_entries'));
     bibleSnap.forEach(docSnap => {
@@ -163,7 +179,8 @@ async function syncAllFromFirestore() {
       const data = docSnap.data();
       if (data && data.title && data.text) {
         bibleEntriesMap[id] = {
-          slotIndex: data.slotIndex ?? 0,
+          docId: id,
+          slotIndex: data.slotIndex ?? (parseInt(id.replace('bible_slot_', ''), 10) || 0),
           title: data.title,
           text: data.text,
           notebookUrls: data.notebookUrls || [],
@@ -172,9 +189,9 @@ async function syncAllFromFirestore() {
         };
       }
     });
-    console.log(`✅ Fetched ${Object.keys(bibleEntriesMap).length} Biblia365 entries from Firestore.`);
+    console.log(`✅ Synced ${Object.keys(bibleEntriesMap).length} / 1460 Biblia365 entries.`);
   } catch (bibleErr) {
-    console.warn('⚠️ Note: Skipping unauthenticated Firestore bible_entries (using local seed).', (bibleErr as any)?.message);
+    console.warn('⚠️ Note: Using local seed for unauthenticated Firestore bible_entries.', (bibleErr as any)?.message);
   }
 
   // ── D. GENERATE src/data/db_snapshot.json ─────────────────────────────────

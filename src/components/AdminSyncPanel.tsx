@@ -12,6 +12,7 @@ import {
   createNoSqlSnapshot,
   importFullNoSqlSnapshot, FullNoSqlSnapshot
 } from '../utils/localNoSqlDb';
+import { getBibleChapters } from '../utils/bibleHelper';
 
 interface AdminSyncPanelProps {
   onClose: () => void;
@@ -179,45 +180,65 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
     };
 
     try {
-      // A. Push Blog to Firestore in parallel chunks (5% - 40%)
+      // A. Push Blog to Firestore in parallel chunks (5% - 35%)
       const blogList = Object.entries(blogEntries).filter(([_, e]) => e && e.title && e.text);
       const blogPushed = await pushChunked(
         blogList,
         'blog_entries',
         5,
-        40,
-        '1/4. Synchronizacja wpisów WnR365 i linków Gemini...'
+        35,
+        '1/4. Synchronizacja WnR365 (365 rozważań + Gemini AI)...'
       );
 
-      // B. Push Prayers & Intro to Firestore in parallel chunks (40% - 70%)
+      // B. Push Prayers & Intro to Firestore in parallel chunks (35% - 65%)
       const prayerList = Object.entries(prayers).filter(([_, e]) => e && (e.title || e.text));
       const prayerPushed = await pushChunked(
         prayerList,
         'prayers',
-        40,
-        70,
-        '2/4. Synchronizacja modlitw RHZ365, Wstępu i linków Gemini...'
+        35,
+        65,
+        '2/4. Synchronizacja RHZ365 (365 dni cyklu różańca, tajemnice i modlitwy stałe)...'
       );
 
-      // C. Push & Pull Bible with Firestore (70% - 85%)
-      const localBibleList = Object.entries(bibleEntries).filter(([_, e]) => e && e.title && e.text);
-      let biblePushed = 0;
-      if (localBibleList.length > 0) {
-        biblePushed = await pushChunked(
-          localBibleList,
+      // C. Synchronize full 1460 Biblia365 chapters (65% - 88%)
+      const defaultBible = getBibleChapters(); // 1460 items
+      const full1460BibleMap: Record<string, any> = {};
+      
+      defaultBible.forEach(ch => {
+        const docId = `bible_slot_${ch.slotIndex}`;
+        const local = bibleEntries[docId];
+        full1460BibleMap[docId] = {
+          docId,
+          slotIndex: ch.slotIndex,
+          title: local?.title || ch.defaultTitle,
+          text: local?.text || ch.defaultText,
+          notebookUrls: local?.notebookUrls || [],
+          updatedBy: local?.updatedBy || 'Pismo Święte Biblia365 (1460 czytań)',
+          updatedAt: local?.updatedAt || new Date().toISOString()
+        };
+      });
+
+      // Push custom/edited local entries to Firestore
+      const customBibleList = Object.entries(full1460BibleMap).filter(([docId, _]) => {
+        const local = bibleEntries[docId];
+        return local && (local.notebookUrls?.some(u => u?.trim()) || local.title !== full1460BibleMap[docId].title);
+      });
+
+      if (customBibleList.length > 0) {
+        await pushChunked(
+          customBibleList,
           'bible_entries',
-          70,
-          80,
-          '3/4. Wysyłanie czytań Biblia365 do Firestore...'
+          65,
+          75,
+          '3/4. Wysyłanie edycji i linków Gemini Biblia365 do Firestore...'
         );
       }
 
-      // Fetch all remote bible_entries to ensure bidirectional complete sync
-      let mergedBible: Record<string, any> = { ...bibleEntries };
+      // Fetch remote bible_entries from Firestore and overlay
       try {
         setSyncProgress({
           active: true,
-          percent: 82,
+          percent: 78,
           step: '3/4. Pobieranie czytań Biblia365 z Firestore...',
           itemCounter: 'Pobieranie z chmury'
         });
@@ -226,9 +247,10 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
           bibleSnap.forEach((docSnap) => {
             const data = docSnap.data();
             if (data && data.title && data.text) {
-              mergedBible[docSnap.id] = {
-                docId: docSnap.id,
-                slotIndex: data.slotIndex ?? 0,
+              const docId = docSnap.id;
+              full1460BibleMap[docId] = {
+                docId,
+                slotIndex: data.slotIndex ?? (parseInt(docId.replace('bible_slot_', ''), 10) || 0),
                 title: data.title,
                 text: data.text,
                 notebookUrls: data.notebookUrls || [],
@@ -242,17 +264,17 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         console.warn('[Sync] Bible getDocs skipped/failed:', bibleFetchErr);
       }
 
-      const totalBibleCount = Object.keys(mergedBible).length;
-      onBibleEntriesUpdated(mergedBible);
+      const totalBibleCount = Object.keys(full1460BibleMap).length;
+      onBibleEntriesUpdated(full1460BibleMap);
 
       setSyncProgress({
         active: true,
-        percent: 85,
-        step: '3/4. Zsynchronizowano czytania Biblia365 i linki Gemini.',
-        itemCounter: `${totalBibleCount} czytań w bazie`
+        percent: 88,
+        step: '3/4. Zsynchronizowano pełne 1460 czytań Biblia365 (4 lata × 365 dni).',
+        itemCounter: `${totalBibleCount} / 1460 czytań`
       });
 
-      // D. Create local snapshot and update local IndexedDB (85% - 100%)
+      // D. Create local snapshot and update local IndexedDB (88% - 100%)
       setSyncProgress({
         active: true,
         percent: 95,
@@ -260,7 +282,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         itemCounter: 'Aktualizacja IndexedDB'
       });
 
-      const snapshot = createNoSqlSnapshot(prayers, blogEntries, mergedBible);
+      const snapshot = createNoSqlSnapshot(prayers, blogEntries, full1460BibleMap);
       await importFullNoSqlSnapshot(snapshot);
 
       setSyncProgress({
@@ -272,7 +294,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
       setMasterStatus({
         type: 'success',
-        message: `🎉 Sukces! Zsynchronizowano wszystko z chmurą: ${blogPushed} wpisów WnR365, ${prayerPushed} modlitw RHZ365 i Wstępu oraz ${totalBibleCount} czytań Biblia365 (wraz z linkami Gemini Notebook).`
+        message: `🎉 Sukces! Zsynchronizowano wszystko z chmurą: ${blogPushed} wpisów WnR365, ${prayerPushed} modlitw i dni RHZ365 oraz ${totalBibleCount} czytań Biblia365 (wraz z linkami Gemini Notebook).`
       });
     } catch (err: any) {
       setSyncProgress(prev => ({ ...prev, active: false }));
