@@ -36,7 +36,11 @@ async function syncAllFromFirestore() {
 
     if (data && data.title && data.text) {
       const existing = wnrData[id];
-      const hasUrlChange = JSON.stringify(existing?.notebookUrls || []) !== JSON.stringify(data.notebookUrls || []);
+      const remoteUrls = Array.isArray(data.notebookUrls) ? data.notebookUrls : [];
+      const localUrls = Array.isArray(existing?.notebookUrls) ? existing.notebookUrls : [];
+      const finalUrls = remoteUrls.some((u: any) => u && String(u).trim().length > 0) ? remoteUrls : localUrls;
+
+      const hasUrlChange = JSON.stringify(localUrls) !== JSON.stringify(finalUrls);
 
       if (
         !existing ||
@@ -49,7 +53,7 @@ async function syncAllFromFirestore() {
           dayIndex: data.dayIndex ?? 0,
           title: data.title,
           text: data.text,
-          notebookUrls: data.notebookUrls || existing?.notebookUrls || [],
+          notebookUrls: finalUrls,
           updatedBy: data.updatedBy || 'Firestore Sync',
           updatedAt: data.updatedAt || new Date().toISOString()
         };
@@ -105,9 +109,11 @@ async function syncAllFromFirestore() {
           currentRec.text = data.text;
           changed = true;
         }
-        if (data.notebookUrls) {
-          currentRec.notebookUrls = data.notebookUrls;
-          changed = true;
+        if (Array.isArray(data.notebookUrls) && data.notebookUrls.some((u: any) => u && String(u).trim().length > 0)) {
+          if (JSON.stringify(currentRec.notebookUrls || []) !== JSON.stringify(data.notebookUrls)) {
+            currentRec.notebookUrls = data.notebookUrls;
+            changed = true;
+          }
         }
         if (changed) {
           updatedRhzDays++;

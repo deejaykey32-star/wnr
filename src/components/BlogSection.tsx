@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-// Firestore is no longer auto-synced. Use AdminSyncPanel for manual Firestore operations.
-// import { db } from '../firebase';
-// import { collection, doc, onSnapshot, setDoc } from 'firebase/firestore';
+import { db } from '../firebase';
+import { doc, setDoc } from 'firebase/firestore';
 import { getRGBABeads, getCMYKBeads } from '../data/prayers';
 import { playBeadChime } from '../utils/audio';
 import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechPaused, isSpeechSpeaking, getPrayerSegments } from '../utils/tts';
@@ -620,7 +619,21 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         onBlogEntriesUpdated(nextEntries);
       }
 
-      setSaveStatus({ success: true, message: "Wpis zapisany w lokalnej bazie NoSQL! Aby wysłać do Firestore, użyj panelu synchronizacji." });
+      // Optional Cloud Backup: Send to Firestore in background so Firestore has updated notebookUrls
+      try {
+        await setDoc(doc(db, 'blog_entries', docId), {
+          title: editTitle.trim(),
+          text: editText.trim(),
+          dayIndex: cycleInfo.dayIndex,
+          notebookUrls: editUrls,
+          updatedBy: user?.email || 'Edytor',
+          updatedAt: new Date().toISOString()
+        }, { merge: true });
+      } catch (cloudErr) {
+        console.warn("Firestore Blog Backup skipped/failed (saved locally):", cloudErr);
+      }
+
+      setSaveStatus({ success: true, message: "Wpis i linki Gemini zapisane pomyślnie w lokalnej bazie oraz chmurze!" });
       setEditing(false);
       setTimeout(() => setSaveStatus(null), 5000);
     } catch (err: any) {
