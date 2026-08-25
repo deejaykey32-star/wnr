@@ -141,6 +141,15 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
     }
   };
 
+  const handleSaveBibleUrls = async (slotIdx: number, newUrls: string[]) => {
+    const docId = `bible_slot_${slotIdx}`;
+    const defaultData = allChapters[slotIdx - 1];
+    const savedData = bibleEntries[docId];
+    const title = savedData?.title || defaultData.defaultTitle;
+    const text = savedData?.text || defaultData.defaultText;
+    await onSaveBibleEntry(docId, title, text, slotIdx, newUrls);
+  };
+
   const handleUrlChange = (idx: number, val: string) => {
     setEditUrls(prev => {
       const next = [...prev];
@@ -380,6 +389,8 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
                     notebookUrls={notebookUrls}
                     theme={isLight ? 'light' : 'dark'}
                     sectionName="Biblia365"
+                    isAuthorized={isAuthorized}
+                    onSaveUrls={(newUrls) => handleSaveBibleUrls(slotIdx, newUrls)}
                   />
                 </div>
               )}

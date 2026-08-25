@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useMemo, lazy, Suspense } from 'react';
 import { auth, db, loginWithGoogle, logout, onAuthStateChanged, handleRedirectLogin, User } from './firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, doc, setDoc } from 'firebase/firestore';
 import { 
   DEFAULT_PRAYERS, getRGBABeads, getCMYKBeads, getPrayerSteps, 
   getCycleDayInfo, getActiveDecadeMystery, getDecadeForDay,
@@ -1549,6 +1549,49 @@ export default function App() {
     return prayers[dayKey]?.notebookUrls || [];
   }, [cycleInfo?.dayOfCycle, activeStep?.decadeIndex, activeStep?.id, activeStep?.prayerType, prayers]);
 
+  const handleSaveRhzUrls = async (newUrls: string[]) => {
+    const dayNum = cycleInfo?.dayOfCycle ?? 1;
+    const decIdx = activeStep?.decadeIndex || getDecadeForDay(dayNum);
+    const targetKey = decIdx ? `day_${dayNum}_decade_rgba_${decIdx}` : `day_${dayNum}`;
+    const existing: any = prayers[targetKey] || (DEFAULT_PRAYERS as any)[targetKey] || {};
+    const newEntry = {
+      title: existing.title || `Tajemnica ${decIdx} — Dzień ${dayNum}`,
+      text: existing.text || `Rozważanie dnia ${dayNum}`,
+      notebookUrls: newUrls,
+      updatedBy: userEmail || 'Admin',
+      updatedAt: new Date().toISOString()
+    };
+    const nextPrayers = { ...prayers, [targetKey]: newEntry, [`day_${dayNum}`]: newEntry };
+    await saveLocalPrayers(nextPrayers);
+    setPrayers(nextPrayers);
+    try {
+      await setDoc(doc(db, 'prayers', targetKey), newEntry, { merge: true });
+      await setDoc(doc(db, 'prayers', `day_${dayNum}`), newEntry, { merge: true });
+    } catch (cloudErr) {
+      console.warn('Firestore backup failed (saved locally):', cloudErr);
+    }
+  };
+
+  const handleSaveIntroUrls = async (newUrls: string[]) => {
+    const targetKey = 'introTextMain';
+    const existing: any = prayers[targetKey] || (DEFAULT_PRAYERS as any)[targetKey] || {};
+    const newEntry = {
+      title: existing.title || 'Wstęp',
+      text: existing.text || '',
+      notebookUrls: newUrls,
+      updatedBy: userEmail || 'Admin',
+      updatedAt: new Date().toISOString()
+    };
+    const nextPrayers = { ...prayers, [targetKey]: newEntry };
+    await saveLocalPrayers(nextPrayers);
+    setPrayers(nextPrayers);
+    try {
+      await setDoc(doc(db, 'prayers', targetKey), newEntry, { merge: true });
+    } catch (cloudErr) {
+      console.warn('Firestore backup failed (saved locally):', cloudErr);
+    }
+  };
+
   if (!isDataLoaded) {
     return (
       <div className={`min-h-screen flex flex-col items-center justify-center p-6 text-center transition-colors duration-300 ${
@@ -1837,13 +1880,13 @@ export default function App() {
                       text={prayers['introTextMain']?.text || DEFAULT_PRAYERS['introTextMain']?.text || ''} 
                       theme={theme} 
                     />
-                    {prayers['introTextMain']?.notebookUrls && prayers['introTextMain'].notebookUrls.some(u => u?.trim()) && (
-                      <NotebookGeminiPanel 
-                        notebookUrls={prayers['introTextMain'].notebookUrls} 
-                        theme={theme} 
-                        sectionName="RHZ365" 
-                      />
-                    )}
+                    <NotebookGeminiPanel 
+                      notebookUrls={prayers['introTextMain']?.notebookUrls || []} 
+                      theme={theme} 
+                      sectionName="Wstęp"
+                      isAuthorized={isAuthorized}
+                      onSaveUrls={handleSaveIntroUrls}
+                    />
                   </div>
                 )}
               </div>
@@ -2647,11 +2690,13 @@ export default function App() {
                   />
                 </div>
 
-                {/* GEMINI NOTEBOOK PANEL BEZPOŚREDNIO POD GRAFIKĄ RÓŻAŃCA */}
+                {/* GEMINI NOTEBOOK PANEL BEZPOŚREDNIO POD GRAFIKĄ RÓŻAŃCA (Z bezpośrednią edycją dla admina) */}
                 <NotebookGeminiPanel
                   notebookUrls={currentRhzNotebookUrls}
                   theme={theme as any}
                   sectionName="RHZ365"
+                  isAuthorized={isAuthorized}
+                  onSaveUrls={handleSaveRhzUrls}
                 />
 
                 {/* Color Details Card */}

@@ -644,6 +644,26 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     }
   };
 
+  const handleSaveWnrUrls = async (newUrls: string[]) => {
+    const docId = `blog_day_${cycleInfo.dayIndex}`;
+    const newEntry = {
+      ...activeEntry,
+      docId,
+      dayIndex: cycleInfo.dayIndex,
+      notebookUrls: newUrls,
+      updatedBy: user?.email || 'Admin',
+      updatedAt: new Date().toISOString()
+    };
+    await saveLocalBlogEntry(docId, newEntry);
+    const next = { ...blogEntries, [docId]: newEntry };
+    if (onBlogEntriesUpdated) onBlogEntriesUpdated(next);
+    try {
+      await setDoc(doc(db, 'blog_entries', docId), newEntry, { merge: true });
+    } catch (err) {
+      console.warn("Firestore Blog Backup skipped/failed (saved locally):", err);
+    }
+  };
+
   // Restore all 366 WnR365 blog entries into Cloud Firestore based on JSON and corrections
   // handleRestoreAllCloudEntries removed — use AdminSyncPanel (sync icon in header) for Firestore push/pull operations.
 
@@ -1476,7 +1496,13 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                       <RichTextRenderer text={activeEntry.text} theme={isLight ? 'light' : 'dark'} />
                     </div>
                     {/* Notebook Gemini Panel */}
-                    <NotebookGeminiPanel notebookUrls={activeEntry.notebookUrls || []} theme={isLight ? 'light' : 'dark'} sectionName="WnR365" />
+                    <NotebookGeminiPanel
+                      notebookUrls={activeEntry.notebookUrls || []}
+                      theme={isLight ? 'light' : 'dark'}
+                      sectionName="WnR365"
+                      isAuthorized={isAuthorized}
+                      onSaveUrls={handleSaveWnrUrls}
+                    />
 
                     {activeEntry.updatedBy && (
                       <div className="mt-6 pt-4 border-t border-slate-900 text-right text-[10px] text-slate-500 font-mono">
