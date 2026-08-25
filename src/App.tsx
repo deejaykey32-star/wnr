@@ -1498,22 +1498,43 @@ export default function App() {
     const decadeIndex = activeStep?.decadeIndex || getDecadeForDay(dayNum);
     const decadeKey = decadeIndex ? `day_${dayNum}_decade_rgba_${decadeIndex}` : null;
     const stepKey = activeStep?.id;
+    const prayerTypeKey = activeStep?.prayerType;
 
+    // 1. Check decade specific key
     if (decadeKey && prayers[decadeKey]?.notebookUrls && prayers[decadeKey].notebookUrls.some(u => u?.trim())) {
       return prayers[decadeKey].notebookUrls;
     }
+    // 2. Check main day key
     if (prayers[dayKey]?.notebookUrls && prayers[dayKey].notebookUrls.some(u => u?.trim())) {
       return prayers[dayKey].notebookUrls;
     }
-    if (stepKey && prayers[stepKey]?.notebookUrls && prayers[stepKey].notebookUrls.some(u => u?.trim())) {
-      return prayers[stepKey].notebookUrls;
+    // 3. Search all prayer keys starting with day_${dayNum}_
+    const dayPrefix = `day_${dayNum}_`;
+    for (const [k, p] of Object.entries(prayers)) {
+      if (k.startsWith(dayPrefix) && p?.notebookUrls && p.notebookUrls.some(u => u?.trim())) {
+        return p.notebookUrls;
+      }
     }
+    // 4. Check step key or custom_step_ key
+    if (stepKey) {
+      if (prayers[stepKey]?.notebookUrls && prayers[stepKey].notebookUrls.some(u => u?.trim())) {
+        return prayers[stepKey].notebookUrls;
+      }
+      if (prayers[`custom_step_${stepKey}`]?.notebookUrls && prayers[`custom_step_${stepKey}`].notebookUrls.some(u => u?.trim())) {
+        return prayers[`custom_step_${stepKey}`].notebookUrls;
+      }
+    }
+    // 5. Check prayerType key
+    if (prayerTypeKey && prayers[prayerTypeKey]?.notebookUrls && prayers[prayerTypeKey].notebookUrls.some(u => u?.trim())) {
+      return prayers[prayerTypeKey].notebookUrls;
+    }
+    // 6. Check introTextMain
     if (prayers['introTextMain']?.notebookUrls && prayers['introTextMain'].notebookUrls.some(u => u?.trim())) {
       return prayers['introTextMain'].notebookUrls;
     }
 
     return prayers[dayKey]?.notebookUrls || [];
-  }, [cycleInfo?.dayOfCycle, activeStep?.decadeIndex, activeStep?.id, prayers]);
+  }, [cycleInfo?.dayOfCycle, activeStep?.decadeIndex, activeStep?.id, activeStep?.prayerType, prayers]);
 
   if (!isDataLoaded) {
     return (
@@ -2872,26 +2893,11 @@ export default function App() {
                     />
                   </div>
                 )}
-
-                {/* Panel z 8 kodami QR Notebook Gemini & YouTube na dole sekcji RHZ365 */}
-                <div className="w-full mt-4">
-                  <NotebookGeminiPanel
-                    notebookUrls={
-                      prayers[`day_${cycleInfo.dayOfCycle}_decade_rgba_${getDecadeForDay(cycleInfo.dayOfCycle)}`]?.notebookUrls ||
-                      prayers[`custom_step_${activeStep.id}`]?.notebookUrls ||
-                      []
-                    }
-                    theme={theme as any}
-                    sectionName="RHZ365"
-                  />
-                </div>
-
-
-
               </div>
             </div>
           </div>
-        )) : activeTab === 'blog' ? (
+        )
+      ) : activeTab === 'blog' ? (
           <BlogSection 
             user={user} 
             isAuthorized={isAuthorized} 
