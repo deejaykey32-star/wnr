@@ -149,24 +149,27 @@ async function syncAllFromFirestore() {
 
   // ── C. SYNC BIBLIA365 ─────────────────────────────────────────────────────
   console.log('📥 Fetching bible_entries from Firestore...');
-  const bibleSnap = await getDocs(collection(db, 'bible_entries'));
   const bibleEntriesMap: Record<string, any> = {};
-  
-  bibleSnap.forEach(docSnap => {
-    const id = docSnap.id;
-    const data = docSnap.data();
-    if (data && data.title && data.text) {
-      bibleEntriesMap[id] = {
-        slotIndex: data.slotIndex ?? 0,
-        title: data.title,
-        text: data.text,
-        notebookUrls: data.notebookUrls || [],
-        updatedBy: data.updatedBy || 'Firestore Sync',
-        updatedAt: data.updatedAt || new Date().toISOString()
-      };
-    }
-  });
-  console.log(`✅ Fetched ${Object.keys(bibleEntriesMap).length} Biblia365 entries from Firestore.`);
+  try {
+    const bibleSnap = await getDocs(collection(db, 'bible_entries'));
+    bibleSnap.forEach(docSnap => {
+      const id = docSnap.id;
+      const data = docSnap.data();
+      if (data && data.title && data.text) {
+        bibleEntriesMap[id] = {
+          slotIndex: data.slotIndex ?? 0,
+          title: data.title,
+          text: data.text,
+          notebookUrls: data.notebookUrls || [],
+          updatedBy: data.updatedBy || 'Firestore Sync',
+          updatedAt: data.updatedAt || new Date().toISOString()
+        };
+      }
+    });
+    console.log(`✅ Fetched ${Object.keys(bibleEntriesMap).length} Biblia365 entries from Firestore.`);
+  } catch (bibleErr) {
+    console.warn('⚠️ Note: Skipping unauthenticated Firestore bible_entries (using local seed).', (bibleErr as any)?.message);
+  }
 
   // ── D. GENERATE src/data/db_snapshot.json ─────────────────────────────────
   const snapshotJsonPath = resolve(process.cwd(), 'src/data/db_snapshot.json');
