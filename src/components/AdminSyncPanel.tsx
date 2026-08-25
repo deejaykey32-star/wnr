@@ -1,20 +1,17 @@
 import React, { useState, useRef } from 'react';
 import { db } from '../firebase';
 import {
-  collection, doc, setDoc, getDocs, getDoc
+  collection, doc, setDoc, getDocs
 } from 'firebase/firestore';
 import {
-  Cloud, CloudDownload, CloudUpload, X,
-  CheckCircle, AlertCircle, Loader, Database, RotateCcw, FileText,
-  Download, Upload, Sparkles, HardDrive, ShieldCheck, BookOpen, ChevronDown, Zap
+  Cloud, CloudDownload, X,
+  CheckCircle, AlertCircle, Loader, Database, FileText,
+  Upload, Sparkles, HardDrive, ShieldCheck, Zap
 } from 'lucide-react';
 import {
-  getAllLocalBlogEntries, saveLocalBlogEntry, resetLocalToSeedData,
-  saveLocalPrayers, createNoSqlSnapshot,
-  importFullNoSqlSnapshot, FullNoSqlSnapshot,
-  getAllLocalBibleEntries, saveLocalBibleEntry
+  createNoSqlSnapshot,
+  importFullNoSqlSnapshot, FullNoSqlSnapshot
 } from '../utils/localNoSqlDb';
-import { DEFAULT_PRAYERS } from '../data/prayers';
 
 interface AdminSyncPanelProps {
   onClose: () => void;
@@ -32,6 +29,13 @@ type SyncStatus = {
   message: string;
 };
 
+type ProgressState = {
+  active: boolean;
+  percent: number;
+  step: string;
+  itemCounter?: string;
+};
+
 export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
   onClose,
   theme,
@@ -43,10 +47,12 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
   onBibleEntriesUpdated
 }) => {
   const [masterStatus, setMasterStatus] = useState<SyncStatus>({ type: 'idle', message: '' });
-  const [blogStatus, setBlogStatus] = useState<SyncStatus>({ type: 'idle', message: '' });
-  const [prayerStatus, setPrayerStatus] = useState<SyncStatus>({ type: 'idle', message: '' });
-  const [introStatus, setIntroStatus] = useState<SyncStatus>({ type: 'idle', message: '' });
-  const [bibleStatus, setBibleStatus] = useState<SyncStatus>({ type: 'idle', message: '' });
+  const [syncProgress, setSyncProgress] = useState<ProgressState>({
+    active: false,
+    percent: 0,
+    step: '',
+    itemCounter: ''
+  });
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -54,7 +60,6 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
   const bg = isDark ? 'bg-slate-900 border-slate-700' : 'bg-white border-slate-200';
   const text = isDark ? 'text-slate-100' : 'text-slate-900';
   const subText = isDark ? 'text-slate-400' : 'text-slate-500';
-  const cardBg = isDark ? 'bg-slate-800/60 border-slate-700' : 'bg-slate-50 border-slate-200';
 
   // Timeout wrapper to prevent hanging spinners on slow/blocked connections
   const withTimeout = <T,>(promise: Promise<T>, timeoutMs = 15000, errorMsg = 'Przekroczono limit czasu połączenia z Firestore (15s).'): Promise<T> => {
@@ -64,33 +69,61 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
     ]);
   };
 
-  // ── 1-CLICK ALL-IN-ONE SMART SYNC ──────────────────────────────────────────
+  // ── 1-CLICK ALL-IN-ONE SMART SYNC WITH LIVE PROGRESS BAR ──────────────────
   const runFullSmartSync = async () => {
     setMasterStatus({
       type: 'loading',
-      message: '🚀 Trwa pełna inteligentna synchronizacja (Wstęp + RHZ365 + WnR365 + Biblia365 + Linki Gemini)...'
+      message: '🚀 Rozpoczynanie synchronizacji w chmurze...'
+    });
+
+    setSyncProgress({
+      active: true,
+      percent: 5,
+      step: 'Inicjalizacja połączenia z Firestore...',
+      itemCounter: 'Start'
     });
 
     try {
-      // A. Push Blog to Firestore
+      // A. Push Blog to Firestore (0% - 35%)
+      const totalBlogs = Object.keys(blogEntries).length || 365;
       let blogPushed = 0;
       for (const [docId, entry] of Object.entries(blogEntries)) {
         if (entry && entry.title && entry.text) {
           await setDoc(doc(db, 'blog_entries', docId), entry, { merge: true });
           blogPushed++;
+          if (blogPushed % 20 === 0 || blogPushed === totalBlogs) {
+            const pct = Math.round((blogPushed / totalBlogs) * 35);
+            setSyncProgress({
+              active: true,
+              percent: Math.max(5, pct),
+              step: '1/4. Synchronizacja wpisów WnR365 i linków Gemini...',
+              itemCounter: `${blogPushed} / ${totalBlogs} wpisów`
+            });
+          }
         }
       }
 
-      // B. Push Prayers to Firestore
+      // B. Push Prayers & Intro to Firestore (35% - 70%)
+      const totalPrayers = Object.keys(prayers).length || 200;
       let prayerPushed = 0;
       for (const [docId, entry] of Object.entries(prayers)) {
         if (entry && (entry.title || entry.text)) {
           await setDoc(doc(db, 'prayers', docId), entry, { merge: true });
           prayerPushed++;
+          if (prayerPushed % 15 === 0 || prayerPushed === totalPrayers) {
+            const pct = 35 + Math.round((prayerPushed / totalPrayers) * 35);
+            setSyncProgress({
+              active: true,
+              percent: pct,
+              step: '2/4. Synchronizacja modlitw RHZ365, Wstępu i linków Gemini...',
+              itemCounter: `${prayerPushed} / ${totalPrayers} modlitw`
+            });
+          }
         }
       }
 
-      // C. Push Bible to Firestore
+      // C. Push Bible to Firestore (70% - 85%)
+      const totalBible = Object.keys(bibleEntries).length || 1;
       let biblePushed = 0;
       for (const [docId, entry] of Object.entries(bibleEntries)) {
         if (entry && entry.title && entry.text) {
@@ -102,26 +135,54 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
           }
         }
       }
+      setSyncProgress({
+        active: true,
+        percent: 85,
+        step: '3/4. Zsynchronizowano czytania Biblia365 i linki Gemini.',
+        itemCounter: `${biblePushed} czytań`
+      });
 
-      // D. Create local snapshot and update local IndexedDB
+      // D. Create local snapshot and update local IndexedDB (85% - 100%)
+      setSyncProgress({
+        active: true,
+        percent: 95,
+        step: '4/4. Zapisywanie lokalnej bazy NoSQL (db_snapshot.json)...',
+        itemCounter: 'Aktualizacja IndexedDB'
+      });
+
       const snapshot = createNoSqlSnapshot(prayers, blogEntries, bibleEntries);
       await importFullNoSqlSnapshot(snapshot);
 
+      setSyncProgress({
+        active: true,
+        percent: 100,
+        step: '✅ Synchronizacja ukończona w 100%!',
+        itemCounter: 'Zakończono sukcesem'
+      });
+
       setMasterStatus({
         type: 'success',
-        message: `🎉 Sukces! Zsynchronizowano wszystko jednym kliknięciem: ${blogPushed} wpisów WnR, ${prayerPushed} modlitw RHZ365 i Wstępu oraz ${biblePushed} czytań Biblii (wraz z linkami Gemini Notebook).`
+        message: `🎉 Sukces! Zsynchronizowano wszystko z chmurą: ${blogPushed} wpisów WnR365, ${prayerPushed} modlitw RHZ365 i Wstępu oraz ${biblePushed} czytań Biblii (wraz z linkami Gemini Notebook).`
       });
     } catch (err: any) {
+      setSyncProgress(prev => ({ ...prev, active: false }));
       setMasterStatus({
         type: 'error',
-        message: `❌ Błąd synchronizacji: ${err?.message || 'Brak połączenia'}`
+        message: `❌ Błąd synchronizacji: ${err?.message || 'Brak połączenia z Firestore'}`
       });
     }
   };
 
-  // ── MASTER FULL NOSQL SNAPSHOT DOWNLOAD ────
+  // ── MASTER FULL NOSQL SNAPSHOT DOWNLOAD WITH PROGRESS ────
   const downloadFullFirestoreBackup = async () => {
-    setMasterStatus({ type: 'loading', message: 'Pobieranie pełnej bazy z Firestore (Wszystkie 4 sekcje + Linki Gemini)...' });
+    setMasterStatus({ type: 'loading', message: 'Pobieranie pełnej bazy z Firestore...' });
+    setSyncProgress({
+      active: true,
+      percent: 10,
+      step: 'Pobieranie wpisów WnR365 z Firestore...',
+      itemCounter: 'Łączenie'
+    });
+
     try {
       const blogSnap = await withTimeout(
         getDocs(collection(db, 'blog_entries')),
@@ -143,6 +204,13 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         }
       });
 
+      setSyncProgress({
+        active: true,
+        percent: 45,
+        step: 'Pobieranie modlitw RHZ365 i Wstępu z Firestore...',
+        itemCounter: `${blogSnap.size} wpisów WnR`
+      });
+
       const prayerSnap = await withTimeout(
         getDocs(collection(db, 'prayers')),
         15000,
@@ -160,6 +228,13 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
             updatedAt: data.updatedAt || new Date().toISOString()
           };
         }
+      });
+
+      setSyncProgress({
+        active: true,
+        percent: 80,
+        step: 'Generowanie pliku NoSQL snapshot JSON...',
+        itemCounter: `${prayerSnap.size} modlitw`
       });
 
       const fetchedBibleEntries: Record<string, any> = { ...bibleEntries };
@@ -199,11 +274,19 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
 
+      setSyncProgress({
+        active: true,
+        percent: 100,
+        step: '✅ Pobrano i zapisano plik db_snapshot.json!',
+        itemCounter: 'Gotowe'
+      });
+
       setMasterStatus({
         type: 'success',
-        message: `✅ Sukces! Pobrano dane z Firestore i zapisano plik db_snapshot.json.`
+        message: `✅ Sukces! Pobrano dane z Firestore i zapisano plik db_snapshot.json na Twoim dysku.`
       });
     } catch (err: any) {
+      setSyncProgress(prev => ({ ...prev, active: false }));
       setMasterStatus({
         type: 'error',
         message: `❌ ${err?.message || 'Błąd połączenia z Firestore'}`
@@ -246,8 +329,8 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
     reader.onload = async (e) => {
       try {
-        const text = e.target?.result as string;
-        const parsed = JSON.parse(text);
+        const fileContent = e.target?.result as string;
+        const parsed = JSON.parse(fileContent);
 
         if (!parsed || (!parsed.blogEntries && !parsed.prayers)) {
           throw new Error("Plik nie ma poprawnej struktury NoSQL Snapshot (brak blogEntries / prayers).");
@@ -391,6 +474,50 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
                 </div>
                 {masterStatus.type === 'loading' ? <Loader size={16} className="animate-spin" /> : <Sparkles size={16} />}
               </button>
+
+              {/* LIVE ANIMATED PROGRESS BAR */}
+              {syncProgress.active && (
+                <div className={`mt-2 p-4 rounded-xl border transition-all duration-300 ${
+                  isDark ? 'bg-slate-950/90 border-indigo-900/60 shadow-xl' : 'bg-white border-indigo-200 shadow-md'
+                }`}>
+                  <div className="flex items-center justify-between text-xs font-bold mb-2">
+                    <span className="flex items-center gap-2 text-indigo-400">
+                      {syncProgress.percent < 100 ? (
+                        <Loader size={14} className="animate-spin text-indigo-400" />
+                      ) : (
+                        <CheckCircle size={14} className="text-emerald-400" />
+                      )}
+                      <span>{syncProgress.step}</span>
+                    </span>
+                    <span className={`font-mono px-2.5 py-0.5 rounded-full text-xs font-extrabold ${
+                      syncProgress.percent === 100 
+                        ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40' 
+                        : 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/40'
+                    }`}>
+                      {syncProgress.percent}%
+                    </span>
+                  </div>
+
+                  {/* Visual Progress Bar Track */}
+                  <div className="w-full h-3.5 bg-slate-900 rounded-full overflow-hidden p-0.5 border border-slate-700/80 shadow-inner">
+                    <div
+                      className={`h-full rounded-full transition-all duration-300 ease-out bg-gradient-to-r ${
+                        syncProgress.percent === 100
+                          ? 'from-emerald-500 via-teal-400 to-emerald-300'
+                          : 'from-indigo-600 via-teal-400 to-emerald-400 animate-pulse'
+                      }`}
+                      style={{ width: `${Math.min(100, Math.max(4, syncProgress.percent))}%` }}
+                    />
+                  </div>
+
+                  {syncProgress.itemCounter && (
+                    <div className="mt-2 flex items-center justify-between text-[11px] text-slate-400 font-mono">
+                      <span>Przetwarzanie:</span>
+                      <span className="text-indigo-300 font-semibold">{syncProgress.itemCounter}</span>
+                    </div>
+                  )}
+                </div>
+              )}
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
                 {/* Button: Download snapshot */}
