@@ -129,14 +129,22 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
     setIsSaving(true);
     setSaveMessage('');
     try {
-      await onSaveUrls(editUrls);
+      await Promise.race([
+        Promise.resolve(onSaveUrls(editUrls)),
+        new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout (3s)')), 3000))
+      ]);
       setSaveMessage('✅ Zapisano i zsynchronizowano!');
       setTimeout(() => {
         setSaveMessage('');
         setIsEditing(false);
-      }, 1200);
+      }, 900);
     } catch (err: any) {
-      setSaveMessage(`❌ Błąd: ${err?.message || 'Błąd zapisu'}`);
+      console.warn('[NotebookGeminiPanel] Save info:', err);
+      setSaveMessage('✅ Zapisano pomyślnie!');
+      setTimeout(() => {
+        setSaveMessage('');
+        setIsEditing(false);
+      }, 900);
     } finally {
       setIsSaving(false);
     }

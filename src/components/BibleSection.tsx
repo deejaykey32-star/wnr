@@ -142,12 +142,16 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
   };
 
   const handleSaveBibleUrls = async (slotIdx: number, newUrls: string[]) => {
-    const docId = `bible_slot_${slotIdx}`;
-    const defaultData = allChapters[slotIdx - 1];
-    const savedData = bibleEntries[docId];
-    const title = savedData?.title || defaultData.defaultTitle;
-    const text = savedData?.text || defaultData.defaultText;
-    await onSaveBibleEntry(docId, title, text, slotIdx, newUrls);
+    try {
+      const docId = `bible_slot_${slotIdx}`;
+      const defaultData = allChapters[slotIdx - 1];
+      const savedData = bibleEntries[docId];
+      const title = savedData?.title || defaultData?.defaultTitle || `Rozdział ${slotIdx}`;
+      const text = savedData?.text || defaultData?.defaultText || '';
+      await onSaveBibleEntry(docId, title, text, slotIdx, newUrls);
+    } catch (err) {
+      console.error('handleSaveBibleUrls error:', err);
+    }
   };
 
   const handleUrlChange = (idx: number, val: string) => {
