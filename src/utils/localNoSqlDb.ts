@@ -100,83 +100,50 @@ export async function initLocalNoSqlDb(): Promise<void> {
 
       // 1. Preload JSON data dynamically BEFORE starting the transaction
       // to avoid TransactionInactiveError while awaiting imports.
+      // NOTE: We use wnr365_pdf_entries.json directly (fast, ~1.7MB already loaded by loadWnrBlogDefaultsData).
+      // db_snapshot.json (2.8MB) is NOT loaded at startup to avoid blocking page load.
+      // It is only used in the Admin panel for Firestore backup/restore operations.
       let wnrPdfMap: Record<string, any> = {};
-      let prayersMap: Record<string, any> = {};
 
       try {
-        const snapshotModule = await import('../data/db_snapshot.json');
-        const snapshotData = snapshotModule.default;
-        if (snapshotData) {
-          if (snapshotData.blogEntries) wnrPdfMap = snapshotData.blogEntries;
-          if (snapshotData.prayers) prayersMap = { ...snapshotData.prayers };
-          if (snapshotData.intro) {
-            Object.assign(prayersMap, snapshotData.intro);
-          }
-        }
-      } catch (snapErr) {
-        console.warn('[NoSQL] db_snapshot.json dynamic import fallback:', snapErr);
-      }
-
-      if (Object.keys(wnrPdfMap).length === 0) {
         const module = await import('../data/wnr365_pdf_entries.json');
         wnrPdfMap = module.default as Record<string, any>;
+      } catch (importErr) {
+        console.warn('[NoSQL] Failed to import wnr365_pdf_entries.json:', importErr);
       }
 
-      // 2. Perform clear and seed in a readwrite transaction
+      // 2. Perform clear and seed blog entries in a readwrite transaction
+      // (Prayers are loaded from DEFAULT_PRAYERS in prayers.ts and merged at app level)
       await new Promise<void>((resolve) => {
         try {
-          const storeNames: string[] = [];
-          if (db.objectStoreNames.contains(BLOG_STORE)) storeNames.push(BLOG_STORE);
-          if (db.objectStoreNames.contains(PRAYERS_STORE)) storeNames.push(PRAYERS_STORE);
-
-          if (storeNames.length === 0) {
+          if (!db.objectStoreNames.contains(BLOG_STORE)) {
             resolve();
             return;
           }
 
-          const tx = db.transaction(storeNames, 'readwrite');
-          const store = db.objectStoreNames.contains(BLOG_STORE) ? tx.objectStore(BLOG_STORE) : null;
-          const prayersStore = db.objectStoreNames.contains(PRAYERS_STORE) ? tx.objectStore(PRAYERS_STORE) : null;
+          const tx = db.transaction(BLOG_STORE, 'readwrite');
+          const store = tx.objectStore(BLOG_STORE);
 
-          tx.onerror = (e) => {
-            console.warn('[NoSQL] Seeding transaction error:', e);
-            resolve();
-          };
-          tx.onabort = (e) => {
-            console.warn('[NoSQL] Seeding transaction aborted:', e);
-            resolve();
-          };
+          tx.onerror = () => { resolve(); };
+          tx.onabort = () => { resolve(); };
 
-          // Clear old data so stale entries don't persist
-          if (store) store.clear();
-          if (prayersStore) prayersStore.clear();
-
-          // Seed prayers
-          if (prayersStore) {
-            Object.entries(prayersMap).forEach(([docId, p]: [string, any]) => {
-              if (p && p.text) {
-                prayersStore.put({ docId, ...p });
-              }
-            });
-          }
+          store.clear();
 
           // Seed blog entries
-          if (store) {
-            Object.entries(wnrPdfMap).forEach(([docId, entry]: [string, any]) => {
-              try {
-                store.put({
-                  docId,
-                  dayIndex: entry.dayIndex ?? 0,
-                  title: entry.title,
-                  text: entry.text,
-                  updatedBy: entry.updatedBy || 'NoSQL Snapshot (GitHub / Cloudflare)',
-                  updatedAt: entry.updatedAt || new Date().toISOString()
-                });
-              } catch (putErr) {
-                console.warn(`[NoSQL] Error putting entry ${docId}:`, putErr);
-              }
-            });
-          }
+          Object.entries(wnrPdfMap).forEach(([docId, entry]: [string, any]) => {
+            try {
+              store.put({
+                docId,
+                dayIndex: entry.dayIndex ?? 0,
+                title: entry.title,
+                text: entry.text,
+                updatedBy: entry.updatedBy || 'eMBiK365 Księga A5 PDF',
+                updatedAt: entry.updatedAt || new Date().toISOString()
+              });
+            } catch (putErr) {
+              console.warn(`[NoSQL] Error putting entry ${docId}:`, putErr);
+            }
+          });
 
           tx.oncomplete = () => {
             try {
