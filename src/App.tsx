@@ -157,10 +157,15 @@ export default function App() {
     updateUniversalDate(dayNum, selectedDate.getMonth());
   };
 
+  // Safe date helper
+  const safeDate = useMemo(() => {
+    return selectedDate && !isNaN(selectedDate.getTime()) ? selectedDate : new Date();
+  }, [selectedDate]);
+
   // Calculate cycle info
   const cycleInfo = useMemo(() => {
-    return getCycleDayInfo(selectedDate, { isExplicitRhzRoute: activeTab === 'rosary' });
-  }, [selectedDate, activeTab]);
+    return getCycleDayInfo(safeDate, { isExplicitRhzRoute: activeTab === 'rosary' });
+  }, [safeDate, activeTab]);
 
   // Polish date formatting (WITHOUT year component for universal form)
   const formattedPolishDate = useMemo(() => {
@@ -168,8 +173,9 @@ export default function App() {
       "stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca",
       "lipca", "sierpnia", "września", "października", "listopada", "grudnia"
     ];
-    return `${selectedDate.getDate()} ${months[selectedDate.getMonth()]}`;
-  }, [selectedDate]);
+    const mIdx = safeDate.getMonth();
+    return `${safeDate.getDate()} ${months[mIdx] || months[0]}`;
+  }, [safeDate]);
 
   // Rosary structure (static definitions)
   const rgbaBeads = getRGBABeads();
@@ -1753,8 +1759,8 @@ export default function App() {
                 {isEditingIntroMain ? (
                   <InlinePrayerEditor
                     prayerKey="introTextMain"
-                    initialTitle={prayers['introTextMain']?.title || DEFAULT_PRAYERS['introTextMain'].title}
-                    initialText={prayers['introTextMain']?.text || DEFAULT_PRAYERS['introTextMain'].text}
+                    initialTitle={prayers['introTextMain']?.title || DEFAULT_PRAYERS['introTextMain']?.title || 'Tekst Wstępu'}
+                    initialText={prayers['introTextMain']?.text || DEFAULT_PRAYERS['introTextMain']?.text || ''}
                     userEmail={userEmail}
                     isLight={isLight}
                     theme={theme}
@@ -1766,7 +1772,7 @@ export default function App() {
                 ) : (
                   <div className={`mt-3 transition-colors duration-300 ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                     <RichTextRenderer 
-                      text={prayers['introTextMain']?.text || DEFAULT_PRAYERS['introTextMain'].text} 
+                      text={prayers['introTextMain']?.text || DEFAULT_PRAYERS['introTextMain']?.text || ''} 
                       theme={theme} 
                     />
                   </div>
@@ -1803,8 +1809,8 @@ export default function App() {
               <div className="relative z-10 text-left">
                 <InlinePrayerEditor
                   prayerKey="introTextMission"
-                  initialTitle={prayers['introTextMission']?.title || DEFAULT_PRAYERS['introTextMission'].title}
-                  initialText={prayers['introTextMission']?.text || DEFAULT_PRAYERS['introTextMission'].text}
+                  initialTitle={prayers['introTextMission']?.title || DEFAULT_PRAYERS['introTextMission']?.title || 'Misja eMBiK365'}
+                  initialText={prayers['introTextMission']?.text || DEFAULT_PRAYERS['introTextMission']?.text || ''}
                   userEmail={userEmail}
                   isLight={isLight}
                   theme={theme}
@@ -1817,7 +1823,7 @@ export default function App() {
             ) : (
               <div className={`mt-2 transition-colors duration-300 relative z-10 ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                 <RichTextRenderer 
-                  text={prayers['introTextMission']?.text || DEFAULT_PRAYERS['introTextMission'].text} 
+                  text={prayers['introTextMission']?.text || DEFAULT_PRAYERS['introTextMission']?.text || ''} 
                   theme={theme} 
                 />
               </div>
