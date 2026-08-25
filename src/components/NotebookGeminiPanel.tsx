@@ -16,6 +16,11 @@ export const GEMINI_ANALYSIS_TYPES = [
   { id: 8, label: 'YouTube', desc: 'Nagranie wideo na YouTube', icon: Youtube, color: 'from-red-600 to-red-500' }
 ];
 
+export const BIBLE_GEMINI_ANALYSIS_TYPES = [
+  { id: 1, label: 'Gemini Notebook — Analiza #1', desc: 'Kod QR i link do analizy fragmentu Biblii w Gemini Notebook (#1)', icon: BookOpen, color: 'from-emerald-600 to-teal-600' },
+  { id: 2, label: 'Gemini Notebook — Analiza #2', desc: 'Kod QR i link do analizy fragmentu Biblii w Gemini Notebook (#2)', icon: Sparkles, color: 'from-indigo-600 to-purple-600' }
+];
+
 interface ClickableQrCodeProps {
   url: string;
   theme?: 'dark' | 'light';
@@ -51,7 +56,7 @@ export const ClickableQrCode: React.FC<ClickableQrCodeProps> = ({ url, theme = '
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`block w-full max-w-[100px] sm:max-w-[120px] aspect-square mx-auto p-1.5 rounded-xl border transition-all hover:scale-105 duration-300 shadow-md ${
+      className={`block w-full max-w-[110px] sm:max-w-[130px] aspect-square mx-auto p-2 rounded-xl border transition-all hover:scale-105 duration-300 shadow-md ${
         isLight
           ? 'bg-white border-slate-200 hover:border-indigo-400 hover:shadow-indigo-100'
           : 'bg-white border-slate-800 hover:border-indigo-500 hover:shadow-indigo-950/40'
@@ -89,12 +94,16 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
   onSaveUrls
 }) => {
   const isLight = theme === 'light';
+  const isBible = sectionName === 'Biblia365';
+  const analysisTypes = isBible ? BIBLE_GEMINI_ANALYSIS_TYPES : GEMINI_ANALYSIS_TYPES;
+  const maxCount = analysisTypes.length;
+
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [editUrls, setEditUrls] = useState<string[]>(() => {
-    const arr = Array(8).fill('');
+    const arr = Array(maxCount).fill('');
     if (Array.isArray(notebookUrls)) {
       notebookUrls.forEach((u, i) => {
-        if (i < 8) arr[i] = u || '';
+        if (i < maxCount) arr[i] = u || '';
       });
     }
     return arr;
@@ -104,14 +113,14 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
 
   // Sync internal state if notebookUrls changes from parent
   useEffect(() => {
-    const arr = Array(8).fill('');
+    const arr = Array(maxCount).fill('');
     if (Array.isArray(notebookUrls)) {
       notebookUrls.forEach((u, i) => {
-        if (i < 8) arr[i] = u || '';
+        if (i < maxCount) arr[i] = u || '';
       });
     }
     setEditUrls(arr);
-  }, [notebookUrls]);
+  }, [notebookUrls, maxCount]);
 
   const handleUrlChange = (idx: number, val: string) => {
     setEditUrls(prev => {
@@ -151,7 +160,7 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
   };
 
   // Filter items that have a valid URL
-  const activeItems = GEMINI_ANALYSIS_TYPES.map((type, idx) => ({
+  const activeItems = analysisTypes.map((type, idx) => ({
     ...type,
     url: notebookUrls[idx] || ''
   })).filter(item => item.url.trim().length > 0);
@@ -171,11 +180,13 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 pb-4 border-b border-slate-800/40">
         <div>
           <h3 className={`text-sm sm:text-base font-bold flex items-center gap-2 ${isLight ? 'text-slate-900' : 'text-white'}`}>
-            <Sparkles className="w-4 h-4 text-indigo-400 animate-pulse" />
-            Materiały Analityczne i Wideo (Notebook Gemini / YouTube)
+            <Sparkles className="w-4 h-4 text-emerald-400 animate-pulse" />
+            {isBible ? 'Analizy Gemini Notebook z kodami QR' : 'Materiały Analityczne i Wideo (Notebook Gemini / YouTube)'}
           </h3>
           <p className={`text-xs mt-0.5 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-            Podcasty AI, analizy, fiszki i nagrania wideo powiązane z tym wpisem
+            {isBible
+              ? 'Wklej linki do analiz wybranych fragmentów Biblii w Gemini Notebook, aby wygenerować kody QR widoczne natychmiast na smartfonie'
+              : 'Podcasty AI, analizy, fiszki i nagrania wideo powiązane z tym wpisem'}
           </p>
         </div>
 
@@ -183,7 +194,7 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
           <span className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border ${
             isLight ? 'bg-white text-slate-700 border-slate-200' : headerGlow
           }`}>
-            {sectionName} — {activeItems.length} zasobów
+            {sectionName} — {activeItems.length} z {maxCount} zasobów
           </span>
 
           {/* Quick Edit Button for Admins */}
@@ -192,13 +203,13 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
               onClick={() => setIsEditing(true)}
               className={`px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition cursor-pointer border ${
                 isLight
-                  ? 'bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border-indigo-200'
-                  : 'bg-indigo-950/60 hover:bg-indigo-900 text-indigo-300 border-indigo-800'
+                  ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border-emerald-200'
+                  : 'bg-emerald-950/60 hover:bg-emerald-900 text-emerald-300 border-emerald-800'
               }`}
-              title="Edytuj linki Gemini i YouTube bezpośrednio w tym panelu"
+              title="Edytuj linki Gemini Notebook"
             >
               <Edit3 className="w-3.5 h-3.5" />
-              <span>Edytuj linki</span>
+              <span>Edytuj linki Gemini</span>
             </button>
           )}
         </div>
@@ -207,13 +218,13 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
       {/* INLINE ADMIN EDIT FORM */}
       {isEditing && (
         <div className={`mb-6 p-4 rounded-xl border animate-fadeIn ${
-          isLight ? 'bg-indigo-50/50 border-indigo-200' : 'bg-slate-900/90 border-indigo-900/60'
+          isLight ? 'bg-emerald-50/50 border-emerald-200' : 'bg-slate-900/90 border-emerald-900/60'
         }`}>
-          <div className="flex items-center justify-between mb-3 border-b border-indigo-900/30 pb-2">
+          <div className="flex items-center justify-between mb-3 border-b border-emerald-900/30 pb-2">
             <h4 className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${
-              isLight ? 'text-indigo-900' : 'text-indigo-300'
+              isLight ? 'text-emerald-900' : 'text-emerald-300'
             }`}>
-              <Edit3 className="w-3.5 h-3.5 text-indigo-400" />
+              <Edit3 className="w-3.5 h-3.5 text-emerald-400" />
               Szybka Edycja Linków Gemini ({sectionName})
             </h4>
             <div className="flex items-center gap-2">
@@ -244,26 +255,26 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
             </div>
           )}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 text-xs">
-            {GEMINI_ANALYSIS_TYPES.map((type, idx) => (
+          <div className={`grid grid-cols-1 ${isBible ? 'sm:grid-cols-2' : 'md:grid-cols-2'} gap-3 text-xs`}>
+            {analysisTypes.map((type, idx) => (
               <div key={type.id} className="space-y-1">
                 <label className={`block text-[11px] font-semibold flex items-center gap-1 ${
                   isLight ? 'text-slate-800' : 'text-slate-200'
                 }`}>
                   <span className="font-mono text-[10px] opacity-70">#{type.id}</span>
                   <span>{type.label}</span>
-                  <span className={`text-[9px] font-normal truncate ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                    ({type.desc})
-                  </span>
                 </label>
+                <p className={`text-[10px] ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
+                  {type.desc}
+                </p>
                 <input
                   type="url"
-                  value={editUrls[idx]}
+                  value={editUrls[idx] || ''}
                   onChange={(e) => handleUrlChange(idx, e.target.value)}
                   className={`w-full rounded-lg px-2.5 py-1.5 text-xs border focus:outline-none transition ${
-                    isLight ? 'bg-white border-slate-300 text-slate-900 focus:border-indigo-500' : 'bg-slate-950 border-slate-800 text-slate-100 focus:border-indigo-500'
+                    isLight ? 'bg-white border-slate-300 text-slate-900 focus:border-emerald-500' : 'bg-slate-950 border-slate-800 text-slate-100 focus:border-emerald-500'
                   }`}
-                  placeholder="https://..."
+                  placeholder="https://notebooklm.google.com/..."
                 />
               </div>
             ))}
@@ -276,57 +287,59 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
         <div className={`p-6 rounded-xl border text-center text-xs leading-relaxed flex flex-col items-center justify-center gap-2 ${
           isLight ? 'bg-slate-100/50 border-slate-200 text-slate-500' : 'bg-slate-900/30 border-slate-800/80 text-slate-400'
         }`}>
-          <div>💡 Brak wygenerowanych zasobów Notebook Gemini (analiz/syntez) dla tej publikacji.</div>
+          <div>💡 Brak wklejonych linków Gemini Notebook dla tego czytania.</div>
           {isAuthorized && onSaveUrls && !isEditing && (
             <button
               onClick={() => setIsEditing(true)}
-              className="mt-1 px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs rounded-xl shadow-md transition flex items-center gap-1.5 cursor-pointer"
+              className="mt-1 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow-md transition flex items-center gap-1.5 cursor-pointer"
             >
               <PlusCircle className="w-3.5 h-3.5" />
-              <span>Dodaj linki Gemini / YouTube dla tej strony</span>
+              <span>Dodaj 2 linki z kodami QR dla Gemini Notebook</span>
             </button>
           )}
         </div>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4">
+        <div className={`grid grid-cols-1 ${
+          isBible ? 'sm:grid-cols-2 max-w-3xl mx-auto' : 'sm:grid-cols-4 lg:grid-cols-8'
+        } gap-4`}>
           {activeItems.map(item => {
             const IconComp = item.icon;
             return (
               <div
                 key={item.id}
-                className={`flex flex-col justify-between p-3 rounded-xl border transition-all duration-300 hover:shadow-md ${
+                className={`flex flex-col justify-between p-4 rounded-xl border transition-all duration-300 hover:shadow-lg ${
                   isLight
-                    ? 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50/50'
-                    : 'bg-slate-900/40 border-slate-800/80 hover:border-slate-700/80 hover:bg-slate-850/40'
+                    ? 'bg-white border-slate-200 hover:border-emerald-300 hover:bg-slate-50/50'
+                    : 'bg-slate-900/60 border-slate-800/80 hover:border-emerald-800/80 hover:bg-slate-850/60'
                 }`}
               >
                 <div className="space-y-2 text-center">
-                  <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${item.color} mx-auto flex items-center justify-center text-white shadow-sm`}>
-                    <IconComp className="w-4 h-4" />
+                  <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${item.color} mx-auto flex items-center justify-center text-white shadow-md`}>
+                    <IconComp className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className={`text-[11px] font-extrabold leading-snug line-clamp-2 ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
+                    <h4 className={`text-xs sm:text-sm font-extrabold leading-snug ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
                       {item.label}
                     </h4>
-                    <p className="text-[9px] text-slate-500 mt-0.5 line-clamp-1">
+                    <p className="text-[10px] text-slate-400 mt-1 leading-normal">
                       {item.desc}
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-3 space-y-2.5">
+                <div className="mt-4 space-y-3">
                   <ClickableQrCode url={item.url} theme={theme} />
                   <a
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-full py-1 px-2 rounded-lg text-[10px] font-bold tracking-wide transition flex items-center justify-center gap-1 active:scale-95 ${
+                    className={`w-full py-2 px-3 rounded-xl text-xs font-bold tracking-wide transition flex items-center justify-center gap-1.5 active:scale-95 shadow-sm ${
                       isLight
-                        ? 'bg-slate-100 hover:bg-indigo-50 text-slate-700 hover:text-indigo-600'
-                        : 'bg-slate-800 hover:bg-indigo-900/30 text-slate-300 hover:text-indigo-300 border border-slate-700/40 hover:border-indigo-800/40'
+                        ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200'
+                        : 'bg-emerald-950/70 hover:bg-emerald-900/90 text-emerald-300 border border-emerald-800/60'
                     }`}
                   >
-                    Otwórz <ExternalLink className="w-2.5 h-2.5" />
+                    Otwórz w Gemini Notebook <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
               </div>

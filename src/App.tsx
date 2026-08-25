@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useMemo, lazy, Suspense } from 'react';
 import { auth, db, loginWithGoogle, logout, onAuthStateChanged, handleRedirectLogin, User } from './firebase';
-import { collection, getDocs, doc, setDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, setDoc, onSnapshot } from 'firebase/firestore';
 import { 
   DEFAULT_PRAYERS, getRGBABeads, getCMYKBeads, getPrayerSteps, 
   getCycleDayInfo, getActiveDecadeMystery, getDecadeForDay,
@@ -516,154 +516,182 @@ export default function App() {
   // Route initialization state to prevent URL race conditions on initial page load
   const [isRouteInitialized, setIsRouteInitialized] = useState<boolean>(false);
 
-  // Load local prayers & background sync from Firestore on startup
+  // Load local prayers & background real-time sync from Firestore on startup
   useEffect(() => {
     let isMounted = true;
+    let unsubPrayers: (() => void) | null = null;
+    let unsubBlogs: (() => void) | null = null;
+    let unsubBible: (() => void) | null = null;
 
-    async function loadAndSyncPrayers() {
-      // 1. First load from IndexedDB local storage
+    async function loadAndSyncAll() {
+      // 1. First load from IndexedDB local storage (instant offline rendering)
       try {
-        const local = await getLocalPrayers();
-        if (local && Object.keys(local).length > 0 && isMounted) {
-          setPrayers(prev => ({ ...prev, ...local }));
+        const localPrayers = await getLocalPrayers();
+        if (localPrayers && Object.keys(localPrayers).length > 0 && isMounted) {
+          setPrayers(prev => ({ ...prev, ...localPrayers }));
         }
       } catch (err) {
         console.warn("Failed to load local prayers:", err);
       }
 
-      // 2. Non-blocking background fetch from Firestore (syncs intro blocks with QR codes & custom prayers)
       try {
-        const snapshot = await getDocs(collection(db, 'prayers'));
-        if (!snapshot.empty && isMounted) {
-          const remotePrayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }> = {};
-          snapshot.forEach((docSnap) => {
-            const data = docSnap.data();
-            if (data && data.title && data.text) {
-              remotePrayers[docSnap.id] = {
-                title: data.title,
-                text: data.text,
-                notebookUrls: data.notebookUrls || [],
-                updatedBy: data.updatedBy,
-                updatedAt: data.updatedAt
-              };
-            }
-          });
-
-          if (Object.keys(remotePrayers).length > 0 && isMounted) {
-            setPrayers(prev => {
-              const merged = { ...prev };
-              Object.entries(remotePrayers).forEach(([key, remoteVal]) => {
-                const localVal = prev[key];
-                const finalUrls = (remoteVal.notebookUrls && remoteVal.notebookUrls.some(u => u?.trim()))
-                  ? remoteVal.notebookUrls
-                  : (localVal?.notebookUrls || []);
-
-                merged[key] = {
-                  ...remoteVal,
-                  notebookUrls: finalUrls
-                };
-              });
-
-              saveLocalPrayers(merged).catch(() => {});
-              return merged;
-            });
-          }
+        const localBlogs = await getAllLocalBlogEntries();
+        if (localBlogs && Object.keys(localBlogs).length > 0 && isMounted) {
+          setBlogEntries(prev => ({ ...prev, ...localBlogs }));
         }
-      } catch (cloudErr) {
-        console.info("Firestore background prayer sync skipped (offline or unauthenticated):", cloudErr);
+      } catch (err) {
+        console.warn("Failed to load local blog entries:", err);
       }
 
-      // 3. Non-blocking background fetch from Firestore for blog_entries (WnR365)
       try {
-        const blogSnapshot = await getDocs(collection(db, 'blog_entries'));
-        if (!blogSnapshot.empty && isMounted) {
-          const remoteBlogs: Record<string, any> = {};
-          blogSnapshot.forEach((docSnap) => {
-            const data = docSnap.data();
-            if (data && data.title && data.text) {
-              remoteBlogs[docSnap.id] = {
-                docId: docSnap.id,
-                dayIndex: data.dayIndex ?? 0,
-                title: data.title,
-                text: data.text,
-                notebookUrls: data.notebookUrls || [],
-                updatedBy: data.updatedBy,
-                updatedAt: data.updatedAt
-              };
-            }
-          });
-
-          if (Object.keys(remoteBlogs).length > 0 && isMounted) {
-            setBlogEntries(prev => {
-              const merged = { ...prev };
-              Object.entries(remoteBlogs).forEach(([key, remoteVal]) => {
-                const localVal = prev[key];
-                const finalUrls = (remoteVal.notebookUrls && remoteVal.notebookUrls.some((u: any) => u && String(u).trim().length > 0))
-                  ? remoteVal.notebookUrls
-                  : (localVal?.notebookUrls || []);
-
-                merged[key] = {
-                  ...remoteVal,
-                  notebookUrls: finalUrls
-                };
-                saveLocalBlogEntry(key, merged[key]).catch(() => {});
-              });
-              return merged;
-            });
-          }
+        const localBible = await getAllLocalBibleEntries();
+        if (localBible && Object.keys(localBible).length > 0 && isMounted) {
+          setBibleEntries(prev => ({ ...prev, ...localBible }));
         }
-      } catch (cloudBlogErr) {
-        console.info("Firestore background blog sync skipped:", cloudBlogErr);
+      } catch (err) {
+        console.warn("Failed to load local bible entries:", err);
       }
 
-      // 4. Non-blocking background fetch from Firestore for bible_entries (Biblia365)
+      if (!db) return;
+
+      // 2. Real-time Firestore sync listener for 'prayers'
       try {
-        const bibleSnapshot = await getDocs(collection(db, 'bible_entries'));
-        if (!bibleSnapshot.empty && isMounted) {
-          const remoteBible: Record<string, any> = {};
-          bibleSnapshot.forEach((docSnap) => {
-            const data = docSnap.data();
-            if (data && data.title && data.text) {
-              remoteBible[docSnap.id] = {
-                docId: docSnap.id,
-                slotIndex: data.slotIndex ?? 0,
-                title: data.title,
-                text: data.text,
-                notebookUrls: data.notebookUrls || [],
-                updatedBy: data.updatedBy,
-                updatedAt: data.updatedAt
-              };
-            }
-          });
-
-          if (Object.keys(remoteBible).length > 0 && isMounted) {
-            setBibleEntries(prev => {
-              const merged = { ...prev };
-              Object.entries(remoteBible).forEach(([key, remoteVal]) => {
-                const localVal = prev[key];
-                const finalUrls = (remoteVal.notebookUrls && remoteVal.notebookUrls.some((u: any) => u && String(u).trim().length > 0))
-                  ? remoteVal.notebookUrls
-                  : (localVal?.notebookUrls || []);
-
-                merged[key] = {
-                  ...remoteVal,
-                  notebookUrls: finalUrls
+        unsubPrayers = onSnapshot(collection(db, 'prayers'), (snapshot) => {
+          if (!snapshot.empty && isMounted) {
+            const remotePrayers: Record<string, any> = {};
+            snapshot.forEach((docSnap) => {
+              const data = docSnap.data();
+              if (data && (data.title || data.text || data.notebookUrls)) {
+                remotePrayers[docSnap.id] = {
+                  title: data.title || '',
+                  text: data.text || '',
+                  notebookUrls: data.notebookUrls || [],
+                  updatedBy: data.updatedBy,
+                  updatedAt: data.updatedAt
                 };
-                saveLocalBibleEntry(key, merged[key]).catch(() => {});
-              });
-              return merged;
+              }
             });
+
+            if (Object.keys(remotePrayers).length > 0 && isMounted) {
+              setPrayers(prev => {
+                const merged = { ...prev };
+                Object.entries(remotePrayers).forEach(([key, remoteVal]) => {
+                  merged[key] = {
+                    ...prev[key],
+                    ...remoteVal,
+                    notebookUrls: (remoteVal.notebookUrls && remoteVal.notebookUrls.some((u: any) => u && String(u).trim().length > 0))
+                      ? remoteVal.notebookUrls
+                      : (prev[key]?.notebookUrls || remoteVal.notebookUrls || [])
+                  };
+                });
+                saveLocalPrayers(merged).catch(() => {});
+                return merged;
+              });
+            }
           }
-        }
-      } catch (cloudBibleErr) {
-        console.info("Firestore background bible sync skipped:", cloudBibleErr);
+        }, (err) => {
+          console.info("Firestore live prayer sync skipped/error:", err?.message);
+        });
+      } catch (err) {
+        console.warn("Failed to attach prayers live sync:", err);
+      }
+
+      // 3. Real-time Firestore sync listener for 'blog_entries' (WnR365)
+      try {
+        unsubBlogs = onSnapshot(collection(db, 'blog_entries'), (snapshot) => {
+          if (!snapshot.empty && isMounted) {
+            const remoteBlogs: Record<string, any> = {};
+            snapshot.forEach((docSnap) => {
+              const data = docSnap.data();
+              if (data && (data.title || data.text || data.notebookUrls)) {
+                remoteBlogs[docSnap.id] = {
+                  docId: docSnap.id,
+                  dayIndex: data.dayIndex ?? 0,
+                  title: data.title || '',
+                  text: data.text || '',
+                  notebookUrls: data.notebookUrls || [],
+                  updatedBy: data.updatedBy,
+                  updatedAt: data.updatedAt
+                };
+              }
+            });
+
+            if (Object.keys(remoteBlogs).length > 0 && isMounted) {
+              setBlogEntries(prev => {
+                const merged = { ...prev };
+                Object.entries(remoteBlogs).forEach(([key, remoteVal]) => {
+                  merged[key] = {
+                    ...prev[key],
+                    ...remoteVal,
+                    notebookUrls: (remoteVal.notebookUrls && remoteVal.notebookUrls.some((u: any) => u && String(u).trim().length > 0))
+                      ? remoteVal.notebookUrls
+                      : (prev[key]?.notebookUrls || remoteVal.notebookUrls || [])
+                  };
+                  saveLocalBlogEntry(key, merged[key]).catch(() => {});
+                });
+                return merged;
+              });
+            }
+          }
+        }, (err) => {
+          console.info("Firestore live blog sync skipped/error:", err?.message);
+        });
+      } catch (err) {
+        console.warn("Failed to attach blog live sync:", err);
+      }
+
+      // 4. Real-time Firestore sync listener for 'bible_entries' (Biblia365)
+      try {
+        unsubBible = onSnapshot(collection(db, 'bible_entries'), (snapshot) => {
+          if (!snapshot.empty && isMounted) {
+            const remoteBible: Record<string, any> = {};
+            snapshot.forEach((docSnap) => {
+              const data = docSnap.data();
+              if (data) {
+                remoteBible[docSnap.id] = {
+                  docId: docSnap.id,
+                  slotIndex: data.slotIndex ?? 0,
+                  title: data.title || '',
+                  text: data.text || '',
+                  notebookUrls: data.notebookUrls || [],
+                  updatedBy: data.updatedBy,
+                  updatedAt: data.updatedAt
+                };
+              }
+            });
+
+            if (Object.keys(remoteBible).length > 0 && isMounted) {
+              setBibleEntries(prev => {
+                const merged = { ...prev };
+                Object.entries(remoteBible).forEach(([key, remoteVal]) => {
+                  merged[key] = {
+                    ...prev[key],
+                    ...remoteVal,
+                    notebookUrls: (remoteVal.notebookUrls && Array.isArray(remoteVal.notebookUrls))
+                      ? remoteVal.notebookUrls
+                      : (prev[key]?.notebookUrls || [])
+                  };
+                  saveLocalBibleEntry(key, merged[key]).catch(() => {});
+                });
+                return merged;
+              });
+            }
+          }
+        }, (err) => {
+          console.info("Firestore live bible sync skipped/error:", err?.message);
+        });
+      } catch (err) {
+        console.warn("Failed to attach bible live sync:", err);
       }
     }
 
-    loadAndSyncPrayers();
+    loadAndSyncAll();
 
     return () => {
       isMounted = false;
+      if (unsubPrayers) unsubPrayers();
+      if (unsubBlogs) unsubBlogs();
+      if (unsubBible) unsubBible();
     };
   }, []);
 

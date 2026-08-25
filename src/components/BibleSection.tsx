@@ -101,12 +101,12 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
 
     setEditingSlot(slotIdx);
     setEditTitle(savedData?.title || defaultData.defaultTitle);
-    setEditText(savedData?.text || defaultData.defaultText);
+    setEditText(savedData?.text || '');
     
-    const urls = Array(8).fill('');
+    const urls = Array(2).fill('');
     if (savedData?.notebookUrls && Array.isArray(savedData.notebookUrls)) {
       savedData.notebookUrls.forEach((u, i) => {
-        if (i < 8) urls[i] = u;
+        if (i < 2) urls[i] = u;
       });
     }
     setEditUrls(urls);
@@ -116,8 +116,8 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
 
   const handleSave = async () => {
     if (editingSlot === null) return;
-    if (!editTitle.trim() || !editText.trim()) {
-      setErrorMsg('Tytuł i treść nie mogą być puste!');
+    if (!editTitle.trim()) {
+      setErrorMsg('Tytuł nie może być pusty!');
       return;
     }
 
@@ -127,7 +127,7 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
 
     try {
       const docId = `bible_slot_${editingSlot}`;
-      await onSaveBibleEntry(docId, editTitle.trim(), editText.trim(), editingSlot, editUrls);
+      await onSaveBibleEntry(docId, editTitle.trim(), editText || '', editingSlot, editUrls);
       setSuccessMsg('Zapisano pomyślnie!');
       setTimeout(() => {
         setSuccessMsg('');
@@ -147,7 +147,7 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
       const defaultData = allChapters[slotIdx - 1];
       const savedData = bibleEntries[docId];
       const title = savedData?.title || defaultData?.defaultTitle || `Rozdział ${slotIdx}`;
-      const text = savedData?.text || defaultData?.defaultText || '';
+      const text = savedData?.text || '';
       await onSaveBibleEntry(docId, title, text, slotIdx, newUrls);
     } catch (err) {
       console.error('handleSaveBibleUrls error:', err);
@@ -239,7 +239,6 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
           const defaultData = allChapters[slotIdx - 1];
           const savedData = bibleEntries[`bible_slot_${slotIdx}`];
           const title = savedData?.title || defaultData.defaultTitle;
-          const text = savedData?.text || defaultData.defaultText;
           const notebookUrls = savedData?.notebookUrls || [];
 
           const isEditingThis = editingSlot === slotIdx;
@@ -293,44 +292,31 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
                         value={editTitle}
                         onChange={(e) => setEditTitle(e.target.value)}
                         className={`w-full rounded-xl px-3.5 py-2 text-sm border focus:outline-none transition ${
-                          isLight ? 'bg-white border-slate-200 text-slate-800 focus:border-indigo-500' : 'bg-slate-900 border-slate-800 text-slate-200 focus:border-slate-700'
+                          isLight ? 'bg-white border-slate-200 text-slate-800 focus:border-emerald-500' : 'bg-slate-900 border-slate-800 text-slate-200 focus:border-emerald-500'
                         }`}
                         placeholder="np. Księga Rodzaju — Rozdział 1"
                       />
                     </div>
 
-                    <div>
-                      <label className="block text-[11px] uppercase font-bold text-slate-400 mb-1">Treść Rozdziału</label>
-                      <div className="border border-slate-800 rounded-xl overflow-hidden bg-slate-950">
-                        <WysiwygToolbar
-                          text={editText}
-                          onChange={setEditText}
-                          textareaId={`bible-wysiwyg-${slotIdx}`}
-                          theme={theme}
-                          onThemeToggle={() => {}}
-                        />
-                      </div>
-                    </div>
-
-                    {/* Gemini URLs input */}
+                    {/* Gemini URLs input (2 fields for Biblia365) */}
                     <div className="pt-2 border-t border-slate-800/60 space-y-3">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-indigo-400 flex items-center gap-1.5">
-                        <Link className="w-3.5 h-3.5" /> Linki do Zasobów i YouTube (8 pól)
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+                        <Link className="w-3.5 h-3.5" /> Linki do Gemini Notebook (2 fragmenty z kodami QR)
                       </h4>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-                        {GEMINI_ANALYSIS_TYPES.map((type, idx) => (
+                        {[{ id: 1, label: 'Gemini Notebook — Analiza #1' }, { id: 2, label: 'Gemini Notebook — Analiza #2' }].map((type, idx) => (
                           <div key={type.id} className="space-y-1">
                             <label className="block font-semibold text-slate-300 font-sans">
-                              {type.id}. {type.label} <span className="font-normal text-[10px] text-slate-500">({type.desc})</span>
+                              {type.label}
                             </label>
                             <input
                               type="url"
-                              value={editUrls[idx]}
+                              value={editUrls[idx] || ''}
                               onChange={(e) => handleUrlChange(idx, e.target.value)}
                               className={`w-full rounded-lg px-3 py-1.5 text-xs border focus:outline-none transition ${
                                 isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-850 text-slate-200'
                               }`}
-                              placeholder="https://github.com/... lub notebook-url"
+                              placeholder="https://notebooklm.google.com/..."
                             />
                           </div>
                         ))}
@@ -367,7 +353,7 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
                         }`}
                       >
                         <Edit3 className="w-3.5 h-3.5 text-slate-400" />
-                        EDYTUJ ROZDZIAŁ
+                        EDYTUJ LINKI ROZDZIAŁU
                       </button>
                     )}
                   </div>
@@ -375,12 +361,6 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
                   <h2 className={`text-xl sm:text-2xl font-bold font-serif tracking-tight text-left ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
                     {title}
                   </h2>
-
-                  <div className={`text-base leading-relaxed text-justify font-serif min-h-[120px] border-l-2 pl-4 pt-1 ${
-                    isLight ? 'light-mode-text border-slate-300' : 'text-slate-300 border-emerald-500/20'
-                  }`} style={isLight ? { color: '#000000' } : undefined}>
-                    <RichTextRenderer text={text} theme={isLight ? 'light' : 'dark'} />
-                  </div>
 
                   {savedData?.updatedBy && (
                     <div className="text-right text-[9px] font-mono text-slate-500">
