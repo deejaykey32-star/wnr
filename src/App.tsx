@@ -1913,8 +1913,8 @@ export default function App() {
         isLight ? 'bg-slate-50' : 'bg-slate-950'
       }`}>
 
-        {/* Introductory Section — Wstęp */}
-        {!isYoutubeMode && (
+        {/* Introductory Section — Wstęp (tylko w zakładce Różaniec RHZ365) */}
+        {!isYoutubeMode && activeTab === 'rosary' && (
           <div className={`w-full max-w-7xl mb-5 rounded-2xl overflow-hidden border transition-all duration-300 shadow-lg ${
             isLight
               ? 'bg-white border-slate-200 shadow-slate-100'
@@ -1975,8 +1975,8 @@ export default function App() {
           </div>
         )}
 
-        {/* eMBiK Mission Statement Banner */}
-        {!isYoutubeMode && (
+        {/* eMBiK Mission Statement Banner (tylko w zakładce Różaniec RHZ365) */}
+        {!isYoutubeMode && activeTab === 'rosary' && (
           <div className={`w-full max-w-7xl mb-6 p-4.5 rounded-2xl shadow-md text-center relative overflow-hidden border transition-all duration-300 ${
             isLight 
               ? 'bg-white border-slate-200/80 shadow-slate-100' 
