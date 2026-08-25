@@ -3,14 +3,26 @@ export interface LocalBlogEntry {
   dayIndex: number;
   title: string;
   text: string;
+  notebookUrls?: string[];
+  updatedBy: string;
+  updatedAt: string;
+}
+
+export interface LocalBibleEntry {
+  docId: string; // bible_slot_X
+  slotIndex: number; // 1 to 1460
+  title: string;
+  text: string;
+  notebookUrls?: string[];
   updatedBy: string;
   updatedAt: string;
 }
 
 const DB_NAME = 'WnR365LocalNoSqlDb';
-const DB_VERSION = 2;
+const DB_VERSION = 3;
 const BLOG_STORE = 'blog_entries';
 const PRAYERS_STORE = 'prayers';
+const BIBLE_STORE = 'bible_entries';
 
 let dbPromise: Promise<IDBDatabase> | null = null;
 
@@ -34,6 +46,9 @@ function openDb(): Promise<IDBDatabase> {
           }
           if (!db.objectStoreNames.contains(PRAYERS_STORE)) {
             db.createObjectStore(PRAYERS_STORE, { keyPath: 'docId' });
+          }
+          if (!db.objectStoreNames.contains(BIBLE_STORE)) {
+            db.createObjectStore(BIBLE_STORE, { keyPath: 'docId' });
           }
         } catch (err) {
           console.warn('[NoSQL] Error during onupgradeneeded:', err);
@@ -62,7 +77,7 @@ function openDb(): Promise<IDBDatabase> {
 
 // Increment this version whenever wnr365_pdf_entries.json content changes significantly.
 // This forces a full IndexedDB reseed on next app load, clearing stale cached data.
-const DATA_VERSION = '2026-08-23-sync-1787503453287';
+const DATA_VERSION = '2026-08-23-sync-1787621895343';
 const DATA_VERSION_KEY = 'wnr365_db_data_version';
 
 /**
@@ -104,46 +119,96 @@ export async function initLocalNoSqlDb(): Promise<void> {
       // db_snapshot.json (2.8MB) is NOT loaded at startup to avoid blocking page load.
       // It is only used in the Admin panel for Firestore backup/restore operations.
       let wnrPdfMap: Record<string, any> = {};
+      let prayersMap: Record<string, any> = {};
+      let biblePdfMap: Record<string, any> = {};
 
       try {
-        const module = await import('../data/wnr365_pdf_entries.json');
-        wnrPdfMap = module.default as Record<string, any>;
-      } catch (importErr) {
-        console.warn('[NoSQL] Failed to import wnr365_pdf_entries.json:', importErr);
+        const snapshotModule = await import('../data/db_snapshot.json');
+        const snapshotData = snapshotModule.default;
+        if (snapshotData) {
+          if (snapshotData.blogEntries) wnrPdfMap = snapshotData.blogEntries;
+          if (snapshotData.prayers) prayersMap = { ...snapshotData.prayers };
+          if (snapshotData.bibleEntries) biblePdfMap = snapshotData.bibleEntries;
+          if (snapshotData.intro) {
+            Object.assign(prayersMap, snapshotData.intro);
+          }
+        }
+      } catch (snapErr) {
+        console.warn('[NoSQL] db_snapshot.json dynamic import fallback:', snapErr);
       }
 
-      // 2. Perform clear and seed blog entries in a readwrite transaction
-      // (Prayers are loaded from DEFAULT_PRAYERS in prayers.ts and merged at app level)
-      await new Promise<void>((resolve) => {
+      // 2. Perform clear and seed in a readwrite transaction
+      return new Promise<void>((resolve) => {
         try {
-          if (!db.objectStoreNames.contains(BLOG_STORE)) {
+          const storeNames: string[] = [];
+          if (db.objectStoreNames.contains(BLOG_STORE)) storeNames.push(BLOG_STORE);
+          if (db.objectStoreNames.contains(PRAYERS_STORE)) storeNames.push(PRAYERS_STORE);
+          if (db.objectStoreNames.contains(BIBLE_STORE)) storeNames.push(BIBLE_STORE);
+
+          if (storeNames.length === 0) {
             resolve();
             return;
           }
 
-          const tx = db.transaction(BLOG_STORE, 'readwrite');
-          const store = tx.objectStore(BLOG_STORE);
+          const tx = db.transaction(storeNames, 'readwrite');
+          const store = db.objectStoreNames.contains(BLOG_STORE) ? tx.objectStore(BLOG_STORE) : null;
+          const prayersStore = db.objectStoreNames.contains(PRAYERS_STORE) ? tx.objectStore(PRAYERS_STORE) : null;
+          const bibleStore = db.objectStoreNames.contains(BIBLE_STORE) ? tx.objectStore(BIBLE_STORE) : null;
 
           tx.onerror = () => { resolve(); };
           tx.onabort = () => { resolve(); };
 
-          store.clear();
+          // Clear old data so stale entries don't persist
+          if (store) store.clear();
+          if (prayersStore) prayersStore.clear();
+          if (bibleStore) bibleStore.clear();
+
+          // Seed prayers
+          if (prayersStore) {
+            Object.entries(prayersMap).forEach(([docId, p]: [string, any]) => {
+              if (p && p.text) {
+                prayersStore.put({ docId, ...p });
+              }
+            });
+          }
 
           // Seed blog entries
-          Object.entries(wnrPdfMap).forEach(([docId, entry]: [string, any]) => {
-            try {
-              store.put({
-                docId,
-                dayIndex: entry.dayIndex ?? 0,
-                title: entry.title,
-                text: entry.text,
-                updatedBy: entry.updatedBy || 'eMBiK365 Księga A5 PDF',
-                updatedAt: entry.updatedAt || new Date().toISOString()
-              });
-            } catch (putErr) {
-              console.warn(`[NoSQL] Error putting entry ${docId}:`, putErr);
-            }
-          });
+          if (store) {
+            Object.entries(wnrPdfMap).forEach(([docId, entry]: [string, any]) => {
+              try {
+                store.put({
+                  docId,
+                  dayIndex: entry.dayIndex ?? 0,
+                  title: entry.title,
+                  text: entry.text,
+                  notebookUrls: entry.notebookUrls || [],
+                  updatedBy: entry.updatedBy || 'NoSQL Snapshot (GitHub / Cloudflare)',
+                  updatedAt: entry.updatedAt || new Date().toISOString()
+                });
+              } catch (putErr) {
+                console.warn(`[NoSQL] Error putting entry ${docId}:`, putErr);
+              }
+            });
+          }
+
+          // Seed bible entries
+          if (bibleStore) {
+            Object.entries(biblePdfMap).forEach(([docId, entry]: [string, any]) => {
+              try {
+                bibleStore.put({
+                  docId,
+                  slotIndex: entry.slotIndex ?? 0,
+                  title: entry.title,
+                  text: entry.text,
+                  notebookUrls: entry.notebookUrls || [],
+                  updatedBy: entry.updatedBy || 'NoSQL Snapshot (GitHub / Cloudflare)',
+                  updatedAt: entry.updatedAt || new Date().toISOString()
+                });
+              } catch (putErr) {
+                console.warn(`[NoSQL] Error putting bible entry ${docId}:`, putErr);
+              }
+            });
+          }
 
           tx.oncomplete = () => {
             try {
@@ -211,7 +276,10 @@ export async function getAllLocalBlogEntries(): Promise<Record<string, LocalBlog
  * Saves a blog entry to local IndexedDB.
  * NEVER saves to Firestore automatically.
  */
-export async function saveLocalBlogEntry(docId: string, entry: { title: string; text: string; dayIndex: number; updatedBy?: string }): Promise<void> {
+export async function saveLocalBlogEntry(
+  docId: string, 
+  entry: { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }
+): Promise<void> {
   try {
     const db = await openDb();
     const tx = db.transaction(BLOG_STORE, 'readwrite');
@@ -222,14 +290,75 @@ export async function saveLocalBlogEntry(docId: string, entry: { title: string; 
       dayIndex: entry.dayIndex,
       title: entry.title,
       text: entry.text,
+      notebookUrls: entry.notebookUrls || [],
       updatedBy: entry.updatedBy || 'Edytor Lokalny',
-      updatedAt: new Date().toISOString()
+      updatedAt: entry.updatedAt || new Date().toISOString()
     };
 
     store.put(record);
     console.log(`[NoSQL] Saved locally: ${docId}`);
   } catch (err) {
     console.warn('[NoSQL] Failed to save to IndexedDB:', err);
+  }
+}
+
+/**
+ * Gets all local Bible entries: overlays default title/text with IndexedDB admin edits.
+ */
+export async function getAllLocalBibleEntries(): Promise<Record<string, LocalBibleEntry>> {
+  const result: Record<string, LocalBibleEntry> = {};
+
+  try {
+    const db = await openDb();
+    return new Promise((resolve) => {
+      const tx = db.transaction(BIBLE_STORE, 'readonly');
+      const store = tx.objectStore(BIBLE_STORE);
+      const req = store.getAll();
+
+      req.onsuccess = () => {
+        if (req.result && Array.isArray(req.result)) {
+          req.result.forEach((item: LocalBibleEntry) => {
+            if (item && item.docId) {
+              result[item.docId] = item;
+            }
+          });
+        }
+        resolve(result);
+      };
+
+      req.onerror = () => resolve(result);
+    });
+  } catch {
+    return result;
+  }
+}
+
+/**
+ * Saves a Bible chapter entry to local IndexedDB.
+ */
+export async function saveLocalBibleEntry(
+  docId: string,
+  entry: { title: string; text: string; slotIndex: number; notebookUrls?: string[]; updatedBy?: string }
+): Promise<void> {
+  try {
+    const db = await openDb();
+    const tx = db.transaction(BIBLE_STORE, 'readwrite');
+    const store = tx.objectStore(BIBLE_STORE);
+
+    const record: LocalBibleEntry = {
+      docId,
+      slotIndex: entry.slotIndex,
+      title: entry.title,
+      text: entry.text,
+      notebookUrls: entry.notebookUrls || [],
+      updatedBy: entry.updatedBy || 'Edytor Lokalny',
+      updatedAt: new Date().toISOString()
+    };
+
+    store.put(record);
+    console.log(`[NoSQL] Bible saved locally: ${docId}`);
+  } catch (err) {
+    console.warn('[NoSQL] Failed to save Bible to IndexedDB:', err);
   }
 }
 
@@ -289,7 +418,9 @@ export async function resetLocalToSeedData(): Promise<void> {
 /**
  * Saves all prayers to local IndexedDB.
  */
-export async function saveLocalPrayers(prayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>): Promise<void> {
+export async function saveLocalPrayers(
+  prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>
+): Promise<void> {
   try {
     const db = await openDb();
     const tx = db.transaction(PRAYERS_STORE, 'readwrite');
@@ -306,7 +437,10 @@ export async function saveLocalPrayers(prayers: Record<string, { title: string; 
 /**
  * Saves a single prayer or intro block to local IndexedDB.
  */
-export async function saveSingleLocalPrayer(docId: string, prayer: { title: string; text: string; updatedBy?: string; updatedAt?: string }): Promise<void> {
+export async function saveSingleLocalPrayer(
+  docId: string, 
+  prayer: { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }
+): Promise<void> {
   try {
     const db = await openDb();
     const tx = db.transaction(PRAYERS_STORE, 'readwrite');
@@ -320,7 +454,7 @@ export async function saveSingleLocalPrayer(docId: string, prayer: { title: stri
 /**
  * Gets locally stored prayers from IndexedDB.
  */
-export async function getLocalPrayers(): Promise<Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }> | null> {
+export async function getLocalPrayers(): Promise<Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }> | null> {
   try {
     const db = await openDb();
     return new Promise((resolve) => {
@@ -333,8 +467,8 @@ export async function getLocalPrayers(): Promise<Record<string, { title: string;
           resolve(null);
           return;
         }
-        const result: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }> = {};
-        req.result.forEach((item: { docId: string; title: string; text: string; updatedBy?: string; updatedAt?: string }) => {
+        const result: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }> = {};
+        req.result.forEach((item: { docId: string; title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }) => {
           if (item && item.docId) {
             const { docId, ...rest } = item;
             result[docId] = rest;
@@ -359,16 +493,18 @@ export interface FullNoSqlSnapshot {
     introTextMission?: { title: string; text: string; updatedBy?: string; updatedAt?: string };
     [key: string]: any;
   };
-  prayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>;
-  blogEntries: Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>;
+  prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
+  blogEntries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
+  bibleEntries?: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
 }
 
 /**
- * Creates a complete, unified NoSQL database snapshot containing all days of RHZ365, WnR365, and Intro blocks.
+ * Creates a complete, unified NoSQL database snapshot containing all days of RHZ365, WnR365, Bible365, and Intro blocks.
  */
 export function createNoSqlSnapshot(
-  prayersData: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>,
-  blogEntriesData: Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>
+  prayersData: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>,
+  blogEntriesData: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>,
+  bibleEntriesData?: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>
 ): FullNoSqlSnapshot {
   const introBlocks: Record<string, any> = {};
   if (prayersData['introTextMain']) introBlocks['introTextMain'] = prayersData['introTextMain'];
@@ -380,24 +516,32 @@ export function createNoSqlSnapshot(
     source: 'widokinaraj.pl NoSQL Core (GitHub / Cloudflare Pages)',
     intro: introBlocks,
     prayers: prayersData,
-    blogEntries: blogEntriesData
+    blogEntries: blogEntriesData,
+    bibleEntries: bibleEntriesData || {}
   };
 }
 
 /**
  * Imports a full NoSQL snapshot into IndexedDB in a single clean transaction.
  */
-export async function importFullNoSqlSnapshot(snapshot: FullNoSqlSnapshot): Promise<{ prayersCount: number; blogCount: number }> {
+export async function importFullNoSqlSnapshot(snapshot: FullNoSqlSnapshot): Promise<{ prayersCount: number; blogCount: number; bibleCount: number }> {
   const db = await openDb();
 
-  return new Promise<{ prayersCount: number; blogCount: number }>((resolve, reject) => {
+  return new Promise<{ prayersCount: number; blogCount: number; bibleCount: number }>((resolve, reject) => {
     try {
-      const tx = db.transaction([BLOG_STORE, PRAYERS_STORE], 'readwrite');
+      const activeStores = [BLOG_STORE, PRAYERS_STORE];
+      if (db.objectStoreNames.contains(BIBLE_STORE)) {
+        activeStores.push(BIBLE_STORE);
+      }
+
+      const tx = db.transaction(activeStores, 'readwrite');
       const blogStore = tx.objectStore(BLOG_STORE);
       const prayersStore = tx.objectStore(PRAYERS_STORE);
+      const bibleStore = db.objectStoreNames.contains(BIBLE_STORE) ? tx.objectStore(BIBLE_STORE) : null;
 
       let prayersCount = 0;
       let blogCount = 0;
+      let bibleCount = 0;
 
       if (snapshot.prayers) {
         Object.entries(snapshot.prayers).forEach(([docId, prayer]) => {
@@ -425,6 +569,7 @@ export async function importFullNoSqlSnapshot(snapshot: FullNoSqlSnapshot): Prom
               dayIndex: entry.dayIndex ?? 0,
               title: entry.title,
               text: entry.text,
+              notebookUrls: entry.notebookUrls || [],
               updatedBy: entry.updatedBy || 'NoSQL Snapshot Import',
               updatedAt: entry.updatedAt || new Date().toISOString()
             });
@@ -433,11 +578,28 @@ export async function importFullNoSqlSnapshot(snapshot: FullNoSqlSnapshot): Prom
         });
       }
 
+      if (snapshot.bibleEntries && bibleStore) {
+        Object.entries(snapshot.bibleEntries).forEach(([docId, entry]) => {
+          if (entry && entry.title && entry.text) {
+            bibleStore.put({
+              docId,
+              slotIndex: entry.slotIndex ?? 0,
+              title: entry.title,
+              text: entry.text,
+              notebookUrls: itemNotebookUrls(entry),
+              updatedBy: entry.updatedBy || 'NoSQL Snapshot Import',
+              updatedAt: entry.updatedAt || new Date().toISOString()
+            });
+            bibleCount++;
+          }
+        });
+      }
+
       tx.oncomplete = () => {
         try {
           localStorage.setItem(DATA_VERSION_KEY, snapshot.version || DATA_VERSION);
         } catch {}
-        resolve({ prayersCount, blogCount });
+        resolve({ prayersCount, blogCount, bibleCount });
       };
 
       tx.onerror = (e) => reject(tx.error || e);
@@ -445,4 +607,9 @@ export async function importFullNoSqlSnapshot(snapshot: FullNoSqlSnapshot): Prom
       reject(err);
     }
   });
+}
+
+function itemNotebookUrls(entry: any): string[] {
+  if (Array.isArray(entry.notebookUrls)) return entry.notebookUrls;
+  return [];
 }

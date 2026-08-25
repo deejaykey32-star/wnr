@@ -4,15 +4,17 @@ import { generateQrCodeDataUri } from './qrCodeGenerator';
 import { getRhzList } from '../data/prayers';
 import { parseDayText } from './rhzParser';
 import { getWnrDefaultBlogEntry } from './wnrBlogDefaults';
+import { getBibleChapters, getBibleSlotForDate } from './bibleHelper';
 
 export interface EpubExportOptions {
-  scope: 'rhz365' | 'wnr365' | 'both';
+  scope: 'rhz365' | 'wnr365' | 'bible365' | 'all' | 'both';
   range: 'single' | 'full';
   includeCover: boolean;
   selectedDate: Date;
   dayOfCycle: number;
-  prayers: Record<string, { title: string; text: string }>;
-  blogEntries: Record<string, { title: string; text: string; dayIndex: number }>;
+  prayers: Record<string, { title: string; text: string; notebookUrls?: string[] }>;
+  blogEntries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[] }>;
+  bibleEntries?: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[] }>;
 }
 
 const MONTH_NAMES_GENITIVE = [
@@ -48,7 +50,7 @@ export const generateEpubBook = async (
   options: EpubExportOptions,
   onProgress?: (msg: string, percent?: number) => void
 ): Promise<void> => {
-  const { scope, range, includeCover, dayOfCycle, prayers, blogEntries } = options;
+  const { scope, range, includeCover, selectedDate, dayOfCycle, prayers, blogEntries, bibleEntries } = options;
 
   if (onProgress) onProgress("Inicjalizacja generatora EPUB (skład e-book 12pt)...", 0);
 
@@ -183,6 +185,8 @@ p {
   const startDayIdx = range === 'single' ? dayOfCycle - 1 : 0;
   const endDayIdx = range === 'single' ? dayOfCycle : 365;
 
+  const { dayIndex } = getBibleSlotForDate(selectedDate);
+
   const manifestItems: string[] = [
     `<item id="css" href="style.css" media-type="text/css"/>`,
     `<item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>`
@@ -212,8 +216,20 @@ p {
       manifestItems.push(`<item id="${introId}" href="${introHref}" media-type="application/xhtml+xml"/>`);
       spineRefs.push(`<itemref idref="${introId}"/>`);
 
-      const mainParas = (mainText || '').split(/\n\s*\n+/).map(p => `<p>${escapeXml(p.trim())}</p>`).join('');
-      const missionPara = missionText ? `<div className="box"><h3>Misja eMBiK365</h3><p><strong>${escapeXml(missionText.trim())}</strong></p></div>` : '';
+      const mainParas = formatParagraphsHtml(mainText || '');
+      const missionPara = missionText ? `<div class="box"><h3>Misja eMBiK365</h3>${formatParagraphsHtml(missionText)}</div>` : '';
+
+      // Extract and render QR Codes for the introduction if any links are inside
+      const introUrls = extractUrlsFromText(`${mainText || ''} ${missionText || ''}`);
+      let introQrHtml = '';
+      for (const urlItem of introUrls) {
+        const qrDataBase64 = await generateQrCodeDataUri(urlItem);
+        introQrHtml += `  <div class="qr-container">
+    <img src="${qrDataBase64}" class="qr-img" alt="Kod QR" />
+    <br/>
+    <a href="${escapeXml(urlItem)}" class="qr-url" target="_blank">${escapeXml(urlItem)}</a>
+  </div>\n`;
+      }
 
       const introHtml = `<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
@@ -224,6 +240,7 @@ p {
 </head>
 <body>
   <h1>${escapeXml(introTitle)}</h1>
+  ${introQrHtml}
   ${mainParas}
   ${missionPara}
 </body>
@@ -233,21 +250,74 @@ p {
     }
   }
 
-  for (let i = startDayIdx; i < endDayIdx; i++) {
-    const dayNum = i + 1;
-    const current = i - startDayIdx + 1;
-    const total = endDayIdx - startDayIdx;
-    const pct = Math.round((current / total) * 85);
+  if (scope === 'bible365' && range === 'full') {
+    const totalCount = 1460;
+    const allBibleDefaults = getBibleChapters();
 
-    if (onProgress) {
-      onProgress(`Generowanie rozdziałów EPUB: Dzień ${dayNum} (${current}/${total})...`, pct);
+    for (let slot = 1; slot <= totalCount; slot++) {
+      const pct = Math.round((slot / totalCount) * 85);
+      if (onProgress) {
+        onProgress(`Generowanie rozdziałów Biblia365: Czytanie ${slot} z 1460...`, pct);
+      }
+      await new Promise((r) => setTimeout(r, 0));
+
+      const defaultData = allBibleDefaults[slot - 1];
+      const savedData = bibleEntries?.[`bible_slot_${slot}`];
+      const title = savedData?.title || defaultData.defaultTitle;
+      const text = savedData?.text || defaultData.defaultText;
+      const notebookUrls = savedData?.notebookUrls || [];
+
+      const chapterId = `bible_slot_${slot}`;
+      const chapterHref = `${chapterId}.xhtml`;
+      const chapterTitle = `Czytanie ${slot} — ${title}`;
+
+      tocEntries.push({ id: chapterId, title: chapterTitle, href: chapterHref });
+      manifestItems.push(`<item id="${chapterId}" href="${chapterHref}" media-type="application/xhtml+xml"/>`);
+      spineRefs.push(`<itemref idref="${chapterId}"/>`);
+
+      const allUrls: string[] = [];
+      notebookUrls.forEach(u => { if (u) allUrls.push(u); });
+
+      let chapterHtml = `<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+<head>
+  <title>${escapeXml(chapterTitle)}</title>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+  <h1>Czytanie ${slot}</h1>
+  <h2>${escapeXml(title)}</h2>
+`;
+
+      for (const urlItem of allUrls) {
+        const qrDataBase64 = await generateQrCodeDataUri(urlItem);
+        chapterHtml += `  <div class="qr-container">
+    <img src="${qrDataBase64}" class="qr-img" alt="Kod QR" />
+    <br/>
+    <a href="${escapeXml(urlItem)}" class="qr-url" target="_blank">${escapeXml(urlItem)}</a>
+  </div>\n`;
+      }
+
+      chapterHtml += formatParagraphsHtml(text);
+      chapterHtml += `</body>\n</html>`;
+      zip.file(`OEBPS/${chapterHref}`, chapterHtml);
     }
+  } else {
+    for (let i = startDayIdx; i < endDayIdx; i++) {
+      const dayNum = i + 1;
+      const current = i - startDayIdx + 1;
+      const total = endDayIdx - startDayIdx;
+      const pct = Math.round((current / total) * 85);
 
-    // Yield control to browser main loop so progress bar updates smoothly without UI lag
-    await new Promise((r) => setTimeout(r, 0));
+      if (onProgress) {
+        onProgress(`Generowanie rozdziałów EPUB: Rozdział ${dayNum} (${current}/${total})...`, pct);
+      }
 
-    const date = getDateFromDayIndex(i);
-    const dayLabel = `${date.getDate()} ${MONTH_NAMES_GENITIVE[date.getMonth()]}`;
+      await new Promise((r) => setTimeout(r, 0));
+
+      const date = getDateFromDayIndex(i);
+      const dayLabel = `${date.getDate()} ${MONTH_NAMES_GENITIVE[date.getMonth()]}`;
 
     let cycleName = "";
     if (i >= 0 && i < 175) {
@@ -298,11 +368,55 @@ p {
     const baseUrl = (typeof window !== 'undefined' && window.location?.origin)
       ? window.location.origin
       : 'https://widokinaraj.pages.dev';
-    const dayUrl = scope === 'wnr365'
-      ? `${baseUrl}/#/wnr365-day-${dayNum}`
-      : `${baseUrl}/#/rhz365-day-${dayNum}`;
+    
+    let dayUrl = `${baseUrl}/#/rhz365-day-${dayNum}`;
+    if (scope === 'wnr365') {
+      dayUrl = `${baseUrl}/#/wnr365-day-${dayNum}`;
+    } else if (scope === 'bible365') {
+      dayUrl = `${baseUrl}/#/bible365-day-${dayNum}`;
+    }
+
+    const allUrls = [dayUrl];
+    
+    // Add RHZ Notebook URLs if active
+    if (scope === 'rhz365' || scope === 'both' || scope === 'all') {
+      const rhzUrls = prayers[firestoreKey]?.notebookUrls || [];
+      rhzUrls.forEach(u => { if (u) allUrls.push(u); });
+    }
+    
+    // Add WnR Notebook URLs if active
+    if (scope === 'wnr365' || scope === 'both' || scope === 'all') {
+      const wnrUrls = wnrDoc.notebookUrls || [];
+      wnrUrls.forEach(u => { if (u) allUrls.push(u); });
+    }
+    
+    // Add Biblia365 Notebook URLs if active
+    if (scope === 'all') {
+      const startSlot = i * 4 + 1;
+      for (let s = 0; s < 4; s++) {
+        const slot = startSlot + s;
+        if (slot <= 1460) {
+          const bibleUrls = bibleEntries?.[`bible_slot_${slot}`]?.notebookUrls || [];
+          bibleUrls.forEach(u => { if (u) allUrls.push(u); });
+        }
+      }
+    } else if (scope === 'bible365' && range === 'single') {
+      const { slotIndex: fourYearSlot } = getBibleSlotForDate(selectedDate);
+      const slots = [fourYearSlot];
+      const start1YearSlot = dayIndex * 4 + 1;
+      for (let s = 0; s < 4; s++) {
+        const slot = start1YearSlot + s;
+        if (slot <= 1460 && !slots.includes(slot)) slots.push(slot);
+      }
+      for (const slot of slots) {
+        const bibleUrls = bibleEntries?.[`bible_slot_${slot}`]?.notebookUrls || [];
+        bibleUrls.forEach(u => { if (u) allUrls.push(u); });
+      }
+    }
+
     const embeddedUrls = extractUrlsFromText(`${rawRhzText} ${wnrDoc.text || ''}`);
-    const allUrls = Array.from(new Set([dayUrl, ...embeddedUrls]));
+    embeddedUrls.forEach(u => { if (u) allUrls.push(u); });
+    const uniqueUrls = Array.from(new Set(allUrls));
 
     let chapterHtml = `<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
@@ -316,7 +430,7 @@ p {
   <h3>${escapeXml(cycleName)}</h3>
 `;
 
-    for (const urlItem of allUrls) {
+    for (const urlItem of uniqueUrls) {
       const qrDataBase64 = await generateQrCodeDataUri(urlItem);
       chapterHtml += `  <div class="qr-container">
     <img src="${qrDataBase64}" class="qr-img" alt="Kod QR" />
@@ -377,14 +491,52 @@ const formatParagraphsHtml = (rawText: string): string => {
       }
     }
 
-    if (scope === 'wnr365' || scope === 'both') {
+    if (scope === 'wnr365' || scope === 'both' || scope === 'all') {
       chapterHtml += `<h2>Widoki na Raj (WnR365)</h2>`;
       chapterHtml += `<h3>${escapeXml(wnrDoc.title || `Rozważanie Słowa - Dzień ${dayNum}`)}</h3>`;
       chapterHtml += formatParagraphsHtml(wnrDoc.text || '');
     }
 
+    if (scope === 'all') {
+      chapterHtml += `<h2>Czytania Biblia365</h2>`;
+      const startSlot = i * 4 + 1;
+      for (let s = 0; s < 4; s++) {
+        const slot = startSlot + s;
+        if (slot <= 1460) {
+          const allBibleDefaults = getBibleChapters();
+          const defaultData = allBibleDefaults[slot - 1];
+          const savedData = bibleEntries?.[`bible_slot_${slot}`];
+          const title = savedData?.title || defaultData.defaultTitle;
+          const text = savedData?.text || defaultData.defaultText;
+          
+          chapterHtml += `<h3>Czytanie ${slot}: ${escapeXml(title)}</h3>`;
+          chapterHtml += formatParagraphsHtml(text);
+        }
+      }
+    } else if (scope === 'bible365' && range === 'single') {
+      chapterHtml += `<h2>Pismo Święte (Biblia365)</h2>`;
+      const { slotIndex: fourYearSlot } = getBibleSlotForDate(selectedDate);
+      const slots = [fourYearSlot];
+      const start1YearSlot = dayIndex * 4 + 1;
+      for (let s = 0; s < 4; s++) {
+        const slot = start1YearSlot + s;
+        if (slot <= 1460 && !slots.includes(slot)) slots.push(slot);
+      }
+      for (const slot of slots) {
+        const allBibleDefaults = getBibleChapters();
+        const defaultData = allBibleDefaults[slot - 1];
+        const savedData = bibleEntries?.[`bible_slot_${slot}`];
+        const title = savedData?.title || defaultData.defaultTitle;
+        const text = savedData?.text || defaultData.defaultText;
+        
+        chapterHtml += `<h3>Czytanie ${slot}: ${escapeXml(title)}</h3>`;
+        chapterHtml += formatParagraphsHtml(text);
+      }
+    }
+
     chapterHtml += `</body>\n</html>`;
     zip.file(`OEBPS/${chapterHref}`, chapterHtml);
+  }
   }
 
   // Table of Contents chapter

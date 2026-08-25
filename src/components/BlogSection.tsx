@@ -11,7 +11,7 @@ import {
 import { 
   Play, Pause, ChevronLeft, ChevronRight, RotateCcw, 
   Edit3, Volume2, Mic, MicOff, Calendar, Save, BookOpen, AlertCircle, Sparkles, FileDown, Video, RefreshCw,
-  Bookmark, Repeat, Film, Download, ExternalLink
+  Bookmark, Repeat, Film, Download, ExternalLink, Link
 } from 'lucide-react';
 import { generateVideoClientSide } from '../utils/videoGenerator';
 import { RichTextRenderer } from '../utils/richTextHelper';
@@ -19,16 +19,18 @@ import { WysiwygToolbar } from './WysiwygToolbar';
 import { getWnrDefaultBlogEntry } from '../utils/wnrBlogDefaults';
 // restoreAllWnrBlogEntries removed — use AdminSyncPanel for Firestore operations
 import { saveLocalBlogEntry } from '../utils/localNoSqlDb';
+import { NotebookGeminiPanel, GEMINI_ANALYSIS_TYPES } from './NotebookGeminiPanel';
 
 interface BlogSectionProps {
   user: any;
   isAuthorized: boolean;
   selectedDate: Date;
   setSelectedDate: (d: Date) => void;
-  blogEntries: Record<string, { title: string; text: string; dayIndex: number; updatedBy?: string; updatedAt?: string }>;
+  blogEntries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
   prayers?: Record<string, any>;
   theme?: string;
   onOpenExportModal?: () => void;
+  onBlogEntriesUpdated?: (entries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>) => void;
 }
 
 export const BlogSection: React.FC<BlogSectionProps> = ({ 
@@ -39,12 +41,14 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   blogEntries,
   prayers = {},
   theme = 'dark',
-  onOpenExportModal
+  onOpenExportModal,
+  onBlogEntriesUpdated
 }) => {
   const isLight = theme === 'light';
   const [editing, setEditing] = useState<boolean>(false);
   const [editTitle, setEditTitle] = useState<string>('');
   const [editText, setEditText] = useState<string>('');
+  const [editUrls, setEditUrls] = useState<string[]>(Array(8).fill(''));
   const [saving, setSaving] = useState<boolean>(false);
   const [saveStatus, setSaveStatus] = useState<{ success?: boolean; message?: string } | null>(null);
   const [restoringCloud, setRestoringCloud] = useState<boolean>(false); // kept for UI compat
@@ -209,6 +213,15 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     setEditTitle(activeEntry.title);
     setEditText(activeEntry.text);
     setEditing(false);
+
+    const urls = Array(8).fill('');
+    if (activeEntry.notebookUrls && Array.isArray(activeEntry.notebookUrls)) {
+      activeEntry.notebookUrls.forEach((u, i) => {
+        if (i < 8) urls[i] = u;
+      });
+    }
+    setEditUrls(urls);
+
     if (!isContinuousPlaybackRef.current) {
       setIsPlaying(false);
     }
@@ -587,8 +600,26 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         title: editTitle.trim(),
         text: editText.trim(),
         dayIndex: cycleInfo.dayIndex,
+        notebookUrls: editUrls,
         updatedBy: user?.email || 'Edytor'
       });
+
+      const nextEntries = {
+        ...blogEntries,
+        [docId]: {
+          docId,
+          dayIndex: cycleInfo.dayIndex,
+          title: editTitle.trim(),
+          text: editText.trim(),
+          notebookUrls: editUrls,
+          updatedBy: user?.email || 'Edytor',
+          updatedAt: new Date().toISOString()
+        }
+      };
+      if (onBlogEntriesUpdated) {
+        onBlogEntriesUpdated(nextEntries);
+      }
+
       setSaveStatus({ success: true, message: "Wpis zapisany w lokalnej bazie NoSQL! Aby wysłać do Firestore, użyj panelu synchronizacji." });
       setEditing(false);
       setTimeout(() => setSaveStatus(null), 5000);
@@ -1360,6 +1391,38 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                       />
                     </div>
 
+                    {/* Gemini Notebook URLs Edit Section */}
+                    <div className="pt-4 mt-4 border-t border-slate-800/60 space-y-3 text-left">
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-amber-500 flex items-center gap-1.5 font-sans">
+                        <Link className="w-3.5 h-3.5" /> Linki do Zasobów i YouTube (8 pól)
+                      </h4>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                        {GEMINI_ANALYSIS_TYPES.map((type, idx) => (
+                          <div key={type.id} className="space-y-1 font-sans">
+                            <label className="block font-semibold text-zinc-400">
+                              {type.id}. {type.label} <span className="font-normal text-[10px] text-zinc-500">({type.desc})</span>
+                            </label>
+                            <input
+                              type="url"
+                              value={editUrls[idx] || ''}
+                              onChange={(e) => {
+                                const val = e.target.value;
+                                setEditUrls(prev => {
+                                  const next = [...prev];
+                                  next[idx] = val;
+                                  return next;
+                                });
+                              }}
+                              className={`w-full rounded-lg px-3 py-1.5 text-xs border focus:outline-none transition ${
+                                isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-850 text-slate-200'
+                              }`}
+                              placeholder="https://github.com/... lub notebook-url"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
                     {saveStatus && (
                       <div className={`text-xs p-3 rounded-lg border ${
                         saveStatus.success 
@@ -1399,6 +1462,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                     }`}>
                       <RichTextRenderer text={activeEntry.text} theme={isLight ? 'light' : 'dark'} />
                     </div>
+                    {/* Notebook Gemini Panel */}
+                    <NotebookGeminiPanel notebookUrls={activeEntry.notebookUrls || []} theme={isLight ? 'light' : 'dark'} sectionName="WnR365" />
 
                     {activeEntry.updatedBy && (
                       <div className="mt-6 pt-4 border-t border-slate-900 text-right text-[10px] text-slate-500 font-mono">

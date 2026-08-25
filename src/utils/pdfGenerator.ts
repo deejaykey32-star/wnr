@@ -5,6 +5,8 @@ import { getRhzList } from '../data/prayers';
 import { parseDayText } from './rhzParser';
 import { getWnrDefaultBlogEntry } from './wnrBlogDefaults';
 import { normalizeTextParagraphs } from './richTextHelper';
+import { getBibleChapters, getBibleSlotForDate } from './bibleHelper';
+import { GEMINI_ANALYSIS_TYPES } from '../components/NotebookGeminiPanel';
 
 import { ROBOTO_REGULAR_BASE64, ROBOTO_BOLD_BASE64 } from '../assets/robotoBase64';
 
@@ -45,20 +47,21 @@ const extractUrlsFromText = (text: string): string[] => {
 };
 
 export interface CustomPdfOptions {
-  scope: 'rhz365' | 'wnr365' | 'both';
+  scope: 'rhz365' | 'wnr365' | 'bible365' | 'all' | 'both';
   range: 'single' | 'full';
   includeCover: boolean;
   selectedDate: Date;
   dayOfCycle: number;
-  prayers: Record<string, { title: string; text: string }>;
-  blogEntries: Record<string, { title: string; text: string; dayIndex: number }>;
+  prayers: Record<string, { title: string; text: string; notebookUrls?: string[] }>;
+  blogEntries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[] }>;
+  bibleEntries?: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[] }>;
 }
 
 export const generateCustomScopePdf = async (
   options: CustomPdfOptions,
   onProgress?: (msg: string, percent?: number) => void
 ): Promise<void> => {
-  const { scope, range, includeCover, dayOfCycle, prayers, blogEntries } = options;
+  const { scope, range, includeCover, selectedDate, dayOfCycle, prayers, blogEntries, bibleEntries } = options;
 
   if (onProgress) onProgress("Inicjalizacja generatora PDF A5 (czcionka Unicode 12pt)...", 0);
 
@@ -151,7 +154,9 @@ export const generateCustomScopePdf = async (
     ? "Różaniec Historii Zbawienia — RHZ365" 
     : scope === 'wnr365' 
       ? "Widoki na Raj — WnR365" 
-      : "eMBiK365 — RHZ365 & WnR365";
+      : scope === 'bible365'
+        ? "Pismo Święte — Biblia365"
+        : "eMBiK365 — Pełne Wydanie (RHZ, WnR & Biblia)";
 
   let y = margin + 5;
   drawHeaderFooter(currentPage, headerTitle);
@@ -347,6 +352,89 @@ export const generateCustomScopePdf = async (
     }
   };
 
+  const renderGeminiNotebookQrBoxes = async (
+    notebookUrls: string[] | undefined,
+    currentY: number
+  ): Promise<number> => {
+    if (!notebookUrls || !Array.isArray(notebookUrls)) return currentY;
+    const activeUrls = notebookUrls
+      .map((url, idx) => ({ url, type: GEMINI_ANALYSIS_TYPES[idx] }))
+      .filter(item => item.url && item.url.trim().length > 0 && item.type);
+
+    if (activeUrls.length === 0) return currentY;
+
+    let tempY = currentY;
+    checkAndBreakPage(16);
+    doc.setFont(fontName, 'bold');
+    doc.setFontSize(9.5);
+    doc.setTextColor(79, 70, 229); // indigo-600
+    doc.text("Materiały analityczne (Notebook Gemini QR):", margin, tempY);
+    tempY += 5;
+
+    for (const item of activeUrls) {
+      checkAndBreakPage(26);
+      try {
+        const qrDataUri = await generateQrCodeDataUri(item.url);
+        const boxHeight = 22;
+        const qrSize = 16;
+        const qrX = margin + contentWidth - qrSize - 3;
+        const qrY = tempY + 3;
+        const maxTextWidth = contentWidth - qrSize - 10;
+
+        doc.setFillColor(248, 250, 252);
+        doc.setDrawColor(226, 232, 240);
+        doc.setLineWidth(0.3);
+        doc.rect(margin, tempY, contentWidth, boxHeight, 'FD');
+
+        doc.addImage(qrDataUri, 'PNG', qrX, qrY, qrSize, qrSize);
+
+        doc.setFont(fontName, 'bold');
+        doc.setFontSize(8.5);
+        doc.setTextColor(30, 41, 59);
+        doc.text(`Zasób: ${item.type.label}`, margin + 4, tempY + 6);
+
+        doc.setFont(fontName, 'normal');
+        doc.setFontSize(7.5);
+        doc.setTextColor(37, 99, 235);
+        const splitUrl = doc.splitTextToSize(item.url, maxTextWidth);
+        doc.text(splitUrl, margin + 4, tempY + 11);
+
+        doc.link(margin + 3, tempY + 3, maxTextWidth, boxHeight - 6, { url: item.url });
+
+        tempY += boxHeight + 5;
+      } catch (err) {
+        console.warn("Błąd rysowania kodu QR Gemini w PDF:", err);
+      }
+    }
+    return tempY;
+  };
+
+  const renderBibleSlot = async (slotIdx: number) => {
+    const allBibleDefaults = getBibleChapters();
+    const defaultData = allBibleDefaults[slotIdx - 1];
+    if (!defaultData) return;
+
+    const savedData = bibleEntries?.[`bible_slot_${slotIdx}`];
+    const title = savedData?.title || defaultData.defaultTitle;
+    const text = savedData?.text || defaultData.defaultText;
+    const notebookUrls = savedData?.notebookUrls || [];
+
+    checkAndBreakPage(25);
+    doc.setFont(fontName, 'bold');
+    doc.setFontSize(11);
+    doc.setTextColor(5, 150, 105); // emerald-600
+    doc.text(`BIBLIA365 — Czytanie ${slotIdx}: ${title}`, margin, y);
+    y += 6;
+
+    // Render bible text
+    await renderRichContentWithEmbeddedQr(text, margin, contentWidth, 'normal', 12, [30, 41, 59]);
+    y += 2;
+
+    // Render Gemini Notebook URLs as QR Codes inside the PDF!
+    y = await renderGeminiNotebookQrBoxes(notebookUrls, y);
+    y += 4;
+  };
+
   // Render Intro & Mission Statement if generating full range or if single range day 1
   if (range === 'full') {
     const mainText = prayers['introTextMain']?.text;
@@ -359,23 +447,13 @@ export const generateCustomScopePdf = async (
       y += 8;
 
       if (mainText) {
-        renderJustifiedParagraph(mainText, margin, contentWidth, 'normal', 11, [30, 41, 59]);
+        await renderRichContentWithEmbeddedQr(mainText, margin, contentWidth, 'normal', 11, [30, 41, 59]);
         y += 4;
       }
 
       if (missionText) {
-        doc.setFillColor(243, 244, 246);
-        doc.setDrawColor(209, 213, 219);
-        doc.rect(margin, y, contentWidth, 14, 'FD');
-        doc.setFont(fontName, 'bold');
-        doc.setFontSize(9);
-        doc.setTextColor(79, 70, 229);
-        doc.text("Misja eMBiK365:", margin + 3, y + 5);
-        doc.setFont(fontName, 'normal');
-        doc.setTextColor(51, 65, 85);
-        const splitMission = doc.splitTextToSize(missionText, contentWidth - 6);
-        doc.text(splitMission, margin + 3, y + 9.5);
-        y += 18;
+        await renderRichContentWithEmbeddedQr(missionText, margin, contentWidth, 'normal', 11, [30, 41, 59]);
+        y += 4;
       }
 
       doc.addPage();
@@ -385,7 +463,31 @@ export const generateCustomScopePdf = async (
     }
   }
 
-  for (let currentDayNum = startDay; currentDayNum <= endDay; currentDayNum++) {
+  if (scope === 'bible365' && range === 'full') {
+    const totalCount = 1460;
+    for (let slot = 1; slot <= totalCount; slot++) {
+      const pct = Math.round((slot / totalCount) * 95);
+
+      if (onProgress) {
+        onProgress(`Składanie pliku PDF (Biblia365): Czytanie ${slot} z 1460...`, pct);
+      }
+
+      await new Promise((r) => setTimeout(r, 0));
+
+      // Continuous flow check
+      checkAndBreakPage(35);
+
+      // Register TOC item
+      tocMap.push({
+        dayNum: slot,
+        title: `Czytanie ${slot}`,
+        pageNum: currentPage
+      });
+
+      await renderBibleSlot(slot);
+    }
+  } else {
+    for (let currentDayNum = startDay; currentDayNum <= endDay; currentDayNum++) {
     const progressCount = currentDayNum - startDay + 1;
     const totalCount = endDay - startDay + 1;
     const pct = Math.round((progressCount / totalCount) * 95);
@@ -444,9 +546,13 @@ export const generateCustomScopePdf = async (
     const baseUrl = (typeof window !== 'undefined' && window.location?.origin)
       ? window.location.origin
       : 'https://widokinaraj.pages.dev';
-    const dayUrl = scope === 'wnr365' 
-      ? `${baseUrl}/#/wnr365-day-${currentDayNum}` 
-      : `${baseUrl}/#/rhz365-day-${currentDayNum}`;
+    
+    let dayUrl = `${baseUrl}/#/rhz365-day-${currentDayNum}`;
+    if (scope === 'wnr365') {
+      dayUrl = `${baseUrl}/#/wnr365-day-${currentDayNum}`;
+    } else if (scope === 'bible365') {
+      dayUrl = `${baseUrl}/#/bible365-day-${currentDayNum}`;
+    }
     
     // Fetch RHZ and WnR content to scan for additional embedded URLs
     const rhzDayNum = ((currentDayNum - 1) % 175) + 1;
@@ -509,7 +615,7 @@ export const generateCustomScopePdf = async (
     }
 
     // 1. RHZ365 Section
-    if (scope === 'rhz365' || scope === 'both') {
+    if (scope === 'rhz365' || scope === 'both' || scope === 'all') {
       checkAndBreakPage(25);
 
       doc.setFont(fontName, 'bold');
@@ -606,10 +712,14 @@ export const generateCustomScopePdf = async (
         await renderRichContentWithEmbeddedQr(rawRhzText, margin, contentWidth, 'normal', 12, [51, 65, 85]);
         y += 4;
       }
+
+      // Render Gemini Notebook QR codes for RHZ
+      y = await renderGeminiNotebookQrBoxes(prayers[firestoreKey]?.notebookUrls, y);
+      y += 4;
     }
 
     // 2. WnR365 Section
-    if (scope === 'wnr365' || scope === 'both') {
+    if (scope === 'wnr365' || scope === 'both' || scope === 'all') {
       checkAndBreakPage(25);
 
       doc.setFont(fontName, 'bold');
@@ -627,8 +737,35 @@ export const generateCustomScopePdf = async (
 
       await renderRichContentWithEmbeddedQr(wnrDoc.text || '', margin, contentWidth, 'normal', 12, [51, 65, 85]);
       y += 6;
+
+      // Render Gemini Notebook QR codes for WnR
+      y = await renderGeminiNotebookQrBoxes(wnrDoc.notebookUrls, y);
+      y += 4;
+    }
+
+    // 3. Biblia365 Section (only inside the Standard Loop, i.e. when scope is 'all' or 'bible365' single-range)
+    if (scope === 'all') {
+      const startSlot = dayIdx * 4 + 1;
+      for (let s = 0; s < 4; s++) {
+        const slot = startSlot + s;
+        if (slot <= 1460) {
+          await renderBibleSlot(slot);
+        }
+      }
+    } else if (scope === 'bible365' && range === 'single') {
+      const { slotIndex: fourYearSlot, dayIndex } = getBibleSlotForDate(selectedDate);
+      await renderBibleSlot(fourYearSlot);
+
+      const start1YearSlot = dayIndex * 4 + 1;
+      for (let s = 0; s < 4; s++) {
+        const slot = start1YearSlot + s;
+        if (slot <= 1460 && slot !== fourYearSlot) {
+          await renderBibleSlot(slot);
+        }
+      }
     }
   }
+}
 
   // ==========================================
   // FINAL PAGES: TABLE OF CONTENTS (SPIS TREŚCI)
@@ -690,7 +827,15 @@ export const generateCustomScopePdf = async (
 
   if (onProgress) onProgress("Zapisywanie pliku PDF A5...");
 
-  const fileNameScope = scope === 'rhz365' ? 'RHZ365' : scope === 'wnr365' ? 'WnR365' : 'eMBiK365_RHZ365_WnR365';
+  const fileNameScope = scope === 'rhz365' 
+    ? 'RHZ365' 
+    : scope === 'wnr365' 
+      ? 'WnR365' 
+      : scope === 'bible365'
+        ? 'Biblia365'
+        : scope === 'both'
+          ? 'RHZ365_WnR365'
+          : 'eMBiK365_Pełne';
   const fileNameRange = range === 'single' ? `Dzien_${dayOfCycle}` : 'Calosc_Ksiega';
   const pdfFilename = `${fileNameScope}_${fileNameRange}_A5.pdf`;
 
@@ -712,17 +857,35 @@ export const generateEmbikPdf = async (data: any, onProgress?: (msg: string, per
 };
 
 export const generateYearlyEmbikPdf = async (
-  prayers: Record<string, { title: string; text: string }>,
-  blogEntries: Record<string, { title: string; text: string; dayIndex: number }>,
+  prayers: Record<string, { title: string; text: string; notebookUrls?: string[] }>,
+  blogEntries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[] }>,
+  bibleEntries: Record<string, any>,
   onProgress?: (msg: string, percent?: number) => void
 ) => {
   return generateCustomScopePdf({
-    scope: 'both',
+    scope: 'all',
     range: 'full',
     includeCover: true,
     selectedDate: new Date(),
     dayOfCycle: 1,
     prayers,
-    blogEntries
+    blogEntries,
+    bibleEntries
+  }, onProgress);
+};
+
+export const generateYearlyBiblePdf = async (
+  bibleEntries: Record<string, any>,
+  onProgress?: (msg: string, percent?: number) => void
+) => {
+  return generateCustomScopePdf({
+    scope: 'bible365',
+    range: 'full',
+    includeCover: true,
+    selectedDate: new Date(),
+    dayOfCycle: 1,
+    prayers: {},
+    blogEntries: {},
+    bibleEntries
   }, onProgress);
 };
