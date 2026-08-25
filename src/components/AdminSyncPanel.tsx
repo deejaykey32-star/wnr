@@ -180,6 +180,42 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
     };
 
     try {
+      // 0. Bezpośrednie pobranie najnowszego snapshotu z CDN (kluczowe dla smartfonów połączonych z GitHub)
+      let masterBlogMap: Record<string, any> = { ...blogEntries };
+      let masterPrayersMap: Record<string, any> = { ...prayers };
+      const defaultBible = getBibleChapters(); // 1460 items
+      const full1460BibleMap: Record<string, any> = {};
+
+      defaultBible.forEach(ch => {
+        const docId = `bible_slot_${ch.slotIndex}`;
+        const local = bibleEntries[docId];
+        full1460BibleMap[docId] = {
+          docId,
+          slotIndex: ch.slotIndex,
+          title: local?.title || ch.defaultTitle,
+          text: local?.text || ch.defaultText,
+          notebookUrls: local?.notebookUrls || [],
+          updatedBy: local?.updatedBy || 'Pismo Święte Biblia365 (1460 czytań)',
+          updatedAt: local?.updatedAt || new Date().toISOString()
+        };
+      });
+
+      try {
+        const cdnRes = await fetch(`/data/db_snapshot.json?t=${Date.now()}`);
+        if (cdnRes.ok) {
+          const cdnData = await cdnRes.json();
+          if (cdnData.blogEntries) masterBlogMap = { ...cdnData.blogEntries, ...masterBlogMap };
+          if (cdnData.prayers) masterPrayersMap = { ...cdnData.prayers, ...masterPrayersMap };
+          if (cdnData.bibleEntries) {
+            Object.entries(cdnData.bibleEntries).forEach(([k, v]: [string, any]) => {
+              if (v && v.title && v.text) full1460BibleMap[k] = v;
+            });
+          }
+        }
+      } catch (cdnErr) {
+        console.warn('[Sync] CDN snapshot fetch skipped:', cdnErr);
+      }
+
       // 1. Synchronizacja Wstępu i Misji (5% - 15%)
       setSyncProgress({
         active: true,
@@ -188,7 +224,6 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         itemCounter: 'Wstęp i Misja'
       });
 
-      let masterPrayersMap: Record<string, any> = { ...prayers };
       if (masterPrayersMap['introTextMain']) {
         try {
           await withTimeout(setDoc(doc(db, 'prayers', 'introTextMain'), masterPrayersMap['introTextMain'], { merge: true }), 3000);
@@ -206,9 +241,9 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         step: '1/5. Wstęp i Misja eMBiK365 zsynchronizowane.',
         itemCounter: 'Wstęp i Misja: Gotowe'
       });
+      await new Promise(r => setTimeout(r, 60));
 
       // 2. Synchronizacja 365 wpisów WnR365 (15% - 40%)
-      let masterBlogMap: Record<string, any> = { ...blogEntries };
       if (Object.keys(masterBlogMap).length < 365) {
         try {
           const snapMod = await import('../data/db_snapshot.json');
@@ -226,6 +261,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         40,
         '2/5. 365 wpisów WnR365 (rozważania codzienne + Gemini AI)...'
       );
+      await new Promise(r => setTimeout(r, 60));
 
       // 3. Synchronizacja 2 × 175 modlitw RHZ365 (40% - 68%)
       try {
@@ -253,25 +289,9 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         68,
         '3/5. 2 × 175 modlitw RHZ365 (350 dni cyklu różańca, tajemnice i modlitwy stałe)...'
       );
+      await new Promise(r => setTimeout(r, 60));
 
       // 4. Synchronizacja 4 × 365 rozdziałów Biblia365 (68% - 92%)
-      const defaultBible = getBibleChapters(); // 1460 items
-      const full1460BibleMap: Record<string, any> = {};
-      
-      defaultBible.forEach(ch => {
-        const docId = `bible_slot_${ch.slotIndex}`;
-        const local = bibleEntries[docId];
-        full1460BibleMap[docId] = {
-          docId,
-          slotIndex: ch.slotIndex,
-          title: local?.title || ch.defaultTitle,
-          text: local?.text || ch.defaultText,
-          notebookUrls: local?.notebookUrls || [],
-          updatedBy: local?.updatedBy || 'Pismo Święte Biblia365 (1460 czytań)',
-          updatedAt: local?.updatedAt || new Date().toISOString()
-        };
-      });
-
       // Fetch remote bible_entries from Firestore and overlay
       try {
         setSyncProgress({
@@ -302,11 +322,11 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         console.warn('[Sync] Bible getDocs skipped/failed:', bibleFetchErr);
       }
 
-      // Process and verify all 1460 Bible slots with progress bar
+      // Process and verify all 1460 Bible slots with progress bar (smooth frame animations)
       const bibleEntriesList = Object.entries(full1460BibleMap);
       const totalBibleCount = bibleEntriesList.length; // 1460
 
-      const bibleChunkSize = 50;
+      const bibleChunkSize = 73; // 20 animated steps of 73
       for (let i = 0; i < totalBibleCount; i += bibleChunkSize) {
         const chunk = bibleEntriesList.slice(i, i + bibleChunkSize);
         // Push custom/edited ones to cloud
@@ -326,8 +346,9 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
           active: true,
           percent: Math.min(92, pct),
           step: '4/5. 4 × 365 rozdziałów Biblia365 (1460 czytań od Rdz do Ap + Gemini AI)...',
-          itemCounter: `${currentDone} / 1460 rozdziałów Biblia365`
+          itemCounter: `${currentDone} / ${totalBibleCount} rozdziałów Biblia365`
         });
+        await new Promise(r => setTimeout(r, 30));
       }
 
       onBibleEntriesUpdated(full1460BibleMap);
@@ -339,6 +360,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         step: '5/5. Zapisywanie kompletnej bazy NoSQL (db_snapshot.json)...',
         itemCounter: 'Aktualizacja IndexedDB'
       });
+      await new Promise(r => setTimeout(r, 60));
 
       const snapshot = createNoSqlSnapshot(masterPrayersMap, masterBlogMap, full1460BibleMap);
       await importFullNoSqlSnapshot(snapshot);
