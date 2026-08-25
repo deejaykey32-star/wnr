@@ -615,6 +615,49 @@ export default function App() {
       } catch (cloudBlogErr) {
         console.info("Firestore background blog sync skipped:", cloudBlogErr);
       }
+
+      // 4. Non-blocking background fetch from Firestore for bible_entries (Biblia365)
+      try {
+        const bibleSnapshot = await getDocs(collection(db, 'bible_entries'));
+        if (!bibleSnapshot.empty && isMounted) {
+          const remoteBible: Record<string, any> = {};
+          bibleSnapshot.forEach((docSnap) => {
+            const data = docSnap.data();
+            if (data && data.title && data.text) {
+              remoteBible[docSnap.id] = {
+                docId: docSnap.id,
+                slotIndex: data.slotIndex ?? 0,
+                title: data.title,
+                text: data.text,
+                notebookUrls: data.notebookUrls || [],
+                updatedBy: data.updatedBy,
+                updatedAt: data.updatedAt
+              };
+            }
+          });
+
+          if (Object.keys(remoteBible).length > 0 && isMounted) {
+            setBibleEntries(prev => {
+              const merged = { ...prev };
+              Object.entries(remoteBible).forEach(([key, remoteVal]) => {
+                const localVal = prev[key];
+                const finalUrls = (remoteVal.notebookUrls && remoteVal.notebookUrls.some((u: any) => u && String(u).trim().length > 0))
+                  ? remoteVal.notebookUrls
+                  : (localVal?.notebookUrls || []);
+
+                merged[key] = {
+                  ...remoteVal,
+                  notebookUrls: finalUrls
+                };
+                saveLocalBibleEntry(key, merged[key]).catch(() => {});
+              });
+              return merged;
+            });
+          }
+        }
+      } catch (cloudBibleErr) {
+        console.info("Firestore background bible sync skipped:", cloudBibleErr);
+      }
     }
 
     loadAndSyncPrayers();
