@@ -325,13 +325,10 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
       const newEntry: any = {
         title: editTitle.trim(),
         text: editText.trim(),
+        notebookUrls: editUrls,
         updatedBy: userEmail,
         updatedAt: new Date().toISOString()
       };
-
-      if (editorMode === 'cycle' || (editorMode === 'step' && (steps.find(s => s.id === selectedStepId) || activeStep)?.prayerType === 'mystery')) {
-        newEntry.notebookUrls = editUrls;
-      }
 
       const nextPrayers = {
         ...prayers,
@@ -825,32 +822,30 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
           />
         </div>
 
-        {/* Gemini & YouTube URLs input (decade mysteries in cycle or step mode) */}
-        {(editorMode === 'cycle' || (editorMode === 'step' && (steps.find(s => s.id === selectedStepId) || activeStep)?.prayerType === 'mystery')) && (
-          <div className="pt-4 border-t border-slate-800/60 space-y-3">
-            <h4 className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${isLight ? 'text-indigo-600' : 'text-indigo-400'}`}>
-              Linki do analiz i filmu YouTube (8 pól)
-            </h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-              {GEMINI_ANALYSIS_TYPES.map((type, idx) => (
-                <div key={type.id} className="space-y-1">
-                  <label className={`block font-semibold font-sans ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
-                    {type.id}. {type.label} <span className={`font-normal text-[10px] ${isLight ? 'text-slate-400' : 'text-slate-500'}`}>({type.desc})</span>
-                  </label>
-                  <input
-                    type="url"
-                    value={editUrls[idx]}
-                    onChange={(e) => handleUrlChange(idx, e.target.value)}
-                    className={`w-full rounded-lg px-3 py-1.5 text-xs border focus:outline-none transition ${
-                      isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-850 text-slate-200'
-                    }`}
-                    placeholder="https://..."
-                  />
-                </div>
-              ))}
-            </div>
+        {/* Gemini & YouTube URLs input (8 pól dla wszystkich modlitw/kroków) */}
+        <div className="pt-4 border-t border-slate-800/60 space-y-3">
+          <h4 className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${isLight ? 'text-indigo-600' : 'text-indigo-400'}`}>
+            Materiały i Linki Gemini Notebook / YouTube (8 pól)
+          </h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+            {GEMINI_ANALYSIS_TYPES.map((type, idx) => (
+              <div key={type.id} className="space-y-1">
+                <label className={`block font-semibold font-sans ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
+                  {type.id}. {type.label} <span className={`font-normal text-[10px] ${isLight ? 'text-slate-400' : 'text-slate-500'}`}>({type.desc})</span>
+                </label>
+                <input
+                  type="url"
+                  value={editUrls[idx]}
+                  onChange={(e) => handleUrlChange(idx, e.target.value)}
+                  className={`w-full rounded-lg px-3 py-1.5 text-xs border focus:outline-none transition ${
+                    isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-850 text-slate-200'
+                  }`}
+                  placeholder="https://..."
+                />
+              </div>
+            ))}
           </div>
-        )}
+        </div>
 
         {/* Audit trail */}
         {prayers[getFirestoreKey()]?.updatedBy && (
