@@ -54,12 +54,69 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
     itemCounter: ''
   });
 
+  const [githubToken, setGithubToken] = useState<string>(() => {
+    try { return localStorage.getItem('github_sync_pat') || ''; } catch { return ''; }
+  });
+  const [showGithubConfig, setShowGithubConfig] = useState<boolean>(false);
+  const [isTriggeringGithub, setIsTriggeringGithub] = useState<boolean>(false);
+  const [githubTriggerStatus, setGithubTriggerStatus] = useState<{ type: 'idle' | 'loading' | 'success' | 'error'; message: string }>({ type: 'idle', message: '' });
+
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const isDark = theme === 'dark';
   const bg = isDark ? 'bg-slate-900 border-slate-700' : 'bg-white border-slate-200';
   const text = isDark ? 'text-slate-100' : 'text-slate-900';
   const subText = isDark ? 'text-slate-400' : 'text-slate-500';
+
+  const handleTriggerGithubSync = async () => {
+    if (!githubToken.trim()) {
+      setShowGithubConfig(true);
+      setGithubTriggerStatus({
+        type: 'error',
+        message: 'Wklej swój Personal Access Token (PAT) z GitHub, aby wywołać automatyczny deploy bez asystenta.'
+      });
+      return;
+    }
+    setIsTriggeringGithub(true);
+    setGithubTriggerStatus({
+      type: 'loading',
+      message: 'Wysyłanie sygnału do GitHub Actions (Workflow Dispatch)...'
+    });
+    try {
+      localStorage.setItem('github_sync_pat', githubToken.trim());
+      const res = await fetch('https://api.github.com/repos/deejaykey32-star/wnr/dispatches', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/vnd.github.v3+json',
+          'Authorization': `Bearer ${githubToken.trim()}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          event_type: 'sync_firestore'
+        })
+      });
+
+      if (res.status === 204 || res.ok) {
+        setGithubTriggerStatus({
+          type: 'success',
+          message: '🚀 Sukces! GitHub Actions uruchomił automatyczny proces: pobieranie z Firestore, commit i git push na serwer produkcyjny!'
+        });
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setGithubTriggerStatus({
+          type: 'error',
+          message: `GitHub zwrócił status ${res.status}: ${data.message || 'Wymagane uprawnienie repo/actions dla tokenu PAT'}`
+        });
+      }
+    } catch (e: any) {
+      setGithubTriggerStatus({
+        type: 'error',
+        message: `Błąd połączenia z GitHub API: ${e?.message || 'Nieznany błąd'}`
+      });
+    } finally {
+      setIsTriggeringGithub(false);
+    }
+  };
 
   // Timeout wrapper to prevent hanging spinners on slow/blocked connections
   const withTimeout = <T,>(promise: Promise<T>, timeoutMs = 15000, errorMsg = 'Przekroczono limit czasu połączenia z Firestore (15s).'): Promise<T> => {
@@ -83,68 +140,76 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       itemCounter: 'Start'
     });
 
-    try {
-      // A. Push Blog to Firestore (0% - 35%)
-      const totalBlogs = Object.keys(blogEntries).length || 365;
-      let blogPushed = 0;
-      for (const [docId, entry] of Object.entries(blogEntries)) {
-        if (entry && entry.title && entry.text) {
-          await setDoc(doc(db, 'blog_entries', docId), entry, { merge: true });
-          blogPushed++;
-          if (blogPushed % 20 === 0 || blogPushed === totalBlogs) {
-            const pct = Math.round((blogPushed / totalBlogs) * 35);
-            setSyncProgress({
-              active: true,
-              percent: Math.max(5, pct),
-              step: '1/4. Synchronizacja wpisów WnR365 i linków Gemini...',
-              itemCounter: `${blogPushed} / ${totalBlogs} wpisów`
-            });
-          }
-        }
-      }
+    // Helper for lightning-fast chunked parallel Firestore writes (never stalls, robust per-document timeouts)
+    const pushChunked = async (
+      items: [string, any][],
+      collectionName: string,
+      startPct: number,
+      endPct: number,
+      label: string
+    ): Promise<number> => {
+      const total = items.length;
+      if (total === 0) return 0;
+      let successCount = 0;
+      const chunkSize = 20;
 
-      // B. Push Prayers & Intro to Firestore (35% - 70%)
-      const totalPrayers = Object.keys(prayers).length || 200;
-      let prayerPushed = 0;
-      for (const [docId, entry] of Object.entries(prayers)) {
-        if (entry && (entry.title || entry.text)) {
-          await setDoc(doc(db, 'prayers', docId), entry, { merge: true });
-          prayerPushed++;
-          if (prayerPushed % 15 === 0 || prayerPushed === totalPrayers) {
-            const pct = 35 + Math.round((prayerPushed / totalPrayers) * 35);
-            setSyncProgress({
-              active: true,
-              percent: pct,
-              step: '2/4. Synchronizacja modlitw RHZ365, Wstępu i linków Gemini...',
-              itemCounter: `${prayerPushed} / ${totalPrayers} modlitw`
-            });
-          }
-        }
+      for (let i = 0; i < total; i += chunkSize) {
+        const chunk = items.slice(i, i + chunkSize);
+        await Promise.allSettled(
+          chunk.map(async ([docId, data]) => {
+            try {
+              await withTimeout(setDoc(doc(db, collectionName, docId), data, { merge: true }), 4000);
+              successCount++;
+            } catch (e) {
+              console.warn(`[Sync] ${collectionName}/${docId} skipped:`, e);
+            }
+          })
+        );
+
+        const currentDone = Math.min(total, i + chunkSize);
+        const currentPct = Math.round(startPct + (currentDone / total) * (endPct - startPct));
+        setSyncProgress({
+          active: true,
+          percent: Math.min(endPct, currentPct),
+          step: label,
+          itemCounter: `${currentDone} / ${total} elementów`
+        });
       }
+      return successCount;
+    };
+
+    try {
+      // A. Push Blog to Firestore in parallel chunks (5% - 40%)
+      const blogList = Object.entries(blogEntries).filter(([_, e]) => e && e.title && e.text);
+      const blogPushed = await pushChunked(
+        blogList,
+        'blog_entries',
+        5,
+        40,
+        '1/4. Synchronizacja wpisów WnR365 i linków Gemini...'
+      );
+
+      // B. Push Prayers & Intro to Firestore in parallel chunks (40% - 70%)
+      const prayerList = Object.entries(prayers).filter(([_, e]) => e && (e.title || e.text));
+      const prayerPushed = await pushChunked(
+        prayerList,
+        'prayers',
+        40,
+        70,
+        '2/4. Synchronizacja modlitw RHZ365, Wstępu i linków Gemini...'
+      );
 
       // C. Push & Pull Bible with Firestore (70% - 85%)
-      const localBibleList = Object.entries(bibleEntries);
-      const totalBibleToPush = localBibleList.length;
+      const localBibleList = Object.entries(bibleEntries).filter(([_, e]) => e && e.title && e.text);
       let biblePushed = 0;
-
-      if (totalBibleToPush > 0) {
-        for (const [docId, entry] of localBibleList) {
-          if (entry && entry.title && entry.text) {
-            try {
-              await setDoc(doc(db, 'bible_entries', docId), entry, { merge: true });
-              biblePushed++;
-              const pct = 70 + Math.round((biblePushed / totalBibleToPush) * 10);
-              setSyncProgress({
-                active: true,
-                percent: Math.min(80, pct),
-                step: '3/4. Wysyłanie czytań Biblia365 do Firestore...',
-                itemCounter: `${biblePushed} / ${totalBibleToPush} czytań`
-              });
-            } catch (e) {
-              console.warn('[Sync] Bible setDoc error:', e);
-            }
-          }
-        }
+      if (localBibleList.length > 0) {
+        biblePushed = await pushChunked(
+          localBibleList,
+          'bible_entries',
+          70,
+          80,
+          '3/4. Wysyłanie czytań Biblia365 do Firestore...'
+        );
       }
 
       // Fetch all remote bible_entries to ensure bidirectional complete sync
@@ -152,7 +217,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       try {
         setSyncProgress({
           active: true,
-          percent: 80,
+          percent: 82,
           step: '3/4. Pobieranie czytań Biblia365 z Firestore...',
           itemCounter: 'Pobieranie z chmury'
         });
@@ -608,13 +673,91 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
             <StatusBar status={masterStatus} />
 
-            {/* GitHub info */}
-            <div className={`mt-3 p-3 rounded-xl text-[11px] border leading-relaxed ${isDark ? 'bg-slate-950/60 border-slate-700 text-slate-300' : 'bg-white/80 border-slate-200 text-slate-600'}`}>
-              <div className="font-semibold text-amber-400 mb-0.5 flex items-center gap-1.5">
-                <ShieldCheck size={13} />
-                Automatyczny deploy:
+            {/* GitHub Actions Auto-Deploy Section */}
+            <div className={`mt-3 p-3.5 rounded-xl text-xs border leading-relaxed space-y-2.5 ${isDark ? 'bg-slate-950/80 border-slate-700 text-slate-300' : 'bg-slate-50 border-slate-200 text-slate-700'}`}>
+              <div className="flex items-center justify-between">
+                <div className="font-bold text-amber-400 flex items-center gap-1.5 text-xs">
+                  <ShieldCheck size={14} />
+                  <span>Automatyczny Git Push (GitHub Actions)</span>
+                </div>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold border border-emerald-500/30">
+                  Cron co 6h aktywny
+                </span>
               </div>
-              Wszystkie edycje linków Gemini zapisują się natychmiast lokalnie i w Firestore. Aby zaktualizować statyczny kod w repozytorium GitHub, wystarczy poprosić asystenta o <code>git push</code>.
+
+              <p className="text-[11px] text-slate-400">
+                GitHub Actions automatycznie co 6 godzin (i o północy) pobiera z Firestore wszystkie nowe linki Gemini i wykonuje <code>git push</code> bez asystenta.
+              </p>
+
+              <div className="flex flex-wrap gap-2 pt-1">
+                {/* 1-Click trigger button */}
+                <button
+                  onClick={handleTriggerGithubSync}
+                  disabled={isTriggeringGithub}
+                  className="px-3.5 py-2 bg-gradient-to-r from-indigo-600 to-sky-600 hover:from-indigo-500 hover:to-sky-500 text-white font-bold text-xs rounded-xl shadow-md flex items-center gap-1.5 cursor-pointer disabled:opacity-50 transition active:scale-95"
+                >
+                  <Zap size={13} className={isTriggeringGithub ? 'animate-spin' : ''} />
+                  <span>{isTriggeringGithub ? 'Wysyłanie sygnału...' : 'Wywołaj Git Push w Chmurze Teraz'}</span>
+                </button>
+
+                {/* Direct link to GitHub Actions tab */}
+                <a
+                  href="https://github.com/deejaykey32-star/wnr/actions/workflows/sync-firestore.yml"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`px-3 py-2 rounded-xl text-xs font-semibold border flex items-center gap-1.5 transition ${
+                    isDark ? 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700' : 'bg-white border-slate-300 text-slate-700 hover:bg-slate-100'
+                  }`}
+                >
+                  <span>Otwórz GitHub Actions ↗</span>
+                </a>
+
+                <button
+                  onClick={() => setShowGithubConfig(!showGithubConfig)}
+                  className={`px-2.5 py-2 rounded-xl text-xs font-medium border transition ${
+                    isDark ? 'bg-slate-900 border-slate-700 text-slate-400 hover:text-slate-200' : 'bg-white border-slate-300 text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  ⚙️ Token PAT
+                </button>
+              </div>
+
+              {/* GitHub PAT config dropdown */}
+              {showGithubConfig && (
+                <div className={`mt-2 p-2.5 rounded-lg border text-left space-y-1.5 ${isDark ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-200'}`}>
+                  <label className="block text-[10px] font-mono uppercase text-slate-400 font-bold">
+                    GitHub Personal Access Token (PAT z uprawnieniem repo/actions):
+                  </label>
+                  <input
+                    type="password"
+                    value={githubToken}
+                    onChange={(e) => {
+                      setGithubToken(e.target.value);
+                      try { localStorage.setItem('github_sync_pat', e.target.value.trim()); } catch {}
+                    }}
+                    placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"
+                    className={`w-full rounded-lg px-2.5 py-1.5 text-xs font-mono border focus:outline-none ${
+                      isDark ? 'bg-slate-950 border-slate-700 text-slate-200' : 'bg-slate-50 border-slate-300 text-slate-800'
+                    }`}
+                  />
+                  <p className="text-[10px] text-slate-500">
+                    Token jest zapisywany lokalnie w Twojej przeglądarce i służy wyłącznie do wysłania polecenia <code>repository_dispatch</code> do GitHub Actions.
+                  </p>
+                </div>
+              )}
+
+              {/* Status of trigger */}
+              {githubTriggerStatus.message && (
+                <div className={`p-2 rounded-lg text-[11px] font-medium border ${
+                  githubTriggerStatus.type === 'success'
+                    ? 'bg-emerald-950/40 border-emerald-800 text-emerald-300'
+                    : githubTriggerStatus.type === 'error'
+                      ? 'bg-red-950/40 border-red-800 text-red-300'
+                      : 'bg-indigo-950/40 border-indigo-800 text-indigo-300'
+                }`}>
+                  {githubTriggerStatus.message}
+                </div>
+              )}
             </div>
           </div>
 
