@@ -111,18 +111,29 @@ export async function initLocalNoSqlDb(): Promise<void> {
     }
 
     if (needsReseed) {
-      console.log(`[NoSQL] Data version mismatch or empty DB. Seeding IndexedDB...`);
+      console.log(`[NoSQL] Data version mismatch or empty DB. Seeding IndexedDB from NoSQL snapshot...`);
+
+      let snapshotData: any = null;
+      try {
+        const snapMod = await import('../data/db_snapshot.json');
+        snapshotData = snapMod.default || snapMod;
+      } catch (snapErr) {
+        console.warn('[NoSQL] Could not load db_snapshot.json directly, falling back to pdf entries:', snapErr);
+      }
 
       let wnrPdfMap: Record<string, any> = {};
-
       try {
         const module = await import('../data/wnr365_pdf_entries.json');
-        wnrPdfMap = module.default as Record<string, any>;
+        wnrPdfMap = (module.default || module) as Record<string, any>;
       } catch (importErr) {
         console.warn('[NoSQL] Failed to import wnr365_pdf_entries.json:', importErr);
       }
 
-      // 2. Perform clear and seed in a readwrite transaction
+      const mergedBlogEntries: Record<string, any> = { ...wnrPdfMap, ...(snapshotData?.blogEntries || {}) };
+      const mergedPrayers: Record<string, any> = { ...(snapshotData?.prayers || {}) };
+      const mergedBible: Record<string, any> = { ...(snapshotData?.bibleEntries || {}) };
+
+      // 2. Perform seed in a readwrite transaction
       return new Promise<void>((resolve) => {
         const timer = setTimeout(() => {
           console.warn('[NoSQL] Seeding timeout reached, proceeding to render app...');
@@ -144,17 +155,14 @@ export async function initLocalNoSqlDb(): Promise<void> {
           const tx = db.transaction(storeNames, 'readwrite');
           const store = db.objectStoreNames.contains(BLOG_STORE) ? tx.objectStore(BLOG_STORE) : null;
           const prayersStore = db.objectStoreNames.contains(PRAYERS_STORE) ? tx.objectStore(PRAYERS_STORE) : null;
+          const bibleStore = db.objectStoreNames.contains(BIBLE_STORE) ? tx.objectStore(BIBLE_STORE) : null;
 
           tx.onerror = () => { clearTimeout(timer); resolve(); };
           tx.onabort = () => { clearTimeout(timer); resolve(); };
 
-          // Clear old data so stale entries don't persist
-          if (store) store.clear();
-          if (prayersStore) prayersStore.clear();
-
-          // Seed blog entries
+          // Seed blog entries from snapshot (preserving all notebookUrls)
           if (store) {
-            Object.entries(wnrPdfMap).forEach(([docId, entry]: [string, any]) => {
+            Object.entries(mergedBlogEntries).forEach(([docId, entry]: [string, any]) => {
               try {
                 store.put({
                   docId,
@@ -162,7 +170,7 @@ export async function initLocalNoSqlDb(): Promise<void> {
                   title: entry.title,
                   text: entry.text,
                   notebookUrls: entry.notebookUrls || [],
-                  updatedBy: entry.updatedBy || 'eMBiK365 Księga A5 PDF',
+                  updatedBy: entry.updatedBy || 'eMBiK365 NoSQL Snapshot',
                   updatedAt: entry.updatedAt || new Date().toISOString()
                 });
               } catch (putErr) {
@@ -171,11 +179,37 @@ export async function initLocalNoSqlDb(): Promise<void> {
             });
           }
 
+          // Seed prayers from snapshot
+          if (prayersStore) {
+            Object.entries(mergedPrayers).forEach(([docId, prayer]: [string, any]) => {
+              try {
+                if (prayer && prayer.title && prayer.text) {
+                  prayersStore.put({ docId, ...prayer });
+                }
+              } catch (putErr) {
+                console.warn(`[NoSQL] Error putting prayer ${docId}:`, putErr);
+              }
+            });
+          }
+
+          // Seed bible entries from snapshot
+          if (bibleStore) {
+            Object.entries(mergedBible).forEach(([docId, bible]: [string, any]) => {
+              try {
+                if (bible && bible.title && bible.text) {
+                  bibleStore.put({ docId, ...bible });
+                }
+              } catch (putErr) {
+                console.warn(`[NoSQL] Error putting bible entry ${docId}:`, putErr);
+              }
+            });
+          }
+
           tx.oncomplete = () => {
             clearTimeout(timer);
             try {
               localStorage.setItem(DATA_VERSION_KEY, DATA_VERSION);
-              console.log(`[NoSQL] Re-seed complete. Version set to ${DATA_VERSION}.`);
+              console.log(`[NoSQL] Re-seed complete from snapshot. Version set to ${DATA_VERSION}.`);
             } catch {}
             resolve();
           };

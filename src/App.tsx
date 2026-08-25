@@ -572,6 +572,49 @@ export default function App() {
       } catch (cloudErr) {
         console.info("Firestore background prayer sync skipped (offline or unauthenticated):", cloudErr);
       }
+
+      // 3. Non-blocking background fetch from Firestore for blog_entries (WnR365)
+      try {
+        const blogSnapshot = await getDocs(collection(db, 'blog_entries'));
+        if (!blogSnapshot.empty && isMounted) {
+          const remoteBlogs: Record<string, any> = {};
+          blogSnapshot.forEach((docSnap) => {
+            const data = docSnap.data();
+            if (data && data.title && data.text) {
+              remoteBlogs[docSnap.id] = {
+                docId: docSnap.id,
+                dayIndex: data.dayIndex ?? 0,
+                title: data.title,
+                text: data.text,
+                notebookUrls: data.notebookUrls || [],
+                updatedBy: data.updatedBy,
+                updatedAt: data.updatedAt
+              };
+            }
+          });
+
+          if (Object.keys(remoteBlogs).length > 0 && isMounted) {
+            setBlogEntries(prev => {
+              const merged = { ...prev };
+              Object.entries(remoteBlogs).forEach(([key, remoteVal]) => {
+                const localVal = prev[key];
+                const finalUrls = (remoteVal.notebookUrls && remoteVal.notebookUrls.some((u: any) => u && String(u).trim().length > 0))
+                  ? remoteVal.notebookUrls
+                  : (localVal?.notebookUrls || []);
+
+                merged[key] = {
+                  ...remoteVal,
+                  notebookUrls: finalUrls
+                };
+                saveLocalBlogEntry(key, merged[key]).catch(() => {});
+              });
+              return merged;
+            });
+          }
+        }
+      } catch (cloudBlogErr) {
+        console.info("Firestore background blog sync skipped:", cloudBlogErr);
+      }
     }
 
     loadAndSyncPrayers();
