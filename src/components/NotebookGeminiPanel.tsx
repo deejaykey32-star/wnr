@@ -114,10 +114,10 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
         <div>
           <h3 className={`text-base font-bold flex items-center gap-2 ${isLight ? 'text-slate-900' : 'text-white'}`}>
             <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 animate-pulse"></span>
-            Materiały Analityczne (Notebook Gemini)
+            Materiały Analityczne i Wideo (Notebook Gemini / YouTube)
           </h3>
           <p className={`text-xs mt-1 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-            Komentarze, streszczenia i syntezy wygenerowane dla tego wpisu
+            Komentarze, streszczenia, podcasty AI i nagrania wideo wygenerowane dla tego wpisu
           </p>
         </div>
         <span className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border ${
@@ -127,7 +127,7 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
         </span>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4">
         {activeItems.map(item => {
           const IconComp = item.icon;
           return (

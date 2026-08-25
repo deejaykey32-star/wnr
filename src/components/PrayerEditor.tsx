@@ -186,7 +186,7 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
       }
     } else {
       // Step-specific editor
-      const key = `custom_step_${selectedStepId}`;
+      const key = getFirestoreKey();
       const customVal = prayers[key];
       if (customVal) {
         setEditTitle(customVal.title);
@@ -299,6 +299,12 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
         return `day_${editDay}_large_bead_reflection_dec_${editDecade}`;
       }
       return `day_${editDay}_decade_${editTarget}_${editDecade}`;
+    }
+    // editorMode === 'step'
+    const stepObj = steps.find(s => s.id === selectedStepId) || activeStep;
+    if (stepObj?.prayerType === 'mystery') {
+      const decIdx = stepObj.decadeIndex || 1;
+      return `day_${currentDayNum}_decade_rgba_${decIdx}`;
     }
     return `custom_step_${selectedStepId}`;
   };

@@ -2,6 +2,7 @@ export interface WnrBlogEntry {
   title: string;
   text: string;
   dayIndex: number;
+  notebookUrls?: string[];
   updatedBy?: string;
   updatedAt?: string;
 }
@@ -17,7 +18,7 @@ interface RHZItem {
   text: string;
 }
 
-let loadedWnrPdfMap: Record<string, { dayIndex: number; title: string; text: string; updatedBy?: string; updatedAt?: string }> | null = null;
+let loadedWnrPdfMap: Record<string, { dayIndex: number; title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }> | null = null;
 let loadedRhzList: RHZItem[] | null = null;
 
 export async function loadWnrBlogDefaultsData(): Promise<void> {
@@ -77,6 +78,7 @@ export function getWnrDefaultBlogEntry(
         dayIndex: safeDayIndex,
         title: customBlog.title.trim(),
         text: customBlog.text.trim(),
+        notebookUrls: customBlog.notebookUrls || [],
         updatedBy: customBlog.updatedBy,
         updatedAt: customBlog.updatedAt || new Date().toISOString()
       };
@@ -89,6 +91,7 @@ export function getWnrDefaultBlogEntry(
       dayIndex: safeDayIndex,
       title: pdfEntry.title.trim(),
       text: pdfEntry.text.trim(),
+      notebookUrls: customBlog?.notebookUrls || pdfEntry.notebookUrls || [],
       updatedBy: pdfEntry.updatedBy || 'eMBiK365 Księga A5 PDF',
       updatedAt: pdfEntry.updatedAt || '2026-08-10T00:00:00.000Z'
     };
@@ -111,6 +114,7 @@ export function getWnrDefaultBlogEntry(
     dayIndex: safeDayIndex,
     title: jsonRecord ? jsonRecord.title.trim() : `WnR365 — Dzień ${safeDayIndex + 1}`,
     text: jsonRecord ? jsonRecord.text.trim() : `Rozważanie dnia ${safeDayIndex + 1}.`,
+    notebookUrls: [],
     updatedBy: 'System RHZ365',
     updatedAt: '2026-08-10T00:00:00.000Z'
   };

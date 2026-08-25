@@ -2793,6 +2793,19 @@ export default function App() {
                   </div>
                 )}
 
+                {/* Panel z 8 kodami QR Notebook Gemini & YouTube na dole sekcji RHZ365 */}
+                <div className="w-full mt-4">
+                  <NotebookGeminiPanel
+                    notebookUrls={
+                      prayers[`day_${cycleInfo.dayOfCycle}_decade_rgba_${getDecadeForDay(cycleInfo.dayOfCycle)}`]?.notebookUrls ||
+                      prayers[`custom_step_${activeStep.id}`]?.notebookUrls ||
+                      []
+                    }
+                    theme={theme as any}
+                    sectionName="RHZ365"
+                  />
+                </div>
+
 
 
               </div>

@@ -421,7 +421,9 @@ export async function resetLocalToSeedData(): Promise<void> {
 /**
  * Saves all prayers to local IndexedDB.
  */
-export async function saveLocalPrayers(prayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>): Promise<void> {
+export async function saveLocalPrayers(
+  prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>
+): Promise<void> {
   try {
     const db = await openDb();
     const tx = db.transaction(PRAYERS_STORE, 'readwrite');
@@ -438,7 +440,10 @@ export async function saveLocalPrayers(prayers: Record<string, { title: string; 
 /**
  * Saves a single prayer or intro block to local IndexedDB.
  */
-export async function saveSingleLocalPrayer(docId: string, prayer: { title: string; text: string; updatedBy?: string; updatedAt?: string }): Promise<void> {
+export async function saveSingleLocalPrayer(
+  docId: string, 
+  prayer: { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }
+): Promise<void> {
   try {
     const db = await openDb();
     const tx = db.transaction(PRAYERS_STORE, 'readwrite');
@@ -452,7 +457,7 @@ export async function saveSingleLocalPrayer(docId: string, prayer: { title: stri
 /**
  * Gets locally stored prayers from IndexedDB.
  */
-export async function getLocalPrayers(): Promise<Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }> | null> {
+export async function getLocalPrayers(): Promise<Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }> | null> {
   try {
     const db = await openDb();
     return new Promise((resolve) => {
@@ -465,8 +470,8 @@ export async function getLocalPrayers(): Promise<Record<string, { title: string;
           resolve(null);
           return;
         }
-        const result: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }> = {};
-        req.result.forEach((item: { docId: string; title: string; text: string; updatedBy?: string; updatedAt?: string }) => {
+        const result: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }> = {};
+        req.result.forEach((item: { docId: string; title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }) => {
           if (item && item.docId) {
             const { docId, ...rest } = item;
             result[docId] = rest;
