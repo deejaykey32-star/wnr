@@ -1780,6 +1780,13 @@ export default function App() {
                       text={prayers['introTextMain']?.text || DEFAULT_PRAYERS['introTextMain']?.text || ''} 
                       theme={theme} 
                     />
+                    {prayers['introTextMain']?.notebookUrls && prayers['introTextMain'].notebookUrls.some(u => u?.trim()) && (
+                      <NotebookGeminiPanel 
+                        notebookUrls={prayers['introTextMain'].notebookUrls} 
+                        theme={theme} 
+                        sectionName="RHZ365" 
+                      />
+                    )}
                   </div>
                 )}
               </div>

@@ -13,8 +13,8 @@ interface InlinePrayerEditorProps {
   isLight: boolean;
   theme: 'dark' | 'light';
   onThemeToggle?: () => void;
-  prayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>;
-  onPrayersUpdated: (prayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }>) => void;
+  prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
+  onPrayersUpdated: (prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>) => void;
   onCancel: () => void;
 }
 
@@ -44,9 +44,11 @@ export const InlinePrayerEditor: React.FC<InlinePrayerEditorProps> = ({
     setErrorMsg('');
 
     try {
+      const existingEntry = prayers[prayerKey];
       const newEntry = {
         title: initialTitle,
         text: editText.trim(),
+        notebookUrls: existingEntry?.notebookUrls || [],
         updatedBy: userEmail,
         updatedAt: new Date().toISOString()
       };
