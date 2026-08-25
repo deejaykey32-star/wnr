@@ -607,12 +607,17 @@ export default function App() {
   };
 
   const getSlugForTabAndDate = (tab: 'rosary' | 'blog' | 'bible', date: Date) => {
-    const cycleStart = new Date(2025, 11, 25, 12, 0, 0, 0); // Dec 25, 2025
-    const diffMs = date.getTime() - cycleStart.getTime();
-    const dayIndex = Math.max(0, Math.min(364, Math.floor(diffMs / 86400000)));
-    const totalDayNum = dayIndex + 1; // 1 to 365
-    const prefix = tab === 'rosary' ? 'rhz365-day' : tab === 'blog' ? 'wnr365-day' : 'bible365-day';
-    return `/#/${prefix}-${totalDayNum}`;
+    try {
+      const safeD = (date && !isNaN(new Date(date).getTime())) ? new Date(date) : new Date();
+      const cycleStart = new Date(2025, 11, 25, 12, 0, 0, 0); // Dec 25, 2025
+      const diffMs = safeD.getTime() - cycleStart.getTime();
+      const dayIndex = Math.max(0, Math.min(364, Math.floor(diffMs / 86400000)));
+      const totalDayNum = dayIndex + 1; // 1 to 365
+      const prefix = tab === 'rosary' ? 'rhz365-day' : tab === 'blog' ? 'wnr365-day' : 'bible365-day';
+      return `/#/${prefix}-${totalDayNum}`;
+    } catch {
+      return '/#/';
+    }
   };
 
   // URL Initialization on Page Load and Browser Back/Forward navigation
