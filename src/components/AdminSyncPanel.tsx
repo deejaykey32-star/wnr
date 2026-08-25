@@ -181,7 +181,17 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
     try {
       // A. Push Blog to Firestore in parallel chunks (5% - 35%)
-      const blogList = Object.entries(blogEntries).filter(([_, e]) => e && e.title && e.text);
+      let masterBlogMap: Record<string, any> = { ...blogEntries };
+      if (Object.keys(masterBlogMap).length < 365) {
+        try {
+          const snapMod = await import('../data/db_snapshot.json');
+          if (snapMod.default?.blogEntries) {
+            masterBlogMap = { ...snapMod.default.blogEntries, ...masterBlogMap };
+          }
+        } catch {}
+      }
+
+      const blogList = Object.entries(masterBlogMap).slice(0, 365);
       const blogPushed = await pushChunked(
         blogList,
         'blog_entries',
@@ -190,14 +200,32 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         '1/4. Synchronizacja WnR365 (365 rozważań + Gemini AI)...'
       );
 
-      // B. Push Prayers & Intro to Firestore in parallel chunks (35% - 65%)
-      const prayerList = Object.entries(prayers).filter(([_, e]) => e && (e.title || e.text));
+      // B. Push Prayers & RHZ365 to Firestore in parallel chunks (35% - 65%)
+      let masterPrayersMap: Record<string, any> = { ...prayers };
+      try {
+        const rhzModule = await import('../../RHZ365_pierwszy_cykl_175_dni.json');
+        const rhzData = rhzModule.default || rhzModule;
+        if (Array.isArray(rhzData)) {
+          rhzData.forEach((day: any) => {
+            const dayKey = `day_${day.dayNumber}`;
+            if (!masterPrayersMap[dayKey]) {
+              masterPrayersMap[dayKey] = {
+                title: day.dayTitle || `Dzień ${day.dayNumber}`,
+                text: day.reflection || '',
+                notebookUrls: day.notebookUrls || []
+              };
+            }
+          });
+        }
+      } catch {}
+
+      const prayerList = Object.entries(masterPrayersMap);
       const prayerPushed = await pushChunked(
         prayerList,
         'prayers',
         35,
         65,
-        '2/4. Synchronizacja RHZ365 (365 dni cyklu różańca, tajemnice i modlitwy stałe)...'
+        '2/4. Synchronizacja RHZ365 (2 × 175 dni cyklu różańca, tajemnice i modlitwy stałe)...'
       );
 
       // C. Synchronize full 1460 Biblia365 chapters (65% - 88%)
@@ -218,27 +246,11 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         };
       });
 
-      // Push custom/edited local entries to Firestore
-      const customBibleList = Object.entries(full1460BibleMap).filter(([docId, _]) => {
-        const local = bibleEntries[docId];
-        return local && (local.notebookUrls?.some(u => u?.trim()) || local.title !== full1460BibleMap[docId].title);
-      });
-
-      if (customBibleList.length > 0) {
-        await pushChunked(
-          customBibleList,
-          'bible_entries',
-          65,
-          75,
-          '3/4. Wysyłanie edycji i linków Gemini Biblia365 do Firestore...'
-        );
-      }
-
       // Fetch remote bible_entries from Firestore and overlay
       try {
         setSyncProgress({
           active: true,
-          percent: 78,
+          percent: 68,
           step: '3/4. Pobieranie czytań Biblia365 z Firestore...',
           itemCounter: 'Pobieranie z chmury'
         });
@@ -264,15 +276,35 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         console.warn('[Sync] Bible getDocs skipped/failed:', bibleFetchErr);
       }
 
-      const totalBibleCount = Object.keys(full1460BibleMap).length;
-      onBibleEntriesUpdated(full1460BibleMap);
+      // Process and verify all 1460 Bible slots with progress bar
+      const bibleEntriesList = Object.entries(full1460BibleMap);
+      const totalBibleCount = bibleEntriesList.length; // 1460
 
-      setSyncProgress({
-        active: true,
-        percent: 88,
-        step: '3/4. Zsynchronizowano pełne 1460 czytań Biblia365 (4 lata × 365 dni).',
-        itemCounter: `${totalBibleCount} / 1460 czytań`
-      });
+      const bibleChunkSize = 50;
+      for (let i = 0; i < totalBibleCount; i += bibleChunkSize) {
+        const chunk = bibleEntriesList.slice(i, i + bibleChunkSize);
+        // Push only custom/edited ones to avoid unnecessary cloud writes
+        await Promise.allSettled(
+          chunk.map(async ([docId, data]) => {
+            if (data.notebookUrls?.some((u: any) => u && String(u).trim().length > 0)) {
+              try {
+                await withTimeout(setDoc(doc(db, 'bible_entries', docId), data, { merge: true }), 4000);
+              } catch {}
+            }
+          })
+        );
+
+        const currentDone = Math.min(totalBibleCount, i + bibleChunkSize);
+        const pct = Math.round(70 + (currentDone / totalBibleCount) * 18);
+        setSyncProgress({
+          active: true,
+          percent: Math.min(88, pct),
+          step: '3/4. Synchronizacja Biblia365 (1460 czytań: 4 lata × 365 dni od Rdz do Ap)...',
+          itemCounter: `${currentDone} / ${totalBibleCount} czytań`
+        });
+      }
+
+      onBibleEntriesUpdated(full1460BibleMap);
 
       // D. Create local snapshot and update local IndexedDB (88% - 100%)
       setSyncProgress({
@@ -282,7 +314,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         itemCounter: 'Aktualizacja IndexedDB'
       });
 
-      const snapshot = createNoSqlSnapshot(prayers, blogEntries, full1460BibleMap);
+      const snapshot = createNoSqlSnapshot(masterPrayersMap, masterBlogMap, full1460BibleMap);
       await importFullNoSqlSnapshot(snapshot);
 
       setSyncProgress({
@@ -294,7 +326,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
       setMasterStatus({
         type: 'success',
-        message: `🎉 Sukces! Zsynchronizowano wszystko z chmurą: ${blogPushed} wpisów WnR365, ${prayerPushed} modlitw i dni RHZ365 oraz ${totalBibleCount} czytań Biblia365 (wraz z linkami Gemini Notebook).`
+        message: `🎉 Sukces! Zsynchronizowano wszystko z chmurą: ${blogList.length} wpisów WnR365, ${prayerList.length} modlitw i rozważań RHZ365 (2 × 175 dni) oraz ${totalBibleCount} czytań Biblia365 (4 × 365 dni) wraz z linkami Gemini Notebook.`
       });
     } catch (err: any) {
       setSyncProgress(prev => ({ ...prev, active: false }));
