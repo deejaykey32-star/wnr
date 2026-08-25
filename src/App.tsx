@@ -1469,22 +1469,6 @@ export default function App() {
 
   const isLight = theme === 'light';
 
-  if (!isDataLoaded) {
-    return (
-      <div className={`min-h-screen flex flex-col items-center justify-center p-6 text-center transition-colors duration-300 ${
-        isLight ? 'bg-slate-50 text-slate-900' : 'bg-slate-950 text-slate-100'
-      }`}>
-        <div className="w-16 h-16 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-2xl font-bold mb-4 animate-spin">
-          🔄
-        </div>
-        <h1 className="text-xl font-bold mb-2">Wczytywanie eMBiK365...</h1>
-        <p className="text-sm text-slate-400 max-w-md">
-          Przygotowujemy rozważania i modlitwy...
-        </p>
-      </div>
-    );
-  }
-
   const seoData = useMemo(() => {
     const dayNum = cycleInfo?.dayOfCycle ?? 1;
     const sectionName = activeTab === 'rosary' ? 'RHZ365 Różaniec' : activeTab === 'blog' ? 'WnR365 Blog' : 'Biblia365';
@@ -1507,6 +1491,22 @@ export default function App() {
     } catch {}
     return new Date().toISOString();
   }, [selectedDate]);
+
+  if (!isDataLoaded) {
+    return (
+      <div className={`min-h-screen flex flex-col items-center justify-center p-6 text-center transition-colors duration-300 ${
+        isLight ? 'bg-slate-50 text-slate-900' : 'bg-slate-950 text-slate-100'
+      }`}>
+        <div className="w-16 h-16 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-2xl font-bold mb-4 animate-spin">
+          🔄
+        </div>
+        <h1 className="text-xl font-bold mb-2">Wczytywanie eMBiK365...</h1>
+        <p className="text-sm text-slate-400 max-w-md">
+          Przygotowujemy rozważania i modlitwy...
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className={`min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-300 w-full max-w-full overflow-x-hidden ${
