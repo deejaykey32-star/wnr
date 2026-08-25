@@ -180,7 +180,34 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
     };
 
     try {
-      // A. Push Blog to Firestore in parallel chunks (5% - 35%)
+      // 1. Synchronizacja Wstępu i Misji (5% - 15%)
+      setSyncProgress({
+        active: true,
+        percent: 10,
+        step: '1/5. Wstęp i Misja eMBiK365 (wprowadzenie i cele)...',
+        itemCounter: 'Wstęp i Misja'
+      });
+
+      let masterPrayersMap: Record<string, any> = { ...prayers };
+      if (masterPrayersMap['introTextMain']) {
+        try {
+          await withTimeout(setDoc(doc(db, 'prayers', 'introTextMain'), masterPrayersMap['introTextMain'], { merge: true }), 3000);
+        } catch {}
+      }
+      if (masterPrayersMap['introTextMission']) {
+        try {
+          await withTimeout(setDoc(doc(db, 'prayers', 'introTextMission'), masterPrayersMap['introTextMission'], { merge: true }), 3000);
+        } catch {}
+      }
+
+      setSyncProgress({
+        active: true,
+        percent: 15,
+        step: '1/5. Wstęp i Misja eMBiK365 zsynchronizowane.',
+        itemCounter: 'Wstęp i Misja: Gotowe'
+      });
+
+      // 2. Synchronizacja 365 wpisów WnR365 (15% - 40%)
       let masterBlogMap: Record<string, any> = { ...blogEntries };
       if (Object.keys(masterBlogMap).length < 365) {
         try {
@@ -192,16 +219,15 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       }
 
       const blogList = Object.entries(masterBlogMap).slice(0, 365);
-      const blogPushed = await pushChunked(
+      await pushChunked(
         blogList,
         'blog_entries',
-        5,
-        35,
-        '1/4. Synchronizacja WnR365 (365 rozważań + Gemini AI)...'
+        15,
+        40,
+        '2/5. 365 wpisów WnR365 (rozważania codzienne + Gemini AI)...'
       );
 
-      // B. Push Prayers & RHZ365 to Firestore in parallel chunks (35% - 65%)
-      let masterPrayersMap: Record<string, any> = { ...prayers };
+      // 3. Synchronizacja 2 × 175 modlitw RHZ365 (40% - 68%)
       try {
         const rhzModule = await import('../../RHZ365_pierwszy_cykl_175_dni.json');
         const rhzData = rhzModule.default || rhzModule;
@@ -220,15 +246,15 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       } catch {}
 
       const prayerList = Object.entries(masterPrayersMap);
-      const prayerPushed = await pushChunked(
+      await pushChunked(
         prayerList,
         'prayers',
-        35,
-        65,
-        '2/4. Synchronizacja RHZ365 (2 × 175 dni cyklu różańca, tajemnice i modlitwy stałe)...'
+        40,
+        68,
+        '3/5. 2 × 175 modlitw RHZ365 (350 dni cyklu różańca, tajemnice i modlitwy stałe)...'
       );
 
-      // C. Synchronize full 1460 Biblia365 chapters (65% - 88%)
+      // 4. Synchronizacja 4 × 365 rozdziałów Biblia365 (68% - 92%)
       const defaultBible = getBibleChapters(); // 1460 items
       const full1460BibleMap: Record<string, any> = {};
       
@@ -250,8 +276,8 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       try {
         setSyncProgress({
           active: true,
-          percent: 68,
-          step: '3/4. Pobieranie czytań Biblia365 z Firestore...',
+          percent: 70,
+          step: '4/5. Pobieranie czytań Biblia365 z Firestore...',
           itemCounter: 'Pobieranie z chmury'
         });
         const bibleSnap = await withTimeout(getDocs(collection(db, 'bible_entries')), 10000);
@@ -283,7 +309,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       const bibleChunkSize = 50;
       for (let i = 0; i < totalBibleCount; i += bibleChunkSize) {
         const chunk = bibleEntriesList.slice(i, i + bibleChunkSize);
-        // Push only custom/edited ones to avoid unnecessary cloud writes
+        // Push custom/edited ones to cloud
         await Promise.allSettled(
           chunk.map(async ([docId, data]) => {
             if (data.notebookUrls?.some((u: any) => u && String(u).trim().length > 0)) {
@@ -295,22 +321,22 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         );
 
         const currentDone = Math.min(totalBibleCount, i + bibleChunkSize);
-        const pct = Math.round(70 + (currentDone / totalBibleCount) * 18);
+        const pct = Math.round(72 + (currentDone / totalBibleCount) * 20);
         setSyncProgress({
           active: true,
-          percent: Math.min(88, pct),
-          step: '3/4. Synchronizacja Biblia365 (1460 czytań: 4 lata × 365 dni od Rdz do Ap)...',
-          itemCounter: `${currentDone} / ${totalBibleCount} czytań`
+          percent: Math.min(92, pct),
+          step: '4/5. 4 × 365 rozdziałów Biblia365 (1460 czytań od Rdz do Ap + Gemini AI)...',
+          itemCounter: `${currentDone} / 1460 rozdziałów Biblia365`
         });
       }
 
       onBibleEntriesUpdated(full1460BibleMap);
 
-      // D. Create local snapshot and update local IndexedDB (88% - 100%)
+      // 5. Zapis NoSQL i Baza Danych (92% - 100%)
       setSyncProgress({
         active: true,
-        percent: 95,
-        step: '4/4. Zapisywanie lokalnej bazy NoSQL (db_snapshot.json)...',
+        percent: 96,
+        step: '5/5. Zapisywanie kompletnej bazy NoSQL (db_snapshot.json)...',
         itemCounter: 'Aktualizacja IndexedDB'
       });
 
@@ -326,7 +352,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
       setMasterStatus({
         type: 'success',
-        message: `🎉 Sukces! Zsynchronizowano wszystko z chmurą: ${blogList.length} wpisów WnR365, ${prayerList.length} modlitw i rozważań RHZ365 (2 × 175 dni) oraz ${totalBibleCount} czytań Biblia365 (4 × 365 dni) wraz z linkami Gemini Notebook.`
+        message: `🎉 Sukces! Zsynchronizowano: Wstęp i Misję, 365 wpisów WnR365, 2 × 175 modlitw RHZ365 (350 dni) oraz 4 × 365 rozdziałów Biblia365 (1460 czytań) wraz z kompletem linków Gemini Notebook.`
       });
     } catch (err: any) {
       setSyncProgress(prev => ({ ...prev, active: false }));
