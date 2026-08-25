@@ -535,13 +535,14 @@ export default function App() {
       try {
         const snapshot = await getDocs(collection(db, 'prayers'));
         if (!snapshot.empty && isMounted) {
-          const remotePrayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }> = {};
+          const remotePrayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }> = {};
           snapshot.forEach((docSnap) => {
             const data = docSnap.data();
             if (data && data.title && data.text) {
               remotePrayers[docSnap.id] = {
                 title: data.title,
                 text: data.text,
+                notebookUrls: data.notebookUrls || [],
                 updatedBy: data.updatedBy,
                 updatedAt: data.updatedAt
               };
@@ -550,7 +551,19 @@ export default function App() {
 
           if (Object.keys(remotePrayers).length > 0 && isMounted) {
             setPrayers(prev => {
-              const merged = { ...prev, ...remotePrayers };
+              const merged = { ...prev };
+              Object.entries(remotePrayers).forEach(([key, remoteVal]) => {
+                const localVal = prev[key];
+                const finalUrls = (remoteVal.notebookUrls && remoteVal.notebookUrls.some(u => u?.trim()))
+                  ? remoteVal.notebookUrls
+                  : (localVal?.notebookUrls || []);
+
+                merged[key] = {
+                  ...remoteVal,
+                  notebookUrls: finalUrls
+                };
+              });
+
               saveLocalPrayers(merged).catch(() => {});
               return merged;
             });
