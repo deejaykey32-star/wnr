@@ -4,13 +4,13 @@ import {
   collection, doc, setDoc, getDocs, getDoc
 } from 'firebase/firestore';
 import {
-  Cloud, CloudDownload, CloudUpload, RefreshCw, X,
+  Cloud, CloudDownload, CloudUpload, X,
   CheckCircle, AlertCircle, Loader, Database, RotateCcw, FileText,
-  Download, Upload, Sparkles, Check, Copy, HardDrive, ShieldCheck
+  Download, Upload, Sparkles, HardDrive, ShieldCheck, BookOpen
 } from 'lucide-react';
 import {
   getAllLocalBlogEntries, saveLocalBlogEntry, resetLocalToSeedData,
-  saveLocalPrayers, getLocalPrayers, createNoSqlSnapshot,
+  saveLocalPrayers, createNoSqlSnapshot,
   importFullNoSqlSnapshot, FullNoSqlSnapshot,
   getAllLocalBibleEntries, saveLocalBibleEntry
 } from '../utils/localNoSqlDb';
@@ -64,10 +64,10 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
     ]);
   };
 
-  // ── MASTER FULL NOSQL SNAPSHOT (RHZ365 + WNR365 + INTRO) ──────────────────────
+  // ── MASTER FULL NOSQL SNAPSHOT (RHZ365 + WNR365 + BIBLIA365 + WSTĘP + LINKI GEMINI) ────
 
   const downloadFullFirestoreBackup = async () => {
-    setMasterStatus({ type: 'loading', message: 'Łączenie z Firestore i pobieranie pełnej bazy...' });
+    setMasterStatus({ type: 'loading', message: 'Łączenie z Firestore i pobieranie pełnej bazy (RHZ365 + WnR365 + Biblia365 + Wstęp + Linki Gemini)...' });
     try {
       // 1. Fetch all blog entries from Firestore with timeout
       const blogSnap = await withTimeout(
@@ -92,13 +92,13 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         }
       });
 
-      // 2. Fetch all prayers from Firestore with timeout
+      // 2. Fetch all prayers & intro blocks from Firestore with timeout
       const prayerSnap = await withTimeout(
         getDocs(collection(db, 'prayers')),
         12000,
         'Przekroczono limit czasu pobierania prayers z Firestore.'
       );
-      const fetchedPrayers: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }> = { ...prayers };
+      const fetchedPrayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }> = { ...prayers };
       let prayerCount = 0;
       prayerSnap.forEach(docSnap => {
         const data = docSnap.data();
@@ -106,6 +106,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
           fetchedPrayers[docSnap.id] = {
             title: data.title,
             text: data.text,
+            notebookUrls: data.notebookUrls || [],
             updatedBy: data.updatedBy || 'Firestore Backup',
             updatedAt: data.updatedAt || new Date().toISOString()
           };
@@ -113,7 +114,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         }
       });
 
-      // 2.5 Fetch all bible entries from Firestore with timeout
+      // 3. Fetch all bible entries from Firestore with timeout
       const bibleSnap = await withTimeout(
         getDocs(collection(db, 'bible_entries')),
         12000,
@@ -136,16 +137,16 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         }
       });
 
-      // 3. Build snapshot
+      // 4. Build complete snapshot
       const snapshot = createNoSqlSnapshot(fetchedPrayers, fetchedBlogEntries, fetchedBibleEntries);
 
-      // 4. Save to local IndexedDB and update React state immediately
+      // 5. Save to local IndexedDB and update React state immediately
       await importFullNoSqlSnapshot(snapshot);
       onPrayersUpdated(fetchedPrayers);
       onBlogEntriesUpdated(fetchedBlogEntries);
       onBibleEntriesUpdated(fetchedBibleEntries);
 
-      // 5. Trigger download of JSON file
+      // 6. Trigger download of JSON file
       const jsonStr = JSON.stringify(snapshot, null, 2);
       const blob = new Blob([jsonStr], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
@@ -159,7 +160,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
       setMasterStatus({
         type: 'success',
-        message: `✅ Sukces! Pobrano i zaktualizowano lokalnie ${blogCount} wpisów WnR365, ${prayerCount} modlitw RHZ365 oraz ${bibleCount} czytań Biblia365. Plik db_snapshot.json został pobrany na dysk.`
+        message: `✅ Sukces! Pobrano z Firestore i zaktualizowano lokalnie ${blogCount} wpisów WnR365, ${prayerCount} modlitw RHZ365 i Wstępu oraz ${bibleCount} czytań Biblia365 (wraz z linkami Gemini Notebook). Plik db_snapshot.json został zapisany na dysk.`
       });
     } catch (err) {
       setMasterStatus({
@@ -185,7 +186,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
       setMasterStatus({
         type: 'success',
-        message: `✅ Pobrano aktualny stan lokalnej bazy do pliku db_snapshot.json (gotowy do umieszczenia w repozytorium GitHub).`
+        message: `✅ Pobrano kompletny stan lokalnej bazy (RHZ365, WnR365, Biblia365, Wstęp + linki Gemini Notebook) do pliku db_snapshot.json.`
       });
     } catch (err) {
       setMasterStatus({
@@ -231,7 +232,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
         setMasterStatus({
           type: 'success',
-          message: `✅ Zaimportowano pomyślnie z pliku ${file.name}: ${result.prayersCount} modlitw, ${result.blogCount} wpisów i ${result.bibleCount} czytań biblijnych!`
+          message: `✅ Zaimportowano pomyślnie z pliku ${file.name}: ${result.prayersCount} modlitw/wstępu, ${result.blogCount} wpisów WnR365 i ${result.bibleCount} czytań Biblia365 wraz z przypisanymi linkami Gemini Notebook!`
         });
       } catch (err) {
         setMasterStatus({
@@ -248,10 +249,10 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
     reader.readAsText(file);
   };
 
-  // ── BLOG ENTRIES ─────────────────────────────────────────────────────────────
+  // ── BLOG ENTRIES (WnR365) ───────────────────────────────────────────────────
 
   const pushBlogToFirestore = async () => {
-    setBlogStatus({ type: 'loading', message: 'Wysyłam wpisy do Firestore...' });
+    setBlogStatus({ type: 'loading', message: 'Wysyłam wpisy WnR365 i linki Gemini Notebook do Firestore...' });
     try {
       const local = await getAllLocalBlogEntries();
       const entries = Object.entries(local);
@@ -263,9 +264,10 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
             title: entry.title,
             text: entry.text,
             dayIndex: entry.dayIndex,
+            notebookUrls: entry.notebookUrls || [],
             updatedBy: entry.updatedBy || 'Admin Sync',
             updatedAt: entry.updatedAt || new Date().toISOString()
-          }),
+          }, { merge: true }),
           10000,
           `Limit czasu zapisu wpisu ${docId}`
         );
@@ -275,15 +277,15 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         }
       }
 
-      setBlogStatus({ type: 'success', message: `✅ Wysłano ${count} wpisów do Firestore (kopia zapasowa)` });
+      setBlogStatus({ type: 'success', message: `✅ Wysłano ${count} wpisów WnR365 wraz z linkami Gemini Notebook do Firestore` });
     } catch (err) {
       setBlogStatus({ type: 'error', message: `❌ Błąd: ${err instanceof Error ? err.message : 'Nieznany błąd'}` });
     }
   };
 
   const pullBlogFromFirestore = async () => {
-    if (!window.confirm('Czy na pewno pobrać wpisy z Firestore? Nadpisze lokalne edycje.')) return;
-    setBlogStatus({ type: 'loading', message: 'Pobieram wpisy z Firestore...' });
+    if (!window.confirm('Czy na pewno pobrać wpisy WnR365 z Firestore? Nadpisze lokalne edycje.')) return;
+    setBlogStatus({ type: 'loading', message: 'Pobieram wpisy WnR365 i linki Gemini Notebook z Firestore...' });
     try {
       const snapshot = await withTimeout(
         getDocs(collection(db, 'blog_entries')),
@@ -315,7 +317,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       }
 
       onBlogEntriesUpdated(updated);
-      setBlogStatus({ type: 'success', message: `✅ Pobrano ${count} wpisów z Firestore do lokalnej bazy` });
+      setBlogStatus({ type: 'success', message: `✅ Pobrano ${count} wpisów WnR365 (z linkami Gemini Notebook) z Firestore do bazy lokalnej` });
     } catch (err) {
       setBlogStatus({ type: 'error', message: `❌ Błąd: ${err instanceof Error ? err.message : 'Brak dostępu do Firestore'}` });
     }
@@ -334,10 +336,10 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
     }
   };
 
-  // ── INTRO BLOCKS (Wstęp Główny & Misja eMBiK365) ────────────────────────────
+  // ── WSTĘP GŁÓWNY I MISJA EMBIK365 ──────────────────────────────────────────
 
   const pushIntroToFirestore = async () => {
-    setIntroStatus({ type: 'loading', message: 'Wysyłam treść Wstępu i Misji do Firestore...' });
+    setIntroStatus({ type: 'loading', message: 'Wysyłam treść Wstępu, Misji oraz linki Gemini Notebook do Firestore...' });
     try {
       let count = 0;
       const keys = ['introTextMain', 'introTextMission'];
@@ -347,14 +349,15 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
           await setDoc(doc(db, 'prayers', k), {
             title: item.title,
             text: item.text,
+            notebookUrls: (item as any).notebookUrls || [],
             updatedBy: (item as any).updatedBy || 'Admin Sync',
             updatedAt: (item as any).updatedAt || new Date().toISOString()
-          });
+          }, { merge: true });
           count++;
         }
       }
       await saveLocalPrayers(prayers);
-      setIntroStatus({ type: 'success', message: `✅ Wysłano treść Wstępu i Misji (${count} bloki) do Firestore` });
+      setIntroStatus({ type: 'success', message: `✅ Wysłano treść Wstępu i Misji (${count} bloki z linkami Gemini Notebook) do Firestore` });
     } catch (err) {
       setIntroStatus({ type: 'error', message: `❌ Błąd: ${err instanceof Error ? err.message : 'Nieznany błąd'}` });
     }
@@ -362,7 +365,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
   const pullIntroFromFirestore = async () => {
     if (!window.confirm('Czy na pewno pobrać treść Wstępu i Misji z Firestore? Nadpisze edycje lokalne.')) return;
-    setIntroStatus({ type: 'loading', message: 'Pobieram treść Wstępu i Misji z Firestore...' });
+    setIntroStatus({ type: 'loading', message: 'Pobieram treść Wstępu, Misji i linki Gemini Notebook z Firestore...' });
     try {
       const keys = ['introTextMain', 'introTextMission'];
       const updated = { ...prayers };
@@ -379,6 +382,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
             updated[k] = {
               title: data.title,
               text: data.text,
+              notebookUrls: data.notebookUrls || [],
               updatedBy: data.updatedBy,
               updatedAt: data.updatedAt
             };
@@ -388,53 +392,53 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       }
       await saveLocalPrayers(updated);
       onPrayersUpdated(updated);
-      setIntroStatus({ type: 'success', message: `✅ Pobrano treść Wstępu i Misji (${count} bloki) z Firestore do lokalnej bazy` });
+      setIntroStatus({ type: 'success', message: `✅ Pobrano treść Wstępu i Misji (${count} bloki z linkami Gemini Notebook) z Firestore do lokalnej bazy` });
     } catch (err) {
       setIntroStatus({ type: 'error', message: `❌ Błąd: ${err instanceof Error ? err.message : 'Brak dostępu do Firestore'}` });
     }
   };
 
-  // ── PRAYERS ──────────────────────────────────────────────────────────────────
+  // ── RHZ365 (MODLITWY & TAJEMNICE RÓŻAŃCA) ──────────────────────────────────
 
   const pushPrayersToFirestore = async () => {
-    setPrayerStatus({ type: 'loading', message: 'Wysyłam modlitwy do Firestore...' });
+    setPrayerStatus({ type: 'loading', message: 'Wysyłam rozważania RHZ365 i linki Gemini Notebook do Firestore...' });
     try {
       const entries = Object.entries(prayers);
       let count = 0;
       for (const [prayerId, prayer] of entries) {
-        const typedPrayer = prayer as { title?: string; text?: string; updatedBy?: string; updatedAt?: string };
+        const typedPrayer = prayer as { title?: string; text?: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string };
         if (typedPrayer && typedPrayer.text && typedPrayer.title) {
           await withTimeout(
             setDoc(doc(db, 'prayers', prayerId), {
               title: typedPrayer.title,
               text: typedPrayer.text,
+              notebookUrls: typedPrayer.notebookUrls || [],
               updatedBy: typedPrayer.updatedBy || 'Admin Sync',
               updatedAt: typedPrayer.updatedAt || new Date().toISOString()
-            }),
+            }, { merge: true }),
             10000,
             `Limit czasu zapisu modlitwy ${prayerId}`
           );
           count++;
         }
       }
-      // Also persist locally
       await saveLocalPrayers(prayers);
-      setPrayerStatus({ type: 'success', message: `✅ Wysłano ${count} modlitw do Firestore (kopia zapasowa)` });
+      setPrayerStatus({ type: 'success', message: `✅ Wysłano ${count} rozważań RHZ365 (z linkami Gemini Notebook) do Firestore` });
     } catch (err) {
       setPrayerStatus({ type: 'error', message: `❌ Błąd: ${err instanceof Error ? err.message : 'Nieznany błąd'}` });
     }
   };
 
   const pullPrayersFromFirestore = async () => {
-    if (!window.confirm('Czy na pewno pobrać modlitwy z Firestore? Nadpisze lokalne edycje.')) return;
-    setPrayerStatus({ type: 'loading', message: 'Pobieram modlitwy z Firestore...' });
+    if (!window.confirm('Czy na pewno pobrać rozważania RHZ365 z Firestore? Nadpisze lokalne edycje.')) return;
+    setPrayerStatus({ type: 'loading', message: 'Pobieram rozważania RHZ365 i linki Gemini Notebook z Firestore...' });
     try {
       const snapshot = await withTimeout(
         getDocs(collection(db, 'prayers')),
         12000,
         'Przekroczono limit czasu pobierania modlitw z Firestore.'
       );
-      const updated: Record<string, { title: string; text: string; updatedBy?: string; updatedAt?: string }> = { ...DEFAULT_PRAYERS };
+      const updated: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }> = { ...DEFAULT_PRAYERS };
       let count = 0;
 
       snapshot.forEach((docSnap) => {
@@ -443,6 +447,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
           updated[docSnap.id] = {
             title: data.title,
             text: data.text,
+            notebookUrls: data.notebookUrls || [],
             updatedBy: data.updatedBy,
             updatedAt: data.updatedAt
           };
@@ -450,17 +455,18 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         }
       });
 
-      // Save locally
       await saveLocalPrayers(updated);
       onPrayersUpdated(updated);
-      setPrayerStatus({ type: 'success', message: `✅ Pobrano ${count} modlitw z Firestore do lokalnej bazy` });
+      setPrayerStatus({ type: 'success', message: `✅ Pobrano ${count} rozważań RHZ365 (z linkami Gemini Notebook) z Firestore do bazy lokalnej` });
     } catch (err) {
       setPrayerStatus({ type: 'error', message: `❌ Błąd: ${err instanceof Error ? err.message : 'Brak dostępu do Firestore'}` });
     }
   };
 
+  // ── BIBLIA365 ───────────────────────────────────────────────────────────────
+
   const pushBibleToFirestore = async () => {
-    setBibleStatus({ type: 'loading', message: 'Wysyłam czytania Biblia365 do Firestore...' });
+    setBibleStatus({ type: 'loading', message: 'Wysyłam czytania Biblia365 i linki Gemini Notebook do Firestore...' });
     try {
       const local = await getAllLocalBibleEntries();
       const entries = Object.entries(local);
@@ -475,7 +481,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
             notebookUrls: entry.notebookUrls || [],
             updatedBy: entry.updatedBy || 'Admin Sync',
             updatedAt: entry.updatedAt || new Date().toISOString()
-          }),
+          }, { merge: true }),
           10000,
           `Limit czasu zapisu czytania ${docId}`
         );
@@ -485,7 +491,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         }
       }
 
-      setBibleStatus({ type: 'success', message: `✅ Wysłano ${count} czytań Biblia365 do Firestore (backup)` });
+      setBibleStatus({ type: 'success', message: `✅ Wysłano ${count} czytań Biblia365 (z linkami Gemini Notebook) do Firestore` });
     } catch (err) {
       setBibleStatus({ type: 'error', message: `❌ Błąd: ${err instanceof Error ? err.message : 'Nieznany błąd'}` });
     }
@@ -493,7 +499,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
   const pullBibleFromFirestore = async () => {
     if (!window.confirm('Czy na pewno pobrać czytania Biblia365 z Firestore? Nadpisze lokalne edycje.')) return;
-    setBibleStatus({ type: 'loading', message: 'Pobieram czytania Biblia365 z Firestore...' });
+    setBibleStatus({ type: 'loading', message: 'Pobieram czytania Biblia365 i linki Gemini Notebook z Firestore...' });
     try {
       const snapshot = await withTimeout(
         getDocs(collection(db, 'bible_entries')),
@@ -521,7 +527,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       }
 
       onBibleEntriesUpdated(updated);
-      setBibleStatus({ type: 'success', message: `✅ Pobrano ${count} czytań z Firestore do lokalnej bazy` });
+      setBibleStatus({ type: 'success', message: `✅ Pobrano ${count} czytań Biblia365 (z linkami Gemini Notebook) z Firestore do bazy lokalnej` });
     } catch (err) {
       setBibleStatus({ type: 'error', message: `❌ Błąd: ${err instanceof Error ? err.message : 'Brak dostępu do Firestore'}` });
     }
@@ -591,15 +597,15 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
             <div className="flex items-center justify-between gap-2 mb-2">
               <h3 className="font-bold text-sm flex items-center gap-2 text-amber-400">
                 <Sparkles size={16} className="text-amber-400" />
-                Kompletny NoSQL Backup (Wszystko w 1 pliku JSON)
+                Kompletny NoSQL Backup (Wszystkie 4 sekcje + Linki Gemini Notebook)
               </h3>
               <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-mono border border-amber-500/30">
-                RHZ365 + WnR365 + Wstęp
+                RHZ365 + WnR365 + Biblia365 + Wstęp
               </span>
             </div>
 
             <p className={`text-xs mb-4 leading-relaxed ${subText}`}>
-              Generuje kompletny zrzut bazy danych (wszystkie 365 dni rozważań WnR, cały Różaniec RHZ z tajemnicami i klauzulami oraz Wstęp i Misję eMBiK365). Plik <code>db_snapshot.json</code> jest gotowy do wgrania do repozytorium GitHub w folderze <code>src/data/</code>.
+              Generuje kompletny zrzut bazy danych (wszystkie 365 dni rozważań WnR365, cały Różaniec RHZ365 z tajemnicami, 1460 czytań Biblia365 oraz Wstęp i Misję eMBiK365 <strong>wraz z kompletem unikalnych linków Gemini Notebook dla każdej z tych sekcji</strong>). Plik <code>db_snapshot.json</code> jest gotowy do wgrania do repozytorium GitHub w folderze <code>src/data/</code>.
             </p>
 
             {/* Hidden file input */}
@@ -620,7 +626,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
               >
                 <div className="flex items-center gap-2">
                   <CloudDownload size={16} />
-                  <span>1. Pobierz Pełny NoSQL Snapshot z Firestore (Wszystkie treści)</span>
+                  <span>1. Pobierz Pełny NoSQL Snapshot z Firestore (Wszystkie 4 sekcje + linki Gemini Notebook)</span>
                 </div>
                 {masterStatus.type === 'loading' ? <Loader size={14} className="animate-spin" /> : <Download size={14} />}
               </button>
@@ -636,7 +642,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
               >
                 <div className="flex items-center gap-2">
                   <HardDrive size={15} />
-                  <span>2. Pobierz Obecny Stan Lokalnej Bazy (plik db_snapshot.json)</span>
+                  <span>2. Pobierz Obecny Stan Lokalnej Bazy (plik db_snapshot.json z linkami Gemini Notebook)</span>
                 </div>
                 <Download size={13} />
               </button>
@@ -652,7 +658,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
               >
                 <div className="flex items-center gap-2">
                   <Upload size={15} />
-                  <span>3. Wgraj i Zastosuj Plik Backup JSON do Aplikacji</span>
+                  <span>3. Wgraj i Zastosuj Plik Backup JSON do Aplikacji (Wszystkie 4 sekcje + linki Gemini)</span>
                 </div>
                 <FileText size={13} />
               </button>
@@ -670,14 +676,14 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
             </div>
           </div>
 
-          {/* Blog Entries Section */}
+          {/* Blog Entries Section (WnR365) */}
           <div className={`rounded-xl border p-4 ${cardBg}`}>
             <h3 className="font-semibold text-sm mb-1 flex items-center gap-2">
               <Database size={15} className="text-indigo-400" />
-              Wpisy WnR365 (365 wpisów)
+              Wpisy WnR365 (365 wpisów z linkami Gemini Notebook)
             </h3>
             <p className={`text-xs mb-3 ${subText}`}>
-              Źródło: <code className="text-indigo-400">wnr365_pdf_entries.json</code> + IndexedDB (lokalne edycje)
+              Źródło: <code className="text-indigo-400">wnr365_pdf_entries.json</code> + IndexedDB (lokalne edycje treści i linków Gemini)
             </p>
 
             <div className="grid grid-cols-1 gap-2">
@@ -691,7 +697,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
                   }`}
               >
                 <CloudUpload size={15} />
-                Wyślij wszystkie wpisy do Firestore (backup)
+                Wyślij wpisy WnR365 i linki Gemini do Firestore (backup)
                 {blogStatus.type === 'loading' && <Loader size={13} className="animate-spin ml-auto" />}
               </button>
 
@@ -705,7 +711,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
                   }`}
               >
                 <CloudDownload size={15} />
-                Pobierz wpisy z Firestore (nadpisz lokalne)
+                Pobierz wpisy WnR365 i linki Gemini z Firestore (nadpisz lokalne)
               </button>
 
               {/* Reset to seed */}
@@ -728,11 +734,11 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
           {/* Biblia365 Readings Section */}
           <div className={`rounded-xl border p-4 ${cardBg}`}>
             <h3 className="font-semibold text-sm mb-1 flex items-center gap-2">
-              <Database size={15} className="text-emerald-400" />
-              Czytania Biblia365 (1460 czytań z linkami Notebook Gemini)
+              <BookOpen size={15} className="text-emerald-400" />
+              Czytania Biblia365 (1460 czytań z linkami Gemini Notebook)
             </h3>
             <p className={`text-xs mb-3 ${subText}`}>
-              Źródło: lokalne wartości proceduralne + IndexedDB (edycje tekstów i linków)
+              Źródło: czytania biblijne + IndexedDB (lokalne edycje tekstów i linków Gemini)
             </p>
 
             <div className="grid grid-cols-1 gap-2">
@@ -760,7 +766,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
                   }`}
               >
                 <CloudDownload size={15} />
-                Pobierz czytania Biblia365 z Firestore (nadpisz lokalne)
+                Pobierz czytania Biblia365 i linki Gemini z Firestore (nadpisz lokalne)
               </button>
             </div>
 
@@ -771,10 +777,10 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
           <div className={`rounded-xl border p-4 ${cardBg}`}>
             <h3 className="font-semibold text-sm mb-1 flex items-center gap-2">
               <FileText size={15} className="text-sky-400" />
-              Treść Wstępu strony widokinaraj.pl
+              Treść Wstępu i Misja eMBiK365 (z linkami Gemini Notebook)
             </h3>
             <p className={`text-xs mb-3 ${subText}`}>
-              Obejmuje: <code className="text-sky-400">Wstęp Główny</code> oraz <code className="text-sky-400">Misję eMBiK365</code> z paska pod wstępem
+              Obejmuje: <code className="text-sky-400">Wstęp Główny</code> oraz <code className="text-sky-400">Misję eMBiK365</code> wraz z przypisanymi linkami Gemini Notebook
             </p>
 
             <div className="grid grid-cols-1 gap-2">
@@ -787,7 +793,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
                   }`}
               >
                 <CloudUpload size={15} />
-                Wyślij edytowany Wstęp i Misję do Firestore (backup)
+                Wyślij Wstęp, Misję i linki Gemini do Firestore (backup)
                 {introStatus.type === 'loading' && <Loader size={13} className="animate-spin ml-auto" />}
               </button>
 
@@ -800,21 +806,21 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
                   }`}
               >
                 <CloudDownload size={15} />
-                Pobierz Wstęp i Misję z Firestore (nadpisz lokalne)
+                Pobierz Wstęp, Misję i linki Gemini z Firestore (nadpisz lokalne)
               </button>
             </div>
 
             <StatusBar status={introStatus} />
           </div>
 
-          {/* Prayers & Intro Blocks Section */}
+          {/* Prayers & RHZ365 Section */}
           <div className={`rounded-xl border p-4 ${cardBg}`}>
             <h3 className="font-semibold text-sm mb-1 flex items-center gap-2">
-              <RefreshCw size={15} className="text-violet-400" />
-              Bloki Wstępu & Modlitwy RHZ365
+              <RotateCcw size={15} className="text-violet-400" />
+              Rozważania i Modlitwy RHZ365 (z linkami Gemini Notebook)
             </h3>
             <p className={`text-xs mb-3 ${subText}`}>
-              Źródło: lokalne wartości domyślne + IndexedDB (edycje Wstępu i Paciorków)
+              Źródło: tajemnice różańcowe + IndexedDB (edycje Wstępu, Paciorków i linków Gemini)
             </p>
 
             <div className="grid grid-cols-1 gap-2">
@@ -827,7 +833,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
                   }`}
               >
                 <CloudUpload size={15} />
-                Wyślij bloki wstępu i modlitwy do Firestore (backup)
+                Wyślij rozważania RHZ365 i linki Gemini do Firestore (backup)
               </button>
 
               <button
@@ -839,7 +845,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
                   }`}
               >
                 <CloudDownload size={15} />
-                Pobierz bloki wstępu i modlitwy z Firestore (nadpisz lokalne)
+                Pobierz rozważania RHZ365 i linki Gemini z Firestore (nadpisz lokalne)
               </button>
             </div>
 
