@@ -58,6 +58,7 @@ async function syncAllToFirestore() {
           stage: record.stage,
           part: record.part,
           mystery: record.mystery,
+          notebookUrls: record.notebookUrls || [],
           updatedBy: 'GitHub Repository Backup',
           updatedAt: new Date().toISOString()
         }, { merge: true });
@@ -80,6 +81,7 @@ async function syncAllToFirestore() {
           await setDoc(doc(db, 'prayers', docId), {
             title: prayer.title || '',
             text: prayer.text,
+            notebookUrls: prayer.notebookUrls || [],
             updatedBy: prayer.updatedBy || 'GitHub Repository Backup',
             updatedAt: prayer.updatedAt || new Date().toISOString()
           }, { merge: true });

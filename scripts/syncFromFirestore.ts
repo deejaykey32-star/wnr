@@ -14,10 +14,10 @@ const db = firebaseConfig.firestoreDatabaseId
   : getFirestore(app);
 
 async function syncAllFromFirestore() {
-  console.log('🔄 Starting full sync from Firestore to local JSON files...');
+  console.log('🔄 Starting full sync from Firestore to local JSON files (WnR365, RHZ365, Biblia365 + Gemini notebookUrls)...');
   let changesCount = 0;
 
-  // ── A. SYNC BLOG ENTRIES ──────────────────────────────────────────────────
+  // ── A. SYNC BLOG ENTRIES (WnR365) ──────────────────────────────────────────
   const wnrJsonPath = resolve(process.cwd(), 'src/data/wnr365_pdf_entries.json');
   let wnrData: Record<string, any> = {};
   try {
@@ -36,16 +36,20 @@ async function syncAllFromFirestore() {
 
     if (data && data.title && data.text) {
       const existing = wnrData[id];
+      const hasUrlChange = JSON.stringify(existing?.notebookUrls || []) !== JSON.stringify(data.notebookUrls || []);
+
       if (
         !existing ||
         existing.title !== data.title ||
         existing.text !== data.text ||
-        existing.dayIndex !== data.dayIndex
+        existing.dayIndex !== data.dayIndex ||
+        hasUrlChange
       ) {
         wnrData[id] = {
           dayIndex: data.dayIndex ?? 0,
           title: data.title,
           text: data.text,
+          notebookUrls: data.notebookUrls || existing?.notebookUrls || [],
           updatedBy: data.updatedBy || 'Firestore Sync',
           updatedAt: data.updatedAt || new Date().toISOString()
         };
@@ -92,13 +96,20 @@ async function syncAllFromFirestore() {
       const recordIndex = rhzRecords.findIndex((r: any) => r.dayNumber === dayNum);
       if (recordIndex !== -1) {
         const currentRec = rhzRecords[recordIndex];
+        let changed = false;
         if (data.title && currentRec.title !== data.title) {
           currentRec.title = data.title;
-          updatedRhzDays++;
-          changesCount++;
+          changed = true;
         }
         if (data.text && currentRec.text !== data.text) {
           currentRec.text = data.text;
+          changed = true;
+        }
+        if (data.notebookUrls) {
+          currentRec.notebookUrls = data.notebookUrls;
+          changed = true;
+        }
+        if (changed) {
           updatedRhzDays++;
           changesCount++;
         }
@@ -113,7 +124,8 @@ async function syncAllFromFirestore() {
       // Look for key block in DEFAULT_PRAYERS
       const keyPattern = new RegExp(`"${id}":\\s*\\{[\\s\\S]*?\\}`);
       if (keyPattern.test(prayersTsContent)) {
-        const replacement = `"${id}": {\n    "title": ${titleEscaped},\n    "text": ${textEscaped}\n  }`;
+        const urlsEscaped = data.notebookUrls ? `,\n    "notebookUrls": ${JSON.stringify(data.notebookUrls)}` : '';
+        const replacement = `"${id}": {\n    "title": ${titleEscaped},\n    "text": ${textEscaped}${urlsEscaped}\n  }`;
         if (!prayersTsContent.includes(replacement)) {
           prayersTsContent = prayersTsContent.replace(keyPattern, replacement);
           updatedPrayersTs++;
@@ -135,7 +147,28 @@ async function syncAllFromFirestore() {
     console.log(`✅ Updated ${updatedPrayersTs} prayer blocks in src/data/prayers.ts`);
   }
 
-  // ── C. GENERATE src/data/db_snapshot.json ─────────────────────────────────
+  // ── C. SYNC BIBLIA365 ─────────────────────────────────────────────────────
+  console.log('📥 Fetching bible_entries from Firestore...');
+  const bibleSnap = await getDocs(collection(db, 'bible_entries'));
+  const bibleEntriesMap: Record<string, any> = {};
+  
+  bibleSnap.forEach(docSnap => {
+    const id = docSnap.id;
+    const data = docSnap.data();
+    if (data && data.title && data.text) {
+      bibleEntriesMap[id] = {
+        slotIndex: data.slotIndex ?? 0,
+        title: data.title,
+        text: data.text,
+        notebookUrls: data.notebookUrls || [],
+        updatedBy: data.updatedBy || 'Firestore Sync',
+        updatedAt: data.updatedAt || new Date().toISOString()
+      };
+    }
+  });
+  console.log(`✅ Fetched ${Object.keys(bibleEntriesMap).length} Biblia365 entries from Firestore.`);
+
+  // ── D. GENERATE src/data/db_snapshot.json ─────────────────────────────────
   const snapshotJsonPath = resolve(process.cwd(), 'src/data/db_snapshot.json');
   const publicSnapshotPath = resolve(process.cwd(), 'public/data/db_snapshot.json');
 
@@ -146,6 +179,7 @@ async function syncAllFromFirestore() {
       allPrayersMap[docSnap.id] = {
         title: data.title || '',
         text: data.text || '',
+        notebookUrls: data.notebookUrls || [],
         updatedBy: data.updatedBy || 'Firestore Sync',
         updatedAt: data.updatedAt || new Date().toISOString()
       };
@@ -161,11 +195,12 @@ async function syncAllFromFirestore() {
       introTextMission: allPrayersMap['introTextMission'] || null
     },
     prayers: allPrayersMap,
-    blogEntries: wnrData
+    blogEntries: wnrData,
+    bibleEntries: bibleEntriesMap
   };
 
   writeFileSync(snapshotJsonPath, JSON.stringify(fullSnapshot, null, 2), 'utf-8');
-  console.log(`📦 Generated standalone NoSQL snapshot in src/data/db_snapshot.json (${Object.keys(allPrayersMap).length} prayers, ${Object.keys(wnrData).length} blog entries)`);
+  console.log(`📦 Generated standalone NoSQL snapshot in src/data/db_snapshot.json (${Object.keys(allPrayersMap).length} prayers, ${Object.keys(wnrData).length} blog entries, ${Object.keys(bibleEntriesMap).length} bible entries)`);
 
   try {
     const publicDataDir = resolve(process.cwd(), 'public/data');
@@ -177,11 +212,11 @@ async function syncAllFromFirestore() {
     // optional
   }
 
-  // ── D. UPDATE DATA VERSION IF CHANGES MADE ──────────────────────────────
+  // ── E. UPDATE DATA VERSION IF CHANGES MADE ──────────────────────────────
   const localNoSqlPath = resolve(process.cwd(), 'src/utils/localNoSqlDb.ts');
   let localNoSqlContent = readFileSync(localNoSqlPath, 'utf-8');
 
-  const newVersion = `2026-08-23-sync-${Date.now()}`;
+  const newVersion = `2026-08-25-sync-${Date.now()}`;
   localNoSqlContent = localNoSqlContent.replace(
     /const DATA_VERSION = '[^']+';/,
     `const DATA_VERSION = '${newVersion}';`
