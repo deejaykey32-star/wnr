@@ -75,29 +75,77 @@ class ErrorBoundary extends Component<Props, State> {
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error('[eMBiK365] React render error caught:', error, errorInfo);
-    // Don't auto-reload on runtime render errors to avoid wiping user session / video progress
+    if (!sessionStorage.getItem(BOUNDARY_RELOAD_FLAG)) {
+      sessionStorage.setItem(BOUNDARY_RELOAD_FLAG, '1');
+      try {
+        if ('caches' in window) {
+          caches.keys().then(names => Promise.all(names.map(n => caches.delete(n))));
+        }
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(regs => Promise.all(regs.map(r => r.unregister())));
+        }
+      } catch {}
+      window.location.reload();
+    }
   }
 
   public render() {
     if (this.state.hasError) {
-      // Show minimal spinner while reloading, never show error text
       return (
         <div style={{
           minHeight: '100vh',
           background: '#0f172a',
+          color: '#f8fafc',
           display: 'flex',
+          flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          padding: '24px',
+          textAlign: 'center',
+          fontFamily: 'sans-serif'
         }}>
           <div style={{
-            width: 40,
-            height: 40,
-            border: '3px solid #334155',
-            borderTop: '3px solid #6366f1',
-            borderRadius: '50%',
-            animation: 'spin 0.8s linear infinite'
-          }} />
-          <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+            width: 48,
+            height: 48,
+            borderRadius: '16px',
+            background: 'rgba(99, 102, 241, 0.2)',
+            color: '#818cf8',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '24px',
+            marginBottom: '16px'
+          }}>
+            ✨
+          </div>
+          <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '8px' }}>Widoki na Raj (eMBiK365)</h2>
+          <p style={{ fontSize: '14px', color: '#94a3b8', maxWidth: '360px', marginBottom: '20px', lineHeight: 1.5 }}>
+            Zaktualizowano wersję aplikacji. Kliknij poniżej, aby załadować najnowsze rozważania.
+          </p>
+          <button
+            onClick={() => {
+              sessionStorage.removeItem(BOUNDARY_RELOAD_FLAG);
+              try {
+                if ('caches' in window) {
+                  caches.keys().then(names => Promise.all(names.map(n => caches.delete(n))));
+                }
+              } catch {}
+              window.location.reload();
+            }}
+            style={{
+              padding: '10px 24px',
+              background: '#4f46e5',
+              color: '#ffffff',
+              border: 'none',
+              borderRadius: '12px',
+              fontSize: '14px',
+              fontWeight: '600',
+              cursor: 'pointer',
+              boxShadow: '0 4px 12px rgba(79, 70, 229, 0.4)'
+            }}
+          >
+            Odśwież aplikację 🔄
+          </button>
         </div>
       );
     }

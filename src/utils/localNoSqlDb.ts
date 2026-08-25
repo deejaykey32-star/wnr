@@ -113,32 +113,22 @@ export async function initLocalNoSqlDb(): Promise<void> {
     if (needsReseed) {
       console.log(`[NoSQL] Data version mismatch or empty DB. Seeding IndexedDB...`);
 
-      // 1. Preload JSON data dynamically BEFORE starting the transaction
-      // to avoid TransactionInactiveError while awaiting imports.
-      // NOTE: We use wnr365_pdf_entries.json directly (fast, ~1.7MB already loaded by loadWnrBlogDefaultsData).
-      // db_snapshot.json (2.8MB) is NOT loaded at startup to avoid blocking page load.
-      // It is only used in the Admin panel for Firestore backup/restore operations.
       let wnrPdfMap: Record<string, any> = {};
-      let prayersMap: Record<string, any> = {};
-      let biblePdfMap: Record<string, any> = {};
 
       try {
-        const snapshotModule = await import('../data/db_snapshot.json');
-        const snapshotData = snapshotModule.default as any;
-        if (snapshotData) {
-          if (snapshotData.blogEntries) wnrPdfMap = snapshotData.blogEntries;
-          if (snapshotData.prayers) prayersMap = { ...snapshotData.prayers };
-          if (snapshotData.bibleEntries) biblePdfMap = snapshotData.bibleEntries;
-          if (snapshotData.intro) {
-            Object.assign(prayersMap, snapshotData.intro);
-          }
-        }
-      } catch (snapErr) {
-        console.warn('[NoSQL] db_snapshot.json dynamic import fallback:', snapErr);
+        const module = await import('../data/wnr365_pdf_entries.json');
+        wnrPdfMap = module.default as Record<string, any>;
+      } catch (importErr) {
+        console.warn('[NoSQL] Failed to import wnr365_pdf_entries.json:', importErr);
       }
 
       // 2. Perform clear and seed in a readwrite transaction
       return new Promise<void>((resolve) => {
+        const timer = setTimeout(() => {
+          console.warn('[NoSQL] Seeding timeout reached, proceeding to render app...');
+          resolve();
+        }, 1500);
+
         try {
           const storeNames: string[] = [];
           if (db.objectStoreNames.contains(BLOG_STORE)) storeNames.push(BLOG_STORE);
@@ -146,6 +136,7 @@ export async function initLocalNoSqlDb(): Promise<void> {
           if (db.objectStoreNames.contains(BIBLE_STORE)) storeNames.push(BIBLE_STORE);
 
           if (storeNames.length === 0) {
+            clearTimeout(timer);
             resolve();
             return;
           }
@@ -153,24 +144,13 @@ export async function initLocalNoSqlDb(): Promise<void> {
           const tx = db.transaction(storeNames, 'readwrite');
           const store = db.objectStoreNames.contains(BLOG_STORE) ? tx.objectStore(BLOG_STORE) : null;
           const prayersStore = db.objectStoreNames.contains(PRAYERS_STORE) ? tx.objectStore(PRAYERS_STORE) : null;
-          const bibleStore = db.objectStoreNames.contains(BIBLE_STORE) ? tx.objectStore(BIBLE_STORE) : null;
 
-          tx.onerror = () => { resolve(); };
-          tx.onabort = () => { resolve(); };
+          tx.onerror = () => { clearTimeout(timer); resolve(); };
+          tx.onabort = () => { clearTimeout(timer); resolve(); };
 
           // Clear old data so stale entries don't persist
           if (store) store.clear();
           if (prayersStore) prayersStore.clear();
-          if (bibleStore) bibleStore.clear();
-
-          // Seed prayers
-          if (prayersStore) {
-            Object.entries(prayersMap).forEach(([docId, p]: [string, any]) => {
-              if (p && p.text) {
-                prayersStore.put({ docId, ...p });
-              }
-            });
-          }
 
           // Seed blog entries
           if (store) {
@@ -182,7 +162,7 @@ export async function initLocalNoSqlDb(): Promise<void> {
                   title: entry.title,
                   text: entry.text,
                   notebookUrls: entry.notebookUrls || [],
-                  updatedBy: entry.updatedBy || 'NoSQL Snapshot (GitHub / Cloudflare)',
+                  updatedBy: entry.updatedBy || 'eMBiK365 Księga A5 PDF',
                   updatedAt: entry.updatedAt || new Date().toISOString()
                 });
               } catch (putErr) {
@@ -191,26 +171,8 @@ export async function initLocalNoSqlDb(): Promise<void> {
             });
           }
 
-          // Seed bible entries
-          if (bibleStore) {
-            Object.entries(biblePdfMap).forEach(([docId, entry]: [string, any]) => {
-              try {
-                bibleStore.put({
-                  docId,
-                  slotIndex: entry.slotIndex ?? 0,
-                  title: entry.title,
-                  text: entry.text,
-                  notebookUrls: entry.notebookUrls || [],
-                  updatedBy: entry.updatedBy || 'NoSQL Snapshot (GitHub / Cloudflare)',
-                  updatedAt: entry.updatedAt || new Date().toISOString()
-                });
-              } catch (putErr) {
-                console.warn(`[NoSQL] Error putting bible entry ${docId}:`, putErr);
-              }
-            });
-          }
-
           tx.oncomplete = () => {
+            clearTimeout(timer);
             try {
               localStorage.setItem(DATA_VERSION_KEY, DATA_VERSION);
               console.log(`[NoSQL] Re-seed complete. Version set to ${DATA_VERSION}.`);
@@ -218,6 +180,7 @@ export async function initLocalNoSqlDb(): Promise<void> {
             resolve();
           };
         } catch (txErr) {
+          clearTimeout(timer);
           console.warn('[NoSQL] Seeding error:', txErr);
           resolve();
         }
