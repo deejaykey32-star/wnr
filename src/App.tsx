@@ -1475,7 +1475,7 @@ export default function App() {
   }
 
   const seoData = useMemo(() => {
-    const dayNum = cycleInfo.dayOfCycle;
+    const dayNum = cycleInfo?.dayOfCycle ?? 1;
     const sectionName = activeTab === 'rosary' ? 'RHZ365 Różaniec' : activeTab === 'blog' ? 'WnR365 Blog' : 'Biblia365';
     const title = activeTab === 'rosary'
       ? `RHZ365 Dzień ${dayNum} — Różaniec Historii Zbawienia`
@@ -1486,7 +1486,16 @@ export default function App() {
     const url = `https://widokinaraj.pl/dzien/${dayNum}/${activeTab === 'rosary' ? 'rhz365' : activeTab === 'blog' ? 'wnr365' : 'biblia365'}`;
 
     return { title, description, url, dayNum, sectionName };
-  }, [cycleInfo.dayOfCycle, activeTab]);
+  }, [cycleInfo?.dayOfCycle, activeTab]);
+
+  const safeIsoDate = useMemo(() => {
+    try {
+      if (selectedDate && !isNaN(selectedDate.getTime())) {
+        return selectedDate.toISOString();
+      }
+    } catch {}
+    return new Date().toISOString();
+  }, [selectedDate]);
 
   return (
     <div className={`min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-300 w-full max-w-full overflow-x-hidden ${
@@ -1498,7 +1507,7 @@ export default function App() {
         url={seoData.url}
         dayNumber={seoData.dayNum}
         sectionName={seoData.sectionName}
-        datePublished={selectedDate.toISOString()}
+        datePublished={safeIsoDate}
       />
       {/* HEADER BAR (Hidden in strict YouTube Record Mode) */}
       {!isYoutubeMode && (
