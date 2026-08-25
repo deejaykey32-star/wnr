@@ -619,19 +619,24 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         onBlogEntriesUpdated(nextEntries);
       }
 
-      // Optional Cloud Backup: Send to Firestore in background so Firestore has updated notebookUrls
-      try {
-        await setDoc(doc(db, 'blog_entries', docId), {
-          title: editTitle.trim(),
-          text: editText.trim(),
-          dayIndex: cycleInfo.dayIndex,
-          notebookUrls: editUrls,
-          updatedBy: user?.email || 'Edytor',
-          updatedAt: new Date().toISOString()
-        }, { merge: true });
-      } catch (cloudErr) {
-        console.warn("Firestore Blog Backup skipped/failed (saved locally):", cloudErr);
-      }
+      // Optional Cloud Backup: Send to Firestore in background with 3s timeout
+      (async () => {
+        try {
+          await Promise.race([
+            setDoc(doc(db, 'blog_entries', docId), {
+              title: editTitle.trim(),
+              text: editText.trim(),
+              dayIndex: cycleInfo.dayIndex,
+              notebookUrls: editUrls,
+              updatedBy: user?.email || 'Edytor',
+              updatedAt: new Date().toISOString()
+            }, { merge: true }),
+            new Promise((_, reject) => setTimeout(() => reject(new Error('Firestore timeout (3s)')), 3000))
+          ]);
+        } catch (cloudErr) {
+          console.info("Firestore Blog Backup skipped/timeout (saved locally):", (cloudErr as any)?.message);
+        }
+      })();
 
       setSaveStatus({ success: true, message: "Wpis i linki Gemini zapisane pomyślnie w lokalnej bazie oraz chmurze!" });
       setEditing(false);
@@ -657,11 +662,18 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     await saveLocalBlogEntry(docId, newEntry);
     const next = { ...blogEntries, [docId]: newEntry };
     if (onBlogEntriesUpdated) onBlogEntriesUpdated(next);
-    try {
-      await setDoc(doc(db, 'blog_entries', docId), newEntry, { merge: true });
-    } catch (err) {
-      console.warn("Firestore Blog Backup skipped/failed (saved locally):", err);
-    }
+    
+    // Non-blocking Firestore backup
+    (async () => {
+      try {
+        await Promise.race([
+          setDoc(doc(db, 'blog_entries', docId), newEntry, { merge: true }),
+          new Promise((_, reject) => setTimeout(() => reject(new Error('Firestore timeout (3s)')), 3000))
+        ]);
+      } catch (err) {
+        console.info("Firestore Blog Backup skipped/timeout (saved locally):", (err as any)?.message);
+      }
+    })();
   };
 
   // Restore all 366 WnR365 blog entries into Cloud Firestore based on JSON and corrections

@@ -670,37 +670,47 @@ export default function App() {
   // Helper to map activeTab and date to 1-365 sequential URL slug (supports hash routing for 100% web host compatibility)
   const handleSaveBibleEntry = async (docId: string, title: string, text: string, slotIndex: number, notebookUrls: string[]) => {
     try {
-      await saveLocalBibleEntry(docId, { title, text, slotIndex, notebookUrls, updatedBy: userEmail });
+      const updatedItem = {
+        docId,
+        slotIndex,
+        title,
+        text,
+        notebookUrls,
+        updatedBy: userEmail || 'Admin',
+        updatedAt: new Date().toISOString()
+      };
+
+      // 1. Instant local IndexedDB save
+      await saveLocalBibleEntry(docId, updatedItem);
+
+      // 2. Instant React state update
       setBibleEntries(prev => ({
         ...prev,
-        [docId]: {
-          docId,
-          slotIndex,
-          title,
-          text,
-          notebookUrls,
-          updatedBy: userEmail,
-          updatedAt: new Date().toISOString()
-        }
+        [docId]: updatedItem
       }));
 
-      // Firestore backup
-      try {
-        const { doc, setDoc } = await import('firebase/firestore');
-        const docRef = doc(db, 'bible_entries', docId);
-        await setDoc(docRef, {
-          title,
-          text,
-          slotIndex,
-          notebookUrls,
-          updatedBy: userEmail,
-          updatedAt: new Date().toISOString()
-        });
-      } catch (cloudErr) {
-        console.warn('[App] Firestore Bible Backup skipped/failed:', cloudErr);
-      }
+      // 3. Non-blocking Firestore cloud backup with 3s timeout
+      (async () => {
+        try {
+          const { doc, setDoc } = await import('firebase/firestore');
+          const docRef = doc(db, 'bible_entries', docId);
+          await Promise.race([
+            setDoc(docRef, {
+              title,
+              text,
+              slotIndex,
+              notebookUrls,
+              updatedBy: userEmail || 'Admin',
+              updatedAt: new Date().toISOString()
+            }, { merge: true }),
+            new Promise((_, reject) => setTimeout(() => reject(new Error('Firestore timeout (3s)')), 3000))
+          ]);
+        } catch (cloudErr) {
+          console.info('[App] Firestore Bible Backup performed asynchronously / skipped:', (cloudErr as any)?.message);
+        }
+      })();
     } catch (err) {
-      console.error(err);
+      console.error('Error saving Bible entry locally:', err);
       throw err;
     }
   };
@@ -1650,12 +1660,21 @@ export default function App() {
     const nextPrayers = { ...prayers, [targetKey]: newEntry, [`day_${dayNum}`]: newEntry };
     await saveLocalPrayers(nextPrayers);
     setPrayers(nextPrayers);
-    try {
-      await setDoc(doc(db, 'prayers', targetKey), newEntry, { merge: true });
-      await setDoc(doc(db, 'prayers', `day_${dayNum}`), newEntry, { merge: true });
-    } catch (cloudErr) {
-      console.warn('Firestore backup failed (saved locally):', cloudErr);
-    }
+    
+    // Non-blocking Firestore backup
+    (async () => {
+      try {
+        await Promise.race([
+          Promise.all([
+            setDoc(doc(db, 'prayers', targetKey), newEntry, { merge: true }),
+            setDoc(doc(db, 'prayers', `day_${dayNum}`), newEntry, { merge: true })
+          ]),
+          new Promise((_, reject) => setTimeout(() => reject(new Error('Firestore timeout (3s)')), 3000))
+        ]);
+      } catch (cloudErr) {
+        console.info('Firestore backup skipped/timeout (saved locally):', (cloudErr as any)?.message);
+      }
+    })();
   };
 
   const handleSaveIntroUrls = async (newUrls: string[]) => {
@@ -1671,11 +1690,18 @@ export default function App() {
     const nextPrayers = { ...prayers, [targetKey]: newEntry };
     await saveLocalPrayers(nextPrayers);
     setPrayers(nextPrayers);
-    try {
-      await setDoc(doc(db, 'prayers', targetKey), newEntry, { merge: true });
-    } catch (cloudErr) {
-      console.warn('Firestore backup failed (saved locally):', cloudErr);
-    }
+
+    // Non-blocking Firestore backup
+    (async () => {
+      try {
+        await Promise.race([
+          setDoc(doc(db, 'prayers', targetKey), newEntry, { merge: true }),
+          new Promise((_, reject) => setTimeout(() => reject(new Error('Firestore timeout (3s)')), 3000))
+        ]);
+      } catch (cloudErr) {
+        console.info('Firestore backup skipped/timeout (saved locally):', (cloudErr as any)?.message);
+      }
+    })();
   };
 
   if (!isDataLoaded) {
