@@ -31,6 +31,7 @@ const ExportModal = lazy(() => import('./components/ExportModal').then(m => ({ d
 import { PwaInstallPrompt } from './components/PwaInstallPrompt';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { InlinePrayerEditor } from './components/InlinePrayerEditor';
+import { SeoHead } from './components/SeoHead';
 import { 
   Play, Pause, ChevronLeft, ChevronRight, RotateCcw, 
   LogIn, LogOut, Video, Edit3, Sliders, Volume2, Info, BookOpen, Book, Mic, MicOff, Calendar, FileDown,
@@ -1473,10 +1474,32 @@ export default function App() {
     );
   }
 
+  const seoData = useMemo(() => {
+    const dayNum = cycleInfo.dayOfCycle;
+    const sectionName = activeTab === 'rosary' ? 'RHZ365 Różaniec' : activeTab === 'blog' ? 'WnR365 Blog' : 'Biblia365';
+    const title = activeTab === 'rosary'
+      ? `RHZ365 Dzień ${dayNum} — Różaniec Historii Zbawienia`
+      : activeTab === 'blog'
+      ? `WnR365 Dzień ${dayNum} — Widoki na Raj`
+      : `Biblia365 Dzień ${dayNum} — Rozważanie Pisma Świętego`;
+    const description = `Dzień ${dayNum} (${sectionName}): Codzienne rozważania, modlitwy oraz analiza Pisma Świętego na portalu Widoki na Raj (widokinaraj.pl).`;
+    const url = `https://widokinaraj.pl/dzien/${dayNum}/${activeTab === 'rosary' ? 'rhz365' : activeTab === 'blog' ? 'wnr365' : 'biblia365'}`;
+
+    return { title, description, url, dayNum, sectionName };
+  }, [cycleInfo.dayOfCycle, activeTab]);
+
   return (
     <div className={`min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-300 w-full max-w-full overflow-x-hidden ${
       isLight ? 'bg-slate-50 text-slate-900 light-mode-text' : 'bg-slate-950 text-slate-100'
     }`}>
+      <SeoHead
+        title={seoData.title}
+        description={seoData.description}
+        url={seoData.url}
+        dayNumber={seoData.dayNum}
+        sectionName={seoData.sectionName}
+        datePublished={selectedDate.toISOString()}
+      />
       {/* HEADER BAR (Hidden in strict YouTube Record Mode) */}
       {!isYoutubeMode && (
         <header id="main-header" className={`border-b backdrop-blur-md sticky top-0 z-50 py-2.5 px-2.5 sm:px-6 w-full max-w-full shrink-0 transition-colors duration-300 ${
@@ -1675,7 +1698,7 @@ export default function App() {
           bibleEntries={bibleEntries}
           onBlogEntriesUpdated={setBlogEntries}
           onPrayersUpdated={setPrayers}
-          onBibleEntriesUpdated={setBibleEntries}
+          onBibleEntriesUpdated={(entries) => setBibleEntries(entries as any)}
         />
       )}
 

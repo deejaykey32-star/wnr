@@ -124,7 +124,7 @@ export async function initLocalNoSqlDb(): Promise<void> {
 
       try {
         const snapshotModule = await import('../data/db_snapshot.json');
-        const snapshotData = snapshotModule.default;
+        const snapshotData = snapshotModule.default as any;
         if (snapshotData) {
           if (snapshotData.blogEntries) wnrPdfMap = snapshotData.blogEntries;
           if (snapshotData.prayers) prayersMap = { ...snapshotData.prayers };

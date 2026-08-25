@@ -9,7 +9,10 @@
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit",
-    "sync-firestore": "tsx scripts/syncFromFirestore.ts"
+    "sync-firestore": "tsx scripts/syncFromFirestore.ts",
+    "sync-to-firestore": "tsx scripts/syncToFirestore.ts",
+    "generate-sitemap": "tsx scripts/generateSitemap.ts",
+    "export-md": "tsx scripts/exportMarkdown.ts"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

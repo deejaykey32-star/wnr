@@ -294,6 +294,7 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
                           onChange={setEditText}
                           textareaId={`bible-wysiwyg-${slotIdx}`}
                           theme={theme}
+                          onThemeToggle={() => {}}
                         />
                       </div>
                     </div>

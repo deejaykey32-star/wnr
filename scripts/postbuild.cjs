@@ -1,10 +1,11 @@
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
-const distIndex = path.join(__dirname, '..', 'dist', 'index.html');
-const dist404 = path.join(__dirname, '..', 'dist', '404.html');
-const distRedirects = path.join(__dirname, '..', 'dist', '_redirects');
-const publicRedirects = path.join(__dirname, '..', 'public', '_redirects');
+const distDir = path.join(__dirname, '..', 'dist');
+const publicDir = path.join(__dirname, '..', 'public');
+const distIndex = path.join(distDir, 'index.html');
+const dist404 = path.join(distDir, '404.html');
 
 // 1. SPA fallback: copy index.html → 404.html for Cloudflare Pages routing
 if (fs.existsSync(distIndex)) {
@@ -15,19 +16,32 @@ if (fs.existsSync(distIndex)) {
   process.exit(1);
 }
 
-// 2. Copy _redirects and _headers for Cloudflare Pages SPA routing & cache control
-if (fs.existsSync(publicRedirects)) {
-  fs.copyFileSync(publicRedirects, distRedirects);
-  console.log('[Postbuild] Copied public/_redirects → dist/_redirects');
-}
-const publicHeaders = path.join(__dirname, '..', 'public', '_headers');
-const distHeaders = path.join(__dirname, '..', 'dist', '_headers');
-if (fs.existsSync(publicHeaders)) {
-  fs.copyFileSync(publicHeaders, distHeaders);
-  console.log('[Postbuild] Copied public/_headers → dist/_headers');
+// 2. Generate Sitemap XML
+try {
+  console.log('[Postbuild] Running sitemap generator...');
+  execSync('npx tsx scripts/generateSitemap.ts', { stdio: 'inherit' });
+} catch (e) {
+  console.warn('[Postbuild] Warning: Could not run generateSitemap.ts inline:', e.message);
 }
 
-// Note: SW asset injection intentionally REMOVED.
-// sw.js v19 uses network-only for /assets/ — injecting chunk names into PRECACHE_ASSETS
-// would cause stale chunk serving on redeployments (the root cause of the cache error screen).
+// 3. Copy routing, headers, robots, sitemap to dist
+const filesToCopy = ['_redirects', '_headers', '_routes.json', 'robots.txt', 'sitemap.xml'];
+
+filesToCopy.forEach((filename) => {
+  const src = path.join(publicDir, filename);
+  const dest = path.join(distDir, filename);
+  if (fs.existsSync(src)) {
+    fs.copyFileSync(src, dest);
+    console.log(`[Postbuild] Copied public/${filename} → dist/${filename}`);
+  }
+});
+
+// 4. Copy export-md directory to dist if present
+const exportMdPublic = path.join(publicDir, 'export-md');
+const exportMdDist = path.join(distDir, 'export-md');
+if (fs.existsSync(exportMdPublic)) {
+  fs.cpSync(exportMdPublic, exportMdDist, { recursive: true });
+  console.log('[Postbuild] Copied public/export-md → dist/export-md');
+}
+
 console.log('[Postbuild] Done.');

@@ -39,6 +39,11 @@ const escapeXml = (unsafe: string): string => {
     .replace(/'/g, '&apos;');
 };
 
+const formatParagraphsHtml = (text: string): string => {
+  if (!text) return '';
+  return text.split('\n\n').map(p => `<p>${escapeXml(p.trim())}</p>`).join('\n');
+};
+
 const extractUrlsFromText = (text: string): string[] => {
   if (!text) return [];
   const urlRegex = /(https?:\/\/[^\s<>"'\(\)]+)/gi;

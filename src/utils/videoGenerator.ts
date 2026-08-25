@@ -401,7 +401,7 @@ export const generateVideoClientSide = async (
         const durationSec = buf.duration;
         sceneTimings.push({ start: startSec, end: startSec + durationSec, duration: durationSec });
         for (let ch = 0; ch < buf.numberOfChannels; ch++) {
-          audioBuffer.getChannelData(ch).set(b.getChannelData(ch), offset);
+          audioBuffer.getChannelData(ch).set(buf.getChannelData(ch), offset);
         }
         offset += buf.length;
       }
