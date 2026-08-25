@@ -19,7 +19,7 @@ service cloud.firestore {
 
     function isValidPrayer(data) {
       return data.keys().hasAll(['title', 'text', 'updatedBy']) &&
-             data.keys().size() <= 15 &&
+             data.keys().size() <= 20 &&
              data.title is string && data.title.size() <= 300 &&
              data.text is string && data.text.size() <= 20000 &&
              data.updatedBy is string && data.updatedBy.size() <= 200;
@@ -27,7 +27,7 @@ service cloud.firestore {
 
     function isValidBlogEntry(data) {
       return data.keys().hasAll(['title', 'text', 'dayIndex', 'updatedBy']) &&
-             data.keys().size() <= 7 &&
+             data.keys().size() <= 20 &&
              data.title is string && data.title.size() <= 300 &&
              data.text is string && data.text.size() <= 50000 &&
              data.dayIndex is int &&
@@ -35,20 +35,24 @@ service cloud.firestore {
     }
 
     match /prayers/{prayerId} {
-      allow get: if true;
-      allow list: if true;
+      allow get, list: if true;
       allow create, update: if isAuthorizedEditor() && isValidId(prayerId) && isValidPrayer(request.resource.data);
       allow delete: if isAuthorizedEditor() && isValidId(prayerId);
     }
 
     match /blog_entries/{entryId} {
-      allow get: if true;
-      allow list: if true;
+      allow get, list: if true;
       allow create, update: if isAuthorizedEditor() && isValidId(entryId) && isValidBlogEntry(request.resource.data);
       allow delete: if isAuthorizedEditor() && isValidId(entryId);
     }
 
-    // Global Safety Net — blokuje wszystko inne
+    match /bible_entries/{entryId} {
+      allow get, list: if true;
+      allow create, update: if isAuthorizedEditor() && isValidId(entryId);
+      allow delete: if isAuthorizedEditor() && isValidId(entryId);
+    }
+
+    // Global Safety Net
     match /{document=**} {
       allow read, write: if false;
     }
