@@ -122,24 +122,69 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         }
       }
 
-      // C. Push Bible to Firestore (70% - 85%)
-      const totalBible = Object.keys(bibleEntries).length || 1;
+      // C. Push & Pull Bible with Firestore (70% - 85%)
+      const localBibleList = Object.entries(bibleEntries);
+      const totalBibleToPush = localBibleList.length;
       let biblePushed = 0;
-      for (const [docId, entry] of Object.entries(bibleEntries)) {
-        if (entry && entry.title && entry.text) {
-          try {
-            await setDoc(doc(db, 'bible_entries', docId), entry, { merge: true });
-            biblePushed++;
-          } catch (e) {
-            // optional if rules restricted
+
+      if (totalBibleToPush > 0) {
+        for (const [docId, entry] of localBibleList) {
+          if (entry && entry.title && entry.text) {
+            try {
+              await setDoc(doc(db, 'bible_entries', docId), entry, { merge: true });
+              biblePushed++;
+              const pct = 70 + Math.round((biblePushed / totalBibleToPush) * 10);
+              setSyncProgress({
+                active: true,
+                percent: Math.min(80, pct),
+                step: '3/4. Wysyłanie czytań Biblia365 do Firestore...',
+                itemCounter: `${biblePushed} / ${totalBibleToPush} czytań`
+              });
+            } catch (e) {
+              console.warn('[Sync] Bible setDoc error:', e);
+            }
           }
         }
       }
+
+      // Fetch all remote bible_entries to ensure bidirectional complete sync
+      let mergedBible: Record<string, any> = { ...bibleEntries };
+      try {
+        setSyncProgress({
+          active: true,
+          percent: 80,
+          step: '3/4. Pobieranie czytań Biblia365 z Firestore...',
+          itemCounter: 'Pobieranie z chmury'
+        });
+        const bibleSnap = await withTimeout(getDocs(collection(db, 'bible_entries')), 10000);
+        if (!bibleSnap.empty) {
+          bibleSnap.forEach((docSnap) => {
+            const data = docSnap.data();
+            if (data && data.title && data.text) {
+              mergedBible[docSnap.id] = {
+                docId: docSnap.id,
+                slotIndex: data.slotIndex ?? 0,
+                title: data.title,
+                text: data.text,
+                notebookUrls: data.notebookUrls || [],
+                updatedBy: data.updatedBy || 'Firestore Sync',
+                updatedAt: data.updatedAt || new Date().toISOString()
+              };
+            }
+          });
+        }
+      } catch (bibleFetchErr) {
+        console.warn('[Sync] Bible getDocs skipped/failed:', bibleFetchErr);
+      }
+
+      const totalBibleCount = Object.keys(mergedBible).length;
+      onBibleEntriesUpdated(mergedBible);
+
       setSyncProgress({
         active: true,
         percent: 85,
         step: '3/4. Zsynchronizowano czytania Biblia365 i linki Gemini.',
-        itemCounter: `${biblePushed} czytań`
+        itemCounter: `${totalBibleCount} czytań w bazie`
       });
 
       // D. Create local snapshot and update local IndexedDB (85% - 100%)
@@ -150,7 +195,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         itemCounter: 'Aktualizacja IndexedDB'
       });
 
-      const snapshot = createNoSqlSnapshot(prayers, blogEntries, bibleEntries);
+      const snapshot = createNoSqlSnapshot(prayers, blogEntries, mergedBible);
       await importFullNoSqlSnapshot(snapshot);
 
       setSyncProgress({
@@ -162,7 +207,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
       setMasterStatus({
         type: 'success',
-        message: `🎉 Sukces! Zsynchronizowano wszystko z chmurą: ${blogPushed} wpisów WnR365, ${prayerPushed} modlitw RHZ365 i Wstępu oraz ${biblePushed} czytań Biblii (wraz z linkami Gemini Notebook).`
+        message: `🎉 Sukces! Zsynchronizowano wszystko z chmurą: ${blogPushed} wpisów WnR365, ${prayerPushed} modlitw RHZ365 i Wstępu oraz ${totalBibleCount} czytań Biblia365 (wraz z linkami Gemini Notebook).`
       });
     } catch (err: any) {
       setSyncProgress(prev => ({ ...prev, active: false }));
