@@ -1492,6 +1492,29 @@ export default function App() {
     return new Date().toISOString();
   }, [selectedDate]);
 
+  const currentRhzNotebookUrls = useMemo(() => {
+    const dayNum = cycleInfo?.dayOfCycle ?? 1;
+    const dayKey = `day_${dayNum}`;
+    const decadeIndex = activeStep?.decadeIndex || getDecadeForDay(dayNum);
+    const decadeKey = decadeIndex ? `day_${dayNum}_decade_rgba_${decadeIndex}` : null;
+    const stepKey = activeStep?.id;
+
+    if (decadeKey && prayers[decadeKey]?.notebookUrls && prayers[decadeKey].notebookUrls.some(u => u?.trim())) {
+      return prayers[decadeKey].notebookUrls;
+    }
+    if (prayers[dayKey]?.notebookUrls && prayers[dayKey].notebookUrls.some(u => u?.trim())) {
+      return prayers[dayKey].notebookUrls;
+    }
+    if (stepKey && prayers[stepKey]?.notebookUrls && prayers[stepKey].notebookUrls.some(u => u?.trim())) {
+      return prayers[stepKey].notebookUrls;
+    }
+    if (prayers['introTextMain']?.notebookUrls && prayers['introTextMain'].notebookUrls.some(u => u?.trim())) {
+      return prayers['introTextMain'].notebookUrls;
+    }
+
+    return prayers[dayKey]?.notebookUrls || [];
+  }, [cycleInfo?.dayOfCycle, activeStep?.decadeIndex, activeStep?.id, prayers]);
+
   if (!isDataLoaded) {
     return (
       <div className={`min-h-screen flex flex-col items-center justify-center p-6 text-center transition-colors duration-300 ${
@@ -2589,6 +2612,13 @@ export default function App() {
                     theme={theme}
                   />
                 </div>
+
+                {/* GEMINI NOTEBOOK PANEL BEZPOŚREDNIO POD GRAFIKĄ RÓŻAŃCA */}
+                <NotebookGeminiPanel
+                  notebookUrls={currentRhzNotebookUrls}
+                  theme={theme as any}
+                  sectionName="RHZ365"
+                />
 
                 {/* Color Details Card */}
                 <div className={`border rounded-2xl p-5 shadow-lg transition-colors duration-300 ${
