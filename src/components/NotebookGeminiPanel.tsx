@@ -278,8 +278,8 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
             {sectionName} — {activeItems.length} z {maxCount} zasobów
           </span>
 
-          {/* Quick Edit Button for Admins */}
-          {isAuthorized && onSaveUrls && !isEditing && (
+          {/* Quick Edit Button for Notebook Gemini Links & Labels */}
+          {onSaveUrls && !isEditing && (
             <button
               onClick={() => setIsEditing(true)}
               className={`px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition cursor-pointer border ${isLight
@@ -425,7 +425,7 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
         <div className={`p-6 rounded-xl border text-center text-xs leading-relaxed flex flex-col items-center justify-center gap-2 ${isLight ? 'bg-slate-100/50 border-slate-200 text-slate-500' : 'bg-slate-900/30 border-slate-800/80 text-slate-400'
           }`}>
           <div>💡 Brak wklejonych linków Gemini Notebook dla tego czytania.</div>
-          {isAuthorized && onSaveUrls && !isEditing && (
+          {onSaveUrls && !isEditing && (
             <button
               onClick={() => setIsEditing(true)}
               className="mt-1 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow-md transition flex items-center gap-1.5 cursor-pointer"

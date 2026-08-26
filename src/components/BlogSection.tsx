@@ -649,13 +649,14 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     }
   };
 
-  const handleSaveWnrUrls = async (newUrls: string[]) => {
+  const handleSaveWnrUrls = async (newUrls: string[], newLabels?: string[]) => {
     const docId = `blog_day_${cycleInfo.dayIndex}`;
     const newEntry = {
       ...activeEntry,
       docId,
       dayIndex: cycleInfo.dayIndex,
       notebookUrls: newUrls,
+      notebookLabels: newLabels || activeEntry.notebookLabels || [],
       updatedBy: user?.email || 'Admin',
       updatedAt: new Date().toISOString()
     };
@@ -1525,6 +1526,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                     {/* Notebook Gemini Panel */}
                     <NotebookGeminiPanel
                       notebookUrls={activeEntry.notebookUrls || []}
+                      notebookLabels={activeEntry.notebookLabels || []}
                       theme={isLight ? 'light' : 'dark'}
                       sectionName="WnR365"
                       isAuthorized={isAuthorized}
