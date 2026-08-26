@@ -1,6 +1,6 @@
 {
   "version": "wnr365-snapshot-2026-08-26",
-  "exportedAt": "2026-08-26T07:03:31.736Z",
+  "exportedAt": "2026-08-26T07:10:16.183Z",
   "source": "widokinaraj.pl NoSQL Core (GitHub / Cloudflare Pages)",
   "intro": {
     "introTextMain": {
@@ -2202,7 +2202,7 @@
       "docId": "blog_day_17",
       "dayIndex": 17,
       "title": "Widoki na Raj - Dzień 18 (Cykl I - Dzień 18 z 175) - [23.02.2013] Mój Cel",
-      "text": "Co jest moim celem? 14 lutego 2013 roku, kiedy wracałem z moją dziewczyną do domu, zadała mi jedno krótkie pytanie: – Co jest twoim celem? Bez dłuższego zastanowienia odpowiedziałem: – Dobro. Po powrocie do domu nie mogłem zasnąć. Wciąż wracałem myślami do naszej rozmowy. O godzinie 1:17 napisałem do niej wiadomość, w której spróbowałem rozwinąć swoją odpowiedź. Jeśli moim celem jest dobro, to czym właściwie jest dobro? Doszedłem do wniosku, że dobro jest wszystkim, co wypływa z miłości. Wtedy pojawiło się kolejne pytanie: czym jest miłość? Najłatwiej odpowiedzieć na nie, patrząc na człowieka, który był doskonałym wzorem miłości i dobra. Odpowiedź wydaje się oczywista – Jezus Chrystus. Można jednak pójść jeszcze dalej. Jaki był cel Jezusa? Jego misją było zbawienie człowieka. Czym więc jest zbawienie? Jest wyzwoleniem od wszystkiego, co prowadzi do zła i oddziela człowieka od Boga. Co pomaga pokonać zło? Prawda, ponieważ Jezus powiedział o sobie: „Ja jestem drogą, prawdą i życiem” (J 14,6). A jaki będzie ostateczny znak zwycięstwa dobra? Pokonanie śmierci. Śmierć sama w sobie jest skutkiem grzechu i zaprzeczeniem życia, choć Bóg potrafi przemienić nawet cierpienie i śmierć w drogę do większego dobra. Zmartwychwstanie Chrystusa ukazuje, że życie ma ostatnie słowo. Jezus nie zatrzymuje uwagi na sobie. Całym swoim życiem wskazuje na Ojca, a Ducha Świętego posyła po to, aby prowadził nas do całości prawdy i stopniowo odsłania przed nami Boże tajemnice. Dziś z wdzięcznością wspominam tamto pytanie. Czasem jedno krótkie zdanie potrafi otworzyć drogę do wielkich przemyśleń. Dziękuję mojej dziewczynie za to, że zadała mi właśnie takie pytanie. To ona pomogła mi spojrzeć głębiej – otwierała moje oczy, uszy, myśli i serce. Wierzę, że prawdziwa miłość prowadzi człowieka nie tylko do drugiej osoby, ale przede wszystkim do Boga, który jest źródłem wszelkiego dobra i miłości.",
+      "text": "Co jest moim celem? 14 lutego 2013 roku, kiedy wracałem z moją dziewczyną do domu, zadała mi jedno krótkie pytanie: – Co jest twoim celem? Bez dłuższego zastanowienia odpowiedziałem: – Dobro. Po powrocie do domu nie mogłem zasnąć. Wciąż wracałem myślami do naszej rozmowy. O godzinie 1:17 napisałem do niej wiadomość, w której spróbowałem rozwinąć swoją odpowiedź. Jeśli moim celem jest dobro, to czym właściwie jest dobro? Doszedłem do wniosku, że dobro jest wszystkim, co wypływa z miłości. Wtedy pojawiło się kolejne pytanie: czym jest miłość? Najłatwiej odpowiedzieć na nie, patrząc na człowieka, który był doskonałym wzorem miłości i dobra. Odpowiedź wydaje się oczywista – Jezus Chrystus. Można jednak pójść jeszcze dalej. Jaki był cel Jezusa? Jego misją było zbawienie człowieka. Czym więc jest zbawienie? Jest wyzwoleniem od wszystkiego, co prowadzi do zła i oddziela człowieka od Boga. Co pomaga pokonać zło? Prawda, ponieważ Jezus powiedział o sobie: „Ja jestem drogą, prawdą i życiem” (J 14,6). A jaki będzie ostateczny znak zwycięstwa dobra? Pokonanie śmierci. Śmierć sama w sobie jest skutkiem grzechu i zaprzeczeniem życia, choć Bóg potrafi przemienić nawet cierpienie i śmierć w drogę do większego dobra. Zmartwychwstanie Chrystusa pokazuje, że życie ma ostatnie słowo. Jezus nie zatrzymuje uwagi na sobie. Całym swoim życiem wskazuje na Ojca, a Ducha Świętego posyła po to, aby prowadził nas do całej prawdy i stopniowo odsłaniał przed nami Boże tajemnice. Dziś z wdzięcznością wspominam tamto pytanie. Czasem jedno krótkie zdanie potrafi otworzyć drogę do wielkich przemyśleń. Dziękuję mojej dziewczynie za to, że zadała mi właśnie takie pytanie. To ona pomogła mi spojrzeć głębiej – otwierała moje oczy, uszy, myśli i serce. Wierzę, że prawdziwa miłość prowadzi człowieka nie tylko do drugiej osoby, ale przede wszystkim do Boga, który jest źródłem wszelkiego dobra i miłości.",
       "notebookUrls": [
         "",
         "",
@@ -2214,7 +2214,7 @@
         ""
       ],
       "updatedBy": "kuta.dominik@gmail.com",
-      "updatedAt": "2026-08-26T06:58:11.944Z"
+      "updatedAt": "2026-07-13T09:15:11.972Z"
     },
     "blog_day_170": {
       "docId": "blog_day_170",
@@ -4788,9 +4788,29 @@
       "slotIndex": 1,
       "title": "Księga Rodzaju — Rozdział 1",
       "text": "<p>Treść rozdziału 1 Księgi: <strong>Księga Rodzaju</strong>. Wklej tutaj pełny tekst z Biblii Tysiąclecia w panelu edycji.</p>",
-      "notebookUrls": [],
-      "updatedBy": "Pismo Święte Biblia365 (1460 czytań)",
-      "updatedAt": "2026-08-25T15:17:06.652Z"
+      "notebookUrls": [
+        "https://notebook.google.com/notebook/39f20f75-8d19-45c0-a1d1-4ca05dc8e032/artifact/021a8b33-35a2-486f-b256-72251dabfc4e?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "notebookLabels": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "passageUrl": "https://bosko.app/pl/biblia/new-testament/matthew/1",
+      "updatedBy": "kuta.dominik@gmail.com",
+      "updatedAt": "2026-08-26T07:05:51.473Z"
     },
     "bible_slot_10": {
       "docId": "bible_slot_10",
