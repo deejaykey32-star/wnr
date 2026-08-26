@@ -1360,9 +1360,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
           </div>
 
           {/* Core Layout: Reader and Details */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left Col: Blog Reading and Unrolled Bead Window */}
-            <div className="lg:col-span-7 flex flex-col gap-6 text-left">
+          <div className="w-full max-w-4xl mx-auto flex flex-col gap-6 items-stretch text-left">
               
               {/* Blog Entry Card */}
               <div className={`border rounded-2xl p-6 shadow-xl relative overflow-hidden transition-all duration-300 ${
@@ -1635,10 +1633,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                   </p>
                 </div>
               </div>
-            </div>
 
-            {/* Right Col: Bead Progress Strips and Teleprompter Player Controls */}
-            <div className="lg:col-span-5 flex flex-col gap-6 text-left">
               
               {/* Teleprompter Playback & Progress Module */}
               <div className={`border rounded-2xl p-6 shadow-xl relative overflow-hidden transition-all duration-300 ${
@@ -1930,7 +1925,6 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </>
       )}

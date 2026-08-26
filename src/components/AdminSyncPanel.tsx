@@ -17,12 +17,12 @@ import { getBibleChapters } from '../utils/bibleHelper';
 interface AdminSyncPanelProps {
   onClose: () => void;
   theme: 'dark' | 'light';
-  prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
+  prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; notebookLabels?: string[]; updatedBy?: string; updatedAt?: string }>;
   bibleEntries: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; notebookLabels?: string[]; passageUrl?: string; updatedBy?: string; updatedAt?: string }>;
-  onBlogEntriesUpdated: (entries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>) => void;
-  onPrayersUpdated: (prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>) => void;
+  onBlogEntriesUpdated: (entries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; notebookLabels?: string[]; updatedBy?: string; updatedAt?: string }>) => void;
+  onPrayersUpdated: (prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; notebookLabels?: string[]; updatedBy?: string; updatedAt?: string }>) => void;
   onBibleEntriesUpdated: (entries: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; notebookLabels?: string[]; passageUrl?: string; updatedBy?: string; updatedAt?: string }>) => void;
-  blogEntries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
+  blogEntries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; notebookLabels?: string[]; updatedBy?: string; updatedAt?: string }>;
 }
 
 type SyncStatus = {

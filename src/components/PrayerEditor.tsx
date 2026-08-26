@@ -10,7 +10,7 @@ import { GEMINI_ANALYSIS_TYPES } from './NotebookGeminiPanel';
 
 interface PrayerEditorProps {
   userEmail: string;
-  prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
+  prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; notebookLabels?: string[]; updatedBy?: string; updatedAt?: string }>;
   currentCycleType: 'cycle1' | 'cycle2' | 'break' | 'break2';
   currentDayNum: number;
   activeStep: {
@@ -31,7 +31,7 @@ interface PrayerEditorProps {
   }[];
   activeStepIndex: number;
   onChangeStepIndex: (idx: number) => void;
-  onPrayersUpdated?: (prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>) => void;
+  onPrayersUpdated?: (prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; notebookLabels?: string[]; updatedBy?: string; updatedAt?: string }>) => void;
   theme?: string;
   onThemeToggle?: () => void;
 }
@@ -69,6 +69,7 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
   const [editText, setEditText] = useState<string>('');
 
   const [editUrls, setEditUrls] = useState<string[]>(Array(8).fill(''));
+  const [editLabels, setEditLabels] = useState<string[]>(Array(8).fill(''));
   const [saving, setSaving] = useState<boolean>(false);
   const [successMsg, setSuccessMsg] = useState<string>('');
   const [errorMsg, setErrorMsg] = useState<string>('');
@@ -272,18 +273,33 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
     }
 
     const urls = Array(8).fill('');
+    const labels = Array(8).fill('');
     const targetKey = getFirestoreKey();
     const targetEntry = prayers[targetKey];
     if (targetEntry?.notebookUrls && Array.isArray(targetEntry.notebookUrls)) {
       targetEntry.notebookUrls.forEach((u, i) => {
-        if (i < 8) urls[i] = u;
+        if (i < 8) urls[i] = u || '';
+      });
+    }
+    if (targetEntry?.notebookLabels && Array.isArray(targetEntry.notebookLabels)) {
+      targetEntry.notebookLabels.forEach((l, i) => {
+        if (i < 8) labels[i] = l || '';
       });
     }
     setEditUrls(urls);
+    setEditLabels(labels);
   };
 
   const handleUrlChange = (idx: number, val: string) => {
     setEditUrls(prev => {
+      const next = [...prev];
+      next[idx] = val;
+      return next;
+    });
+  };
+
+  const handleLabelChange = (idx: number, val: string) => {
+    setEditLabels(prev => {
       const next = [...prev];
       next[idx] = val;
       return next;
@@ -326,6 +342,7 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
         title: editTitle.trim(),
         text: editText.trim(),
         notebookUrls: editUrls,
+        notebookLabels: editLabels,
         updatedBy: userEmail,
         updatedAt: new Date().toISOString()
       };
@@ -822,38 +839,61 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
           />
         </div>
 
-        {/* Gemini & YouTube URLs input (8 pól dla wszystkich modlitw/kroków) */}
+        {/* Gemini & YouTube URLs and Labels input (8 pól dla wszystkich modlitw/kroków) */}
         <div className="pt-4 border-t border-slate-800/60 space-y-3">
           <h4 className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${isLight ? 'text-indigo-600' : 'text-indigo-400'}`}>
-            Materiały i Linki Gemini Notebook / YouTube (8 pól)
+            Materiały, Etykiety i Linki Gemini Notebook / YouTube (8 pól)
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
             {GEMINI_ANALYSIS_TYPES.map((type, idx) => (
-              <div key={type.id} className="space-y-1">
-                <label className={`block font-semibold font-sans ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
-                  {type.id}. {type.label} <span className={`font-normal text-[10px] ${isLight ? 'text-slate-400' : 'text-slate-500'}`}>({type.desc})</span>
+              <div key={type.id} className="space-y-1.5 p-3 rounded-lg border bg-black/10 border-slate-800/40">
+                <label className={`block font-bold text-xs ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
+                  #{type.id} Domyślnie: {type.label} <span className={`font-normal text-[10px] ${isLight ? 'text-slate-400' : 'text-slate-500'}`}>({type.desc})</span>
                 </label>
-                <input
-                  type="text"
-                  inputMode="url"
-                  autoComplete="off"
-                  autoCorrect="off"
-                  autoCapitalize="none"
-                  spellCheck="false"
-                  value={editUrls[idx]}
-                  onChange={(e) => handleUrlChange(idx, e.target.value)}
-                  onPaste={(e) => {
-                    const pasted = e.clipboardData.getData('text');
-                    if (pasted) {
-                      e.preventDefault();
-                      handleUrlChange(idx, pasted.trim());
-                    }
-                  }}
-                  className={`w-full rounded-lg px-3 py-1.5 text-xs border focus:outline-none transition ${
-                    isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-850 text-slate-200'
-                  }`}
-                  placeholder="https://..."
-                />
+                <div>
+                  <label className="block text-[10px] text-slate-400 mb-0.5">Własna etykieta (opcjonalnie):</label>
+                  <input
+                    type="text"
+                    autoComplete="off"
+                    value={editLabels[idx] || ''}
+                    onChange={(e) => handleLabelChange(idx, e.target.value)}
+                    onPaste={(e) => {
+                      const pasted = e.clipboardData?.getData('text/plain') || e.clipboardData?.getData('text');
+                      if (pasted && pasted.trim()) {
+                        e.preventDefault();
+                        handleLabelChange(idx, pasted.trim());
+                      }
+                    }}
+                    className={`w-full rounded-lg px-2.5 py-1 text-xs border focus:outline-none transition ${
+                      isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-850 text-slate-200'
+                    }`}
+                    placeholder={type.label}
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] text-slate-400 mb-0.5">Adres URL Gemini Notebook / YouTube:</label>
+                  <input
+                    type="text"
+                    inputMode="url"
+                    autoComplete="off"
+                    autoCorrect="off"
+                    autoCapitalize="none"
+                    spellCheck="false"
+                    value={editUrls[idx] || ''}
+                    onChange={(e) => handleUrlChange(idx, e.target.value)}
+                    onPaste={(e) => {
+                      const pasted = e.clipboardData?.getData('text/plain') || e.clipboardData?.getData('text');
+                      if (pasted && pasted.trim()) {
+                        e.preventDefault();
+                        handleUrlChange(idx, pasted.trim());
+                      }
+                    }}
+                    className={`w-full rounded-lg px-2.5 py-1.5 text-xs border focus:outline-none transition ${
+                      isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-850 text-slate-200'
+                    }`}
+                    placeholder="https://..."
+                  />
+                </div>
               </div>
             ))}
           </div>

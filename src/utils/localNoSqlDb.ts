@@ -4,6 +4,7 @@ export interface LocalBlogEntry {
   title: string;
   text: string;
   notebookUrls?: string[];
+  notebookLabels?: string[];
   updatedBy: string;
   updatedAt: string;
 }
@@ -277,7 +278,7 @@ export async function getAllLocalBlogEntries(): Promise<Record<string, LocalBlog
  */
 export async function saveLocalBlogEntry(
   docId: string, 
-  entry: { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }
+  entry: { title: string; text: string; dayIndex: number; notebookUrls?: string[]; notebookLabels?: string[]; updatedBy?: string; updatedAt?: string }
 ): Promise<void> {
   try {
     const db = await openDb();
@@ -290,6 +291,7 @@ export async function saveLocalBlogEntry(
       title: entry.title,
       text: entry.text,
       notebookUrls: entry.notebookUrls || [],
+      notebookLabels: entry.notebookLabels || [],
       updatedBy: entry.updatedBy || 'Edytor Lokalny',
       updatedAt: entry.updatedAt || new Date().toISOString()
     };
@@ -431,7 +433,7 @@ export async function resetLocalToSeedData(): Promise<void> {
  * Saves all prayers to local IndexedDB.
  */
 export async function saveLocalPrayers(
-  prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>
+  prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; notebookLabels?: string[]; updatedBy?: string; updatedAt?: string }>
 ): Promise<void> {
   try {
     const db = await openDb();
@@ -451,7 +453,7 @@ export async function saveLocalPrayers(
  */
 export async function saveSingleLocalPrayer(
   docId: string, 
-  prayer: { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }
+  prayer: { title: string; text: string; notebookUrls?: string[]; notebookLabels?: string[]; updatedBy?: string; updatedAt?: string }
 ): Promise<void> {
   try {
     const db = await openDb();

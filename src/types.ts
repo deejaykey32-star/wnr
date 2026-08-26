@@ -2,6 +2,8 @@ export interface PrayerText {
   id: string;
   title: string;
   text: string;
+  notebookUrls?: string[];
+  notebookLabels?: string[];
   updatedBy: string;
   updatedAt: string;
 }

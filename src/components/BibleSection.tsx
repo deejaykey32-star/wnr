@@ -337,8 +337,8 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
                         value={editPassageUrl}
                         onChange={(e) => setEditPassageUrl(e.target.value)}
                         onPaste={(e) => {
-                          const pasted = e.clipboardData.getData('text');
-                          if (pasted) {
+                          const pasted = e.clipboardData?.getData('text/plain') || e.clipboardData?.getData('text');
+                          if (pasted && pasted.trim()) {
                             e.preventDefault();
                             setEditPassageUrl(pasted.trim());
                           }
@@ -378,8 +378,8 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
                                 value={editLabels[idx] || ''}
                                 onChange={(e) => handleLabelChange(idx, e.target.value)}
                                 onPaste={(e) => {
-                                  const pasted = e.clipboardData.getData('text');
-                                  if (pasted) {
+                                  const pasted = e.clipboardData?.getData('text/plain') || e.clipboardData?.getData('text');
+                                  if (pasted && pasted.trim()) {
                                     e.preventDefault();
                                     handleLabelChange(idx, pasted.trim());
                                   }
@@ -402,8 +402,8 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
                                 value={editUrls[idx] || ''}
                                 onChange={(e) => handleUrlChange(idx, e.target.value)}
                                 onPaste={(e) => {
-                                  const pasted = e.clipboardData.getData('text');
-                                  if (pasted) {
+                                  const pasted = e.clipboardData?.getData('text/plain') || e.clipboardData?.getData('text');
+                                  if (pasted && pasted.trim()) {
                                     e.preventDefault();
                                     handleUrlChange(idx, pasted.trim());
                                   }

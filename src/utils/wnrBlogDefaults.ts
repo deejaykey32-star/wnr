@@ -3,6 +3,7 @@ export interface WnrBlogEntry {
   text: string;
   dayIndex: number;
   notebookUrls?: string[];
+  notebookLabels?: string[];
   updatedBy?: string;
   updatedAt?: string;
 }
@@ -18,7 +19,7 @@ interface RHZItem {
   text: string;
 }
 
-let loadedWnrPdfMap: Record<string, { dayIndex: number; title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }> | null = null;
+let loadedWnrPdfMap: Record<string, { dayIndex: number; title: string; text: string; notebookUrls?: string[]; notebookLabels?: string[]; updatedBy?: string; updatedAt?: string }> | null = null;
 let loadedRhzList: RHZItem[] | null = null;
 
 export async function loadWnrBlogDefaultsData(): Promise<void> {
