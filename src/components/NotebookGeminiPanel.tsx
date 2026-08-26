@@ -6,22 +6,17 @@ import {
 } from 'lucide-react';
 
 export const GEMINI_ANALYSIS_TYPES = [
-  { id: 1, label: 'Podsumowanie audio', desc: 'Dwugłosowy podcast AI (omówienie)', icon: Play, color: 'from-red-600 to-orange-500' },
-  { id: 2, label: 'Podsumowanie wideo', desc: 'Prezentacja wideo lub powiązany film', icon: Video, color: 'from-blue-600 to-sky-600' },
-  { id: 3, label: 'Prezentacja', desc: 'Streszczenie w formie slajdów', icon: BookOpen, color: 'from-emerald-600 to-teal-600' },
-  { id: 4, label: 'Fiszki', desc: 'Zestaw kluczowych zagadnień', icon: Info, color: 'from-indigo-600 to-purple-600' },
-  { id: 5, label: 'Test', desc: 'Pytania sprawdzające i quizy', icon: HelpCircle, color: 'from-violet-600 to-fuchsia-600' },
-  { id: 6, label: 'Infografika', desc: 'Graficzny schemat i oś czasu', icon: GraduationCap, color: 'from-amber-600 to-orange-600' },
-  { id: 7, label: 'Raport', desc: 'Kompletne opracowanie merytoryczne', icon: FileText, color: 'from-rose-600 to-pink-600' },
+  { id: 1, label: 'Podsumowanie audio', desc: 'Dwugłosowy podcast AI — Notebook Gemini', icon: Play, color: 'from-red-600 to-orange-500' },
+  { id: 2, label: 'Podsumowanie wideo', desc: 'Prezentacja wideo — Notebook Gemini', icon: Video, color: 'from-blue-600 to-sky-600' },
+  { id: 3, label: 'Prezentacja', desc: 'Streszczenie w formie slajdów — Notebook Gemini', icon: BookOpen, color: 'from-emerald-600 to-teal-600' },
+  { id: 4, label: 'Fiszki', desc: 'Zestaw kluczowych zagadnień — Notebook Gemini', icon: Info, color: 'from-indigo-600 to-purple-600' },
+  { id: 5, label: 'Test', desc: 'Pytania sprawdzające i quizy — Notebook Gemini', icon: HelpCircle, color: 'from-violet-600 to-fuchsia-600' },
+  { id: 6, label: 'Infografika', desc: 'Graficzny schemat i oś czasu — Notebook Gemini', icon: GraduationCap, color: 'from-amber-600 to-orange-600' },
+  { id: 7, label: 'Raport', desc: 'Kompletne opracowanie merytoryczne — Notebook Gemini', icon: FileText, color: 'from-rose-600 to-pink-600' },
   { id: 8, label: 'YouTube', desc: 'Nagranie wideo na YouTube', icon: Youtube, color: 'from-red-600 to-red-500' }
 ];
 
-export const BIBLE_GEMINI_ANALYSIS_TYPES = [
-  { id: 1, label: 'Gemini Notebook — Analiza #1', desc: 'Kod QR i link do analizy fragmentu Biblii w Gemini Notebook (#1)', icon: BookOpen, color: 'from-emerald-600 to-teal-600' },
-  { id: 2, label: 'Gemini Notebook — Analiza #2', desc: 'Kod QR i link do analizy fragmentu Biblii w Gemini Notebook (#2)', icon: Sparkles, color: 'from-indigo-600 to-purple-600' },
-  { id: 3, label: 'Gemini Notebook — Analiza #3', desc: 'Kod QR i link do analizy fragmentu Biblii w Gemini Notebook (#3)', icon: FileText, color: 'from-blue-600 to-cyan-600' },
-  { id: 4, label: 'Gemini Notebook — Analiza #4', desc: 'Kod QR i link do analizy fragmentu Biblii w Gemini Notebook (#4)', icon: GraduationCap, color: 'from-amber-600 to-orange-600' }
-];
+export const BIBLE_GEMINI_ANALYSIS_TYPES = GEMINI_ANALYSIS_TYPES;
 
 interface ClickableQrCodeProps {
   url: string;
