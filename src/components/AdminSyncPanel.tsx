@@ -664,6 +664,9 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
       const targetPath = 'public/data/db_snapshot.json';
       const cleanToken = githubToken.trim();
+      const authHeader = cleanToken.startsWith('github_pat_')
+        ? `Bearer ${cleanToken}`
+        : `token ${cleanToken}`;
 
       let attempts = 0;
       let isSuccess = false;
@@ -675,15 +678,14 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
           const apiUrl = `https://api.github.com/repos/deejaykey32-star/wnr/contents/${targetPath}?ref=main&cb=${Date.now()}_${attempts}`;
           const getRes = await fetch(apiUrl, {
             headers: {
-              Authorization: `Bearer ${cleanToken}`,
-              'Cache-Control': 'no-cache, no-store, must-revalidate',
-              Pragma: 'no-cache'
+              Authorization: authHeader,
+              Accept: 'application/vnd.github.v3+json'
             }
           });
 
           if (!getRes.ok) {
             const errBody = await getRes.json().catch(() => ({}));
-            throw new Error(errBody.message || `Nie można pobrać metadanych pliku z GitHub (Status ${getRes.status}). Sprawdź token PAT.`);
+            throw new Error(errBody.message || `Nie można pobrać metadanych pliku z GitHub (Status ${getRes.status}). Sprawdź uprawnienia tokena PAT.`);
           }
 
           const getJson = await getRes.json();
@@ -693,7 +695,8 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
           const putRes = await fetch(putUrl, {
             method: 'PUT',
             headers: {
-              Authorization: `Bearer ${cleanToken}`,
+              Authorization: authHeader,
+              Accept: 'application/vnd.github.v3+json',
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
@@ -714,7 +717,10 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
           await new Promise(r => setTimeout(r, 600));
         } catch (attemptErr: any) {
-          lastErrorMessage = attemptErr.message || 'Błąd połączenia z GitHub';
+          lastErrorMessage = attemptErr.message || 'Błąd połączenia z GitHub API (Failed to fetch)';
+          if (attemptErr.name === 'TypeError' && attemptErr.message.includes('Failed to fetch')) {
+            lastErrorMessage = 'Nie można połączyć się z api.github.com (Failed to fetch). Upewnij się, że masz połączenie z internetem oraz że dodatek typu uBlock/AdGuard/Brave nie blokuje zapytania do api.github.com.';
+          }
           await new Promise(r => setTimeout(r, 600));
         }
       }
