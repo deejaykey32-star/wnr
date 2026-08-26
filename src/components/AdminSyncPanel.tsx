@@ -639,6 +639,71 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
     }
   };
 
+  const handleCommitDirectToGithub = async () => {
+    if (!githubToken.trim()) {
+      setShowGithubConfig(true);
+      setMasterStatus({
+        type: 'warning',
+        message: '⚠️ Wklej poniżej swój GitHub Personal Access Token (PAT z uprawnieniem repo), aby wysyłać zmiany bezpośrednio do GitHub.'
+      });
+      return;
+    }
+
+    setMasterStatus({ type: 'loading', message: '🚀 Wysyłanie migawki db_snapshot.json bezpośrednio do GitHub API...' });
+
+    try {
+      const snapshot = createNoSqlSnapshot(prayers, blogEntries, bibleEntries);
+      const jsonStr = JSON.stringify(snapshot, null, 2);
+
+      const bytes = new TextEncoder().encode(jsonStr);
+      let binary = '';
+      for (let i = 0; i < bytes.byteLength; i++) {
+        binary += String.fromCharCode(bytes[i]);
+      }
+      const b64Content = btoa(binary);
+
+      const targetPath = 'public/data/db_snapshot.json';
+      const apiUrl = `https://api.github.com/repos/deejaykey32-star/wnr/contents/${targetPath}`;
+
+      const getRes = await fetch(apiUrl, {
+        headers: { Authorization: `Bearer ${githubToken.trim()}` }
+      });
+      if (!getRes.ok) {
+        throw new Error(`Nie można pobrać metadanych pliku z GitHub (Status ${getRes.status}). Sprawdź token PAT.`);
+      }
+      const getJson = await getRes.json();
+      const sha = getJson.sha;
+
+      const putRes = await fetch(apiUrl, {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${githubToken.trim()}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: `data: update db_snapshot.json via Direct Admin Commit (${new Date().toLocaleString('pl-PL')})`,
+          content: b64Content,
+          sha: sha
+        })
+      });
+
+      if (!putRes.ok) {
+        const errJson = await putRes.json().catch(() => ({}));
+        throw new Error(errJson.message || `Błąd GitHub API (${putRes.status})`);
+      }
+
+      setMasterStatus({
+        type: 'success',
+        message: '🎉 Wyśmienicie! Zmiany zostały wyemitowane i zapisane bezpośrednio w repozytorium GitHub! Strona i smartfony zaktualizują się automatycznie po zakończeniu budowania.'
+      });
+    } catch (err: any) {
+      setMasterStatus({
+        type: 'error',
+        message: `❌ Błąd bezpośredniego zapisu do GitHub: ${err?.message || 'Nieznany błąd'}`
+      });
+    }
+  };
+
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -900,6 +965,16 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
               <p className="text-[11px] text-slate-400">
                 GitHub Actions automatycznie co 6 godzin (i o północy) pobiera z Firestore wszystkie nowe linki Gemini i wykonuje <code>git push</code> bez asystenta.
               </p>
+
+              {/* Direct Commit to GitHub API button (Bypasses Firestore entirely) */}
+              <button
+                onClick={handleCommitDirectToGithub}
+                disabled={masterStatus.type === 'loading'}
+                className="w-full px-3.5 py-2.5 bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-500 hover:to-cyan-500 text-white font-extrabold text-xs rounded-xl shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 transition active:scale-95 border border-emerald-400/30"
+              >
+                <Upload size={14} />
+                <span>🚀 Wyślij Zmiany Bezpośrednio do Repozytorium GitHub (Bez Firestore)</span>
+              </button>
 
               <div className="flex flex-wrap gap-2 pt-1">
                 {/* 1-Click trigger button */}
