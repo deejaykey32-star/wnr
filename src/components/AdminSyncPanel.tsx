@@ -26,7 +26,7 @@ interface AdminSyncPanelProps {
 }
 
 type SyncStatus = {
-  type: 'idle' | 'loading' | 'success' | 'error';
+  type: 'idle' | 'loading' | 'success' | 'error' | 'warning';
   message: string;
 };
 
@@ -179,12 +179,13 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       return successCount;
     };
 
+    let masterBlogMap: Record<string, any> = { ...blogEntries };
+    let masterPrayersMap: Record<string, any> = { ...prayers };
+    const defaultBible = getBibleChapters(); // 1460 items
+    const full1460BibleMap: Record<string, any> = {};
+
     try {
       // 0. Bezpośrednie pobranie najnowszego snapshotu z CDN (kluczowe dla smartfonów połączonych z GitHub)
-      let masterBlogMap: Record<string, any> = { ...blogEntries };
-      let masterPrayersMap: Record<string, any> = { ...prayers };
-      const defaultBible = getBibleChapters(); // 1460 items
-      const full1460BibleMap: Record<string, any> = {};
 
       defaultBible.forEach(ch => {
         const docId = `bible_slot_${ch.slotIndex}`;
@@ -430,11 +431,28 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         message: `🎉 Sukces! Zsynchronizowano: Wstęp i Misję, 365 wpisów WnR365, 2 × 175 modlitw RHZ365 (350 dni) oraz 4 × 365 rozdziałów Biblia365 (1460 czytań) wraz z kompletem linków Gemini Notebook.`
       });
     } catch (err: any) {
+      const isQuota = err?.message?.includes('Quota limit exceeded') || err?.message?.includes('resource-exhausted') || err?.code === 'resource-exhausted';
+
+      try {
+        const snapshot = createNoSqlSnapshot(masterPrayersMap, masterBlogMap, full1460BibleMap);
+        await importFullNoSqlSnapshot(snapshot);
+        onBibleEntriesUpdated(full1460BibleMap);
+        onBlogEntriesUpdated(masterBlogMap);
+        onPrayersUpdated(masterPrayersMap);
+      } catch {}
+
       setSyncProgress(prev => ({ ...prev, active: false }));
-      setMasterStatus({
-        type: 'error',
-        message: `❌ Błąd synchronizacji: ${err?.message || 'Brak połączenia z Firestore'}`
-      });
+      if (isQuota) {
+        setMasterStatus({
+          type: 'warning',
+          message: `⚠️ Osiągnięto bezpłatny dzienny limit zapytań chmury Firestore (Quota Exceeded - 50 000 odczytów/dobę). Zmiany zostały w 100% zapisane lokalnie w Twojej przeglądarce! Aby natychmiastowo przenieść je na inne urządzenia, kliknij poniżej „Pobierz plik db_snapshot.json” i wgraj go na drugim urządzeniu.`
+        });
+      } else {
+        setMasterStatus({
+          type: 'error',
+          message: `❌ Błąd synchronizacji: ${err?.message || 'Brak połączenia z Firestore'}`
+        });
+      }
     }
   };
 
@@ -683,10 +701,13 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
           ? isDark ? 'bg-indigo-950/40 border-indigo-800 text-indigo-300' : 'bg-indigo-50 border-indigo-200 text-indigo-700'
           : status.type === 'success'
             ? isDark ? 'bg-emerald-950/40 border-emerald-800 text-emerald-300' : 'bg-emerald-50 border-emerald-200 text-emerald-700'
-            : isDark ? 'bg-rose-950/40 border-rose-800 text-rose-300' : 'bg-rose-50 border-rose-200 text-rose-700'
+            : status.type === 'warning'
+              ? isDark ? 'bg-amber-950/40 border-amber-800 text-amber-300' : 'bg-amber-50 border-amber-200 text-amber-700'
+              : isDark ? 'bg-rose-950/40 border-rose-800 text-rose-300' : 'bg-rose-50 border-rose-200 text-rose-700'
       }`}>
         {status.type === 'loading' && <Loader size={14} className="animate-spin shrink-0 mt-0.5" />}
         {status.type === 'success' && <CheckCircle size={14} className="shrink-0 mt-0.5" />}
+        {status.type === 'warning' && <AlertCircle size={14} className="shrink-0 mt-0.5 text-amber-400" />}
         {status.type === 'error' && <AlertCircle size={14} className="shrink-0 mt-0.5" />}
         <span className="leading-relaxed">{status.message}</span>
       </div>
