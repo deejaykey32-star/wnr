@@ -457,14 +457,21 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       const fetchedBlogEntries: Record<string, any> = { ...blogEntries };
       blogSnap.forEach(docSnap => {
         const data = docSnap.data();
-        if (data && data.title && data.text) {
-          fetchedBlogEntries[docSnap.id] = {
-            title: data.title,
-            text: data.text,
-            dayIndex: data.dayIndex ?? 0,
-            notebookUrls: data.notebookUrls || [],
-            updatedBy: data.updatedBy || 'Firestore Backup',
-            updatedAt: data.updatedAt || new Date().toISOString()
+        if (data && (data.title || data.text)) {
+          const docId = docSnap.id;
+          const current = fetchedBlogEntries[docId] || {};
+          const mergedUrls = Array(8).fill('').map((_, idx) => {
+            const rem = (data.notebookUrls?.[idx] && String(data.notebookUrls[idx]).trim()) || '';
+            const cur = (current.notebookUrls?.[idx] && String(current.notebookUrls[idx]).trim()) || '';
+            return rem || cur || '';
+          });
+          fetchedBlogEntries[docId] = {
+            title: data.title || current.title,
+            text: data.text || current.text,
+            dayIndex: data.dayIndex ?? current.dayIndex ?? 0,
+            notebookUrls: mergedUrls,
+            updatedBy: data.updatedBy || current.updatedBy || 'Firestore Backup',
+            updatedAt: data.updatedAt || current.updatedAt || new Date().toISOString()
           };
         }
       });
@@ -485,12 +492,19 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       prayerSnap.forEach(docSnap => {
         const data = docSnap.data();
         if (data && (data.title || data.text)) {
-          fetchedPrayers[docSnap.id] = {
-            title: data.title || '',
-            text: data.text || '',
-            notebookUrls: data.notebookUrls || [],
-            updatedBy: data.updatedBy || 'Firestore Backup',
-            updatedAt: data.updatedAt || new Date().toISOString()
+          const docId = docSnap.id;
+          const current = fetchedPrayers[docId] || {};
+          const mergedUrls = Array(8).fill('').map((_, idx) => {
+            const rem = (data.notebookUrls?.[idx] && String(data.notebookUrls[idx]).trim()) || '';
+            const cur = (current.notebookUrls?.[idx] && String(current.notebookUrls[idx]).trim()) || '';
+            return rem || cur || '';
+          });
+          fetchedPrayers[docId] = {
+            title: data.title || current.title,
+            text: data.text || current.text,
+            notebookUrls: mergedUrls,
+            updatedBy: data.updatedBy || current.updatedBy || 'Firestore Backup',
+            updatedAt: data.updatedAt || current.updatedAt || new Date().toISOString()
           };
         }
       });
@@ -504,19 +518,39 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
       const fetchedBibleEntries: Record<string, any> = { ...bibleEntries };
       try {
-        const bibleSnap = await withTimeout(getDocs(collection(db, 'bible_entries')), 8000);
+        const bibleSnap = await withTimeout(getDocs(collection(db, 'bible_entries')), 10000);
         bibleSnap.forEach(docSnap => {
           const data = docSnap.data();
           if (data && data.title && data.text) {
-            fetchedBibleEntries[docSnap.id] = {
-              title: data.title,
-              text: data.text,
-              slotIndex: data.slotIndex ?? 0,
-              notebookUrls: data.notebookUrls || [],
-              notebookLabels: data.notebookLabels || [],
-              passageUrl: data.passageUrl || '',
-              updatedBy: data.updatedBy || 'Firestore Backup',
-              updatedAt: data.updatedAt || new Date().toISOString()
+            const docId = docSnap.id;
+            const current = fetchedBibleEntries[docId] || {};
+
+            const mergedUrls = Array(8).fill('').map((_, idx) => {
+              const rem = (data.notebookUrls?.[idx] && String(data.notebookUrls[idx]).trim()) || '';
+              const cur = (current.notebookUrls?.[idx] && String(current.notebookUrls[idx]).trim()) || '';
+              return rem || cur || '';
+            });
+
+            const mergedLabels = Array(8).fill('').map((_, idx) => {
+              const rem = (data.notebookLabels?.[idx] && String(data.notebookLabels[idx]).trim()) || '';
+              const cur = (current.notebookLabels?.[idx] && String(current.notebookLabels[idx]).trim()) || '';
+              return rem || cur || '';
+            });
+
+            const mergedPassageUrl = (data.passageUrl && String(data.passageUrl).trim())
+              ? String(data.passageUrl).trim()
+              : (current.passageUrl || '');
+
+            fetchedBibleEntries[docId] = {
+              docId,
+              title: data.title || current.title,
+              text: data.text || current.text,
+              slotIndex: data.slotIndex ?? current.slotIndex ?? 0,
+              notebookUrls: mergedUrls,
+              notebookLabels: mergedLabels,
+              passageUrl: mergedPassageUrl,
+              updatedBy: data.updatedBy || current.updatedBy || 'Firestore Backup',
+              updatedAt: data.updatedAt || current.updatedAt || new Date().toISOString()
             };
           }
         });
