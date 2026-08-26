@@ -806,6 +806,122 @@ export default function App() {
     };
   }, []);
 
+  const [autoSyncBanner, setAutoSyncBanner] = useState<{
+    type: 'loading' | 'success' | 'warning' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+
+  const [refreshingCdn, setRefreshingCdn] = useState(false);
+
+  const fetchCdnSnapshot = async (manualNotice = false) => {
+    if (refreshingCdn) return;
+    setRefreshingCdn(true);
+
+    try {
+      const cdnRes = await fetch(`/data/db_snapshot.json?t=${Date.now()}`);
+      if (cdnRes.ok) {
+        const cdnData = await cdnRes.json();
+        if (cdnData.bibleEntries) {
+          setBibleEntries(prev => {
+            const merged = { ...prev };
+            Object.entries(cdnData.bibleEntries).forEach(([k, cdnVal]: [string, any]) => {
+              if (cdnVal && cdnVal.title) {
+                const current: any = prev[k] || {};
+                const mergedUrls = Array(8).fill('').map((_, idx) => {
+                  const cdn = (cdnVal.notebookUrls?.[idx] && String(cdnVal.notebookUrls[idx]).trim()) || '';
+                  const cur = (current.notebookUrls?.[idx] && String(current.notebookUrls[idx]).trim()) || '';
+                  return cdn || cur || '';
+                });
+                const mergedLabels = Array(8).fill('').map((_, idx) => {
+                  const cdn = (cdnVal.notebookLabels?.[idx] && String(cdnVal.notebookLabels[idx]).trim()) || '';
+                  const cur = (current.notebookLabels?.[idx] && String(current.notebookLabels[idx]).trim()) || '';
+                  return cdn || cur || '';
+                });
+                const mergedPassage = (cdnVal.passageUrl && String(cdnVal.passageUrl).trim())
+                  ? String(cdnVal.passageUrl).trim()
+                  : (current.passageUrl || '');
+
+                merged[k] = {
+                  ...current,
+                  ...cdnVal,
+                  notebookUrls: mergedUrls,
+                  notebookLabels: mergedLabels,
+                  passageUrl: mergedPassage
+                };
+                saveLocalBibleEntry(k, merged[k]).catch(() => {});
+              }
+            });
+            return merged;
+          });
+        }
+
+        if (cdnData.blogEntries) {
+          setBlogEntries(prev => {
+            const merged = { ...prev };
+            Object.entries(cdnData.blogEntries).forEach(([k, cdnVal]: [string, any]) => {
+              if (cdnVal && cdnVal.title) {
+                const current: any = prev[k] || {};
+                const mergedUrls = Array(8).fill('').map((_, idx) => {
+                  const cdn = (cdnVal.notebookUrls?.[idx] && String(cdnVal.notebookUrls[idx]).trim()) || '';
+                  const cur = (current.notebookUrls?.[idx] && String(current.notebookUrls[idx]).trim()) || '';
+                  return cdn || cur || '';
+                });
+                merged[k] = {
+                  ...current,
+                  ...cdnVal,
+                  notebookUrls: mergedUrls
+                };
+                saveLocalBlogEntry(k, merged[k]).catch(() => {});
+              }
+            });
+            return merged;
+          });
+        }
+
+        if (cdnData.prayers) {
+          setPrayers(prev => {
+            const merged = { ...prev };
+            Object.entries(cdnData.prayers).forEach(([k, cdnVal]: [string, any]) => {
+              if (cdnVal && (cdnVal.title || cdnVal.text)) {
+                const current: any = prev[k] || {};
+                const mergedUrls = Array(8).fill('').map((_, idx) => {
+                  const cdn = (cdnVal.notebookUrls?.[idx] && String(cdnVal.notebookUrls[idx]).trim()) || '';
+                  const cur = (current.notebookUrls?.[idx] && String(current.notebookUrls[idx]).trim()) || '';
+                  return cdn || cur || '';
+                });
+                merged[k] = {
+                  ...current,
+                  ...cdnVal,
+                  notebookUrls: mergedUrls
+                };
+              }
+            });
+            saveLocalPrayers(merged).catch(() => {});
+            return merged;
+          });
+        }
+
+        if (manualNotice) {
+          setAutoSyncBanner({
+            type: 'success',
+            message: '✅ Pobrano najnowsze dane z chmury serwera!'
+          });
+          setTimeout(() => setAutoSyncBanner({ type: null, message: '' }), 4000);
+        }
+      }
+    } catch {
+      if (manualNotice) {
+        setAutoSyncBanner({
+          type: 'error',
+          message: '⚠️ Nie udało się pobrać aktualnych danych z serwera. Sprawdź połączenie z siecią.'
+        });
+        setTimeout(() => setAutoSyncBanner({ type: null, message: '' }), 4000);
+      }
+    } finally {
+      setRefreshingCdn(false);
+    }
+  };
+
   const autoSyncToGitHubAndCloud = async (
     note: string,
     updatedBibleEntries?: Record<string, any>,
@@ -820,9 +936,19 @@ export default function App() {
 
     const token = (typeof window !== 'undefined' && localStorage.getItem('github_sync_pat')) || '';
     if (!token) {
-      console.info('[AutoSync] GitHub PAT token not configured in localStorage. Skipping auto-commit to GitHub.');
+      console.info('[AutoSync] GitHub PAT token not configured in localStorage.');
+      setAutoSyncBanner({
+        type: 'warning',
+        message: '⚠️ Zapisano lokalnie! Kliknij ikonę ⟳ w nagłówku i wklej token PAT, aby włączyć automatyczną synchronizację z repozytorium GitHub.'
+      });
+      setTimeout(() => setAutoSyncBanner({ type: null, message: '' }), 8000);
       return;
     }
+
+    setAutoSyncBanner({
+      type: 'loading',
+      message: `🚀 Zapisywanie i automatyczna synchronizacja w repozytorium GitHub (${note})...`
+    });
 
     try {
       const snapshot = createNoSqlSnapshot(currentPrayers, currentBlogs, currentBible);
@@ -841,37 +967,75 @@ export default function App() {
         ? `Bearer ${cleanToken}`
         : `token ${cleanToken}`;
 
-      const apiUrl = `https://api.github.com/repos/deejaykey32-star/wnr/contents/${targetPath}?ref=main&cb=${Date.now()}`;
-      const getRes = await fetch(apiUrl, {
-        headers: {
-          Authorization: authHeader,
-          Accept: 'application/vnd.github.v3+json'
+      let attempts = 0;
+      let isSuccess = false;
+      let lastErrorMessage = '';
+
+      while (attempts < 3 && !isSuccess) {
+        attempts++;
+        try {
+          const apiUrl = `https://api.github.com/repos/deejaykey32-star/wnr/contents/${targetPath}?ref=main&cb=${Date.now()}_${attempts}`;
+          const getRes = await fetch(apiUrl, {
+            headers: {
+              Authorization: authHeader,
+              Accept: 'application/vnd.github.v3+json'
+            }
+          });
+
+          if (!getRes.ok) {
+            const errBody = await getRes.json().catch(() => ({}));
+            throw new Error(errBody.message || `Status HTTP ${getRes.status}`);
+          }
+
+          const getJson = await getRes.json();
+          const sha = getJson.sha;
+
+          const putUrl = `https://api.github.com/repos/deejaykey32-star/wnr/contents/${targetPath}`;
+          const putRes = await fetch(putUrl, {
+            method: 'PUT',
+            headers: {
+              Authorization: authHeader,
+              Accept: 'application/vnd.github.v3+json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              message: `auto-sync: ${note} (${new Date().toLocaleString('pl-PL')})`,
+              content: b64Content,
+              sha: sha,
+              branch: 'main'
+            })
+          });
+
+          if (putRes.ok) {
+            isSuccess = true;
+            break;
+          }
+
+          const errJson = await putRes.json().catch(() => ({}));
+          lastErrorMessage = errJson.message || `HTTP ${putRes.status}`;
+          await new Promise(r => setTimeout(r, 600));
+        } catch (attemptErr: any) {
+          lastErrorMessage = attemptErr.message || 'Błąd połączenia z GitHub API';
+          await new Promise(r => setTimeout(r, 600));
         }
+      }
+
+      if (isSuccess) {
+        setAutoSyncBanner({
+          type: 'success',
+          message: `🎉 Zaktualizowano! Zmiany (${note}) wysłane do GitHub i zostaną automatycznie wdrożone na wszystkich urządzeniach.`
+        });
+        setTimeout(() => setAutoSyncBanner({ type: null, message: '' }), 7000);
+      } else {
+        throw new Error(lastErrorMessage);
+      }
+    } catch (err: any) {
+      console.warn('[AutoSync] GitHub auto-commit failed:', err);
+      setAutoSyncBanner({
+        type: 'error',
+        message: `❌ Błąd auto-synchronizacji GitHub: ${err?.message || 'Błąd połączenia'}. Zapisano lokalnie.`
       });
-
-      if (!getRes.ok) return;
-
-      const getJson = await getRes.json();
-      const sha = getJson.sha;
-
-      const putUrl = `https://api.github.com/repos/deejaykey32-star/wnr/contents/${targetPath}`;
-      await fetch(putUrl, {
-        method: 'PUT',
-        headers: {
-          Authorization: authHeader,
-          Accept: 'application/vnd.github.v3+json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          message: `auto-sync: ${note} (${new Date().toLocaleString('pl-PL')})`,
-          content: b64Content,
-          sha: sha,
-          branch: 'main'
-        })
-      });
-      console.log(`[AutoSync] Successfully committed updated snapshot to GitHub API! (${note})`);
-    } catch (err) {
-      console.warn('[AutoSync] GitHub auto-commit skipped or failed:', err);
+      setTimeout(() => setAutoSyncBanner({ type: null, message: '' }), 9000);
     }
   };
 
@@ -1899,6 +2063,8 @@ export default function App() {
         console.info('Firestore backup skipped/timeout (saved locally):', (cloudErr as any)?.message);
       }
     })();
+    // Auto-commit snapshot directly to GitHub API (if GitHub PAT configured)
+    autoSyncToGitHubAndCloud(`RHZ365 (Dzień ${dayNum})`, undefined, undefined, nextPrayers);
   };
 
   const handleSaveIntroUrls = async (newUrls: string[]) => {
@@ -1926,6 +2092,9 @@ export default function App() {
         console.info('Firestore backup skipped/timeout (saved locally):', (cloudErr as any)?.message);
       }
     })();
+
+    // Auto-commit snapshot directly to GitHub API (if GitHub PAT configured)
+    autoSyncToGitHubAndCloud('Wstęp (Intro)', undefined, undefined, nextPrayers);
   };
 
   if (!isDataLoaded) {
@@ -1943,6 +2112,34 @@ export default function App() {
       </div>
     );
   }
+
+  const handleUpdatePrayers = (newPrayers: Record<string, any>) => {
+    setPrayers(newPrayers);
+    autoSyncToGitHubAndCloud('RHZ365 / Wstęp', undefined, undefined, newPrayers);
+  };
+
+  const handleUpdateBlogEntries = (newBlogEntries: Record<string, any>) => {
+    setBlogEntries(newBlogEntries);
+    autoSyncToGitHubAndCloud('WnR365', undefined, newBlogEntries);
+  };
+
+  const handleUpdateBibleEntries = (newBibleEntries: Record<string, any>) => {
+    setBibleEntries(newBibleEntries as any);
+    autoSyncToGitHubAndCloud('Biblia365', newBibleEntries as any);
+  };
+
+  // Auto-refresh CDN snapshot when user returns to the tab/app
+  useEffect(() => {
+    const handleFocus = () => {
+      fetchCdnSnapshot(false);
+    };
+    window.addEventListener('focus', handleFocus);
+    document.addEventListener('visibilitychange', handleFocus);
+    return () => {
+      window.removeEventListener('focus', handleFocus);
+      document.removeEventListener('visibilitychange', handleFocus);
+    };
+  }, []);
 
   return (
     <div className={`min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-300 w-full max-w-full overflow-x-hidden ${
@@ -1962,7 +2159,7 @@ export default function App() {
           isLight ? 'border-slate-200 bg-white/95 text-slate-900 shadow-sm' : 'border-slate-800 bg-slate-950/90 text-white'
         }`}>
           {/* LINE 0: LOGOTYP Z NAZWĄ STRONY NA SAMEJ GÓRZE */}
-          <div className="flex items-center justify-center sm:justify-between w-full border-b pb-2 mb-2 border-slate-200/50 dark:border-slate-800/50">
+          <div className="flex items-center justify-between w-full border-b pb-2 mb-2 border-slate-200/50 dark:border-slate-800/50">
             <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
               <img
                 src="/icon-192.png"
@@ -1976,10 +2173,24 @@ export default function App() {
                   <span className="bg-gradient-to-r from-sky-400 via-indigo-500 to-amber-500 bg-clip-text text-transparent font-black tracking-wide">eMBiK365</span>
                   <span className={`${isLight ? 'text-slate-300' : 'text-slate-600'} text-xs`}>•</span>
                   <span className={`text-xs sm:text-sm font-bold ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>RHZ365 & WnR365</span>
-                  <span className={`text-[10px] font-normal hidden xs:inline ${isLight ? 'text-slate-400' : 'text-slate-500'}`}>v2.5</span>
                 </h1>
               </div>
             </div>
+
+            {/* Quick CDN Refresh Button for PC/Mobile */}
+            <button
+              onClick={() => fetchCdnSnapshot(true)}
+              disabled={refreshingCdn}
+              title="Pobierz i wymuś najnowsze linki bezpośrednio z serwera (odświeżenie danych z chmury)"
+              className={`px-3 py-1.5 rounded-full border transition cursor-pointer flex items-center justify-center gap-1.5 text-xs font-extrabold active:scale-95 ${
+                isLight
+                  ? 'bg-teal-50 text-teal-700 border-teal-200 hover:bg-teal-100 shadow-sm'
+                  : 'bg-teal-950/60 text-teal-300 border-teal-800/60 hover:bg-teal-900/60'
+              }`}
+            >
+              <RefreshCw className={`w-3.5 h-3.5 text-teal-400 ${refreshingCdn ? 'animate-spin' : ''}`} />
+              <span>Odśwież z Chmury</span>
+            </button>
           </div>
 
           {/* NAWIGACJA W DWÓCH LINIACH DLA MOBILNYCH (ZARAZ POD LOGOTYPEM) */}
@@ -2001,144 +2212,94 @@ export default function App() {
                 <span className="truncate">Szukaj</span>
               </button>
 
-              {/* Share Button */}
+              {/* Udostępnij Link */}
               <button
                 onClick={handleShare}
-                title="Udostępnij bezpośredni link do tego wpisu"
+                title="Udostępnij czysty link do tego dnia"
                 className={`px-2 py-1.5 rounded-full border transition cursor-pointer flex items-center justify-center gap-1 text-[11px] sm:text-xs font-semibold w-full sm:w-auto min-w-0 ${
                   copiedLink
-                    ? 'bg-emerald-600 text-white border-emerald-500 shadow-md'
+                    ? 'bg-emerald-600 text-white border-emerald-500'
                     : isLight
-                      ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
-                      : 'bg-slate-800/80 text-slate-300 border-slate-700 hover:bg-slate-700'
+                    ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200 shadow-sm'
+                    : 'bg-indigo-950/60 text-indigo-300 border-indigo-800/60 hover:bg-indigo-900/60'
                 }`}
               >
-                {copiedLink ? <Check className="w-3.5 h-3.5 text-white shrink-0" /> : <Share2 className="w-3.5 h-3.5 text-sky-400 shrink-0" />}
-                <span className="truncate">{copiedLink ? 'OK' : 'Link'}</span>
+                {copiedLink ? <Check className="w-3.5 h-3.5 text-white shrink-0" /> : <Share2 className="w-3.5 h-3.5 text-indigo-400 shrink-0" />}
+                <span className="truncate">{copiedLink ? 'Skopiowano!' : 'Udostępnij'}</span>
               </button>
 
-              {/* Export PDF/JSON Button */}
+              {/* Export Modal trigger */}
               <button
                 onClick={() => setShowCustomExportModal(true)}
-                title="Eksport PDF & JSON"
+                title="Eksportuj rozważania i tekst modlitw"
                 className={`px-2 py-1.5 rounded-full border transition cursor-pointer flex items-center justify-center gap-1 text-[11px] sm:text-xs font-semibold w-full sm:w-auto min-w-0 ${
-                  isLight
-                    ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
-                    : 'bg-slate-800/80 text-amber-300 border-slate-700 hover:bg-slate-700'
+                  isLight 
+                    ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200 shadow-sm' 
+                    : 'bg-indigo-950/60 text-indigo-300 border-indigo-800/60 hover:bg-indigo-900/60'
                 }`}
               >
-                <FileDown className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <FileDown className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
                 <span className="truncate">Eksport</span>
               </button>
             </div>
 
-            {/* LINIA 2 NAWIGACJI: PWA App, Motyw, Logowanie Google / Edytor */}
-            <div className="grid grid-cols-4 sm:flex items-center justify-center gap-1.5 w-full sm:w-auto max-w-full">
-              {/* Tłumacz - Language Switcher */}
-              <div className="flex-shrink-0 w-full sm:w-auto">
-                <LanguageSwitcher isLight={isLight} />
-              </div>
-
-              {/* PWA Install Trigger Button */}
-              <button
-                onClick={() => setShowPwaPromptModal(true)}
-                title="Zainstaluj aplikację eMBiK365 na telefonie lub komputerze (PWA)"
-                className={`px-2 py-1.5 rounded-full border transition cursor-pointer flex items-center justify-center gap-1 text-[11px] sm:text-xs font-semibold w-full sm:w-auto min-w-0 ${
-                  isLight
-                    ? 'bg-sky-50 text-sky-700 border-sky-200 hover:bg-sky-100'
-                    : 'bg-sky-950/60 text-sky-300 border-sky-800/60 hover:bg-sky-900/60'
-                }`}
-              >
-                <Smartphone className="w-3.5 h-3.5 text-sky-400 shrink-0" />
-                <span className="truncate">PWA</span>
-              </button>
-
+            {/* LINIA 2 NAWIGACJI: Edytor, Sync, Logowanie, Motyw */}
+            <div className="flex items-center justify-center gap-1.5 w-full sm:w-auto max-w-full">
               {/* Theme Toggle Button */}
               <button
                 onClick={toggleTheme}
                 title={isLight ? "Przełącz na tryb ciemny" : "Przełącz na tryb jasny"}
-                className={`px-2 py-1.5 rounded-full border transition cursor-pointer flex items-center justify-center gap-1 text-[11px] sm:text-xs font-semibold w-full sm:w-auto min-w-0 ${
-                  isLight 
-                    ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200' 
-                    : 'bg-slate-800/80 text-yellow-400 border-slate-700 hover:bg-slate-700'
+                className={`p-1.5 rounded-full border transition cursor-pointer ${
+                  isLight ? 'bg-slate-100 text-amber-600 border-slate-200 hover:bg-slate-200' : 'bg-slate-800 text-amber-400 border-slate-700 hover:bg-slate-750'
                 }`}
               >
-                {isLight ? <Moon className="w-3.5 h-3.5 shrink-0" /> : <Sun className="w-3.5 h-3.5 shrink-0" />}
-                <span className="truncate">{isLight ? 'Ciemny' : 'Jasny'}</span>
+                {isLight ? <Moon className="w-3.5 h-3.5" /> : <Sun className="w-3.5 h-3.5" />}
               </button>
 
               {isAuthorized ? (
-                <div className={`flex items-center justify-center gap-1 p-1 px-1.5 rounded-full border transition-colors w-full sm:w-auto min-w-0 ${
-                  isLight ? 'bg-slate-100 border-slate-200 text-slate-700' : 'bg-slate-800/50 border-slate-700 text-slate-300'
-                }`}>
-                  {user?.photoURL ? (
-                    <img src={user.photoURL} alt="Avatar" className={`w-4 h-4 rounded-full border shrink-0 ${isLight ? 'border-slate-300' : 'border-slate-600'}`} referrerPolicy="no-referrer" />
-                  ) : (
-                    <div className="w-4 h-4 rounded-full bg-indigo-600/20 text-indigo-400 flex items-center justify-center font-bold text-[10px] shrink-0">
-                      {(userEmail || 'E').charAt(0).toUpperCase()}
-                    </div>
-                  )}
-                  {isAuthorized && (
-                    <button
-                      onClick={() => setShowEditor(!showEditor)}
-                      className={`px-2 py-1 rounded-full transition flex items-center justify-center gap-1 text-[11px] font-semibold cursor-pointer shrink-0 ${
-                        showEditor 
-                          ? 'bg-emerald-600/80 text-white hover:bg-emerald-500/90' 
-                          : isLight
-                            ? 'bg-slate-200 text-slate-700 hover:bg-slate-350 border border-slate-300'
-                            : 'bg-slate-700/50 text-slate-300 hover:bg-slate-700 border border-slate-600'
-                      }`}
-                    >
-                      <Edit3 className="w-3 h-3" />
-                      <span>{showEditor ? 'Podgląd' : 'Edytor'}</span>
-                    </button>
-                  )}
+                <div className="flex items-center gap-1">
                   <button
-                    onClick={handleOpenAdminPanel}
-                    title="Panel synchronizacji bazy NoSQL (Firestore ↔ Lokalny)"
-                    className={`px-2 py-1 rounded-full transition flex items-center justify-center gap-1 text-[11px] font-semibold cursor-pointer shrink-0 border ${
-                      isLight
-                        ? 'bg-amber-100 text-amber-900 border-amber-300 hover:bg-amber-200'
-                        : 'bg-amber-600/20 text-amber-300 border-amber-500/40 hover:bg-amber-600/30'
+                    onClick={() => setShowAdminSync(true)}
+                    className={`p-1.5 rounded-full border transition cursor-pointer ${
+                      isLight 
+                        ? 'bg-amber-50 text-amber-600 border-amber-200 hover:bg-amber-100' 
+                        : 'bg-amber-950/60 text-amber-400 border-amber-800/60 hover:bg-amber-900/60'
+                    }`}
+                    title="Panel Synchronizacji NoSQL & GitHub API"
+                  >
+                    <RefreshCw className="w-3.5 h-3.5" />
+                  </button>
+                  <button
+                    onClick={() => setShowEditor(!showEditor)}
+                    className={`px-2.5 py-1.5 rounded-full text-xs font-semibold border transition flex items-center gap-1 cursor-pointer ${
+                      showEditor 
+                        ? 'bg-emerald-600 text-white border-emerald-500' 
+                        : isLight ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200' : 'bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-750'
                     }`}
                   >
-                    <Database className="w-3 h-3 text-amber-400" />
-                    <span>Baza NoSQL</span>
+                    <Edit3 className="w-3.5 h-3.5" />
+                    <span>{showEditor ? 'Podgląd' : 'Edycja'}</span>
                   </button>
                   <button
                     onClick={handleLogout}
                     title="Wyloguj się"
-                    className="p-1 bg-indigo-600/10 text-indigo-500 hover:bg-indigo-600/20 rounded-full transition-colors cursor-pointer shrink-0"
+                    className="p-1.5 rounded-full bg-indigo-600/10 text-indigo-500 hover:bg-indigo-600/20 border border-indigo-500/20 transition cursor-pointer"
                   >
                     <LogOut className="w-3.5 h-3.5" />
                   </button>
                 </div>
               ) : (
-                <div className="flex items-center gap-1">
-                  <button
-                    onClick={handleOpenAdminPanel}
-                    title="Otwórz panel bazy danych i synchronizacji NoSQL"
-                    className={`px-2.5 py-1.5 border text-[11px] sm:text-xs font-semibold rounded-full transition active:scale-95 cursor-pointer flex items-center justify-center gap-1 w-full sm:w-auto min-w-0 ${
-                      isLight
-                        ? 'bg-amber-50 hover:bg-amber-100 border-amber-200 text-amber-800 shadow-sm'
-                        : 'bg-amber-950/40 hover:bg-amber-900/50 border-amber-800/60 text-amber-300'
-                    }`}
-                  >
-                    <Database className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                    <span className="truncate">Baza NoSQL</span>
-                  </button>
-                  <button
-                    onClick={() => setShowAuthModal(true)}
-                    className={`px-2 py-1.5 border text-[11px] sm:text-xs font-semibold rounded-full transition active:scale-95 cursor-pointer flex items-center justify-center gap-1 w-full sm:w-auto min-w-0 ${
-                      isLight
-                        ? 'bg-white hover:bg-slate-100 border-slate-300 text-slate-700 shadow-sm'
-                        : 'bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-slate-200'
-                    }`}
-                  >
-                    <LogIn className="w-3.5 h-3.5 text-indigo-500 shrink-0" />
-                    <span className="truncate">Zaloguj</span>
-                  </button>
-                </div>
+                <button
+                  onClick={() => setShowAuthModal(true)}
+                  className={`px-2.5 py-1.5 border text-xs font-semibold rounded-full transition active:scale-95 cursor-pointer flex items-center gap-1 ${
+                    isLight
+                      ? 'bg-white hover:bg-slate-100 border-slate-300 text-slate-700 shadow-sm'
+                      : 'bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200'
+                  }`}
+                >
+                  <LogIn className="w-3.5 h-3.5 text-indigo-400" />
+                  <span>Zaloguj</span>
+                </button>
               )}
             </div>
           </div>
