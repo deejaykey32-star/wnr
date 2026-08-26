@@ -552,6 +552,95 @@ export default function App() {
         console.warn("Failed to load local bible entries:", err);
       }
 
+      // 1.5. Fetch newest CDN db_snapshot.json (ensures smartphones on GitHub/Cloudflare Pages get all committed links instantly)
+      try {
+        const cdnRes = await fetch(`/data/db_snapshot.json?t=${Date.now()}`);
+        if (cdnRes.ok && isMounted) {
+          const cdnData = await cdnRes.json();
+          if (cdnData.bibleEntries && isMounted) {
+            setBibleEntries(prev => {
+              const merged = { ...prev };
+              Object.entries(cdnData.bibleEntries).forEach(([k, cdnVal]: [string, any]) => {
+                if (cdnVal && cdnVal.title && cdnVal.text) {
+                  const current: any = prev[k] || {};
+                  const mergedUrls = Array(8).fill('').map((_, idx) => {
+                    const cdn = (cdnVal.notebookUrls?.[idx] && String(cdnVal.notebookUrls[idx]).trim()) || '';
+                    const cur = (current.notebookUrls?.[idx] && String(current.notebookUrls[idx]).trim()) || '';
+                    return cdn || cur || '';
+                  });
+                  const mergedLabels = Array(8).fill('').map((_, idx) => {
+                    const cdn = (cdnVal.notebookLabels?.[idx] && String(cdnVal.notebookLabels[idx]).trim()) || '';
+                    const cur = (current.notebookLabels?.[idx] && String(current.notebookLabels[idx]).trim()) || '';
+                    return cdn || cur || '';
+                  });
+                  const mergedPassage = (cdnVal.passageUrl && String(cdnVal.passageUrl).trim())
+                    ? String(cdnVal.passageUrl).trim()
+                    : (current.passageUrl || '');
+
+                  merged[k] = {
+                    ...current,
+                    ...cdnVal,
+                    notebookUrls: mergedUrls,
+                    notebookLabels: mergedLabels,
+                    passageUrl: mergedPassage
+                  };
+                  saveLocalBibleEntry(k, merged[k]).catch(() => {});
+                }
+              });
+              return merged;
+            });
+          }
+
+          if (cdnData.blogEntries && isMounted) {
+            setBlogEntries(prev => {
+              const merged = { ...prev };
+              Object.entries(cdnData.blogEntries).forEach(([k, cdnVal]: [string, any]) => {
+                if (cdnVal && cdnVal.title) {
+                  const current: any = prev[k] || {};
+                  const mergedUrls = Array(8).fill('').map((_, idx) => {
+                    const cdn = (cdnVal.notebookUrls?.[idx] && String(cdnVal.notebookUrls[idx]).trim()) || '';
+                    const cur = (current.notebookUrls?.[idx] && String(current.notebookUrls[idx]).trim()) || '';
+                    return cdn || cur || '';
+                  });
+                  merged[k] = {
+                    ...current,
+                    ...cdnVal,
+                    notebookUrls: mergedUrls
+                  };
+                  saveLocalBlogEntry(k, merged[k]).catch(() => {});
+                }
+              });
+              return merged;
+            });
+          }
+
+          if (cdnData.prayers && isMounted) {
+            setPrayers(prev => {
+              const merged = { ...prev };
+              Object.entries(cdnData.prayers).forEach(([k, cdnVal]: [string, any]) => {
+                if (cdnVal && (cdnVal.title || cdnVal.text)) {
+                  const current: any = prev[k] || {};
+                  const mergedUrls = Array(8).fill('').map((_, idx) => {
+                    const cdn = (cdnVal.notebookUrls?.[idx] && String(cdnVal.notebookUrls[idx]).trim()) || '';
+                    const cur = (current.notebookUrls?.[idx] && String(current.notebookUrls[idx]).trim()) || '';
+                    return cdn || cur || '';
+                  });
+                  merged[k] = {
+                    ...current,
+                    ...cdnVal,
+                    notebookUrls: mergedUrls
+                  };
+                }
+              });
+              saveLocalPrayers(merged).catch(() => {});
+              return merged;
+            });
+          }
+        }
+      } catch (cdnErr) {
+        console.info('[App] CDN db_snapshot.json fetch skipped/failed:', cdnErr);
+      }
+
       if (!db) return;
 
       // 2. Real-time Firestore sync listener for 'prayers'

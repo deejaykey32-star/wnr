@@ -735,6 +735,36 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
     }
   };
 
+  const handleHardResetPwa = async () => {
+    setMasterStatus({ type: 'loading', message: '🧹 Czyszczenie pamięci podręcznej i resetowanie aplikacji (Ctrl+F5)...' });
+    try {
+      if ('serviceWorker' in navigator) {
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        for (const registration of registrations) {
+          await registration.unregister();
+        }
+      }
+      if ('caches' in window) {
+        const cacheKeys = await caches.keys();
+        await Promise.all(cacheKeys.map(key => caches.delete(key)));
+      }
+      try {
+        localStorage.removeItem('wnr_nosql_version');
+      } catch {}
+
+      setMasterStatus({
+        type: 'success',
+        message: '✅ Pamięć podręczna wyczyszczona! Ponowne ładowanie strony z serwera...'
+      });
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 900);
+    } catch {
+      window.location.reload();
+    }
+  };
+
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -976,6 +1006,19 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
               >
                 <CloudDownload size={14} />
                 <span>Pobierz pełną kopię zapasową z Firestore</span>
+              </button>
+
+              {/* Button: Hard Reset PWA Cache (Mobile Ctrl+F5) */}
+              <button
+                onClick={handleHardResetPwa}
+                disabled={masterStatus.type === 'loading'}
+                className={`w-full flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs font-extrabold transition-all border cursor-pointer ${
+                  isDark
+                    ? 'bg-rose-950/40 border-rose-800/60 text-rose-300 hover:bg-rose-900/60'
+                    : 'bg-rose-50 border-rose-200 text-rose-700 hover:bg-rose-100'
+                }`}
+              >
+                <span>🧹 Wymuś Twardy Reset i Czyszczenie Pamięci (Ctrl+F5 na Smartfonie)</span>
               </button>
             </div>
 
