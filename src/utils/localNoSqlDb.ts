@@ -337,7 +337,16 @@ export async function getAllLocalBibleEntries(): Promise<Record<string, LocalBib
  */
 export async function saveLocalBibleEntry(
   docId: string,
-  entry: { title: string; text: string; slotIndex: number; notebookUrls?: string[]; updatedBy?: string }
+  entry: {
+    title: string;
+    text: string;
+    slotIndex: number;
+    notebookUrls?: string[];
+    notebookLabels?: string[];
+    passageUrl?: string;
+    updatedBy?: string;
+    updatedAt?: string;
+  }
 ): Promise<void> {
   try {
     const db = await openDb();
@@ -350,8 +359,10 @@ export async function saveLocalBibleEntry(
       title: entry.title,
       text: entry.text,
       notebookUrls: entry.notebookUrls || [],
+      notebookLabels: entry.notebookLabels || [],
+      passageUrl: entry.passageUrl || '',
       updatedBy: entry.updatedBy || 'Edytor Lokalny',
-      updatedAt: new Date().toISOString()
+      updatedAt: entry.updatedAt || new Date().toISOString()
     };
 
     store.put(record);
@@ -401,15 +412,17 @@ export async function resetLocalToSeedData(): Promise<void> {
         });
 
         tx.oncomplete = () => {
-          console.log('[NoSQL] Reset to PDF seed data complete.');
+          try {
+            localStorage.setItem(DATA_VERSION_KEY, DATA_VERSION);
+          } catch {}
           resolve();
         };
-      } catch (txErr) {
-        reject(txErr);
+      } catch (err) {
+        reject(err);
       }
     });
   } catch (err) {
-    console.warn('[NoSQL] Failed to reset IndexedDB:', err);
+    console.error('[NoSQL] Failed to reset to seed data:', err);
     throw err;
   }
 }
@@ -494,7 +507,7 @@ export interface FullNoSqlSnapshot {
   };
   prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
   blogEntries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
-  bibleEntries?: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
+  bibleEntries?: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; notebookLabels?: string[]; passageUrl?: string; updatedBy?: string; updatedAt?: string }>;
 }
 
 /**
@@ -503,7 +516,7 @@ export interface FullNoSqlSnapshot {
 export function createNoSqlSnapshot(
   prayersData: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>,
   blogEntriesData: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>,
-  bibleEntriesData?: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>
+  bibleEntriesData?: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; notebookLabels?: string[]; passageUrl?: string; updatedBy?: string; updatedAt?: string }>
 ): FullNoSqlSnapshot {
   const introBlocks: Record<string, any> = {};
   if (prayersData['introTextMain']) introBlocks['introTextMain'] = prayersData['introTextMain'];
@@ -543,9 +556,16 @@ export async function importFullNoSqlSnapshot(snapshot: FullNoSqlSnapshot): Prom
       let bibleCount = 0;
 
       if (snapshot.prayers) {
-        Object.entries(snapshot.prayers).forEach(([docId, prayer]) => {
-          if (prayer && prayer.title && prayer.text) {
-            prayersStore.put({ docId, ...prayer });
+        Object.entries(snapshot.prayers).forEach(([docId, entry]) => {
+          if (entry && entry.title && entry.text) {
+            prayersStore.put({
+              docId,
+              title: entry.title,
+              text: entry.text,
+              notebookUrls: itemNotebookUrls(entry),
+              updatedBy: entry.updatedBy || 'NoSQL Snapshot Import',
+              updatedAt: entry.updatedAt || new Date().toISOString()
+            });
             prayersCount++;
           }
         });
@@ -568,7 +588,7 @@ export async function importFullNoSqlSnapshot(snapshot: FullNoSqlSnapshot): Prom
               dayIndex: entry.dayIndex ?? 0,
               title: entry.title,
               text: entry.text,
-              notebookUrls: entry.notebookUrls || [],
+              notebookUrls: itemNotebookUrls(entry),
               updatedBy: entry.updatedBy || 'NoSQL Snapshot Import',
               updatedAt: entry.updatedAt || new Date().toISOString()
             });
@@ -586,6 +606,8 @@ export async function importFullNoSqlSnapshot(snapshot: FullNoSqlSnapshot): Prom
               title: entry.title,
               text: entry.text,
               notebookUrls: itemNotebookUrls(entry),
+              notebookLabels: entry.notebookLabels || [],
+              passageUrl: entry.passageUrl || '',
               updatedBy: entry.updatedBy || 'NoSQL Snapshot Import',
               updatedAt: entry.updatedAt || new Date().toISOString()
             });

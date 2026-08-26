@@ -18,10 +18,10 @@ interface AdminSyncPanelProps {
   onClose: () => void;
   theme: 'dark' | 'light';
   prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
-  bibleEntries: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
+  bibleEntries: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; notebookLabels?: string[]; passageUrl?: string; updatedBy?: string; updatedAt?: string }>;
   onBlogEntriesUpdated: (entries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>) => void;
   onPrayersUpdated: (prayers: Record<string, { title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>) => void;
-  onBibleEntriesUpdated: (entries: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>) => void;
+  onBibleEntriesUpdated: (entries: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; notebookLabels?: string[]; passageUrl?: string; updatedBy?: string; updatedAt?: string }>) => void;
   blogEntries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
 }
 
@@ -195,6 +195,8 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
           title: local?.title || ch.defaultTitle,
           text: local?.text || ch.defaultText,
           notebookUrls: local?.notebookUrls || [],
+          notebookLabels: local?.notebookLabels || [],
+          passageUrl: local?.passageUrl || '',
           updatedBy: local?.updatedBy || 'Pismo Święte Biblia365 (1460 czytań)',
           updatedAt: local?.updatedAt || new Date().toISOString()
         };
@@ -334,7 +336,12 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         // Push custom/edited ones to cloud
         await Promise.allSettled(
           chunk.map(async ([docId, data]) => {
-            if (data.notebookUrls?.some((u: any) => u && String(u).trim().length > 0)) {
+            if (
+              (data.notebookUrls?.some((u: any) => u && String(u).trim().length > 0)) ||
+              (data.passageUrl && String(data.passageUrl).trim().length > 0) ||
+              (data.notebookLabels?.some((l: any) => l && String(l).trim().length > 0)) ||
+              (data.title && data.title !== defaultBible[data.slotIndex - 1]?.defaultTitle)
+            ) {
               try {
                 await withTimeout(setDoc(doc(db, 'bible_entries', docId), data, { merge: true }), 4000);
               } catch {}
