@@ -336,17 +336,21 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
               const docId = docSnap.id;
               const current = full1460BibleMap[docId] || {};
 
-              const dataHasUrls = data.notebookUrls && Array.isArray(data.notebookUrls) && data.notebookUrls.some((u: any) => u && String(u).trim().length > 0);
-              const currentHasUrls = current.notebookUrls && Array.isArray(current.notebookUrls) && current.notebookUrls.some((u: any) => u && String(u).trim().length > 0);
-              const mergedUrls = dataHasUrls ? data.notebookUrls : (currentHasUrls ? current.notebookUrls : []);
+              const mergedUrls = Array(8).fill('').map((_, idx) => {
+                const rem = (data.notebookUrls?.[idx] && String(data.notebookUrls[idx]).trim()) || '';
+                const cur = (current.notebookUrls?.[idx] && String(current.notebookUrls[idx]).trim()) || '';
+                return rem || cur || '';
+              });
 
-              const dataHasLabels = data.notebookLabels && Array.isArray(data.notebookLabels) && data.notebookLabels.some((l: any) => l && String(l).trim().length > 0);
-              const currentHasLabels = current.notebookLabels && Array.isArray(current.notebookLabels) && current.notebookLabels.some((l: any) => l && String(l).trim().length > 0);
-              const mergedLabels = dataHasLabels ? data.notebookLabels : (currentHasLabels ? current.notebookLabels : []);
+              const mergedLabels = Array(8).fill('').map((_, idx) => {
+                const rem = (data.notebookLabels?.[idx] && String(data.notebookLabels[idx]).trim()) || '';
+                const cur = (current.notebookLabels?.[idx] && String(current.notebookLabels[idx]).trim()) || '';
+                return rem || cur || '';
+              });
 
-              const dataHasPassage = data.passageUrl && String(data.passageUrl).trim().length > 0;
-              const currentHasPassage = current.passageUrl && String(current.passageUrl).trim().length > 0;
-              const mergedPassageUrl = dataHasPassage ? data.passageUrl : (currentHasPassage ? current.passageUrl : '');
+              const mergedPassageUrl = (data.passageUrl && String(data.passageUrl).trim())
+                ? String(data.passageUrl).trim()
+                : (current.passageUrl || '');
 
               full1460BibleMap[docId] = {
                 docId,

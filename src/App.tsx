@@ -666,16 +666,32 @@ export default function App() {
               setBibleEntries(prev => {
                 const merged = { ...prev };
                 Object.entries(remoteBible).forEach(([key, remoteVal]) => {
+                  const prevUrls = prev[key]?.notebookUrls || [];
+                  const remoteUrls = remoteVal.notebookUrls || [];
+                  const mergedUrls = Array(8).fill('').map((_, idx) => {
+                    const r = (remoteUrls[idx] && String(remoteUrls[idx]).trim()) || '';
+                    const p = (prevUrls[idx] && String(prevUrls[idx]).trim()) || '';
+                    return r || p || '';
+                  });
+
+                  const prevLabels = prev[key]?.notebookLabels || [];
+                  const remoteLabels = remoteVal.notebookLabels || [];
+                  const mergedLabels = Array(8).fill('').map((_, idx) => {
+                    const r = (remoteLabels[idx] && String(remoteLabels[idx]).trim()) || '';
+                    const p = (prevLabels[idx] && String(prevLabels[idx]).trim()) || '';
+                    return r || p || '';
+                  });
+
+                  const mergedPassage = (remoteVal.passageUrl && String(remoteVal.passageUrl).trim()) 
+                    ? String(remoteVal.passageUrl).trim() 
+                    : (prev[key]?.passageUrl || '');
+
                   merged[key] = {
                     ...prev[key],
                     ...remoteVal,
-                    notebookUrls: (remoteVal.notebookUrls && Array.isArray(remoteVal.notebookUrls))
-                      ? remoteVal.notebookUrls
-                      : (prev[key]?.notebookUrls || []),
-                    notebookLabels: (remoteVal.notebookLabels && Array.isArray(remoteVal.notebookLabels))
-                      ? remoteVal.notebookLabels
-                      : (prev[key]?.notebookLabels || []),
-                    passageUrl: remoteVal.passageUrl || prev[key]?.passageUrl || ''
+                    notebookUrls: mergedUrls,
+                    notebookLabels: mergedLabels,
+                    passageUrl: mergedPassage
                   };
                   saveLocalBibleEntry(key, merged[key]).catch(() => {});
                 });
