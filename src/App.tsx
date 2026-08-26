@@ -2097,22 +2097,6 @@ export default function App() {
     autoSyncToGitHubAndCloud('Wstęp (Intro)', undefined, undefined, nextPrayers);
   };
 
-  if (!isDataLoaded) {
-    return (
-      <div className={`min-h-screen flex flex-col items-center justify-center p-6 text-center transition-colors duration-300 ${
-        isLight ? 'bg-slate-50 text-slate-900' : 'bg-slate-950 text-slate-100'
-      }`}>
-        <div className="w-16 h-16 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-2xl font-bold mb-4 animate-spin">
-          🔄
-        </div>
-        <h1 className="text-xl font-bold mb-2">Wczytywanie eMBiK365...</h1>
-        <p className="text-sm text-slate-400 max-w-md">
-          Przygotowujemy rozważania i modlitwy...
-        </p>
-      </div>
-    );
-  }
-
   const handleUpdatePrayers = (newPrayers: Record<string, any>) => {
     setPrayers(newPrayers);
     autoSyncToGitHubAndCloud('RHZ365 / Wstęp', undefined, undefined, newPrayers);
@@ -2140,6 +2124,22 @@ export default function App() {
       document.removeEventListener('visibilitychange', handleFocus);
     };
   }, []);
+
+  if (!isDataLoaded) {
+    return (
+      <div className={`min-h-screen flex flex-col items-center justify-center p-6 text-center transition-colors duration-300 ${
+        isLight ? 'bg-slate-50 text-slate-900' : 'bg-slate-950 text-slate-100'
+      }`}>
+        <div className="w-16 h-16 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-2xl font-bold mb-4 animate-spin">
+          🔄
+        </div>
+        <h1 className="text-xl font-bold mb-2">Wczytywanie eMBiK365...</h1>
+        <p className="text-sm text-slate-400 max-w-md">
+          Przygotowujemy rozważania i modlitwy...
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className={`min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-300 w-full max-w-full overflow-x-hidden ${
