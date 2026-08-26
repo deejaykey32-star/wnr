@@ -663,39 +663,70 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       const b64Content = btoa(binary);
 
       const targetPath = 'public/data/db_snapshot.json';
-      const apiUrl = `https://api.github.com/repos/deejaykey32-star/wnr/contents/${targetPath}`;
+      const cleanToken = githubToken.trim();
 
-      const getRes = await fetch(apiUrl, {
-        headers: { Authorization: `Bearer ${githubToken.trim()}` }
-      });
-      if (!getRes.ok) {
-        throw new Error(`Nie można pobrać metadanych pliku z GitHub (Status ${getRes.status}). Sprawdź token PAT.`);
+      let attempts = 0;
+      let isSuccess = false;
+      let lastErrorMessage = '';
+
+      while (attempts < 3 && !isSuccess) {
+        attempts++;
+        try {
+          const apiUrl = `https://api.github.com/repos/deejaykey32-star/wnr/contents/${targetPath}?ref=main&cb=${Date.now()}_${attempts}`;
+          const getRes = await fetch(apiUrl, {
+            headers: {
+              Authorization: `Bearer ${cleanToken}`,
+              'Cache-Control': 'no-cache, no-store, must-revalidate',
+              Pragma: 'no-cache'
+            }
+          });
+
+          if (!getRes.ok) {
+            const errBody = await getRes.json().catch(() => ({}));
+            throw new Error(errBody.message || `Nie można pobrać metadanych pliku z GitHub (Status ${getRes.status}). Sprawdź token PAT.`);
+          }
+
+          const getJson = await getRes.json();
+          const sha = getJson.sha;
+
+          const putUrl = `https://api.github.com/repos/deejaykey32-star/wnr/contents/${targetPath}`;
+          const putRes = await fetch(putUrl, {
+            method: 'PUT',
+            headers: {
+              Authorization: `Bearer ${cleanToken}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              message: `data: update db_snapshot.json via Direct Admin Commit (${new Date().toLocaleString('pl-PL')})`,
+              content: b64Content,
+              sha: sha,
+              branch: 'main'
+            })
+          });
+
+          if (putRes.ok) {
+            isSuccess = true;
+            break;
+          }
+
+          const errJson = await putRes.json().catch(() => ({}));
+          lastErrorMessage = errJson.message || `Błąd GitHub API (${putRes.status})`;
+
+          await new Promise(r => setTimeout(r, 600));
+        } catch (attemptErr: any) {
+          lastErrorMessage = attemptErr.message || 'Błąd połączenia z GitHub';
+          await new Promise(r => setTimeout(r, 600));
+        }
       }
-      const getJson = await getRes.json();
-      const sha = getJson.sha;
 
-      const putRes = await fetch(apiUrl, {
-        method: 'PUT',
-        headers: {
-          Authorization: `Bearer ${githubToken.trim()}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          message: `data: update db_snapshot.json via Direct Admin Commit (${new Date().toLocaleString('pl-PL')})`,
-          content: b64Content,
-          sha: sha
-        })
-      });
-
-      if (!putRes.ok) {
-        const errJson = await putRes.json().catch(() => ({}));
-        throw new Error(errJson.message || `Błąd GitHub API (${putRes.status})`);
+      if (isSuccess) {
+        setMasterStatus({
+          type: 'success',
+          message: '🎉 Wyśmienicie! Zmiany zostały wyemitowane i zapisane bezpośrednio w repozytorium GitHub! Strona i smartfony zaktualizują się automatycznie po zakończeniu budowania.'
+        });
+      } else {
+        throw new Error(lastErrorMessage);
       }
-
-      setMasterStatus({
-        type: 'success',
-        message: '🎉 Wyśmienicie! Zmiany zostały wyemitowane i zapisane bezpośrednio w repozytorium GitHub! Strona i smartfony zaktualizują się automatycznie po zakończeniu budowania.'
-      });
     } catch (err: any) {
       setMasterStatus({
         type: 'error',
