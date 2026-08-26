@@ -8,7 +8,7 @@ import {
 } from './data/prayers';
 import { getWnrDefaultBlogEntry, loadWnrBlogDefaultsData } from './utils/wnrBlogDefaults';
 import { generateVideoClientSide } from './utils/videoGenerator';
-import { initLocalNoSqlDb, getAllLocalBlogEntries, getAllLocalBlogEntriesSync, saveLocalBlogEntry, getLocalPrayers, saveLocalPrayers, getAllLocalBibleEntries, saveLocalBibleEntry, LocalBibleEntry } from './utils/localNoSqlDb';
+import { initLocalNoSqlDb, getAllLocalBlogEntries, getAllLocalBlogEntriesSync, saveLocalBlogEntry, getLocalPrayers, saveLocalPrayers, getAllLocalBibleEntries, saveLocalBibleEntry, LocalBibleEntry, createNoSqlSnapshot } from './utils/localNoSqlDb';
 import { RosaryRenderer } from './components/RosaryRenderer';
 import { PrayerEditor } from './components/PrayerEditor';
 import { BlogSection } from './components/BlogSection';
@@ -806,6 +806,75 @@ export default function App() {
     };
   }, []);
 
+  const autoSyncToGitHubAndCloud = async (
+    note: string,
+    updatedBibleEntries?: Record<string, any>,
+    updatedBlogEntries?: Record<string, any>,
+    updatedPrayers?: Record<string, any>
+  ) => {
+    if (!isAuthorized) return;
+
+    const currentBible = updatedBibleEntries || bibleEntries;
+    const currentBlogs = updatedBlogEntries || blogEntries;
+    const currentPrayers = updatedPrayers || prayers;
+
+    const token = (typeof window !== 'undefined' && localStorage.getItem('github_sync_pat')) || '';
+    if (!token) {
+      console.info('[AutoSync] GitHub PAT token not configured in localStorage. Skipping auto-commit to GitHub.');
+      return;
+    }
+
+    try {
+      const snapshot = createNoSqlSnapshot(currentPrayers, currentBlogs, currentBible);
+      const jsonStr = JSON.stringify(snapshot, null, 2);
+
+      const bytes = new TextEncoder().encode(jsonStr);
+      let binary = '';
+      for (let i = 0; i < bytes.byteLength; i++) {
+        binary += String.fromCharCode(bytes[i]);
+      }
+      const b64Content = btoa(binary);
+
+      const targetPath = 'public/data/db_snapshot.json';
+      const cleanToken = token.trim();
+      const authHeader = cleanToken.startsWith('github_pat_')
+        ? `Bearer ${cleanToken}`
+        : `token ${cleanToken}`;
+
+      const apiUrl = `https://api.github.com/repos/deejaykey32-star/wnr/contents/${targetPath}?ref=main&cb=${Date.now()}`;
+      const getRes = await fetch(apiUrl, {
+        headers: {
+          Authorization: authHeader,
+          Accept: 'application/vnd.github.v3+json'
+        }
+      });
+
+      if (!getRes.ok) return;
+
+      const getJson = await getRes.json();
+      const sha = getJson.sha;
+
+      const putUrl = `https://api.github.com/repos/deejaykey32-star/wnr/contents/${targetPath}`;
+      await fetch(putUrl, {
+        method: 'PUT',
+        headers: {
+          Authorization: authHeader,
+          Accept: 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: `auto-sync: ${note} (${new Date().toLocaleString('pl-PL')})`,
+          content: b64Content,
+          sha: sha,
+          branch: 'main'
+        })
+      });
+      console.log(`[AutoSync] Successfully committed updated snapshot to GitHub API! (${note})`);
+    } catch (err) {
+      console.warn('[AutoSync] GitHub auto-commit skipped or failed:', err);
+    }
+  };
+
   // Helper to map activeTab and date to 1-365 sequential URL slug (supports hash routing for 100% web host compatibility)
   const handleSaveBibleEntry = async (
     docId: string,
@@ -833,10 +902,11 @@ export default function App() {
       await saveLocalBibleEntry(docId, updatedItem);
 
       // 2. Instant React state update
-      setBibleEntries(prev => ({
-        ...prev,
+      const nextBibleMap = {
+        ...bibleEntries,
         [docId]: updatedItem
-      }));
+      };
+      setBibleEntries(nextBibleMap);
 
       // 3. Non-blocking Firestore cloud backup with 3s timeout
       (async () => {
@@ -860,6 +930,9 @@ export default function App() {
           console.info('[App] Firestore Bible Backup performed asynchronously / skipped:', (cloudErr as any)?.message);
         }
       })();
+
+      // 4. Auto-commit snapshot directly to GitHub API (if GitHub PAT configured)
+      autoSyncToGitHubAndCloud(`Biblia365 (${docId})`, nextBibleMap);
     } catch (err) {
       console.error('Error saving Bible entry locally:', err);
       throw err;
