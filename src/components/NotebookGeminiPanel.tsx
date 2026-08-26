@@ -362,7 +362,7 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
             </div>
           )}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 text-xs font-sans">
             {analysisTypes.map((type, idx) => (
               <div key={type.id} className="space-y-1.5 p-3 rounded-lg border bg-black/10 border-slate-800/40">
                 <div className="flex items-center justify-between">
@@ -436,7 +436,7 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
           )}
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 font-sans">
           {activeItems.map(item => {
             const IconComp = item.icon;
             return (
