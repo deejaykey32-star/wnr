@@ -1,19 +1,11 @@
-const CACHE_NAME = 'embik365-v20-static-only';
+const CACHE_NAME = 'embik365-v100-fresh-build';
 
 // Only truly static files go here — NO JS chunks (they change on every build)
 const PRECACHE_ASSETS = [
   '/manifest.json',
   '/favicon.ico',
-  '/favicon.png',
-  '/favicon-32x32.png',
-  '/favicon-16x16.png',
-  '/apple-touch-icon.png',
-  '/app-logo.png',
   '/icon-192.png',
-  '/icon-512.png',
-  '/icon-144.png',
-  '/icon-maskable-192.png',
-  '/icon-maskable-512.png'
+  '/icon-512.png'
 ];
 
 // Install: pre-cache only static icons/manifest, skip waiting immediately
@@ -21,13 +13,7 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(PRECACHE_ASSETS.filter(url => {
-        // skip urls that might 404 during install
-        return !url.endsWith('.ico') || url === '/favicon.ico';
-      })).catch(() => {
-        // Non-fatal: if some icons are missing, continue anyway
-        return Promise.resolve();
-      });
+      return cache.addAll(PRECACHE_ASSETS).catch(() => Promise.resolve());
     })
   );
 });
@@ -38,10 +24,8 @@ self.addEventListener('activate', (event) => {
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cache) => {
-          if (cache !== CACHE_NAME) {
-            console.log('[SW] Deleting old cache:', cache);
-            return caches.delete(cache);
-          }
+          console.log('[SW] Deleting cache:', cache);
+          return caches.delete(cache);
         })
       );
     }).then(() => self.clients.claim())

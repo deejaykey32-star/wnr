@@ -26,6 +26,14 @@ class ErrorBoundary extends Component<Props, State> {
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error('[eMBiK365] React render error caught:', error, errorInfo);
+    try {
+      if ('caches' in window) {
+        caches.keys().then(names => Promise.all(names.map(n => caches.delete(n))));
+      }
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(regs => Promise.all(regs.map(r => r.unregister())));
+      }
+    } catch {}
   }
 
   private handleHardReset = () => {
@@ -39,7 +47,7 @@ class ErrorBoundary extends Component<Props, State> {
         navigator.serviceWorker.getRegistrations().then(regs => Promise.all(regs.map(r => r.unregister())));
       }
     } catch {}
-    window.location.href = window.location.origin + window.location.pathname;
+    window.location.href = window.location.origin + window.location.pathname + '?cb=' + Date.now();
   };
 
   public render() {

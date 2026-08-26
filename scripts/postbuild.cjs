@@ -44,4 +44,13 @@ if (fs.existsSync(exportMdPublic)) {
   console.log('[Postbuild] Copied public/export-md → dist/export-md');
 }
 
+// 5. Invalidate Service Worker cache on every build
+const distSw = path.join(distDir, 'sw.js');
+if (fs.existsSync(distSw)) {
+  let swContent = fs.readFileSync(distSw, 'utf-8');
+  swContent = swContent.replace(/embik365-v\d+-[a-z0-9-]+/g, `embik365-build-${Date.now()}`);
+  fs.writeFileSync(distSw, swContent);
+  console.log('[Postbuild] Injected unique cache key into dist/sw.js');
+}
+
 console.log('[Postbuild] Done.');
