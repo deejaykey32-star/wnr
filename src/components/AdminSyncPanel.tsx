@@ -209,8 +209,34 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
           if (cdnData.blogEntries) masterBlogMap = { ...cdnData.blogEntries, ...masterBlogMap };
           if (cdnData.prayers) masterPrayersMap = { ...cdnData.prayers, ...masterPrayersMap };
           if (cdnData.bibleEntries) {
-            Object.entries(cdnData.bibleEntries).forEach(([k, v]: [string, any]) => {
-              if (v && v.title && v.text) full1460BibleMap[k] = v;
+            Object.entries(cdnData.bibleEntries).forEach(([k, cdnVal]: [string, any]) => {
+              if (cdnVal && cdnVal.title && cdnVal.text) {
+                const current = full1460BibleMap[k] || {};
+
+                const currentHasUrls = current.notebookUrls && current.notebookUrls.some((u: any) => u && String(u).trim().length > 0);
+                const cdnHasUrls = cdnVal.notebookUrls && cdnVal.notebookUrls.some((u: any) => u && String(u).trim().length > 0);
+                const mergedUrls = currentHasUrls ? current.notebookUrls : (cdnHasUrls ? cdnVal.notebookUrls : (current.notebookUrls || []));
+
+                const currentHasLabels = current.notebookLabels && current.notebookLabels.some((l: any) => l && String(l).trim().length > 0);
+                const cdnHasLabels = cdnVal.notebookLabels && cdnVal.notebookLabels.some((l: any) => l && String(l).trim().length > 0);
+                const mergedLabels = currentHasLabels ? current.notebookLabels : (cdnHasLabels ? cdnVal.notebookLabels : (current.notebookLabels || []));
+
+                const currentHasPassage = current.passageUrl && String(current.passageUrl).trim().length > 0;
+                const cdnHasPassage = cdnVal.passageUrl && String(cdnVal.passageUrl).trim().length > 0;
+                const mergedPassageUrl = currentHasPassage ? current.passageUrl : (cdnHasPassage ? cdnVal.passageUrl : (current.passageUrl || ''));
+
+                full1460BibleMap[k] = {
+                  docId: k,
+                  slotIndex: cdnVal.slotIndex ?? current.slotIndex ?? (parseInt(k.replace('bible_slot_', ''), 10) || 0),
+                  title: current.title || cdnVal.title,
+                  text: current.text || cdnVal.text,
+                  notebookUrls: mergedUrls,
+                  notebookLabels: mergedLabels,
+                  passageUrl: mergedPassageUrl,
+                  updatedBy: current.updatedBy || cdnVal.updatedBy || 'Pismo Święte Biblia365 (1460 czytań)',
+                  updatedAt: current.updatedAt || cdnVal.updatedAt || new Date().toISOString()
+                };
+              }
             });
           }
         }
@@ -308,16 +334,30 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
             const data = docSnap.data();
             if (data && data.title && data.text) {
               const docId = docSnap.id;
+              const current = full1460BibleMap[docId] || {};
+
+              const dataHasUrls = data.notebookUrls && Array.isArray(data.notebookUrls) && data.notebookUrls.some((u: any) => u && String(u).trim().length > 0);
+              const currentHasUrls = current.notebookUrls && Array.isArray(current.notebookUrls) && current.notebookUrls.some((u: any) => u && String(u).trim().length > 0);
+              const mergedUrls = dataHasUrls ? data.notebookUrls : (currentHasUrls ? current.notebookUrls : []);
+
+              const dataHasLabels = data.notebookLabels && Array.isArray(data.notebookLabels) && data.notebookLabels.some((l: any) => l && String(l).trim().length > 0);
+              const currentHasLabels = current.notebookLabels && Array.isArray(current.notebookLabels) && current.notebookLabels.some((l: any) => l && String(l).trim().length > 0);
+              const mergedLabels = dataHasLabels ? data.notebookLabels : (currentHasLabels ? current.notebookLabels : []);
+
+              const dataHasPassage = data.passageUrl && String(data.passageUrl).trim().length > 0;
+              const currentHasPassage = current.passageUrl && String(current.passageUrl).trim().length > 0;
+              const mergedPassageUrl = dataHasPassage ? data.passageUrl : (currentHasPassage ? current.passageUrl : '');
+
               full1460BibleMap[docId] = {
                 docId,
-                slotIndex: data.slotIndex ?? (parseInt(docId.replace('bible_slot_', ''), 10) || 0),
-                title: data.title,
-                text: data.text,
-                notebookUrls: data.notebookUrls || [],
-                notebookLabels: data.notebookLabels || [],
-                passageUrl: data.passageUrl || '',
-                updatedBy: data.updatedBy || 'Firestore Sync',
-                updatedAt: data.updatedAt || new Date().toISOString()
+                slotIndex: data.slotIndex ?? current.slotIndex ?? (parseInt(docId.replace('bible_slot_', ''), 10) || 0),
+                title: data.title || current.title,
+                text: data.text || current.text,
+                notebookUrls: mergedUrls,
+                notebookLabels: mergedLabels,
+                passageUrl: mergedPassageUrl,
+                updatedBy: data.updatedBy || current.updatedBy || 'Firestore Sync',
+                updatedAt: data.updatedAt || current.updatedAt || new Date().toISOString()
               };
             }
           });
