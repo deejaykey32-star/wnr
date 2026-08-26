@@ -486,9 +486,21 @@ export const WysiwygToolbar: React.FC<WysiwygToolbarProps> = ({
                 <div>
                   <label className="block text-[10px] text-slate-400 font-bold uppercase mb-1">Adres URL grafiki</label>
                   <input
-                    type="url"
+                    type="text"
+                    inputMode="url"
+                    autoComplete="off"
+                    autoCorrect="off"
+                    autoCapitalize="none"
+                    spellCheck="false"
                     value={imageUrl}
                     onChange={(e) => setImageUrl(e.target.value)}
+                    onPaste={(e) => {
+                      const pasted = e.clipboardData.getData('text');
+                      if (pasted) {
+                        e.preventDefault();
+                        setImageUrl(pasted.trim());
+                      }
+                    }}
                     placeholder="https://example.com/zdjecie.jpg"
                     className={inputClass}
                   />
@@ -551,9 +563,21 @@ export const WysiwygToolbar: React.FC<WysiwygToolbarProps> = ({
                 <div>
                   <label className="block text-[10px] text-slate-400 font-bold uppercase mb-1">Adres URL dla kodu QR</label>
                   <input
-                    type="url"
+                    type="text"
+                    inputMode="url"
+                    autoComplete="off"
+                    autoCorrect="off"
+                    autoCapitalize="none"
+                    spellCheck="false"
                     value={qrUrl}
                     onChange={(e) => setQrUrl(e.target.value)}
+                    onPaste={(e) => {
+                      const pasted = e.clipboardData.getData('text');
+                      if (pasted) {
+                        e.preventDefault();
+                        setQrUrl(pasted.trim());
+                      }
+                    }}
                     placeholder="https://widokinaraj.pl/#/wnr365-day-1"
                     className={inputClass}
                   />

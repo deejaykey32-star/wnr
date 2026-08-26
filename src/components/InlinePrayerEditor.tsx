@@ -158,9 +158,21 @@ export const InlinePrayerEditor: React.FC<InlinePrayerEditorProps> = ({
                 {type.id}. {type.label}
               </label>
               <input
-                type="url"
+                type="text"
+                inputMode="url"
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="none"
+                spellCheck="false"
                 value={editUrls[idx]}
                 onChange={(e) => handleUrlChange(idx, e.target.value)}
+                onPaste={(e) => {
+                  const pasted = e.clipboardData.getData('text');
+                  if (pasted) {
+                    e.preventDefault();
+                    handleUrlChange(idx, pasted.trim());
+                  }
+                }}
                 className={`w-full rounded-lg px-2.5 py-1 text-xs border focus:outline-none transition ${
                   isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-950 border-slate-800 text-slate-200'
                 }`}

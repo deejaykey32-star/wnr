@@ -834,9 +834,21 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
                   {type.id}. {type.label} <span className={`font-normal text-[10px] ${isLight ? 'text-slate-400' : 'text-slate-500'}`}>({type.desc})</span>
                 </label>
                 <input
-                  type="url"
+                  type="text"
+                  inputMode="url"
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="none"
+                  spellCheck="false"
                   value={editUrls[idx]}
                   onChange={(e) => handleUrlChange(idx, e.target.value)}
+                  onPaste={(e) => {
+                    const pasted = e.clipboardData.getData('text');
+                    if (pasted) {
+                      e.preventDefault();
+                      handleUrlChange(idx, pasted.trim());
+                    }
+                  }}
                   className={`w-full rounded-lg px-3 py-1.5 text-xs border focus:outline-none transition ${
                     isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-850 text-slate-200'
                   }`}
