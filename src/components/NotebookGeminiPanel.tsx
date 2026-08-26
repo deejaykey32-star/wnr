@@ -348,9 +348,21 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
                 <span>Główny link do fragmentu Biblii (np. Biblia Deon, BibleServer):</span>
               </label>
               <input
-                type="url"
+                type="text"
+                inputMode="url"
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="none"
+                spellCheck="false"
                 value={editPassageUrl}
                 onChange={(e) => setEditPassageUrl(e.target.value)}
+                onPaste={(e) => {
+                  const pasted = e.clipboardData.getData('text');
+                  if (pasted) {
+                    e.preventDefault();
+                    setEditPassageUrl(pasted.trim());
+                  }
+                }}
                 className={`w-full rounded-lg px-3 py-2 text-xs border focus:outline-none transition ${
                   isLight ? 'bg-white border-slate-300 text-slate-900 focus:border-emerald-500' : 'bg-slate-950 border-slate-800 text-slate-100 focus:border-emerald-500'
                 }`}
@@ -374,8 +386,16 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
                   <label className="block text-[10px] text-slate-400 mb-0.5">Własna etykieta (opcjonalnie):</label>
                   <input
                     type="text"
+                    autoComplete="off"
                     value={editLabels[idx] || ''}
                     onChange={(e) => handleLabelChange(idx, e.target.value)}
+                    onPaste={(e) => {
+                      const pasted = e.clipboardData.getData('text');
+                      if (pasted) {
+                        e.preventDefault();
+                        handleLabelChange(idx, pasted.trim());
+                      }
+                    }}
                     className={`w-full rounded-lg px-2.5 py-1 text-xs border focus:outline-none transition ${
                       isLight ? 'bg-white border-slate-300 text-slate-900 focus:border-emerald-500' : 'bg-slate-950 border-slate-800 text-slate-100 focus:border-emerald-500'
                     }`}
@@ -385,9 +405,21 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
                 <div>
                   <label className="block text-[10px] text-slate-400 mb-0.5">Adres URL Gemini Notebook / YouTube:</label>
                   <input
-                    type="url"
+                    type="text"
+                    inputMode="url"
+                    autoComplete="off"
+                    autoCorrect="off"
+                    autoCapitalize="none"
+                    spellCheck="false"
                     value={editUrls[idx] || ''}
                     onChange={(e) => handleUrlChange(idx, e.target.value)}
+                    onPaste={(e) => {
+                      const pasted = e.clipboardData.getData('text');
+                      if (pasted) {
+                        e.preventDefault();
+                        handleUrlChange(idx, pasted.trim());
+                      }
+                    }}
                     className={`w-full rounded-lg px-2.5 py-1.5 text-xs border focus:outline-none transition ${
                       isLight ? 'bg-white border-slate-300 text-slate-900 focus:border-emerald-500' : 'bg-slate-950 border-slate-800 text-slate-100 focus:border-emerald-500'
                     }`}

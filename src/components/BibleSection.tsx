@@ -328,9 +328,21 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
                         📖 Główny link do tekstu Pisma Świętego (np. Biblia Deon, BibleServer):
                       </label>
                       <input
-                        type="url"
+                        type="text"
+                        inputMode="url"
+                        autoComplete="off"
+                        autoCorrect="off"
+                        autoCapitalize="none"
+                        spellCheck="false"
                         value={editPassageUrl}
                         onChange={(e) => setEditPassageUrl(e.target.value)}
+                        onPaste={(e) => {
+                          const pasted = e.clipboardData.getData('text');
+                          if (pasted) {
+                            e.preventDefault();
+                            setEditPassageUrl(pasted.trim());
+                          }
+                        }}
                         className={`w-full rounded-lg px-3 py-2 text-xs border focus:outline-none transition ${
                           isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-800 text-slate-100'
                         }`}
@@ -362,8 +374,16 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
                               <label className="block text-[10px] text-slate-400 mb-0.5">Własna etykieta (opcjonalnie):</label>
                               <input
                                 type="text"
+                                autoComplete="off"
                                 value={editLabels[idx] || ''}
                                 onChange={(e) => handleLabelChange(idx, e.target.value)}
+                                onPaste={(e) => {
+                                  const pasted = e.clipboardData.getData('text');
+                                  if (pasted) {
+                                    e.preventDefault();
+                                    handleLabelChange(idx, pasted.trim());
+                                  }
+                                }}
                                 className={`w-full rounded-lg px-2.5 py-1 text-xs border focus:outline-none transition ${
                                   isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-850 text-slate-200'
                                 }`}
@@ -373,9 +393,21 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
                             <div>
                               <label className="block text-[10px] text-slate-400 mb-0.5">Adres URL:</label>
                               <input
-                                type="url"
+                                type="text"
+                                inputMode="url"
+                                autoComplete="off"
+                                autoCorrect="off"
+                                autoCapitalize="none"
+                                spellCheck="false"
                                 value={editUrls[idx] || ''}
                                 onChange={(e) => handleUrlChange(idx, e.target.value)}
+                                onPaste={(e) => {
+                                  const pasted = e.clipboardData.getData('text');
+                                  if (pasted) {
+                                    e.preventDefault();
+                                    handleUrlChange(idx, pasted.trim());
+                                  }
+                                }}
                                 className={`w-full rounded-lg px-2.5 py-1.5 text-xs border focus:outline-none transition ${
                                   isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-850 text-slate-200'
                                 }`}

@@ -1448,7 +1448,12 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                               {type.id}. {type.label} <span className="font-normal text-[10px] text-zinc-500">({type.desc})</span>
                             </label>
                             <input
-                              type="url"
+                              type="text"
+                              inputMode="url"
+                              autoComplete="off"
+                              autoCorrect="off"
+                              autoCapitalize="none"
+                              spellCheck="false"
                               value={editUrls[idx] || ''}
                               onChange={(e) => {
                                 const val = e.target.value;
@@ -1458,10 +1463,22 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                                   return next;
                                 });
                               }}
+                              onPaste={(e) => {
+                                const pasted = e.clipboardData.getData('text');
+                                if (pasted) {
+                                  e.preventDefault();
+                                  const val = pasted.trim();
+                                  setEditUrls(prev => {
+                                    const next = [...prev];
+                                    next[idx] = val;
+                                    return next;
+                                  });
+                                }
+                              }}
                               className={`w-full rounded-lg px-3 py-1.5 text-xs border focus:outline-none transition ${
                                 isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-850 text-slate-200'
                               }`}
-                              placeholder="https://github.com/... lub notebook-url"
+                              placeholder="https://notebooklm.google.com/..."
                             />
                           </div>
                         ))}
