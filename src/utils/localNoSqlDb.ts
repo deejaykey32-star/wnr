@@ -14,6 +14,8 @@ export interface LocalBibleEntry {
   title: string;
   text: string;
   notebookUrls?: string[];
+  notebookLabels?: string[];
+  passageUrl?: string;
   updatedBy: string;
   updatedAt: string;
 }

@@ -18,7 +18,9 @@ export const GEMINI_ANALYSIS_TYPES = [
 
 export const BIBLE_GEMINI_ANALYSIS_TYPES = [
   { id: 1, label: 'Gemini Notebook — Analiza #1', desc: 'Kod QR i link do analizy fragmentu Biblii w Gemini Notebook (#1)', icon: BookOpen, color: 'from-emerald-600 to-teal-600' },
-  { id: 2, label: 'Gemini Notebook — Analiza #2', desc: 'Kod QR i link do analizy fragmentu Biblii w Gemini Notebook (#2)', icon: Sparkles, color: 'from-indigo-600 to-purple-600' }
+  { id: 2, label: 'Gemini Notebook — Analiza #2', desc: 'Kod QR i link do analizy fragmentu Biblii w Gemini Notebook (#2)', icon: Sparkles, color: 'from-indigo-600 to-purple-600' },
+  { id: 3, label: 'Gemini Notebook — Analiza #3', desc: 'Kod QR i link do analizy fragmentu Biblii w Gemini Notebook (#3)', icon: FileText, color: 'from-blue-600 to-cyan-600' },
+  { id: 4, label: 'Gemini Notebook — Analiza #4', desc: 'Kod QR i link do analizy fragmentu Biblii w Gemini Notebook (#4)', icon: GraduationCap, color: 'from-amber-600 to-orange-600' }
 ];
 
 interface ClickableQrCodeProps {
@@ -80,14 +82,18 @@ export const ClickableQrCode: React.FC<ClickableQrCodeProps> = ({ url, theme = '
 
 interface NotebookGeminiPanelProps {
   notebookUrls?: string[];
+  notebookLabels?: string[];
+  passageUrl?: string;
   theme?: 'dark' | 'light';
   sectionName: 'RHZ365' | 'WnR365' | 'Biblia365' | 'Wstęp';
   isAuthorized?: boolean;
-  onSaveUrls?: (newUrls: string[]) => Promise<void> | void;
+  onSaveUrls?: (newUrls: string[], newLabels?: string[], newPassageUrl?: string) => Promise<void> | void;
 }
 
 export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
   notebookUrls = [],
+  notebookLabels = [],
+  passageUrl = '',
   theme = 'dark',
   sectionName,
   isAuthorized = false,
@@ -95,10 +101,11 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
 }) => {
   const isLight = theme === 'light';
   const isBible = sectionName === 'Biblia365';
-  const analysisTypes = isBible ? BIBLE_GEMINI_ANALYSIS_TYPES : GEMINI_ANALYSIS_TYPES;
+  const analysisTypes = GEMINI_ANALYSIS_TYPES; // 8 analysis types for all sections including Biblia365
   const maxCount = analysisTypes.length;
 
   const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [editPassageUrl, setEditPassageUrl] = useState<string>(passageUrl || '');
   const [editUrls, setEditUrls] = useState<string[]>(() => {
     const arr = Array(maxCount).fill('');
     if (Array.isArray(notebookUrls)) {
@@ -108,22 +115,49 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
     }
     return arr;
   });
+  const [editLabels, setEditLabels] = useState<string[]>(() => {
+    const arr = Array(maxCount).fill('');
+    if (Array.isArray(notebookLabels)) {
+      notebookLabels.forEach((l, i) => {
+        if (i < maxCount) arr[i] = l || '';
+      });
+    }
+    return arr;
+  });
   const [isSaving, setIsSaving] = useState<boolean>(false);
   const [saveMessage, setSaveMessage] = useState<string>('');
 
-  // Sync internal state if notebookUrls changes from parent
+  // Sync internal state if props change from parent
   useEffect(() => {
-    const arr = Array(maxCount).fill('');
+    setEditPassageUrl(passageUrl || '');
+
+    const urlArr = Array(maxCount).fill('');
     if (Array.isArray(notebookUrls)) {
       notebookUrls.forEach((u, i) => {
-        if (i < maxCount) arr[i] = u || '';
+        if (i < maxCount) urlArr[i] = u || '';
       });
     }
-    setEditUrls(arr);
-  }, [notebookUrls, maxCount]);
+    setEditUrls(urlArr);
+
+    const labelArr = Array(maxCount).fill('');
+    if (Array.isArray(notebookLabels)) {
+      notebookLabels.forEach((l, i) => {
+        if (i < maxCount) labelArr[i] = l || '';
+      });
+    }
+    setEditLabels(labelArr);
+  }, [passageUrl, notebookUrls, notebookLabels, maxCount]);
 
   const handleUrlChange = (idx: number, val: string) => {
     setEditUrls(prev => {
+      const next = [...prev];
+      next[idx] = val;
+      return next;
+    });
+  };
+
+  const handleLabelChange = (idx: number, val: string) => {
+    setEditLabels(prev => {
       const next = [...prev];
       next[idx] = val;
       return next;
@@ -139,7 +173,7 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
     setSaveMessage('');
     try {
       await Promise.race([
-        Promise.resolve(onSaveUrls(editUrls)),
+        Promise.resolve(onSaveUrls(editUrls, editLabels, editPassageUrl)),
         new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout (3s)')), 3000))
       ]);
       setSaveMessage('✅ Zapisano i zsynchronizowano!');
@@ -160,10 +194,15 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
   };
 
   // Filter items that have a valid URL
-  const activeItems = analysisTypes.map((type, idx) => ({
-    ...type,
-    url: notebookUrls[idx] || ''
-  })).filter(item => item.url.trim().length > 0);
+  const activeItems = analysisTypes.map((type, idx) => {
+    const customLabel = editLabels[idx] || (notebookLabels && notebookLabels[idx]);
+    const effectiveLabel = (customLabel && customLabel.trim().length > 0) ? customLabel.trim() : type.label;
+    return {
+      ...type,
+      label: effectiveLabel,
+      url: notebookUrls[idx] || ''
+    };
+  }).filter(item => item.url.trim().length > 0);
 
   // Section specific colors/themes
   const headerGlow = sectionName === 'RHZ365' 
@@ -176,16 +215,67 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
     <div className={`mt-6 p-5 sm:p-6 rounded-2xl border text-left shadow-lg transition duration-300 ${
       isLight ? 'bg-slate-50/90 border-slate-200 shadow-slate-100' : 'bg-slate-950/50 border-slate-800/80 shadow-2xl'
     }`}>
+      {/* FEATURED MAIN BIBLE PASSAGE CARD (For Biblia365) */}
+      {isBible && (
+        <div className={`mb-6 p-4 sm:p-5 rounded-2xl border transition-all shadow-md ${
+          isLight 
+            ? 'bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-100/60 border-emerald-200' 
+            : 'bg-gradient-to-r from-emerald-950/40 via-slate-900 to-teal-950/40 border-emerald-800/60'
+        }`}>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3 text-left w-full sm:w-auto">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 text-white flex items-center justify-center shadow-lg shrink-0">
+                <BookOpen className="w-6 h-6" />
+              </div>
+              <div>
+                <h4 className={`text-sm sm:text-base font-bold font-serif ${isLight ? 'text-emerald-950' : 'text-emerald-200'}`}>
+                  📖 Główny Fragment Pisma Świętego
+                </h4>
+                <p className={`text-xs ${isLight ? 'text-slate-600' : 'text-slate-400'} mt-0.5`}>
+                  {passageUrl ? 'Bezpośredni odnośnik do pełnego tekstu czytania biblijnego' : 'Brak ustawionego głównego linku do tekstu Biblii'}
+                </p>
+              </div>
+            </div>
+
+            {passageUrl ? (
+              <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end">
+                <div className="shrink-0">
+                  <ClickableQrCode url={passageUrl} theme={theme} />
+                </div>
+                <a
+                  href={passageUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-xl shadow-md transition flex items-center gap-2 shrink-0 active:scale-95 cursor-pointer"
+                >
+                  <span>Otwórz fragment Biblii</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            ) : (
+              isAuthorized && onSaveUrls && !isEditing && (
+                <button
+                  onClick={() => setIsEditing(true)}
+                  className="px-3.5 py-2 bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-700/50 text-xs font-semibold rounded-xl transition cursor-pointer"
+                >
+                  + Dodaj główny link do fragmentu Biblii
+                </button>
+              )
+            )}
+          </div>
+        </div>
+      )}
+
       {/* Header Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 pb-4 border-b border-slate-800/40">
         <div>
           <h3 className={`text-sm sm:text-base font-bold flex items-center gap-2 ${isLight ? 'text-slate-900' : 'text-white'}`}>
             <Sparkles className="w-4 h-4 text-emerald-400 animate-pulse" />
-            {isBible ? 'Analizy Gemini Notebook z kodami QR' : 'Materiały Analityczne i Wideo (Notebook Gemini / YouTube)'}
+            {isBible ? 'Materiały Analityczne i Wideo dla Rozdziału (8 zasobów)' : 'Materiały Analityczne i Wideo (Notebook Gemini / YouTube)'}
           </h3>
           <p className={`text-xs mt-0.5 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
             {isBible
-              ? 'Wklej linki do analiz wybranych fragmentów Biblii w Gemini Notebook, aby wygenerować kody QR widoczne natychmiast na smartfonie'
+              ? 'Podcasty AI, analizy, fiszki, prezentacje i nagrania wideo powiązane z tym czytaniem biblijnym'
               : 'Podcasty AI, analizy, fiszki i nagrania wideo powiązane z tym wpisem'}
           </p>
         </div>
@@ -206,10 +296,10 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
                   ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border-emerald-200'
                   : 'bg-emerald-950/60 hover:bg-emerald-900 text-emerald-300 border-emerald-800'
               }`}
-              title="Edytuj linki Gemini Notebook"
+              title="Edytuj linki i etykiety Gemini Notebook"
             >
               <Edit3 className="w-3.5 h-3.5" />
-              <span>Edytuj linki Gemini</span>
+              <span>Edytuj linki i etykiety</span>
             </button>
           )}
         </div>
@@ -225,7 +315,7 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
               isLight ? 'text-emerald-900' : 'text-emerald-300'
             }`}>
               <Edit3 className="w-3.5 h-3.5 text-emerald-400" />
-              Szybka Edycja Linków Gemini ({sectionName})
+              Szybka Edycja Linków i Etykiet ({sectionName})
             </h4>
             <div className="flex items-center gap-2">
               <button
@@ -255,27 +345,60 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
             </div>
           )}
 
-          <div className={`grid grid-cols-1 ${isBible ? 'sm:grid-cols-2' : 'md:grid-cols-2'} gap-3 text-xs`}>
+          {/* MAIN BIBLE URL FIELD (If isBible) */}
+          {isBible && (
+            <div className="mb-4 p-3 rounded-lg border bg-emerald-950/30 border-emerald-800/50 space-y-1.5">
+              <label className="block text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1">
+                <BookOpen className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Główny link do fragmentu Biblii (np. Biblia Deon, BibleServer):</span>
+              </label>
+              <input
+                type="url"
+                value={editPassageUrl}
+                onChange={(e) => setEditPassageUrl(e.target.value)}
+                className={`w-full rounded-lg px-3 py-2 text-xs border focus:outline-none transition ${
+                  isLight ? 'bg-white border-slate-300 text-slate-900 focus:border-emerald-500' : 'bg-slate-950 border-slate-800 text-slate-100 focus:border-emerald-500'
+                }`}
+                placeholder="https://biblia.deon.pl/... lub https://www.bibleserver.com/..."
+              />
+            </div>
+          )}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
             {analysisTypes.map((type, idx) => (
-              <div key={type.id} className="space-y-1">
-                <label className={`block text-[11px] font-semibold flex items-center gap-1 ${
-                  isLight ? 'text-slate-800' : 'text-slate-200'
-                }`}>
-                  <span className="font-mono text-[10px] opacity-70">#{type.id}</span>
-                  <span>{type.label}</span>
-                </label>
-                <p className={`text-[10px] ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                  {type.desc}
-                </p>
-                <input
-                  type="url"
-                  value={editUrls[idx] || ''}
-                  onChange={(e) => handleUrlChange(idx, e.target.value)}
-                  className={`w-full rounded-lg px-2.5 py-1.5 text-xs border focus:outline-none transition ${
-                    isLight ? 'bg-white border-slate-300 text-slate-900 focus:border-emerald-500' : 'bg-slate-950 border-slate-800 text-slate-100 focus:border-emerald-500'
-                  }`}
-                  placeholder="https://notebooklm.google.com/..."
-                />
+              <div key={type.id} className="space-y-1.5 p-3 rounded-lg border bg-black/10 border-slate-800/40">
+                <div className="flex items-center justify-between">
+                  <label className={`block text-[11px] font-bold flex items-center gap-1 ${
+                    isLight ? 'text-slate-800' : 'text-slate-200'
+                  }`}>
+                    <span className="font-mono text-[10px] opacity-70">#{type.id}</span>
+                    <span>Domyślnie: {type.label}</span>
+                  </label>
+                </div>
+                <div>
+                  <label className="block text-[10px] text-slate-400 mb-0.5">Własna etykieta (opcjonalnie):</label>
+                  <input
+                    type="text"
+                    value={editLabels[idx] || ''}
+                    onChange={(e) => handleLabelChange(idx, e.target.value)}
+                    className={`w-full rounded-lg px-2.5 py-1 text-xs border focus:outline-none transition ${
+                      isLight ? 'bg-white border-slate-300 text-slate-900 focus:border-emerald-500' : 'bg-slate-950 border-slate-800 text-slate-100 focus:border-emerald-500'
+                    }`}
+                    placeholder={type.label}
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] text-slate-400 mb-0.5">Adres URL Gemini Notebook / YouTube:</label>
+                  <input
+                    type="url"
+                    value={editUrls[idx] || ''}
+                    onChange={(e) => handleUrlChange(idx, e.target.value)}
+                    className={`w-full rounded-lg px-2.5 py-1.5 text-xs border focus:outline-none transition ${
+                      isLight ? 'bg-white border-slate-300 text-slate-900 focus:border-emerald-500' : 'bg-slate-950 border-slate-800 text-slate-100 focus:border-emerald-500'
+                    }`}
+                    placeholder="https://notebooklm.google.com/..."
+                  />
+                </div>
               </div>
             ))}
           </div>
@@ -294,14 +417,12 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
               className="mt-1 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow-md transition flex items-center gap-1.5 cursor-pointer"
             >
               <PlusCircle className="w-3.5 h-3.5" />
-              <span>Dodaj 2 linki z kodami QR dla Gemini Notebook</span>
+              <span>Dodaj linki z kodami QR dla Gemini Notebook</span>
             </button>
           )}
         </div>
       ) : (
-        <div className={`grid grid-cols-1 ${
-          isBible ? 'sm:grid-cols-2 max-w-3xl mx-auto' : 'sm:grid-cols-4 lg:grid-cols-8'
-        } gap-4`}>
+        <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-8 gap-4">
           {activeItems.map(item => {
             const IconComp = item.icon;
             return (
@@ -350,3 +471,4 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
     </div>
   );
 };
+

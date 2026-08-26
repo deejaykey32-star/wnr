@@ -312,6 +312,8 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
                 title: data.title,
                 text: data.text,
                 notebookUrls: data.notebookUrls || [],
+                notebookLabels: data.notebookLabels || [],
+                passageUrl: data.passageUrl || '',
                 updatedBy: data.updatedBy || 'Firestore Sync',
                 updatedAt: data.updatedAt || new Date().toISOString()
               };
@@ -460,6 +462,8 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
               text: data.text,
               slotIndex: data.slotIndex ?? 0,
               notebookUrls: data.notebookUrls || [],
+              notebookLabels: data.notebookLabels || [],
+              passageUrl: data.passageUrl || '',
               updatedBy: data.updatedBy || 'Firestore Backup',
               updatedAt: data.updatedAt || new Date().toISOString()
             };

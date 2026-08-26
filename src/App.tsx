@@ -654,6 +654,8 @@ export default function App() {
                   title: data.title || '',
                   text: data.text || '',
                   notebookUrls: data.notebookUrls || [],
+                  notebookLabels: data.notebookLabels || [],
+                  passageUrl: data.passageUrl || '',
                   updatedBy: data.updatedBy,
                   updatedAt: data.updatedAt
                 };
@@ -669,7 +671,11 @@ export default function App() {
                     ...remoteVal,
                     notebookUrls: (remoteVal.notebookUrls && Array.isArray(remoteVal.notebookUrls))
                       ? remoteVal.notebookUrls
-                      : (prev[key]?.notebookUrls || [])
+                      : (prev[key]?.notebookUrls || []),
+                    notebookLabels: (remoteVal.notebookLabels && Array.isArray(remoteVal.notebookLabels))
+                      ? remoteVal.notebookLabels
+                      : (prev[key]?.notebookLabels || []),
+                    passageUrl: remoteVal.passageUrl || prev[key]?.passageUrl || ''
                   };
                   saveLocalBibleEntry(key, merged[key]).catch(() => {});
                 });
@@ -696,7 +702,15 @@ export default function App() {
   }, []);
 
   // Helper to map activeTab and date to 1-365 sequential URL slug (supports hash routing for 100% web host compatibility)
-  const handleSaveBibleEntry = async (docId: string, title: string, text: string, slotIndex: number, notebookUrls: string[]) => {
+  const handleSaveBibleEntry = async (
+    docId: string,
+    title: string,
+    text: string,
+    slotIndex: number,
+    notebookUrls: string[],
+    notebookLabels?: string[],
+    passageUrl?: string
+  ) => {
     try {
       const updatedItem = {
         docId,
@@ -704,6 +718,8 @@ export default function App() {
         title,
         text,
         notebookUrls,
+        notebookLabels: notebookLabels || [],
+        passageUrl: passageUrl || '',
         updatedBy: userEmail || 'Admin',
         updatedAt: new Date().toISOString()
       };
@@ -728,6 +744,8 @@ export default function App() {
               text,
               slotIndex,
               notebookUrls,
+              notebookLabels: notebookLabels || [],
+              passageUrl: passageUrl || '',
               updatedBy: userEmail || 'Admin',
               updatedAt: new Date().toISOString()
             }, { merge: true }),

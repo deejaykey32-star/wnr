@@ -12,8 +12,8 @@ interface BibleSectionProps {
   isAuthorized: boolean;
   selectedDate: Date;
   setSelectedDate: (d: Date) => void;
-  bibleEntries: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>;
-  onSaveBibleEntry: (docId: string, title: string, text: string, slotIndex: number, notebookUrls: string[]) => Promise<void>;
+  bibleEntries: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[]; notebookLabels?: string[]; passageUrl?: string; updatedBy?: string; updatedAt?: string }>;
+  onSaveBibleEntry: (docId: string, title: string, text: string, slotIndex: number, notebookUrls: string[], notebookLabels?: string[], passageUrl?: string) => Promise<void>;
   theme?: 'dark' | 'light';
 }
 
@@ -41,7 +41,9 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
   const [editingSlot, setEditingSlot] = useState<number | null>(null);
   const [editTitle, setEditTitle] = useState<string>('');
   const [editText, setEditText] = useState<string>('');
+  const [editPassageUrl, setEditPassageUrl] = useState<string>('');
   const [editUrls, setEditUrls] = useState<string[]>(Array(8).fill(''));
+  const [editLabels, setEditLabels] = useState<string[]>(Array(8).fill(''));
   const [saving, setSaving] = useState<boolean>(false);
   const [errorMsg, setErrorMsg] = useState<string>('');
   const [successMsg, setSuccessMsg] = useState<string>('');
@@ -102,14 +104,24 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
     setEditingSlot(slotIdx);
     setEditTitle(savedData?.title || defaultData.defaultTitle);
     setEditText(savedData?.text || '');
+    setEditPassageUrl(savedData?.passageUrl || '');
     
-    const urls = Array(2).fill('');
+    const urls = Array(8).fill('');
     if (savedData?.notebookUrls && Array.isArray(savedData.notebookUrls)) {
       savedData.notebookUrls.forEach((u, i) => {
-        if (i < 2) urls[i] = u;
+        if (i < 8) urls[i] = u || '';
       });
     }
     setEditUrls(urls);
+
+    const labels = Array(8).fill('');
+    if (savedData?.notebookLabels && Array.isArray(savedData.notebookLabels)) {
+      savedData.notebookLabels.forEach((l, i) => {
+        if (i < 8) labels[i] = l || '';
+      });
+    }
+    setEditLabels(labels);
+
     setErrorMsg('');
     setSuccessMsg('');
   };
@@ -127,7 +139,7 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
 
     try {
       const docId = `bible_slot_${editingSlot}`;
-      await onSaveBibleEntry(docId, editTitle.trim(), editText || '', editingSlot, editUrls);
+      await onSaveBibleEntry(docId, editTitle.trim(), editText || '', editingSlot, editUrls, editLabels, editPassageUrl);
       setSuccessMsg('Zapisano pomyślnie!');
       setTimeout(() => {
         setSuccessMsg('');
@@ -141,14 +153,15 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
     }
   };
 
-  const handleSaveBibleUrls = async (slotIdx: number, newUrls: string[]) => {
+  const handleSaveBibleUrls = async (slotIdx: number, newUrls: string[], newLabels?: string[], newPassageUrl?: string) => {
     try {
       const docId = `bible_slot_${slotIdx}`;
       const defaultData = allChapters[slotIdx - 1];
       const savedData = bibleEntries[docId];
       const title = savedData?.title || defaultData?.defaultTitle || `Rozdział ${slotIdx}`;
       const text = savedData?.text || '';
-      await onSaveBibleEntry(docId, title, text, slotIdx, newUrls);
+      const finalPassageUrl = newPassageUrl !== undefined ? newPassageUrl : (savedData?.passageUrl || '');
+      await onSaveBibleEntry(docId, title, text, slotIdx, newUrls, newLabels || savedData?.notebookLabels || [], finalPassageUrl);
     } catch (err) {
       console.error('handleSaveBibleUrls error:', err);
     }
@@ -156,6 +169,14 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
 
   const handleUrlChange = (idx: number, val: string) => {
     setEditUrls(prev => {
+      const next = [...prev];
+      next[idx] = val;
+      return next;
+    });
+  };
+
+  const handleLabelChange = (idx: number, val: string) => {
+    setEditLabels(prev => {
       const next = [...prev];
       next[idx] = val;
       return next;
@@ -240,6 +261,8 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
           const savedData = bibleEntries[`bible_slot_${slotIdx}`];
           const title = savedData?.title || defaultData.defaultTitle;
           const notebookUrls = savedData?.notebookUrls || [];
+          const notebookLabels = savedData?.notebookLabels || [];
+          const passageUrl = savedData?.passageUrl || '';
 
           const isEditingThis = editingSlot === slotIdx;
 
@@ -284,7 +307,7 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
                   )}
 
                   {/* Form fields */}
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     <div>
                       <label className="block text-[11px] uppercase font-bold text-slate-400 mb-1">Tytuł Księgi i Rozdziału</label>
                       <input
@@ -298,26 +321,67 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
                       />
                     </div>
 
-                    {/* Gemini URLs input (2 fields for Biblia365) */}
+                    {/* MAIN BIBLE PASSAGE URL FIELD */}
+                    <div className="p-3.5 rounded-xl border bg-emerald-950/30 border-emerald-800/50 space-y-1.5">
+                      <label className="block text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                        <BookOpen className="w-4 h-4 text-emerald-400" />
+                        📖 Główny link do tekstu Pisma Świętego (np. Biblia Deon, BibleServer):
+                      </label>
+                      <input
+                        type="url"
+                        value={editPassageUrl}
+                        onChange={(e) => setEditPassageUrl(e.target.value)}
+                        className={`w-full rounded-lg px-3 py-2 text-xs border focus:outline-none transition ${
+                          isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-800 text-slate-100'
+                        }`}
+                        placeholder="https://biblia.deon.pl/... lub https://www.bibleserver.com/..."
+                      />
+                    </div>
+
+                    {/* Gemini URLs and Labels input (8 fields for Biblia365) */}
                     <div className="pt-2 border-t border-slate-800/60 space-y-3">
                       <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
-                        <Link className="w-3.5 h-3.5" /> Linki do Gemini Notebook (2 fragmenty z kodami QR)
+                        <Link className="w-3.5 h-3.5" /> Linki i etykiety analityczne (8 fragmentów z kodami QR)
                       </h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-                        {[{ id: 1, label: 'Gemini Notebook — Analiza #1' }, { id: 2, label: 'Gemini Notebook — Analiza #2' }].map((type, idx) => (
-                          <div key={type.id} className="space-y-1">
-                            <label className="block font-semibold text-slate-300 font-sans">
-                              {type.label}
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+                        {[
+                          { id: 1, defaultLabel: 'Podsumowanie audio' },
+                          { id: 2, defaultLabel: 'Podsumowanie wideo' },
+                          { id: 3, defaultLabel: 'Prezentacja' },
+                          { id: 4, defaultLabel: 'Fiszki' },
+                          { id: 5, defaultLabel: 'Test' },
+                          { id: 6, defaultLabel: 'Infografika' },
+                          { id: 7, defaultLabel: 'Raport' },
+                          { id: 8, defaultLabel: 'YouTube' }
+                        ].map((type, idx) => (
+                          <div key={type.id} className="space-y-1.5 p-3 rounded-lg border bg-black/10 border-slate-800/40">
+                            <label className="block font-bold text-slate-300 font-sans text-[11px]">
+                              Zasób #{type.id} ({type.defaultLabel})
                             </label>
-                            <input
-                              type="url"
-                              value={editUrls[idx] || ''}
-                              onChange={(e) => handleUrlChange(idx, e.target.value)}
-                              className={`w-full rounded-lg px-3 py-1.5 text-xs border focus:outline-none transition ${
-                                isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-850 text-slate-200'
-                              }`}
-                              placeholder="https://notebooklm.google.com/..."
-                            />
+                            <div>
+                              <label className="block text-[10px] text-slate-400 mb-0.5">Własna etykieta (opcjonalnie):</label>
+                              <input
+                                type="text"
+                                value={editLabels[idx] || ''}
+                                onChange={(e) => handleLabelChange(idx, e.target.value)}
+                                className={`w-full rounded-lg px-2.5 py-1 text-xs border focus:outline-none transition ${
+                                  isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-850 text-slate-200'
+                                }`}
+                                placeholder={type.defaultLabel}
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-[10px] text-slate-400 mb-0.5">Adres URL:</label>
+                              <input
+                                type="url"
+                                value={editUrls[idx] || ''}
+                                onChange={(e) => handleUrlChange(idx, e.target.value)}
+                                className={`w-full rounded-lg px-2.5 py-1.5 text-xs border focus:outline-none transition ${
+                                  isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-850 text-slate-200'
+                                }`}
+                                placeholder="https://notebooklm.google.com/..."
+                              />
+                            </div>
                           </div>
                         ))}
                       </div>
@@ -368,13 +432,15 @@ export const BibleSection: React.FC<BibleSectionProps> = ({
                     </div>
                   )}
 
-                  {/* Gemini Notebook Analysis Component */}
+                  {/* Gemini Notebook & Bible Passage Component */}
                   <NotebookGeminiPanel
+                    passageUrl={passageUrl}
                     notebookUrls={notebookUrls}
+                    notebookLabels={notebookLabels}
                     theme={isLight ? 'light' : 'dark'}
                     sectionName="Biblia365"
                     isAuthorized={isAuthorized}
-                    onSaveUrls={(newUrls) => handleSaveBibleUrls(slotIdx, newUrls)}
+                    onSaveUrls={(newUrls, newLabels, newPassageUrl) => handleSaveBibleUrls(slotIdx, newUrls, newLabels, newPassageUrl)}
                   />
                 </div>
               )}
