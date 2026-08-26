@@ -48,6 +48,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   const [editTitle, setEditTitle] = useState<string>('');
   const [editText, setEditText] = useState<string>('');
   const [editUrls, setEditUrls] = useState<string[]>(Array(8).fill(''));
+  const [editLabels, setEditLabels] = useState<string[]>(Array(8).fill(''));
   const [saving, setSaving] = useState<boolean>(false);
   const [saveStatus, setSaveStatus] = useState<{ success?: boolean; message?: string } | null>(null);
   const [restoringCloud, setRestoringCloud] = useState<boolean>(false); // kept for UI compat
@@ -220,6 +221,14 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
       });
     }
     setEditUrls(urls);
+
+    const labels = Array(8).fill('');
+    if (activeEntry.notebookLabels && Array.isArray(activeEntry.notebookLabels)) {
+      activeEntry.notebookLabels.forEach((l, i) => {
+        if (i < 8) labels[i] = l;
+      });
+    }
+    setEditLabels(labels);
 
     if (!isContinuousPlaybackRef.current) {
       setIsPlaying(false);
@@ -611,6 +620,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
           title: editTitle.trim(),
           text: editText.trim(),
           notebookUrls: editUrls,
+          notebookLabels: editLabels,
           updatedBy: user?.email || 'Edytor',
           updatedAt: new Date().toISOString()
         }
@@ -628,6 +638,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
               text: editText.trim(),
               dayIndex: cycleInfo.dayIndex,
               notebookUrls: editUrls,
+              notebookLabels: editLabels,
               updatedBy: user?.email || 'Edytor',
               updatedAt: new Date().toISOString()
             }, { merge: true }),

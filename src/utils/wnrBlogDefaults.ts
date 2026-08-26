@@ -63,12 +63,18 @@ export function getWnrDefaultBlogEntry(
   const safeDayIndex = Math.max(0, Math.min(365, dayIndex));
   const blogKey = `blog_day_${safeDayIndex}`;
 
-  // 1. Primary Source of Truth: Extracted Entry from eMBiK365_RHZ365_WnR365_Calosc_Ksiega_A5 (1).pdf
   const pdfMap = getWnrPdfMap();
   const pdfEntry = pdfMap[blogKey];
-
-  // 2. Check if there is an explicit user edit in blogEntries saved recently by an editor
   const customBlog = blogEntries[blogKey];
+
+  const effectiveNotebookUrls = (customBlog?.notebookUrls && Array.isArray(customBlog.notebookUrls))
+    ? customBlog.notebookUrls
+    : (pdfEntry?.notebookUrls || []);
+  const effectiveNotebookLabels = (customBlog?.notebookLabels && Array.isArray(customBlog.notebookLabels))
+    ? customBlog.notebookLabels
+    : (pdfEntry?.notebookLabels || []);
+
+  // 1. Check if there is an explicit user edit in blogEntries saved recently by an editor
   if (customBlog && customBlog.text && customBlog.title) {
     if (!isGenericBlogText(customBlog.text) && 
         customBlog.updatedBy && 
@@ -79,26 +85,28 @@ export function getWnrDefaultBlogEntry(
         dayIndex: safeDayIndex,
         title: customBlog.title.trim(),
         text: customBlog.text.trim(),
-        notebookUrls: customBlog.notebookUrls || [],
+        notebookUrls: effectiveNotebookUrls,
+        notebookLabels: effectiveNotebookLabels,
         updatedBy: customBlog.updatedBy,
         updatedAt: customBlog.updatedAt || new Date().toISOString()
       };
     }
   }
 
-  // 3. Return authentic PDF entry extracted from eMBiK365_RHZ365_WnR365_Calosc_Ksiega_A5 (1).pdf
+  // 2. Return authentic PDF entry extracted from eMBiK365_RHZ365_WnR365_Calosc_Ksiega_A5 (1).pdf
   if (pdfEntry && pdfEntry.text && pdfEntry.text.trim().length > 0) {
     return {
       dayIndex: safeDayIndex,
       title: pdfEntry.title.trim(),
       text: pdfEntry.text.trim(),
-      notebookUrls: customBlog?.notebookUrls || pdfEntry.notebookUrls || [],
-      updatedBy: pdfEntry.updatedBy || 'eMBiK365 Księga A5 PDF',
-      updatedAt: pdfEntry.updatedAt || '2026-08-10T00:00:00.000Z'
+      notebookUrls: effectiveNotebookUrls,
+      notebookLabels: effectiveNotebookLabels,
+      updatedBy: customBlog?.updatedBy || pdfEntry.updatedBy || 'eMBiK365 Księga A5 PDF',
+      updatedAt: customBlog?.updatedAt || pdfEntry.updatedAt || '2026-08-10T00:00:00.000Z'
     };
   }
 
-  // 4. Fallback to RHZ item if PDF entry not found
+  // 3. Fallback to RHZ item if PDF entry not found
   let dayOfCycle = safeDayIndex + 1;
   if (safeDayIndex >= 175 && safeDayIndex < 182) {
     dayOfCycle = safeDayIndex - 174;
@@ -115,9 +123,10 @@ export function getWnrDefaultBlogEntry(
     dayIndex: safeDayIndex,
     title: jsonRecord ? jsonRecord.title.trim() : `WnR365 — Dzień ${safeDayIndex + 1}`,
     text: jsonRecord ? jsonRecord.text.trim() : `Rozważanie dnia ${safeDayIndex + 1}.`,
-    notebookUrls: [],
-    updatedBy: 'System RHZ365',
-    updatedAt: '2026-08-10T00:00:00.000Z'
+    notebookUrls: effectiveNotebookUrls,
+    notebookLabels: effectiveNotebookLabels,
+    updatedBy: customBlog?.updatedBy || 'System RHZ365',
+    updatedAt: customBlog?.updatedAt || '2026-08-10T00:00:00.000Z'
   };
 }
 
