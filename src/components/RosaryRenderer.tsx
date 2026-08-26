@@ -19,26 +19,17 @@ export const RosaryRenderer: React.FC<RosaryRendererProps> = ({
   theme = 'dark'
 }) => {
   const isLight = theme === 'light';
-  // View mode state: 'rgba' | 'cmyk' | 'both'
-  const [viewMode, setViewMode] = useState<'rgba' | 'cmyk' | 'both'>(() => {
-    if (typeof window !== 'undefined') {
-      return window.innerWidth < 768 ? 'rgba' : 'both';
-    }
-    return 'both';
-  });
+  // View mode state: 'rgba' | 'cmyk' | 'both' (default to single column 'rgba')
+  const [viewMode, setViewMode] = useState<'rgba' | 'cmyk' | 'both'>('rgba');
 
-  // Track window resize to reset default viewMode if crossing mobile threshold
+  // Track window resize
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 768 && viewMode === 'both') {
-        setViewMode('rgba');
-      } else if (window.innerWidth >= 768 && viewMode !== 'both') {
-        // Optional: you can auto-restore 'both' or keep user choice.
-      }
+      // Keep user choice or default single column
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [viewMode]);
+  }, []);
 
   const isSingle = viewMode !== 'both';
   const cxRgba = viewMode === 'both' ? 260 : (viewMode === 'rgba' ? 500 : -9999);
