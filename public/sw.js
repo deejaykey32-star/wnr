@@ -1,4 +1,4 @@
-const CACHE_NAME = 'embik365-v100-fresh-build';
+const CACHE_NAME = 'embik365-v102-fresh-build';
 
 // Only truly static files go here — NO JS chunks (they change on every build)
 const PRECACHE_ASSETS = [
@@ -35,7 +35,7 @@ self.addEventListener('activate', (event) => {
 // Fetch event strategy:
 // - Navigation (HTML pages): network-first, fallback to / for SPA
 // - /assets/*.js and /assets/*.css: ALWAYS network, NEVER serve from cache
-//   (chunks have content-hash in filename so stale cache = wrong version crash)
+// - /data/*: ALWAYS network, NEVER serve from cache (ensures cross-device sync gets latest db_snapshot)
 // - Static icons/manifest: cache-first (they rarely change)
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET' || !event.request.url.startsWith('http')) {
@@ -63,12 +63,11 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // JS/JSON/WASM chunks under /assets/: ALWAYS go to network, never cache
-  // These have Vite content-hashes in filenames so stale cache = wrong version
-  if (url.pathname.startsWith('/assets/')) {
+  // JS/JSON/WASM chunks under /assets/ and data snapshots under /data/: ALWAYS go to network, never cache
+  if (url.pathname.startsWith('/assets/') || url.pathname.startsWith('/data/')) {
     event.respondWith(
       fetch(event.request).catch(() => {
-        return new Response('Asset unavailable offline', { status: 503 });
+        return caches.match(event.request).then((cached) => cached || new Response('Asset unavailable offline', { status: 503 }));
       })
     );
     return;

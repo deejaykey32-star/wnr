@@ -1,6 +1,6 @@
 import { jsPDF } from 'jspdf';
 import { COVER_IMAGE_BASE64 } from '../assets/coverBase64';
-import { generateQrCodeDataUri } from './qrCodeGenerator';
+
 import { getRhzList } from '../data/prayers';
 import { parseDayText } from './rhzParser';
 import { getWnrDefaultBlogEntry } from './wnrBlogDefaults';
@@ -292,121 +292,18 @@ export const generateCustomScopePdf = async (
     color: [number, number, number] = [51, 65, 85]
   ) => {
     if (!text || !text.trim()) return;
-
-    const qrMatches = findQrTagsInText(text);
-
-    if (qrMatches.length === 0) {
-      renderJustifiedParagraph(text, xMargin, width, fontStyle, fontSize, color);
-      return;
-    }
-
-    let currentIndex = 0;
-    for (const qr of qrMatches) {
-      const textBefore = text.substring(currentIndex, qr.index);
-      if (textBefore.trim()) {
-        renderJustifiedParagraph(textBefore, xMargin, width, fontStyle, fontSize, color);
-      }
-      currentIndex = qr.index + qr.fullMatch.length;
-
-      // Render Inline Styled QR Box in PDF
-      checkAndBreakPage(30);
-      try {
-        const qrDataUri = await generateQrCodeDataUri(qr.url);
-        const boxHeight = 22;
-        const qrSize = 16;
-        const qrX = xMargin + width - qrSize - 3;
-        const qrY = y + 3;
-        const maxTextWidth = width - qrSize - 10;
-
-        doc.setFillColor(248, 250, 252);
-        doc.setDrawColor(226, 232, 240);
-        doc.setLineWidth(0.3);
-        doc.rect(xMargin, y, width, boxHeight, 'FD');
-
-        doc.addImage(qrDataUri, 'PNG', qrX, qrY, qrSize, qrSize);
-
-        doc.setFont(fontName, 'bold');
-        doc.setFontSize(8.5);
-        doc.setTextColor(79, 70, 229); // indigo-600
-        const displayCaption = qr.caption.replace(/^caption:\s*/i, '').trim();
-        doc.text(displayCaption || "Kod QR Odnośnika", xMargin + 4, y + 6);
-
-        doc.setFont(fontName, 'normal');
-        doc.setFontSize(7.5);
-        doc.setTextColor(37, 99, 235); // blue-600
-
-        const splitUrl = doc.splitTextToSize(qr.url, maxTextWidth);
-        doc.text(splitUrl, xMargin + 4, y + 11);
-
-        doc.link(xMargin + 3, y + 3, maxTextWidth, boxHeight - 6, { url: qr.url });
-
-        y += boxHeight + 5;
-      } catch (err) {
-        console.warn("Błąd rysowania osadzonego kodu QR:", err);
-      }
-    }
-
-    const remainingText = text.substring(currentIndex);
-    if (remainingText.trim()) {
-      renderJustifiedParagraph(remainingText, xMargin, width, fontStyle, fontSize, color);
+    const cleanText = stripQrTags(text);
+    if (cleanText.trim()) {
+      renderJustifiedParagraph(cleanText, xMargin, width, fontStyle, fontSize, color);
     }
   };
 
   const renderGeminiNotebookQrBoxes = async (
-    notebookUrls: string[] | undefined,
+    _notebookUrls: string[] | undefined,
     currentY: number
   ): Promise<number> => {
-    if (!notebookUrls || !Array.isArray(notebookUrls)) return currentY;
-    const activeUrls = notebookUrls
-      .map((url, idx) => ({ url, type: GEMINI_ANALYSIS_TYPES[idx] }))
-      .filter(item => item.url && item.url.trim().length > 0 && item.type);
-
-    if (activeUrls.length === 0) return currentY;
-
-    let tempY = currentY;
-    checkAndBreakPage(16);
-    doc.setFont(fontName, 'bold');
-    doc.setFontSize(9.5);
-    doc.setTextColor(79, 70, 229); // indigo-600
-    doc.text("Materiały analityczne (Notebook Gemini QR):", margin, tempY);
-    tempY += 5;
-
-    for (const item of activeUrls) {
-      checkAndBreakPage(26);
-      try {
-        const qrDataUri = await generateQrCodeDataUri(item.url);
-        const boxHeight = 22;
-        const qrSize = 16;
-        const qrX = margin + contentWidth - qrSize - 3;
-        const qrY = tempY + 3;
-        const maxTextWidth = contentWidth - qrSize - 10;
-
-        doc.setFillColor(248, 250, 252);
-        doc.setDrawColor(226, 232, 240);
-        doc.setLineWidth(0.3);
-        doc.rect(margin, tempY, contentWidth, boxHeight, 'FD');
-
-        doc.addImage(qrDataUri, 'PNG', qrX, qrY, qrSize, qrSize);
-
-        doc.setFont(fontName, 'bold');
-        doc.setFontSize(8.5);
-        doc.setTextColor(30, 41, 59);
-        doc.text(`Zasób: ${item.type.label}`, margin + 4, tempY + 6);
-
-        doc.setFont(fontName, 'normal');
-        doc.setFontSize(7.5);
-        doc.setTextColor(37, 99, 235);
-        const splitUrl = doc.splitTextToSize(item.url, maxTextWidth);
-        doc.text(splitUrl, margin + 4, tempY + 11);
-
-        doc.link(margin + 3, tempY + 3, maxTextWidth, boxHeight - 6, { url: item.url });
-
-        tempY += boxHeight + 5;
-      } catch (err) {
-        console.warn("Błąd rysowania kodu QR Gemini w PDF:", err);
-      }
-    }
-    return tempY;
+    // Exclude Gemini NotebookLM links from PDF exports per user requirement
+    return currentY;
   };
 
   const renderBibleSlot = async (slotIdx: number) => {
@@ -579,40 +476,6 @@ export const generateCustomScopePdf = async (
 
     const wnrKey = `blog_day_${dayIdx}`;
     const wnrDoc = getWnrDefaultBlogEntry(dayIdx, prayers, blogEntries);
-
-    // Top-of-day Portal QR Code Box
-    checkAndBreakPage(26);
-    try {
-      const qrDataUri = await generateQrCodeDataUri(dayUrl);
-      const qrSize = 16;
-      const qrX = margin + contentWidth - qrSize - 3;
-      const qrY = y + 2;
-      const maxTextWidth = contentWidth - qrSize - 8;
-
-      doc.setFillColor(250, 250, 250);
-      doc.setDrawColor(226, 232, 240);
-      doc.rect(margin, y, contentWidth, qrSize + 4, 'FD');
-
-      doc.addImage(qrDataUri, 'PNG', qrX, qrY, qrSize, qrSize);
-
-      doc.setFont(fontName, 'bold');
-      doc.setFontSize(8);
-      doc.setTextColor(37, 99, 235);
-      doc.text("Portal Widoki na Raj — Dzień " + currentDayNum, margin + 3, y + 4.5);
-
-      doc.setFont(fontName, 'normal');
-      doc.setFontSize(7.5);
-      doc.setTextColor(30, 41, 59);
-
-      const splitUrl = doc.splitTextToSize(dayUrl, maxTextWidth);
-      doc.text(splitUrl, margin + 3, y + 9.5);
-
-      doc.link(margin + 3, y + 3, maxTextWidth, 14, { url: dayUrl });
-
-      y += qrSize + 7;
-    } catch (e) {
-      console.warn("Błąd generowania głowicowego QR:", e);
-    }
 
     // 1. RHZ365 Section
     if (scope === 'rhz365' || scope === 'both' || scope === 'all') {

@@ -636,3 +636,79 @@ function itemNotebookUrls(entry: any): string[] {
   if (Array.isArray(entry.notebookUrls)) return entry.notebookUrls;
   return [];
 }
+
+/**
+ * Returns a numerical epoch timestamp for an item's updatedAt string.
+ * Returns 0 if missing or invalid.
+ */
+export function getItemTimestamp(item: any): number {
+  if (!item || !item.updatedAt) return 0;
+  const t = new Date(item.updatedAt).getTime();
+  return isNaN(t) ? 0 : t;
+}
+
+/**
+ * Merges existing and incoming items by comparing updatedAt timestamps.
+ * Preserves real user edits while ensuring cloud updates from other devices (e.g. laptop to smartphone)
+ * immediately replace unedited local placeholders.
+ */
+export function mergeItemByNewestState(existing: any, incoming: any): any {
+  if (!existing && !incoming) return null;
+  if (!existing) return incoming;
+  if (!incoming) return existing;
+
+  const existingTs = getItemTimestamp(existing);
+  const incomingTs = getItemTimestamp(incoming);
+
+  const defaultSources = [
+    'nosql snapshot import',
+    'embik365 nosql snapshot',
+    'pismo święte biblia365 (1460 czytań)',
+    'edytor lokalny'
+  ];
+
+  const existingUpdatedBy = String(existing.updatedBy || '').trim().toLowerCase();
+  const isExistingUserEdit = existingUpdatedBy.length > 0 && !defaultSources.includes(existingUpdatedBy);
+
+  // If local existing state is a real user edit AND strictly newer than incoming, keep existing
+  if (isExistingUserEdit && existingTs > incomingTs) {
+    return existing;
+  }
+
+  const mergedTitle = (incoming.title !== undefined && incoming.title !== '')
+    ? incoming.title
+    : (existing.title || incoming.title || '');
+
+  const mergedText = (incoming.text !== undefined && incoming.text !== '')
+    ? incoming.text
+    : (existing.text || incoming.text || '');
+
+  // Incoming state is newer, or existing was just a default placeholder.
+  // Incoming state takes precedence, allowing cross-device edits and modified/cleared fields to persist.
+  return {
+    ...existing,
+    ...incoming,
+    title: mergedTitle,
+    text: mergedText,
+    notebookUrls: incoming.notebookUrls !== undefined ? incoming.notebookUrls : (existing.notebookUrls || []),
+    notebookLabels: incoming.notebookLabels !== undefined ? incoming.notebookLabels : (existing.notebookLabels || []),
+    updatedBy: incoming.updatedBy || existing.updatedBy,
+    updatedAt: incoming.updatedAt || existing.updatedAt
+  };
+}
+
+/**
+ * Fast, chunked Base64 encoder for large UTF-8 strings (e.g. 4MB NoSQL JSON snapshots).
+ * Avoids call-stack overflow and string allocation crashes in browser JS engines.
+ */
+export function stringToBase64Chunked(str: string): string {
+  const bytes = new TextEncoder().encode(str);
+  const CHUNK_SIZE = 0x8000; // 32768
+  let binary = '';
+  for (let i = 0; i < bytes.length; i += CHUNK_SIZE) {
+    const chunk = bytes.subarray(i, i + CHUNK_SIZE);
+    binary += String.fromCharCode.apply(null, chunk as any);
+  }
+  return btoa(binary);
+}
+

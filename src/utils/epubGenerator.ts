@@ -1,6 +1,6 @@
 import JSZip from 'jszip';
 import { COVER_IMAGE_BASE64 } from '../assets/coverBase64';
-import { generateQrCodeDataUri } from './qrCodeGenerator';
+
 import { getRhzList } from '../data/prayers';
 import { parseDayText } from './rhzParser';
 import { getWnrDefaultBlogEntry } from './wnrBlogDefaults';
@@ -224,17 +224,7 @@ p {
       const mainParas = formatParagraphsHtml(mainText || '');
       const missionPara = missionText ? `<div class="box"><h3>Misja eMBiK365</h3>${formatParagraphsHtml(missionText)}</div>` : '';
 
-      // Extract and render QR Codes for the introduction if any links are inside
-      const introUrls = extractUrlsFromText(`${mainText || ''} ${missionText || ''}`);
-      let introQrHtml = '';
-      for (const urlItem of introUrls) {
-        const qrDataBase64 = await generateQrCodeDataUri(urlItem);
-        introQrHtml += `  <div class="qr-container">
-    <img src="${qrDataBase64}" class="qr-img" alt="Kod QR" />
-    <br/>
-    <a href="${escapeXml(urlItem)}" class="qr-url" target="_blank">${escapeXml(urlItem)}</a>
-  </div>\n`;
-      }
+      const introQrHtml = '';
 
       const introHtml = `<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
@@ -270,8 +260,6 @@ p {
       const savedData = bibleEntries?.[`bible_slot_${slot}`];
       const title = savedData?.title || defaultData.defaultTitle;
       const text = savedData?.text || defaultData.defaultText;
-      const notebookUrls = savedData?.notebookUrls || [];
-
       const chapterId = `bible_slot_${slot}`;
       const chapterHref = `${chapterId}.xhtml`;
       const chapterTitle = `Czytanie ${slot} — ${title}`;
@@ -281,7 +269,6 @@ p {
       spineRefs.push(`<itemref idref="${chapterId}"/>`);
 
       const allUrls: string[] = [];
-      notebookUrls.forEach(u => { if (u) allUrls.push(u); });
 
       let chapterHtml = `<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
@@ -295,14 +282,6 @@ p {
   <h2>${escapeXml(title)}</h2>
 `;
 
-      for (const urlItem of allUrls) {
-        const qrDataBase64 = await generateQrCodeDataUri(urlItem);
-        chapterHtml += `  <div class="qr-container">
-    <img src="${qrDataBase64}" class="qr-img" alt="Kod QR" />
-    <br/>
-    <a href="${escapeXml(urlItem)}" class="qr-url" target="_blank">${escapeXml(urlItem)}</a>
-  </div>\n`;
-      }
 
       chapterHtml += formatParagraphsHtml(text);
       chapterHtml += `</body>\n</html>`;
@@ -381,43 +360,9 @@ p {
       dayUrl = `${baseUrl}/#/bible365-day-${dayNum}`;
     }
 
-    const allUrls = [dayUrl];
+    const allUrls: string[] = [];
     
-    // Add RHZ Notebook URLs if active
-    if (scope === 'rhz365' || scope === 'both' || scope === 'all') {
-      const rhzUrls = prayers[firestoreKey]?.notebookUrls || [];
-      rhzUrls.forEach(u => { if (u) allUrls.push(u); });
-    }
-    
-    // Add WnR Notebook URLs if active
-    if (scope === 'wnr365' || scope === 'both' || scope === 'all') {
-      const wnrUrls = wnrDoc.notebookUrls || [];
-      wnrUrls.forEach(u => { if (u) allUrls.push(u); });
-    }
-    
-    // Add Biblia365 Notebook URLs if active
-    if (scope === 'all') {
-      const startSlot = i * 4 + 1;
-      for (let s = 0; s < 4; s++) {
-        const slot = startSlot + s;
-        if (slot <= 1460) {
-          const bibleUrls = bibleEntries?.[`bible_slot_${slot}`]?.notebookUrls || [];
-          bibleUrls.forEach(u => { if (u) allUrls.push(u); });
-        }
-      }
-    } else if (scope === 'bible365' && range === 'single') {
-      const { slotIndex: fourYearSlot } = getBibleSlotForDate(selectedDate);
-      const slots = [fourYearSlot];
-      const start1YearSlot = dayIndex * 4 + 1;
-      for (let s = 0; s < 4; s++) {
-        const slot = start1YearSlot + s;
-        if (slot <= 1460 && !slots.includes(slot)) slots.push(slot);
-      }
-      for (const slot of slots) {
-        const bibleUrls = bibleEntries?.[`bible_slot_${slot}`]?.notebookUrls || [];
-        bibleUrls.forEach(u => { if (u) allUrls.push(u); });
-      }
-    }
+    // Note: Gemini NotebookLM links (notebookUrls) excluded from EPUB exports per user setting.
 
     const embeddedUrls = extractUrlsFromText(`${rawRhzText} ${wnrDoc.text || ''}`);
     embeddedUrls.forEach(u => { if (u) allUrls.push(u); });
@@ -435,14 +380,6 @@ p {
   <h3>${escapeXml(cycleName)}</h3>
 `;
 
-    for (const urlItem of uniqueUrls) {
-      const qrDataBase64 = await generateQrCodeDataUri(urlItem);
-      chapterHtml += `  <div class="qr-container">
-    <img src="${qrDataBase64}" class="qr-img" alt="Kod QR" />
-    <br/>
-    <a href="${escapeXml(urlItem)}" class="qr-url" target="_blank">${escapeXml(urlItem)}</a>
-  </div>\n`;
-    }
 
 const stripQrTags = (str: string): string => {
   if (!str) return '';
