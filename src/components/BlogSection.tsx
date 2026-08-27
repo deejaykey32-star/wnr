@@ -208,11 +208,21 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     return getWnrDefaultBlogEntry(cycleInfo.dayIndex, prayers, blogEntries);
   }, [blogEntries, docId, cycleInfo, prayers]);
 
-  // Sync edit form fields when active entry changes
+  // Reset editing mode when dayIndex changes
+  const prevDayIndexRef = React.useRef(cycleInfo.dayIndex);
   useEffect(() => {
+    if (prevDayIndexRef.current !== cycleInfo.dayIndex) {
+      prevDayIndexRef.current = cycleInfo.dayIndex;
+      setEditing(false);
+    }
+  }, [cycleInfo.dayIndex]);
+
+  // Sync edit form fields when active entry changes (only if user is NOT editing)
+  useEffect(() => {
+    if (editing) return; // DO NOT reset form fields or cancel edit mode while user is actively editing!
+
     setEditTitle(activeEntry.title);
     setEditText(activeEntry.text);
-    setEditing(false);
 
     const urls = Array(8).fill('');
     if (activeEntry.notebookUrls && Array.isArray(activeEntry.notebookUrls)) {
@@ -234,7 +244,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
       setIsPlaying(false);
     }
     setActiveSegmentIndex(0);
-  }, [activeEntry]);
+  }, [activeEntry, editing]);
 
   const toggleContinuousPlayback = () => {
     setIsContinuousPlayback(prev => {

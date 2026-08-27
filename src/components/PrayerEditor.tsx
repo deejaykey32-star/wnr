@@ -136,12 +136,12 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
     }
   }, [activeStep?.id]);
 
-  // Load correct content to edit fields whenever targets change
+  // Load correct content to edit fields whenever user target selection changes
   useEffect(() => {
     resolveActiveContent();
     setSuccessMsg('');
     setErrorMsg('');
-  }, [editorMode, selectedGeneralKey, editCycle, editDay, editDecade, editTarget, selectedStepId, prayers]);
+  }, [editorMode, selectedGeneralKey, editCycle, editDay, editDecade, editTarget, selectedStepId]);
 
   // Auto-switch edit target to rgba if cmyk is selected but we are on cycle2
   useEffect(() => {

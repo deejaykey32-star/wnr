@@ -2078,7 +2078,7 @@ export default function App() {
     autoSyncToGitHubAndCloud('Biblia365', newBibleEntries as any);
   };
 
-  // Auto-refresh CDN snapshot when user returns to the tab/app or periodically every 20s
+  // Auto-refresh CDN snapshot when user returns to the tab/app
   useEffect(() => {
     const handleFocus = () => {
       fetchCdnSnapshot(false);
@@ -2087,17 +2087,9 @@ export default function App() {
     window.addEventListener('focus', handleFocus);
     document.addEventListener('visibilitychange', handleFocus);
 
-    // Periodic sync every 20 seconds for active tabs
-    const intervalId = setInterval(() => {
-      if (document.visibilityState === 'visible') {
-        fetchCdnSnapshot(false);
-      }
-    }, 20000);
-
     return () => {
       window.removeEventListener('focus', handleFocus);
       document.removeEventListener('visibilitychange', handleFocus);
-      clearInterval(intervalId);
     };
   }, []);
 
