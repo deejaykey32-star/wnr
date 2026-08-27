@@ -6,10 +6,13 @@ import { parseDayText } from './rhzParser';
 import { getWnrDefaultBlogEntry } from './wnrBlogDefaults';
 import { getBibleChapters, getBibleSlotForDate } from './bibleHelper';
 
+import { generateQrCodeDataUri } from './qrCodeGenerator';
+
 export interface EpubExportOptions {
   scope: 'rhz365' | 'wnr365' | 'bible365' | 'all' | 'both';
   range: 'single' | 'full';
   includeCover: boolean;
+  includeQrCodes?: boolean;
   selectedDate: Date;
   dayOfCycle: number;
   prayers: Record<string, { title: string; text: string; notebookUrls?: string[] }>;
@@ -55,7 +58,7 @@ export const generateEpubBook = async (
   options: EpubExportOptions,
   onProgress?: (msg: string, percent?: number) => void
 ): Promise<void> => {
-  const { scope, range, includeCover, selectedDate, dayOfCycle, prayers, blogEntries, bibleEntries } = options;
+  const { scope, range, includeCover, includeQrCodes = false, selectedDate, dayOfCycle, prayers, blogEntries, bibleEntries } = options;
 
   if (onProgress) onProgress("Inicjalizacja generatora EPUB (skład e-book 12pt)...", 0);
 
@@ -360,14 +363,6 @@ p {
       dayUrl = `${baseUrl}/#/bible365-day-${dayNum}`;
     }
 
-    const allUrls: string[] = [];
-    
-    // Note: Gemini NotebookLM links (notebookUrls) excluded from EPUB exports per user setting.
-
-    const embeddedUrls = extractUrlsFromText(`${rawRhzText} ${wnrDoc.text || ''}`);
-    embeddedUrls.forEach(u => { if (u) allUrls.push(u); });
-    const uniqueUrls = Array.from(new Set(allUrls));
-
     let chapterHtml = `<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
@@ -379,6 +374,37 @@ p {
   <h1>Dzień ${dayNum} — ${escapeXml(dayLabel.toUpperCase())}</h1>
   <h3>${escapeXml(cycleName)}</h3>
 `;
+
+    if (includeQrCodes) {
+      const allUrls: string[] = [dayUrl];
+
+      if (scope === 'rhz365' || scope === 'both' || scope === 'all') {
+        const rhzUrls = prayers[firestoreKey]?.notebookUrls || [];
+        rhzUrls.forEach(u => { if (u) allUrls.push(u); });
+      }
+
+      if (scope === 'wnr365' || scope === 'both' || scope === 'all') {
+        const wnrUrls = wnrDoc.notebookUrls || [];
+        wnrUrls.forEach(u => { if (u) allUrls.push(u); });
+      }
+
+      const embeddedUrls = extractUrlsFromText(`${rawRhzText} ${wnrDoc.text || ''}`);
+      embeddedUrls.forEach(u => { if (u) allUrls.push(u); });
+      const uniqueUrls = Array.from(new Set(allUrls));
+
+      for (const urlItem of uniqueUrls) {
+        try {
+          const qrDataBase64 = await generateQrCodeDataUri(urlItem);
+          chapterHtml += `  <div class="qr-container">
+    <img src="${qrDataBase64}" class="qr-img" alt="Kod QR" />
+    <br/>
+    <a href="${escapeXml(urlItem)}" class="qr-url" target="_blank">${escapeXml(urlItem)}</a>
+  </div>\n`;
+        } catch (e) {
+          console.warn("Błąd generowania QR EPUB:", e);
+        }
+      }
+    }
 
 
 const stripQrTags = (str: string): string => {

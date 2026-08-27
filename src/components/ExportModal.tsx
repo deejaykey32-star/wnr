@@ -36,6 +36,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
   const [exportScope, setExportScope] = useState<'rhz365' | 'wnr365' | 'bible365' | 'all' | 'both'>('all');
   const [exportRange, setExportRange] = useState<'single' | 'full'>('single');
   const [includeCover, setIncludeCover] = useState<boolean>(true);
+  const [includeQrCodes, setIncludeQrCodes] = useState<boolean>(false);
 
   // Status & Progress
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
@@ -71,6 +72,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
           scope: exportScope as any,
           range: exportRange,
           includeCover,
+          includeQrCodes,
           selectedDate,
           dayOfCycle,
           prayers,
@@ -84,6 +86,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
           scope: exportScope as any,
           range: exportRange,
           includeCover,
+          includeQrCodes,
           selectedDate,
           dayOfCycle,
           prayers,
@@ -329,18 +332,42 @@ export const ExportModal: React.FC<ExportModalProps> = ({
             </div>
           </div>
 
-          {/* SECTION 4: COVER OPTION */}
-          <label className="flex items-center gap-3 p-3 bg-slate-950/40 rounded-xl border border-slate-800/80 cursor-pointer">
-            <input
-              type="checkbox"
-              checked={includeCover}
-              onChange={(e) => setIncludeCover(e.target.checked)}
-              className="rounded text-indigo-600 focus:ring-indigo-500 w-4 h-4 cursor-pointer shrink-0"
-            />
-            <span className="text-xs font-semibold text-slate-300">
-              Dołącz stronę okładkową ("Widoki na Raj - Misja barw i kolorów...")
-            </span>
-          </label>
+          {/* SECTION 4: EXTRA OPTIONS */}
+          <div className="space-y-2">
+            <label className="block text-xs font-bold uppercase tracking-wider text-slate-400">
+              4. Opcje Dodatkowe:
+            </label>
+            <div className="space-y-2">
+              <label className="flex items-center gap-3 p-3 bg-slate-950/40 rounded-xl border border-slate-800/80 cursor-pointer hover:bg-slate-950/60 transition">
+                <input
+                  type="checkbox"
+                  checked={includeCover}
+                  onChange={(e) => setIncludeCover(e.target.checked)}
+                  className="rounded text-indigo-600 focus:ring-indigo-500 w-4 h-4 cursor-pointer shrink-0"
+                />
+                <span className="text-xs font-semibold text-slate-300">
+                  Dołącz stronę okładkową ("Widoki na Raj - Misja barw i kolorów...")
+                </span>
+              </label>
+
+              <label className="flex items-center gap-3 p-3 bg-slate-950/40 rounded-xl border border-slate-800/80 cursor-pointer hover:bg-slate-950/60 transition">
+                <input
+                  type="checkbox"
+                  checked={includeQrCodes}
+                  onChange={(e) => setIncludeQrCodes(e.target.checked)}
+                  className="rounded text-indigo-600 focus:ring-indigo-500 w-4 h-4 cursor-pointer shrink-0"
+                />
+                <div>
+                  <span className="block text-xs font-bold text-slate-200">
+                    Dołącz kody QR i interaktywne odnośniki
+                  </span>
+                  <span className="block text-[11px] text-slate-400 font-normal">
+                    (Materiały analityczne Gemini NotebookLM oraz odnośniki nawigacyjne do portalu)
+                  </span>
+                </div>
+              </label>
+            </div>
+          </div>
 
           {/* Animated Progress Bar Box */}
           {isGenerating && (
