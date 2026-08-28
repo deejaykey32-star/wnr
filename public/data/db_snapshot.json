@@ -1,6 +1,6 @@
 {
   "version": "wnr365-snapshot-2026-08-28",
-  "exportedAt": "2026-08-28T16:13:23.424Z",
+  "exportedAt": "2026-08-28T16:13:53.015Z",
   "source": "widokinaraj.pl NoSQL Core (GitHub / Cloudflare Pages)",
   "intro": {
     "introTextMain": {
@@ -25863,7 +25863,7 @@
       "notebookLabels": [
         "Komentarz AI Mt 2,1-12",
         "Komentarz AI Mt 2,13-18",
-        "Komentarz AIMt 2,19-23",
+        "Komentarz AI Mt 2,19-23",
         "",
         "Utwór recytowany AI Mt 2,1-12",
         "Utwór recytowany AI Mt 2,13-23",
@@ -25872,7 +25872,7 @@
       ],
       "passageUrl": "https://www.biblijni.pl/Mt,2,1-23",
       "updatedBy": "kuta.dominik@gmail.com",
-      "updatedAt": "2026-08-28T16:13:23.420Z"
+      "updatedAt": "2026-08-28T16:13:53.010Z"
     },
     "bible_slot_20": {
       "docId": "bible_slot_20",
