@@ -1,6 +1,6 @@
 {
   "version": "wnr365-snapshot-2026-08-28",
-  "exportedAt": "2026-08-28T15:10:57.924Z",
+  "exportedAt": "2026-08-28T15:12:34.395Z",
   "source": "widokinaraj.pl NoSQL Core (GitHub / Cloudflare Pages)",
   "intro": {
     "introTextMain": {
@@ -9273,8 +9273,8 @@
         ""
       ],
       "notebookLabels": [
-        "Mt 1,1-17 - Rodowód Jezusa",
-        "Mt 1,18-25 - Narodzenie Jezusa",
+        "Komentarz AI Mt 1,1-17 - Rodowód Jezusa",
+        "Komentarz AI Mt 1,18-25 - Narodzenie Jezusa",
         "Utwór recytowany AI Mt 1,1-17",
         "Utwór recytowany AI Mt 1,18-25",
         "",
@@ -9284,7 +9284,7 @@
       ],
       "passageUrl": "https://www.biblijni.pl/Mt,1,1-25",
       "updatedBy": "kuta.dominik@gmail.com",
-      "updatedAt": "2026-08-28T15:10:57.912Z"
+      "updatedAt": "2026-08-28T15:12:34.391Z"
     },
     "bible_slot_10": {
       "docId": "bible_slot_10",
