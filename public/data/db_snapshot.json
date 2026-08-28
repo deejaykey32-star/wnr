@@ -1,6 +1,6 @@
 {
   "version": "wnr365-snapshot-2026-08-28",
-  "exportedAt": "2026-08-28T03:45:50.031Z",
+  "exportedAt": "2026-08-28T03:46:48.210Z",
   "source": "widokinaraj.pl NoSQL Core (GitHub / Cloudflare Pages)",
   "intro": {
     "introTextMain": {
@@ -12482,7 +12482,7 @@
     "bible_slot_1": {
       "docId": "bible_slot_1",
       "slotIndex": 1,
-      "title": "Księga Rodzaju — Rozdział 1",
+      "title": "Dzień 1 - Ewangelia według świętego Mateusza (rozdział 1)",
       "text": "<p>Treść rozdziału 1 Księgi: <strong>Księga Rodzaju</strong>. Wklej tutaj pełny tekst z Biblii Tysiąclecia w panelu edycji.</p>",
       "notebookUrls": [
         "https://notebook.google.com/notebook/39f20f75-8d19-45c0-a1d1-4ca05dc8e032/artifact/021a8b33-35a2-486f-b256-72251dabfc4e?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_",
@@ -12506,7 +12506,7 @@
       ],
       "passageUrl": "https://www.biblijni.pl/Mt,1,1-25",
       "updatedBy": "kuta.dominik@gmail.com",
-      "updatedAt": "2026-08-28T03:45:50.026Z"
+      "updatedAt": "2026-08-28T03:46:48.207Z"
     },
     "bible_slot_10": {
       "docId": "bible_slot_10",
