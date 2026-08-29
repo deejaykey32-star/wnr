@@ -1,6 +1,6 @@
 {
-  "version": "wnr365-snapshot-2026-08-28",
-  "exportedAt": "2026-08-28T22:49:30.754Z",
+  "version": "wnr365-snapshot-2026-08-29",
+  "exportedAt": "2026-08-29T00:12:57.200Z",
   "source": "widokinaraj.pl NoSQL Core (GitHub / Cloudflare Pages)",
   "intro": {
     "introTextMain": {
@@ -30552,9 +30552,9 @@
         "",
         ""
       ],
-      "passageUrl": "",
-      "updatedBy": "Pismo Święte Biblia365 (1460 czytań)",
-      "updatedAt": "2026-08-26T09:18:11.855Z"
+      "passageUrl": "https://www.biblijni.pl/Mt,4,1-25",
+      "updatedBy": "kuta.dominik@gmail.com",
+      "updatedAt": "2026-08-29T00:12:57.196Z"
     },
     "bible_slot_40": {
       "docId": "bible_slot_40",
