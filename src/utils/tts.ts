@@ -145,23 +145,61 @@ export const isSpeechSpeaking = (): boolean => {
 };
 
 /**
- * Find the best available Polish voice
+ * Get all available Polish voices
  */
-export const getPolishVoice = (): SpeechSynthesisVoice | null => {
+export const getPolishVoices = (): SpeechSynthesisVoice[] => {
+  if (!isTtsSupported()) return [];
+  try {
+    const voices = window.speechSynthesis.getVoices();
+    return voices.filter(v => v.lang.toLowerCase().includes('pl'));
+  } catch {
+    return [];
+  }
+};
+
+/**
+ * Find the best available Polish voice (defaults to cleanest female voice)
+ */
+export const getPolishVoice = (preference?: { voiceURI?: string; gender?: 'female' | 'male' }): SpeechSynthesisVoice | null => {
   if (!isTtsSupported()) return null;
 
   try {
     const voices = window.speechSynthesis.getVoices();
-    
-    // 1. Look for Microsoft Paulina or Google polski or any native Polish voice
     const polishVoices = voices.filter(v => v.lang.toLowerCase().includes('pl'));
-    
-    if (polishVoices.length > 0) {
-      // Prefer local/native voices if possible, or google voices
-      const googleVoice = polishVoices.find(v => v.name.toLowerCase().includes('google'));
-      const microsoftVoice = polishVoices.find(v => v.name.toLowerCase().includes('microsoft'));
-      return googleVoice || microsoftVoice || polishVoices[0];
+
+    if (polishVoices.length === 0) {
+      return voices[0] || null;
     }
+
+    // 1. Specific voiceURI matching
+    if (preference?.voiceURI) {
+      const match = polishVoices.find(v => v.voiceURI === preference.voiceURI || v.name === preference.voiceURI);
+      if (match) return match;
+    }
+
+    // 2. Gender matching
+    if (preference?.gender === 'female') {
+      const femaleNames = ['paulina', 'zofia', 'ewa', 'agnieszka', 'maja', 'zira', 'kobieta', 'female'];
+      const femaleVoice = polishVoices.find(v => femaleNames.some(n => v.name.toLowerCase().includes(n)));
+      if (femaleVoice) return femaleVoice;
+      const googleFemale = polishVoices.find(v => v.name.toLowerCase().includes('google'));
+      if (googleFemale) return googleFemale;
+    } else if (preference?.gender === 'male') {
+      const maleNames = ['jacek', 'jan', 'marek', 'adam', 'male', 'mężczyzna'];
+      const maleVoice = polishVoices.find(v => maleNames.some(n => v.name.toLowerCase().includes(n)));
+      if (maleVoice) return maleVoice;
+    }
+
+    // Default priority for cleanest Polish voice: Paulina / Zofia / Google / Microsoft
+    const defaultFemale = polishVoices.find(v => 
+      v.name.toLowerCase().includes('paulina') || 
+      v.name.toLowerCase().includes('zofia') || 
+      v.name.toLowerCase().includes('ewa')
+    );
+    const googleVoice = polishVoices.find(v => v.name.toLowerCase().includes('google'));
+    const microsoftVoice = polishVoices.find(v => v.name.toLowerCase().includes('microsoft'));
+
+    return defaultFemale || googleVoice || microsoftVoice || polishVoices[0];
   } catch (err) {
     console.warn("Failed to get voices:", err);
   }
@@ -199,7 +237,10 @@ const speakNextSegment = () => {
   try {
     const utterance = new SpeechSynthesisUtterance(segmentText);
     
-    const plVoice = getPolishVoice();
+    const plVoice = getPolishVoice({ 
+      voiceURI: queueOptions.voiceURI, 
+      gender: queueOptions.gender 
+    });
     if (plVoice) {
       utterance.voice = plVoice;
     }
@@ -347,6 +388,8 @@ export const speakText = (
     rate?: number; 
     pitch?: number; 
     volume?: number;
+    voiceURI?: string;
+    gender?: 'female' | 'male';
     onStart?: () => void;
     onSegmentStart?: (index: number) => void;
     onEnd?: () => void;

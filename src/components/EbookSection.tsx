@@ -6,7 +6,7 @@ import {
   BookOpen, Maximize2, Minimize2, Sparkles, Sliders, FileText, 
   ZoomIn, ZoomOut, Check, ArrowRight, Loader2
 } from 'lucide-react';
-import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechSpeaking, isSpeechPaused, isTtsSupported, getPolishVoice } from '../utils/tts';
+import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechSpeaking, isSpeechPaused, isTtsSupported, getPolishVoice, getPolishVoices } from '../utils/tts';
 
 // Configure PDF.js worker
 if (typeof window !== 'undefined') {
@@ -43,6 +43,22 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
   const [readingSpeed, setReadingSpeed] = useState<number>(1.0);
   const [extractedTexts, setExtractedTexts] = useState<Record<number, string>>({});
   const [isExtractingText, setIsExtractingText] = useState<boolean>(false);
+
+  // TTS Voice Selection State
+  const [selectedGender, setSelectedGender] = useState<'female' | 'male'>('female');
+  const [availableVoices, setAvailableVoices] = useState<SpeechSynthesisVoice[]>([]);
+  const [selectedVoiceUri, setSelectedVoiceUri] = useState<string>('');
+
+  useEffect(() => {
+    const updateVoices = () => {
+      const vList = getPolishVoices();
+      setAvailableVoices(vList);
+    };
+    updateVoices();
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      window.speechSynthesis.onvoiceschanged = updateVoices;
+    }
+  }, []);
 
   const isDark = theme === 'dark';
 
@@ -290,6 +306,8 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
 
     speakText(textToRead, {
       rate: readingSpeed,
+      gender: selectedGender,
+      voiceURI: selectedVoiceUri || undefined,
       onStart: () => {
         setIsReading(true);
         setIsPaused(false);
@@ -689,6 +707,62 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
               </button>
             ))}
           </div>
+
+          {/* Voice Gender Switcher (Głos Żeński / Męski) */}
+          <div className={`flex items-center rounded-xl p-1 border text-xs ${isDark ? 'bg-slate-800/60 border-slate-700/60' : 'bg-slate-100 border-slate-300'}`}>
+            <button
+              onClick={() => {
+                setSelectedGender('female');
+                setSelectedVoiceUri('');
+                if (isReading) startReadingPage(currentPage);
+              }}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-medium transition-all ${
+                selectedGender === 'female' && !selectedVoiceUri
+                  ? 'bg-amber-500 text-slate-950 font-bold shadow'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+              title="Najczystszy głos żeński (AI Lektor)"
+            >
+              👩 <span>Głos Żeński</span>
+            </button>
+            <button
+              onClick={() => {
+                setSelectedGender('male');
+                setSelectedVoiceUri('');
+                if (isReading) startReadingPage(currentPage);
+              }}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-medium transition-all ${
+                selectedGender === 'male' && !selectedVoiceUri
+                  ? 'bg-amber-500 text-slate-950 font-bold shadow'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+              title="Głos męski (AI Lektor)"
+            >
+              👨 <span>Głos Męski</span>
+            </button>
+          </div>
+
+          {/* Detailed Voice Selector Dropdown */}
+          {availableVoices.length > 1 && (
+            <select
+              value={selectedVoiceUri}
+              onChange={(e) => {
+                setSelectedVoiceUri(e.target.value);
+                if (isReading) startReadingPage(currentPage);
+              }}
+              className={`text-xs p-1.5 rounded-xl border font-medium max-w-[150px] truncate ${
+                isDark ? 'bg-slate-800 border-slate-700 text-slate-200' : 'bg-slate-100 border-slate-300 text-slate-800'
+              }`}
+              title="Wybierz wygenerowany głos systemowy AI"
+            >
+              <option value="">Auto-Głos AI ({selectedGender === 'female' ? 'Żeński' : 'Męski'})</option>
+              {availableVoices.map((voice) => (
+                <option key={voice.voiceURI} value={voice.voiceURI}>
+                  {voice.name}
+                </option>
+              ))}
+            </select>
+          )}
         </div>
       </div>
     </div>
