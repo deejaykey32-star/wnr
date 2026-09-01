@@ -618,7 +618,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         title: editTitle.trim(),
         text: editText.trim(),
         dayIndex: cycleInfo.dayIndex,
-        notebookUrls: editUrls,
+        notebookUrls: [],
+        notebookLabels: [],
         updatedBy: user?.email || 'Edytor'
       });
 
@@ -629,8 +630,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
           dayIndex: cycleInfo.dayIndex,
           title: editTitle.trim(),
           text: editText.trim(),
-          notebookUrls: editUrls,
-          notebookLabels: editLabels,
+          notebookUrls: [],
+          notebookLabels: [],
           updatedBy: user?.email || 'Edytor',
           updatedAt: new Date().toISOString()
         }
@@ -647,8 +648,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
               title: editTitle.trim(),
               text: editText.trim(),
               dayIndex: cycleInfo.dayIndex,
-              notebookUrls: editUrls,
-              notebookLabels: editLabels,
+              notebookUrls: [],
+              notebookLabels: [],
               updatedBy: user?.email || 'Edytor',
               updatedAt: new Date().toISOString()
             }, { merge: true }),
@@ -676,8 +677,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
       ...activeEntry,
       docId,
       dayIndex: cycleInfo.dayIndex,
-      notebookUrls: newUrls,
-      notebookLabels: newLabels || activeEntry.notebookLabels || [],
+      notebookUrls: [],
+      notebookLabels: [],
       updatedBy: user?.email || 'Admin',
       updatedAt: new Date().toISOString()
     };

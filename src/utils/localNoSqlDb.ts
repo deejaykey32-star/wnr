@@ -258,9 +258,8 @@ export async function getAllLocalBlogEntries(): Promise<Record<string, LocalBlog
         if (req.result && Array.isArray(req.result)) {
           req.result.forEach((item: LocalBlogEntry) => {
             if (item && item.docId) {
-              if (item.notebookUrls) {
-                item.notebookUrls = item.notebookUrls.filter(u => typeof u === 'string' && !u.toLowerCase().includes('notebook'));
-              }
+              item.notebookUrls = [];
+              item.notebookLabels = [];
               result[item.docId] = item;
             }
           });
@@ -293,8 +292,8 @@ export async function saveLocalBlogEntry(
       dayIndex: entry.dayIndex,
       title: entry.title,
       text: entry.text,
-      notebookUrls: entry.notebookUrls || [],
-      notebookLabels: entry.notebookLabels || [],
+      notebookUrls: [],
+      notebookLabels: [],
       updatedBy: entry.updatedBy || 'Edytor Lokalny',
       updatedAt: entry.updatedAt || new Date().toISOString()
     };
@@ -488,9 +487,7 @@ export async function getLocalPrayers(): Promise<Record<string, { title: string;
         req.result.forEach((item: { docId: string; title: string; text: string; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }) => {
           if (item && item.docId) {
             const { docId, ...rest } = item;
-            if (rest.notebookUrls) {
-              rest.notebookUrls = rest.notebookUrls.filter(u => typeof u === 'string' && !u.toLowerCase().includes('notebook'));
-            }
+            rest.notebookUrls = [];
             result[docId] = rest;
           }
         });
