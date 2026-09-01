@@ -517,7 +517,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
 
           {/* Voice Dropdown Selector */}
           <div className="flex items-center gap-2">
-            <span className="text-xs text-slate-400 hidden sm:inline">Wszystkie głosy:</span>
+            <span className="text-xs text-slate-400 hidden sm:inline">Głos systemowy:</span>
             <select
               value={selectedVoiceUri}
               onChange={(e) => {
@@ -530,11 +530,14 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
               title="Wybierz wygenerowany głos systemowy AI"
             >
               <option value="">
-                Domyślny Polski AI ({selectedGender === 'female' ? 'Żeński' : 'Męski'})
+                Auto ({selectedGender === 'female' ? 'Żeński PL' : 'Męski PL'})
               </option>
+              {availableVoices.length === 0 && (
+                <option disabled value="__none__">Brak głosów polskich w systemie</option>
+              )}
               {availableVoices.map((v) => (
                 <option key={v.voiceURI} value={v.voiceURI}>
-                  {v.name} ({v.lang})
+                  {v.name} [{v.lang}]
                 </option>
               ))}
             </select>

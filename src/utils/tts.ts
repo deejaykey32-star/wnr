@@ -145,73 +145,77 @@ export const isSpeechSpeaking = (): boolean => {
 };
 
 /**
- * Get all available Polish voices
+ * Get all available Polish voices — ONLY voices with lang pl-* are returned.
+ * Never falls back to non-Polish voices.
  */
 export const getPolishVoices = (): SpeechSynthesisVoice[] => {
   if (!isTtsSupported()) return [];
   try {
     const voices = window.speechSynthesis.getVoices();
-    const plVoices = voices.filter(v => 
-      v.lang.toLowerCase().includes('pl') || 
-      v.name.toLowerCase().includes('polsk') || 
+    const plVoices = voices.filter(v =>
+      v.lang.toLowerCase().startsWith('pl') ||
       v.name.toLowerCase().includes('paulina') ||
       v.name.toLowerCase().includes('zofia') ||
       v.name.toLowerCase().includes('jacek')
     );
-    return plVoices.length > 0 ? plVoices : voices;
+    return plVoices;
   } catch {
     return [];
   }
 };
 
 /**
- * Find the best available Polish voice (defaults to cleanest female voice)
+ * Find the best available Polish voice matching the given preference.
+ * voiceURI is searched in ALL available voices (exact match), then Polish voices.
+ * Never returns a non-Polish voice unless an explicit voiceURI forces it.
  */
 export const getPolishVoice = (preference?: { voiceURI?: string; gender?: 'female' | 'male' }): SpeechSynthesisVoice | null => {
   if (!isTtsSupported()) return null;
 
   try {
-    const voices = window.speechSynthesis.getVoices();
-    const polishVoices = voices.filter(v => v.lang.toLowerCase().includes('pl'));
+    const allVoices = window.speechSynthesis.getVoices();
+    const polishVoices = allVoices.filter(v =>
+      v.lang.toLowerCase().startsWith('pl') ||
+      v.name.toLowerCase().includes('paulina') ||
+      v.name.toLowerCase().includes('zofia') ||
+      v.name.toLowerCase().includes('jacek')
+    );
 
-    if (polishVoices.length === 0) {
-      return voices[0] || null;
-    }
-
-    // 1. Specific voiceURI matching
+    // 1. Exact voiceURI match (search in ALL voices, but language will be forced to pl-PL on utterance)
     if (preference?.voiceURI) {
-      const match = polishVoices.find(v => v.voiceURI === preference.voiceURI || v.name === preference.voiceURI);
-      if (match) return match;
+      const exactMatch = allVoices.find(v => v.voiceURI === preference.voiceURI || v.name === preference.voiceURI);
+      if (exactMatch) return exactMatch;
     }
 
-    // 2. Gender matching
+    if (polishVoices.length === 0) return null;
+
+    // 2. Gender matching within Polish voices only
     if (preference?.gender === 'female') {
       const femaleNames = ['paulina', 'zofia', 'ewa', 'agnieszka', 'maja', 'zira', 'kobieta', 'female'];
       const femaleVoice = polishVoices.find(v => femaleNames.some(n => v.name.toLowerCase().includes(n)));
       if (femaleVoice) return femaleVoice;
-      const googleFemale = polishVoices.find(v => v.name.toLowerCase().includes('google'));
-      if (googleFemale) return googleFemale;
+      // Google Polish voices tend to be female by default
+      const googlePl = polishVoices.find(v => v.name.toLowerCase().includes('google'));
+      if (googlePl) return googlePl;
     } else if (preference?.gender === 'male') {
       const maleNames = ['jacek', 'jan', 'marek', 'adam', 'male', 'mężczyzna'];
       const maleVoice = polishVoices.find(v => maleNames.some(n => v.name.toLowerCase().includes(n)));
       if (maleVoice) return maleVoice;
     }
 
-    // Default priority for cleanest Polish voice: Paulina / Zofia / Google / Microsoft
-    const defaultFemale = polishVoices.find(v => 
-      v.name.toLowerCase().includes('paulina') || 
-      v.name.toLowerCase().includes('zofia') || 
-      v.name.toLowerCase().includes('ewa')
+    // 3. Default: Paulina > Zofia > Ewa > Google PL > Microsoft PL > first Polish voice
+    return (
+      polishVoices.find(v => v.name.toLowerCase().includes('paulina')) ||
+      polishVoices.find(v => v.name.toLowerCase().includes('zofia')) ||
+      polishVoices.find(v => v.name.toLowerCase().includes('ewa')) ||
+      polishVoices.find(v => v.name.toLowerCase().includes('google')) ||
+      polishVoices.find(v => v.name.toLowerCase().includes('microsoft')) ||
+      polishVoices[0]
     );
-    const googleVoice = polishVoices.find(v => v.name.toLowerCase().includes('google'));
-    const microsoftVoice = polishVoices.find(v => v.name.toLowerCase().includes('microsoft'));
-
-    return defaultFemale || googleVoice || microsoftVoice || polishVoices[0];
   } catch (err) {
     console.warn("Failed to get voices:", err);
+    return null;
   }
-
-  return null;
 };
 
 const speakNextSegment = () => {
@@ -252,6 +256,7 @@ const speakNextSegment = () => {
       utterance.voice = plVoice;
     }
     
+    // Always force Polish language regardless of selected voice system locale
     utterance.lang = 'pl-PL';
     utterance.rate = queueOptions.rate !== undefined ? queueOptions.rate : 0.95;
     utterance.pitch = queueOptions.pitch !== undefined ? queueOptions.pitch : 1.0;
