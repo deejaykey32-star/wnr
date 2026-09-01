@@ -155,8 +155,8 @@ export function isFemaleVoiceName(name: string): boolean {
   const fn = (name || '').toLowerCase();
   return (
     fn.includes('paulina') || fn.includes('zofia') || fn.includes('ewa') ||
-    fn.includes('agnieszka') || fn.includes('maja') || fn.includes('zira') ||
-    fn.includes('kobieta') || fn.includes('female') || fn.includes('zosia')
+    fn.includes('agnieszka') || fn.includes('maja') || fn.includes('zosia') ||
+    fn.includes('kobieta')
   );
 }
 
@@ -167,8 +167,8 @@ export function isMaleVoiceName(name: string): boolean {
   const fn = (name || '').toLowerCase();
   return (
     fn.includes('jacek') || fn.includes('jan') || fn.includes('marek') ||
-    fn.includes('adam') || fn.includes('male') || fn.includes('mężczyzna') ||
-    fn.includes('tomasz') || fn.includes('paweł') || fn.includes('pawel')
+    fn.includes('adam') || fn.includes('mężczyzna') || fn.includes('tomasz') ||
+    fn.includes('paweł') || fn.includes('pawel')
   );
 }
 
@@ -179,13 +179,21 @@ export const getPolishVoices = (): SpeechSynthesisVoice[] => {
   if (!isTtsSupported()) return [];
   try {
     const voices = window.speechSynthesis.getVoices();
-    const plVoices = voices.filter(v =>
-      v.lang.toLowerCase().includes('pl') ||
-      v.name.toLowerCase().includes('polsk') ||
-      isFemaleVoiceName(v.name) ||
-      isMaleVoiceName(v.name)
-    );
-    return plVoices;
+    return voices.filter(v => {
+      const lang = (v.lang || '').toLowerCase().replace('_', '-');
+      const name = (v.name || '').toLowerCase();
+      
+      return (
+        lang.startsWith('pl') ||
+        name.includes('polski') ||
+        name.includes('polskie') ||
+        name.includes('polish') ||
+        name.includes('paulina') ||
+        name.includes('zofia') ||
+        name.includes('jacek') ||
+        name.includes('ewa')
+      );
+    });
   } catch {
     return [];
   }
