@@ -27,11 +27,10 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
 
   // Rendered page images cache (pageNum -> dataUrl)
   const [pageImages, setPageImages] = useState<Record<string, string>>({});
-  const [renderingPages, setRenderingPages] = useState<Record<number, boolean>>({});
 
   // View settings
   const [viewMode, setViewMode] = useState<'single' | 'double'>('double');
-  const [scale, setScale] = useState<number>(1.2);
+  const [scale, setScale] = useState<number>(1.0);
   const [flipDirection, setFlipDirection] = useState<'next' | 'prev'>('next');
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -49,18 +48,29 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
   const [availableVoices, setAvailableVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [selectedVoiceUri, setSelectedVoiceUri] = useState<string>('');
 
+  const isDark = theme === 'dark';
+
+  // Warm-up and fetch all available Polish/system voices
   useEffect(() => {
     const updateVoices = () => {
       const vList = getPolishVoices();
-      setAvailableVoices(vList);
+      if (vList.length > 0) {
+        setAvailableVoices(vList);
+      }
     };
     updateVoices();
+    const interval = setInterval(updateVoices, 300);
+    const timeout = setTimeout(() => clearInterval(interval), 3500);
+
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
       window.speechSynthesis.onvoiceschanged = updateVoices;
     }
-  }, []);
 
-  const isDark = theme === 'dark';
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeout);
+    };
+  }, []);
 
   // Responsive default view mode
   useEffect(() => {
@@ -106,7 +116,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
     };
   }, []);
 
-  // Render a specific page to Data URL
+  // Render a specific page to Data URL with resolution scaling
   const renderPageToDataUrl = useCallback(async (pageNum: number, currentScale: number) => {
     if (!pdfDocument || pageNum < 1 || pageNum > numPages) return null;
 
@@ -114,9 +124,8 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
     if (pageImages[cacheKey]) return pageImages[cacheKey];
 
     try {
-      setRenderingPages(prev => ({ ...prev, [pageNum]: true }));
       const page = await pdfDocument.getPage(pageNum);
-      const pixelRatio = window.devicePixelRatio || 1.5;
+      const pixelRatio = Math.max(window.devicePixelRatio || 1, 1.5);
       const viewport = page.getViewport({ scale: currentScale * pixelRatio });
 
       const canvas = document.createElement('canvas');
@@ -124,39 +133,33 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
       canvas.height = viewport.height;
       const ctx = canvas.getContext('2d');
 
-      if (!ctx) {
-        setRenderingPages(prev => ({ ...prev, [pageNum]: false }));
-        return null;
-      }
+      if (!ctx) return null;
 
       await page.render({ canvasContext: ctx, viewport }).promise;
       const dataUrl = canvas.toDataURL('image/png');
 
       setPageImages(prev => ({ ...prev, [cacheKey]: dataUrl }));
-      setRenderingPages(prev => ({ ...prev, [pageNum]: false }));
       return dataUrl;
     } catch (err) {
       console.warn(`Błąd generowania obrazu dla strony ${pageNum}:`, err);
-      setRenderingPages(prev => ({ ...prev, [pageNum]: false }));
       return null;
     }
   }, [pdfDocument, numPages, pageImages]);
 
-  // Determine current active pages to display
+  // Active pages calculation
   const leftPageNum = viewMode === 'double' ? (currentPage % 2 === 0 ? currentPage - 1 : currentPage) : currentPage;
   const rightPageNum = viewMode === 'double' ? leftPageNum + 1 : null;
 
-  // Trigger page rendering when currentPage, viewMode or scale changes
+  // Trigger page rendering
   useEffect(() => {
     if (!pdfDocument || numPages === 0) return;
 
-    // Render current active pages
     renderPageToDataUrl(leftPageNum, scale);
     if (rightPageNum && rightPageNum <= numPages) {
       renderPageToDataUrl(rightPageNum, scale);
     }
 
-    // Pre-render next adjacent pages for instant page flipping
+    // Pre-render next pages
     const nextLeft = viewMode === 'double' ? leftPageNum + 2 : leftPageNum + 1;
     if (nextLeft <= numPages) {
       renderPageToDataUrl(nextLeft, scale);
@@ -166,7 +169,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
     }
   }, [pdfDocument, numPages, leftPageNum, rightPageNum, viewMode, scale, renderPageToDataUrl]);
 
-  // Helper to extract text of a page (filtering out headers and keeping only main body content)
+  // Helper to extract text of a page (filtering out headers)
   const getPageText = useCallback(async (pageNum: number): Promise<string> => {
     if (extractedTexts[pageNum]) return extractedTexts[pageNum];
     if (!pdfDocument || pageNum < 1 || pageNum > numPages) return "";
@@ -178,7 +181,6 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
 
       if (items.length === 0) return "";
 
-      // Calculate font heights to detect title font size vs body font size
       const fontHeights = items.map((it: any) => it.height).filter((h: number) => h > 0);
       let medianHeight = 0;
       if (fontHeights.length > 0) {
@@ -186,28 +188,22 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
         medianHeight = sorted[Math.floor(sorted.length / 2)];
       }
 
-      // Filter out header items by font height and title regex patterns
       const bodyItems = items.filter((item: any) => {
         const str = (item.str || '').trim();
         if (!str) return false;
 
-        // Filter out known header/title patterns (e.g. Widoki na Raj, Cykl I, dates, Dzień X, headers)
         if (/^(Widoki na Raj|RHZ365|WnR365|Biblia365|Cykl\s+[I|V|X\d]+|Dzień\s+\d+)/i.test(str)) {
           return false;
         }
         if (/^\[?\d{2}\.\d{2}\.\d{4}\]?$/.test(str)) {
           return false;
         }
-
-        // Filter out items with title font size (> 1.25x median body height)
         if (medianHeight > 0 && item.height > medianHeight * 1.25) {
           return false;
         }
-
         return true;
       });
 
-      // Combine body items or fallback to all items if filtering left nothing
       const targetItems = bodyItems.length > 0 ? bodyItems : items;
       let text = targetItems
         .map((item: any) => item.str)
@@ -286,7 +282,6 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
     setIsExtractingText(false);
 
     if (!textToRead) {
-      // If page has no text, auto skip to next page if autoTurn enabled
       if (autoTurn && targetPage < numPages) {
         setTimeout(() => {
           const nextP = goToNextPage();
@@ -313,7 +308,6 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
         setIsPaused(false);
       },
       onEnd: () => {
-        // Finished reading current page
         if (autoTurn) {
           const nextP = viewMode === 'double' ? (targetPage % 2 === 0 ? targetPage + 1 : targetPage + 2) : targetPage + 1;
           if (nextP <= numPages) {
@@ -338,7 +332,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
         setIsPaused(false);
       }
     });
-  }, [viewMode, getPageText, numPages, autoTurn, readingSpeed, goToNextPage]);
+  }, [viewMode, getPageText, numPages, autoTurn, readingSpeed, selectedGender, selectedVoiceUri, goToNextPage]);
 
   const handleTogglePlay = () => {
     if (!isReading) {
@@ -381,7 +375,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
       }`}
     >
       {/* Header Toolbar */}
-      <div className={`flex flex-wrap items-center justify-between gap-3 p-3 sm:p-4 rounded-2xl backdrop-blur-md shadow-lg border transition-all ${
+      <div className={`flex flex-wrap items-center justify-between gap-3 p-3 sm:p-4 rounded-2xl backdrop-blur-md shadow-lg border transition-all mb-3 ${
         isDark ? 'bg-slate-900/80 border-slate-800' : 'bg-white/90 border-slate-200'
       }`}>
         <div className="flex items-center gap-3">
@@ -398,22 +392,28 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
           </div>
         </div>
 
-        {/* View Mode Controls */}
-        <div className="flex items-center gap-2">
-          {/* Zoom controls */}
-          <div className={`hidden sm:flex items-center rounded-xl p-1 border ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-slate-200 border-slate-300'}`}>
+        {/* View Mode & Zoom Controls */}
+        <div className="flex flex-wrap items-center gap-2">
+          {/* Zoom controls (Active Scaling) */}
+          <div className={`flex items-center rounded-xl p-1 border ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-slate-200 border-slate-300'}`}>
             <button
-              onClick={() => setScale(s => Math.max(0.7, parseFloat((s - 0.15).toFixed(2))))}
+              onClick={() => setScale(s => Math.max(0.6, parseFloat((s - 0.25).toFixed(2))))}
               className="p-1.5 rounded-lg hover:bg-amber-500/20 hover:text-amber-500 transition-colors"
-              title="Pomniejsz"
+              title="Pomniejsz (-25%)"
             >
               <ZoomOut className="w-4 h-4" />
             </button>
-            <span className="text-xs font-mono px-2">{Math.round(scale * 100)}%</span>
             <button
-              onClick={() => setScale(s => Math.min(2.2, parseFloat((s + 0.15).toFixed(2))))}
+              onClick={() => setScale(1.0)}
+              className="text-xs font-mono px-2 py-0.5 hover:text-amber-400 font-bold transition-colors"
+              title="Resetuj przybliżenie (100%)"
+            >
+              {Math.round(scale * 100)}%
+            </button>
+            <button
+              onClick={() => setScale(s => Math.min(3.0, parseFloat((s + 0.25).toFixed(2))))}
               className="p-1.5 rounded-lg hover:bg-amber-500/20 hover:text-amber-500 transition-colors"
-              title="Powiększ"
+              title="Powiększ (+25%)"
             >
               <ZoomIn className="w-4 h-4" />
             </button>
@@ -458,12 +458,83 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
         </div>
       </div>
 
-      {/* Main Book Display */}
-      <div className="relative flex-1 my-4 flex items-center justify-center overflow-hidden min-h-[480px]">
+      {/* DEDICATED AI VOICE SELECTOR TOOLBAR */}
+      <div className={`p-3 rounded-2xl backdrop-blur-md shadow-md border flex flex-wrap items-center justify-between gap-3 mb-4 transition-all ${
+        isDark ? 'bg-slate-900/90 border-slate-800' : 'bg-white/90 border-slate-200'
+      }`}>
+        <div className="flex items-center gap-2">
+          <Volume2 className="w-5 h-5 text-amber-500" />
+          <span className="text-xs sm:text-sm font-bold text-slate-200">Głos AI Lektora:</span>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-2">
+          {/* Gender Switcher (Głos Żeński / Męski) */}
+          <div className={`flex items-center rounded-xl p-1 border text-xs ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-slate-200 border-slate-300'}`}>
+            <button
+              onClick={() => {
+                setSelectedGender('female');
+                setSelectedVoiceUri('');
+                if (isReading) startReadingPage(currentPage);
+              }}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
+                selectedGender === 'female' && !selectedVoiceUri
+                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-bold shadow-md'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+              title="Czysty głos żeński (np. Paulina / Zofia / Google)"
+            >
+              👩 <span>Głos Żeński (AI)</span>
+            </button>
+            <button
+              onClick={() => {
+                setSelectedGender('male');
+                setSelectedVoiceUri('');
+                if (isReading) startReadingPage(currentPage);
+              }}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
+                selectedGender === 'male' && !selectedVoiceUri
+                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-bold shadow-md'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+              title="Głos męski (np. Jacek / Jan / Google)"
+            >
+              👨 <span>Głos Męski (AI)</span>
+            </button>
+          </div>
+
+          {/* Voice Dropdown Selector */}
+          <div className="flex items-center gap-2">
+            <span className="text-xs text-slate-400 hidden sm:inline">Wszystkie głosy:</span>
+            <select
+              value={selectedVoiceUri}
+              onChange={(e) => {
+                setSelectedVoiceUri(e.target.value);
+                if (isReading) startReadingPage(currentPage);
+              }}
+              className={`text-xs p-2 rounded-xl border font-semibold max-w-[220px] cursor-pointer transition-all ${
+                isDark ? 'bg-slate-800 border-slate-700 text-amber-400 hover:bg-slate-700' : 'bg-slate-100 border-slate-300 text-amber-700 hover:bg-slate-200'
+              }`}
+              title="Wybierz wygenerowany głos systemowy AI"
+            >
+              <option value="">
+                Domyślny Polski AI ({selectedGender === 'female' ? 'Żeński' : 'Męski'})
+              </option>
+              {availableVoices.map((v) => (
+                <option key={v.voiceURI} value={v.voiceURI}>
+                  {v.name} ({v.lang})
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Book Display Container (Scrollable on Zoom) */}
+      <div className="relative flex-1 my-2 flex items-center justify-center overflow-auto min-h-[500px] w-full p-2 sm:p-4">
         {isLoadingPdf ? (
           <div className="flex flex-col items-center justify-center p-12 text-center">
             <Loader2 className="w-12 h-12 animate-spin text-amber-500 mb-4" />
-            <p className="font-semibold text-lg">Ładowanie i przygotowywanie prezentacji WnR365.pdf...</p>
+            <p className="font-semibold text-lg">Ładowanie prezentacji WnR365.pdf...</p>
             <p className="text-sm text-slate-400 mt-1">Przygotowywanie widoku książki i lektora AI</p>
           </div>
         ) : pdfError ? (
@@ -477,7 +548,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
             </button>
           </div>
         ) : (
-          <div className="relative flex items-center justify-center max-w-full max-h-full">
+          <div className="relative flex items-center justify-center max-w-full">
             <AnimatePresence mode="wait">
               <motion.div
                 key={`${currentPage}_${viewMode}`}
@@ -507,13 +578,18 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
                   <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-6 bg-gradient-to-r from-black/15 via-black/35 to-black/15 z-10 pointer-events-none" />
                 )}
 
-                {/* Left Page Image */}
+                {/* Left Page Image with Dynamic Zoom Scaling */}
                 <div className="relative flex flex-col items-center min-w-[280px] min-h-[380px] justify-center">
                   {leftImg ? (
                     <img 
                       src={leftImg} 
                       alt={`Strona ${leftPageNum}`}
-                      className="max-h-[72vh] w-auto h-auto rounded-lg shadow-md object-contain transition-opacity duration-300" 
+                      style={{
+                        maxHeight: `${Math.round(72 * scale)}vh`,
+                        maxWidth: scale > 1.2 ? 'none' : '100%',
+                        transition: 'max-height 0.25s ease-out',
+                      }}
+                      className="w-auto h-auto rounded-lg shadow-md object-contain transition-opacity duration-300" 
                     />
                   ) : (
                     <div className="w-[300px] h-[400px] flex flex-col items-center justify-center gap-3 text-slate-400">
@@ -535,7 +611,12 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
                           <img 
                             src={rightImg} 
                             alt={`Strona ${rightPageNum}`}
-                            className="max-h-[72vh] w-auto h-auto rounded-lg shadow-md object-contain transition-opacity duration-300" 
+                            style={{
+                              maxHeight: `${Math.round(72 * scale)}vh`,
+                              maxWidth: scale > 1.2 ? 'none' : '100%',
+                              transition: 'max-height 0.25s ease-out',
+                            }}
+                            className="w-auto h-auto rounded-lg shadow-md object-contain transition-opacity duration-300" 
                           />
                           <span className="text-[10px] font-mono text-slate-400 mt-2">
                             Strona {rightPageNum}
@@ -707,62 +788,6 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
               </button>
             ))}
           </div>
-
-          {/* Voice Gender Switcher (Głos Żeński / Męski) */}
-          <div className={`flex items-center rounded-xl p-1 border text-xs ${isDark ? 'bg-slate-800/60 border-slate-700/60' : 'bg-slate-100 border-slate-300'}`}>
-            <button
-              onClick={() => {
-                setSelectedGender('female');
-                setSelectedVoiceUri('');
-                if (isReading) startReadingPage(currentPage);
-              }}
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-medium transition-all ${
-                selectedGender === 'female' && !selectedVoiceUri
-                  ? 'bg-amber-500 text-slate-950 font-bold shadow'
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
-              title="Najczystszy głos żeński (AI Lektor)"
-            >
-              👩 <span>Głos Żeński</span>
-            </button>
-            <button
-              onClick={() => {
-                setSelectedGender('male');
-                setSelectedVoiceUri('');
-                if (isReading) startReadingPage(currentPage);
-              }}
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-medium transition-all ${
-                selectedGender === 'male' && !selectedVoiceUri
-                  ? 'bg-amber-500 text-slate-950 font-bold shadow'
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
-              title="Głos męski (AI Lektor)"
-            >
-              👨 <span>Głos Męski</span>
-            </button>
-          </div>
-
-          {/* Detailed Voice Selector Dropdown */}
-          {availableVoices.length > 1 && (
-            <select
-              value={selectedVoiceUri}
-              onChange={(e) => {
-                setSelectedVoiceUri(e.target.value);
-                if (isReading) startReadingPage(currentPage);
-              }}
-              className={`text-xs p-1.5 rounded-xl border font-medium max-w-[150px] truncate ${
-                isDark ? 'bg-slate-800 border-slate-700 text-slate-200' : 'bg-slate-100 border-slate-300 text-slate-800'
-              }`}
-              title="Wybierz wygenerowany głos systemowy AI"
-            >
-              <option value="">Auto-Głos AI ({selectedGender === 'female' ? 'Żeński' : 'Męski'})</option>
-              {availableVoices.map((voice) => (
-                <option key={voice.voiceURI} value={voice.voiceURI}>
-                  {voice.name}
-                </option>
-              ))}
-            </select>
-          )}
         </div>
       </div>
     </div>

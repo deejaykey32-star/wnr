@@ -151,7 +151,14 @@ export const getPolishVoices = (): SpeechSynthesisVoice[] => {
   if (!isTtsSupported()) return [];
   try {
     const voices = window.speechSynthesis.getVoices();
-    return voices.filter(v => v.lang.toLowerCase().includes('pl'));
+    const plVoices = voices.filter(v => 
+      v.lang.toLowerCase().includes('pl') || 
+      v.name.toLowerCase().includes('polsk') || 
+      v.name.toLowerCase().includes('paulina') ||
+      v.name.toLowerCase().includes('zofia') ||
+      v.name.toLowerCase().includes('jacek')
+    );
+    return plVoices.length > 0 ? plVoices : voices;
   } catch {
     return [];
   }
