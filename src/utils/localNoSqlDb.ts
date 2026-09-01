@@ -80,7 +80,7 @@ function openDb(): Promise<IDBDatabase> {
 
 // Increment this version whenever wnr365_pdf_entries.json content changes significantly.
 // This forces a full IndexedDB reseed on next app load, clearing stale cached data.
-const DATA_VERSION = '2026-08-25-sync-1788214406480';
+const DATA_VERSION = '2026-08-25-sync-1788230880721';
 const DATA_VERSION_KEY = 'wnr365_db_data_version';
 
 /**
