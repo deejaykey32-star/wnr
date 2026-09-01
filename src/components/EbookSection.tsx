@@ -18,12 +18,16 @@ interface EbookSectionProps {
 }
 
 export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
-  // PDF state
+  // PDF document state
   const [numPages, setNumPages] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pdfDocument, setPdfDocument] = useState<any>(null);
   const [isLoadingPdf, setIsLoadingPdf] = useState<boolean>(true);
   const [pdfError, setPdfError] = useState<string | null>(null);
+
+  // Rendered page images cache (pageNum -> dataUrl)
+  const [pageImages, setPageImages] = useState<Record<string, string>>({});
+  const [renderingPages, setRenderingPages] = useState<Record<number, boolean>>({});
 
   // View settings
   const [viewMode, setViewMode] = useState<'single' | 'double'>('double');
@@ -32,10 +36,6 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Canvas refs for pages
-  const canvasLeftRef = useRef<HTMLCanvasElement>(null);
-  const canvasRightRef = useRef<HTMLCanvasElement>(null);
-
   // TTS State
   const [isReading, setIsReading] = useState<boolean>(false);
   const [isPaused, setIsPaused] = useState<boolean>(false);
@@ -43,8 +43,6 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
   const [readingSpeed, setReadingSpeed] = useState<number>(1.0);
   const [extractedTexts, setExtractedTexts] = useState<Record<number, string>>({});
   const [isExtractingText, setIsExtractingText] = useState<boolean>(false);
-  const [currentReadingPage, setCurrentReadingPage] = useState<number>(1);
-  const [showSettingsModal, setShowSettingsModal] = useState<boolean>(false);
 
   const isDark = theme === 'dark';
 
@@ -60,7 +58,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Load PDF file
+  // Load PDF document
   useEffect(() => {
     let isMounted = true;
     setIsLoadingPdf(true);
@@ -92,6 +90,66 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
     };
   }, []);
 
+  // Render a specific page to Data URL
+  const renderPageToDataUrl = useCallback(async (pageNum: number, currentScale: number) => {
+    if (!pdfDocument || pageNum < 1 || pageNum > numPages) return null;
+
+    const cacheKey = `${pageNum}_${currentScale}`;
+    if (pageImages[cacheKey]) return pageImages[cacheKey];
+
+    try {
+      setRenderingPages(prev => ({ ...prev, [pageNum]: true }));
+      const page = await pdfDocument.getPage(pageNum);
+      const pixelRatio = window.devicePixelRatio || 1.5;
+      const viewport = page.getViewport({ scale: currentScale * pixelRatio });
+
+      const canvas = document.createElement('canvas');
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      const ctx = canvas.getContext('2d');
+
+      if (!ctx) {
+        setRenderingPages(prev => ({ ...prev, [pageNum]: false }));
+        return null;
+      }
+
+      await page.render({ canvasContext: ctx, viewport }).promise;
+      const dataUrl = canvas.toDataURL('image/png');
+
+      setPageImages(prev => ({ ...prev, [cacheKey]: dataUrl }));
+      setRenderingPages(prev => ({ ...prev, [pageNum]: false }));
+      return dataUrl;
+    } catch (err) {
+      console.warn(`Błąd generowania obrazu dla strony ${pageNum}:`, err);
+      setRenderingPages(prev => ({ ...prev, [pageNum]: false }));
+      return null;
+    }
+  }, [pdfDocument, numPages, pageImages]);
+
+  // Determine current active pages to display
+  const leftPageNum = viewMode === 'double' ? (currentPage % 2 === 0 ? currentPage - 1 : currentPage) : currentPage;
+  const rightPageNum = viewMode === 'double' ? leftPageNum + 1 : null;
+
+  // Trigger page rendering when currentPage, viewMode or scale changes
+  useEffect(() => {
+    if (!pdfDocument || numPages === 0) return;
+
+    // Render current active pages
+    renderPageToDataUrl(leftPageNum, scale);
+    if (rightPageNum && rightPageNum <= numPages) {
+      renderPageToDataUrl(rightPageNum, scale);
+    }
+
+    // Pre-render next adjacent pages for instant page flipping
+    const nextLeft = viewMode === 'double' ? leftPageNum + 2 : leftPageNum + 1;
+    if (nextLeft <= numPages) {
+      renderPageToDataUrl(nextLeft, scale);
+      if (viewMode === 'double' && nextLeft + 1 <= numPages) {
+        renderPageToDataUrl(nextLeft + 1, scale);
+      }
+    }
+  }, [pdfDocument, numPages, leftPageNum, rightPageNum, viewMode, scale, renderPageToDataUrl]);
+
   // Helper to extract text of a page
   const getPageText = useCallback(async (pageNum: number): Promise<string> => {
     if (extractedTexts[pageNum]) return extractedTexts[pageNum];
@@ -114,62 +172,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
     }
   }, [pdfDocument, extractedTexts, numPages]);
 
-  // Render canvas for current pages
-  useEffect(() => {
-    if (!pdfDocument || numPages === 0) return;
-
-    let isCancelled = false;
-
-    const renderPages = async () => {
-      // Determine left page and right page
-      const leftPageNum = viewMode === 'double' ? (currentPage % 2 === 0 ? currentPage - 1 : currentPage) : currentPage;
-      const rightPageNum = viewMode === 'double' ? leftPageNum + 1 : null;
-
-      // Render Left Page
-      if (canvasLeftRef.current && leftPageNum <= numPages) {
-        try {
-          const page = await pdfDocument.getPage(leftPageNum);
-          if (isCancelled) return;
-          const viewport = page.getViewport({ scale: scale * (window.devicePixelRatio || 1) });
-          const canvas = canvasLeftRef.current;
-          const context = canvas.getContext('2d');
-          if (context) {
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
-            await page.render({ canvasContext: context, viewport }).promise;
-          }
-        } catch (err) {
-          console.warn("Błąd renderowania lewej strony:", err);
-        }
-      }
-
-      // Render Right Page (Double view mode)
-      if (rightPageNum && canvasRightRef.current && rightPageNum <= numPages) {
-        try {
-          const page = await pdfDocument.getPage(rightPageNum);
-          if (isCancelled) return;
-          const viewport = page.getViewport({ scale: scale * (window.devicePixelRatio || 1) });
-          const canvas = canvasRightRef.current;
-          const context = canvas.getContext('2d');
-          if (context) {
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
-            await page.render({ canvasContext: context, viewport }).promise;
-          }
-        } catch (err) {
-          console.warn("Błąd renderowania prawej strony:", err);
-        }
-      }
-    };
-
-    renderPages();
-
-    return () => {
-      isCancelled = true;
-    };
-  }, [pdfDocument, currentPage, viewMode, scale, numPages]);
-
-  // Navigation handlers
+  // Navigation step
   const step = viewMode === 'double' ? 2 : 1;
 
   const goToNextPage = useCallback(() => {
@@ -205,7 +208,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [goToNextPage, goToPrevPage]);
 
-  // Read current page or range with AI TTS
+  // Read page with AI TTS
   const startReadingPage = useCallback(async (targetPage: number) => {
     if (!isTtsSupported()) {
       alert("Twoja przeglądarka nie wspiera funkcji Lektora AI (SpeechSynthesis).");
@@ -213,7 +216,6 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
     }
 
     setIsExtractingText(true);
-    setCurrentReadingPage(targetPage);
 
     let textToRead = "";
 
@@ -230,7 +232,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
     setIsExtractingText(false);
 
     if (!textToRead) {
-      // If page has no extractable text, move to next page automatically if autoTurn enabled
+      // If page has no text, auto skip to next page if autoTurn enabled
       if (autoTurn && targetPage < numPages) {
         setTimeout(() => {
           const nextP = goToNextPage();
@@ -255,18 +257,16 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
         setIsPaused(false);
       },
       onEnd: () => {
-        // Finished reading current page(s)
+        // Finished reading current page
         if (autoTurn) {
           const nextP = viewMode === 'double' ? (targetPage % 2 === 0 ? targetPage + 1 : targetPage + 2) : targetPage + 1;
           if (nextP <= numPages) {
             setFlipDirection('next');
             setCurrentPage(nextP);
-            // Delay page flip & start next reading
             setTimeout(() => {
               startReadingPage(nextP);
             }, 600);
           } else {
-            // Reached end of book
             setIsReading(false);
             setIsPaused(false);
             stopSpeech();
@@ -284,7 +284,6 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
     });
   }, [viewMode, getPageText, numPages, autoTurn, readingSpeed, goToNextPage]);
 
-  // Toggle reading status
   const handleTogglePlay = () => {
     if (!isReading) {
       startReadingPage(currentPage);
@@ -303,7 +302,6 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
     setIsPaused(false);
   };
 
-  // Fullscreen toggle
   const toggleFullscreen = () => {
     if (!containerRef.current) return;
     if (!document.fullscreenElement) {
@@ -312,6 +310,12 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
       document.exitFullscreen().then(() => setIsFullscreen(false)).catch(console.error);
     }
   };
+
+  const leftKey = `${leftPageNum}_${scale}`;
+  const rightKey = rightPageNum ? `${rightPageNum}_${scale}` : '';
+
+  const leftImg = pageImages[leftKey];
+  const rightImg = rightKey ? pageImages[rightKey] : null;
 
   return (
     <div 
@@ -343,7 +347,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
           {/* Zoom controls */}
           <div className={`hidden sm:flex items-center rounded-xl p-1 border ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-slate-200 border-slate-300'}`}>
             <button
-              onClick={() => setScale(s => Math.max(0.7, s - 0.15))}
+              onClick={() => setScale(s => Math.max(0.7, parseFloat((s - 0.15).toFixed(2))))}
               className="p-1.5 rounded-lg hover:bg-amber-500/20 hover:text-amber-500 transition-colors"
               title="Pomniejsz"
             >
@@ -351,7 +355,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
             </button>
             <span className="text-xs font-mono px-2">{Math.round(scale * 100)}%</span>
             <button
-              onClick={() => setScale(s => Math.min(2.2, s + 0.15))}
+              onClick={() => setScale(s => Math.min(2.2, parseFloat((s + 0.15).toFixed(2))))}
               className="p-1.5 rounded-lg hover:bg-amber-500/20 hover:text-amber-500 transition-colors"
               title="Powiększ"
             >
@@ -398,8 +402,8 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
         </div>
       </div>
 
-      {/* Main Book Flipbook Canvas Display */}
-      <div className="relative flex-1 my-4 flex items-center justify-center overflow-hidden min-h-[450px]">
+      {/* Main Book Display */}
+      <div className="relative flex-1 my-4 flex items-center justify-center overflow-hidden min-h-[480px]">
         {isLoadingPdf ? (
           <div className="flex flex-col items-center justify-center p-12 text-center">
             <Loader2 className="w-12 h-12 animate-spin text-amber-500 mb-4" />
@@ -420,11 +424,11 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
           <div className="relative flex items-center justify-center max-w-full max-h-full">
             <AnimatePresence mode="wait">
               <motion.div
-                key={currentPage}
+                key={`${currentPage}_${viewMode}`}
                 initial={{ 
-                  rotateY: flipDirection === 'next' ? 35 : -35, 
-                  opacity: 0.7,
-                  scale: 0.97
+                  rotateY: flipDirection === 'next' ? 25 : -25, 
+                  opacity: 0.8,
+                  scale: 0.98
                 }}
                 animate={{ 
                   rotateY: 0, 
@@ -432,45 +436,61 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
                   scale: 1
                 }}
                 exit={{ 
-                  rotateY: flipDirection === 'next' ? -35 : 35, 
-                  opacity: 0.3,
-                  scale: 0.97
+                  rotateY: flipDirection === 'next' ? -25 : 25, 
+                  opacity: 0.4,
+                  scale: 0.98
                 }}
-                transition={{ duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
-                style={{ perspective: 1500 }}
-                className={`relative flex items-center justify-center rounded-2xl shadow-2xl overflow-hidden border p-2 sm:p-4 transition-all ${
-                  isDark ? 'bg-slate-900 border-slate-800 shadow-amber-500/5' : 'bg-amber-50/70 border-amber-200 shadow-slate-300'
+                transition={{ duration: 0.35, ease: "easeOut" }}
+                style={{ perspective: 1400 }}
+                className={`relative flex items-center justify-center rounded-2xl shadow-2xl overflow-hidden border p-3 sm:p-5 transition-all ${
+                  isDark ? 'bg-slate-900 border-slate-800 shadow-amber-500/5' : 'bg-amber-50/80 border-amber-200 shadow-slate-300'
                 }`}
               >
                 {/* Book Spine shadow in double view */}
                 {viewMode === 'double' && (
-                  <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-8 bg-gradient-to-r from-black/20 via-black/40 to-black/20 z-10 pointer-events-none" />
+                  <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-6 bg-gradient-to-r from-black/15 via-black/35 to-black/15 z-10 pointer-events-none" />
                 )}
 
-                {/* Single or Left Canvas */}
-                <div className="relative flex flex-col items-center">
-                  <canvas 
-                    ref={canvasLeftRef} 
-                    className="max-h-[70vh] w-auto h-auto rounded-lg shadow-md transition-transform" 
-                  />
+                {/* Left Page Image */}
+                <div className="relative flex flex-col items-center min-w-[280px] min-h-[380px] justify-center">
+                  {leftImg ? (
+                    <img 
+                      src={leftImg} 
+                      alt={`Strona ${leftPageNum}`}
+                      className="max-h-[72vh] w-auto h-auto rounded-lg shadow-md object-contain transition-opacity duration-300" 
+                    />
+                  ) : (
+                    <div className="w-[300px] h-[400px] flex flex-col items-center justify-center gap-3 text-slate-400">
+                      <Loader2 className="w-8 h-8 animate-spin text-amber-500" />
+                      <span className="text-xs font-mono">Renderowanie strony {leftPageNum}...</span>
+                    </div>
+                  )}
                   <span className="text-[10px] font-mono text-slate-400 mt-2">
-                    Strona {viewMode === 'double' && currentPage % 2 === 0 ? currentPage - 1 : currentPage}
+                    Strona {leftPageNum}
                   </span>
                 </div>
 
-                {/* Right Canvas in Double View */}
+                {/* Right Page Image (Double view) */}
                 {viewMode === 'double' && (
-                  <div className="relative flex flex-col items-center border-l border-slate-700/30 pl-2 sm:pl-4">
-                    {currentPage + 1 <= numPages ? (
-                      <>
-                        <canvas 
-                          ref={canvasRightRef} 
-                          className="max-h-[70vh] w-auto h-auto rounded-lg shadow-md transition-transform" 
-                        />
-                        <span className="text-[10px] font-mono text-slate-400 mt-2">
-                          Strona {(currentPage % 2 === 0 ? currentPage - 1 : currentPage) + 1}
-                        </span>
-                      </>
+                  <div className="relative flex flex-col items-center border-l border-slate-700/30 pl-3 sm:pl-5 min-w-[280px] min-h-[380px] justify-center">
+                    {rightPageNum && rightPageNum <= numPages ? (
+                      rightImg ? (
+                        <>
+                          <img 
+                            src={rightImg} 
+                            alt={`Strona ${rightPageNum}`}
+                            className="max-h-[72vh] w-auto h-auto rounded-lg shadow-md object-contain transition-opacity duration-300" 
+                          />
+                          <span className="text-[10px] font-mono text-slate-400 mt-2">
+                            Strona {rightPageNum}
+                          </span>
+                        </>
+                      ) : (
+                        <div className="w-[300px] h-[400px] flex flex-col items-center justify-center gap-3 text-slate-400">
+                          <Loader2 className="w-8 h-8 animate-spin text-amber-500" />
+                          <span className="text-xs font-mono">Renderowanie strony {rightPageNum}...</span>
+                        </div>
+                      )
                     ) : (
                       <div className="w-[300px] h-[400px] flex items-center justify-center text-slate-500 text-sm border-2 border-dashed border-slate-800 rounded-lg">
                         Koniec książki
@@ -481,18 +501,18 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
               </motion.div>
             </AnimatePresence>
 
-            {/* Quick Page Flip Side Navigation Buttons */}
+            {/* Quick Navigation Side Buttons */}
             <button
               onClick={goToPrevPage}
               disabled={currentPage <= 1}
-              className={`absolute left-[-20px] sm:left-[-35px] top-1/2 -translate-y-1/2 p-3 sm:p-4 rounded-full shadow-2xl border transition-all z-20 ${
+              className={`absolute left-[-15px] sm:left-[-30px] top-1/2 -translate-y-1/2 p-3 sm:p-4 rounded-full shadow-2xl border transition-all z-20 ${
                 currentPage <= 1
                   ? 'opacity-30 cursor-not-allowed bg-slate-800/40 text-slate-500'
                   : isDark 
                     ? 'bg-slate-900/90 border-slate-700 text-amber-400 hover:bg-amber-500 hover:text-slate-950 hover:scale-110' 
                     : 'bg-white/90 border-slate-300 text-amber-600 hover:bg-amber-500 hover:text-white hover:scale-110'
               }`}
-              title="Poprzednia strona (Strzałka w lewo)"
+              title="Poprzednia strona"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
@@ -500,14 +520,14 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
             <button
               onClick={goToNextPage}
               disabled={currentPage >= numPages}
-              className={`absolute right-[-20px] sm:right-[-35px] top-1/2 -translate-y-1/2 p-3 sm:p-4 rounded-full shadow-2xl border transition-all z-20 ${
+              className={`absolute right-[-15px] sm:right-[-30px] top-1/2 -translate-y-1/2 p-3 sm:p-4 rounded-full shadow-2xl border transition-all z-20 ${
                 currentPage >= numPages
                   ? 'opacity-30 cursor-not-allowed bg-slate-800/40 text-slate-500'
                   : isDark 
                     ? 'bg-slate-900/90 border-slate-700 text-amber-400 hover:bg-amber-500 hover:text-slate-950 hover:scale-110' 
                     : 'bg-white/90 border-slate-300 text-amber-600 hover:bg-amber-500 hover:text-white hover:scale-110'
               }`}
-              title="Następna strona (Strzałka w prawo)"
+              title="Następna strona"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
