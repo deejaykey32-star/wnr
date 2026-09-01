@@ -200,15 +200,20 @@ export const getPolishVoices = (): SpeechSynthesisVoice[] => {
 };
 
 /**
- * Get all available non-Polish voices in the system (other languages).
+ * Get all available voices matching a specific language code (e.g. 'pl', 'en', 'de', 'es', 'fr', 'uk', etc.).
  */
-export const getOtherVoices = (): SpeechSynthesisVoice[] => {
+export const getVoicesForLang = (langCode: string): SpeechSynthesisVoice[] => {
   if (!isTtsSupported()) return [];
   try {
+    const target = (langCode || 'pl').toLowerCase().replace('_', '-');
+    if (target === 'pl' || target.startsWith('pl')) {
+      return getPolishVoices();
+    }
     const voices = window.speechSynthesis.getVoices();
-    const polishVoices = getPolishVoices();
-    const polishSet = new Set(polishVoices);
-    return voices.filter(v => !polishSet.has(v));
+    return voices.filter(v => {
+      const vLang = (v.lang || '').toLowerCase().replace('_', '-');
+      return vLang.startsWith(target);
+    });
   } catch {
     return [];
   }

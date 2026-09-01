@@ -6,7 +6,7 @@ import {
   BookOpen, Maximize2, Minimize2, Sparkles, Sliders, FileText, 
   ZoomIn, ZoomOut, Check, ArrowRight, Loader2
 } from 'lucide-react';
-import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechSpeaking, isSpeechPaused, isTtsSupported, getPolishVoice, getPolishVoices } from '../utils/tts';
+import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechSpeaking, isSpeechPaused, isTtsSupported, getPolishVoice, getPolishVoices, getVoicesForLang } from '../utils/tts';
 import { SUPPORTED_LANGUAGES, translateTextFromPolish } from '../utils/translator';
 
 // Configure PDF.js worker
@@ -54,20 +54,18 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
 
   const isDark = theme === 'dark';
 
-  // Warm-up and fetch all available Polish voices
+  // Warm-up and fetch available voices matching selected target language
   useEffect(() => {
     const updateVoices = () => {
-      const vList = getPolishVoices();
-      if (vList.length > 0) {
-        setAvailableVoices(vList);
-      }
+      const vList = getVoicesForLang(targetLanguage);
+      setAvailableVoices(vList);
     };
     updateVoices();
 
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
       window.speechSynthesis.onvoiceschanged = updateVoices;
     }
-  }, []);
+  }, [targetLanguage]);
 
   // Check if a credible male Polish voice exists
   const hasMaleVoice = availableVoices.some((v) => {
@@ -554,9 +552,11 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
             </button>
           </div>
 
-          {/* Polish Voice Dropdown Selector */}
+          {/* Dynamic Voice Selector matching current target language */}
           <div className="flex items-center gap-1.5">
-            <span className="text-xs text-slate-400 hidden sm:inline">Głos polski:</span>
+            <span className="text-xs text-slate-400 hidden sm:inline">
+              {targetLanguage === 'pl' ? 'Głos polski:' : `Głos (${SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.name}):`}
+            </span>
             <select
               value={selectedVoiceUri}
               onChange={(e) => {
@@ -567,18 +567,20 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
               className={`text-xs p-2 rounded-xl border font-semibold max-w-[200px] cursor-pointer transition-all ${
                 isDark ? 'bg-slate-800 border-slate-700 text-amber-400 hover:bg-slate-700' : 'bg-slate-100 border-slate-300 text-amber-700 hover:bg-slate-200'
               } ${isVoiceSpecific ? 'ring-2 ring-amber-500' : ''}`}
-              title="Wybierz polski głos systemowy"
+              title={`Wybierz głos dla języka ${SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.name}`}
             >
               <option value="">
-                ★ Auto ({selectedGender === 'female' ? 'Żeński PL' : 'Męski PL'})
+                ★ Auto ({targetLanguage === 'pl' ? (selectedGender === 'female' ? 'Żeński PL' : 'Męski PL') : SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.name})
               </option>
               {availableVoices.length === 0 && (
-                <option disabled value="__none__">Brak polskich głosów w systemie</option>
+                <option disabled value="__none__">
+                  Brak głosów [{targetLanguage}] w systemie
+                </option>
               )}
               {availableVoices.map((v, idx) => {
                 const voiceId = (v.voiceURI && v.voiceURI.trim() !== '') ? v.voiceURI : v.name;
                 return (
-                  <option key={`pl-${voiceId}-${idx}`} value={voiceId}>
+                  <option key={`v-${voiceId}-${idx}`} value={voiceId}>
                     {v.name} [{v.lang}]
                   </option>
                 );
@@ -594,8 +596,9 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
               onChange={(e) => {
                 const newLang = e.target.value;
                 setTargetLanguage(newLang);
+                setSelectedVoiceUri(''); // Reset voice selection for new language
                 if (isReading) {
-                  startReadingPage(currentPage, selectedGender, selectedVoiceUri, newLang);
+                  startReadingPage(currentPage, selectedGender, '', newLang);
                 }
               }}
               className={`text-xs p-2 rounded-xl border font-semibold cursor-pointer transition-all ${
