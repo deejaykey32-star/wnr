@@ -148,15 +148,42 @@ export const isSpeechSpeaking = (): boolean => {
  * Get all available Polish voices — ONLY voices with lang pl-* are returned.
  * Never falls back to non-Polish voices.
  */
+/**
+ * Returns true if the given voice name is likely female based on known Polish voice names.
+ */
+export function isFemaleVoiceName(name: string): boolean {
+  const fn = (name || '').toLowerCase();
+  return (
+    fn.includes('paulina') || fn.includes('zofia') || fn.includes('ewa') ||
+    fn.includes('agnieszka') || fn.includes('maja') || fn.includes('zira') ||
+    fn.includes('kobieta') || fn.includes('female') || fn.includes('zosia')
+  );
+}
+
+/**
+ * Returns true if the given voice name is likely male based on known Polish voice names.
+ */
+export function isMaleVoiceName(name: string): boolean {
+  const fn = (name || '').toLowerCase();
+  return (
+    fn.includes('jacek') || fn.includes('jan') || fn.includes('marek') ||
+    fn.includes('adam') || fn.includes('male') || fn.includes('mężczyzna') ||
+    fn.includes('tomasz') || fn.includes('paweł') || fn.includes('pawel')
+  );
+}
+
+/**
+ * Get all available Polish voices — ONLY voices with lang pl-* or Polish names are returned.
+ */
 export const getPolishVoices = (): SpeechSynthesisVoice[] => {
   if (!isTtsSupported()) return [];
   try {
     const voices = window.speechSynthesis.getVoices();
     const plVoices = voices.filter(v =>
-      v.lang.toLowerCase().startsWith('pl') ||
-      v.name.toLowerCase().includes('paulina') ||
-      v.name.toLowerCase().includes('zofia') ||
-      v.name.toLowerCase().includes('jacek')
+      v.lang.toLowerCase().includes('pl') ||
+      v.name.toLowerCase().includes('polsk') ||
+      isFemaleVoiceName(v.name) ||
+      isMaleVoiceName(v.name)
     );
     return plVoices;
   } catch {
@@ -167,19 +194,13 @@ export const getPolishVoices = (): SpeechSynthesisVoice[] => {
 /**
  * Find the best available Polish voice matching the given preference.
  * voiceURI is searched in ALL available voices (exact match), then Polish voices.
- * For 'male' gender: returns null if no male voice exists rather than falling back to female.
  */
 export const getPolishVoice = (preference?: { voiceURI?: string; gender?: 'female' | 'male' }): SpeechSynthesisVoice | null => {
   if (!isTtsSupported()) return null;
 
   try {
     const allVoices = window.speechSynthesis.getVoices();
-    const polishVoices = allVoices.filter(v =>
-      v.lang.toLowerCase().startsWith('pl') ||
-      v.name.toLowerCase().includes('paulina') ||
-      v.name.toLowerCase().includes('zofia') ||
-      v.name.toLowerCase().includes('jacek')
-    );
+    const polishVoices = getPolishVoices();
 
     // 1. Exact voiceURI match — use that specific voice directly
     if (preference?.voiceURI) {
@@ -187,24 +208,29 @@ export const getPolishVoice = (preference?: { voiceURI?: string; gender?: 'femal
       if (exactMatch) return exactMatch;
     }
 
-    if (polishVoices.length === 0) return null;
+    if (polishVoices.length === 0) {
+      return allVoices[0] || null;
+    }
 
-    // 2. Female: try known female names → Google PL → first non-male Polish voice
+    // 2. Male: try known male names → first non-female Polish voice → first available
+    if (preference?.gender === 'male') {
+      const namedMale = polishVoices.find(v => isMaleVoiceName(v.name));
+      if (namedMale) return namedMale;
+      const nonFemale = polishVoices.find(v => !isFemaleVoiceName(v.name));
+      if (nonFemale) return nonFemale;
+      // Also check all system voices for male if polishVoices didn't have one
+      const anyMale = allVoices.find(v => isMaleVoiceName(v.name));
+      if (anyMale) return anyMale;
+      return polishVoices[0];
+    }
+
+    // 3. Female: try known female names → Google PL → first non-male Polish voice
     if (preference?.gender === 'female') {
-      const named = polishVoices.find(v => isFemaleVoiceName(v.name));
-      if (named) return named;
+      const namedFemale = polishVoices.find(v => isFemaleVoiceName(v.name));
+      if (namedFemale) return namedFemale;
       const googlePl = polishVoices.find(v => v.name.toLowerCase().includes('google'));
       if (googlePl) return googlePl;
       return polishVoices.find(v => !isMaleVoiceName(v.name)) || polishVoices[0];
-    }
-
-    // 3. Male: try known male names → first non-female Polish voice → null (no fallback to female)
-    if (preference?.gender === 'male') {
-      const named = polishVoices.find(v => isMaleVoiceName(v.name));
-      if (named) return named;
-      // Pick any voice that is NOT a known female name
-      const nonFemale = polishVoices.find(v => !isFemaleVoiceName(v.name));
-      return nonFemale || null; // return null rather than accidentally picking female
     }
 
     // 4. No gender preference: Paulina > Zofia > Ewa > Google PL > Microsoft PL > first
@@ -220,31 +246,6 @@ export const getPolishVoice = (preference?: { voiceURI?: string; gender?: 'femal
     console.warn("Failed to get voices:", err);
     return null;
   }
-};
-
-
-/**
- * Returns true if the given voice name is likely female based on known Polish voice names.
- */
-const isFemaleVoiceName = (name: string): boolean => {
-  const fn = name.toLowerCase();
-  return (
-    fn.includes('paulina') || fn.includes('zofia') || fn.includes('ewa') ||
-    fn.includes('agnieszka') || fn.includes('maja') || fn.includes('zira') ||
-    fn.includes('kobieta') || fn.includes('female') || fn.includes('zosia')
-  );
-};
-
-/**
- * Returns true if the given voice name is likely male based on known Polish voice names.
- */
-const isMaleVoiceName = (name: string): boolean => {
-  const fn = name.toLowerCase();
-  return (
-    fn.includes('jacek') || fn.includes('jan') || fn.includes('marek') ||
-    fn.includes('adam') || fn.includes('male') || fn.includes('mężczyzna') ||
-    fn.includes('tomasz') || fn.includes('paweł') || fn.includes('pawel')
-  );
 };
 
 const speakNextSegment = () => {

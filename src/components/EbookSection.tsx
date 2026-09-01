@@ -59,17 +59,10 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
       }
     };
     updateVoices();
-    const interval = setInterval(updateVoices, 300);
-    const timeout = setTimeout(() => clearInterval(interval), 3500);
 
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
       window.speechSynthesis.onvoiceschanged = updateVoices;
     }
-
-    return () => {
-      clearInterval(interval);
-      clearTimeout(timeout);
-    };
   }, []);
 
   // Check if a credible male Polish voice exists
@@ -285,11 +278,18 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
   }, [goToNextPage, goToPrevPage]);
 
   // Read page with AI TTS
-  const startReadingPage = useCallback(async (targetPage: number) => {
+  const startReadingPage = useCallback(async (
+    targetPage: number,
+    overrideGender?: 'female' | 'male',
+    overrideVoiceUri?: string
+  ) => {
     if (!isTtsSupported()) {
       alert("Twoja przeglądarka nie wspiera funkcji Lektora AI (SpeechSynthesis).");
       return;
     }
+
+    const activeGender = overrideGender !== undefined ? overrideGender : selectedGender;
+    const activeVoiceUri = overrideVoiceUri !== undefined ? overrideVoiceUri : selectedVoiceUri;
 
     setIsExtractingText(true);
 
@@ -312,7 +312,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
         setTimeout(() => {
           const nextP = goToNextPage();
           if (nextP) {
-            startReadingPage(nextP);
+            startReadingPage(nextP, activeGender, activeVoiceUri);
           }
         }, 1500);
       } else {
@@ -327,8 +327,8 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
 
     speakText(textToRead, {
       rate: readingSpeed,
-      gender: selectedGender,
-      voiceURI: selectedVoiceUri || undefined,
+      gender: activeGender,
+      voiceURI: activeVoiceUri || undefined,
       onStart: () => {
         setIsReading(true);
         setIsPaused(false);
@@ -340,7 +340,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
             setFlipDirection('next');
             setCurrentPage(nextP);
             setTimeout(() => {
-              startReadingPage(nextP);
+              startReadingPage(nextP, activeGender, activeVoiceUri);
             }, 600);
           } else {
             setIsReading(false);
@@ -501,7 +501,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
               onClick={() => {
                 setSelectedGender('female');
                 setSelectedVoiceUri('');
-                if (isReading) startReadingPage(currentPage);
+                if (isReading) startReadingPage(currentPage, 'female', '');
               }}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
                 !isVoiceSpecific && selectedGender === 'female'
@@ -516,7 +516,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
               onClick={() => {
                 setSelectedGender('male');
                 setSelectedVoiceUri('');
-                if (isReading) startReadingPage(currentPage);
+                if (isReading) startReadingPage(currentPage, 'male', '');
               }}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
                 !isVoiceSpecific && selectedGender === 'male'
@@ -536,8 +536,9 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
             <select
               value={selectedVoiceUri}
               onChange={(e) => {
-                setSelectedVoiceUri(e.target.value);
-                if (isReading) startReadingPage(currentPage);
+                const newUri = e.target.value;
+                setSelectedVoiceUri(newUri);
+                if (isReading) startReadingPage(currentPage, selectedGender, newUri);
               }}
               className={`text-xs p-2 rounded-xl border font-semibold max-w-[220px] cursor-pointer transition-all ${
                 isDark ? 'bg-slate-800 border-slate-700 text-amber-400 hover:bg-slate-700' : 'bg-slate-100 border-slate-300 text-amber-700 hover:bg-slate-200'
