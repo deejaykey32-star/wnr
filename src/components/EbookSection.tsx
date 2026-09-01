@@ -72,6 +72,19 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
     };
   }, []);
 
+  // Check if a credible male Polish voice exists
+  const hasMaleVoice = availableVoices.some((v) => {
+    const fn = v.name.toLowerCase();
+    return (
+      fn.includes('jacek') || fn.includes('jan') || fn.includes('marek') ||
+      fn.includes('adam') || fn.includes('male') || fn.includes('mężczyzna') ||
+      fn.includes('tomasz') || fn.includes('pawel') || fn.includes('paweł')
+    );
+  });
+
+  // Derived: whether the dropdown has a specific voice selected (not Auto)
+  const isVoiceSpecific = selectedVoiceUri !== '';
+
   // Responsive default view mode
   useEffect(() => {
     const handleResize = () => {
@@ -483,6 +496,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
         <div className="flex flex-wrap items-center gap-2">
           {/* Gender Switcher (Głos Żeński / Męski) */}
           <div className={`flex items-center rounded-xl p-1 border text-xs ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-slate-200 border-slate-300'}`}>
+
             <button
               onClick={() => {
                 setSelectedGender('female');
@@ -490,13 +504,13 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
                 if (isReading) startReadingPage(currentPage);
               }}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
-                selectedGender === 'female' && !selectedVoiceUri
+                !isVoiceSpecific && selectedGender === 'female'
                   ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-bold shadow-md'
                   : 'text-slate-400 hover:text-slate-200'
               }`}
               title="Czysty głos żeński (np. Paulina / Zofia / Google)"
             >
-              👩 <span>Głos Żeński (AI)</span>
+              👩 <span>Głos żeński</span>
             </button>
             <button
               onClick={() => {
@@ -505,17 +519,18 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
                 if (isReading) startReadingPage(currentPage);
               }}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
-                selectedGender === 'male' && !selectedVoiceUri
+                !isVoiceSpecific && selectedGender === 'male'
                   ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-bold shadow-md'
                   : 'text-slate-400 hover:text-slate-200'
               }`}
-              title="Głos męski (np. Jacek / Jan / Google)"
+              title={hasMaleVoice ? 'Głos męski (np. Jacek)' : 'Brak głosu męskiego w systemie — zostanie użyty neutralny'}
             >
-              👨 <span>Głos Męski (AI)</span>
+              👨 <span>Głos Męski{!hasMaleVoice && availableVoices.length > 0 ? ' ⚠️' : ''}</span>
             </button>
           </div>
 
           {/* Voice Dropdown Selector */}
+
           <div className="flex items-center gap-2">
             <span className="text-xs text-slate-400 hidden sm:inline">Głos systemowy:</span>
             <select
@@ -526,11 +541,11 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
               }}
               className={`text-xs p-2 rounded-xl border font-semibold max-w-[220px] cursor-pointer transition-all ${
                 isDark ? 'bg-slate-800 border-slate-700 text-amber-400 hover:bg-slate-700' : 'bg-slate-100 border-slate-300 text-amber-700 hover:bg-slate-200'
-              }`}
-              title="Wybierz wygenerowany głos systemowy AI"
+              } ${isVoiceSpecific ? 'ring-2 ring-amber-500' : ''}`}
+              title="Wybierz konkretny głos systemowy lub pozostaw Auto"
             >
               <option value="">
-                Auto ({selectedGender === 'female' ? 'Żeński PL' : 'Męski PL'})
+                ★ Auto ({selectedGender === 'female' ? 'Żeński PL' : 'Męski PL'})
               </option>
               {availableVoices.length === 0 && (
                 <option disabled value="__none__">Brak głosów polskich w systemie</option>
@@ -542,6 +557,10 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
               ))}
             </select>
           </div>
+          {/* Warning when no male voice exists */}
+          {selectedGender === 'male' && !hasMaleVoice && !isVoiceSpecific && availableVoices.length > 0 && (
+            <span className="text-xs text-amber-400 italic">⚠️ Brak głosu męskiego w systemie</span>
+          )}
         </div>
       </div>
 
