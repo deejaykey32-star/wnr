@@ -551,11 +551,14 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
               {availableVoices.length === 0 && (
                 <option disabled value="__none__">Brak głosów polskich w systemie</option>
               )}
-              {availableVoices.map((v) => (
-                <option key={v.voiceURI} value={v.voiceURI}>
-                  {v.name} [{v.lang}]
-                </option>
-              ))}
+              {availableVoices.map((v, idx) => {
+                const voiceId = (v.voiceURI && v.voiceURI.trim() !== '') ? v.voiceURI : v.name;
+                return (
+                  <option key={`${voiceId}-${idx}`} value={voiceId}>
+                    {v.name} [{v.lang}]
+                  </option>
+                );
+              })}
             </select>
           </div>
           {/* Warning when no male voice exists */}

@@ -202,9 +202,14 @@ export const getPolishVoice = (preference?: { voiceURI?: string; gender?: 'femal
     const allVoices = window.speechSynthesis.getVoices();
     const polishVoices = getPolishVoices();
 
-    // 1. Exact voiceURI match — use that specific voice directly
+    // 1. Exact voiceURI / name match — use that specific voice directly
     if (preference?.voiceURI) {
-      const exactMatch = allVoices.find(v => v.voiceURI === preference.voiceURI || v.name === preference.voiceURI);
+      const targetUri = preference.voiceURI.trim();
+      const exactMatch = allVoices.find(v => 
+        (v.voiceURI && v.voiceURI.trim() === targetUri) ||
+        (v.name && v.name.trim() === targetUri) ||
+        (v.voiceURI || v.name) === targetUri
+      );
       if (exactMatch) return exactMatch;
     }
 
