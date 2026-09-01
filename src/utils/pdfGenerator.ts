@@ -378,7 +378,7 @@ export const generateCustomScopePdf = async (
     doc.setFont(fontName, 'bold');
     doc.setFontSize(9.5);
     doc.setTextColor(79, 70, 229);
-    doc.text("Materiały analityczne (Notebook Gemini QR):", margin, tempY);
+    doc.text("Materiały analityczne i odnośniki QR:", margin, tempY);
     tempY += 5;
 
     for (const item of activeUrls) {

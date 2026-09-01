@@ -6,13 +6,13 @@ import {
 } from 'lucide-react';
 
 export const GEMINI_ANALYSIS_TYPES = [
-  { id: 1, label: 'Podsumowanie audio', desc: 'Dwugłosowy podcast AI — Notebook Gemini', icon: Play, color: 'from-red-600 to-orange-500' },
-  { id: 2, label: 'Podsumowanie wideo', desc: 'Prezentacja wideo — Notebook Gemini', icon: Video, color: 'from-blue-600 to-sky-600' },
-  { id: 3, label: 'Prezentacja', desc: 'Streszczenie w formie slajdów — Notebook Gemini', icon: BookOpen, color: 'from-emerald-600 to-teal-600' },
-  { id: 4, label: 'Fiszki', desc: 'Zestaw kluczowych zagadnień — Notebook Gemini', icon: Info, color: 'from-indigo-600 to-purple-600' },
-  { id: 5, label: 'Test', desc: 'Pytania sprawdzające i quizy — Notebook Gemini', icon: HelpCircle, color: 'from-violet-600 to-fuchsia-600' },
-  { id: 6, label: 'Infografika', desc: 'Graficzny schemat i oś czasu — Notebook Gemini', icon: GraduationCap, color: 'from-amber-600 to-orange-600' },
-  { id: 7, label: 'Raport', desc: 'Kompletne opracowanie merytoryczne — Notebook Gemini', icon: FileText, color: 'from-rose-600 to-pink-600' },
+  { id: 1, label: 'Podsumowanie audio', desc: 'Dwugłosowy podcast AI', icon: Play, color: 'from-red-600 to-orange-500' },
+  { id: 2, label: 'Podsumowanie wideo', desc: 'Prezentacja wideo', icon: Video, color: 'from-blue-600 to-sky-600' },
+  { id: 3, label: 'Prezentacja', desc: 'Streszczenie w formie slajdów', icon: BookOpen, color: 'from-emerald-600 to-teal-600' },
+  { id: 4, label: 'Fiszki', desc: 'Zestaw kluczowych zagadnień', icon: Info, color: 'from-indigo-600 to-purple-600' },
+  { id: 5, label: 'Test', desc: 'Pytania sprawdzające i quizy', icon: HelpCircle, color: 'from-violet-600 to-fuchsia-600' },
+  { id: 6, label: 'Infografika', desc: 'Graficzny schemat i oś czasu', icon: GraduationCap, color: 'from-amber-600 to-orange-600' },
+  { id: 7, label: 'Raport', desc: 'Kompletne opracowanie merytoryczne', icon: FileText, color: 'from-rose-600 to-pink-600' },
   { id: 8, label: 'YouTube', desc: 'Nagranie wideo na YouTube', icon: Youtube, color: 'from-red-600 to-red-500' }
 ];
 
@@ -125,10 +125,10 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
         <div>
           <h3 className={`text-sm sm:text-base font-bold flex items-center gap-2 ${isLight ? 'text-slate-900' : 'text-white'}`}>
             <Sparkles className="w-4 h-4 text-emerald-400 animate-pulse" />
-            Materiały Analityczne i Wideo (Notebook Gemini / YouTube)
+            Materiały Analityczne i Wideo
           </h3>
           <p className={`text-xs mt-0.5 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-            Podcasty AI, analizy, fiszki i nagrania wideo powiązane z tym wpisem
+            Podcasty, analizy, fiszki i nagrania wideo powiązane z tym wpisem
           </p>
         </div>
 
@@ -177,7 +177,7 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
                     : 'bg-emerald-950/70 hover:bg-emerald-900/90 text-emerald-300 border border-emerald-800/60'
                     }`}
                 >
-                  Otwórz w Gemini Notebook <ExternalLink className="w-3 h-3" />
+                  Otwórz Zasób <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
             </div>

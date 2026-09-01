@@ -659,7 +659,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         }
       })();
 
-      setSaveStatus({ success: true, message: "Wpis i linki Gemini zapisane pomyślnie w lokalnej bazie oraz chmurze!" });
+      setSaveStatus({ success: true, message: "Wpis zapisany pomyślnie w lokalnej bazie oraz chmurze!" });
       setEditing(false);
       setTimeout(() => setSaveStatus(null), 5000);
     } catch (err: any) {

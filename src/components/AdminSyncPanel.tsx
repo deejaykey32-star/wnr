@@ -261,7 +261,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         'blog_entries',
         15,
         40,
-        '2/5. 365 wpisów WnR365 (rozważania codzienne + Gemini AI)...'
+        '2/5. 365 wpisów WnR365 (rozważania codzienne)...'
       );
       await new Promise(r => setTimeout(r, 60));
 
@@ -344,7 +344,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         setSyncProgress({
           active: true,
           percent: Math.min(92, pct),
-          step: '4/5. 4 × 365 rozdziałów Biblia365 (1460 czytań od Rdz do Ap + Gemini AI)...',
+          step: '4/5. 4 × 365 rozdziałów Biblia365 (1460 czytań od Rdz do Ap)...',
           itemCounter: `${currentDone} / ${totalBibleCount} rozdziałów Biblia365`
         });
         await new Promise(r => setTimeout(r, 30));
@@ -373,7 +373,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
       setMasterStatus({
         type: 'success',
-        message: `🎉 Sukces! Zsynchronizowano: Wstęp i Misję, 365 wpisów WnR365, 2 × 175 modlitw RHZ365 (350 dni) oraz 4 × 365 rozdziałów Biblia365 (1460 czytań) wraz z kompletem linków Gemini Notebook.`
+        message: `🎉 Sukces! Zsynchronizowano: Wstęp i Misję, 365 wpisów WnR365, 2 × 175 modlitw RHZ365 (350 dni) oraz 4 × 365 rozdziałów Biblia365 (1460 czytań).`
       });
     } catch (err: any) {
       const isQuota = err?.message?.includes('Quota limit exceeded') || err?.message?.includes('resource-exhausted') || err?.code === 'resource-exhausted';
@@ -683,7 +683,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
         setMasterStatus({
           type: 'success',
-          message: `✅ Pomyślnie wgrano i zastosowano bazę NoSQL (${Object.keys(snapshot.blogEntries).length} wpisów WnR365, ${Object.keys(snapshot.prayers).length} modlitw RHZ365 i ${Object.keys(snapshot.bibleEntries).length} czytań Biblia365 z linkami Gemini)!`
+          message: `✅ Pomyślnie wgrano i zastosowano bazę NoSQL (${Object.keys(snapshot.blogEntries).length} wpisów WnR365, ${Object.keys(snapshot.prayers).length} modlitw RHZ365 i ${Object.keys(snapshot.bibleEntries).length} czytań Biblia365)!`
         });
       } catch (err: any) {
         setMasterStatus({
@@ -761,7 +761,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         {/* Info banner */}
         <div className={`mx-5 mt-4 px-4 py-3 rounded-xl text-xs border ${isDark ? 'bg-amber-500/10 border-amber-500/30 text-amber-300' : 'bg-amber-50 border-amber-200 text-amber-700'}`}>
           <Database size={13} className="inline mr-1.5" />
-          <strong>Architektura Zerowych Kosztów:</strong> Wszystkie treści i linki Gemini ładują się w 100% z dedykowanego pliku NoSQL w kodzie aplikacji na GitHubie/Cloudflare. Firestore służy jako automatyczny backup.
+          <strong>Architektura Zerowych Kosztów:</strong> Wszystkie treści ładują się w 100% z dedykowanego pliku NoSQL w kodzie aplikacji na GitHubie/Cloudflare. Firestore służy jako automatyczny backup.
         </div>
 
         <div className="p-5 space-y-4">
@@ -774,12 +774,12 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
                 Inteligentna Synchronizacja (Wszystko w 1)
               </h3>
               <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-mono font-bold border border-amber-500/30">
-                4 Sekcje + Gemini AI
+                4 Sekcje
               </span>
             </div>
 
             <p className={`text-xs mb-4 leading-relaxed ${subText}`}>
-              Jednym kliknięciem synchronizuje całą zawartość: <strong>Wstęp</strong>, <strong>RHZ365</strong> (różaniec i tajemnice), <strong>WnR365</strong> (365 rozważań) oraz <strong>Biblia365</strong> (1460 czytań) wraz z kompletem linków Gemini Notebook.
+              Jednym kliknięciem synchronizuje całą zawartość: <strong>Wstęp</strong>, <strong>RHZ365</strong> (różaniec i tajemnice), <strong>WnR365</strong> (365 rozważań) oraz <strong>Biblia365</strong> (1460 czytań).
             </p>
 
             {/* Hidden file input */}
@@ -919,7 +919,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
               </div>
 
               <p className="text-[11px] text-slate-400">
-                GitHub Actions automatycznie co 6 godzin (i o północy) pobiera z Firestore wszystkie nowe linki Gemini i wykonuje <code>git push</code> bez asystenta.
+                GitHub Actions automatycznie co 6 godzin (i o północy) pobiera z Firestore wszystkie nowe dane i wykonuje <code>git push</code> bez asystenta.
               </p>
 
               {/* Direct Commit to GitHub API button (Bypasses Firestore entirely) */}
@@ -1008,7 +1008,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
         {/* Footer */}
         <div className={`px-5 py-3 border-t text-xs ${subText} ${isDark ? 'border-slate-700' : 'border-slate-200'}`}>
-          🔒 Panel administracyjny eMBiK365. Wszystkie linki Gemini Notebook zapisywane są z zerowym opóźnieniem.
+          🔒 Panel administracyjny eMBiK365. Wszystkie dane zapisywane są z zerowym opóźnieniem.
         </div>
       </div>
     </div>

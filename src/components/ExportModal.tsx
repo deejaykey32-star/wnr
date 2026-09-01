@@ -347,7 +347,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
                     Dołącz kody QR i interaktywne odnośniki
                   </span>
                   <span className="block text-[11px] text-slate-400 font-normal">
-                    (Materiały analityczne Gemini NotebookLM oraz odnośniki nawigacyjne do portalu)
+                    (Materiały analityczne oraz odnośniki nawigacyjne do portalu)
                   </span>
                 </div>
               </label>
