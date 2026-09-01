@@ -212,7 +212,26 @@ export const getVoicesForLang = (langCode: string): SpeechSynthesisVoice[] => {
     const voices = window.speechSynthesis.getVoices();
     return voices.filter(v => {
       const vLang = (v.lang || '').toLowerCase().replace('_', '-');
-      return vLang.startsWith(target);
+      const vName = (v.name || '').toLowerCase();
+      
+      // Direct prefix or code match
+      if (vLang.startsWith(target) || vLang.includes(`-${target}`) || vLang.includes(`_${target}`)) {
+        return true;
+      }
+      
+      // Keyword fallback for language names
+      if (target === 'en' && (vName.includes('english') || vLang.includes('en'))) return true;
+      if (target === 'de' && (vName.includes('deutsch') || vName.includes('german') || vLang.includes('de'))) return true;
+      if (target === 'es' && (vName.includes('español') || vName.includes('spanish') || vLang.includes('es'))) return true;
+      if (target === 'fr' && (vName.includes('français') || vName.includes('french') || vLang.includes('fr'))) return true;
+      if (target === 'it' && (vName.includes('italiano') || vName.includes('italian') || vLang.includes('it'))) return true;
+      if (target === 'uk' && (vName.includes('ukrainian') || vName.includes('україн') || vLang.includes('uk'))) return true;
+      if (target === 'cs' && (vName.includes('czech') || vName.includes('češt') || vLang.includes('cs'))) return true;
+      if (target === 'sk' && (vName.includes('slovak') || vName.includes('slovenč') || vLang.includes('sk'))) return true;
+      if (target === 'ru' && (vName.includes('russian') || vName.includes('рус') || vLang.includes('ru'))) return true;
+      if (target === 'pt' && (vName.includes('portuguese') || vName.includes('português') || vLang.includes('pt'))) return true;
+
+      return false;
     });
   } catch {
     return [];

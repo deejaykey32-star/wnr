@@ -60,11 +60,23 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
       const vList = getVoicesForLang(targetLanguage);
       setAvailableVoices(vList);
     };
+
     updateVoices();
+    const timer1 = setTimeout(updateVoices, 300);
+    const timer2 = setTimeout(updateVoices, 1200);
 
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      window.speechSynthesis.addEventListener('voiceschanged', updateVoices);
       window.speechSynthesis.onvoiceschanged = updateVoices;
     }
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+        window.speechSynthesis.removeEventListener('voiceschanged', updateVoices);
+      }
+    };
   }, [targetLanguage]);
 
   // Check if a credible male Polish voice exists
