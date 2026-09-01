@@ -13,6 +13,7 @@ import { RosaryRenderer } from './components/RosaryRenderer';
 import { PrayerEditor } from './components/PrayerEditor';
 import { BlogSection } from './components/BlogSection';
 import { BibleSection } from './components/BibleSection';
+import { EbookSection } from './components/EbookSection';
 import { AdminSyncPanel } from './components/AdminSyncPanel';
 import { NotebookGeminiPanel } from './components/NotebookGeminiPanel';
 import { RichTextRenderer } from './utils/richTextHelper';
@@ -85,8 +86,8 @@ export default function App() {
 
   const userEmail = user?.email || (localAuth ? 'kuta.dominik@gmail.com (Edytor)' : '');
 
-  // Main UI tab ('rosary' | 'blog' | 'bible')
-  const [activeTab, setActiveTab] = useState<'rosary' | 'blog' | 'bible'>('rosary');
+  // Main UI tab ('rosary' | 'blog' | 'bible' | 'book')
+  const [activeTab, setActiveTab] = useState<'rosary' | 'blog' | 'bible' | 'book'>('rosary');
 
   // Bible state
   const [bibleEntries, setBibleEntries] = useState<Record<string, LocalBibleEntry>>({});
@@ -1008,14 +1009,14 @@ export default function App() {
     }
   };
 
-  const getSlugForTabAndDate = (tab: 'rosary' | 'blog' | 'bible', date: Date) => {
+  const getSlugForTabAndDate = (tab: 'rosary' | 'blog' | 'bible' | 'book', date: Date) => {
     try {
       const safeD = (date && !isNaN(new Date(date).getTime())) ? new Date(date) : new Date();
       const cycleStart = new Date(2025, 11, 25, 12, 0, 0, 0); // Dec 25, 2025
       const diffMs = safeD.getTime() - cycleStart.getTime();
       const dayIndex = Math.max(0, Math.min(364, Math.floor(diffMs / 86400000)));
       const totalDayNum = dayIndex + 1; // 1 to 365
-      const prefix = tab === 'rosary' ? 'rhz365-day' : tab === 'blog' ? 'wnr365-day' : 'bible365-day';
+      const prefix = tab === 'rosary' ? 'rhz365-day' : tab === 'blog' ? 'wnr365-day' : tab === 'bible' ? 'bible365-day' : 'ebook';
       return `/#/${prefix}-${totalDayNum}`;
     } catch {
       return '/#/';
@@ -2453,6 +2454,21 @@ export default function App() {
               <span className="hidden sm:inline">BIBLIA365 — CZTERY LATA Z PISMEM ŚWIĘTYM</span>
               <span className="inline sm:hidden truncate">BIBLIA365</span>
             </button>
+            <button
+              id="tab-book-trigger"
+              onClick={() => setActiveTab('book')}
+              className={`flex-1 py-2.5 sm:py-3 px-2 sm:px-3 rounded-xl text-xs sm:text-sm font-semibold tracking-wide transition-all cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 min-w-0 w-full max-w-full ${
+                activeTab === 'book'
+                  ? 'bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 text-white shadow-lg font-black'
+                  : isLight 
+                    ? 'text-slate-600 hover:text-slate-950 hover:bg-white/60'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+              }`}
+            >
+              <BookOpen className="w-4 h-4 shrink-0 text-amber-400" />
+              <span className="hidden sm:inline">KSIĄŻKA (PDF) — PREZENTACJA WnR365</span>
+              <span className="inline sm:hidden truncate">KSIĄŻKA PDF</span>
+            </button>
           </div>
         )}
 
@@ -3420,7 +3436,7 @@ export default function App() {
             onOpenExportModal={() => setShowCustomExportModal(true)}
             onBlogEntriesUpdated={setBlogEntries}
           />
-        ) : (
+        ) : activeTab === 'bible' ? (
           <BibleSection
             user={user}
             isAuthorized={isAuthorized}
@@ -3430,6 +3446,8 @@ export default function App() {
             onSaveBibleEntry={handleSaveBibleEntry}
             theme={theme}
           />
+        ) : (
+          <EbookSection theme={theme} />
         )}
       </main>
 

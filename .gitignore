@@ -7,6 +7,8 @@ coverage/
 .env*
 !.env.example
 *.pdf
+!WnR365.pdf
+!public/WnR365.pdf
 *.zip
 scratch/
 wnr-project/
