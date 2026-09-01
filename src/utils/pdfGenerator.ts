@@ -453,7 +453,12 @@ export const generateCustomScopePdf = async (
       doc.setFont(fontName, 'bold');
       doc.setFontSize(14);
       doc.setTextColor(15, 23, 42);
-      doc.text("Wstęp i Misja eMBiK365", margin, y);
+      const introTitle = scope === 'wnr365' 
+        ? "Wstęp i Misja Widoki na Raj (WnR365)" 
+        : scope === 'rhz365' 
+          ? "Wstęp i Misja Różaniec Historii Zbawienia (RHZ365)" 
+          : "Wstęp i Misja eMBiK365";
+      doc.text(introTitle, margin, y);
       y += 8;
 
       if (mainText) {
@@ -514,7 +519,9 @@ export const generateCustomScopePdf = async (
     const dayLabel = `${date.getDate()} ${MONTH_NAMES_GENITIVE[date.getMonth()]}`;
 
     let cycleName = "";
-    if (dayIdx >= 0 && dayIdx < 175) {
+    if (scope === 'wnr365') {
+      cycleName = `Widoki na Raj — WnR365 (Dzień ${currentDayNum})`;
+    } else if (dayIdx >= 0 && dayIdx < 175) {
       cycleName = `Cykl I (Różaniec Tradycyjny) — Dzień ${dayIdx + 1}`;
     } else if (dayIdx >= 175 && dayIdx < 182) {
       cycleName = `7 Dni Przerwy — Dzień ${dayIdx - 174}`;

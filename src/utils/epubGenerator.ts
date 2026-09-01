@@ -307,7 +307,9 @@ p {
       const dayLabel = `${date.getDate()} ${MONTH_NAMES_GENITIVE[date.getMonth()]}`;
 
     let cycleName = "";
-    if (i >= 0 && i < 175) {
+    if (scope === 'wnr365') {
+      cycleName = `Widoki na Raj — WnR365 (Dzień ${dayNum})`;
+    } else if (i >= 0 && i < 175) {
       cycleName = `Cykl I (Różaniec Tradycyjny) — Dzień ${i + 1}`;
     } else if (i >= 175 && i < 182) {
       cycleName = `7 Dni Przerwy — Dzień ${i - 174}`;
@@ -388,7 +390,8 @@ p {
         wnrUrls.forEach(u => { if (u) allUrls.push(u); });
       }
 
-      const embeddedUrls = extractUrlsFromText(`${rawRhzText} ${wnrDoc.text || ''}`);
+      const scanText = scope === 'wnr365' ? (wnrDoc.text || '') : scope === 'rhz365' ? rawRhzText : `${rawRhzText} ${wnrDoc.text || ''}`;
+      const embeddedUrls = extractUrlsFromText(scanText);
       embeddedUrls.forEach(u => { if (u) allUrls.push(u); });
       const uniqueUrls = Array.from(new Set(allUrls));
 
