@@ -322,12 +322,31 @@ export const sanitizeTextForTts = (text: string): string => {
   if (!text) return "";
 
   return text
-    // 0. Remove QR codes, captions, dates, cycle info, and headers
+    // 0. Remove QR codes and captions
     .replace(/\[qr:[^\]]+\]/gi, '')
     .replace(/\[caption:[^\]]+\]/gi, '')
+
+    // 0b. Remove scripture citations in parentheses, e.g. (Mt 10,8), (J 10,34), (Dz 2,1-4)
+    .replace(/\([A-Za-z0-9\s,\.\-–—]+\)/g, (match) => {
+      if (/\b(Mt|Marek|Łk|Łukasz|J|Jan|Dz|Apostolskie|Rzym|Kor|Gal|Efez|Filip|Kol|Tes|Tim|Tyt|Filem|Hbr|Jk|Piotr|Juda|Ap|Rdz|Wj|Kpł|Lb|Pwt|Joz|Sędziowie|Rut|Sam|Krl|Krn|Ezd|Ne|Tob|Jdt|Est|Mach|Hiob|Ps|Prz|Kohelet|Pieśń|Mdr|Syr|Iz|Jer|Lm|Bar|Ez|Dn|Oz|Joel|Am|Obad|Jonasz|Mich|Nah|Hab|Sof|Ag|Zach|Mal)\b/i.test(match)) {
+        return '';
+      }
+      if (/Cykl|Dzień|Różaniec|Historii/i.test(match)) {
+        return '';
+      }
+      return match;
+    })
+
+    // 0c. Remove dates in brackets, headers, footers, page numbers and brand acronyms
     .replace(/\[\d{2}\.\d{2}\.\d{4}\]/g, '')
-    .replace(/Widoki na Raj\s*-\s*Dzień\s*\d+(\s*\(Cykl\s+[^\)]+\))?(\s*-\s*\[[^\]]+\])?(\s*-\s*)?/gi, '')
-    .replace(/^(RHZ365|WnR365|Biblia365)\s*[-–—]?\s*/gi, '')
+    .replace(/Widoki na Raj\s*[-—–]\s*WnR365/gi, '')
+    .replace(/eMBiK365\s*[-—–]\s*widokinaraj\.pl/gi, '')
+    .replace(/DZIEŃ\s+\d+\s*[-—–]\s*[^\s]+/gi, '')
+    .replace(/Cykl\s+[I|V|X\d]+\s*\([^\)]*\)\s*[-—–]\s*Dzień\s*\d+/gi, '')
+    .replace(/WnR365\s*[-—–]\s*Widoki na Raj\s*[-—–]?\s*\([^\)]*\)\s*[-—–]?\s*\[[^\]]*\]/gi, '')
+    .replace(/str\.\s*\d+/gi, '')
+    .replace(/\b(eMBiK365|WnR365|RHZ365|Biblia365|widokinaraj\.pl)\b/gi, '')
+    .replace(/\b(np|itd|itp|tzn|tzw|wg)\b\.?/gi, '')
 
     // 1. Remove quotes (cudzysłowy) of all types
     .replace(/[„”"«»‘’'`]/g, '')
