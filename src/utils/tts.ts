@@ -274,6 +274,13 @@ export const sanitizeTextForTts = (text: string): string => {
   if (!text) return "";
 
   return text
+    // 0. Remove QR codes, captions, dates, cycle info, and headers
+    .replace(/\[qr:[^\]]+\]/gi, '')
+    .replace(/\[caption:[^\]]+\]/gi, '')
+    .replace(/\[\d{2}\.\d{2}\.\d{4}\]/g, '')
+    .replace(/Widoki na Raj\s*-\s*Dzień\s*\d+(\s*\(Cykl\s+[^\)]+\))?(\s*-\s*\[[^\]]+\])?(\s*-\s*)?/gi, '')
+    .replace(/^(RHZ365|WnR365|Biblia365)\s*[-–—]?\s*/gi, '')
+
     // 1. Remove quotes (cudzysłowy) of all types
     .replace(/[„”"«»‘’'`]/g, '')
 

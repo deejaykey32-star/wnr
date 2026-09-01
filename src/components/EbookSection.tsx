@@ -150,7 +150,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
     }
   }, [pdfDocument, numPages, leftPageNum, rightPageNum, viewMode, scale, renderPageToDataUrl]);
 
-  // Helper to extract text of a page
+  // Helper to extract text of a page (filtering out headers and keeping only main body content)
   const getPageText = useCallback(async (pageNum: number): Promise<string> => {
     if (extractedTexts[pageNum]) return extractedTexts[pageNum];
     if (!pdfDocument || pageNum < 1 || pageNum > numPages) return "";
@@ -158,9 +158,47 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
     try {
       const page = await pdfDocument.getPage(pageNum);
       const textContent = await page.getTextContent();
-      const text = textContent.items
+      const items: any[] = textContent.items || [];
+
+      if (items.length === 0) return "";
+
+      // Calculate font heights to detect title font size vs body font size
+      const fontHeights = items.map((it: any) => it.height).filter((h: number) => h > 0);
+      let medianHeight = 0;
+      if (fontHeights.length > 0) {
+        const sorted = [...fontHeights].sort((a, b) => a - b);
+        medianHeight = sorted[Math.floor(sorted.length / 2)];
+      }
+
+      // Filter out header items by font height and title regex patterns
+      const bodyItems = items.filter((item: any) => {
+        const str = (item.str || '').trim();
+        if (!str) return false;
+
+        // Filter out known header/title patterns (e.g. Widoki na Raj, Cykl I, dates, Dzień X, headers)
+        if (/^(Widoki na Raj|RHZ365|WnR365|Biblia365|Cykl\s+[I|V|X\d]+|Dzień\s+\d+)/i.test(str)) {
+          return false;
+        }
+        if (/^\[?\d{2}\.\d{2}\.\d{4}\]?$/.test(str)) {
+          return false;
+        }
+
+        // Filter out items with title font size (> 1.25x median body height)
+        if (medianHeight > 0 && item.height > medianHeight * 1.25) {
+          return false;
+        }
+
+        return true;
+      });
+
+      // Combine body items or fallback to all items if filtering left nothing
+      const targetItems = bodyItems.length > 0 ? bodyItems : items;
+      let text = targetItems
         .map((item: any) => item.str)
         .join(' ')
+        .replace(/Widoki na Raj\s*-\s*Dzień\s*\d+(\s*\(Cykl\s+[^\)]+\))?(\s*-\s*\[[^\]]+\])?(\s*-\s*)?/gi, '')
+        .replace(/\[\d{2}\.\d{2}\.\d{4}\]/g, '')
+        .replace(/^(RHZ365|WnR365|Biblia365)\s*[-–—]?\s*/gi, '')
         .replace(/\s+/g, ' ')
         .trim();
 
