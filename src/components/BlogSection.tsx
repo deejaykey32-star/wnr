@@ -1456,54 +1456,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                       />
                     </div>
 
-                    {/* Gemini Notebook URLs Edit Section */}
-                    <div className="pt-4 mt-4 border-t border-slate-800/60 space-y-3 text-left">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-amber-500 flex items-center gap-1.5 font-sans">
-                        <Link className="w-3.5 h-3.5" /> Linki do Zasobów i YouTube (8 pól)
-                      </h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                        {GEMINI_ANALYSIS_TYPES.map((type, idx) => (
-                          <div key={type.id} className="space-y-1 font-sans">
-                            <label className="block font-semibold text-zinc-400">
-                              {type.id}. {type.label} <span className="font-normal text-[10px] text-zinc-500">({type.desc})</span>
-                            </label>
-                            <input
-                              type="text"
-                              inputMode="url"
-                              autoComplete="off"
-                              autoCorrect="off"
-                              autoCapitalize="none"
-                              spellCheck="false"
-                              value={editUrls[idx] || ''}
-                              onChange={(e) => {
-                                const val = e.target.value;
-                                setEditUrls(prev => {
-                                  const next = [...prev];
-                                  next[idx] = val;
-                                  return next;
-                                });
-                              }}
-                              onPaste={(e) => {
-                                const pasted = e.clipboardData.getData('text');
-                                if (pasted) {
-                                  e.preventDefault();
-                                  const val = pasted.trim();
-                                  setEditUrls(prev => {
-                                    const next = [...prev];
-                                    next[idx] = val;
-                                    return next;
-                                  });
-                                }
-                              }}
-                              className={`w-full rounded-lg px-3 py-1.5 text-xs border focus:outline-none transition ${
-                                isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-850 text-slate-200'
-                              }`}
-                              placeholder="https://notebooklm.google.com/..."
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+
 
                     {saveStatus && (
                       <div className={`text-xs p-3 rounded-lg border ${

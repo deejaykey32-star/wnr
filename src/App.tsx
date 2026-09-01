@@ -12,7 +12,6 @@ import { initLocalNoSqlDb, getAllLocalBlogEntries, getAllLocalBlogEntriesSync, s
 import { RosaryRenderer } from './components/RosaryRenderer';
 import { PrayerEditor } from './components/PrayerEditor';
 import { BlogSection } from './components/BlogSection';
-import { BibleSection } from './components/BibleSection';
 import { EbookSection } from './components/EbookSection';
 import { AdminSyncPanel } from './components/AdminSyncPanel';
 import { NotebookGeminiPanel } from './components/NotebookGeminiPanel';
@@ -86,8 +85,8 @@ export default function App() {
 
   const userEmail = user?.email || (localAuth ? 'kuta.dominik@gmail.com (Edytor)' : '');
 
-  // Main UI tab ('rosary' | 'blog' | 'bible' | 'book')
-  const [activeTab, setActiveTab] = useState<'rosary' | 'blog' | 'bible' | 'book'>('rosary');
+  // Main UI tab ('rosary' | 'blog' | 'book')
+  const [activeTab, setActiveTab] = useState<'rosary' | 'blog' | 'book'>('rosary');
 
   // Bible state
   const [bibleEntries, setBibleEntries] = useState<Record<string, LocalBibleEntry>>({});
@@ -1009,14 +1008,14 @@ export default function App() {
     }
   };
 
-  const getSlugForTabAndDate = (tab: 'rosary' | 'blog' | 'bible' | 'book', date: Date) => {
+  const getSlugForTabAndDate = (tab: 'rosary' | 'blog' | 'book', date: Date) => {
     try {
       const safeD = (date && !isNaN(new Date(date).getTime())) ? new Date(date) : new Date();
       const cycleStart = new Date(2025, 11, 25, 12, 0, 0, 0); // Dec 25, 2025
       const diffMs = safeD.getTime() - cycleStart.getTime();
       const dayIndex = Math.max(0, Math.min(364, Math.floor(diffMs / 86400000)));
       const totalDayNum = dayIndex + 1; // 1 to 365
-      const prefix = tab === 'rosary' ? 'rhz365-day' : tab === 'blog' ? 'wnr365-day' : tab === 'bible' ? 'bible365-day' : 'ebook';
+      const prefix = tab === 'rosary' ? 'rhz365-day' : tab === 'blog' ? 'wnr365-day' : 'ebook';
       return `/#/${prefix}-${totalDayNum}`;
     } catch {
       return '/#/';
@@ -1038,8 +1037,8 @@ export default function App() {
         return;
       }
 
-      // Flexible match for /rhz365-day-233, /#/rhz365-day-233, /wnr365-day-233, /#/wnr365-day-233, /bible365-day-233, /#/bible365-day-233, etc.
-      const match = rawPath.match(/(rhz365-day|wnr365-day|bible365-day|rhz365|wnr365|bible365|rhz|wnr|bible|day)[-\/]?(\d+)/i);
+      // Flexible match for /rhz365-day-233, /#/rhz365-day-233, /wnr365-day-233, /#/wnr365-day-233, etc.
+      const match = rawPath.match(/(rhz365-day|wnr365-day|rhz365|wnr365|rhz|wnr|day)[-\/]?(\d+)/i);
       if (match) {
         const routePrefix = match[1].toLowerCase();
         const totalDayNum = parseInt(match[2], 10);
@@ -1049,9 +1048,7 @@ export default function App() {
           const targetDate = new Date(cycleStart.getTime() + dayIndex * 86400000);
           setSelectedDate(targetDate);
           
-          if (routePrefix.startsWith('bible')) {
-            setActiveTab('bible');
-          } else if (routePrefix.startsWith('wnr')) {
+          if (routePrefix.startsWith('wnr')) {
             setActiveTab('blog');
           } else {
             setActiveTab('rosary');
@@ -2440,21 +2437,6 @@ export default function App() {
               <span className="inline sm:hidden truncate">WnR365 BLOG</span>
             </button>
             <button
-              id="tab-bible-trigger"
-              onClick={() => setActiveTab('bible')}
-              className={`flex-1 py-2.5 sm:py-3 px-2 sm:px-3 rounded-xl text-xs sm:text-sm font-semibold tracking-wide transition-all cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 min-w-0 w-full max-w-full ${
-                activeTab === 'bible'
-                  ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg font-black'
-                  : isLight 
-                    ? 'text-slate-600 hover:text-slate-950 hover:bg-white/60'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
-              }`}
-            >
-              <Book className="w-4 h-4 shrink-0 text-emerald-500" />
-              <span className="hidden sm:inline">BIBLIA365 — CZTERY LATA Z PISMEM ŚWIĘTYM</span>
-              <span className="inline sm:hidden truncate">BIBLIA365</span>
-            </button>
-            <button
               id="tab-book-trigger"
               onClick={() => setActiveTab('book')}
               className={`flex-1 py-2.5 sm:py-3 px-2 sm:px-3 rounded-xl text-xs sm:text-sm font-semibold tracking-wide transition-all cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 min-w-0 w-full max-w-full ${
@@ -3435,16 +3417,6 @@ export default function App() {
             theme={theme}
             onOpenExportModal={() => setShowCustomExportModal(true)}
             onBlogEntriesUpdated={setBlogEntries}
-          />
-        ) : activeTab === 'bible' ? (
-          <BibleSection
-            user={user}
-            isAuthorized={isAuthorized}
-            selectedDate={selectedDate}
-            setSelectedDate={setSelectedDate}
-            bibleEntries={bibleEntries}
-            onSaveBibleEntry={handleSaveBibleEntry}
-            theme={theme}
           />
         ) : (
           <EbookSection theme={theme} />

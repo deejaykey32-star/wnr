@@ -148,11 +148,6 @@ export const ExportModal: React.FC<ExportModalProps> = ({
         exportObject.wnr365 = blogEntries;
       }
 
-      if (jsonBible) {
-        exportObject.sections.push('Biblia365');
-        exportObject.bibleEntries = bibleEntries;
-      }
-
       const jsonStr = JSON.stringify(exportObject, null, 2);
       const blob = new Blob([jsonStr], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
@@ -267,17 +262,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
               >
                 WnR365 (Blog)
               </button>
-              <button
-                type="button"
-                onClick={() => setExportScope('bible365')}
-                className={`p-2.5 rounded-xl border text-xs font-bold transition flex items-center justify-center gap-1.5 min-h-[44px] cursor-pointer ${
-                  exportScope === 'bible365'
-                    ? 'bg-emerald-600 text-white border-emerald-500 shadow-sm'
-                    : isLight ? 'bg-slate-100 text-slate-700 border-slate-200' : 'bg-slate-950 text-slate-400 border-slate-800'
-                }`}
-              >
-                Biblia365 (Pismo Św.)
-              </button>
+
               <button
                 type="button"
                 onClick={() => setExportScope('all')}
@@ -438,15 +423,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
                   <span className="text-xs font-bold text-slate-300">WnR365</span>
                 </label>
 
-                <label className="flex items-center gap-2 cursor-pointer font-sans">
-                  <input
-                    type="checkbox"
-                    checked={jsonBible}
-                    onChange={(e) => setJsonBible(e.target.checked)}
-                    className="rounded text-emerald-600 focus:ring-emerald-500 w-4 h-4 cursor-pointer"
-                  />
-                  <span className="text-xs font-bold text-slate-300">Biblia365</span>
-                </label>
+
               </div>
 
               {jsonExportSuccess && (

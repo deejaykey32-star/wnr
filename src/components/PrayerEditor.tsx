@@ -839,65 +839,7 @@ export const PrayerEditor: React.FC<PrayerEditorProps> = ({
           />
         </div>
 
-        {/* Gemini & YouTube URLs and Labels input (8 pól dla wszystkich modlitw/kroków) */}
-        <div className="pt-4 border-t border-slate-800/60 space-y-3">
-          <h4 className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${isLight ? 'text-indigo-600' : 'text-indigo-400'}`}>
-            Materiały, Etykiety i Linki Gemini Notebook / YouTube (8 pól)
-          </h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-            {GEMINI_ANALYSIS_TYPES.map((type, idx) => (
-              <div key={type.id} className="space-y-1.5 p-3 rounded-lg border bg-black/10 border-slate-800/40">
-                <label className={`block font-bold text-xs ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
-                  #{type.id} Domyślnie: {type.label} <span className={`font-normal text-[10px] ${isLight ? 'text-slate-400' : 'text-slate-500'}`}>({type.desc})</span>
-                </label>
-                <div>
-                  <label className="block text-[10px] text-slate-400 mb-0.5">Własna etykieta (opcjonalnie):</label>
-                  <input
-                    type="text"
-                    autoComplete="off"
-                    value={editLabels[idx] || ''}
-                    onChange={(e) => handleLabelChange(idx, e.target.value)}
-                    onPaste={(e) => {
-                      const pasted = e.clipboardData?.getData('text/plain') || e.clipboardData?.getData('text');
-                      if (pasted && pasted.trim()) {
-                        e.preventDefault();
-                        handleLabelChange(idx, pasted.trim());
-                      }
-                    }}
-                    className={`w-full rounded-lg px-2.5 py-1 text-xs border focus:outline-none transition ${
-                      isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-850 text-slate-200'
-                    }`}
-                    placeholder={type.label}
-                  />
-                </div>
-                <div>
-                  <label className="block text-[10px] text-slate-400 mb-0.5">Adres URL Gemini Notebook / YouTube:</label>
-                  <input
-                    type="text"
-                    inputMode="url"
-                    autoComplete="off"
-                    autoCorrect="off"
-                    autoCapitalize="none"
-                    spellCheck="false"
-                    value={editUrls[idx] || ''}
-                    onChange={(e) => handleUrlChange(idx, e.target.value)}
-                    onPaste={(e) => {
-                      const pasted = e.clipboardData?.getData('text/plain') || e.clipboardData?.getData('text');
-                      if (pasted && pasted.trim()) {
-                        e.preventDefault();
-                        handleUrlChange(idx, pasted.trim());
-                      }
-                    }}
-                    className={`w-full rounded-lg px-2.5 py-1.5 text-xs border focus:outline-none transition ${
-                      isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900 border-slate-850 text-slate-200'
-                    }`}
-                    placeholder="https://..."
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+
 
         {/* Audit trail */}
         {prayers[getFirestoreKey()]?.updatedBy && (

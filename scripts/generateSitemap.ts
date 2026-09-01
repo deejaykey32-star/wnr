@@ -11,7 +11,6 @@ function generateSitemapXml(): string {
     { url: '/wstep', priority: '0.9', changefreq: 'weekly' },
     { url: '/rhz365', priority: '0.9', changefreq: 'daily' },
     { url: '/wnr365', priority: '0.9', changefreq: 'daily' },
-    { url: '/biblia365', priority: '0.9', changefreq: 'daily' },
   ];
 
   let urlsXml = staticRoutes.map(route => `  <url>
@@ -27,10 +26,8 @@ function generateSitemapXml(): string {
       `/dzien/${day}`,
       `/dzien/${day}/rhz365`,
       `/dzien/${day}/wnr365`,
-      `/dzien/${day}/biblia365`,
       `/rhz365-day-${day}`,
       `/wnr365-day-${day}`,
-      `/bible365-day-${day}`
     ];
 
     for (const route of dayRoutes) {
