@@ -6,7 +6,7 @@ import {
   BookOpen, Maximize2, Minimize2, Sparkles, Sliders, FileText, 
   ZoomIn, ZoomOut, Check, ArrowRight, Loader2
 } from 'lucide-react';
-import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechSpeaking, isSpeechPaused, isTtsSupported, getPolishVoice, getPolishVoices } from '../utils/tts';
+import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechSpeaking, isSpeechPaused, isTtsSupported, getPolishVoice, getPolishVoices, getOtherVoices } from '../utils/tts';
 
 // Configure PDF.js worker
 if (typeof window !== 'undefined') {
@@ -46,6 +46,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
   // TTS Voice Selection State
   const [selectedGender, setSelectedGender] = useState<'female' | 'male'>('female');
   const [availableVoices, setAvailableVoices] = useState<SpeechSynthesisVoice[]>([]);
+  const [otherVoices, setOtherVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [selectedVoiceUri, setSelectedVoiceUri] = useState<string>('');
 
   const isDark = theme === 'dark';
@@ -56,6 +57,10 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
       const vList = getPolishVoices();
       if (vList.length > 0) {
         setAvailableVoices(vList);
+      }
+      const othList = getOtherVoices();
+      if (othList.length > 0) {
+        setOtherVoices(othList);
       }
     };
     updateVoices();
@@ -529,38 +534,67 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
             </button>
           </div>
 
-          {/* Voice Dropdown Selector */}
-
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-slate-400 hidden sm:inline">Głos systemowy:</span>
+          {/* Polish Voice Dropdown Selector */}
+          <div className="flex items-center gap-1.5">
+            <span className="text-xs text-slate-400 hidden sm:inline">Głos polski:</span>
             <select
-              value={selectedVoiceUri}
+              value={availableVoices.some(v => (v.voiceURI || v.name) === selectedVoiceUri) ? selectedVoiceUri : ''}
               onChange={(e) => {
                 const newUri = e.target.value;
                 setSelectedVoiceUri(newUri);
                 if (isReading) startReadingPage(currentPage, selectedGender, newUri);
               }}
-              className={`text-xs p-2 rounded-xl border font-semibold max-w-[220px] cursor-pointer transition-all ${
+              className={`text-xs p-2 rounded-xl border font-semibold max-w-[190px] cursor-pointer transition-all ${
                 isDark ? 'bg-slate-800 border-slate-700 text-amber-400 hover:bg-slate-700' : 'bg-slate-100 border-slate-300 text-amber-700 hover:bg-slate-200'
-              } ${isVoiceSpecific ? 'ring-2 ring-amber-500' : ''}`}
-              title="Wybierz konkretny głos systemowy lub pozostaw Auto"
+              } ${availableVoices.some(v => (v.voiceURI || v.name) === selectedVoiceUri) ? 'ring-2 ring-amber-500' : ''}`}
+              title="Wybierz polski głos systemowy"
             >
               <option value="">
                 ★ Auto ({selectedGender === 'female' ? 'Żeński PL' : 'Męski PL'})
               </option>
               {availableVoices.length === 0 && (
-                <option disabled value="__none__">Brak głosów polskich w systemie</option>
+                <option disabled value="__none__">Brak polskich głosów</option>
               )}
               {availableVoices.map((v, idx) => {
                 const voiceId = (v.voiceURI && v.voiceURI.trim() !== '') ? v.voiceURI : v.name;
                 return (
-                  <option key={`${voiceId}-${idx}`} value={voiceId}>
+                  <option key={`pl-${voiceId}-${idx}`} value={voiceId}>
                     {v.name} [{v.lang}]
                   </option>
                 );
               })}
             </select>
           </div>
+
+          {/* Foreign / Other Languages Voice Selector */}
+          {otherVoices.length > 0 && (
+            <div className="flex items-center gap-1.5">
+              <span className="text-xs text-slate-400 hidden sm:inline">Inne języki:</span>
+              <select
+                value={otherVoices.some(v => (v.voiceURI || v.name) === selectedVoiceUri) ? selectedVoiceUri : ''}
+                onChange={(e) => {
+                  const newUri = e.target.value;
+                  setSelectedVoiceUri(newUri);
+                  if (isReading) startReadingPage(currentPage, selectedGender, newUri);
+                }}
+                className={`text-xs p-2 rounded-xl border font-semibold max-w-[190px] cursor-pointer transition-all ${
+                  isDark ? 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700' : 'bg-slate-100 border-slate-300 text-slate-700 hover:bg-slate-200'
+                } ${otherVoices.some(v => (v.voiceURI || v.name) === selectedVoiceUri) ? 'ring-2 ring-amber-500 text-amber-400' : ''}`}
+                title="Wybierz głos w innym języku (np. EN, DE, FR...)"
+              >
+                <option value="">🌐 Wybierz inny język...</option>
+                {otherVoices.map((v, idx) => {
+                  const voiceId = (v.voiceURI && v.voiceURI.trim() !== '') ? v.voiceURI : v.name;
+                  return (
+                    <option key={`oth-${voiceId}-${idx}`} value={voiceId}>
+                      {v.name} [{v.lang}]
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+          )}
+
           {/* Warning when no male voice exists */}
           {selectedGender === 'male' && !hasMaleVoice && !isVoiceSpecific && availableVoices.length > 0 && (
             <span className="text-xs text-amber-400 italic">⚠️ Brak głosu męskiego w systemie</span>

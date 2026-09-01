@@ -192,6 +192,21 @@ export const getPolishVoices = (): SpeechSynthesisVoice[] => {
 };
 
 /**
+ * Get all available non-Polish voices in the system (other languages).
+ */
+export const getOtherVoices = (): SpeechSynthesisVoice[] => {
+  if (!isTtsSupported()) return [];
+  try {
+    const voices = window.speechSynthesis.getVoices();
+    const polishVoices = getPolishVoices();
+    const polishSet = new Set(polishVoices);
+    return voices.filter(v => !polishSet.has(v));
+  } catch {
+    return [];
+  }
+};
+
+/**
  * Find the best available Polish voice matching the given preference.
  * voiceURI is searched in ALL available voices (exact match), then Polish voices.
  */
