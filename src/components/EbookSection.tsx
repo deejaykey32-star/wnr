@@ -169,7 +169,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
     }
   }, [pdfDocument, numPages, leftPageNum, rightPageNum, viewMode, scale, renderPageToDataUrl]);
 
-  // Helper to extract text of a page (filtering out headers)
+  // Helper to extract text of a page (filtering out all headers, footers, section titles and page numbers)
   const getPageText = useCallback(async (pageNum: number): Promise<string> => {
     if (extractedTexts[pageNum]) return extractedTexts[pageNum];
     if (!pdfDocument || pageNum < 1 || pageNum > numPages) return "";
@@ -181,26 +181,24 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
 
       if (items.length === 0) return "";
 
-      const fontHeights = items.map((it: any) => it.height).filter((h: number) => h > 0);
-      let medianHeight = 0;
-      if (fontHeights.length > 0) {
-        const sorted = [...fontHeights].sort((a, b) => a - b);
-        medianHeight = sorted[Math.floor(sorted.length / 2)];
-      }
-
+      // Filter out header, footer, title items, and text with height < 12 (headers in WnR365.pdf are h:8, h:10, h:11)
       const bodyItems = items.filter((item: any) => {
         const str = (item.str || '').trim();
         if (!str) return false;
 
-        if (/^(Widoki na Raj|RHZ365|WnR365|Biblia365|Cykl\s+[I|V|X\d]+|Dzień\s+\d+)/i.test(str)) {
-          return false;
-        }
-        if (/^\[?\d{2}\.\d{2}\.\d{4}\]?$/.test(str)) {
-          return false;
-        }
-        if (medianHeight > 0 && item.height > medianHeight * 1.25) {
-          return false;
-        }
+        const y = item.transform ? Math.round(item.transform[5]) : 0;
+        const h = Math.round(item.height);
+
+        // 1. Top running header (y >= 545) or Bottom running footer (y <= 35)
+        if (y >= 545 || y <= 35) return false;
+
+        // 2. Day Header section blocks and titles in WnR365.pdf are in font sizes h: 8, h: 10, h: 11
+        if (h < 12) return false;
+
+        // 3. Known title & branding patterns
+        if (/^(Widoki na Raj|RHZ365|WnR365|Biblia365|Cykl|DZIEŃ|eMBiK365|Historii Zbawienia)/i.test(str)) return false;
+        if (/^\(\s*Cykl/i.test(str) || /^str\.\s*\d+$/i.test(str) || /^\[\d{2}\.\d{2}\.\d{4}\]/i.test(str)) return false;
+
         return true;
       });
 
@@ -208,9 +206,13 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
       let text = targetItems
         .map((item: any) => item.str)
         .join(' ')
-        .replace(/Widoki na Raj\s*-\s*Dzień\s*\d+(\s*\(Cykl\s+[^\)]+\))?(\s*-\s*\[[^\]]+\])?(\s*-\s*)?/gi, '')
+        .replace(/Widoki na Raj\s*[-—–]\s*WnR365/gi, '')
+        .replace(/eMBiK365\s*[-—–]\s*widokinaraj\.pl/gi, '')
+        .replace(/DZIEŃ\s+\d+\s*[-—–]\s*[^\s]+/gi, '')
+        .replace(/Cykl\s+[I|V|X\d]+\s*\([^\)]*\)\s*[-—–]\s*Dzień\s*\d+/gi, '')
+        .replace(/WnR365\s*[-—–]\s*Widoki na Raj\s*[-—–]?\s*\([^\)]*\)\s*[-—–]?\s*\[[^\]]*\]/gi, '')
         .replace(/\[\d{2}\.\d{2}\.\d{4}\]/g, '')
-        .replace(/^(RHZ365|WnR365|Biblia365)\s*[-–—]?\s*/gi, '')
+        .replace(/str\.\s*\d+/gi, '')
         .replace(/\s+/g, ' ')
         .trim();
 
