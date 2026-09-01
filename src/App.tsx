@@ -1568,8 +1568,8 @@ export default function App() {
     if (activeStep.prayerType === 'mystery') {
       const decIdx = activeStep.decadeIndex || 1;
       const mysteryData = getActiveDecadeMystery(cycleInfo.cycleType, cycleInfo.dayOfCycle, decIdx, prayers);
-      const mysteryUrls = prayers[`custom_step_${activeStep.id}`]?.notebookUrls || prayers[`day_${cycleInfo.dayOfCycle}_decade_rgba_${decIdx}`]?.notebookUrls || [];
-      const mysteryLabels = prayers[`custom_step_${activeStep.id}`]?.notebookLabels || prayers[`day_${cycleInfo.dayOfCycle}_decade_rgba_${decIdx}`]?.notebookLabels || [];
+      const mysteryUrls: string[] = [];
+      const mysteryLabels: string[] = [];
 
       // Cykl I: Traditional RHZ365 Prayer Presentation (22-step structured view)
       if (activeStep.decadeIndex) {
@@ -1907,93 +1907,8 @@ export default function App() {
     return new Date().toISOString();
   }, [selectedDate]);
 
-  const currentRhzNotebookUrls = useMemo(() => {
-    const dayNum = cycleInfo?.dayOfCycle ?? 1;
-    const dayKey = `day_${dayNum}`;
-    const decadeIndex = activeStep?.decadeIndex || getDecadeForDay(dayNum);
-    const decadeKey = decadeIndex ? `day_${dayNum}_decade_rgba_${decadeIndex}` : null;
-    const stepKey = activeStep?.id;
-    const prayerTypeKey = activeStep?.prayerType;
-
-    // 1. Check decade specific key
-    if (decadeKey && prayers[decadeKey]?.notebookUrls && prayers[decadeKey].notebookUrls.some(u => u?.trim())) {
-      return prayers[decadeKey].notebookUrls;
-    }
-    // 2. Check main day key
-    if (prayers[dayKey]?.notebookUrls && prayers[dayKey].notebookUrls.some(u => u?.trim())) {
-      return prayers[dayKey].notebookUrls;
-    }
-    // 3. Search all prayer keys starting with day_${dayNum}_
-    const dayPrefix = `day_${dayNum}_`;
-    for (const [k, p] of Object.entries(prayers)) {
-      if (k.startsWith(dayPrefix) && p?.notebookUrls && p.notebookUrls.some(u => u?.trim())) {
-        return p.notebookUrls;
-      }
-    }
-    // 4. Check step key or custom_step_ key
-    if (stepKey) {
-      if (prayers[stepKey]?.notebookUrls && prayers[stepKey].notebookUrls.some(u => u?.trim())) {
-        return prayers[stepKey].notebookUrls;
-      }
-      if (prayers[`custom_step_${stepKey}`]?.notebookUrls && prayers[`custom_step_${stepKey}`].notebookUrls.some(u => u?.trim())) {
-        return prayers[`custom_step_${stepKey}`].notebookUrls;
-      }
-    }
-    // 5. Check prayerType key
-    if (prayerTypeKey && prayers[prayerTypeKey]?.notebookUrls && prayers[prayerTypeKey].notebookUrls.some(u => u?.trim())) {
-      return prayers[prayerTypeKey].notebookUrls;
-    }
-    // 6. Check introTextMain
-    if (prayers['introTextMain']?.notebookUrls && prayers['introTextMain'].notebookUrls.some(u => u?.trim())) {
-      return prayers['introTextMain'].notebookUrls;
-    }
-
-    return prayers[dayKey]?.notebookUrls || [];
-  }, [cycleInfo?.dayOfCycle, activeStep?.decadeIndex, activeStep?.id, activeStep?.prayerType, prayers]);
-
-  const currentRhzNotebookLabels = useMemo(() => {
-    const dayNum = cycleInfo?.dayOfCycle ?? 1;
-    const dayKey = `day_${dayNum}`;
-    const decadeIndex = activeStep?.decadeIndex || getDecadeForDay(dayNum);
-    const decadeKey = decadeIndex ? `day_${dayNum}_decade_rgba_${decadeIndex}` : null;
-    const stepKey = activeStep?.id;
-    const prayerTypeKey = activeStep?.prayerType;
-
-    // 1. Check decade specific key
-    if (decadeKey && prayers[decadeKey]?.notebookLabels && prayers[decadeKey].notebookLabels.some(l => l?.trim())) {
-      return prayers[decadeKey].notebookLabels;
-    }
-    // 2. Check main day key
-    if (prayers[dayKey]?.notebookLabels && prayers[dayKey].notebookLabels.some(l => l?.trim())) {
-      return prayers[dayKey].notebookLabels;
-    }
-    // 3. Search all prayer keys starting with day_${dayNum}_
-    const dayPrefix = `day_${dayNum}_`;
-    for (const [k, p] of Object.entries(prayers)) {
-      if (k.startsWith(dayPrefix) && p?.notebookLabels && p.notebookLabels.some(l => l?.trim())) {
-        return p.notebookLabels;
-      }
-    }
-    // 4. Check step key or custom_step_ key
-    if (stepKey) {
-      if (prayers[stepKey]?.notebookLabels && prayers[stepKey].notebookLabels.some(l => l?.trim())) {
-        return prayers[stepKey].notebookLabels;
-      }
-      if (prayers[`custom_step_${stepKey}`]?.notebookLabels && prayers[`custom_step_${stepKey}`].notebookLabels.some(l => l?.trim())) {
-        return prayers[`custom_step_${stepKey}`].notebookLabels;
-      }
-    }
-    // 5. Check prayerType key
-    if (prayerTypeKey && prayers[prayerTypeKey]?.notebookLabels && prayers[prayerTypeKey].notebookLabels.some(l => l?.trim())) {
-      return prayers[prayerTypeKey].notebookLabels;
-    }
-    // 6. Check introTextMain
-    if (prayers['introTextMain']?.notebookLabels && prayers['introTextMain'].notebookLabels.some(l => l?.trim())) {
-      return prayers['introTextMain'].notebookLabels;
-    }
-
-    return prayers[dayKey]?.notebookLabels || [];
-  }, [cycleInfo?.dayOfCycle, activeStep?.decadeIndex, activeStep?.id, activeStep?.prayerType, prayers]);
+  const currentRhzNotebookUrls: string[] = useMemo(() => [], []);
+  const currentRhzNotebookLabels: string[] = useMemo(() => [], []);
 
   const handleSaveRhzUrls = async (newUrls: string[], newLabels?: string[]) => {
     const dayNum = cycleInfo?.dayOfCycle ?? 1;

@@ -113,7 +113,7 @@ export const NotebookGeminiPanel: React.FC<NotebookGeminiPanelProps> = ({
       ? 'text-amber-400 border-amber-900/30 bg-amber-950/20'
       : 'text-emerald-400 border-emerald-900/30 bg-emerald-950/20';
 
-  if (activeItems.length === 0 && !passageUrl) {
+  if (sectionName === 'RHZ365' || sectionName === 'WnR365' || (activeItems.length === 0 && !passageUrl)) {
     return null;
   }
 

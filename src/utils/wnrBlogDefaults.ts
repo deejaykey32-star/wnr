@@ -67,13 +67,8 @@ export function getWnrDefaultBlogEntry(
   const pdfEntry = pdfMap[blogKey];
   const customBlog = blogEntries[blogKey];
 
-  const rawUrls = (customBlog?.notebookUrls && Array.isArray(customBlog.notebookUrls))
-    ? customBlog.notebookUrls
-    : (pdfEntry?.notebookUrls || []);
-  const effectiveNotebookUrls = rawUrls.filter(u => typeof u === 'string' && !u.toLowerCase().includes('notebook'));
-  const effectiveNotebookLabels = (customBlog?.notebookLabels && Array.isArray(customBlog.notebookLabels))
-    ? customBlog.notebookLabels
-    : (pdfEntry?.notebookLabels || []);
+  const effectiveNotebookUrls: string[] = [];
+  const effectiveNotebookLabels: string[] = [];
 
   // 1. Check if there is an explicit user edit in blogEntries saved recently by an editor
   if (customBlog && customBlog.text && customBlog.title) {
