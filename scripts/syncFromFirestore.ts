@@ -36,8 +36,8 @@ async function syncAllFromFirestore() {
 
     if (data && data.title && data.text) {
       const existing = wnrData[id];
-      const remoteUrls = Array.isArray(data.notebookUrls) ? data.notebookUrls : [];
-      const localUrls = Array.isArray(existing?.notebookUrls) ? existing.notebookUrls : [];
+      const remoteUrls = (Array.isArray(data.notebookUrls) ? data.notebookUrls : []).filter((u: any) => u && typeof u === 'string' && !u.toLowerCase().includes('notebook'));
+      const localUrls = (Array.isArray(existing?.notebookUrls) ? existing.notebookUrls : []).filter((u: any) => u && typeof u === 'string' && !u.toLowerCase().includes('notebook'));
       const finalUrls = remoteUrls.some((u: any) => u && String(u).trim().length > 0) ? remoteUrls : localUrls;
 
       const hasUrlChange = JSON.stringify(localUrls) !== JSON.stringify(finalUrls);
@@ -109,9 +109,10 @@ async function syncAllFromFirestore() {
           currentRec.text = data.text;
           changed = true;
         }
-        if (Array.isArray(data.notebookUrls) && data.notebookUrls.some((u: any) => u && String(u).trim().length > 0)) {
-          if (JSON.stringify(currentRec.notebookUrls || []) !== JSON.stringify(data.notebookUrls)) {
-            currentRec.notebookUrls = data.notebookUrls;
+        const cleanRemote = (Array.isArray(data.notebookUrls) ? data.notebookUrls : []).filter((u: any) => u && typeof u === 'string' && !u.toLowerCase().includes('notebook'));
+        if (cleanRemote.some((u: any) => u && String(u).trim().length > 0)) {
+          if (JSON.stringify(currentRec.notebookUrls || []) !== JSON.stringify(cleanRemote)) {
+            currentRec.notebookUrls = cleanRemote;
             changed = true;
           }
         }
@@ -129,8 +130,8 @@ async function syncAllFromFirestore() {
       
       // Look for key block in DEFAULT_PRAYERS
       const keyPattern = new RegExp(`"${id}":\\s*\\{[\\s\\S]*?\\}`);
-      if (keyPattern.test(prayersTsContent)) {
-        const urlsEscaped = data.notebookUrls ? `,\n    "notebookUrls": ${JSON.stringify(data.notebookUrls)}` : '';
+        const cleanUrls = (Array.isArray(data.notebookUrls) ? data.notebookUrls : []).filter((u: any) => u && typeof u === 'string' && !u.toLowerCase().includes('notebook'));
+        const urlsEscaped = cleanUrls.length > 0 ? `,\n    "notebookUrls": ${JSON.stringify(cleanUrls)}` : ',\n    "notebookUrls": []';
         const replacement = `"${id}": {\n    "title": ${titleEscaped},\n    "text": ${textEscaped}${urlsEscaped}\n  }`;
         if (!prayersTsContent.includes(replacement)) {
           prayersTsContent = prayersTsContent.replace(keyPattern, replacement);
@@ -202,10 +203,11 @@ async function syncAllFromFirestore() {
   prayersSnap.forEach(docSnap => {
     const data = docSnap.data();
     if (data && data.text) {
+      const cleanPrayersUrls = (Array.isArray(data.notebookUrls) ? data.notebookUrls : []).filter((u: any) => u && typeof u === 'string' && !u.toLowerCase().includes('notebook'));
       allPrayersMap[docSnap.id] = {
         title: data.title || '',
         text: data.text || '',
-        notebookUrls: data.notebookUrls || [],
+        notebookUrls: cleanPrayersUrls,
         updatedBy: data.updatedBy || 'Firestore Sync',
         updatedAt: data.updatedAt || new Date().toISOString()
       };

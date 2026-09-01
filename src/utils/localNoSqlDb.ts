@@ -691,12 +691,15 @@ export function mergeItemByNewestState(existing: any, incoming: any): any {
 
   // Incoming state is newer, or existing was just a default placeholder.
   // Incoming state takes precedence, allowing cross-device edits and modified/cleared fields to persist.
+  const rawUrls = incoming.notebookUrls !== undefined ? incoming.notebookUrls : (existing.notebookUrls || []);
+  const cleanNotebookUrls = (Array.isArray(rawUrls) ? rawUrls : []).filter(u => typeof u === 'string' && u.trim().length > 0 && !u.toLowerCase().includes('notebook'));
+
   return {
     ...existing,
     ...incoming,
     title: mergedTitle,
     text: mergedText,
-    notebookUrls: incoming.notebookUrls !== undefined ? incoming.notebookUrls : (existing.notebookUrls || []),
+    notebookUrls: cleanNotebookUrls,
     notebookLabels: incoming.notebookLabels !== undefined ? incoming.notebookLabels : (existing.notebookLabels || []),
     updatedBy: incoming.updatedBy || existing.updatedBy,
     updatedAt: incoming.updatedAt || existing.updatedAt
