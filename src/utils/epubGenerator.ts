@@ -379,12 +379,12 @@ p {
       const allUrls: string[] = [dayUrl];
 
       if (scope === 'rhz365' || scope === 'both' || scope === 'all') {
-        const rhzUrls = prayers[firestoreKey]?.notebookUrls || [];
+        const rhzUrls = (prayers[firestoreKey]?.notebookUrls || []).filter(u => u && !u.toLowerCase().includes('notebook'));
         rhzUrls.forEach(u => { if (u) allUrls.push(u); });
       }
 
       if (scope === 'wnr365' || scope === 'both' || scope === 'all') {
-        const wnrUrls = wnrDoc.notebookUrls || [];
+        const wnrUrls = (wnrDoc.notebookUrls || []).filter(u => u && !u.toLowerCase().includes('notebook'));
         wnrUrls.forEach(u => { if (u) allUrls.push(u); });
       }
 

@@ -369,7 +369,7 @@ export const generateCustomScopePdf = async (
     if (!includeQrCodes || !notebookUrls || !Array.isArray(notebookUrls)) return currentY;
     const activeUrls = notebookUrls
       .map((url, idx) => ({ url, type: GEMINI_ANALYSIS_TYPES[idx] }))
-      .filter(item => item.url && item.url.trim().length > 0 && item.type);
+      .filter(item => item.url && item.url.trim().length > 0 && !item.url.toLowerCase().includes('notebook') && item.type);
 
     if (activeUrls.length === 0) return currentY;
 

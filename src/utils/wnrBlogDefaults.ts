@@ -67,9 +67,10 @@ export function getWnrDefaultBlogEntry(
   const pdfEntry = pdfMap[blogKey];
   const customBlog = blogEntries[blogKey];
 
-  const effectiveNotebookUrls = (customBlog?.notebookUrls && Array.isArray(customBlog.notebookUrls))
+  const rawUrls = (customBlog?.notebookUrls && Array.isArray(customBlog.notebookUrls))
     ? customBlog.notebookUrls
     : (pdfEntry?.notebookUrls || []);
+  const effectiveNotebookUrls = rawUrls.filter(u => typeof u === 'string' && !u.toLowerCase().includes('notebook'));
   const effectiveNotebookLabels = (customBlog?.notebookLabels && Array.isArray(customBlog.notebookLabels))
     ? customBlog.notebookLabels
     : (pdfEntry?.notebookLabels || []);
