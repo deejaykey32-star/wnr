@@ -7,6 +7,7 @@ import {
   ZoomIn, ZoomOut, Check, ArrowRight, Loader2
 } from 'lucide-react';
 import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechSpeaking, isSpeechPaused, isTtsSupported, getPolishVoice, getPolishVoices } from '../utils/tts';
+import { SUPPORTED_LANGUAGES, translateTextFromPolish } from '../utils/translator';
 
 // Configure PDF.js worker
 if (typeof window !== 'undefined') {
@@ -43,10 +44,13 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
   const [extractedTexts, setExtractedTexts] = useState<Record<number, string>>({});
   const [isExtractingText, setIsExtractingText] = useState<boolean>(false);
 
-  // TTS Voice Selection State
+  // TTS Voice & Live Translation Selection State
   const [selectedGender, setSelectedGender] = useState<'female' | 'male'>('female');
   const [availableVoices, setAvailableVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [selectedVoiceUri, setSelectedVoiceUri] = useState<string>('');
+  const [targetLanguage, setTargetLanguage] = useState<string>('pl');
+  const [isTranslating, setIsTranslating] = useState<boolean>(false);
+  const [liveTranslatedText, setLiveTranslatedText] = useState<string>('');
 
   const isDark = theme === 'dark';
 
@@ -281,7 +285,8 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
   const startReadingPage = useCallback(async (
     targetPage: number,
     overrideGender?: 'female' | 'male',
-    overrideVoiceUri?: string
+    overrideVoiceUri?: string,
+    overrideLang?: string
   ) => {
     if (!isTtsSupported()) {
       alert("Twoja przeglądarka nie wspiera funkcji Lektora AI (SpeechSynthesis).");
@@ -290,6 +295,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
 
     const activeGender = overrideGender !== undefined ? overrideGender : selectedGender;
     const activeVoiceUri = overrideVoiceUri !== undefined ? overrideVoiceUri : selectedVoiceUri;
+    const activeLang = overrideLang !== undefined ? overrideLang : targetLanguage;
 
     setIsExtractingText(true);
 
@@ -312,7 +318,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
         setTimeout(() => {
           const nextP = goToNextPage();
           if (nextP) {
-            startReadingPage(nextP, activeGender, activeVoiceUri);
+            startReadingPage(nextP, activeGender, activeVoiceUri, activeLang);
           }
         }, 1500);
       } else {
@@ -322,6 +328,24 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
       return;
     }
 
+    // Live Translation if non-Polish target language is selected
+    if (activeLang !== 'pl') {
+      setIsTranslating(true);
+      try {
+        const translated = await translateTextFromPolish(textToRead, activeLang);
+        if (translated) {
+          textToRead = translated;
+          setLiveTranslatedText(translated);
+        }
+      } catch (err) {
+        console.warn("Live translation error:", err);
+      } finally {
+        setIsTranslating(false);
+      }
+    } else {
+      setLiveTranslatedText('');
+    }
+
     setIsReading(true);
     setIsPaused(false);
 
@@ -329,6 +353,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
       rate: readingSpeed,
       gender: activeGender,
       voiceURI: activeVoiceUri || undefined,
+      lang: activeLang,
       onStart: () => {
         setIsReading(true);
         setIsPaused(false);
@@ -340,7 +365,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
             setFlipDirection('next');
             setCurrentPage(nextP);
             setTimeout(() => {
-              startReadingPage(nextP, activeGender, activeVoiceUri);
+              startReadingPage(nextP, activeGender, activeVoiceUri, activeLang);
             }, 600);
           } else {
             setIsReading(false);
@@ -358,7 +383,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
         setIsPaused(false);
       }
     });
-  }, [viewMode, getPageText, numPages, autoTurn, readingSpeed, selectedGender, selectedVoiceUri, goToNextPage]);
+  }, [viewMode, getPageText, numPages, autoTurn, readingSpeed, selectedGender, selectedVoiceUri, targetLanguage, goToNextPage]);
 
   const handleTogglePlay = () => {
     if (!isReading) {
@@ -537,9 +562,9 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
               onChange={(e) => {
                 const newUri = e.target.value;
                 setSelectedVoiceUri(newUri);
-                if (isReading) startReadingPage(currentPage, selectedGender, newUri);
+                if (isReading) startReadingPage(currentPage, selectedGender, newUri, targetLanguage);
               }}
-              className={`text-xs p-2 rounded-xl border font-semibold max-w-[220px] cursor-pointer transition-all ${
+              className={`text-xs p-2 rounded-xl border font-semibold max-w-[200px] cursor-pointer transition-all ${
                 isDark ? 'bg-slate-800 border-slate-700 text-amber-400 hover:bg-slate-700' : 'bg-slate-100 border-slate-300 text-amber-700 hover:bg-slate-200'
               } ${isVoiceSpecific ? 'ring-2 ring-amber-500' : ''}`}
               title="Wybierz polski głos systemowy"
@@ -561,9 +586,47 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
             </select>
           </div>
 
+          {/* Live Translation Language Selector */}
+          <div className="flex items-center gap-1.5">
+            <span className="text-xs text-slate-400 hidden sm:inline">🌐 Tłumacz w locie:</span>
+            <select
+              value={targetLanguage}
+              onChange={(e) => {
+                const newLang = e.target.value;
+                setTargetLanguage(newLang);
+                if (isReading) {
+                  startReadingPage(currentPage, selectedGender, selectedVoiceUri, newLang);
+                }
+              }}
+              className={`text-xs p-2 rounded-xl border font-semibold cursor-pointer transition-all ${
+                isDark 
+                  ? 'bg-slate-800 border-slate-700 text-sky-400 hover:bg-slate-700' 
+                  : 'bg-slate-100 border-slate-300 text-sky-700 hover:bg-slate-200'
+              } ${targetLanguage !== 'pl' ? 'ring-2 ring-sky-500 font-bold' : ''}`}
+              title="Automatyczne tłumaczenie treści w locie i odczyt lektorem w wybranym języku"
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option key={lang.code} value={lang.code}>
+                  {lang.flag} {lang.name} {lang.code !== 'pl' ? ' (Tłumaczenie AI)' : ''}
+                </option>
+              ))}
+            </select>
+          </div>
+
           {/* Warning when no male voice exists */}
           {selectedGender === 'male' && !hasMaleVoice && !isVoiceSpecific && availableVoices.length > 0 && (
             <span className="text-xs text-amber-400 italic">⚠️ Brak głosu męskiego w systemie</span>
+          )}
+
+          {/* Active Live Translation Indicator Banner */}
+          {targetLanguage !== 'pl' && (
+            <div className="w-full mt-2 pt-2 border-t border-slate-700/50 flex items-center justify-between text-xs text-sky-400 bg-sky-500/10 px-3 py-1.5 rounded-xl">
+              <span className="flex items-center gap-1.5 font-medium">
+                🌐 Tłumaczenie w locie aktywne: {SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.flag} {SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.name}
+                {isTranslating && <Loader2 className="w-3.5 h-3.5 animate-spin text-sky-400 inline ml-1" />}
+              </span>
+              <span className="text-[11px] text-slate-400 italic hidden sm:inline">Lektor odczytuje przetłumaczoną treść w tym języku</span>
+            </div>
           )}
         </div>
       </div>

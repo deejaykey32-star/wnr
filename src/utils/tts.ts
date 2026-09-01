@@ -306,16 +306,33 @@ const speakNextSegment = () => {
   try {
     const utterance = new SpeechSynthesisUtterance(segmentText);
     
-    const plVoice = getPolishVoice({ 
-      voiceURI: queueOptions.voiceURI, 
-      gender: queueOptions.gender 
-    });
-    if (plVoice) {
-      utterance.voice = plVoice;
+    const targetLang = (queueOptions.lang || 'pl').toLowerCase();
+    let voiceToUse: SpeechSynthesisVoice | null = null;
+
+    if (targetLang === 'pl' || targetLang.startsWith('pl')) {
+      voiceToUse = getPolishVoice({ 
+        voiceURI: queueOptions.voiceURI, 
+        gender: queueOptions.gender 
+      });
+      utterance.lang = 'pl-PL';
+    } else {
+      const allVoices = window.speechSynthesis.getVoices();
+      if (queueOptions.voiceURI) {
+        voiceToUse = allVoices.find(v => 
+          (v.voiceURI && v.voiceURI.trim() === queueOptions.voiceURI) || 
+          (v.name && v.name.trim() === queueOptions.voiceURI)
+        ) || null;
+      }
+      if (!voiceToUse) {
+        voiceToUse = allVoices.find(v => v.lang.toLowerCase().replace('_', '-').startsWith(targetLang)) || null;
+      }
+      utterance.lang = voiceToUse ? voiceToUse.lang : targetLang;
     }
-    
-    // Always force Polish language regardless of selected voice system locale
-    utterance.lang = 'pl-PL';
+
+    if (voiceToUse) {
+      utterance.voice = voiceToUse;
+    }
+
     utterance.rate = queueOptions.rate !== undefined ? queueOptions.rate : 0.95;
     utterance.pitch = queueOptions.pitch !== undefined ? queueOptions.pitch : 1.0;
     utterance.volume = queueOptions.volume !== undefined ? queueOptions.volume : 1.0;
@@ -479,6 +496,7 @@ export const speakText = (
     volume?: number;
     voiceURI?: string;
     gender?: 'female' | 'male';
+    lang?: string;
     onStart?: () => void;
     onSegmentStart?: (index: number) => void;
     onEnd?: () => void;
