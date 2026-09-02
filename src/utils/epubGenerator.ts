@@ -42,9 +42,26 @@ const escapeXml = (unsafe: string): string => {
     .replace(/'/g, '&apos;');
 };
 
-const formatParagraphsHtml = (text: string): string => {
-  if (!text) return '';
-  return text.split('\n\n').map(p => `<p>${escapeXml(p.trim())}</p>`).join('\n');
+const stripQrTags = (str: string): string => {
+  if (!str) return '';
+  return str
+    .replace(/\[qr:[^\]]+\]/gi, '')
+    .replace(/\[caption:[^\]]+\]/gi, '')
+    .trim();
+};
+
+const formatParagraphsHtml = (rawText: string): string => {
+  if (!rawText) return '';
+  const cleaned = stripQrTags(rawText);
+  const normalized = cleaned.replace(/\r\n/g, '\n').trim();
+  const blocks = normalized.split(/\n\s*\n+/);
+  return blocks
+    .map(block => {
+      const paraText = block.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
+      return paraText ? `<p>${escapeXml(paraText)}</p>` : '';
+    })
+    .filter(Boolean)
+    .join('\n');
 };
 
 const extractUrlsFromText = (text: string): string[] => {
@@ -78,10 +95,22 @@ export const generateEpubBook = async (
 
   // 3. OEBPS/style.css
   const styleCss = `
+html {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12pt;
+  line-height: 1.6;
+  color: #1e293b;
+  background-color: #ffffff;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  adobe-hyphenate: auto;
+}
 body {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 12pt;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 5% 4%;
   padding: 0;
   color: #1e293b;
@@ -89,8 +118,15 @@ body {
   box-sizing: border-box;
   word-break: break-word;
   overflow-wrap: break-word;
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  adobe-hyphenate: auto;
 }
-img, iframe, table, div, pre, p, blockquote {
+img, iframe, table, div, pre, p, blockquote, li {
   max-width: 100% !important;
   box-sizing: border-box;
   word-break: break-word;
@@ -104,15 +140,35 @@ h1, h2, h3, h4 {
   margin-bottom: 0.4em;
   line-height: 1.3;
   word-break: break-word;
+  page-break-after: avoid;
+  break-after: avoid;
 }
 h1 { font-size: 1.6em; border-bottom: 2px solid #4f46e5; padding-bottom: 0.3em; }
 h2 { font-size: 1.3em; color: #4f46e5; }
 h3 { font-size: 1.1em; color: #d97706; }
+h4 { font-size: 1.0em; color: #0f172a; margin-top: 0.8em; margin-bottom: 0.4em; }
 p {
   font-size: 12pt;
-  line-height: 1.5;
+  line-height: 1.6;
+  margin-top: 0;
   margin-bottom: 0.8em;
   text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+li {
+  font-size: 12pt;
+  line-height: 1.6;
+  margin-bottom: 0.5em;
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
 }
 .cover-img {
   max-width: 100%;
@@ -128,6 +184,12 @@ p {
   margin: 14px 0;
   max-width: 100%;
   box-sizing: border-box;
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
 }
 .qr-container {
   text-align: center;
@@ -410,27 +472,7 @@ p {
     }
 
 
-const stripQrTags = (str: string): string => {
-  if (!str) return '';
-  return str
-    .replace(/\[qr:[^\]]+\]/gi, '')
-    .replace(/\[caption:[^\]]+\]/gi, '')
-    .trim();
-};
 
-const formatParagraphsHtml = (rawText: string): string => {
-  if (!rawText) return '';
-  const cleaned = stripQrTags(rawText);
-  const normalized = cleaned.replace(/\r\n/g, '\n').trim();
-  const blocks = normalized.split(/\n\s*\n+/);
-  return blocks
-    .map(block => {
-      const paraText = block.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
-      return paraText ? `<p>${escapeXml(paraText)}</p>` : '';
-    })
-    .filter(Boolean)
-    .join('\n');
-};
 
     if (scope === 'rhz365' || scope === 'both') {
       chapterHtml += `<h2>Różaniec Historii Zbawienia (RHZ365)</h2>`;

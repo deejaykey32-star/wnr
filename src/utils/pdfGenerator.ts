@@ -218,19 +218,24 @@ export const generateCustomScopePdf = async (
 
     for (const para of paragraphs) {
       // Split continuous paragraph into lines fitting contentWidth
-      const lines: string[] = doc.splitTextToSize(para, width);
-      if (lines.length === 0) continue;
+      const rawLines: string[] = doc.splitTextToSize(para, width);
+      if (rawLines.length === 0) continue;
 
-      for (let l = 0; l < lines.length; l++) {
+      for (let l = 0; l < rawLines.length; l++) {
         checkAndBreakPage(lineSpacing15 + 2, { style: fontStyle, size: fontSize, color });
-        const isLastLineOfPara = (l === lines.length - 1);
-        doc.text(lines[l], xMargin, y, { 
+        const lineText = rawLines[l].replace(/\s+/g, ' ').trim();
+        if (!lineText) continue;
+
+        const words = lineText.split(' ');
+        const isLastLineOfPara = (l === rawLines.length - 1) || (words.length < 2);
+
+        doc.text(lineText, xMargin, y, { 
           align: isLastLineOfPara ? 'left' : 'justify', 
           maxWidth: width 
         });
         y += lineSpacing15;
       }
-      y += 2; // Spacing after paragraph
+      y += 3.0; // Clear paragraph spacing
     }
   };
 
