@@ -87,6 +87,10 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   const isTranslating = propsIsTranslating ?? internalIsTranslating;
   const setIsTranslating = setInternalIsTranslating;
 
+  // Live on-screen blog entry translation state
+  const [translatedBlogText, setTranslatedBlogText] = useState<string>('');
+  const [translatedBlogTitle, setTranslatedBlogTitle] = useState<string>('');
+
   // Local Video Generation State
   const [localGenerating, setLocalGenerating] = useState<boolean>(false);
   const [localProgress, setLocalProgress] = useState<number>(0);
@@ -581,9 +585,6 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   }, [isPlaying, activeSegmentIndex, blogSegments, ttsEnabled, soundEnabled, targetLanguage, selectedGender, selectedVoiceUri]);
 
   // Live on-screen blog entry translation when targetLanguage !== 'pl'
-  const [translatedBlogText, setTranslatedBlogText] = useState<string>('');
-  const [translatedBlogTitle, setTranslatedBlogTitle] = useState<string>('');
-
   useEffect(() => {
     if (targetLanguage === 'pl') {
       setTranslatedBlogText('');
