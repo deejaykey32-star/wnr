@@ -537,6 +537,16 @@ export const sanitizeTextForTts = (text: string): string => {
     .replace(/&gt;/gi, '>')
     .replace(/[\u00AD\u200B\u200C\u200D\uFEFF]/g, '');
 
+  // Normalize mid-sentence capitalized words that Neural TTS models misread as acronyms
+  clean = clean
+    .replace(/,\s*Stworzyciela\b/g, ', stworzyciela')
+    .replace(/,\s*Wszechmogącego\b/g, ', wszechmogącego')
+    .replace(/,\s*Ojca\b/g, ', ojca')
+    .replace(/,\s*Jednorodzonego\b/g, ', jednorodzonego')
+    .replace(/,\s*Ukrzyżowanego\b/g, ', ukrzyżowanego')
+    .replace(/,\s*Zmartwychwstałego\b/g, ', zmartwychwstałego')
+    .replace(/,\s*Wniebowstąpionego\b/g, ', wniebowstąpionego');
+
   return clean
     // 0. Remove QR codes and captions
     .replace(/\[qr:[^\]]+\]/gi, '')
@@ -574,8 +584,8 @@ export const sanitizeTextForTts = (text: string): string => {
     // Spaced dashes / em-dashes / en-dashes / horizontal bars -> comma pause
     .replace(/[—–―]/g, ', ')
     .replace(/\s+-\s+/g, ', ')
-    // Hyphenated compound words with Polish diacritics support
-    .replace(/([a-zA-Z0-9ą-żĄ-Ż]+)-([a-zA-Z0-9ą-żĄ-Ż]+)/g, '$1 $2')
+    // Hyphenated compound words with full Unicode Polish letters support
+    .replace(/([\p{L}\p{N}]+)-([\p{L}\p{N}]+)/gu, '$1 $2')
     // Remaining standalone hyphens -> space
     .replace(/-/g, ' ')
 
