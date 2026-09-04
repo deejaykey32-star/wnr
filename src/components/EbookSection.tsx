@@ -120,63 +120,28 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
       const items: any[] = textContent.items || [];
 
       if (items.length === 0) {
-        pageTextCacheRef.current[pageNum] = "";
-        return "";
+        const fallback = `Widoki na Raj (WnR365) — Strona ${pageNum}`;
+        pageTextCacheRef.current[pageNum] = fallback;
+        return fallback;
       }
 
-      // 1. Filter items by vertical coordinates (y: 35-545) and body font height (h >= 12)
-      const bodyItems = items.filter((item: any) => {
-        const str = (item.str || '').trim();
-        if (!str) return false;
-
-        const y = item.transform ? Math.round(item.transform[5]) : 0;
-        const h = Math.round(item.height);
-
-        // Top running header (y >= 545) or Bottom running footer (y <= 35)
-        if (y >= 545 || y <= 35) return false;
-
-        // Day headers & section titles in WnR365.pdf are font height < 12 (h:8, h:10, h:11)
-        if (h < 12) return false;
-
-        // Known title & branding patterns
-        if (/^(Widoki na Raj|RHZ365|WnR365|Biblia365|Cykl|DZIEŃ|eMBiK365|Historii Zbawienia|str\.)/i.test(str)) return false;
-        if (/^\(\s*Cykl/i.test(str) || /^\[\d{2}\.\d{2}\.\d{4}\]/i.test(str)) return false;
-
-        return true;
-      });
-
-      const targetItems = bodyItems.length > 0 ? bodyItems : items;
-      let text = targetItems
-        .map((item: any) => item.str)
+      let text = items
+        .map((item: any) => item.str || '')
         .join(' ')
-        // Remove scripture citations e.g. (Mt 10,8), (J 10,34)
-        .replace(/\([A-Za-z0-9\s,\.\-–—]+\)/g, (match) => {
-          if (/\b(Mt|Marek|Łk|Łukasz|J|Jan|Dz|Apostolskie|Rzym|Kor|Gal|Efez|Filip|Kol|Tes|Tim|Tyt|Filem|Hbr|Jk|Piotr|Juda|Ap|Rdz|Wj|Kpł|Lb|Pwt|Joz|Sędziowie|Rut|Sam|Krl|Krn|Ezd|Ne|Tob|Jdt|Est|Mach|Hiob|Ps|Prz|Kohelet|Pieśń|Mdr|Syr|Iz|Jer|Lm|Bar|Ez|Dn|Oz|Joel|Am|Obad|Jonasz|Mich|Nah|Hab|Sof|Ag|Zach|Mal)\b/i.test(match)) {
-            return '';
-          }
-          if (/Cykl|Dzień|Różaniec|Historii/i.test(match)) {
-            return '';
-          }
-          return match;
-        })
-        // Remove dates, brand names, page numbers, titles and acronyms
-        .replace(/\[\d{2}\.\d{2}\.\d{4}\]/g, '')
-        .replace(/Widoki na Raj\s*[-—–]\s*WnR365/gi, '')
-        .replace(/eMBiK365\s*[-—–]\s*widokinaraj\.pl/gi, '')
-        .replace(/DZIEŃ\s+\d+\s*[-—–]\s*[^\s]+/gi, '')
-        .replace(/Cykl\s+[I|V|X\d]+\s*\([^\)]*\)\s*[-—–]\s*Dzień\s*\d+/gi, '')
-        .replace(/WnR365\s*[-—–]\s*Widoki na Raj\s*[-—–]?\s*\([^\)]*\)\s*[-—–]?\s*\[[^\]]*\]/gi, '')
-        .replace(/str\.\s*\d+/gi, '')
-        .replace(/\b(eMBiK365|WnR365|RHZ365|Biblia365|widokinaraj\.pl)\b/gi, '')
-        .replace(/\b(np|itd|itp|tzn|tzw|wg)\b\.?/gi, '')
         .replace(/\s+/g, ' ')
         .trim();
+
+      if (!text || text.length < 3) {
+        text = `Widoki na Raj (WnR365) — Strona ${pageNum}`;
+      }
 
       pageTextCacheRef.current[pageNum] = text;
       return text;
     } catch (err) {
       console.warn(`Błąd wyciągania tekstu ze strony ${pageNum}:`, err);
-      return "";
+      const fallback = `Widoki na Raj (WnR365) — Strona ${pageNum}`;
+      pageTextCacheRef.current[pageNum] = fallback;
+      return fallback;
     }
   }, [pdfDocument, numPages]);
 
