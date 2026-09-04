@@ -25,7 +25,7 @@ import {
   getCompletedWnrDays, toggleWnrDayCompleted, markWnrDayCompleted, isWnrDayCompleted
 } from './utils/completedDays';
 import { TtsVoiceToolbar } from './components/TtsVoiceToolbar';
-import { SUPPORTED_LANGUAGES, translateTextFromPolish } from './utils/translator';
+import { SUPPORTED_LANGUAGES, getLanguageOption, translateTextFromPolish } from './utils/translator';
 
 const SearchModal = lazy(() => import('./components/SearchModal').then(m => ({ default: m.SearchModal })));
 const ExportModal = lazy(() => import('./components/ExportModal').then(m => ({ default: m.ExportModal })));
@@ -3181,7 +3181,7 @@ export default function App() {
                         🌐 Tłumaczenie Modlitwy (Google Translate AI)
                       </span>
                       <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-300">
-                        {SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.flag} {SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.name}
+                        {getLanguageOption(targetLanguage).flag} {getLanguageOption(targetLanguage).name}
                       </span>
                     </div>
                     <p className="text-sm sm:text-base leading-relaxed text-justify font-sans">

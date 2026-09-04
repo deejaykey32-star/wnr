@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Volume2, Loader2 } from 'lucide-react';
 import { getVoicesForLang, isMaleVoiceName } from '../utils/tts';
-import { SUPPORTED_LANGUAGES } from '../utils/translator';
+import { SUPPORTED_LANGUAGES, getLanguageOption } from '../utils/translator';
 
 interface TtsVoiceToolbarProps {
   targetLanguage: string;
@@ -67,7 +67,7 @@ export const TtsVoiceToolbar: React.FC<TtsVoiceToolbarProps> = ({
 
   const hasMaleVoice = availableVoices.some(v => isMaleVoiceName(v.name));
   const isVoiceSpecific = Boolean(selectedVoiceUri);
-  const activeLangObj = SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage) || SUPPORTED_LANGUAGES[0];
+  const activeLangObj = getLanguageOption(targetLanguage);
 
   return (
     <div className={`p-3 rounded-2xl backdrop-blur-md shadow-md border flex flex-wrap items-center justify-between gap-3 mb-4 transition-all ${

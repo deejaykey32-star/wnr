@@ -7,7 +7,7 @@ import {
   ZoomIn, ZoomOut, Check, ArrowRight, Loader2
 } from 'lucide-react';
 import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechSpeaking, isSpeechPaused, isTtsSupported, getPolishVoice, getPolishVoices, getVoicesForLang } from '../utils/tts';
-import { SUPPORTED_LANGUAGES, translateTextFromPolish } from '../utils/translator';
+import { SUPPORTED_LANGUAGES, getLanguageOption, translateTextFromPolish } from '../utils/translator';
 import { TtsVoiceToolbar } from './TtsVoiceToolbar';
 
 // Configure PDF.js worker
@@ -748,7 +748,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
               🌐 Tłumaczenie Strony {currentPage} (Google Translate AI)
             </span>
             <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-300">
-              {SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.flag} {SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.name}
+              {getLanguageOption(targetLanguage).flag} {getLanguageOption(targetLanguage).name}
             </span>
           </div>
           <p className="text-sm sm:text-base leading-relaxed text-justify whitespace-pre-line font-sans">

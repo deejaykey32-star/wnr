@@ -19,7 +19,7 @@ import { getWnrDefaultBlogEntry } from '../utils/wnrBlogDefaults';
 import { saveLocalBlogEntry } from '../utils/localNoSqlDb';
 import { NotebookGeminiPanel, GEMINI_ANALYSIS_TYPES } from './NotebookGeminiPanel';
 import { TtsVoiceToolbar } from './TtsVoiceToolbar';
-import { SUPPORTED_LANGUAGES, translateTextFromPolish } from '../utils/translator';
+import { SUPPORTED_LANGUAGES, getLanguageOption, translateTextFromPolish } from '../utils/translator';
 
 interface BlogSectionProps {
   user: any;
@@ -1600,7 +1600,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                             🌐 Tłumaczenie Wpisu (Google Translate AI)
                           </span>
                           <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-300">
-                            {SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.flag} {SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.name}
+                            {getLanguageOption(targetLanguage).flag} {getLanguageOption(targetLanguage).name}
                           </span>
                         </div>
                         <p className="text-sm sm:text-base leading-relaxed text-justify whitespace-pre-line font-sans">

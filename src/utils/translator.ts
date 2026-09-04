@@ -90,8 +90,12 @@ export const SUPPORTED_LANGUAGES: TargetLanguageOption[] = [
   { code: 'lb', name: 'Lëtzebuergesch (Luksemburski)', flag: '🇱🇺', voiceLangPrefix: 'lb' },
   { code: 'gd', name: 'Gàidhlig (Szkocki gaelicki)', flag: '🏴󠁧󠁢󠁳󠁣󠁴󠁿', voiceLangPrefix: 'gd' },
   { code: 'fy', name: 'Frysk (Fryzyjski)', flag: '🇳🇱', voiceLangPrefix: 'fy' },
-  { code: 'eo', name: 'Esperanto', flag: '🌐', voiceLangPrefix: 'eo' },
 ];
+
+export function getLanguageOption(code: string): TargetLanguageOption {
+  const list = SUPPORTED_LANGUAGES || [];
+  return list.find(l => l.code === code) || list[0] || { code: 'pl', name: 'Polski (Polish)', flag: '🇵🇱', voiceLangPrefix: 'pl' };
+}
 
 /**
  * Translate text from Polish (sl=pl) to targetLang (tl=...) in real-time.
