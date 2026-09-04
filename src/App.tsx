@@ -3093,22 +3093,6 @@ export default function App() {
             </div>
 
             <div className="w-full max-w-4xl mx-auto flex flex-col gap-6 items-stretch">
-              <TtsVoiceToolbar
-                targetLanguage={targetLanguage}
-                setTargetLanguage={setTargetLanguage}
-                selectedGender={selectedGender}
-                setSelectedGender={setSelectedGender}
-                selectedVoiceUri={selectedVoiceUri}
-                setSelectedVoiceUri={setSelectedVoiceUri}
-                theme={theme}
-                isTranslating={isTranslating}
-                onOptionChange={() => {
-                  if (isPlaying) {
-                    stopSpeech();
-                  }
-                }}
-              />
-
               {/* 1. Active Prayer Card */}
               <div id="active-prayer-card" className={`border rounded-2xl p-6 shadow-xl relative overflow-hidden transition-all duration-300 ${
                 isLight ? 'bg-white border-slate-200 shadow-slate-100 text-slate-900' : 'bg-slate-900/40 border-slate-800/50 text-slate-100'
