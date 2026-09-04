@@ -1449,20 +1449,27 @@ export default function App() {
 
   // Live on-screen prayer translation when targetLanguage !== 'pl'
   const [translatedPrayerText, setTranslatedPrayerText] = useState<string>('');
+  const [translatedStepLabel, setTranslatedStepLabel] = useState<string>('');
 
   useEffect(() => {
     if (targetLanguage === 'pl') {
       setTranslatedPrayerText('');
+      setTranslatedStepLabel('');
       return;
     }
-    if (!textToRead) return;
+    if (!textToRead && !activeStep?.label) return;
 
     let isSubscribed = true;
     setIsTranslating(true);
-    translateTextFromPolish(textToRead, targetLanguage)
-      .then((translated) => {
-        if (isSubscribed && translated) {
-          setTranslatedPrayerText(translated);
+
+    Promise.all([
+      textToRead ? translateTextFromPolish(textToRead, targetLanguage) : Promise.resolve(''),
+      activeStep?.label ? translateTextFromPolish(activeStep.label, targetLanguage) : Promise.resolve('')
+    ])
+      .then(([transText, transLabel]) => {
+        if (isSubscribed) {
+          if (transText) setTranslatedPrayerText(transText);
+          if (transLabel) setTranslatedStepLabel(transLabel);
         }
       })
       .catch((err) => console.warn("RHZ prayer translation error:", err))
@@ -1473,7 +1480,7 @@ export default function App() {
     return () => {
       isSubscribed = false;
     };
-  }, [activeStepIndex, textToRead, targetLanguage]);
+  }, [activeStepIndex, textToRead, activeStep?.label, targetLanguage]);
 
   // If TTS is disabled, we auto-advance on a simple fallback interval
   useEffect(() => {
@@ -1858,11 +1865,13 @@ export default function App() {
   const rgbaBeadWindow = getBeadWindow(rgbaBeads, activeStep.rgbaBeadId);
   const cmykBeadWindow = getBeadWindow(cmykBeads, activeStep.cmykBeadId);
 
+  const displayPrayerText = targetLanguage === 'pl' ? textToRead : (translatedPrayerText || textToRead);
+
   // Split active prayer text into sentences for teleprompter/karaoke scrolling (100% synced with TTS)
   const prayerSegments = useMemo(() => {
-    if (!textToRead) return [];
-    return getPrayerSegments(textToRead);
-  }, [textToRead]);
+    if (!displayPrayerText) return [];
+    return getPrayerSegments(displayPrayerText);
+  }, [displayPrayerText]);
 
   const renderStripBead = (bead: any | null, isActive: boolean, isRgba: boolean) => {
     if (bead && bead.type === 'connector') {
@@ -2858,7 +2867,7 @@ export default function App() {
                 {/* Active step details / header */}
                 <div className="mb-2 text-center shrink-0">
                   <span className="text-[9px] text-indigo-400 uppercase tracking-widest font-mono font-black mb-0.5 block">
-                    {activeStep.label}
+                    {translatedStepLabel || activeStep.label}
                   </span>
                   <h3 className={`text-base sm:text-xl font-serif tracking-tight leading-tight ${isLight ? 'text-slate-900' : 'text-white'}`}>
                     {activeStep.prayerType === 'mystery' 
@@ -3164,7 +3173,7 @@ export default function App() {
                 </div>
 
                 <h2 className={`text-xl font-serif tracking-tight leading-snug ${isLight ? 'text-slate-900 font-bold' : 'text-white'}`}>
-                  {activeStep.label}
+                  {translatedStepLabel || activeStep.label}
                 </h2>
 
                 <div className="min-h-[160px] flex flex-col justify-center font-sans">

@@ -294,15 +294,15 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
 
   // Split blog text into segments for teleprompter/scrolling reader
   const blogSegments = useMemo(() => {
-    const titleText = activeEntry.title || "Wpis bez tytułu";
-    const bodyText = activeEntry.text || "";
+    const titleText = targetLanguage === 'pl' ? (activeEntry.title || "Wpis bez tytułu") : (translatedBlogTitle || activeEntry.title || "Wpis bez tytułu");
+    const bodyText = targetLanguage === 'pl' ? (activeEntry.text || "") : (translatedBlogText || activeEntry.text || "");
     
     // Clean square brackets and format paragraphs
     const cleanBody = bodyText.replace(/[\[\]]/g, '').trim();
     if (!cleanBody) return [titleText];
 
     return [titleText, ...getPrayerSegments(cleanBody)];
-  }, [activeEntry]);
+  }, [activeEntry, targetLanguage, translatedBlogTitle, translatedBlogText]);
 
   const pollLocalGenerationStatus = () => {
     let failCount = 0;
@@ -582,21 +582,29 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
 
   // Live on-screen blog entry translation when targetLanguage !== 'pl'
   const [translatedBlogText, setTranslatedBlogText] = useState<string>('');
+  const [translatedBlogTitle, setTranslatedBlogTitle] = useState<string>('');
 
   useEffect(() => {
     if (targetLanguage === 'pl') {
       setTranslatedBlogText('');
+      setTranslatedBlogTitle('');
       return;
     }
     const rawBlogText = activeEntry.text || '';
-    if (!rawBlogText.trim()) return;
+    const rawTitle = activeEntry.title || '';
+    if (!rawBlogText.trim() && !rawTitle.trim()) return;
 
     let isSubscribed = true;
     setIsTranslating(true);
-    translateTextFromPolish(rawBlogText, targetLanguage)
-      .then((translated) => {
-        if (isSubscribed && translated) {
-          setTranslatedBlogText(translated);
+
+    Promise.all([
+      rawBlogText.trim() ? translateTextFromPolish(rawBlogText, targetLanguage) : Promise.resolve(''),
+      rawTitle.trim() ? translateTextFromPolish(rawTitle, targetLanguage) : Promise.resolve('')
+    ])
+      .then(([transText, transTitle]) => {
+        if (isSubscribed) {
+          if (transText) setTranslatedBlogText(transText);
+          if (transTitle) setTranslatedBlogTitle(transTitle);
         }
       })
       .catch((err) => console.warn("WnR365 blog entry translation error:", err))
@@ -1489,7 +1497,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                     <h1 className={`text-2xl font-serif tracking-tight leading-tight mt-1 ${
                       isLight ? 'text-slate-900' : 'text-white'
                     }`}>
-                      {activeEntry.title}
+                      {translatedBlogTitle || activeEntry.title}
                     </h1>
                     {completedWnrDays[cycleInfo.dayIndex] && (
                       <span className="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40 shrink-0 shadow-sm mt-1">

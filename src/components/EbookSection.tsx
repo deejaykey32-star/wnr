@@ -800,7 +800,9 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
                     {isTranslatingLeft ? (
                       <div className="flex flex-col items-center justify-center py-20 gap-3 text-amber-500 font-sans">
                         <Loader2 className="w-8 h-8 animate-spin" />
-                        <span className="text-xs font-mono">Tłumaczenie strony {leftPageNum}...</span>
+                        <span className="text-xs font-mono">
+                          {targetLanguage === 'pl' ? `Tłumaczenie strony ${leftPageNum}...` : `Translating page ${leftPageNum}...`}
+                        </span>
                       </div>
                     ) : (
                       <div className="flex-1 overflow-y-auto leading-relaxed text-justify whitespace-pre-line font-serif pr-1">
@@ -809,7 +811,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
                     )}
 
                     <div className="border-t pt-2 mt-4 border-amber-500/20 text-center text-xs font-mono text-slate-400 font-sans">
-                      — Strona {leftPageNum} z {numPages} —
+                      — {targetLanguage === 'pl' ? `Strona ${leftPageNum} z ${numPages}` : `Page ${leftPageNum} of ${numPages}`} —
                     </div>
                   </div>
 
@@ -833,7 +835,9 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
                           {isTranslatingRight ? (
                             <div className="flex flex-col items-center justify-center py-20 gap-3 text-amber-500 font-sans">
                               <Loader2 className="w-8 h-8 animate-spin" />
-                              <span className="text-xs font-mono">Tłumaczenie strony {rightPageNum}...</span>
+                              <span className="text-xs font-mono">
+                                {targetLanguage === 'pl' ? `Tłumaczenie strony ${rightPageNum}...` : `Translating page ${rightPageNum}...`}
+                              </span>
                             </div>
                           ) : (
                             <div className="flex-1 overflow-y-auto leading-relaxed text-justify whitespace-pre-line font-serif pr-1">
@@ -842,7 +846,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
                           )}
 
                           <div className="border-t pt-2 mt-4 border-amber-500/20 text-center text-xs font-mono text-slate-400 font-sans">
-                            — Strona {rightPageNum} z {numPages} —
+                            — {targetLanguage === 'pl' ? `Strona ${rightPageNum} z ${numPages}` : `Page ${rightPageNum} of ${numPages}`} —
                           </div>
                         </>
                       ) : (
