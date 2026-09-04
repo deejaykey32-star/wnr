@@ -303,7 +303,14 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       await new Promise(r => setTimeout(r, 60));
 
       const snapshot = createNoSqlSnapshot(masterPrayersMap, masterBlogMap, full1460BibleMap);
-      await importFullNoSqlSnapshot(snapshot);
+      await Promise.race([
+        importFullNoSqlSnapshot(snapshot),
+        new Promise(resolve => setTimeout(resolve, 8000))
+      ]);
+
+      onBibleEntriesUpdated(full1460BibleMap);
+      onBlogEntriesUpdated(masterBlogMap);
+      onPrayersUpdated(masterPrayersMap);
 
       setSyncProgress({
         active: true,

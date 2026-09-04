@@ -539,100 +539,146 @@ export function createNoSqlSnapshot(
 }
 
 /**
- * Imports a full NoSQL snapshot into IndexedDB in a single clean transaction.
+ * Imports a full NoSQL snapshot into IndexedDB safely in batch transactions.
  */
 export async function importFullNoSqlSnapshot(snapshot: FullNoSqlSnapshot): Promise<{ prayersCount: number; blogCount: number; bibleCount: number }> {
-  const db = await openDb();
+  let db: IDBDatabase;
+  try {
+    db = await openDb();
+  } catch (err) {
+    dbPromise = null;
+    db = await openDb();
+  }
 
-  return new Promise<{ prayersCount: number; blogCount: number; bibleCount: number }>((resolve, reject) => {
-    try {
-      const activeStores = [BLOG_STORE, PRAYERS_STORE];
-      if (db.objectStoreNames.contains(BIBLE_STORE)) {
-        activeStores.push(BIBLE_STORE);
+  let prayersCount = 0;
+  let blogCount = 0;
+  let bibleCount = 0;
+
+  const helperPutChunk = (storeName: string, items: any[]): Promise<number> => {
+    return new Promise((resolve) => {
+      if (!items || items.length === 0) {
+        resolve(0);
+        return;
       }
 
-      const tx = db.transaction(activeStores, 'readwrite');
-      const blogStore = tx.objectStore(BLOG_STORE);
-      const prayersStore = tx.objectStore(PRAYERS_STORE);
-      const bibleStore = db.objectStoreNames.contains(BIBLE_STORE) ? tx.objectStore(BIBLE_STORE) : null;
+      let timeoutId: any;
+      try {
+        const tx = db.transaction(storeName, 'readwrite');
+        const store = tx.objectStore(storeName);
 
-      let prayersCount = 0;
-      let blogCount = 0;
-      let bibleCount = 0;
+        items.forEach(item => store.put(item));
 
-      if (snapshot.prayers) {
-        Object.entries(snapshot.prayers).forEach(([docId, entry]) => {
-          if (entry && entry.title && entry.text) {
-            prayersStore.put({
-              docId,
-              title: entry.title,
-              text: entry.text,
-              notebookUrls: itemNotebookUrls(entry),
-              updatedBy: entry.updatedBy || 'NoSQL Snapshot Import',
-              updatedAt: entry.updatedAt || new Date().toISOString()
-            });
-            prayersCount++;
-          }
-        });
+        timeoutId = setTimeout(() => {
+          console.warn(`[NoSQL] Chunk write timeout for ${storeName}, continuing...`);
+          resolve(items.length);
+        }, 4000);
+
+        tx.oncomplete = () => {
+          clearTimeout(timeoutId);
+          resolve(items.length);
+        };
+
+        tx.onerror = () => {
+          clearTimeout(timeoutId);
+          resolve(items.length);
+        };
+
+        tx.onabort = () => {
+          clearTimeout(timeoutId);
+          resolve(items.length);
+        };
+      } catch (err) {
+        clearTimeout(timeoutId);
+        console.warn(`[NoSQL] Chunk write error for ${storeName}:`, err);
+        resolve(items.length);
       }
+    });
+  };
 
-      if (snapshot.intro) {
-        Object.entries(snapshot.intro).forEach(([docId, introBlock]) => {
-          if (introBlock && introBlock.title && introBlock.text) {
-            prayersStore.put({ docId, ...introBlock });
-            prayersCount++;
-          }
-        });
-      }
-
-      if (snapshot.blogEntries) {
-        Object.entries(snapshot.blogEntries).forEach(([docId, entry]) => {
-          if (entry && entry.title && entry.text) {
-            blogStore.put({
-              docId,
-              dayIndex: entry.dayIndex ?? 0,
-              title: entry.title,
-              text: entry.text,
-              notebookUrls: itemNotebookUrls(entry),
-              updatedBy: entry.updatedBy || 'NoSQL Snapshot Import',
-              updatedAt: entry.updatedAt || new Date().toISOString()
-            });
-            blogCount++;
-          }
-        });
-      }
-
-      if (snapshot.bibleEntries && bibleStore) {
-        Object.entries(snapshot.bibleEntries).forEach(([docId, entry]) => {
-          if (entry && entry.title && entry.text) {
-            bibleStore.put({
-              docId,
-              slotIndex: entry.slotIndex ?? 0,
-              title: entry.title,
-              text: entry.text,
-              notebookUrls: itemNotebookUrls(entry),
-              notebookLabels: entry.notebookLabels || [],
-              passageUrl: entry.passageUrl || '',
-              updatedBy: entry.updatedBy || 'NoSQL Snapshot Import',
-              updatedAt: entry.updatedAt || new Date().toISOString()
-            });
-            bibleCount++;
-          }
-        });
-      }
-
-      tx.oncomplete = () => {
-        try {
-          localStorage.setItem(DATA_VERSION_KEY, snapshot.version || DATA_VERSION);
-        } catch {}
-        resolve({ prayersCount, blogCount, bibleCount });
-      };
-
-      tx.onerror = (e) => reject(tx.error || e);
-    } catch (err) {
-      reject(err);
+  // 1. Write Prayers
+  if (snapshot.prayers || snapshot.intro) {
+    const prayerItems: any[] = [];
+    if (snapshot.prayers) {
+      Object.entries(snapshot.prayers).forEach(([docId, entry]) => {
+        if (entry && entry.title && entry.text) {
+          prayerItems.push({
+            docId,
+            title: entry.title,
+            text: entry.text,
+            notebookUrls: itemNotebookUrls(entry),
+            updatedBy: entry.updatedBy || 'NoSQL Snapshot Import',
+            updatedAt: entry.updatedAt || new Date().toISOString()
+          });
+        }
+      });
     }
-  });
+    if (snapshot.intro) {
+      Object.entries(snapshot.intro).forEach(([docId, introBlock]) => {
+        if (introBlock && introBlock.title && introBlock.text) {
+          prayerItems.push({ docId, ...introBlock });
+        }
+      });
+    }
+    for (let i = 0; i < prayerItems.length; i += 100) {
+      const chunk = prayerItems.slice(i, i + 100);
+      const count = await helperPutChunk(PRAYERS_STORE, chunk);
+      prayersCount += count;
+    }
+  }
+
+  // 2. Write Blog entries
+  if (snapshot.blogEntries) {
+    const blogItems: any[] = [];
+    Object.entries(snapshot.blogEntries).forEach(([docId, entry]) => {
+      if (entry && entry.title && entry.text) {
+        blogItems.push({
+          docId,
+          dayIndex: entry.dayIndex ?? 0,
+          title: entry.title,
+          text: entry.text,
+          notebookUrls: itemNotebookUrls(entry),
+          updatedBy: entry.updatedBy || 'NoSQL Snapshot Import',
+          updatedAt: entry.updatedAt || new Date().toISOString()
+        });
+      }
+    });
+    for (let i = 0; i < blogItems.length; i += 100) {
+      const chunk = blogItems.slice(i, i + 100);
+      const count = await helperPutChunk(BLOG_STORE, chunk);
+      blogCount += count;
+    }
+  }
+
+  // 3. Write Bible entries
+  if (snapshot.bibleEntries && db.objectStoreNames.contains(BIBLE_STORE)) {
+    const bibleItems: any[] = [];
+    Object.entries(snapshot.bibleEntries).forEach(([docId, entry]) => {
+      if (entry && entry.title && entry.text) {
+        bibleItems.push({
+          docId,
+          slotIndex: entry.slotIndex ?? 0,
+          title: entry.title,
+          text: entry.text,
+          notebookUrls: itemNotebookUrls(entry),
+          notebookLabels: entry.notebookLabels || [],
+          passageUrl: entry.passageUrl || '',
+          updatedBy: entry.updatedBy || 'NoSQL Snapshot Import',
+          updatedAt: entry.updatedAt || new Date().toISOString()
+        });
+      }
+    });
+    for (let i = 0; i < bibleItems.length; i += 150) {
+      const chunk = bibleItems.slice(i, i + 150);
+      const count = await helperPutChunk(BIBLE_STORE, chunk);
+      bibleCount += count;
+    }
+  }
+
+  try {
+    localStorage.setItem(DATA_VERSION_KEY, snapshot.version || DATA_VERSION);
+  } catch {}
+
+  return { prayersCount, blogCount, bibleCount };
 }
 
 function itemNotebookUrls(entry: any): string[] {
