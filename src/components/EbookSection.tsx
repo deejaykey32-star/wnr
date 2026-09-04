@@ -180,37 +180,39 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
     let isSubscribed = true;
     setIsTranslating(true);
 
-    getPageText(currentPage)
-      .then((rawPageText) => {
-        if (!isSubscribed) return;
-        if (!rawPageText || !rawPageText.trim()) {
-          setLiveTranslatedText('');
-          setIsTranslating(false);
-          return;
-        }
-        return translateTextFromPolish(rawPageText, targetLanguage).then((translated) => {
-          if (isSubscribed && translated) {
-            setLiveTranslatedText(translated);
+      getPageText(currentPage)
+        .then((rawPageText) => {
+          if (!isSubscribed) return;
+          if (!rawPageText || !rawPageText.trim()) {
+            if (pdfDocument) {
+              setLiveTranslatedText('Brak treści tekstowej na tej stronie.');
+              setIsTranslating(false);
+            }
+            return;
           }
-          // Background pre-fetch next page translation for instant page turns
-          if (isSubscribed && currentPage < numPages) {
-            getPageText(currentPage + 1).then((nextText) => {
-              if (nextText && nextText.trim()) {
-                translateTextFromPolish(nextText, targetLanguage).catch(() => {});
-              }
-            }).catch(() => {});
-          }
+          return translateTextFromPolish(rawPageText, targetLanguage).then((translated) => {
+            if (isSubscribed && translated) {
+              setLiveTranslatedText(translated);
+            }
+            // Background pre-fetch next page translation for instant page turns
+            if (isSubscribed && currentPage < numPages) {
+              getPageText(currentPage + 1).then((nextText) => {
+                if (nextText && nextText.trim()) {
+                  translateTextFromPolish(nextText, targetLanguage).catch(() => {});
+                }
+              }).catch(() => {});
+            }
+          });
+        })
+        .catch((err) => console.warn("Page translation error:", err))
+        .finally(() => {
+          if (isSubscribed) setIsTranslating(false);
         });
-      })
-      .catch((err) => console.warn("Page translation error:", err))
-      .finally(() => {
-        if (isSubscribed) setIsTranslating(false);
-      });
 
-    return () => {
-      isSubscribed = false;
-    };
-  }, [currentPage, targetLanguage, getPageText]);
+      return () => {
+        isSubscribed = false;
+      };
+    }, [currentPage, targetLanguage, pdfDocument, getPageText]);
 
   // Check if a credible male Polish voice exists
   const hasMaleVoice = availableVoices.some((v) => {
@@ -712,14 +714,14 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
                     {getLanguageOption(targetLanguage).flag} {getLanguageOption(targetLanguage).name}
                   </span>
                 </div>
-                {isTranslating && !liveTranslatedText ? (
+                {(isTranslating || isLoadingPdf || (!liveTranslatedText && !pdfDocument)) ? (
                   <div className="flex flex-col items-center justify-center gap-3 py-16 text-sky-400">
                     <Loader2 className="w-8 h-8 animate-spin" />
-                    <span className="text-sm font-semibold font-mono">Tłumaczenie strony {currentPage} w locie...</span>
+                    <span className="text-sm font-semibold font-mono">Tłumaczenie strony {currentPage} w locie ({getLanguageOption(targetLanguage).name})...</span>
                   </div>
                 ) : (
                   <p className="text-base sm:text-lg leading-relaxed text-justify whitespace-pre-line font-sans">
-                    {liveTranslatedText || "Trwa wczytywanie tekstu strony..."}
+                    {liveTranslatedText}
                   </p>
                 )}
               </div>
