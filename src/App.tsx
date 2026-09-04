@@ -25,7 +25,7 @@ import {
   getCompletedWnrDays, toggleWnrDayCompleted, markWnrDayCompleted, isWnrDayCompleted
 } from './utils/completedDays';
 import { TtsVoiceToolbar } from './components/TtsVoiceToolbar';
-import { translateTextFromPolish } from './utils/translator';
+import { SUPPORTED_LANGUAGES, translateTextFromPolish } from './utils/translator';
 
 const SearchModal = lazy(() => import('./components/SearchModal').then(m => ({ default: m.SearchModal })));
 const ExportModal = lazy(() => import('./components/ExportModal').then(m => ({ default: m.ExportModal })));

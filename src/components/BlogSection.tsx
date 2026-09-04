@@ -19,7 +19,7 @@ import { getWnrDefaultBlogEntry } from '../utils/wnrBlogDefaults';
 import { saveLocalBlogEntry } from '../utils/localNoSqlDb';
 import { NotebookGeminiPanel, GEMINI_ANALYSIS_TYPES } from './NotebookGeminiPanel';
 import { TtsVoiceToolbar } from './TtsVoiceToolbar';
-import { translateTextFromPolish } from '../utils/translator';
+import { SUPPORTED_LANGUAGES, translateTextFromPolish } from '../utils/translator';
 
 interface BlogSectionProps {
   user: any;
