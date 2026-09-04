@@ -20,6 +20,7 @@ let queueOptions: any = {};
 let isQueueActive = false;
 let isQueuePaused = false;
 let isUtteranceSpeaking = false;
+let currentAudio: HTMLAudioElement | null = null;
 
 /**
  * Splits extremely long segments into smaller ones to prevent TTS engine freezes.
@@ -82,6 +83,14 @@ export const stopSpeech = () => {
   utteranceQueue = [];
   queueIndex = 0;
   
+  if (currentAudio) {
+    try {
+      currentAudio.pause();
+      currentAudio.src = '';
+    } catch {}
+    currentAudio = null;
+  }
+
   // Nullify event handlers on active utterances to prevent ghost callbacks
   activeUtterances.forEach(u => {
     u.onstart = null;
@@ -105,6 +114,11 @@ export const stopSpeech = () => {
 export const pauseSpeech = () => {
   isQueuePaused = true;
   isUtteranceSpeaking = false;
+  if (currentAudio) {
+    try {
+      currentAudio.pause();
+    } catch {}
+  }
   activeUtterances.forEach(u => {
     u.onstart = null;
     u.onend = null;
@@ -300,8 +314,79 @@ export const getPolishVoice = (preference?: { voiceURI?: string; gender?: 'femal
   }
 };
 
+const playGoogleTtsSegment = (segmentText: string, lang: string, thisSessionId: number) => {
+  if (currentAudio) {
+    try {
+      currentAudio.pause();
+      currentAudio.src = '';
+    } catch {}
+    currentAudio = null;
+  }
+
+  const encodedText = encodeURIComponent(segmentText);
+  const targetLangCode = (lang || 'pl').toLowerCase();
+  const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodedText}&tl=${targetLangCode}&client=tw-ob`;
+
+  const audio = new Audio(url);
+  currentAudio = audio;
+  audio.playbackRate = queueOptions.rate !== undefined ? queueOptions.rate : 0.95;
+
+  audio.onplay = () => {
+    if (thisSessionId !== currentSessionId) {
+      audio.pause();
+      return;
+    }
+    isUtteranceSpeaking = true;
+    if (queueIndex === 0 && queueOptions.onStart) {
+      queueOptions.onStart();
+    }
+    if (queueOptions.onSegmentStart) {
+      queueOptions.onSegmentStart(queueIndex);
+    }
+  };
+
+  audio.onended = () => {
+    currentAudio = null;
+    if (thisSessionId !== currentSessionId) return;
+    isUtteranceSpeaking = false;
+    if (!isQueueActive || isQueuePaused) return;
+
+    queueIndex++;
+    setTimeout(() => {
+      if (thisSessionId === currentSessionId && isQueueActive && !isQueuePaused) {
+        speakNextSegment();
+      }
+    }, 300);
+  };
+
+  audio.onerror = (e) => {
+    currentAudio = null;
+    if (thisSessionId !== currentSessionId) return;
+    isUtteranceSpeaking = false;
+    console.warn("Google TTS fallback audio error:", e);
+    if (!isQueueActive || isQueuePaused) return;
+
+    queueIndex++;
+    setTimeout(() => {
+      if (thisSessionId === currentSessionId && isQueueActive && !isQueuePaused) {
+        speakNextSegment();
+      }
+    }, 300);
+  };
+
+  audio.play().catch((err) => {
+    console.warn("Google TTS audio playback failed:", err);
+    queueIndex++;
+    setTimeout(() => {
+      if (thisSessionId === currentSessionId && isQueueActive && !isQueuePaused) {
+        speakNextSegment();
+      }
+    }, 300);
+  });
+};
+
 const speakNextSegment = () => {
-  if (!isTtsSupported() || !isQueueActive || isQueuePaused) {
+  if (!isQueueActive || isQueuePaused) {
     isUtteranceSpeaking = false;
     return;
   }
@@ -326,6 +411,14 @@ const speakNextSegment = () => {
   }
 
   const thisSessionId = currentSessionId;
+  const targetLang = (queueOptions.lang || 'pl').toLowerCase();
+  const availableVoices = getVoicesForLang(targetLang);
+
+  // If no native voice exists on device for this language, use Google TTS Audio Fallback!
+  if (availableVoices.length === 0) {
+    playGoogleTtsSegment(segmentText, targetLang, thisSessionId);
+    return;
+  }
 
   try {
     const utterance = new SpeechSynthesisUtterance(segmentText);
@@ -469,7 +562,7 @@ export const sanitizeTextForTts = (text: string): string => {
     .replace(/WnR365\s*[-—–]\s*Widoki na Raj\s*[-—–]?\s*\([^\)]*\)\s*[-—–]?\s*\[[^\]]*\]/gi, '')
     .replace(/str\.\s*\d+/gi, '')
     .replace(/\b(eMBiK365|WnR365|RHZ365|Biblia365|widokinaraj\.pl)\b/gi, '')
-    .replace(/\b(np|itd|itp|tzn|tzw|wg)\b\.?/gi, '')
+    .replace(/(?<=\s|^)(np|itd|itp|tzn|tzw|wg)\.?(?=\s|$|\.|,)/gi, '')
 
     // 1. Remove quotes (cudzysłowy) of all types
     .replace(/[„”"«»‘’'`]/g, '')
@@ -481,8 +574,8 @@ export const sanitizeTextForTts = (text: string): string => {
     // Spaced dashes / em-dashes / en-dashes / horizontal bars -> comma pause
     .replace(/[—–―]/g, ', ')
     .replace(/\s+-\s+/g, ', ')
-    // Hyphenated compound words (e.g. Bet-Peor -> Bet Peor)
-    .replace(/(\w+)-(\w+)/g, '$1 $2')
+    // Hyphenated compound words with Polish diacritics support
+    .replace(/([a-zA-Z0-9ą-żĄ-Ż]+)-([a-zA-Z0-9ą-żĄ-Ż]+)/g, '$1 $2')
     // Remaining standalone hyphens -> space
     .replace(/-/g, ' ')
 
