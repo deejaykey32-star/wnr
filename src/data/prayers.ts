@@ -1,16 +1,13 @@
-import { BeadData, PrayerStep } from '../types';
+import rhzJsonData from '../../RHZ365_pierwszy_cykl_175_dni.json';
 
-let loadedRhzData: any[] | null = null;
+let loadedRhzData: any[] | null = rhzJsonData as any[];
 
 export async function loadRhzData(): Promise<any[]> {
-  if (loadedRhzData) return loadedRhzData;
-  const data = (await import('../../RHZ365_pierwszy_cykl_175_dni.json')).default;
-  loadedRhzData = data;
-  return data;
+  return loadedRhzData || (rhzJsonData as any[]);
 }
 
 export function getRhzList(): any[] {
-  return loadedRhzData || [];
+  return loadedRhzData || (rhzJsonData as any[]);
 }
 
 

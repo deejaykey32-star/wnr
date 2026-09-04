@@ -1698,8 +1698,8 @@ export default function App() {
       }
 
       let textToDisplay = ourFather.text;
-      if (cycleInfo.cycleType === 'cycle1' && decIdx) {
-        const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
+      if ((cycleInfo.cycleType === 'cycle1' || cycleInfo.cycleType === 'cycle2') && decIdx) {
+        const mysteryData = getActiveDecadeMystery(cycleInfo.cycleType, cycleInfo.dayOfCycle, decIdx, prayers);
         const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
         if (parsed.data?.ourFatherText) {
           textToDisplay = parsed.data.ourFatherText;
@@ -1737,8 +1737,8 @@ export default function App() {
       const decIdx = activeStep.decadeIndex;
 
       let textToDisplay = `${glory.text}\n\n${fatima.text}`;
-      if (cycleInfo.cycleType === 'cycle1' && decIdx) {
-        const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
+      if ((cycleInfo.cycleType === 'cycle1' || cycleInfo.cycleType === 'cycle2') && decIdx) {
+        const mysteryData = getActiveDecadeMystery(cycleInfo.cycleType, cycleInfo.dayOfCycle, decIdx, prayers);
         const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
         if (parsed.data?.gloryBeFatimaText) {
           textToDisplay = parsed.data.gloryBeFatimaText;
@@ -1757,9 +1757,9 @@ export default function App() {
       );
     }
 
-    if (activeStep.prayerType === 'hailMary' && activeStep.beadNumber && activeStep.decadeIndex && cycleInfo.cycleType === 'cycle1') {
+    if (activeStep.prayerType === 'hailMary' && activeStep.beadNumber && activeStep.decadeIndex && (cycleInfo.cycleType === 'cycle1' || cycleInfo.cycleType === 'cycle2')) {
       const decIdx = activeStep.decadeIndex;
-      const mysteryData = getActiveDecadeMystery('cycle1', cycleInfo.dayOfCycle, decIdx, prayers);
+      const mysteryData = getActiveDecadeMystery(cycleInfo.cycleType, cycleInfo.dayOfCycle, decIdx, prayers);
       const parsed = parseDayText(cycleInfo.dayOfCycle, mysteryData.rgba.text);
 
       let specificHailText = parsed.data?.hailMaryTexts?.[activeStep.beadNumber - 1];
@@ -2916,6 +2916,21 @@ export default function App() {
         ) : (
           /* STANDARD FULL WORKSPACE LAYOUT */
           <div className="w-full max-w-7xl flex flex-col gap-8">
+            <TtsVoiceToolbar
+              targetLanguage={targetLanguage}
+              setTargetLanguage={setTargetLanguage}
+              selectedGender={selectedGender}
+              setSelectedGender={setSelectedGender}
+              selectedVoiceUri={selectedVoiceUri}
+              setSelectedVoiceUri={setSelectedVoiceUri}
+              theme={theme}
+              isTranslating={isTranslating}
+              onOptionChange={() => {
+                if (isPlaying) {
+                  stopSpeech();
+                }
+              }}
+            />
             
             {/* LITURGICAL CYCLE & DATE PICKER */}
             <div className={`border rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl transition-all duration-300 ${

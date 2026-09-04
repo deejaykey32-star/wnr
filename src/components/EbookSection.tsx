@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechSpeaking, isSpeechPaused, isTtsSupported, getPolishVoice, getPolishVoices, getVoicesForLang } from '../utils/tts';
 import { SUPPORTED_LANGUAGES, translateTextFromPolish } from '../utils/translator';
+import { TtsVoiceToolbar } from './TtsVoiceToolbar';
 
 // Configure PDF.js worker
 if (typeof window !== 'undefined') {
@@ -520,131 +521,21 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
       </div>
 
       {/* DEDICATED AI VOICE SELECTOR TOOLBAR */}
-      <div className={`p-3 rounded-2xl backdrop-blur-md shadow-md border flex flex-wrap items-center justify-between gap-3 mb-4 transition-all ${
-        isDark ? 'bg-slate-900/90 border-slate-800' : 'bg-white/90 border-slate-200'
-      }`}>
-        <div className="flex items-center gap-2">
-          <Volume2 className="w-5 h-5 text-amber-500" />
-          <span className="text-xs sm:text-sm font-bold text-slate-200">Głos AI Lektora:</span>
-        </div>
-
-        <div className="flex flex-wrap items-center gap-2">
-          {/* Gender Switcher (Głos Żeński / Męski) */}
-          <div className={`flex items-center rounded-xl p-1 border text-xs ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-slate-200 border-slate-300'}`}>
-
-            <button
-              onClick={() => {
-                setSelectedGender('female');
-                setSelectedVoiceUri('');
-                if (isReading) startReadingPage(currentPage, 'female', '');
-              }}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
-                !isVoiceSpecific && selectedGender === 'female'
-                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-bold shadow-md'
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
-              title="Czysty głos żeński (np. Paulina / Zofia / Google)"
-            >
-              👩 <span>Głos żeński</span>
-            </button>
-            <button
-              onClick={() => {
-                setSelectedGender('male');
-                setSelectedVoiceUri('');
-                if (isReading) startReadingPage(currentPage, 'male', '');
-              }}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
-                !isVoiceSpecific && selectedGender === 'male'
-                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-bold shadow-md'
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
-              title={hasMaleVoice ? 'Głos męski (np. Jacek)' : 'Brak głosu męskiego w systemie — zostanie użyty neutralny'}
-            >
-              👨 <span>Głos Męski{!hasMaleVoice && availableVoices.length > 0 ? ' ⚠️' : ''}</span>
-            </button>
-          </div>
-
-          {/* Dynamic Voice Selector matching current target language */}
-          <div className="flex items-center gap-1.5">
-            <span className="text-xs text-slate-400 hidden sm:inline">
-              {targetLanguage === 'pl' ? 'Głos polski:' : `Głos (${SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.name}):`}
-            </span>
-            <select
-              value={selectedVoiceUri}
-              onChange={(e) => {
-                const newUri = e.target.value;
-                setSelectedVoiceUri(newUri);
-                if (isReading) startReadingPage(currentPage, selectedGender, newUri, targetLanguage);
-              }}
-              className={`text-xs p-2 rounded-xl border font-semibold max-w-[200px] cursor-pointer transition-all ${
-                isDark ? 'bg-slate-800 border-slate-700 text-amber-400 hover:bg-slate-700' : 'bg-slate-100 border-slate-300 text-amber-700 hover:bg-slate-200'
-              } ${isVoiceSpecific ? 'ring-2 ring-amber-500' : ''}`}
-              title={`Wybierz głos dla języka ${SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.name}`}
-            >
-              <option value="">
-                ★ Auto ({targetLanguage === 'pl' ? (selectedGender === 'female' ? 'Żeński PL' : 'Męski PL') : SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.name})
-              </option>
-              {availableVoices.length === 0 && (
-                <option disabled value="__none__">
-                  Brak głosów [{targetLanguage}] w systemie
-                </option>
-              )}
-              {availableVoices.map((v, idx) => {
-                const voiceId = (v.voiceURI && v.voiceURI.trim() !== '') ? v.voiceURI : v.name;
-                return (
-                  <option key={`v-${voiceId}-${idx}`} value={voiceId}>
-                    {v.name} [{v.lang}]
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-
-          {/* Live Translation Language Selector */}
-          <div className="flex items-center gap-1.5">
-            <span className="text-xs text-slate-400 hidden sm:inline">🌐 Tłumacz w locie:</span>
-            <select
-              value={targetLanguage}
-              onChange={(e) => {
-                const newLang = e.target.value;
-                setTargetLanguage(newLang);
-                setSelectedVoiceUri(''); // Reset voice selection for new language
-                if (isReading) {
-                  startReadingPage(currentPage, selectedGender, '', newLang);
-                }
-              }}
-              className={`text-xs p-2 rounded-xl border font-semibold cursor-pointer transition-all ${
-                isDark 
-                  ? 'bg-slate-800 border-slate-700 text-sky-400 hover:bg-slate-700' 
-                  : 'bg-slate-100 border-slate-300 text-sky-700 hover:bg-slate-200'
-              } ${targetLanguage !== 'pl' ? 'ring-2 ring-sky-500 font-bold' : ''}`}
-              title="Automatyczne tłumaczenie treści w locie i odczyt lektorem w wybranym języku"
-            >
-              {SUPPORTED_LANGUAGES.map((lang) => (
-                <option key={lang.code} value={lang.code}>
-                  {lang.flag} {lang.name} {lang.code !== 'pl' ? ' (Tłumaczenie AI)' : ''}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {/* Warning when no male voice exists */}
-          {selectedGender === 'male' && !hasMaleVoice && !isVoiceSpecific && availableVoices.length > 0 && (
-            <span className="text-xs text-amber-400 italic">⚠️ Brak głosu męskiego w systemie</span>
-          )}
-
-          {/* Active Live Translation Indicator Banner */}
-          {targetLanguage !== 'pl' && (
-            <div className="w-full mt-2 pt-2 border-t border-slate-700/50 flex items-center justify-between text-xs text-sky-400 bg-sky-500/10 px-3 py-1.5 rounded-xl">
-              <span className="flex items-center gap-1.5 font-medium">
-                🌐 Tłumaczenie w locie aktywne: {SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.flag} {SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.name}
-                {isTranslating && <Loader2 className="w-3.5 h-3.5 animate-spin text-sky-400 inline ml-1" />}
-              </span>
-              <span className="text-[11px] text-slate-400 italic hidden sm:inline">Lektor odczytuje przetłumaczoną treść w tym języku</span>
-            </div>
-          )}
-        </div>
-      </div>
+      <TtsVoiceToolbar
+        targetLanguage={targetLanguage}
+        setTargetLanguage={setTargetLanguage}
+        selectedGender={selectedGender}
+        setSelectedGender={setSelectedGender}
+        selectedVoiceUri={selectedVoiceUri}
+        setSelectedVoiceUri={setSelectedVoiceUri}
+        theme={theme}
+        isTranslating={isTranslating}
+        onOptionChange={() => {
+          if (isReading) {
+            startReadingPage(currentPage, selectedGender, selectedVoiceUri, targetLanguage);
+          }
+        }}
+      />
 
       {/* Main Book Display Container (Scrollable on Zoom) */}
       <div className="relative flex-1 my-2 flex items-center justify-center overflow-auto min-h-[500px] w-full p-2 sm:p-4">
