@@ -9,6 +9,7 @@ import {
 import { speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechSpeaking, isSpeechPaused, isTtsSupported, getPolishVoice, getPolishVoices, getVoicesForLang } from '../utils/tts';
 import { SUPPORTED_LANGUAGES, getLanguageOption, translateTextFromPolish } from '../utils/translator';
 import { TtsVoiceToolbar } from './TtsVoiceToolbar';
+import wnrPdfEntries from '../data/wnr365_pdf_entries.json';
 
 // Configure PDF.js worker
 if (typeof window !== 'undefined') {
@@ -110,11 +111,12 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
   // Helper to extract text of a single page with caching
   const getPageText = useCallback(async (pageNum: number): Promise<string> => {
     if (pageNum < 1) return "";
-    if (pageTextCacheRef.current[pageNum] !== undefined) {
-      return pageTextCacheRef.current[pageNum];
+    const cached = pageTextCacheRef.current[pageNum];
+    if (cached && !cached.includes("Brak treści")) {
+      return cached;
     }
 
-    // 1. Try extracting text from PDF document
+    // 1. Try extracting text from PDF document if loaded
     if (pdfDocument && pageNum <= numPages) {
       try {
         const page = await pdfDocument.getPage(pageNum);
@@ -126,7 +128,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
           .replace(/\s+/g, ' ')
           .trim();
 
-        if (extractedText && extractedText.length > 10) {
+        if (extractedText && extractedText.length > 20) {
           pageTextCacheRef.current[pageNum] = extractedText;
           return extractedText;
         }
@@ -135,28 +137,20 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
       }
     }
 
-    // 2. Fallback to wnr365_pdf_entries.json (blog_day_{pageNum-1})
-    try {
-      const entriesModule = await import('../data/wnr365_pdf_entries.json');
-      const entries = entriesModule.default || entriesModule;
-      const entryKey = `blog_day_${pageNum - 1}`;
-      const entry = (entries as any)[entryKey];
-      if (entry) {
-        const entryText = `${entry.title || ''}\n\n${entry.text || ''}`.trim();
-        if (entryText && entryText.length > 5) {
-          pageTextCacheRef.current[pageNum] = entryText;
-          return entryText;
-        }
+    // 2. Instant static lookup from wnr365_pdf_entries.json (blog_day_{pageNum-1})
+    const entryKey = `blog_day_${pageNum - 1}`;
+    const entry = (wnrPdfEntries as any)[entryKey];
+    if (entry && (entry.title || entry.text)) {
+      const entryText = `${entry.title || ''}\n\n${entry.text || ''}`.trim();
+      if (entryText && entryText.length > 5) {
+        pageTextCacheRef.current[pageNum] = entryText;
+        return entryText;
       }
-    } catch (err) {
-      console.warn(`JSON entries fallback error page ${pageNum}:`, err);
     }
 
-    // 3. Fallback text guarantee
+    // 3. Guaranteed fallback title text
     const fallback = `Widoki na Raj (WnR365) — Strona ${pageNum}`;
-    if (pdfDocument) {
-      pageTextCacheRef.current[pageNum] = fallback;
-    }
+    pageTextCacheRef.current[pageNum] = fallback;
     return fallback;
   }, [pdfDocument, numPages]);
 
@@ -697,7 +691,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
                     {getLanguageOption(targetLanguage).flag} {getLanguageOption(targetLanguage).name}
                   </span>
                 </div>
-                {(isTranslating || isLoadingPdf || (!liveTranslatedText && !pdfDocument)) ? (
+                {(isTranslating || isLoadingPdf || !liveTranslatedText || liveTranslatedText.includes("Brak treści")) ? (
                   <div className="flex flex-col items-center justify-center gap-3 py-16 text-sky-400">
                     <Loader2 className="w-8 h-8 animate-spin" />
                     <span className="text-sm font-semibold font-mono">Tłumaczenie strony {currentPage} w locie ({getLanguageOption(targetLanguage).name})...</span>
