@@ -1,12 +1,14 @@
 {
-  "version": "wnr365-snapshot-2026-09-02",
-  "exportedAt": "2026-09-02T02:06:39.501Z",
+  "version": "wnr365-snapshot-2026-09-04",
+  "exportedAt": "2026-09-04T01:28:20.828Z",
   "source": "widokinaraj.pl NoSQL Core (GitHub / Cloudflare Pages)",
   "intro": {
     "introTextMain": {
       "title": "Tekst Wstępu (Widoki na Raj / RHZ365)",
       "text": "„Widoki na Raj” to owoc duchowej pielgrzymki i codziennego poszukiwania Jezusa, w tajemnicach Boga, prowadzonej zgodnie z Misją Barw i Kolorów.\nNie jestem teologiem, osobą duchowną ani autorytetem w sprawach wiary, a jedynie pielgrzymem, który dzieli się własnym doświadczeniem, przemyśleniami i modlitwą.\nMoje oddanie Bogu oraz sposób, w jaki powstają te rozważania, opisałem szerzej w poniższym wpisie z dnia 323:\n\n[qr:https://widokinaraj.pl/wnr365-day-323]\n\nSkrót WnR365 oznacza „Widoki na Raj” - są to rozważania na każdy dzień roku, skrót RHZ365 to „Różaniec Historii Zbawienia” - obejmujący 365 dni modlitwy, natomiast eMBiK365 jest wspólnym dziełem, moim i mojej żony.\nPragniemy razem wzrastać w wierze, trwając w jedności z Bogiem Ojcem, przez Ducha Świętego, w Osobie Jezusa Chrystusa, Pana naszego i Jego aniołów.\nAmen.",
       "notebookUrls": [],
+      "updatedBy": "kuta.dominik@gmail.com",
+      "updatedAt": "2026-09-02T01:41:52.657Z",
       "notebookLabels": [
         "",
         "",
@@ -16,14 +18,14 @@
         "",
         "",
         ""
-      ],
-      "updatedBy": "kuta.dominik@gmail.com",
-      "updatedAt": "2026-09-02T01:41:52.657Z"
+      ]
     },
     "introTextMission": {
       "title": "Misja eMBiK365 (Pasek pod wstępem)",
       "text": "eMBiK365 (elektroniczna Misja Barw i Kolorów) poprzez duchowe pielgrzymowanie przez Jezusa Chrystusa Pana ludzi i aniołów w Duchu Świętym, dzięki Bogu Ojcu i Maryi zawsze dziewicy, prowadzących wszystkich do świętości. Niech świeci świecą dla Nieba i świata całego. Amen.",
       "notebookUrls": [],
+      "updatedBy": "kuta.dominik@gmail.com",
+      "updatedAt": "2026-09-02T01:41:44.302Z",
       "notebookLabels": [
         "",
         "",
@@ -33,9 +35,7 @@
         "",
         "",
         ""
-      ],
-      "updatedBy": "kuta.dominik@gmail.com",
-      "updatedAt": "2026-09-02T01:41:44.302Z"
+      ]
     }
   },
   "prayers": {
@@ -45,7 +45,8 @@
       "notebookUrls": [],
       "updatedBy": "Admin Sync",
       "updatedAt": "2026-08-19T16:25:20.676Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "signOfCross"
     },
     "creed": {
       "title": "Skład Apostolski (Wierzę w Boga)",
@@ -53,7 +54,8 @@
       "notebookUrls": [],
       "updatedBy": "Admin Sync",
       "updatedAt": "2026-08-19T16:25:20.802Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "creed"
     },
     "ourFather": {
       "title": "Modlitwa Pańska (Ojcze Nasz)",
@@ -61,7 +63,8 @@
       "notebookUrls": [],
       "updatedBy": "Admin Sync",
       "updatedAt": "2026-08-19T16:25:20.878Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "ourFather"
     },
     "hailMary": {
       "title": "Pozdrowienie Anielskie (Zdrowaś Maryjo)",
@@ -69,7 +72,8 @@
       "notebookUrls": [],
       "updatedBy": "Admin Sync",
       "updatedAt": "2026-08-19T16:25:20.953Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "hailMary"
     },
     "gloryBe": {
       "title": "Uwielbienie Trójcy Świętej (Chwała Ojcu)",
@@ -77,7 +81,8 @@
       "notebookUrls": [],
       "updatedBy": "Admin Sync",
       "updatedAt": "2026-08-19T16:25:21.025Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "gloryBe"
     },
     "fatima": {
       "title": "Modlitwa Fatimska (O mój Jezu)",
@@ -85,7 +90,8 @@
       "notebookUrls": [],
       "updatedBy": "Admin Sync",
       "updatedAt": "2026-08-19T16:25:21.093Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "fatima"
     },
     "hailQueen": {
       "title": "Antyfona Maryjna (Witaj Królowo / Pod Twoją obronę)",
@@ -93,12 +99,15 @@
       "notebookUrls": [],
       "updatedBy": "Admin Sync",
       "updatedAt": "2026-08-19T16:25:21.172Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "hailQueen"
     },
     "introTextMain": {
       "title": "Tekst Wstępu (Widoki na Raj / RHZ365)",
       "text": "„Widoki na Raj” to owoc duchowej pielgrzymki i codziennego poszukiwania Jezusa, w tajemnicach Boga, prowadzonej zgodnie z Misją Barw i Kolorów.\nNie jestem teologiem, osobą duchowną ani autorytetem w sprawach wiary, a jedynie pielgrzymem, który dzieli się własnym doświadczeniem, przemyśleniami i modlitwą.\nMoje oddanie Bogu oraz sposób, w jaki powstają te rozważania, opisałem szerzej w poniższym wpisie z dnia 323:\n\n[qr:https://widokinaraj.pl/wnr365-day-323]\n\nSkrót WnR365 oznacza „Widoki na Raj” - są to rozważania na każdy dzień roku, skrót RHZ365 to „Różaniec Historii Zbawienia” - obejmujący 365 dni modlitwy, natomiast eMBiK365 jest wspólnym dziełem, moim i mojej żony.\nPragniemy razem wzrastać w wierze, trwając w jedności z Bogiem Ojcem, przez Ducha Świętego, w Osobie Jezusa Chrystusa, Pana naszego i Jego aniołów.\nAmen.",
       "notebookUrls": [],
+      "updatedBy": "kuta.dominik@gmail.com",
+      "updatedAt": "2026-09-02T01:41:52.657Z",
       "notebookLabels": [
         "",
         "",
@@ -108,14 +117,14 @@
         "",
         "",
         ""
-      ],
-      "updatedBy": "kuta.dominik@gmail.com",
-      "updatedAt": "2026-09-02T01:41:52.657Z"
+      ]
     },
     "introTextMission": {
       "title": "Misja eMBiK365 (Pasek pod wstępem)",
       "text": "eMBiK365 (elektroniczna Misja Barw i Kolorów) poprzez duchowe pielgrzymowanie przez Jezusa Chrystusa Pana ludzi i aniołów w Duchu Świętym, dzięki Bogu Ojcu i Maryi zawsze dziewicy, prowadzących wszystkich do świętości. Niech świeci świecą dla Nieba i świata całego. Amen.",
       "notebookUrls": [],
+      "updatedBy": "kuta.dominik@gmail.com",
+      "updatedAt": "2026-09-02T01:41:44.302Z",
       "notebookLabels": [
         "",
         "",
@@ -125,9 +134,7 @@
         "",
         "",
         ""
-      ],
-      "updatedBy": "kuta.dominik@gmail.com",
-      "updatedAt": "2026-09-02T01:41:44.302Z"
+      ]
     },
     "custom_step_step-hailmary-dec-2-7": {
       "title": "Pozdrowienie Anielskie (Zdrowaś Maryjo)",
@@ -135,7 +142,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T16:37:19.304Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "custom_step_step-hailmary-dec-2-7"
     },
     "custom_step_step-intro-virtue-1": {
       "title": "Pozdrowienie Anielskie (Zdrowaś Maryjo)",
@@ -143,7 +151,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-08T10:40:50.055Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "custom_step_step-intro-virtue-1"
     },
     "custom_step_step-intro-virtue-2": {
       "title": "Pozdrowienie Anielskie (Zdrowaś Maryjo)",
@@ -151,7 +160,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-08T10:38:52.988Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "custom_step_step-intro-virtue-2"
     },
     "custom_step_step-intro-virtue-3": {
       "title": "Pozdrowienie Anielskie (Zdrowaś Maryjo)",
@@ -159,7 +169,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-08T10:40:13.571Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "custom_step_step-intro-virtue-3"
     },
     "day_100_decade_rgba_5": {
       "title": "Ukoronowanie Najświętszej Maryi Panny na Królową Nieba i Ziemi",
@@ -167,7 +178,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:53.483Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_100_decade_rgba_5"
     },
     "day_101_decade_rgba_1": {
       "title": "Chrzest i wspólnota pierwszych uczniów (Dz 2, 41–47; Mt 28, 18–20)",
@@ -175,7 +187,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:53.617Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_101_decade_rgba_1"
     },
     "day_102_decade_rgba_2": {
       "title": "Nawrócenie św. Pawła (Dz 9, 1–19)",
@@ -183,7 +196,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:53.748Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_102_decade_rgba_2"
     },
     "day_103_decade_rgba_3": {
       "title": "Męczeństwo św. Szczepana (Dz 6, 8–15; 7, 54–60)",
@@ -191,7 +205,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:53.893Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_103_decade_rgba_3"
     },
     "day_104_decade_rgba_4": {
       "title": "Misje św. Pawła i rozszerzenie Ewangelii (Dz 13–28)",
@@ -199,7 +214,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:54.023Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_104_decade_rgba_4"
     },
     "day_105_decade_rgba_5": {
       "title": "Męczeństwo Apostołów Piotra i Pawła (2 Tm 4, 6–8; J 21, 18–19)",
@@ -207,7 +223,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:54.154Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_105_decade_rgba_5"
     },
     "day_106_decade_rgba_1": {
       "title": "Zesłanie Ducha Świętego na pogan (Dz 10, 34–48)",
@@ -215,7 +232,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:54.285Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_106_decade_rgba_1"
     },
     "day_107_decade_rgba_2": {
       "title": "Dar Charyzmatów i Ciała Chrystusa (1 Kor 12, 4–13)",
@@ -223,7 +241,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:54.418Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_107_decade_rgba_2"
     },
     "day_108_decade_rgba_3": {
       "title": "Miłość jako największy dar (1 Kor 13, 1–13)",
@@ -231,7 +250,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:54.555Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_108_decade_rgba_3"
     },
     "day_109_decade_rgba_4": {
       "title": "Życie według Ducha (Rz 8, 1–17)",
@@ -239,7 +259,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:54.682Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_109_decade_rgba_4"
     },
     "day_10_decade_rgba_5": {
       "title": "Józef i pojednanie z braćmi (Księga Rodzaju 45, 1–8)",
@@ -247,7 +268,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:40.583Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_10_decade_rgba_5"
     },
     "day_110_decade_rgba_5": {
       "title": "Modlitwa Ducha w nas (Rz 8, 26–28)",
@@ -255,7 +277,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:54.814Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_110_decade_rgba_5"
     },
     "day_111_decade_rgba_1": {
       "title": "Ustanowienie diakonii, czyli Kościoła służącego",
@@ -263,7 +286,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:54.939Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_111_decade_rgba_1"
     },
     "day_112_decade_rgba_2": {
       "title": "Pokora i służba uczniów w Kościele poapostolskim",
@@ -271,7 +295,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:55.075Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_112_decade_rgba_2"
     },
     "day_113_decade_rgba_3": {
       "title": "Miłość aż do męczeństwa: świadectwo drugiego pokolenia uczniów",
@@ -279,7 +304,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:55.208Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_113_decade_rgba_3"
     },
     "day_114_decade_rgba_4": {
       "title": "Wiara broniąca prawdy: rodzące się herezje i pierwsi teologowie",
@@ -287,7 +313,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:55.342Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_114_decade_rgba_4"
     },
     "day_115_decade_rgba_5": {
       "title": "Początki życia monastycznego: pustynia staje się miastem Boga",
@@ -295,7 +322,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:55.475Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_115_decade_rgba_5"
     },
     "day_116_decade_rgba_1": {
       "title": "Sobory: głos Kościoła w jedności prawdy „Wierzymy w jednego Boga, Ojca wszechmogącego,",
@@ -303,7 +331,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:55.610Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_116_decade_rgba_1"
     },
     "day_117_decade_rgba_2": {
       "title": "Święty Atanazy i walka o prawdę Wcielenia „Gdyby Chrystus był tylko stworzeniem,",
@@ -311,7 +340,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:55.741Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_117_decade_rgba_2"
     },
     "day_118_decade_rgba_3": {
       "title": "Święty Hieronim i święty Augustyn: Słowo, które przemienia serce",
@@ -319,7 +349,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:55.871Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_118_decade_rgba_3"
     },
     "day_119_decade_rgba_4": {
       "title": "Święty Augustyn i łaska przemieniająca serce: Miłość, która rodzi prawdę",
@@ -327,7 +358,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:56.003Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_119_decade_rgba_4"
     },
     "day_11_decade_rgba_1": {
       "title": "Powołanie Mojżesza przy gorejącym krzewie",
@@ -335,7 +367,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:40.835Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_11_decade_rgba_1"
     },
     "day_120_decade_rgba_5": {
       "title": "Tryumf Miłości nad czasem: dziedzictwo Ojców i świętych pierwszego tysiąclecia",
@@ -343,7 +376,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:56.134Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_120_decade_rgba_5"
     },
     "day_121_decade_rgba_1": {
       "title": "Wiara, która ocala świat: święty Benedykt i duch modlitwy w pracy",
@@ -351,7 +385,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:56.269Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_121_decade_rgba_1"
     },
     "day_122_decade_rgba_2": {
       "title": "Światło mądrości: narodziny katedr i sztuki chrześcijańskiej",
@@ -359,7 +394,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:56.398Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_122_decade_rgba_2"
     },
     "day_123_decade_rgba_3": {
       "title": "Uniwersytety i narodziny rozumu w wierze: Wiara i rozum – dwa skrzydła prowadzące do Boga",
@@ -367,7 +403,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:56.530Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_123_decade_rgba_3"
     },
     "day_124_decade_rgba_4": {
       "title": "Święty Franciszek i odrodzenie ducha ubóstwa: Pieśń stworzenia",
@@ -375,7 +412,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:56.658Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_124_decade_rgba_4"
     },
     "day_125_decade_rgba_5": {
       "title": "Narodziny gotyckiej Europy ducha: Wiara, która jednoczy kontynent",
@@ -383,7 +421,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:56.787Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_125_decade_rgba_5"
     },
     "day_126_decade_rgba_1": {
       "title": "Narodziny nowego świata: św. Augustyn i upadek Rzymu",
@@ -391,7 +430,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:56.915Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_126_decade_rgba_1"
     },
     "day_127_decade_rgba_2": {
       "title": "Modlitwa, która ocaliła cywilizację: święty Benedykt i duch klasztorów",
@@ -399,7 +439,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:57.044Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_127_decade_rgba_2"
     },
     "day_128_decade_rgba_3": {
       "title": "Ewangelia wśród ludów północy: misje irlandzkie i anglosaskie",
@@ -407,7 +448,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:57.178Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_128_decade_rgba_3"
     },
     "day_129_decade_rgba_4": {
       "title": "Korona i krzyż: chrzest Europy i Karol Wielki",
@@ -415,7 +457,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:57.315Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_129_decade_rgba_4"
     },
     "day_12_decade_rgba_2": {
       "title": "Dziesięć plag egipskich i wyjście z Egiptu (Księga Wyjścia 7–12)",
@@ -423,7 +466,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:41.074Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_12_decade_rgba_2"
     },
     "day_130_decade_rgba_5": {
       "title": "Maryja, Matka nowej cywilizacji:",
@@ -431,7 +475,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:57.448Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_130_decade_rgba_5"
     },
     "day_131_decade_rgba_1": {
       "title": "Światło mądrości: uniwersytety i święty Tomasz z Akwinu",
@@ -439,7 +484,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:57.579Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_131_decade_rgba_1"
     },
     "day_132_decade_rgba_2": {
       "title": "Potęga i pokora: święty Franciszek i duch ubóstwa",
@@ -447,7 +493,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:57.710Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_132_decade_rgba_2"
     },
     "day_133_decade_rgba_3": {
       "title": "Cień władzy: rozłam, pycha i początek kryzysu Kościoła",
@@ -455,7 +502,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:57.843Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_133_decade_rgba_3"
     },
     "day_134_decade_rgba_4": {
       "title": "Głos pustyni: mistycy i prorocy nocy Kościoła",
@@ -463,7 +511,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:57.973Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_134_decade_rgba_4"
     },
     "day_135_decade_rgba_5": {
       "title": "Nowe światło: odrodzenie modlitwy i sztuki w późnym średniowieczu",
@@ -471,7 +520,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:58.108Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_135_decade_rgba_5"
     },
     "day_136_decade_rgba_1": {
       "title": "Podziały i wierność: Kościół w ogniu Reformacji",
@@ -479,7 +529,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:58.239Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_136_decade_rgba_1"
     },
     "day_137_decade_rgba_2": {
       "title": "Miłość, która przekracza oceany: misje nowego świata i świadkowie wiary",
@@ -487,7 +538,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:58.368Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_137_decade_rgba_2"
     },
     "day_138_decade_rgba_3": {
       "title": "Ogień kontemplacji: św. Teresa z Ávili i św. Jan od Krzyża",
@@ -495,7 +547,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:58.512Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_138_decade_rgba_3"
     },
     "day_139_decade_rgba_4": {
       "title": "Jedność ducha: Sobór Trydencki i odnowa Kościoła",
@@ -503,7 +556,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:58.650Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_139_decade_rgba_4"
     },
     "day_13_decade_rgba_3": {
       "title": "Przejście przez Morze Czerwone (Księga Wyjścia 14, 5–31)",
@@ -511,7 +565,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:41.323Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_13_decade_rgba_3"
     },
     "day_140_decade_rgba_5": {
       "title": "Nowe serce Kościoła: święci po Trydencie i duch odrodzenia",
@@ -519,7 +574,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:58.815Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_140_decade_rgba_5"
     },
     "day_141_decade_rgba_1": {
       "title": "Cień oświecenia i światło wiary (XVIII wiek; rodzący się racjonalizm, odrzucenie tradycji, pierwsze reakcje",
@@ -527,7 +583,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:58.989Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_141_decade_rgba_1"
     },
     "day_142_decade_rgba_2": {
       "title": "Wiara w ogniu rewolucji: męczennicy i świadkowie nadziei",
@@ -535,7 +592,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:59.150Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_142_decade_rgba_2"
     },
     "day_143_decade_rgba_3": {
       "title": "Serce w ogniu miłości: proboszcz z Ars i święci kapłani odnowy",
@@ -543,7 +601,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:59.284Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_143_decade_rgba_3"
     },
     "day_144_decade_rgba_4": {
       "title": "Nadzieja w epoce rewolucji przemysłowej: święci miłosierdzia i obrońcy godności człowieka",
@@ -551,7 +610,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:59.420Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_144_decade_rgba_4"
     },
     "day_145_decade_rgba_5": {
       "title": "Triumf Serca Maryi w czasach zamętu: objawienia i odnowa duchowa XIX wieku",
@@ -559,7 +619,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:59.551Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_145_decade_rgba_5"
     },
     "day_146_decade_rgba_1": {
       "title": "Świat budzący się do nowoczesności:",
@@ -567,7 +628,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:59.688Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_146_decade_rgba_1"
     },
     "day_147_decade_rgba_2": {
       "title": "Odkrywanie godności pracy: narodziny katolickiej nauki społecznej",
@@ -575,7 +637,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:59.820Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_147_decade_rgba_2"
     },
     "day_148_decade_rgba_3": {
       "title": "Duch odnowy zakonnej i misyjnej w nowoczesnym świecie",
@@ -583,7 +646,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:59.954Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_148_decade_rgba_3"
     },
     "day_149_decade_rgba_4": {
       "title": "Obrona wiary i rodziny w epoce ideologii i sekularyzacji",
@@ -591,7 +655,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:00.091Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_149_decade_rgba_4"
     },
     "day_14_decade_rgba_4": {
       "title": "Manna na pustyni (Księga Wyjścia 16, 2–36)",
@@ -599,7 +664,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:41.561Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_14_decade_rgba_4"
     },
     "day_150_decade_rgba_5": {
       "title": "Zwiastun nowej epoki: droga do pontyfikatu Leona XIII",
@@ -607,7 +673,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:00.230Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_150_decade_rgba_5"
     },
     "day_151_decade_rgba_1": {
       "title": "Leon XIII: papież, który otworzył Kościół na nowy świat",
@@ -615,7 +682,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:00.360Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_151_decade_rgba_1"
     },
     "day_152_decade_rgba_2": {
       "title": "Pius X: Eucharystia jako serce odnowy Kościoła",
@@ -623,7 +691,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:00.496Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_152_decade_rgba_2"
     },
     "day_153_decade_rgba_3": {
       "title": "Pius XI: Kościół wobec totalitaryzmów (1922–1939; potępienie nazizmu, faszyzmu i komunizmu; encykliki: „Mit",
@@ -631,7 +700,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:00.675Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_153_decade_rgba_3"
     },
     "day_154_decade_rgba_4": {
       "title": "Pius XII: Kościół w cieniu II wojny światowej",
@@ -639,7 +709,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:00.806Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_154_decade_rgba_4"
     },
     "day_155_decade_rgba_5": {
       "title": "Jan XXIII: Sobór Watykański II jako nowe otwarcie Kościoła",
@@ -647,7 +718,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:00.935Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_155_decade_rgba_5"
     },
     "day_156_decade_rgba_1": {
       "title": "Paweł VI: Wierność w czasie zamętu i nadziei",
@@ -655,7 +727,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:01.063Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_156_decade_rgba_1"
     },
     "day_157_decade_rgba_2": {
       "title": "Jan Paweł I: Świętość uśmiechu i pokory (sierpień–wrzesień 1978; 33 dni pontyfikatu, prostota, radość, dobroć,",
@@ -663,7 +736,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:01.206Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_157_decade_rgba_2"
     },
     "day_158_decade_rgba_3": {
       "title": "Jan Paweł II: Święty, który zmienił oblicze ziemi",
@@ -671,7 +745,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:01.348Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_158_decade_rgba_3"
     },
     "day_159_decade_rgba_4": {
       "title": "Benedykt XVI: Papież prawdy i wiary rozumnej",
@@ -679,7 +754,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:01.483Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_159_decade_rgba_4"
     },
     "day_15_decade_rgba_5": {
       "title": "Przymierze na Górze Synaj (Księga Wyjścia 19–20; 24, 3–8)",
@@ -687,7 +763,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:41.795Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_15_decade_rgba_5"
     },
     "day_160_decade_rgba_5": {
       "title": "Papież Franciszek: Miłosierdzie i Kościół wychodzący",
@@ -695,7 +772,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:01.616Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_160_decade_rgba_5"
     },
     "day_161_decade_rgba_1": {
       "title": "Kościół wobec globalnych przemian i",
@@ -703,7 +781,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:01.744Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_161_decade_rgba_1"
     },
     "day_162_decade_rgba_2": {
       "title": "Duchowe zmaganie Kościoła z kulturą relatywizmu i utraty prawdy",
@@ -711,7 +790,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:01.880Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_162_decade_rgba_2"
     },
     "day_163_decade_rgba_3": {
       "title": "Walka o serce rodziny w czasach globalnego kryzysu miłości",
@@ -719,7 +799,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:02.011Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_163_decade_rgba_3"
     },
     "day_164_decade_rgba_4": {
       "title": "Duchowa walka o młode pokolenie w",
@@ -727,7 +808,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:02.140Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_164_decade_rgba_4"
     },
     "day_165_decade_rgba_5": {
       "title": "Narodziny Kościoła małych wspólnot i domowego ognia wiary",
@@ -735,7 +817,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:02.270Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_165_decade_rgba_5"
     },
     "day_166_decade_rgba_1": {
       "title": "Znaki czasów: czuwanie Kościoła wobec zapowiedzi Jezusa",
@@ -743,7 +826,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:02.404Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_166_decade_rgba_1"
     },
     "day_167_decade_rgba_2": {
       "title": "Walka duchowa i zwiedzenie: ostrzeżenie Jezusa przed fałszywymi prorokami i chłodem serca",
@@ -751,7 +835,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:02.540Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_167_decade_rgba_2"
     },
     "day_168_decade_rgba_3": {
       "title": "Wielkie oczyszczenie Kościoła: trudny, ale święty proces przygotowujący Oblubienicę na przyjście Pana",
@@ -759,7 +844,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:02.666Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_168_decade_rgba_3"
     },
     "day_169_decade_rgba_4": {
       "title": "Zwycięstwo Boga nad złem: nadzieja Apokalipsy i Niewiasta obleczona w słońce",
@@ -767,7 +853,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:02.798Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_169_decade_rgba_4"
     },
     "day_16_decade_rgba_1": {
       "title": "Bunt ludu i miedziany wąż (Księga Liczb 21, 4–9)",
@@ -775,7 +862,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:42.028Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_16_decade_rgba_1"
     },
     "day_170_decade_rgba_5": {
       "title": "Ostateczne zjednoczenie z Chrystusem: nowe niebo i nowa ziemia",
@@ -783,7 +871,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:02.929Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_170_decade_rgba_5"
     },
     "day_171_decade_rgba_1": {
       "title": "Kościół jutra: wierni, mali i odważni (Kościół przyszłości: mniej liczny, bardziej święty, głęboko wspólnotowy,",
@@ -791,7 +880,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:03.072Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_171_decade_rgba_1"
     },
     "day_172_decade_rgba_2": {
       "title": "Kościół jutra: moc Ducha Świętego większa niż ciemność świata",
@@ -799,7 +889,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:03.205Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_172_decade_rgba_2"
     },
     "day_173_decade_rgba_3": {
       "title": "Kościół jutra: miłość jako ostateczna siła przemieniająca świat",
@@ -807,7 +898,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:03.335Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_173_decade_rgba_3"
     },
     "day_174_decade_rgba_4": {
       "title": "Kościół jutra: nadzieja, która nie zawodzi (Rz 5,5; nadzieja chrześcijańska jako fundament przyszłości, światło w nocy",
@@ -815,7 +907,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:03.465Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_174_decade_rgba_4"
     },
     "day_175_decade_rgba_5": {
       "title": "Ostateczna Tajemnica Nadziei: Triumf Boga w sercu człowieka",
@@ -823,7 +916,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:07:03.600Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_175_decade_rgba_5"
     },
     "day_17_decade_rgba_2": {
       "title": "Przemowa Mojżesza przed śmiercią i błogosławieństwo Izraela",
@@ -831,7 +925,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:42.173Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_17_decade_rgba_2"
     },
     "day_18_decade_rgba_3": {
       "title": "Wprowadzenie do Ziemi Obiecanej przez Jozuego",
@@ -839,7 +934,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:42.315Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_18_decade_rgba_3"
     },
     "day_19_decade_rgba_4": {
       "title": "Upadek Jerycha (Księga Jozuego 6, 1–20)",
@@ -847,7 +943,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:42.448Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_19_decade_rgba_4"
     },
     "day_1_decade_rgba_1": {
       "title": "Dzień 1 - Etap 1 - Część 1 - Tajemnica 1 - Stworzenie świata i człowieka",
@@ -872,7 +969,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:42.587Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_20_decade_rgba_5"
     },
     "day_21_decade_rgba_1": {
       "title": "Śmierć Mojżesza i przekazanie dziedzictwa wiary",
@@ -880,7 +978,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:42.724Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_21_decade_rgba_1"
     },
     "day_22_decade_rgba_2": {
       "title": "Przymierze odnowione w Sychem (Joz 24, 1–27)",
@@ -888,7 +987,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:42.857Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_22_decade_rgba_2"
     },
     "day_23_decade_rgba_3": {
       "title": "Śmierć Jozuego i pamięć przymierza wśród ludu",
@@ -896,7 +996,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:42.983Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_23_decade_rgba_3"
     },
     "day_24_decade_rgba_4": {
       "title": "Odpoczynek ziemi i trwanie przymierza w nowym pokoleniu",
@@ -904,7 +1005,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:43.124Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_24_decade_rgba_4"
     },
     "day_25_decade_rgba_5": {
       "title": "Ostatnie słowa Tory: Wierność Boga i nadzieja Izraela",
@@ -912,7 +1014,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:43.262Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_25_decade_rgba_5"
     },
     "day_26_decade_rgba_1": {
       "title": "Powołanie Samuela (1 Sm 3, 1–10)",
@@ -920,7 +1023,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:43.399Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_26_decade_rgba_1"
     },
     "day_27_decade_rgba_2": {
       "title": "Upadek Helego i narodziny prorockiego słowa",
@@ -928,7 +1032,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:43.532Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_27_decade_rgba_2"
     },
     "day_28_decade_rgba_3": {
       "title": "Arka wśród Filistynów i powrót chwały Pana",
@@ -936,7 +1041,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:43.666Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_28_decade_rgba_3"
     },
     "day_29_decade_rgba_4": {
       "title": "Samuel jako sędzia i modlitwa o króla (1 Sm 8, 1–22)",
@@ -944,15 +1050,17 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:43.803Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_29_decade_rgba_4"
     },
     "day_2_decade_rgba_2": {
       "title": "Grzech pierworodny i upadek człowieka (Księga Rodzaju 3, 1–19)",
       "text": "Etap 1 - Część 1 - Tajemnica 2 - Grzech pierworodny i upadek człowieka\n(Księga Rodzaju 3, 1–19)\nA wąż był bardziej przebiegły niż wszystkie zwierzęta, które Pan Bóg\nuczynił.\nRzekł do niewiasty:\n„Czy rzeczywiście Bóg powiedział: Nie jedzcie owocu ze wszystkich drzew\ntego ogrodu?”\nA niewiasta odpowiedziała wężowi:\n„Możemy jeść owoce z drzew ogrodu, tylko o owocu drzewa, które jest w\nśrodku ogrodu, Bóg powiedział:\nNie wolno wam z niego jeść ani go dotykać, abyście nie pomarli.”\n\nWtedy rzekł wąż do niewiasty:\n„Na pewno nie umrzecie! Ale wie Bóg, że gdy spożyjecie z niego, otworzą\nsię wam oczy\ni będziecie jak Bóg, znający dobro i zło.”\n\nNiewiasta spostrzegła, że owoc był dobry do jedzenia i miły dla oczu,\ni że był godny pożądania dla zdobycia mądrości.\nZerwała więc z niego owoc i jadła; dała też mężowi, który był z nią, a on\njadł.\n\nWtedy otworzyły się im obojgu oczy i poznali, że są nadzy.\nUsłyszeli głos Pana Boga przechadzającego się po ogrodzie w powiewie\ndnia,\ni ukryli się Adam i jego żona przed Panem Bogiem wśród drzew ogrodu.\nTo nie jest historia o jabłku.\nTo opowieść o sercu człowieka, które pragnąc niezależności, odwróciło się\nod Miłości.\nGrzech nie zaczyna się od czynu, lecz od podszeptu: „Czy rzeczywiście Bóg\n\npowiedział?” —\nod wątpliwości w dobroć Boga.\nCzłowiek chciał być jak Bóg, ale bez Boga.\nW efekcie traci wszystko: pokój, jedność, niewinność.\nZamiast światła pojawia się wstyd, zamiast zaufania — strach.\nA jednak Bóg nie odwraca się od człowieka.\nWoła: „Gdzie jesteś?” — to pierwsze słowo zbawienia.\nBóg szuka grzesznika, zanim grzesznik zacznie szukać Boga.\nTrzy Wezwania do Działania\nRozpoznaj swój głos w słowie „gdzie jesteś?”.\nBóg nie pyta, by osądzić, lecz by przyprowadzić do prawdy.\nNie słuchaj podszeptów zwątpienia.\nKłamstwo zawsze zaczyna się od podważenia miłości.\nZaufaj, że Bóg przychodzi nawet w Twoim wstydzie.\nNie uciekaj — pozwól się odnaleźć.\nOjcze nasz, któryś jest w niebie,\nświęć się imię Twoje; przyjdź królestwo Twoje;\nbądź wola Twoja, jako w niebie, tak i na ziemi.\nChleba naszego powszedniego daj nam dzisiaj;\ni odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;\ni nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.\nZdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między\nniewiastami\ni błogosławiony owoc żywota Twojego, Jezus,\ndla którego wąż zasiał w sercu człowieka wątpliwość wobec Boga.\nŚwięta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę\nśmierci naszej. Amen.\nZdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między\nniewiastami\ni błogosławiony owoc żywota Twojego, Jezus,\ndla którego człowiek wyciągnął rękę po zakazany owoc.\nŚwięta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę\nśmierci naszej. Amen.\nZdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między\nniewiastami\ni błogosławiony owoc żywota Twojego, Jezus,\ndla którego oczy człowieka otworzyły się, ale serce stało się ciężkie.\n\nŚwięta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę\nśmierci naszej. Amen.\nZdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między\nniewiastami\ni błogosławiony owoc żywota Twojego, Jezus,\ndla którego człowiek ukrył się przed Bogiem pośród drzew ogrodu.\nŚwięta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę\nśmierci naszej. Amen.\nZdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między\nniewiastami\ni błogosławiony owoc żywota Twojego, Jezus,\ndla którego Bóg zawołał: „Gdzie jesteś?”\nŚwięta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę\nśmierci naszej. Amen.\nZdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między\nniewiastami\ni błogosławiony owoc żywota Twojego, Jezus,\ndla którego Bóg przyodział człowieka, zanim go odesłał z raju.\nŚwięta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę\nśmierci naszej. Amen.\nZdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między\nniewiastami\ni błogosławiony owoc żywota Twojego, Jezus,\ndla którego kobieta stała się zapowiedzią Zbawicielki.\nŚwięta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę\nśmierci naszej. Amen.\nZdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między\nniewiastami\ni błogosławiony owoc żywota Twojego, Jezus,\ndla którego Pan obiecał: „Potomstwo Niewiasty zetrze głowę węża.”\nŚwięta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę\nśmierci naszej. Amen.\nZdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między\nniewiastami\ni błogosławiony owoc żywota Twojego, Jezus,\ndla którego grzech wszedł na świat, ale miłosierdzie stało się większe.\nŚwięta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę\n\nśmierci naszej. Amen.\nZdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między\nniewiastami\ni błogosławiony owoc żywota Twojego, Jezus,\ndla którego zapowiedź odkupienia rozbrzmiała już w raju.\nŚwięta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę\nśmierci naszej. Amen.\nChwała Ojcu i Synowi, i Duchowi Świętemu,\njak była na początku, teraz i zawsze, i na wieki wieków. Amen.\nO mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia\npiekielnego,\nzaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy\nnajbardziej potrzebują Twojego miłosierdzia. Amen.",
       "notebookUrls": [],
-      "notebookLabels": [],
       "updatedBy": "kuta.dominik@gmail.com",
-      "updatedAt": "2026-08-26T10:18:26.310Z"
+      "updatedAt": "2026-08-26T10:18:26.310Z",
+      "notebookLabels": [],
+      "docId": "day_2_decade_rgba_2"
     },
     "day_30_decade_rgba_5": {
       "title": "Namaszczenie Saula na króla Izraela (1 Sm 9, 1–27; 10, 1–9)",
@@ -960,7 +1068,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:43.935Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_30_decade_rgba_5"
     },
     "day_31_decade_rgba_1": {
       "title": "Nieposłuszeństwo Saula (1 Sm 13, 5–14; 15, 1–23)",
@@ -968,7 +1077,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:44.066Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_31_decade_rgba_1"
     },
     "day_32_decade_rgba_2": {
       "title": "Namaszczenie Dawida w Betlejem (1 Sm 16, 1–13)",
@@ -976,7 +1086,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:44.203Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_32_decade_rgba_2"
     },
     "day_33_decade_rgba_3": {
       "title": "Dawid i Goliat (1 Sm 17, 1–50)",
@@ -984,7 +1095,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:44.341Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_33_decade_rgba_3"
     },
     "day_34_decade_rgba_4": {
       "title": "Przyjaźń Dawida i Jonatana (1 Sm 18, 1–4; 19, 1–7; 20, 12–17)",
@@ -992,7 +1104,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:44.473Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_34_decade_rgba_4"
     },
     "day_35_decade_rgba_5": {
       "title": "Saul i zazdrość wobec Dawida (1 Sm 18, 6–30)",
@@ -1000,7 +1113,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:44.609Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_35_decade_rgba_5"
     },
     "day_36_decade_rgba_1": {
       "title": "Dawid w jaskini Adullam (1 Sm 22, 1–5)",
@@ -1008,7 +1122,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:44.741Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_36_decade_rgba_1"
     },
     "day_37_decade_rgba_2": {
       "title": "Dawid oszczędza życie Saula w jaskini En- Gedi",
@@ -1016,7 +1131,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:44.884Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_37_decade_rgba_2"
     },
     "day_38_decade_rgba_3": {
       "title": "Dawid i Nabal: mądrość Abigajil (1 Sm 25, 2–39)",
@@ -1024,7 +1140,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:45.019Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_38_decade_rgba_3"
     },
     "day_39_decade_rgba_4": {
       "title": "Śmierć Saula i żałoba Dawida (1 Sm 31; 2 Sm 1)",
@@ -1032,7 +1149,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:45.159Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_39_decade_rgba_4"
     },
     "day_3_decade_rgba_3": {
       "title": "Kain i Abel (Księga Rodzaju 4, 1–10)",
@@ -1040,7 +1158,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:38.867Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_3_decade_rgba_3"
     },
     "day_40_decade_rgba_5": {
       "title": "Namaszczenie Dawida na króla (2 Sm 2, 1–7; 5, 1–5)",
@@ -1048,7 +1167,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:45.296Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_40_decade_rgba_5"
     },
     "day_41_decade_rgba_1": {
       "title": "Przeniesienie Arki do Jerozolimy (2 Sm 6, 1–15)",
@@ -1056,7 +1176,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:45.428Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_41_decade_rgba_1"
     },
     "day_42_decade_rgba_2": {
       "title": "Przymierze Dawida z Bogiem (2 Sm 7, 1–29)",
@@ -1064,7 +1185,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:45.562Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_42_decade_rgba_2"
     },
     "day_43_decade_rgba_3": {
       "title": "Grzech Dawida i Batszeby (2 Sm 11, 1–27; 12, 1–15)",
@@ -1072,7 +1194,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:45.701Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_43_decade_rgba_3"
     },
     "day_44_decade_rgba_4": {
       "title": "Bunt Absaloma i smutek Dawida",
@@ -1080,7 +1203,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:45.835Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_44_decade_rgba_4"
     },
     "day_45_decade_rgba_5": {
       "title": "Psalm skruchy i przebaczenia (Ps 51, 1–19)",
@@ -1088,7 +1212,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-08T10:07:01.265Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_45_decade_rgba_5"
     },
     "day_46_decade_rgba_1": {
       "title": "Dawid przekazuje królewskie dziedzictwo Salomonowi",
@@ -1096,7 +1221,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:46.101Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_46_decade_rgba_1"
     },
     "day_47_decade_rgba_2": {
       "title": "Modlitwa Dawida o pokój i błogosławieństwo nad królem",
@@ -1104,7 +1230,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:46.236Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_47_decade_rgba_2"
     },
     "day_48_decade_rgba_3": {
       "title": "Poświęcenie Świątyni przez Salomona (1 Krl 8, 1–66)",
@@ -1112,7 +1239,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:46.372Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_48_decade_rgba_3"
     },
     "day_49_decade_rgba_4": {
       "title": "Odwrócenie serca Salomona i przestroga proroka",
@@ -1120,7 +1248,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:46.507Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_49_decade_rgba_4"
     },
     "day_4_decade_rgba_4": {
       "title": "Potop i Przymierze z Noem (Księga Rodzaju 6, 5–22; 8, 6–22; 9, 8–17)",
@@ -1128,7 +1257,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:39.139Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_4_decade_rgba_4"
     },
     "day_50_decade_rgba_5": {
       "title": "Obietnica nowego Króla i Przymierza (2 Sm 7, 12–16; Iz 9, 1–6)",
@@ -1136,7 +1266,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:46.639Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_50_decade_rgba_5"
     },
     "day_51_decade_rgba_1": {
       "title": "Bojaźń Pańska początkiem mądrości (Prz 1, 1–7)",
@@ -1144,7 +1275,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:46.772Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_51_decade_rgba_1"
     },
     "day_52_decade_rgba_2": {
       "title": "Mądrość wołająca na ulicach (Prz 8, 1–11)",
@@ -1152,7 +1284,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:46.905Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_52_decade_rgba_2"
     },
     "day_53_decade_rgba_3": {
       "title": "Dom zbudowany przez Mądrość (Prz 9, 1–6)",
@@ -1160,7 +1293,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:47.033Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_53_decade_rgba_3"
     },
     "day_54_decade_rgba_4": {
       "title": "Serce mądre, które słucha (Mdr 7, 7–14)",
@@ -1168,7 +1302,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:47.170Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_54_decade_rgba_4"
     },
     "day_55_decade_rgba_5": {
       "title": "Mądrość jako drzewo życia (Syr 1, 1–20)",
@@ -1176,7 +1311,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:47.295Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_55_decade_rgba_5"
     },
     "day_56_decade_rgba_1": {
       "title": "Przyjaciel wierny jest skarbem (Syr 6, 14–17)",
@@ -1184,7 +1320,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:47.437Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_56_decade_rgba_1"
     },
     "day_57_decade_rgba_2": {
       "title": "Mądrość w mowie i słowie (Syr 28, 12–26)",
@@ -1192,7 +1329,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:47.566Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_57_decade_rgba_2"
     },
     "day_58_decade_rgba_3": {
       "title": "Mądrość w pracy i uczciwości (Syr 34, 1–11)",
@@ -1200,7 +1338,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:47.693Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_58_decade_rgba_3"
     },
     "day_59_decade_rgba_4": {
       "title": "Mądrość w bogactwie i ubóstwie (Syr 11, 18–28)",
@@ -1208,7 +1347,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:47.834Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_59_decade_rgba_4"
     },
     "day_5_decade_rgba_5": {
       "title": "Wieża Babel (Księga Rodzaju 11, 1–9)",
@@ -1216,7 +1356,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:39.384Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_5_decade_rgba_5"
     },
     "day_60_decade_rgba_5": {
       "title": "Mądrość w przemijaniu i śmierci (Syr 41, 1–13)",
@@ -1224,7 +1365,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:47.972Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_60_decade_rgba_5"
     },
     "day_61_decade_rgba_1": {
       "title": "Cierpienie sprawiedliwego (Hi 1, 6–22)",
@@ -1232,7 +1374,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:48.105Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_61_decade_rgba_1"
     },
     "day_62_decade_rgba_2": {
       "title": "Rozmowa Hioba z przyjaciółmi (Hi 4, 1–9)",
@@ -1240,7 +1383,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:48.245Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_62_decade_rgba_2"
     },
     "day_63_decade_rgba_3": {
       "title": "Głos Boga z wichru (Hi 38, 1–18)",
@@ -1248,7 +1392,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:48.392Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_63_decade_rgba_3"
     },
     "day_64_decade_rgba_4": {
       "title": "Pokora Hioba i wyznanie wiary (Hi 42, 1–6)",
@@ -1256,7 +1401,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:48.522Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_64_decade_rgba_4"
     },
     "day_65_decade_rgba_5": {
       "title": "Odbudowanie Hioba i Boże błogosławieństwo",
@@ -1264,7 +1410,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:48.730Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_65_decade_rgba_5"
     },
     "day_66_decade_rgba_1": {
       "title": "Spotkanie Oblubieńca i Oblubienicy (Pnp 1, 1–4)",
@@ -1272,7 +1419,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:48.874Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_66_decade_rgba_1"
     },
     "day_67_decade_rgba_2": {
       "title": "Poszukiwanie Oblubieńca (Pnp 3, 1–4)",
@@ -1280,7 +1428,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:49.019Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_67_decade_rgba_2"
     },
     "day_68_decade_rgba_3": {
       "title": "Oblubieniec przemawia do Oblubienicy (Pnp 4, 1–7)",
@@ -1288,7 +1437,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:49.162Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_68_decade_rgba_3"
     },
     "day_69_decade_rgba_4": {
       "title": "Oblubienica w ogrodzie Oblubieńca (Pnp 6, 1–3)",
@@ -1296,7 +1446,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:49.302Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_69_decade_rgba_4"
     },
     "day_6_decade_rgba_1": {
       "title": "Powołanie Abrahama (Księga Rodzaju 12, 1–4)",
@@ -1304,7 +1455,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:39.629Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_6_decade_rgba_1"
     },
     "day_70_decade_rgba_5": {
       "title": "Pieśń o wiecznej miłości (Pnp 8, 6–7)",
@@ -1312,7 +1464,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:49.445Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_70_decade_rgba_5"
     },
     "day_71_decade_rgba_1": {
       "title": "Pan jest moim Pasterzem",
@@ -1320,7 +1473,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:49.569Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_71_decade_rgba_1"
     },
     "day_72_decade_rgba_2": {
       "title": "Pieśń ufności i pokoju (Ps 131)",
@@ -1328,7 +1482,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:49.695Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_72_decade_rgba_2"
     },
     "day_73_decade_rgba_3": {
       "title": "Pieśń o Bożej opiece (Ps 91, 1–16)",
@@ -1336,7 +1491,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:49.824Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_73_decade_rgba_3"
     },
     "day_74_decade_rgba_4": {
       "title": "Pieśń dziękczynienia za wybawienie (Ps 30, 1–13)",
@@ -1344,7 +1500,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:49.957Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_74_decade_rgba_4"
     },
     "day_75_decade_rgba_5": {
       "title": "Pieśń mądrego serca (Ps 90, 1–17)",
@@ -1352,7 +1509,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:50.101Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_75_decade_rgba_5"
     },
     "day_76_decade_rgba_1": {
       "title": "Zwiastowanie Maryi (Łk 1, 26–38; Iz 7, 14)",
@@ -1360,7 +1518,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:50.234Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_76_decade_rgba_1"
     },
     "day_77_decade_rgba_2": {
       "title": "Nawiedzenie św. Elżbiety (Łk 1, 39–56; Iz 35, 1–6)",
@@ -1368,7 +1527,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:50.391Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_77_decade_rgba_2"
     },
     "day_78_decade_rgba_3": {
       "title": "Narodzenie Pana Jezusa (Łk 2, 1–14; Iz 9, 1–6)",
@@ -1376,7 +1536,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:50.524Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_78_decade_rgba_3"
     },
     "day_79_decade_rgba_4": {
       "title": "Ofiarowanie Jezusa w Świątyni (Łk 2, 22–35 ; Iz 42, 6–7)",
@@ -1384,7 +1545,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:50.657Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_79_decade_rgba_4"
     },
     "day_7_decade_rgba_2": {
       "title": "Przymierze z Abrahamem (Księga Rodzaju 15, 1–17–18)",
@@ -1392,7 +1554,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:39.878Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_7_decade_rgba_2"
     },
     "day_80_decade_rgba_5": {
       "title": "Odnalezienie Jezusa w Świątyni (Łk 2, 41–52 ; Iz 11, 1–2)",
@@ -1400,7 +1563,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:50.796Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_80_decade_rgba_5"
     },
     "day_81_decade_rgba_1": {
       "title": "Życie w Nazarecie (Łk 2, 51–52; Iz 30, 15)",
@@ -1408,7 +1572,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:50.927Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_81_decade_rgba_1"
     },
     "day_82_decade_rgba_2": {
       "title": "Modlitwa i praca Jezusa w Nazarecie (Iz 32, 17; Ps 128, 2; Łk 2, 52)",
@@ -1416,7 +1581,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:51.063Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_82_decade_rgba_2"
     },
     "day_83_decade_rgba_3": {
       "title": "Modlitwa Jezusa na Pustyni (Iz 40, 3–5; Mt 4, 1–11)",
@@ -1424,7 +1590,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:51.198Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_83_decade_rgba_3"
     },
     "day_84_decade_rgba_4": {
       "title": "Powrót Jezusa z pustyni i Jego posłuszeństwo Ojcu",
@@ -1432,7 +1599,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:51.326Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_84_decade_rgba_4"
     },
     "day_85_decade_rgba_5": {
       "title": "Milczenie Jezusa przed początkiem działalności publicznej",
@@ -1440,7 +1608,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:51.455Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_85_decade_rgba_5"
     },
     "day_86_decade_rgba_1": {
       "title": "Chrzest Jezusa w Jordanie (Iz 42, 6–7; Mt 3, 13–17)",
@@ -1448,7 +1617,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:51.589Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_86_decade_rgba_1"
     },
     "day_87_decade_rgba_2": {
       "title": "Wesele w Kanie Galilejskiej (Iz 62, 1–5; J 2, 1–11)",
@@ -1456,7 +1626,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:51.719Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_87_decade_rgba_2"
     },
     "day_88_decade_rgba_3": {
       "title": "Głoszenie Królestwa Bożego i wezwanie do nawrócenia",
@@ -1464,7 +1635,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:51.845Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_88_decade_rgba_3"
     },
     "day_89_decade_rgba_4": {
       "title": "Przemienienie na Górze Tabor (Iz 60, 1–2; Mt 17, 1–8)",
@@ -1472,7 +1644,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:51.978Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_89_decade_rgba_4"
     },
     "day_8_decade_rgba_3": {
       "title": "Ofiara Izaaka (Księga Rodzaju 22, 1–13)",
@@ -1480,7 +1653,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:40.114Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_8_decade_rgba_3"
     },
     "day_90_decade_rgba_5": {
       "title": "Ustanowienie Eucharystii (Iz 55, 1–3; Mt 26, 26–29)",
@@ -1488,7 +1662,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:52.114Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_90_decade_rgba_5"
     },
     "day_91_decade_rgba_1": {
       "title": "Modlitwa Jezusa w Ogrójcu (Iz 53, 3–5; Mt 26, 36–46)",
@@ -1496,7 +1671,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:52.251Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_91_decade_rgba_1"
     },
     "day_92_decade_rgba_2": {
       "title": "Biczowanie Jezusa (Iz 50, 5–6; J 19, 1)",
@@ -1504,7 +1680,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:52.386Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_92_decade_rgba_2"
     },
     "day_93_decade_rgba_3": {
       "title": "Ukoronowanie Jezusa cierniem (Iz 52, 13–14; Mt 27, 27–31)",
@@ -1512,7 +1689,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:52.516Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_93_decade_rgba_3"
     },
     "day_94_decade_rgba_4": {
       "title": "Dźwiganie Krzyża (Iz 53, 6–7; J 19, 16–17)",
@@ -1520,7 +1698,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:52.649Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_94_decade_rgba_4"
     },
     "day_95_decade_rgba_5": {
       "title": "Ukrzyżowanie i Śmierć Jezusa (Iz 53, 10–12; J 19, 17–30)",
@@ -1528,7 +1707,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:52.777Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_95_decade_rgba_5"
     },
     "day_96_decade_rgba_1": {
       "title": "Zmartwychwstanie Jezusa (Iz 60, 1–3; J 20, 1–18)",
@@ -1536,7 +1716,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:52.925Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_96_decade_rgba_1"
     },
     "day_97_decade_rgba_2": {
       "title": "Wniebowstąpienie Jezusa (Dz 1, 6–11)",
@@ -1544,7 +1725,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:53.080Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_97_decade_rgba_2"
     },
     "day_98_decade_rgba_3": {
       "title": "Zesłanie Ducha Świętego (Dz 2, 1–13)",
@@ -1552,7 +1734,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:53.221Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_98_decade_rgba_3"
     },
     "day_99_decade_rgba_4": {
       "title": "Wniebowzięcie Najświętszej Maryi Panny (Ap 12, 1; Łk 1, 46–55)",
@@ -1560,7 +1743,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:53.351Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_99_decade_rgba_4"
     },
     "day_9_decade_rgba_4": {
       "title": "Jakub i walka z Aniołem (Księga Rodzaju 32, 25–31)",
@@ -1568,7 +1752,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-07T15:06:40.358Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "day_9_decade_rgba_4"
     },
     "custom_step_step-father-dec-1": {
       "title": "Modlitwa Pańska (Ojcze Nasz)",
@@ -1576,7 +1761,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-14T02:14:23.407Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "custom_step_step-father-dec-1"
     },
     "custom_step_step-glory-dec-1": {
       "title": "Uwielbienie Trójcy Świętej (Chwała Ojcu) & Modlitwa Fatimska (O mój Jezu)",
@@ -1584,7 +1770,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-14T02:45:29.667Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "custom_step_step-glory-dec-1"
     },
     "custom_step_step-hailmary-dec-1-1": {
       "title": "Pozdrowienie Anielskie (Zdrowaś Maryjo)",
@@ -1592,7 +1779,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-12T07:11:40.560Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "custom_step_step-hailmary-dec-1-1"
     },
     "custom_step_step-hailmary-dec-1-10": {
       "title": "Pozdrowienie Anielskie (Zdrowaś Maryjo)",
@@ -1600,7 +1788,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-12T07:20:00.095Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "custom_step_step-hailmary-dec-1-10"
     },
     "custom_step_step-hailmary-dec-1-2": {
       "title": "Pozdrowienie Anielskie (Zdrowaś Maryjo)",
@@ -1608,7 +1797,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-12T07:12:44.882Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "custom_step_step-hailmary-dec-1-2"
     },
     "custom_step_step-hailmary-dec-1-3": {
       "title": "Pozdrowienie Anielskie (Zdrowaś Maryjo)",
@@ -1616,7 +1806,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-12T07:13:39.890Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "custom_step_step-hailmary-dec-1-3"
     },
     "custom_step_step-hailmary-dec-1-4": {
       "title": "Pozdrowienie Anielskie (Zdrowaś Maryjo)",
@@ -1624,7 +1815,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-12T07:14:35.094Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "custom_step_step-hailmary-dec-1-4"
     },
     "custom_step_step-hailmary-dec-1-5": {
       "title": "Pozdrowienie Anielskie (Zdrowaś Maryjo)",
@@ -1632,7 +1824,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-12T07:15:17.009Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "custom_step_step-hailmary-dec-1-5"
     },
     "custom_step_step-hailmary-dec-1-6": {
       "title": "Pozdrowienie Anielskie (Zdrowaś Maryjo)",
@@ -1640,7 +1833,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-12T07:16:07.719Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "custom_step_step-hailmary-dec-1-6"
     },
     "custom_step_step-hailmary-dec-1-7": {
       "title": "Pozdrowienie Anielskie (Zdrowaś Maryjo)",
@@ -1648,7 +1842,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-12T07:16:47.651Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "custom_step_step-hailmary-dec-1-7"
     },
     "custom_step_step-hailmary-dec-1-8": {
       "title": "Pozdrowienie Anielskie (Zdrowaś Maryjo)",
@@ -1656,7 +1851,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-12T07:17:40.361Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "custom_step_step-hailmary-dec-1-8"
     },
     "custom_step_step-hailmary-dec-1-9": {
       "title": "Pozdrowienie Anielskie (Zdrowaś Maryjo)",
@@ -1664,7 +1860,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-12T07:18:48.100Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "custom_step_step-hailmary-dec-1-9"
     },
     "custom_step_step-intro-glory": {
       "title": "Uwielbienie Trójcy Świętej (Chwała Ojcu) & Modlitwa Fatimska (O mój Jezu)",
@@ -1672,7 +1869,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-12T07:20:40.803Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "custom_step_step-intro-glory"
     },
     "custom_step_step-mystery-dec-1": {
       "title": "Dzień 1 - Etap 1 - Część 1 - Tajemnica 1 - Stworzenie świata i człowieka",
@@ -1680,7 +1878,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-14T02:26:50.883Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "custom_step_step-mystery-dec-1"
     },
     "custom_step_step-mystery-dec-4": {
       "title": "Etap 1 - Część 2 - Tajemnica 4 - Jakub i walka z Aniołem",
@@ -1688,7 +1887,8 @@
       "notebookUrls": [],
       "updatedBy": "kuta.dominik@gmail.com",
       "updatedAt": "2026-08-11T13:48:53.129Z",
-      "notebookLabels": []
+      "notebookLabels": [],
+      "docId": "custom_step_step-mystery-dec-4"
     },
     "day_1": {
       "title": "Dzień 1 - Etap 1 - Część 1 - Tajemnica 1 - Stworzenie świata i człowieka",
@@ -2208,7 +2408,8 @@
     "day_175": {
       "notebookUrls": [],
       "text": "",
-      "title": "Dzień 175"
+      "title": "Dzień 175",
+      "notebookLabels": []
     },
     "day_18": {
       "notebookUrls": [],
@@ -5496,12 +5697,12 @@
     "blog_day_344": {
       "docId": "blog_day_344",
       "dayIndex": 344,
-      "title": "Widoki na Raj — Dzień 345 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu",
-      "text": "Świętym.",
+      "title": "Widoki na Raj — Dzień 345 — [04.09.2026]  Zwierzęta, grzech i życie bez potrzeby odkupienia",
+      "text": "Zwierzęta nie mają sumienia w takim znaczeniu, w jakim ma je człowiek. Nie rozważają swoich czynów w kategoriach dobra i zła moralnego, nie odczuwają winy przed Bogiem i nie potrzebują przebaczenia grzechów. Nie grzeszą, ponieważ grzech zakłada świadomość, wolność i możliwość świadomego odwrócenia się od dobra.\n\nDlatego świadomie używam określenia „nie tak”, zamiast „źle”.\n\nZwierzę może zrobić coś destrukcyjnego. Może zaatakować inne zwierzę, zabić, zniszczyć albo zachować się w sposób, który człowiek uzna za niewłaściwy. Nie oznacza to jednak, że zwierzę popełniło zło moralne. Ono działa zgodnie ze swoją naturą, instynktem, potrzebą przetrwania i uwarunkowaniami swojego świata.\n\nCzłowiek może zwierzę ukarać, nauczyć lub skorygować jego zachowanie. Zwierzę może dzięki temu nauczyć się, że pewnego zachowania należy unikać. Nie jest to jednak to samo co ludzkie poczucie winy. Zwierzę nie staje przed Bogiem z pytaniem: „Czy zrobiłem coś złego?”\n\nCzłowiek może.\n\nI właśnie tutaj dostrzegam ogromną różnicę między człowiekiem a zwierzęciem.\n\nZwierzę po prostu żyje\n\nZwierzę nie potrzebuje tworzyć prawa moralnego, składać ofiar za swoje przewinienia ani szukać odkupienia. Nie musi zastanawiać się, czy Bóg mu przebaczy. Po prostu żyje.\n\nŻycie samo w sobie jest dla niego wystarczające.\n\nNie oznacza to oczywiście, że zwierzę jest pozbawione wartości czy że jego życie jest Bogu obojętne. Przeciwnie — każde stworzenie ma swoje miejsce w stworzeniu. Zwierzę istnieje dlatego, że zostało powołane do życia, choć nie musi posiadać ludzkiej świadomości Boga.\n\nMożna więc powiedzieć, że zwierzę nie potrzebuje znać Boga, aby żyć w Jego stworzeniu.\n\nCzłowiek natomiast otrzymał coś więcej: zdolność poznawania, rozumowania, dokonywania wyborów i oceniania własnego postępowania. A wraz z tą zdolnością pojawia się również możliwość świadomego odwrócenia się od Boga.\n\nGrzech jest czymś więcej niż destrukcją\n\nNie wszystko, co niszczy, jest grzechem.\n\nWilk zabijający jelenia nie popełnia morderstwa w sensie moralnym. Lew polujący na swoją ofiarę nie jest zbrodniarzem. Zwierzę może wyrządzić człowiekowi krzywdę, ale nie oznacza to, że ponosi za nią odpowiedzialność moralną taką jak człowiek.\n\nDestrukcja i zło moralne nie są tym samym.\n\nGrzech pojawia się tam, gdzie istnieje możliwość świadomego wyboru przeciwko dobru. Dlatego człowiek może zgrzeszyć nawet wtedy, gdy jego czyn zewnętrznie nie powoduje wielkiej szkody. Może bowiem świadomie wybrać egoizm, nienawiść, kłamstwo czy odrzucenie Boga.\n\nZwierzę nie podejmuje takich decyzji w tym samym wymiarze.\n\nZwierzęta a grzech pierworodny\n\nW moim rozumieniu zwierzęta nie uczestniczą w grzechu pierworodnym w taki sposób jak człowiek. Nie otrzymały bowiem tej samej zdolności świadomego wyboru moralnego i świadomego odwrócenia się od Boga.\n\nDlatego widzę zwierzęta jako stworzenia, które nie muszą wracać do Boga przez pokutę, ponieważ nie dokonały świadomego odejścia od Niego.\n\nMożna powiedzieć, że zwierzęta żyją w prostocie istnienia.\n\nNie pytają, czy Bóg istnieje.\n\nNie składają Mu ofiar.\n\nNie żałują swoich grzechów.\n\nNie potrzebują odkupienia swoich win.\n\nPo prostu żyją.\n\nI być może właśnie ta prostota jest jednym z najbardziej niezwykłych obrazów stworzenia.\n\nCzy zwierzę może odwrócić się od Boga?\n\nZastanawia mnie również kwestia samobójstwa zwierząt.\n\nNie chodzi mi tutaj o przypadki zachowań, które człowiek interpretuje jako samobójcze, lecz o świadome postanowienie: „Nie chcę już istnieć”.\n\nJeżeli takie postanowienie wymaga świadomego odniesienia własnego istnienia do siebie samego, trudno przypisywać je zwierzęciu w takim samym znaczeniu, w jakim możemy mówić o ludzkim wyborze.\n\nW moim rozumieniu zwierzę nie może świadomie powiedzieć Bogu: „Odrzucam życie, które mi dałeś”, ponieważ nie posiada takiej samej świadomości Boga, siebie i własnego istnienia jak człowiek.\n\nNie oznacza to, że każde niezwykłe zachowanie zwierzęcia musi mieć proste wyjaśnienie. Oznacza jedynie, że powinniśmy uważać, aby nie przypisywać zwierzętom ludzkiej świadomości moralnej tam, gdzie nie mamy podstaw, by to robić.\n\nZwierzę nie potrzebuje być człowiekiem\n\nByć może człowiek zbyt często ocenia zwierzęta według własnej miary.\n\nChcemy, żeby zwierzę było „dobre”, „złe”, „posłuszne”, „winne” albo „niewinne”. Tymczasem zwierzę nie musi być podobne do człowieka, aby mieć swoje miejsce w Bożym stworzeniu.\n\nZwierzę nie musi znać pojęcia grzechu.\n\nNie musi znać pojęcia zbawienia.\n\nNie musi znać modlitwy.\n\nNie musi rozumieć, kim jest Bóg.\n\nWystarczy, że jest tym, czym zostało stworzone.\n\nI właśnie dlatego patrząc na zwierzęta, widzę coś bardzo prostego, a jednocześnie bardzo głębokiego:\n\nżycie nie zawsze potrzebuje wyjaśnienia, aby mieć sens.\n\nZwierzę po prostu żyje.\n\nCzłowiek natomiast otrzymał możliwość zadania pytania:\n\n„Po co żyję?”\n\nA kiedy człowiek zaczyna zadawać to pytanie, pojawia się również możliwość poznania Boga, odpowiedzialności za własne czyny, grzechu, skruchy, modlitwy i zbawienia.\n\nMoże więc różnica między człowiekiem a zwierzęciem nie polega tylko na tym, że człowiek potrafi więcej.\n\nByć może polega przede wszystkim na tym, że człowiek może świadomie odpowiedzieć na dar życia.\n\nZwierzę żyje.\n\nCzłowiek może wybrać, jak przeżyje swoje życie i komu je odda.\n\nA w tym wyborze zaczyna się jego droga do Boga.",
       "notebookUrls": [],
       "notebookLabels": [],
-      "updatedBy": "eMBiK365 Księga A5 PDF (v3-final)",
-      "updatedAt": "2026-08-10T05:37:23.174Z"
+      "updatedBy": "kuta.dominik@gmail.com",
+      "updatedAt": "2026-09-04T01:28:07.155Z"
     },
     "blog_day_345": {
       "docId": "blog_day_345",
