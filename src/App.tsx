@@ -1447,6 +1447,34 @@ export default function App() {
     };
   }, [isPlaying, activeStepIndex, textToRead, ttsEnabled, targetLanguage, selectedGender, selectedVoiceUri]);
 
+  // Live on-screen prayer translation when targetLanguage !== 'pl'
+  const [translatedPrayerText, setTranslatedPrayerText] = useState<string>('');
+
+  useEffect(() => {
+    if (targetLanguage === 'pl') {
+      setTranslatedPrayerText('');
+      return;
+    }
+    if (!textToRead) return;
+
+    let isSubscribed = true;
+    setIsTranslating(true);
+    translateTextFromPolish(textToRead, targetLanguage)
+      .then((translated) => {
+        if (isSubscribed && translated) {
+          setTranslatedPrayerText(translated);
+        }
+      })
+      .catch((err) => console.warn("RHZ prayer translation error:", err))
+      .finally(() => {
+        if (isSubscribed) setIsTranslating(false);
+      });
+
+    return () => {
+      isSubscribed = false;
+    };
+  }, [activeStepIndex, textToRead, targetLanguage]);
+
   // If TTS is disabled, we auto-advance on a simple fallback interval
   useEffect(() => {
     if (isPlaying && !ttsEnabled) {
@@ -3139,6 +3167,25 @@ export default function App() {
                 <div className="min-h-[160px] flex flex-col justify-center font-sans">
                   {renderPrayerContent()}
                 </div>
+
+                {/* Live Translation Card in RHZ365 */}
+                {targetLanguage !== 'pl' && translatedPrayerText && (
+                  <div className={`mt-4 p-4 rounded-2xl border shadow-md transition-all ${
+                    isLight ? 'bg-sky-50 border-sky-200 text-slate-900' : 'bg-slate-950/80 border-sky-500/40 text-slate-100'
+                  }`}>
+                    <div className="flex items-center justify-between border-b pb-2 mb-2 border-sky-500/30">
+                      <span className="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
+                        🌐 Tłumaczenie Modlitwy (Google Translate AI)
+                      </span>
+                      <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-300">
+                        {SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.flag} {SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.name}
+                      </span>
+                    </div>
+                    <p className="text-sm sm:text-base leading-relaxed text-justify font-sans">
+                      {translatedPrayerText}
+                    </p>
+                  </div>
+                )}
 
                 {/* Subtitle helper badge */}
                 {activeStep.beadNumber && (

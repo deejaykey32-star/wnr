@@ -28,6 +28,7 @@ export const TtsVoiceToolbar: React.FC<TtsVoiceToolbarProps> = ({
 }) => {
   const isDark = theme === 'dark';
   const [availableVoices, setAvailableVoices] = useState<SpeechSynthesisVoice[]>([]);
+  const [showGTranslateWidget, setShowGTranslateWidget] = useState(false);
 
   useEffect(() => {
     const updateVoices = () => {
@@ -39,6 +40,30 @@ export const TtsVoiceToolbar: React.FC<TtsVoiceToolbarProps> = ({
       window.speechSynthesis.onvoiceschanged = updateVoices;
     }
   }, [targetLanguage]);
+
+  const toggleGTranslateWidget = () => {
+    if (!showGTranslateWidget) {
+      if (!(window as any).googleTranslateElementInit) {
+        (window as any).googleTranslateElementInit = () => {
+          try {
+            new (window as any).google.translate.TranslateElement(
+              { pageLanguage: 'pl', autoDisplay: false },
+              'google_translate_element_toolbar'
+            );
+          } catch (e) {
+            console.warn("Google Translate init error:", e);
+          }
+        };
+        if (!document.getElementById('google-translate-element-script')) {
+          const script = document.createElement('script');
+          script.id = 'google-translate-element-script';
+          script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+          document.body.appendChild(script);
+        }
+      }
+    }
+    setShowGTranslateWidget(prev => !prev);
+  };
 
   const hasMaleVoice = availableVoices.some(v => isMaleVoiceName(v.name));
   const isVoiceSpecific = Boolean(selectedVoiceUri);
@@ -106,7 +131,7 @@ export const TtsVoiceToolbar: React.FC<TtsVoiceToolbarProps> = ({
               setSelectedVoiceUri(newUri);
               if (onOptionChange) onOptionChange();
             }}
-            className={`text-xs p-2 rounded-xl border font-semibold max-w-[200px] cursor-pointer transition-all ${
+            className={`text-xs p-2 rounded-xl border font-semibold max-w-[180px] sm:max-w-[220px] cursor-pointer transition-all ${
               isDark 
                 ? 'bg-slate-800 border-slate-700 text-amber-400 hover:bg-slate-700' 
                 : 'bg-slate-100 border-slate-300 text-amber-700 hover:bg-slate-200'
@@ -132,7 +157,7 @@ export const TtsVoiceToolbar: React.FC<TtsVoiceToolbarProps> = ({
           </select>
         </div>
 
-        {/* Live Translation Language Selector */}
+        {/* Live Translation Language Selector (85+ languages with flags) */}
         <div className="flex items-center gap-1.5">
           <span className="text-xs text-slate-400 hidden sm:inline">🌐 Tłumacz w locie:</span>
           <select
@@ -143,7 +168,7 @@ export const TtsVoiceToolbar: React.FC<TtsVoiceToolbarProps> = ({
               setSelectedVoiceUri(''); // Reset voice selection for new language
               if (onOptionChange) onOptionChange();
             }}
-            className={`text-xs p-2 rounded-xl border font-semibold cursor-pointer transition-all ${
+            className={`text-xs p-2 rounded-xl border font-semibold cursor-pointer transition-all max-w-[200px] sm:max-w-[260px] ${
               isDark 
                 ? 'bg-slate-800 border-slate-700 text-sky-400 hover:bg-slate-700' 
                 : 'bg-slate-100 border-slate-300 text-sky-700 hover:bg-slate-200'
@@ -152,17 +177,46 @@ export const TtsVoiceToolbar: React.FC<TtsVoiceToolbarProps> = ({
           >
             {SUPPORTED_LANGUAGES.map((lang) => (
               <option key={lang.code} value={lang.code}>
-                {lang.flag} {lang.name} {lang.code !== 'pl' ? ' (Tłumaczenie AI)' : ''}
+                {lang.flag} {lang.name} {lang.code !== 'pl' ? ' (Tłumaczenie Google)' : ''}
               </option>
             ))}
           </select>
         </div>
+
+        {/* Official Google Translate Web Widget Toggle */}
+        <button
+          type="button"
+          onClick={toggleGTranslateWidget}
+          className={`px-2.5 py-1.5 rounded-xl border text-xs font-semibold flex items-center gap-1 transition-all cursor-pointer ${
+            showGTranslateWidget
+              ? 'bg-sky-500/20 border-sky-500/50 text-sky-300 ring-2 ring-sky-500/30'
+              : isDark
+                ? 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700 hover:text-white'
+                : 'bg-slate-100 border-slate-300 text-slate-700 hover:bg-slate-200'
+          }`}
+          title="Otwórz oficjalny widżet Google Translate do tłumaczenia całej strony www"
+        >
+          <span>🌐 Widżet Strony</span>
+        </button>
 
         {/* Warning when no male voice exists */}
         {selectedGender === 'male' && !hasMaleVoice && !isVoiceSpecific && availableVoices.length > 0 && (
           <span className="text-xs text-amber-400 italic">⚠️ Brak głosu męskiego w systemie</span>
         )}
       </div>
+
+      {/* Embedded Google Translate Web Widget element */}
+      {showGTranslateWidget && (
+        <div className="w-full p-2.5 rounded-xl bg-sky-950/40 border border-sky-500/30 flex flex-col gap-1 items-start text-xs text-sky-300">
+          <span className="font-bold flex items-center gap-1">
+            🌐 Google Translate — Widżet Tłumaczenia Całej Strony:
+          </span>
+          <div id="google_translate_element_toolbar" className="min-h-[30px] my-1"></div>
+          <span className="text-[11px] text-slate-400">
+            Wybierz dowolny język, aby automatycznie przetłumaczyć cały układ strony.
+          </span>
+        </div>
+      )}
 
       {/* Active Live Translation Indicator Banner */}
       {targetLanguage !== 'pl' && (
@@ -172,7 +226,7 @@ export const TtsVoiceToolbar: React.FC<TtsVoiceToolbarProps> = ({
             {isTranslating && <Loader2 className="w-3.5 h-3.5 animate-spin text-sky-400 inline ml-1" />}
           </span>
           <span className="text-[11px] text-slate-400 italic hidden sm:inline">
-            Lektor odczytuje przetłumaczoną treść w tym języku
+            Lektor i tekst są automatycznie tłumaczone na wybrany język przez Google Translate
           </span>
         </div>
       )}

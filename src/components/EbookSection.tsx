@@ -80,6 +80,33 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
     };
   }, [targetLanguage]);
 
+  // Live on-screen page text translation when targetLanguage !== 'pl'
+  useEffect(() => {
+    if (targetLanguage === 'pl') {
+      setLiveTranslatedText('');
+      return;
+    }
+    const rawPageText = (pdfPageTexts[currentPage] || '').trim();
+    if (!rawPageText) return;
+
+    let isSubscribed = true;
+    setIsTranslating(true);
+    translateTextFromPolish(rawPageText, targetLanguage)
+      .then((translated) => {
+        if (isSubscribed && translated) {
+          setLiveTranslatedText(translated);
+        }
+      })
+      .catch((err) => console.warn("Page translation error:", err))
+      .finally(() => {
+        if (isSubscribed) setIsTranslating(false);
+      });
+
+    return () => {
+      isSubscribed = false;
+    };
+  }, [currentPage, targetLanguage, pdfPageTexts]);
+
   // Check if a credible male Polish voice exists
   const hasMaleVoice = availableVoices.some((v) => {
     const fn = v.name.toLowerCase();
@@ -679,6 +706,25 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
           </div>
         )}
       </div>
+
+      {/* Live Translated Text Panel for active PDF page */}
+      {targetLanguage !== 'pl' && liveTranslatedText && (
+        <div className={`p-4 sm:p-5 rounded-2xl border shadow-lg transition-all my-3 ${
+          isDark ? 'bg-slate-900/90 border-sky-500/40 text-slate-200' : 'bg-sky-50/90 border-sky-200 text-slate-900'
+        }`}>
+          <div className="flex items-center justify-between border-b pb-2 mb-3 border-sky-500/30">
+            <span className="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
+              🌐 Tłumaczenie Strony {currentPage} (Google Translate AI)
+            </span>
+            <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-300">
+              {SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.flag} {SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.name}
+            </span>
+          </div>
+          <p className="text-sm sm:text-base leading-relaxed text-justify whitespace-pre-line font-sans">
+            {liveTranslatedText}
+          </p>
+        </div>
+      )}
 
       {/* Floating Bottom AI TTS & Navigation Bar */}
       <div className={`p-4 rounded-2xl backdrop-blur-lg shadow-xl border flex flex-col md:flex-row items-center justify-between gap-4 transition-all ${

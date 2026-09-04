@@ -552,15 +552,41 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
           }
         }
       }, 5000); // 5 seconds reading time
-    }
-
-    return () => {
-      isSubscribed = false;
       if (autoAdvanceTimeoutRef.current) {
         clearTimeout(autoAdvanceTimeoutRef.current);
       }
+      stopSpeech();
     };
-  }, [activeSegmentIndex, isPlaying, ttsEnabled, soundEnabled, blogSegments, targetLanguage, selectedGender, selectedVoiceUri]);
+  }, [isPlaying, activeSegmentIndex, blogSegments, ttsEnabled, soundEnabled, targetLanguage, selectedGender, selectedVoiceUri]);
+
+  // Live on-screen blog entry translation when targetLanguage !== 'pl'
+  const [translatedBlogText, setTranslatedBlogText] = useState<string>('');
+
+  useEffect(() => {
+    if (targetLanguage === 'pl') {
+      setTranslatedBlogText('');
+      return;
+    }
+    const rawBlogText = activeEntry.text || '';
+    if (!rawBlogText.trim()) return;
+
+    let isSubscribed = true;
+    setIsTranslating(true);
+    translateTextFromPolish(rawBlogText, targetLanguage)
+      .then((translated) => {
+        if (isSubscribed && translated) {
+          setTranslatedBlogText(translated);
+        }
+      })
+      .catch((err) => console.warn("WnR365 blog entry translation error:", err))
+      .finally(() => {
+        if (isSubscribed) setIsTranslating(false);
+      });
+
+    return () => {
+      isSubscribed = false;
+    };
+  }, [activeEntry, targetLanguage]);
 
   // Handle play toggle
   const handlePlayToggle = () => {
@@ -1542,6 +1568,25 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                     }`}>
                       <RichTextRenderer text={activeEntry.text} theme={isLight ? 'light' : 'dark'} />
                     </div>
+
+                    {/* Live Translation Card in WnR365 */}
+                    {targetLanguage !== 'pl' && translatedBlogText && (
+                      <div className={`mt-4 p-4 sm:p-5 rounded-2xl border shadow-md transition-all ${
+                        isLight ? 'bg-sky-50 border-sky-200 text-slate-900' : 'bg-slate-950/80 border-sky-500/40 text-slate-100'
+                      }`}>
+                        <div className="flex items-center justify-between border-b pb-2 mb-3 border-sky-500/30">
+                          <span className="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
+                            🌐 Tłumaczenie Wpisu (Google Translate AI)
+                          </span>
+                          <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-300">
+                            {SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.flag} {SUPPORTED_LANGUAGES.find(l => l.code === targetLanguage)?.name}
+                          </span>
+                        </div>
+                        <p className="text-sm sm:text-base leading-relaxed text-justify whitespace-pre-line font-sans">
+                          {translatedBlogText}
+                        </p>
+                      </div>
+                    )}
                     {/* Notebook Gemini Panel */}
                     <NotebookGeminiPanel
                       notebookUrls={activeEntry.notebookUrls || []}
