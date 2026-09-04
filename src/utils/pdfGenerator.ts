@@ -11,6 +11,7 @@ import { getBibleChapters, getBibleSlotForDate } from './bibleHelper';
 import { GEMINI_ANALYSIS_TYPES } from '../components/NotebookGeminiPanel';
 
 import { ROBOTO_REGULAR_BASE64, ROBOTO_BOLD_BASE64 } from '../assets/robotoBase64';
+import { translateTextFromPolish } from './translator';
 
 // Pre-bundled Font Loader supporting Polish Characters (100% offline & instant)
 const loadRobotoFonts = (doc: jsPDF): boolean => {
@@ -53,6 +54,7 @@ export interface CustomPdfOptions {
   range: 'single' | 'full';
   includeCover: boolean;
   includeQrCodes?: boolean;
+  targetLanguage?: string;
   selectedDate: Date;
   dayOfCycle: number;
   prayers: Record<string, { title: string; text: string; notebookUrls?: string[] }>;
@@ -749,7 +751,19 @@ export const generateCustomScopePdf = async (
       doc.setFontSize(11);
       doc.setTextColor(217, 119, 6);
       
-      const wnrTitleFull = `WnR365 — ${wnrDoc.title || `Widoki na Raj (Dzień ${currentDayNum})`}`;
+      let wnrTitleText = wnrDoc.title || `Widoki na Raj (Dzień ${currentDayNum})`;
+      let wnrBodyText = wnrDoc.text || '';
+
+      if (options.targetLanguage && options.targetLanguage !== 'pl') {
+        try {
+          wnrTitleText = await translateTextFromPolish(wnrTitleText, options.targetLanguage);
+          wnrBodyText = await translateTextFromPolish(wnrBodyText, options.targetLanguage);
+        } catch (e) {
+          console.warn("PDF translation warning:", e);
+        }
+      }
+
+      const wnrTitleFull = `WnR365 — ${wnrTitleText}`;
       const splitWnrTitle = doc.splitTextToSize(wnrTitleFull, contentWidth);
       for (let l = 0; l < splitWnrTitle.length; l++) {
         checkAndBreakPage(10, { style: 'bold', size: 11, color: [217, 119, 6] });
@@ -758,7 +772,7 @@ export const generateCustomScopePdf = async (
       }
       y += 1.5;
 
-      await renderRichContentWithEmbeddedQr(wnrDoc.text || '', margin, contentWidth, 'normal', 12, [51, 65, 85]);
+      await renderRichContentWithEmbeddedQr(wnrBodyText, margin, contentWidth, 'normal', 12, [51, 65, 85]);
       y += 6;
 
       // Render Gemini Notebook QR codes for WnR

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FileDown, FileText, Download, X, Shield, BookOpen, Layers, Sparkles, CheckCircle2 } from 'lucide-react';
+import { SUPPORTED_LANGUAGES, getLanguageOption } from '../utils/translator';
 import { getRhzList } from '../data/prayers';
 // pdfGenerator and epubGenerator are loaded on-demand only when user clicks export
 // (they're ~2.8 MB due to embedded Roboto base64 fonts)
@@ -15,6 +16,7 @@ interface ExportModalProps {
   blogEntries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[] }>;
   bibleEntries: Record<string, { title: string; text: string; slotIndex: number; notebookUrls?: string[] }>;
   theme?: string;
+  targetLanguage?: string;
 }
 
 export const ExportModal: React.FC<ExportModalProps> = ({
@@ -27,7 +29,8 @@ export const ExportModal: React.FC<ExportModalProps> = ({
   prayers,
   blogEntries,
   bibleEntries,
-  theme = 'dark'
+  theme = 'dark',
+  targetLanguage = 'pl'
 }) => {
   const isLight = theme === 'light';
 
@@ -35,6 +38,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
   const [exportFormat, setExportFormat] = useState<'pdf' | 'epub'>('pdf');
   const [exportScope, setExportScope] = useState<'rhz365' | 'wnr365' | 'bible365' | 'all' | 'both'>('all');
   const [exportRange, setExportRange] = useState<'single' | 'full'>('single');
+  const [exportLanguage, setExportLanguage] = useState<string>(targetLanguage || 'pl');
   const [includeCover, setIncludeCover] = useState<boolean>(true);
   const [includeQrCodes, setIncludeQrCodes] = useState<boolean>(false);
 
@@ -73,6 +77,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
           range: exportRange,
           includeCover,
           includeQrCodes,
+          targetLanguage: exportLanguage,
           selectedDate,
           dayOfCycle,
           prayers,
@@ -87,6 +92,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
           range: exportRange,
           includeCover,
           includeQrCodes,
+          targetLanguage: exportLanguage,
           selectedDate,
           dayOfCycle,
           prayers,
@@ -352,6 +358,26 @@ export const ExportModal: React.FC<ExportModalProps> = ({
                 </div>
               </label>
             </div>
+          </div>
+
+          {/* SECTION 5: LANGUAGE SELECTION */}
+          <div className="space-y-2">
+            <label className="block text-xs font-bold uppercase tracking-wider text-slate-400">
+              5. Język Publikacji (Tłumaczenie PDF & EPUB):
+            </label>
+            <select
+              value={exportLanguage}
+              onChange={(e) => setExportLanguage(e.target.value)}
+              className={`w-full p-3 rounded-xl border text-xs font-bold transition-colors focus:ring-2 focus:ring-indigo-500 ${
+                isLight ? 'bg-slate-100 border-slate-300 text-slate-800' : 'bg-slate-950 border-slate-800 text-amber-400'
+              }`}
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option key={lang.code} value={lang.code}>
+                  {lang.flag} {lang.name}
+                </option>
+              ))}
+            </select>
           </div>
 
           {/* Animated Progress Bar Box */}

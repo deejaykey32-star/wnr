@@ -76,7 +76,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
   const setSelectedGender = propsSetSelectedGender ?? setInternalSelectedGender;
   const selectedVoiceUri = propsSelectedVoiceUri ?? internalSelectedVoiceUri;
   const setSelectedVoiceUri = propsSetSelectedVoiceUri ?? setInternalSelectedVoiceUri;
-  const isTranslating = propsIsTranslating ?? internalIsTranslating;
+  const isTranslating = internalIsTranslating;
   const setIsTranslating = setInternalIsTranslating;
 
   const isDark = theme === 'dark';
@@ -112,11 +112,22 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
   const getPageText = useCallback(async (pageNum: number): Promise<string> => {
     if (pageNum < 1) return "";
     const cached = pageTextCacheRef.current[pageNum];
-    if (cached && !cached.includes("Brak treści")) {
+    if (cached && cached.length > 20 && !cached.includes("Brak treści")) {
       return cached;
     }
 
-    // 1. Try extracting text from PDF document if loaded
+    // 1. Instant static lookup from wnr365_pdf_entries.json (blog_day_{pageNum-1})
+    const entryKey = `blog_day_${pageNum - 1}`;
+    const entry = (wnrPdfEntries as any)[entryKey];
+    if (entry && (entry.title || entry.text)) {
+      const entryText = `${entry.title || ''}\n\n${entry.text || ''}`.trim();
+      if (entryText && entryText.length > 10) {
+        pageTextCacheRef.current[pageNum] = entryText;
+        return entryText;
+      }
+    }
+
+    // 2. Try extracting text from PDF document if loaded
     if (pdfDocument && pageNum <= numPages) {
       try {
         const page = await pdfDocument.getPage(pageNum);
@@ -128,7 +139,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
           .replace(/\s+/g, ' ')
           .trim();
 
-        if (extractedText && extractedText.length > 20) {
+        if (extractedText && extractedText.length > 10) {
           pageTextCacheRef.current[pageNum] = extractedText;
           return extractedText;
         }
@@ -137,21 +148,8 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
       }
     }
 
-    // 2. Instant static lookup from wnr365_pdf_entries.json (blog_day_{pageNum-1})
-    const entryKey = `blog_day_${pageNum - 1}`;
-    const entry = (wnrPdfEntries as any)[entryKey];
-    if (entry && (entry.title || entry.text)) {
-      const entryText = `${entry.title || ''}\n\n${entry.text || ''}`.trim();
-      if (entryText && entryText.length > 5) {
-        pageTextCacheRef.current[pageNum] = entryText;
-        return entryText;
-      }
-    }
-
-    // 3. Guaranteed fallback title text
-    const fallback = `Widoki na Raj (WnR365) — Strona ${pageNum}`;
-    pageTextCacheRef.current[pageNum] = fallback;
-    return fallback;
+    // 3. Fallback title text (do NOT cache fallback permanently)
+    return `Widoki na Raj (WnR365) — Strona ${pageNum}`;
   }, [pdfDocument, numPages]);
 
   // Live on-screen page text translation (strictly single active page only)
@@ -189,7 +187,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
     return () => {
       isSubscribed = false;
     };
-  }, [currentPage, targetLanguage, pdfDocument, getPageText]);
+  }, [currentPage, targetLanguage, getPageText]);
 
   // Check if a credible male Polish voice exists
   const hasMaleVoice = availableVoices.some((v) => {

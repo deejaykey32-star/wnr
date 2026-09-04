@@ -7,12 +7,14 @@ import { getWnrDefaultBlogEntry } from './wnrBlogDefaults';
 import { getBibleChapters, getBibleSlotForDate } from './bibleHelper';
 
 import { generateQrCodeDataUri } from './qrCodeGenerator';
+import { translateTextFromPolish } from './translator';
 
 export interface EpubExportOptions {
   scope: 'rhz365' | 'wnr365' | 'bible365' | 'all' | 'both';
   range: 'single' | 'full';
   includeCover: boolean;
   includeQrCodes?: boolean;
+  targetLanguage?: string;
   selectedDate: Date;
   dayOfCycle: number;
   prayers: Record<string, { title: string; text: string; notebookUrls?: string[] }>;
@@ -505,9 +507,21 @@ li {
     }
 
     if (scope === 'wnr365' || scope === 'both' || scope === 'all') {
+      let wnrTitleText = wnrDoc.title || `Rozważanie Słowa - Dzień ${dayNum}`;
+      let wnrBodyText = wnrDoc.text || '';
+
+      if (options.targetLanguage && options.targetLanguage !== 'pl') {
+        try {
+          wnrTitleText = await translateTextFromPolish(wnrTitleText, options.targetLanguage);
+          wnrBodyText = await translateTextFromPolish(wnrBodyText, options.targetLanguage);
+        } catch (e) {
+          console.warn("EPUB translation warning:", e);
+        }
+      }
+
       chapterHtml += `<h2>Widoki na Raj (WnR365)</h2>`;
-      chapterHtml += `<h3>${escapeXml(wnrDoc.title || `Rozważanie Słowa - Dzień ${dayNum}`)}</h3>`;
-      chapterHtml += formatParagraphsHtml(wnrDoc.text || '');
+      chapterHtml += `<h3>${escapeXml(wnrTitleText)}</h3>`;
+      chapterHtml += formatParagraphsHtml(wnrBodyText);
     }
 
     if (scope === 'all') {

@@ -3663,6 +3663,7 @@ export default function App() {
             blogEntries={blogEntries}
             bibleEntries={bibleEntries}
             theme={theme}
+            targetLanguage={targetLanguage}
           />
         )}
       </Suspense>
