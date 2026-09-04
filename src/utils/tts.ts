@@ -537,18 +537,18 @@ export const sanitizeTextForTts = (text: string): string => {
     .replace(/&gt;/gi, '>')
     .replace(/[\u00AD\u200B\u200C\u200D\uFEFF]/g, '');
 
-  // Normalize capitalized words that Neural TTS models misread as abbreviations/acronyms
+  // Phonetic respellings for Windows SAPI5 & TTS engines to bypass abbreviation lexicons (e.g. STW)
   clean = clean
-    .replace(/\bStworzyciela\b/g, 'stworzyciela')
-    .replace(/\bStworzyciel\b/g, 'stworzyciel')
-    .replace(/\bWszechmogącego\b/g, 'wszechmogącego')
-    .replace(/\bWszechmogący\b/g, 'wszechmogący')
-    .replace(/\bJednorodzonego\b/g, 'jednorodzonego')
-    .replace(/\bUkrzyżowanego\b/g, 'ukrzyżowanego')
-    .replace(/\bZmartwychwstałego\b/g, 'zmartwychwstałego')
-    .replace(/\bWniebowstąpionego\b/g, 'wniebowstąpionego')
-    .replace(/\bWspółistotnego\b/g, 'współistotnego')
-    .replace(/\bPoczętego\b/g, 'poczętego');
+    .replace(/\b(Stworzyciela|stworzyciela)\b/g, 'stworzy ciela')
+    .replace(/\b(Stworzyciel|stworzyciel)\b/g, 'stworzy ciel')
+    .replace(/\b(Stworzycielowi|stworzycielowi)\b/g, 'stworzy cielowi')
+    .replace(/\b(Stworzycielem|stworzycielem)\b/g, 'stworzy cielem')
+    .replace(/\b(Wszechmogącego|wszechmogącego)\b/g, 'wszech mogącego')
+    .replace(/\b(Wszechmogący|wszechmogący)\b/g, 'wszech mogący')
+    .replace(/\b(Wszechmogącym|wszechmogącym)\b/g, 'wszech mogącym')
+    .replace(/\b(Zmartwychwstałego|zmartwychwstałego)\b/g, 'zmartwych wstałego')
+    .replace(/\b(Wniebowstąpionego|wniebowstąpionego)\b/g, 'wniebo wstąpionego')
+    .replace(/\b(Jednorodzonego|jednorodzonego)\b/g, 'jedno rodzonego');
 
   return clean
     // 0. Remove QR codes and captions
