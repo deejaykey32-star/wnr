@@ -1,3 +1,5 @@
+import { sanitizeTextForTts } from './tts';
+
 export interface RenderProgress {
   progress: number;
   message: string;
@@ -243,7 +245,8 @@ async function fetchTTSForText(
   text: string,
   audioContext: AudioContext
 ): Promise<AudioBuffer> {
-  const words = text.split(/\s+/);
+  const cleanText = sanitizeTextForTts(text);
+  const words = cleanText.split(/\s+/);
   const subChunks: string[] = [];
   let currentChunk = '';
 

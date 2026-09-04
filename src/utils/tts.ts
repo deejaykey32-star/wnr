@@ -539,16 +539,18 @@ export const sanitizeTextForTts = (text: string): string => {
 
   // Phonetic respellings for Windows SAPI5 & TTS engines to bypass abbreviation lexicons (e.g. STW)
   clean = clean
-    .replace(/\b(Stworzyciela|stworzyciela)\b/g, 'stworzy ciela')
-    .replace(/\b(Stworzyciel|stworzyciel)\b/g, 'stworzy ciel')
-    .replace(/\b(Stworzycielowi|stworzycielowi)\b/g, 'stworzy cielowi')
-    .replace(/\b(Stworzycielem|stworzycielem)\b/g, 'stworzy cielem')
-    .replace(/\b(Wszechmogącego|wszechmogącego)\b/g, 'wszech mogącego')
-    .replace(/\b(Wszechmogący|wszechmogący)\b/g, 'wszech mogący')
-    .replace(/\b(Wszechmogącym|wszechmogącym)\b/g, 'wszech mogącym')
-    .replace(/\b(Zmartwychwstałego|zmartwychwstałego)\b/g, 'zmartwych wstałego')
-    .replace(/\b(Wniebowstąpionego|wniebowstąpionego)\b/g, 'wniebo wstąpionego')
-    .replace(/\b(Jednorodzonego|jednorodzonego)\b/g, 'jedno rodzonego');
+    .replace(/\bstworzyciela\b/gi, 'stworzy ciela')
+    .replace(/\bstworzycielowi\b/gi, 'stworzy cielowi')
+    .replace(/\bstworzycielem\b/gi, 'stworzy cielem')
+    .replace(/\bstworzycielu\b/gi, 'stworzy cielu')
+    .replace(/\bstworzyciel\b/gi, 'stworzy ciel')
+    .replace(/\bwszechmogącego\b/gi, 'wszech mogącego')
+    .replace(/\bwszechmogącemu\b/gi, 'wszech mogącemu')
+    .replace(/\bwszechmogącym\b/gi, 'wszech mogącym')
+    .replace(/\bwszechmogący\b/gi, 'wszech mogący')
+    .replace(/\bzmartwychwstałego\b/gi, 'zmartwych wstałego')
+    .replace(/\bwniebowstąpionego\b/gi, 'wniebo wstąpionego')
+    .replace(/\bjednorodzonego\b/gi, 'jedno rodzonego');
 
   return clean
     // 0. Remove QR codes and captions
