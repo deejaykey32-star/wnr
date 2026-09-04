@@ -2134,6 +2134,25 @@ export default function App() {
             </button>
           </div>
 
+          {/* GLOBAL NY LEKTOR AI & TŁUMACZENIE W LOCIE W NAGŁÓWKU STRONY */}
+          <div className="w-full my-1">
+            <TtsVoiceToolbar
+              targetLanguage={targetLanguage}
+              setTargetLanguage={setTargetLanguage}
+              selectedGender={selectedGender}
+              setSelectedGender={setSelectedGender}
+              selectedVoiceUri={selectedVoiceUri}
+              setSelectedVoiceUri={setSelectedVoiceUri}
+              theme={theme}
+              isTranslating={isTranslating}
+              onOptionChange={() => {
+                if (isPlaying) {
+                  stopSpeech();
+                }
+              }}
+            />
+          </div>
+
           {/* NAWIGACJA W DWÓCH LINIACH DLA MOBILNYCH (ZARAZ POD LOGOTYPEM) */}
           <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-end gap-1.5 sm:gap-2 w-full max-w-full">
             
@@ -2944,22 +2963,6 @@ export default function App() {
         ) : (
           /* STANDARD FULL WORKSPACE LAYOUT */
           <div className="w-full max-w-7xl flex flex-col gap-8">
-            <TtsVoiceToolbar
-              targetLanguage={targetLanguage}
-              setTargetLanguage={setTargetLanguage}
-              selectedGender={selectedGender}
-              setSelectedGender={setSelectedGender}
-              selectedVoiceUri={selectedVoiceUri}
-              setSelectedVoiceUri={setSelectedVoiceUri}
-              theme={theme}
-              isTranslating={isTranslating}
-              onOptionChange={() => {
-                if (isPlaying) {
-                  stopSpeech();
-                }
-              }}
-            />
-            
             {/* LITURGICAL CYCLE & DATE PICKER */}
             <div className={`border rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl transition-all duration-300 ${
               isLight 
@@ -3426,9 +3429,25 @@ export default function App() {
             theme={theme}
             onOpenExportModal={() => setShowCustomExportModal(true)}
             onBlogEntriesUpdated={setBlogEntries}
+            targetLanguage={targetLanguage}
+            setTargetLanguage={setTargetLanguage}
+            selectedGender={selectedGender}
+            setSelectedGender={setSelectedGender}
+            selectedVoiceUri={selectedVoiceUri}
+            setSelectedVoiceUri={setSelectedVoiceUri}
+            isTranslating={isTranslating}
           />
         ) : (
-          <EbookSection theme={theme} />
+          <EbookSection
+            theme={theme}
+            targetLanguage={targetLanguage}
+            setTargetLanguage={setTargetLanguage}
+            selectedGender={selectedGender}
+            setSelectedGender={setSelectedGender}
+            selectedVoiceUri={selectedVoiceUri}
+            setSelectedVoiceUri={setSelectedVoiceUri}
+            isTranslating={isTranslating}
+          />
         )}
       </main>
 

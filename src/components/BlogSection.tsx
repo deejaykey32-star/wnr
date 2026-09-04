@@ -31,6 +31,13 @@ interface BlogSectionProps {
   theme?: string;
   onOpenExportModal?: () => void;
   onBlogEntriesUpdated?: (entries: Record<string, { title: string; text: string; dayIndex: number; notebookUrls?: string[]; updatedBy?: string; updatedAt?: string }>) => void;
+  targetLanguage?: string;
+  setTargetLanguage?: (lang: string) => void;
+  selectedGender?: 'female' | 'male';
+  setSelectedGender?: (g: 'female' | 'male') => void;
+  selectedVoiceUri?: string;
+  setSelectedVoiceUri?: (u: string) => void;
+  isTranslating?: boolean;
 }
 
 export const BlogSection: React.FC<BlogSectionProps> = ({ 
@@ -42,7 +49,14 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   prayers = {},
   theme = 'dark',
   onOpenExportModal,
-  onBlogEntriesUpdated
+  onBlogEntriesUpdated,
+  targetLanguage: propsTargetLanguage,
+  setTargetLanguage: propsSetTargetLanguage,
+  selectedGender: propsSelectedGender,
+  setSelectedGender: propsSetSelectedGender,
+  selectedVoiceUri: propsSelectedVoiceUri,
+  setSelectedVoiceUri: propsSetSelectedVoiceUri,
+  isTranslating: propsIsTranslating
 }) => {
   const isLight = theme === 'light';
   const [editing, setEditing] = useState<boolean>(false);
@@ -53,18 +67,25 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   const [saving, setSaving] = useState<boolean>(false);
   const [saveStatus, setSaveStatus] = useState<{ success?: boolean; message?: string } | null>(null);
   const [restoringCloud, setRestoringCloud] = useState<boolean>(false); // kept for UI compat
-  const [restoreProgress, setRestoreProgress] = useState<string>(''); // kept for UI compat
-
-  // Reader / Playback State
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [activeSegmentIndex, setActiveSegmentIndex] = useState<number>(0);
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
   const [ttsEnabled, setTtsEnabled] = useState<boolean>(true);
   const [isYoutubeMode, setIsYoutubeMode] = useState<boolean>(false);
-  const [targetLanguage, setTargetLanguage] = useState<string>('pl');
-  const [selectedGender, setSelectedGender] = useState<'female' | 'male'>('female');
-  const [selectedVoiceUri, setSelectedVoiceUri] = useState<string>('');
-  const [isTranslating, setIsTranslating] = useState<boolean>(false);
+
+  const [internalTargetLanguage, setInternalTargetLanguage] = useState<string>('pl');
+  const [internalSelectedGender, setInternalSelectedGender] = useState<'female' | 'male'>('female');
+  const [internalSelectedVoiceUri, setInternalSelectedVoiceUri] = useState<string>('');
+  const [internalIsTranslating, setInternalIsTranslating] = useState<boolean>(false);
+
+  const targetLanguage = propsTargetLanguage ?? internalTargetLanguage;
+  const setTargetLanguage = propsSetTargetLanguage ?? setInternalTargetLanguage;
+  const selectedGender = propsSelectedGender ?? internalSelectedGender;
+  const setSelectedGender = propsSetSelectedGender ?? setInternalSelectedGender;
+  const selectedVoiceUri = propsSelectedVoiceUri ?? internalSelectedVoiceUri;
+  const setSelectedVoiceUri = propsSetSelectedVoiceUri ?? setInternalSelectedVoiceUri;
+  const isTranslating = propsIsTranslating ?? internalIsTranslating;
+  const setIsTranslating = setInternalIsTranslating;
 
   // Local Video Generation State
   const [localGenerating, setLocalGenerating] = useState<boolean>(false);

@@ -17,9 +17,25 @@ if (typeof window !== 'undefined') {
 
 interface EbookSectionProps {
   theme: 'dark' | 'light';
+  targetLanguage?: string;
+  setTargetLanguage?: (lang: string) => void;
+  selectedGender?: 'female' | 'male';
+  setSelectedGender?: (g: 'female' | 'male') => void;
+  selectedVoiceUri?: string;
+  setSelectedVoiceUri?: (u: string) => void;
+  isTranslating?: boolean;
 }
 
-export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
+export const EbookSection: React.FC<EbookSectionProps> = ({
+  theme,
+  targetLanguage: propsTargetLanguage,
+  setTargetLanguage: propsSetTargetLanguage,
+  selectedGender: propsSelectedGender,
+  setSelectedGender: propsSetSelectedGender,
+  selectedVoiceUri: propsSelectedVoiceUri,
+  setSelectedVoiceUri: propsSetSelectedVoiceUri,
+  isTranslating: propsIsTranslating
+}) => {
   // PDF document state
   const [numPages, setNumPages] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -42,16 +58,25 @@ export const EbookSection: React.FC<EbookSectionProps> = ({ theme }) => {
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [autoTurn, setAutoTurn] = useState<boolean>(true);
   const [readingSpeed, setReadingSpeed] = useState<number>(1.0);
-  const [extractedTexts, setExtractedTexts] = useState<Record<number, string>>({});
+  const [pdfPageTexts, setPdfPageTexts] = useState<Record<number, string>>({});
   const [isExtractingText, setIsExtractingText] = useState<boolean>(false);
 
   // TTS Voice & Live Translation Selection State
-  const [selectedGender, setSelectedGender] = useState<'female' | 'male'>('female');
+  const [internalSelectedGender, setInternalSelectedGender] = useState<'female' | 'male'>('female');
   const [availableVoices, setAvailableVoices] = useState<SpeechSynthesisVoice[]>([]);
-  const [selectedVoiceUri, setSelectedVoiceUri] = useState<string>('');
-  const [targetLanguage, setTargetLanguage] = useState<string>('pl');
-  const [isTranslating, setIsTranslating] = useState<boolean>(false);
+  const [internalSelectedVoiceUri, setInternalSelectedVoiceUri] = useState<string>('');
+  const [internalTargetLanguage, setInternalTargetLanguage] = useState<string>('pl');
+  const [internalIsTranslating, setInternalIsTranslating] = useState<boolean>(false);
   const [liveTranslatedText, setLiveTranslatedText] = useState<string>('');
+
+  const targetLanguage = propsTargetLanguage ?? internalTargetLanguage;
+  const setTargetLanguage = propsSetTargetLanguage ?? setInternalTargetLanguage;
+  const selectedGender = propsSelectedGender ?? internalSelectedGender;
+  const setSelectedGender = propsSetSelectedGender ?? setInternalSelectedGender;
+  const selectedVoiceUri = propsSelectedVoiceUri ?? internalSelectedVoiceUri;
+  const setSelectedVoiceUri = propsSetSelectedVoiceUri ?? setInternalSelectedVoiceUri;
+  const isTranslating = propsIsTranslating ?? internalIsTranslating;
+  const setIsTranslating = setInternalIsTranslating;
 
   const isDark = theme === 'dark';
 
