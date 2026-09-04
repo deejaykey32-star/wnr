@@ -537,15 +537,18 @@ export const sanitizeTextForTts = (text: string): string => {
     .replace(/&gt;/gi, '>')
     .replace(/[\u00AD\u200B\u200C\u200D\uFEFF]/g, '');
 
-  // Normalize mid-sentence capitalized words that Neural TTS models misread as acronyms
+  // Normalize capitalized words that Neural TTS models misread as abbreviations/acronyms
   clean = clean
-    .replace(/,\s*Stworzyciela\b/g, ', stworzyciela')
-    .replace(/,\s*Wszechmogącego\b/g, ', wszechmogącego')
-    .replace(/,\s*Ojca\b/g, ', ojca')
-    .replace(/,\s*Jednorodzonego\b/g, ', jednorodzonego')
-    .replace(/,\s*Ukrzyżowanego\b/g, ', ukrzyżowanego')
-    .replace(/,\s*Zmartwychwstałego\b/g, ', zmartwychwstałego')
-    .replace(/,\s*Wniebowstąpionego\b/g, ', wniebowstąpionego');
+    .replace(/\bStworzyciela\b/g, 'stworzyciela')
+    .replace(/\bStworzyciel\b/g, 'stworzyciel')
+    .replace(/\bWszechmogącego\b/g, 'wszechmogącego')
+    .replace(/\bWszechmogący\b/g, 'wszechmogący')
+    .replace(/\bJednorodzonego\b/g, 'jednorodzonego')
+    .replace(/\bUkrzyżowanego\b/g, 'ukrzyżowanego')
+    .replace(/\bZmartwychwstałego\b/g, 'zmartwychwstałego')
+    .replace(/\bWniebowstąpionego\b/g, 'wniebowstąpionego')
+    .replace(/\bWspółistotnego\b/g, 'współistotnego')
+    .replace(/\bPoczętego\b/g, 'poczętego');
 
   return clean
     // 0. Remove QR codes and captions
