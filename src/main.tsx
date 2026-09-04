@@ -36,17 +36,21 @@ class ErrorBoundary extends Component<Props, State> {
     } catch {}
   }
 
-  private handleHardReset = () => {
+  private handleHardReset = async () => {
     try {
       sessionStorage.clear();
       localStorage.clear();
       if ('caches' in window) {
-        caches.keys().then(names => Promise.all(names.map(n => caches.delete(n))));
+        const names = await caches.keys();
+        await Promise.all(names.map(n => caches.delete(n)));
       }
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(regs => Promise.all(regs.map(r => r.unregister())));
+        const regs = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(regs.map(r => r.unregister()));
       }
-    } catch {}
+    } catch (e) {
+      console.error(e);
+    }
     window.location.href = window.location.origin + window.location.pathname + '?cb=' + Date.now();
   };
 
