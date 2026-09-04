@@ -100,7 +100,8 @@ export function getLanguageOption(code: string): TargetLanguageOption {
 const translationCache = new Map<string, string>();
 
 /**
- * Fast parallel translation helper for a single text chunk (up to ~450 chars).
+ * Multi-provider translation helper with 4-tier automatic failover fallback.
+ * Tries Google GTX -> Google Chrome Dictation API -> MyMemory API -> Lingva API.
  */
 async function translateChunk(chunk: string, targetLang: string): Promise<string> {
   const trimmed = chunk.trim();
@@ -111,26 +112,84 @@ async function translateChunk(chunk: string, targetLang: string): Promise<string
     return translationCache.get(cacheKey)!;
   }
 
-  try {
-    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=pl&tl=${encodeURIComponent(targetLang)}&dt=t&q=${encodeURIComponent(trimmed)}`;
-    const response = await fetch(url);
-    if (!response.ok) return chunk;
+  const encoded = encodeURIComponent(trimmed);
 
-    const data = await response.json();
-    if (Array.isArray(data) && Array.isArray(data[0])) {
-      const result = data[0]
-        .map((part: any) => (Array.isArray(part) && part[0] ? part[0] : ''))
-        .join('');
-      if (result) {
-        translationCache.set(cacheKey, result);
-        return result;
+  // 1. Primary: Google GTX API
+  try {
+    const urlA = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=pl&tl=${encodeURIComponent(targetLang)}&dt=t&q=${encoded}`;
+    const resA = await fetch(urlA);
+    if (resA.ok) {
+      const dataA = await resA.json();
+      if (Array.isArray(dataA) && Array.isArray(dataA[0])) {
+        const resultA = dataA[0]
+          .map((part: any) => (Array.isArray(part) && part[0] ? part[0] : ''))
+          .join('');
+        if (resultA && resultA.trim() !== trimmed) {
+          translationCache.set(cacheKey, resultA);
+          return resultA;
+        }
       }
     }
-    return chunk;
-  } catch (err) {
-    console.warn("Chunk translation warning:", err);
-    return chunk;
+  } catch (errA) {
+    console.warn("Primary GTX translate fallback:", errA);
   }
+
+  // 2. Secondary: Google Chrome Extension Dictation API (clients5.google.com)
+  try {
+    const urlB = `https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=pl&tl=${encodeURIComponent(targetLang)}&q=${encoded}`;
+    const resB = await fetch(urlB);
+    if (resB.ok) {
+      const dataB = await resB.json();
+      let resultB = '';
+      if (Array.isArray(dataB)) {
+        if (typeof dataB[0] === 'string') {
+          resultB = dataB[0];
+        } else if (Array.isArray(dataB[0]) && typeof dataB[0][0] === 'string') {
+          resultB = dataB[0][0];
+        }
+      }
+      if (resultB && resultB.trim() !== trimmed) {
+        translationCache.set(cacheKey, resultB);
+        return resultB;
+      }
+    }
+  } catch (errB) {
+    console.warn("Secondary clients5 translate fallback:", errB);
+  }
+
+  // 3. Tertiary: MyMemory Free Translation API
+  try {
+    const urlC = `https://api.mymemory.translated.net/get?q=${encoded}&langpair=pl|${encodeURIComponent(targetLang)}`;
+    const resC = await fetch(urlC);
+    if (resC.ok) {
+      const dataC = await resC.json();
+      const resultC = dataC?.responseData?.translatedText;
+      if (resultC && typeof resultC === 'string' && resultC.trim() !== trimmed && !resultC.includes("MYMEMORY WARNING")) {
+        translationCache.set(cacheKey, resultC);
+        return resultC;
+      }
+    }
+  } catch (errC) {
+    console.warn("Tertiary MyMemory translate fallback:", errC);
+  }
+
+  // 4. Quaternary: Lingva Open API
+  try {
+    const urlD = `https://lingva.ml/api/v1/pl/${encodeURIComponent(targetLang)}/${encoded}`;
+    const resD = await fetch(urlD);
+    if (resD.ok) {
+      const dataD = await resD.json();
+      const resultD = dataD?.translation;
+      if (resultD && typeof resultD === 'string' && resultD.trim() !== trimmed) {
+        translationCache.set(cacheKey, resultD);
+        return resultD;
+      }
+    }
+  } catch (errD) {
+    console.warn("Quaternary Lingva translate fallback:", errD);
+  }
+
+  return chunk;
 }
 
 /**
