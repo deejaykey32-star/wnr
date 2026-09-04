@@ -154,48 +154,7 @@ async function syncAllFromFirestore() {
     console.log(`✅ Updated ${updatedPrayersTs} prayer blocks in src/data/prayers.ts`);
   }
 
-  // ── C. SYNC BIBLIA365 (1460 czytań = 4 x 365) ─────────────────────────────
-  console.log('📥 Initializing full 1460 chapters for Biblia365 (4 years × 365 days)...');
-  const { getBibleChapters } = await import('../src/utils/bibleHelper');
-  const allBibleDefaults = getBibleChapters();
-  const bibleEntriesMap: Record<string, any> = {};
-
-  allBibleDefaults.forEach(ch => {
-    const docId = `bible_slot_${ch.slotIndex}`;
-    bibleEntriesMap[docId] = {
-      docId,
-      slotIndex: ch.slotIndex,
-      title: ch.defaultTitle,
-      text: ch.defaultText,
-      notebookUrls: [],
-      updatedBy: 'Pismo Święte Biblia365 (1460 czytań)',
-      updatedAt: new Date().toISOString()
-    };
-  });
-
-  try {
-    const bibleSnap = await getDocs(collection(db, 'bible_entries'));
-    bibleSnap.forEach(docSnap => {
-      const id = docSnap.id;
-      const data = docSnap.data();
-      if (data && data.title && data.text) {
-        bibleEntriesMap[id] = {
-          docId: id,
-          slotIndex: data.slotIndex ?? (parseInt(id.replace('bible_slot_', ''), 10) || 0),
-          title: data.title,
-          text: data.text,
-          notebookUrls: data.notebookUrls || [],
-          updatedBy: data.updatedBy || 'Firestore Sync',
-          updatedAt: data.updatedAt || new Date().toISOString()
-        };
-      }
-    });
-    console.log(`✅ Synced ${Object.keys(bibleEntriesMap).length} / 1460 Biblia365 entries.`);
-  } catch (bibleErr) {
-    console.warn('⚠️ Note: Using local seed for unauthenticated Firestore bible_entries.', (bibleErr as any)?.message);
-  }
-
-  // ── D. GENERATE src/data/db_snapshot.json ─────────────────────────────────
+  // ── C. GENERATE src/data/db_snapshot.json ─────────────────────────────────
   const snapshotJsonPath = resolve(process.cwd(), 'src/data/db_snapshot.json');
   const publicSnapshotPath = resolve(process.cwd(), 'public/data/db_snapshot.json');
 
@@ -224,11 +183,11 @@ async function syncAllFromFirestore() {
     },
     prayers: allPrayersMap,
     blogEntries: wnrData,
-    bibleEntries: bibleEntriesMap
+    bibleEntries: {}
   };
 
   writeFileSync(snapshotJsonPath, JSON.stringify(fullSnapshot, null, 2), 'utf-8');
-  console.log(`📦 Generated standalone NoSQL snapshot in src/data/db_snapshot.json (${Object.keys(allPrayersMap).length} prayers, ${Object.keys(wnrData).length} blog entries, ${Object.keys(bibleEntriesMap).length} bible entries)`);
+  console.log(`📦 Generated standalone NoSQL snapshot in src/data/db_snapshot.json (${Object.keys(allPrayersMap).length} prayers, ${Object.keys(wnrData).length} blog entries)`);
 
   try {
     const publicDataDir = resolve(process.cwd(), 'public/data');

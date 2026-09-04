@@ -89,22 +89,6 @@ async function syncAllToFirestore() {
         }
       }
     }
-    if (snapshot.bibleEntries) {
-      console.log(`📤 Syncing ${Object.keys(snapshot.bibleEntries).length} Biblia365 entries to Firestore collection 'bible_entries'...`);
-      for (const [docId, entry] of Object.entries(snapshot.bibleEntries as Record<string, any>)) {
-        if (entry && entry.title && entry.text) {
-          await setDoc(doc(db, 'bible_entries', docId), {
-            slotIndex: entry.slotIndex ?? 0,
-            title: entry.title,
-            text: entry.text,
-            notebookUrls: entry.notebookUrls || [],
-            updatedBy: entry.updatedBy || 'GitHub Repository Backup',
-            updatedAt: entry.updatedAt || new Date().toISOString()
-          }, { merge: true });
-          totalCount++;
-        }
-      }
-    }
   } catch (e) {
     console.info('ℹ️ db_snapshot.json read skipped or not present:', e);
   }

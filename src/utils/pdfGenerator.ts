@@ -790,64 +790,6 @@ export const generateCustomScopePdf = async (
   }
 }
 
-  // ==========================================
-  // FINAL PAGES: TABLE OF CONTENTS (SPIS TREŚCI)
-  // ==========================================
-  if (onProgress) onProgress("Generowanie aktywnego Spisu Treści na końcu pliku A5...");
-
-  if (y > pageHeight - margin - 30) {
-    doc.addPage();
-    currentPage++;
-    drawHeaderFooter(currentPage, "Spis Treści — Interaktywne Odsyłacze");
-    y = margin + 5;
-  }
-
-  doc.setFont(fontName, 'bold');
-  doc.setFontSize(14);
-  doc.setTextColor(15, 23, 42);
-  doc.text("Spis Treści", margin, y);
-  y += 6.5;
-
-  doc.setFont(fontName, 'normal');
-  doc.setFontSize(8.5);
-  doc.setTextColor(71, 85, 105);
-  doc.text("Kliknij w podświetlony odsyłacz, aby natychmiast przejść do strony danego dnia:", margin, y);
-  y += 7.5;
-
-  for (let t = 0; t < tocMap.length; t++) {
-    const item = tocMap[t];
-
-    if (y > pageHeight - margin - 10) {
-      doc.addPage();
-      currentPage++;
-      drawHeaderFooter(currentPage, "Spis Treści — Interaktywne Odsyłacze");
-      y = margin + 5;
-    }
-
-    if (t % 2 === 1) {
-      doc.setFillColor(248, 250, 252);
-      doc.rect(margin, y - 3, contentWidth, 5.5, 'F');
-    }
-
-    doc.setFont(fontName, 'bold');
-    doc.setFontSize(8);
-    doc.setTextColor(79, 70, 229);
-    doc.text(item.title, margin + 1.5, y);
-
-    doc.setFont(fontName, 'normal');
-    doc.setFontSize(8);
-    doc.setTextColor(15, 23, 42);
-    doc.text(`str. ${item.pageNum}`, margin + contentWidth - 1.5, y, { align: 'right' });
-
-    doc.setDrawColor(199, 210, 254);
-    doc.setLineWidth(0.2);
-    doc.line(margin + 1.5, y + 1, margin + contentWidth - 1.5, y + 1);
-
-    doc.link(margin, y - 3, contentWidth, 5.5, { pageNumber: item.pageNum });
-
-    y += 5.5;
-  }
-
   if (onProgress) onProgress("Zapisywanie pliku PDF A5...");
 
   const fileNameScope = scope === 'rhz365' 

@@ -16,9 +16,10 @@ import { generateVideoClientSide } from '../utils/videoGenerator';
 import { RichTextRenderer } from '../utils/richTextHelper';
 import { WysiwygToolbar } from './WysiwygToolbar';
 import { getWnrDefaultBlogEntry } from '../utils/wnrBlogDefaults';
-// restoreAllWnrBlogEntries removed — use AdminSyncPanel for Firestore operations
 import { saveLocalBlogEntry } from '../utils/localNoSqlDb';
 import { NotebookGeminiPanel, GEMINI_ANALYSIS_TYPES } from './NotebookGeminiPanel';
+import { TtsVoiceToolbar } from './TtsVoiceToolbar';
+import { translateTextFromPolish } from '../utils/translator';
 
 interface BlogSectionProps {
   user: any;
@@ -60,6 +61,10 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
   const [ttsEnabled, setTtsEnabled] = useState<boolean>(true);
   const [isYoutubeMode, setIsYoutubeMode] = useState<boolean>(false);
+  const [targetLanguage, setTargetLanguage] = useState<string>('pl');
+  const [selectedGender, setSelectedGender] = useState<'female' | 'male'>('female');
+  const [selectedVoiceUri, setSelectedVoiceUri] = useState<string>('');
+  const [isTranslating, setIsTranslating] = useState<boolean>(false);
 
   // Local Video Generation State
   const [localGenerating, setLocalGenerating] = useState<boolean>(false);
@@ -478,36 +483,58 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
       playBeadChime(activeSegmentIndex === 0 ? 'cross' : 'hail');
     }
 
+    let isSubscribed = true;
+
     if (ttsEnabled) {
       stopSpeech();
       const textToSpeak = blogSegments[activeSegmentIndex];
       if (textToSpeak) {
-        speakText(textToSpeak, {
-          rate: 0.95, // serene pace
-          pitch: 1.0,
-          onEnd: () => {
-            if (isPlayingRef.current) {
-              autoAdvanceTimeoutRef.current = setTimeout(() => {
-                if (activeSegmentIndex < blogSegments.length - 1) {
-                  setActiveSegmentIndex(prev => prev + 1);
-                } else {
-                  // Reached end of current WnR365 blog entry!
-                  markWnrDayCompleted(cycleInfo.dayIndex);
-                  setCompletedWnrDays(getCompletedWnrDays());
-                  if (isContinuousPlaybackRef.current) {
-                    handleNextDay();
-                    setActiveSegmentIndex(0);
-                  } else {
-                    setIsPlaying(false);
-                  }
-                }
-              }, 1200); // peaceful delay
+        (async () => {
+          let finalSpeechText = textToSpeak;
+
+          if (targetLanguage !== 'pl') {
+            setIsTranslating(true);
+            try {
+              finalSpeechText = await translateTextFromPolish(textToSpeak, targetLanguage);
+            } catch (err) {
+              console.warn("WnR365 Translation error:", err);
+            } finally {
+              if (isSubscribed) setIsTranslating(false);
             }
-          },
-          onError: () => {
-            setIsPlaying(false);
           }
-        });
+
+          if (!isSubscribed || !isPlayingRef.current) return;
+
+          speakText(finalSpeechText, {
+            rate: 0.95, // serene pace
+            pitch: 1.0,
+            lang: targetLanguage,
+            gender: selectedGender,
+            voiceURI: selectedVoiceUri || undefined,
+            onEnd: () => {
+              if (isPlayingRef.current && isSubscribed) {
+                autoAdvanceTimeoutRef.current = setTimeout(() => {
+                  if (activeSegmentIndex < blogSegments.length - 1) {
+                    setActiveSegmentIndex(prev => prev + 1);
+                  } else {
+                    // Reached end of current WnR365 blog entry!
+                    markWnrDayCompleted(cycleInfo.dayIndex);
+                    setCompletedWnrDays(getCompletedWnrDays());
+                    if (isContinuousPlaybackRef.current) {
+                      handleNextDay();
+                      setActiveSegmentIndex(0);
+                    } else {
+                      setIsPlaying(false);
+                    }
+                  }
+                }, 1200); // peaceful delay
+              }
+            },
+            onError: () => {
+              if (isSubscribed) setIsPlaying(false);
+            }
+          });
+        })();
       }
     } else {
       // Auto-advance without TTS
@@ -528,11 +555,12 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     }
 
     return () => {
+      isSubscribed = false;
       if (autoAdvanceTimeoutRef.current) {
         clearTimeout(autoAdvanceTimeoutRef.current);
       }
     };
-  }, [activeSegmentIndex, isPlaying, ttsEnabled, soundEnabled, blogSegments]);
+  }, [activeSegmentIndex, isPlaying, ttsEnabled, soundEnabled, blogSegments, targetLanguage, selectedGender, selectedVoiceUri]);
 
   // Handle play toggle
   const handlePlayToggle = () => {
@@ -1237,6 +1265,22 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
       ) : (
         /* STANDARD WORKSPACE LAYOUT FOR BLOG */
         <>
+          <TtsVoiceToolbar
+            targetLanguage={targetLanguage}
+            setTargetLanguage={setTargetLanguage}
+            selectedGender={selectedGender}
+            setSelectedGender={setSelectedGender}
+            selectedVoiceUri={selectedVoiceUri}
+            setSelectedVoiceUri={setSelectedVoiceUri}
+            theme={theme}
+            isTranslating={isTranslating}
+            onOptionChange={() => {
+              if (isPlaying) {
+                stopSpeech();
+              }
+            }}
+          />
+
           {/* Liturgical Day Selector & Cycle Information */}
           <div className={`border rounded-2xl p-3.5 sm:p-5 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 shadow-xl text-left transition-all duration-300 w-full max-w-full overflow-hidden ${
             isLight ? 'bg-white border-slate-200 shadow-slate-100' : 'bg-slate-900/40 border-slate-800/60'

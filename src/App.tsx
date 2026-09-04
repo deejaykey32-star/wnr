@@ -24,6 +24,8 @@ import {
   getCompletedRhzDays, toggleRhzDayCompleted, markRhzDayCompleted, isRhzDayCompleted,
   getCompletedWnrDays, toggleWnrDayCompleted, markWnrDayCompleted, isWnrDayCompleted
 } from './utils/completedDays';
+import { TtsVoiceToolbar } from './components/TtsVoiceToolbar';
+import { translateTextFromPolish } from './utils/translator';
 
 const SearchModal = lazy(() => import('./components/SearchModal').then(m => ({ default: m.SearchModal })));
 const ExportModal = lazy(() => import('./components/ExportModal').then(m => ({ default: m.ExportModal })));
@@ -51,6 +53,12 @@ export default function App() {
 
   // State to track if lazy static databases are loaded
   const [isDataLoaded, setIsDataLoaded] = useState<boolean>(false);
+
+  // TTS Voice & Live Translation Selection State for RHZ365
+  const [targetLanguage, setTargetLanguage] = useState<string>('pl');
+  const [selectedGender, setSelectedGender] = useState<'female' | 'male'>('female');
+  const [selectedVoiceUri, setSelectedVoiceUri] = useState<string>('');
+  const [isTranslating, setIsTranslating] = useState<boolean>(false);
 
   const toggleTheme = () => {
     setTheme(prev => {
@@ -1390,30 +1398,54 @@ export default function App() {
       return;
     }
 
+    let isSubscribed = true;
+
     // Add a small delay (400ms) to let the bead sound finish playing
-    const timer = setTimeout(() => {
-      speakText(textToRead, {
+    const timer = setTimeout(async () => {
+      let finalSpeechText = textToRead;
+
+      if (targetLanguage !== 'pl') {
+        setIsTranslating(true);
+        try {
+          finalSpeechText = await translateTextFromPolish(textToRead, targetLanguage);
+        } catch (err) {
+          console.warn("RHZ365 Translation error:", err);
+        } finally {
+          if (isSubscribed) setIsTranslating(false);
+        }
+      }
+
+      if (!isSubscribed || !isPlayingRef.current) return;
+
+      speakText(finalSpeechText, {
         rate: 0.95, // solemn calm pace
         pitch: 1.0,
+        lang: targetLanguage,
+        gender: selectedGender,
+        voiceURI: selectedVoiceUri || undefined,
         onSegmentStart: (index) => {
-          setActiveSegmentIndex(index);
+          if (isSubscribed) setActiveSegmentIndex(index);
         },
         onEnd: () => {
-          if (isPlayingRef.current) {
+          if (isPlayingRef.current && isSubscribed) {
             autoAdvanceTimeoutRef.current = setTimeout(() => {
               handleNext();
             }, 1500); // 1.5 seconds gap between prayers
           }
+        },
+        onError: () => {
+          // keep playing logic robust
         }
       });
     }, 400);
 
     return () => {
+      isSubscribed = false;
       clearTimeout(timer);
       if (autoAdvanceTimeoutRef.current) clearTimeout(autoAdvanceTimeoutRef.current);
       stopSpeech();
     };
-  }, [isPlaying, activeStepIndex, textToRead, ttsEnabled]);
+  }, [isPlaying, activeStepIndex, textToRead, ttsEnabled, targetLanguage, selectedGender, selectedVoiceUri]);
 
   // If TTS is disabled, we auto-advance on a simple fallback interval
   useEffect(() => {
@@ -3046,6 +3078,22 @@ export default function App() {
             </div>
 
             <div className="w-full max-w-4xl mx-auto flex flex-col gap-6 items-stretch">
+              <TtsVoiceToolbar
+                targetLanguage={targetLanguage}
+                setTargetLanguage={setTargetLanguage}
+                selectedGender={selectedGender}
+                setSelectedGender={setSelectedGender}
+                selectedVoiceUri={selectedVoiceUri}
+                setSelectedVoiceUri={setSelectedVoiceUri}
+                theme={theme}
+                isTranslating={isTranslating}
+                onOptionChange={() => {
+                  if (isPlaying) {
+                    stopSpeech();
+                  }
+                }}
+              />
+
               {/* 1. Active Prayer Card */}
               <div id="active-prayer-card" className={`border rounded-2xl p-6 shadow-xl relative overflow-hidden transition-all duration-300 ${
                 isLight ? 'bg-white border-slate-200 shadow-slate-100 text-slate-900' : 'bg-slate-900/40 border-slate-800/50 text-slate-100'

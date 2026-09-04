@@ -218,11 +218,11 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
         console.warn('[Sync] CDN snapshot fetch skipped:', cdnErr);
       }
 
-      // 1. Synchronizacja Wstępu i Misji (5% - 15%)
+      // 1. Synchronizacja Wstępu i Misji (5% - 25%)
       setSyncProgress({
         active: true,
-        percent: 10,
-        step: '1/5. Wstęp i Misja eMBiK365 (wprowadzenie i cele)...',
+        percent: 15,
+        step: '1/4. Wstęp i Misja eMBiK365 (wprowadzenie i cele)...',
         itemCounter: 'Wstęp i Misja'
       });
 
@@ -239,13 +239,13 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
       setSyncProgress({
         active: true,
-        percent: 15,
-        step: '1/5. Wstęp i Misja eMBiK365 zsynchronizowane.',
+        percent: 25,
+        step: '1/4. Wstęp i Misja eMBiK365 zsynchronizowane.',
         itemCounter: 'Wstęp i Misja: Gotowe'
       });
       await new Promise(r => setTimeout(r, 60));
 
-      // 2. Synchronizacja 365 wpisów WnR365 (15% - 40%)
+      // 2. Synchronizacja 365 wpisów WnR365 (25% - 55%)
       if (Object.keys(masterBlogMap).length < 365) {
         try {
           const snapMod = await import('../data/db_snapshot.json');
@@ -259,13 +259,13 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       await pushChunked(
         blogList,
         'blog_entries',
-        15,
-        40,
-        '2/5. 365 wpisów WnR365 (rozważania codzienne)...'
+        25,
+        55,
+        '2/4. 365 wpisów WnR365 (rozważania codzienne)...'
       );
       await new Promise(r => setTimeout(r, 60));
 
-      // 3. Synchronizacja 2 × 175 modlitw RHZ365 (40% - 68%)
+      // 3. Synchronizacja 2 × 175 modlitw RHZ365 (55% - 85%)
       try {
         const rhzModule = await import('../../RHZ365_pierwszy_cykl_175_dni.json');
         const rhzData = rhzModule.default || rhzModule;
@@ -287,76 +287,17 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
       await pushChunked(
         prayerList,
         'prayers',
-        40,
-        68,
-        '3/5. 2 × 175 modlitw RHZ365 (350 dni cyklu różańca, tajemnice i modlitwy stałe)...'
+        55,
+        85,
+        '3/4. 2 × 175 modlitw RHZ365 (350 dni cyklu różańca, tajemnice i modlitwy stałe)...'
       );
       await new Promise(r => setTimeout(r, 60));
 
-      // 4. Synchronizacja 4 × 365 rozdziałów Biblia365 (68% - 92%)
-      // Fetch remote bible_entries from Firestore and overlay
-      try {
-        setSyncProgress({
-          active: true,
-          percent: 70,
-          step: '4/5. Pobieranie czytań Biblia365 z Firestore...',
-          itemCounter: 'Pobieranie z chmury'
-        });
-        const bibleSnap = await withTimeout(getDocs(collection(db, 'bible_entries')), 10000);
-        if (!bibleSnap.empty) {
-          bibleSnap.forEach((docSnap) => {
-            const data = docSnap.data();
-            if (data && data.title && data.text) {
-              const docId = docSnap.id;
-              full1460BibleMap[docId] = mergeItemByNewestState(full1460BibleMap[docId], { docId, ...data });
-            }
-          });
-        }
-      } catch (bibleFetchErr) {
-        console.warn('[Sync] Bible getDocs skipped/failed:', bibleFetchErr);
-      }
-
-      // Process and verify all 1460 Bible slots with progress bar (smooth frame animations)
-      const bibleEntriesList = Object.entries(full1460BibleMap);
-      const totalBibleCount = bibleEntriesList.length; // 1460
-
-      const bibleChunkSize = 73; // 20 animated steps of 73
-      for (let i = 0; i < totalBibleCount; i += bibleChunkSize) {
-        const chunk = bibleEntriesList.slice(i, i + bibleChunkSize);
-        // Push custom/edited ones to cloud
-        await Promise.allSettled(
-          chunk.map(async ([docId, data]) => {
-            if (
-              (data.notebookUrls?.some((u: any) => u && String(u).trim().length > 0)) ||
-              (data.passageUrl && String(data.passageUrl).trim().length > 0) ||
-              (data.notebookLabels?.some((l: any) => l && String(l).trim().length > 0)) ||
-              (data.title && data.title !== defaultBible[data.slotIndex - 1]?.defaultTitle)
-            ) {
-              try {
-                await withTimeout(setDoc(doc(db, 'bible_entries', docId), data, { merge: true }), 4000);
-              } catch {}
-            }
-          })
-        );
-
-        const currentDone = Math.min(totalBibleCount, i + bibleChunkSize);
-        const pct = Math.round(72 + (currentDone / totalBibleCount) * 20);
-        setSyncProgress({
-          active: true,
-          percent: Math.min(92, pct),
-          step: '4/5. 4 × 365 rozdziałów Biblia365 (1460 czytań od Rdz do Ap)...',
-          itemCounter: `${currentDone} / ${totalBibleCount} rozdziałów Biblia365`
-        });
-        await new Promise(r => setTimeout(r, 30));
-      }
-
-      onBibleEntriesUpdated(full1460BibleMap);
-
-      // 5. Zapis NoSQL i Baza Danych (92% - 100%)
+      // 4. Zapis NoSQL i Baza Danych (85% - 100%)
       setSyncProgress({
         active: true,
-        percent: 96,
-        step: '5/5. Zapisywanie kompletnej bazy NoSQL (db_snapshot.json)...',
+        percent: 90,
+        step: '4/4. Zapisywanie kompletnej bazy NoSQL (db_snapshot.json)...',
         itemCounter: 'Aktualizacja IndexedDB'
       });
       await new Promise(r => setTimeout(r, 60));
@@ -373,7 +314,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
       setMasterStatus({
         type: 'success',
-        message: `🎉 Sukces! Zsynchronizowano: Wstęp i Misję, 365 wpisów WnR365, 2 × 175 modlitw RHZ365 (350 dni) oraz 4 × 365 rozdziałów Biblia365 (1460 czytań).`
+        message: `🎉 Sukces! Zsynchronizowano: Wstęp i Misję, 365 wpisów WnR365 oraz 2 × 175 modlitw RHZ365 (350 dni).`
       });
     } catch (err: any) {
       const isQuota = err?.message?.includes('Quota limit exceeded') || err?.message?.includes('resource-exhausted') || err?.code === 'resource-exhausted';
@@ -683,7 +624,7 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
 
         setMasterStatus({
           type: 'success',
-          message: `✅ Pomyślnie wgrano i zastosowano bazę NoSQL (${Object.keys(snapshot.blogEntries).length} wpisów WnR365, ${Object.keys(snapshot.prayers).length} modlitw RHZ365 i ${Object.keys(snapshot.bibleEntries).length} czytań Biblia365)!`
+          message: `✅ Pomyślnie wgrano i zastosowano bazę NoSQL (${Object.keys(snapshot.blogEntries).length} wpisów WnR365 oraz ${Object.keys(snapshot.prayers).length} modlitw RHZ365)!`
         });
       } catch (err: any) {
         setMasterStatus({
@@ -774,12 +715,12 @@ export const AdminSyncPanel: React.FC<AdminSyncPanelProps> = ({
                 Inteligentna Synchronizacja (Wszystko w 1)
               </h3>
               <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-mono font-bold border border-amber-500/30">
-                4 Sekcje
+                3 Sekcje
               </span>
             </div>
 
             <p className={`text-xs mb-4 leading-relaxed ${subText}`}>
-              Jednym kliknięciem synchronizuje całą zawartość: <strong>Wstęp</strong>, <strong>RHZ365</strong> (różaniec i tajemnice), <strong>WnR365</strong> (365 rozważań) oraz <strong>Biblia365</strong> (1460 czytań).
+              Jednym kliknięciem synchronizuje całą zawartość: <strong>Wstęp</strong>, <strong>RHZ365</strong> (różaniec i tajemnice) oraz <strong>WnR365</strong> (365 rozważań).
             </p>
 
             {/* Hidden file input */}

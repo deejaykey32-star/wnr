@@ -552,30 +552,6 @@ li {
   }
   }
 
-  // Table of Contents chapter
-  const tocId = "toc_end";
-  const tocHref = "toc.xhtml";
-  manifestItems.push(`<item id="${tocId}" href="${tocHref}" media-type="application/xhtml+xml"/>`);
-  spineRefs.push(`<itemref idref="${tocId}"/>`);
-
-  let tocXhtml = `<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
-<head>
-  <title>Spis Treści - eMBiK365</title>
-  <link rel="stylesheet" type="text/css" href="style.css"/>
-</head>
-<body>
-  <h1>Spis Treści</h1>
-  <p>Kliknij w wybrany odsyłacz, aby przejść do danego dnia rozważań:</p>
-  <ul class="toc-list">
-`;
-  tocEntries.forEach((entry) => {
-    tocXhtml += `    <li class="toc-item"><a href="${entry.href}" class="toc-link">${escapeXml(entry.title)}</a></li>\n`;
-  });
-  tocXhtml += `  </ul>\n</body>\n</html>`;
-  zip.file(`OEBPS/${tocHref}`, tocXhtml);
-
   // 4. OEBPS/toc.ncx
   let ncxContent = `<?xml version="1.0" encoding="UTF-8"?>
 <ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
@@ -607,11 +583,6 @@ li {
     </navPoint>\n`;
     navPointIdx++;
   });
-
-  ncxContent += `    <navPoint id="navPoint-${navPointIdx}" playOrder="${navPointIdx}">
-      <navLabel><text>Spis Treści</text></navLabel>
-      <content src="toc.xhtml"/>
-    </navPoint>\n`;
 
   ncxContent += `  </navMap>\n</ncx>`;
   zip.file("OEBPS/toc.ncx", ncxContent);
