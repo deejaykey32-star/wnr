@@ -615,94 +615,120 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
           </div>
         ) : (
           <div className="relative flex items-center justify-center max-w-full">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`${currentPage}_${viewMode}`}
-                initial={{ 
-                  rotateY: flipDirection === 'next' ? 25 : -25, 
-                  opacity: 0.8,
-                  scale: 0.98
-                }}
-                animate={{ 
-                  rotateY: 0, 
-                  opacity: 1,
-                  scale: 1
-                }}
-                exit={{ 
-                  rotateY: flipDirection === 'next' ? -25 : 25, 
-                  opacity: 0.4,
-                  scale: 0.98
-                }}
-                transition={{ duration: 0.35, ease: "easeOut" }}
-                style={{ perspective: 1400 }}
-                className={`relative flex items-center justify-center rounded-2xl shadow-2xl overflow-hidden border p-3 sm:p-5 transition-all ${
-                  isDark ? 'bg-slate-900 border-slate-800 shadow-amber-500/5' : 'bg-amber-50/80 border-amber-200 shadow-slate-300'
-                }`}
-              >
-                {/* Book Spine shadow in double view */}
-                {viewMode === 'double' && (
-                  <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-6 bg-gradient-to-r from-black/15 via-black/35 to-black/15 z-10 pointer-events-none" />
-                )}
-
-                {/* Left Page Image with Dynamic Zoom Scaling */}
-                <div className="relative flex flex-col items-center min-w-[280px] min-h-[380px] justify-center">
-                  {leftImg ? (
-                    <img 
-                      src={leftImg} 
-                      alt={`Strona ${leftPageNum}`}
-                      style={{
-                        maxHeight: `${Math.round(72 * scale)}vh`,
-                        maxWidth: scale > 1.2 ? 'none' : '100%',
-                        transition: 'max-height 0.25s ease-out',
-                      }}
-                      className="w-auto h-auto rounded-lg shadow-md object-contain transition-opacity duration-300" 
-                    />
-                  ) : (
-                    <div className="w-[300px] h-[400px] flex flex-col items-center justify-center gap-3 text-slate-400">
-                      <Loader2 className="w-8 h-8 animate-spin text-amber-500" />
-                      <span className="text-xs font-mono">Renderowanie strony {leftPageNum}...</span>
-                    </div>
+            {targetLanguage === 'pl' ? (
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`${currentPage}_${viewMode}`}
+                  initial={{ 
+                    rotateY: flipDirection === 'next' ? 25 : -25, 
+                    opacity: 0.8,
+                    scale: 0.98
+                  }}
+                  animate={{ 
+                    rotateY: 0, 
+                    opacity: 1,
+                    scale: 1
+                  }}
+                  exit={{ 
+                    rotateY: flipDirection === 'next' ? -25 : 25, 
+                    opacity: 0.4,
+                    scale: 0.98
+                  }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
+                  style={{ perspective: 1400 }}
+                  className={`relative flex items-center justify-center rounded-2xl shadow-2xl overflow-hidden border p-3 sm:p-5 transition-all ${
+                    isDark ? 'bg-slate-900 border-slate-800 shadow-amber-500/5' : 'bg-amber-50/80 border-amber-200 shadow-slate-300'
+                  }`}
+                >
+                  {/* Book Spine shadow in double view */}
+                  {viewMode === 'double' && (
+                    <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-6 bg-gradient-to-r from-black/15 via-black/35 to-black/15 z-10 pointer-events-none" />
                   )}
-                  <span className="text-[10px] font-mono text-slate-400 mt-2">
-                    Strona {leftPageNum}
-                  </span>
-                </div>
 
-                {/* Right Page Image (Double view) */}
-                {viewMode === 'double' && (
-                  <div className="relative flex flex-col items-center border-l border-slate-700/30 pl-3 sm:pl-5 min-w-[280px] min-h-[380px] justify-center">
-                    {rightPageNum && rightPageNum <= numPages ? (
-                      rightImg ? (
-                        <>
-                          <img 
-                            src={rightImg} 
-                            alt={`Strona ${rightPageNum}`}
-                            style={{
-                              maxHeight: `${Math.round(72 * scale)}vh`,
-                              maxWidth: scale > 1.2 ? 'none' : '100%',
-                              transition: 'max-height 0.25s ease-out',
-                            }}
-                            className="w-auto h-auto rounded-lg shadow-md object-contain transition-opacity duration-300" 
-                          />
-                          <span className="text-[10px] font-mono text-slate-400 mt-2">
-                            Strona {rightPageNum}
-                          </span>
-                        </>
-                      ) : (
-                        <div className="w-[300px] h-[400px] flex flex-col items-center justify-center gap-3 text-slate-400">
-                          <Loader2 className="w-8 h-8 animate-spin text-amber-500" />
-                          <span className="text-xs font-mono">Renderowanie strony {rightPageNum}...</span>
-                        </div>
-                      )
+                  {/* Left Page Image with Dynamic Zoom Scaling */}
+                  <div className="relative flex flex-col items-center min-w-[280px] min-h-[380px] justify-center">
+                    {leftImg ? (
+                      <img 
+                        src={leftImg} 
+                        alt={`Strona ${leftPageNum}`}
+                        style={{
+                          maxHeight: `${Math.round(72 * scale)}vh`,
+                          maxWidth: scale > 1.2 ? 'none' : '100%',
+                          transition: 'max-height 0.25s ease-out',
+                        }}
+                        className="w-auto h-auto rounded-lg shadow-md object-contain transition-opacity duration-300" 
+                      />
                     ) : (
-                      <div className="w-[300px] h-[400px] flex items-center justify-center text-slate-500 text-sm border-2 border-dashed border-slate-800 rounded-lg">
-                        Koniec książki
+                      <div className="w-[300px] h-[400px] flex flex-col items-center justify-center gap-3 text-slate-400">
+                        <Loader2 className="w-8 h-8 animate-spin text-amber-500" />
+                        <span className="text-xs font-mono">Renderowanie strony {leftPageNum}...</span>
                       </div>
                     )}
+                    <span className="text-[10px] font-mono text-slate-400 mt-2">
+                      Strona {leftPageNum}
+                    </span>
                   </div>
+
+                  {/* Right Page Image (Double view) */}
+                  {viewMode === 'double' && (
+                    <div className="relative flex flex-col items-center border-l border-slate-700/30 pl-3 sm:pl-5 min-w-[280px] min-h-[380px] justify-center">
+                      {rightPageNum && rightPageNum <= numPages ? (
+                        rightImg ? (
+                          <>
+                            <img 
+                              src={rightImg} 
+                              alt={`Strona ${rightPageNum}`}
+                              style={{
+                                maxHeight: `${Math.round(72 * scale)}vh`,
+                                maxWidth: scale > 1.2 ? 'none' : '100%',
+                                transition: 'max-height 0.25s ease-out',
+                              }}
+                              className="w-auto h-auto rounded-lg shadow-md object-contain transition-opacity duration-300" 
+                            />
+                            <span className="text-[10px] font-mono text-slate-400 mt-2">
+                              Strona {rightPageNum}
+                            </span>
+                          </>
+                        ) : (
+                          <div className="w-[300px] h-[400px] flex flex-col items-center justify-center gap-3 text-slate-400">
+                            <Loader2 className="w-8 h-8 animate-spin text-amber-500" />
+                            <span className="text-xs font-mono">Renderowanie strony {rightPageNum}...</span>
+                          </div>
+                        )
+                      ) : (
+                        <div className="w-[300px] h-[400px] flex items-center justify-center text-slate-500 text-sm border-2 border-dashed border-slate-800 rounded-lg">
+                          Koniec książki
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </motion.div>
+              </AnimatePresence>
+            ) : (
+              /* Single Translated Reader Container for Target Language */
+              <div className={`w-full min-h-[420px] p-6 sm:p-8 rounded-2xl border shadow-2xl transition-all ${
+                isDark ? 'bg-slate-900/90 border-sky-500/40 text-slate-100' : 'bg-sky-50/90 border-sky-200 text-slate-900'
+              }`}>
+                <div className="flex items-center justify-between border-b pb-3 mb-4 border-sky-500/30">
+                  <span className="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-2">
+                    🌐 Treść Książki — Strona {currentPage} z {numPages} ({getLanguageOption(targetLanguage).name})
+                  </span>
+                  <span className="text-xs font-semibold px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 border border-sky-500/40">
+                    {getLanguageOption(targetLanguage).flag} {getLanguageOption(targetLanguage).name}
+                  </span>
+                </div>
+                {isTranslating && !liveTranslatedText ? (
+                  <div className="flex flex-col items-center justify-center gap-3 py-16 text-sky-400">
+                    <Loader2 className="w-8 h-8 animate-spin" />
+                    <span className="text-sm font-semibold font-mono">Tłumaczenie strony {currentPage} w locie...</span>
+                  </div>
+                ) : (
+                  <p className="text-base sm:text-lg leading-relaxed text-justify whitespace-pre-line font-sans">
+                    {liveTranslatedText || "Trwa wczytywanie tekstu strony..."}
+                  </p>
                 )}
-              </motion.div>
-            </AnimatePresence>
+              </div>
+            )}
 
             {/* Quick Navigation Side Buttons */}
             <button
@@ -737,25 +763,6 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
           </div>
         )}
       </div>
-
-      {/* Live Translated Text Panel for active PDF page */}
-      {targetLanguage !== 'pl' && liveTranslatedText && (
-        <div className={`p-4 sm:p-5 rounded-2xl border shadow-lg transition-all my-3 ${
-          isDark ? 'bg-slate-900/90 border-sky-500/40 text-slate-200' : 'bg-sky-50/90 border-sky-200 text-slate-900'
-        }`}>
-          <div className="flex items-center justify-between border-b pb-2 mb-3 border-sky-500/30">
-            <span className="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
-              🌐 Tłumaczenie Strony {currentPage} (Google Translate AI)
-            </span>
-            <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-300">
-              {getLanguageOption(targetLanguage).flag} {getLanguageOption(targetLanguage).name}
-            </span>
-          </div>
-          <p className="text-sm sm:text-base leading-relaxed text-justify whitespace-pre-line font-sans">
-            {liveTranslatedText}
-          </p>
-        </div>
-      )}
 
       {/* Floating Bottom AI TTS & Navigation Bar */}
       <div className={`p-4 rounded-2xl backdrop-blur-lg shadow-xl border flex flex-col md:flex-row items-center justify-between gap-4 transition-all ${

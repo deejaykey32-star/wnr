@@ -10,7 +10,7 @@ import {
 import { 
   Play, Pause, ChevronLeft, ChevronRight, RotateCcw, 
   Edit3, Volume2, Mic, MicOff, Calendar, Save, BookOpen, AlertCircle, Sparkles, FileDown, Video, RefreshCw,
-  Bookmark, Repeat, Film, Download, ExternalLink, Link
+  Bookmark, Repeat, Film, Download, ExternalLink, Link, Loader2
 } from 'lucide-react';
 import { generateVideoClientSide } from '../utils/videoGenerator';
 import { RichTextRenderer } from '../utils/richTextHelper';
@@ -1584,28 +1584,34 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                 ) : (
                   // Read Content View
                   <div className={`max-w-none ${isLight ? 'light-mode-text' : 'prose prose-invert'}`}>
-                    <div style={isLight ? { color: '#000000' } : undefined} className={`text-sm leading-relaxed font-sans pt-1 min-h-[160px] border-l-2 pl-4 text-justify ${
-                      isLight ? 'light-mode-text border-slate-300' : 'text-slate-300 border-amber-500/20'
-                    }`}>
-                      <RichTextRenderer text={activeEntry.text} theme={isLight ? 'light' : 'dark'} />
-                    </div>
-
-                    {/* Live Translation Card in WnR365 */}
-                    {targetLanguage !== 'pl' && translatedBlogText && (
-                      <div className={`mt-4 p-4 sm:p-5 rounded-2xl border shadow-md transition-all ${
+                    {targetLanguage === 'pl' ? (
+                      <div style={isLight ? { color: '#000000' } : undefined} className={`text-sm leading-relaxed font-sans pt-1 min-h-[160px] border-l-2 pl-4 text-justify ${
+                        isLight ? 'light-mode-text border-slate-300' : 'text-slate-300 border-amber-500/20'
+                      }`}>
+                        <RichTextRenderer text={activeEntry.text} theme={isLight ? 'light' : 'dark'} />
+                      </div>
+                    ) : (
+                      <div className={`p-4 sm:p-5 rounded-2xl border shadow-md transition-all ${
                         isLight ? 'bg-sky-50 border-sky-200 text-slate-900' : 'bg-slate-950/80 border-sky-500/40 text-slate-100'
                       }`}>
                         <div className="flex items-center justify-between border-b pb-2 mb-3 border-sky-500/30">
                           <span className="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
-                            🌐 Tłumaczenie Wpisu (Google Translate AI)
+                            🌐 Treść Wpisu ({getLanguageOption(targetLanguage).name})
                           </span>
                           <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-300">
                             {getLanguageOption(targetLanguage).flag} {getLanguageOption(targetLanguage).name}
                           </span>
                         </div>
-                        <p className="text-sm sm:text-base leading-relaxed text-justify whitespace-pre-line font-sans">
-                          {translatedBlogText}
-                        </p>
+                        {isTranslating && !translatedBlogText ? (
+                          <div className="flex items-center justify-center gap-2 py-8 text-sky-400">
+                            <Loader2 className="w-5 h-5 animate-spin" />
+                            <span className="text-sm font-semibold">Tłumaczenie wpisu w locie...</span>
+                          </div>
+                        ) : (
+                          <p className="text-sm sm:text-base leading-relaxed text-justify whitespace-pre-line font-sans">
+                            {translatedBlogText || activeEntry.text}
+                          </p>
+                        )}
                       </div>
                     )}
                     {/* Notebook Gemini Panel */}

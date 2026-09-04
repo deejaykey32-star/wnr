@@ -38,7 +38,7 @@ import {
   Play, Pause, ChevronLeft, ChevronRight, RotateCcw, 
   LogIn, LogOut, Video, Edit3, Sliders, Volume2, Info, BookOpen, Book, Mic, MicOff, Calendar, FileDown,
   Sun, Moon, ShieldAlert, Key, X, ExternalLink, Search, Share2, Check, Smartphone, RefreshCw, Edit2,
-  Bookmark, Repeat, Film, Download, Sparkles, ChevronDown, ChevronUp, Copy, Save, CheckCircle2, Zap, Database
+  Bookmark, Repeat, Film, Download, Sparkles, ChevronDown, ChevronUp, Copy, Save, CheckCircle2, Zap, Database, Loader2
 } from 'lucide-react';
 
 export default function App() {
@@ -3168,27 +3168,33 @@ export default function App() {
                 </h2>
 
                 <div className="min-h-[160px] flex flex-col justify-center font-sans">
-                  {renderPrayerContent()}
-                </div>
-
-                {/* Live Translation Card in RHZ365 */}
-                {targetLanguage !== 'pl' && translatedPrayerText && (
-                  <div className={`mt-4 p-4 rounded-2xl border shadow-md transition-all ${
-                    isLight ? 'bg-sky-50 border-sky-200 text-slate-900' : 'bg-slate-950/80 border-sky-500/40 text-slate-100'
-                  }`}>
-                    <div className="flex items-center justify-between border-b pb-2 mb-2 border-sky-500/30">
-                      <span className="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
-                        🌐 Tłumaczenie Modlitwy (Google Translate AI)
-                      </span>
-                      <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-300">
-                        {getLanguageOption(targetLanguage).flag} {getLanguageOption(targetLanguage).name}
-                      </span>
+                  {targetLanguage === 'pl' ? (
+                    renderPrayerContent()
+                  ) : (
+                    <div className={`p-4 sm:p-5 rounded-2xl border shadow-md transition-all ${
+                      isLight ? 'bg-sky-50 border-sky-200 text-slate-900' : 'bg-slate-950/80 border-sky-500/40 text-slate-100'
+                    }`}>
+                      <div className="flex items-center justify-between border-b pb-2 mb-3 border-sky-500/30">
+                        <span className="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
+                          🌐 Treść Modlitwy ({getLanguageOption(targetLanguage).name})
+                        </span>
+                        <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-300">
+                          {getLanguageOption(targetLanguage).flag} {getLanguageOption(targetLanguage).name}
+                        </span>
+                      </div>
+                      {isTranslating && !translatedPrayerText ? (
+                        <div className="flex items-center justify-center gap-2 py-8 text-sky-400">
+                          <Loader2 className="w-5 h-5 animate-spin" />
+                          <span className="text-sm font-semibold">Tłumaczenie modlitwy w locie...</span>
+                        </div>
+                      ) : (
+                        <p className="text-base sm:text-lg leading-relaxed text-justify whitespace-pre-line font-sans">
+                          {translatedPrayerText || textToRead}
+                        </p>
+                      )}
                     </div>
-                    <p className="text-sm sm:text-base leading-relaxed text-justify font-sans">
-                      {translatedPrayerText}
-                    </p>
-                  </div>
-                )}
+                  )}
+                </div>
 
                 {/* Subtitle helper badge */}
                 {activeStep.beadNumber && (
