@@ -588,22 +588,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
         </div>
       </div>
 
-      {/* DEDICATED AI VOICE SELECTOR TOOLBAR */}
-      <TtsVoiceToolbar
-        targetLanguage={targetLanguage}
-        setTargetLanguage={setTargetLanguage}
-        selectedGender={selectedGender}
-        setSelectedGender={setSelectedGender}
-        selectedVoiceUri={selectedVoiceUri}
-        setSelectedVoiceUri={setSelectedVoiceUri}
-        theme={theme}
-        isTranslating={isTranslating}
-        onOptionChange={() => {
-          if (isReading) {
-            startReadingPage(currentPage, selectedGender, selectedVoiceUri, targetLanguage);
-          }
-        }}
-      />
+
 
       {/* Main Book Display Container (Scrollable on Zoom) */}
       <div className="relative flex-1 my-2 flex items-center justify-center overflow-auto min-h-[500px] w-full p-2 sm:p-4">
