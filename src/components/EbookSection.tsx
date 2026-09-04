@@ -111,16 +111,22 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
       setLiveTranslatedText('');
       return;
     }
-    const rawPageText = (pdfPageTexts[currentPage] || '').trim();
-    if (!rawPageText) return;
-
     let isSubscribed = true;
     setIsTranslating(true);
-    translateTextFromPolish(rawPageText, targetLanguage)
-      .then((translated) => {
-        if (isSubscribed && translated) {
-          setLiveTranslatedText(translated);
+
+    getPageText(currentPage)
+      .then((rawPageText) => {
+        if (!isSubscribed) return;
+        if (!rawPageText || !rawPageText.trim()) {
+          setLiveTranslatedText('');
+          setIsTranslating(false);
+          return;
         }
+        return translateTextFromPolish(rawPageText, targetLanguage).then((translated) => {
+          if (isSubscribed && translated) {
+            setLiveTranslatedText(translated);
+          }
+        });
       })
       .catch((err) => console.warn("Page translation error:", err))
       .finally(() => {
@@ -130,7 +136,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
     return () => {
       isSubscribed = false;
     };
-  }, [currentPage, targetLanguage, pdfPageTexts]);
+  }, [currentPage, targetLanguage, getPageText]);
 
   // Check if a credible male Polish voice exists
   const hasMaleVoice = availableVoices.some((v) => {
@@ -165,7 +171,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
 
     const loadPdf = async () => {
       try {
-        const loadingTask = pdfjsLib.getDocument({ url: '/WnR365.pdf' });
+        const loadingTask = pdfjsLib.getDocument({ url: `/WnR365.pdf?v=${Date.now()}` });
         const pdf = await loadingTask.promise;
         if (isMounted) {
           setPdfDocument(pdf);
