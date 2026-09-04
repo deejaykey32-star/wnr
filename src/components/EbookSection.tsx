@@ -105,16 +105,24 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
     };
   }, [targetLanguage]);
 
-  // Helper to extract text of a page (filtering out ALL headers, footers, titles, dates, citations, and acronyms)
+  const pageTextCacheRef = useRef<Record<number, string>>({});
+
+  // Helper to extract text of a single page with caching
   const getPageText = useCallback(async (pageNum: number): Promise<string> => {
     if (!pdfDocument || pageNum < 1 || pageNum > numPages) return "";
+    if (pageTextCacheRef.current[pageNum] !== undefined) {
+      return pageTextCacheRef.current[pageNum];
+    }
 
     try {
       const page = await pdfDocument.getPage(pageNum);
       const textContent = await page.getTextContent();
       const items: any[] = textContent.items || [];
 
-      if (items.length === 0) return "";
+      if (items.length === 0) {
+        pageTextCacheRef.current[pageNum] = "";
+        return "";
+      }
 
       // 1. Filter items by vertical coordinates (y: 35-545) and body font height (h >= 12)
       const bodyItems = items.filter((item: any) => {
@@ -164,6 +172,7 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
         .replace(/\s+/g, ' ')
         .trim();
 
+      pageTextCacheRef.current[pageNum] = text;
       return text;
     } catch (err) {
       console.warn(`Błąd wyciągania tekstu ze strony ${pageNum}:`, err);
@@ -171,48 +180,41 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
     }
   }, [pdfDocument, numPages]);
 
-  // Live on-screen page text translation when targetLanguage !== 'pl'
+  // Live on-screen page text translation (strictly single active page only)
   useEffect(() => {
     if (targetLanguage === 'pl') {
       setLiveTranslatedText('');
+      setIsTranslating(false);
       return;
     }
     let isSubscribed = true;
     setIsTranslating(true);
 
-      getPageText(currentPage)
-        .then((rawPageText) => {
-          if (!isSubscribed) return;
-          if (!rawPageText || !rawPageText.trim()) {
-            if (pdfDocument) {
-              setLiveTranslatedText('Brak treści tekstowej na tej stronie.');
-              setIsTranslating(false);
-            }
-            return;
+    getPageText(currentPage)
+      .then((rawPageText) => {
+        if (!isSubscribed) return;
+        if (!rawPageText || !rawPageText.trim()) {
+          if (pdfDocument) {
+            setLiveTranslatedText('Brak treści tekstowej na tej stronie.');
+            setIsTranslating(false);
           }
-          return translateTextFromPolish(rawPageText, targetLanguage).then((translated) => {
-            if (isSubscribed && translated) {
-              setLiveTranslatedText(translated);
-            }
-            // Background pre-fetch next page translation for instant page turns
-            if (isSubscribed && currentPage < numPages) {
-              getPageText(currentPage + 1).then((nextText) => {
-                if (nextText && nextText.trim()) {
-                  translateTextFromPolish(nextText, targetLanguage).catch(() => {});
-                }
-              }).catch(() => {});
-            }
-          });
-        })
-        .catch((err) => console.warn("Page translation error:", err))
-        .finally(() => {
-          if (isSubscribed) setIsTranslating(false);
+          return;
+        }
+        return translateTextFromPolish(rawPageText, targetLanguage).then((translated) => {
+          if (isSubscribed) {
+            setLiveTranslatedText(translated || rawPageText);
+          }
         });
+      })
+      .catch((err) => console.warn("Page translation error:", err))
+      .finally(() => {
+        if (isSubscribed) setIsTranslating(false);
+      });
 
-      return () => {
-        isSubscribed = false;
-      };
-    }, [currentPage, targetLanguage, pdfDocument, getPageText]);
+    return () => {
+      isSubscribed = false;
+    };
+  }, [currentPage, targetLanguage, pdfDocument, getPageText]);
 
   // Check if a credible male Polish voice exists
   const hasMaleVoice = availableVoices.some((v) => {
