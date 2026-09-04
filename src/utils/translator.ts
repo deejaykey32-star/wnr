@@ -101,7 +101,7 @@ const translationCache = new Map<string, string>();
 
 /**
  * Multi-provider translation helper with 4-tier automatic failover fallback.
- * Tries Google GTX -> Google Chrome Dictation API -> MyMemory API -> Lingva API.
+ * Tries Google Chrome Extension Dictation API (clients5) -> Google GTX API -> MyMemory API -> Lingva API.
  */
 async function translateChunk(chunk: string, targetLang: string): Promise<string> {
   const trimmed = chunk.trim();
@@ -112,49 +112,51 @@ async function translateChunk(chunk: string, targetLang: string): Promise<string
     return translationCache.get(cacheKey)!;
   }
 
-  const encoded = encodeURIComponent(trimmed);
+  // Remove any internal line breaks before encoding to prevent HTTP 400 Bad Request
+  const cleanText = trimmed.replace(/[\r\n]+/g, ' ');
+  const encoded = encodeURIComponent(cleanText);
 
-  // 1. Primary: Google GTX API
+  // 1. Primary: Google Chrome Extension API (clients5.google.com) - Fast, robust & high quota
   try {
-    const urlA = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=pl&tl=${encodeURIComponent(targetLang)}&dt=t&q=${encoded}`;
+    const urlA = `https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=pl&tl=${encodeURIComponent(targetLang)}&q=${encoded}`;
     const resA = await fetch(urlA);
     if (resA.ok) {
       const dataA = await resA.json();
-      if (Array.isArray(dataA) && Array.isArray(dataA[0])) {
-        const resultA = dataA[0]
-          .map((part: any) => (Array.isArray(part) && part[0] ? part[0] : ''))
-          .join('');
-        if (resultA && resultA.trim() !== trimmed) {
-          translationCache.set(cacheKey, resultA);
-          return resultA;
+      let resultA = '';
+      if (Array.isArray(dataA)) {
+        if (typeof dataA[0] === 'string') {
+          resultA = dataA[0];
+        } else if (Array.isArray(dataA[0]) && typeof dataA[0][0] === 'string') {
+          resultA = dataA[0][0];
         }
+      }
+      if (resultA && resultA.trim() !== cleanText) {
+        translationCache.set(cacheKey, resultA);
+        return resultA;
       }
     }
   } catch (errA) {
-    console.warn("Primary GTX translate fallback:", errA);
+    console.warn("Primary clients5 translate fallback:", errA);
   }
 
-  // 2. Secondary: Google Chrome Extension Dictation API (clients5.google.com)
+  // 2. Secondary: Google GTX API
   try {
-    const urlB = `https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=pl&tl=${encodeURIComponent(targetLang)}&q=${encoded}`;
+    const urlB = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=pl&tl=${encodeURIComponent(targetLang)}&dt=t&q=${encoded}`;
     const resB = await fetch(urlB);
     if (resB.ok) {
       const dataB = await resB.json();
-      let resultB = '';
-      if (Array.isArray(dataB)) {
-        if (typeof dataB[0] === 'string') {
-          resultB = dataB[0];
-        } else if (Array.isArray(dataB[0]) && typeof dataB[0][0] === 'string') {
-          resultB = dataB[0][0];
+      if (Array.isArray(dataB) && Array.isArray(dataB[0])) {
+        const resultB = dataB[0]
+          .map((part: any) => (Array.isArray(part) && part[0] ? part[0] : ''))
+          .join('');
+        if (resultB && resultB.trim() !== cleanText) {
+          translationCache.set(cacheKey, resultB);
+          return resultB;
         }
-      }
-      if (resultB && resultB.trim() !== trimmed) {
-        translationCache.set(cacheKey, resultB);
-        return resultB;
       }
     }
   } catch (errB) {
-    console.warn("Secondary clients5 translate fallback:", errB);
+    console.warn("Secondary GTX translate fallback:", errB);
   }
 
   // 3. Tertiary: MyMemory Free Translation API
@@ -164,7 +166,7 @@ async function translateChunk(chunk: string, targetLang: string): Promise<string
     if (resC.ok) {
       const dataC = await resC.json();
       const resultC = dataC?.responseData?.translatedText;
-      if (resultC && typeof resultC === 'string' && resultC.trim() !== trimmed && !resultC.includes("MYMEMORY WARNING")) {
+      if (resultC && typeof resultC === 'string' && resultC.trim() !== cleanText && !resultC.includes("MYMEMORY WARNING")) {
         translationCache.set(cacheKey, resultC);
         return resultC;
       }
@@ -180,7 +182,7 @@ async function translateChunk(chunk: string, targetLang: string): Promise<string
     if (resD.ok) {
       const dataD = await resD.json();
       const resultD = dataD?.translation;
-      if (resultD && typeof resultD === 'string' && resultD.trim() !== trimmed) {
+      if (resultD && typeof resultD === 'string' && resultD.trim() !== cleanText) {
         translationCache.set(cacheKey, resultD);
         return resultD;
       }
@@ -194,7 +196,7 @@ async function translateChunk(chunk: string, targetLang: string): Promise<string
 
 /**
  * Translate text from Polish (sl=pl) to targetLang (tl=...) in real-time.
- * Groups text into larger ~450-char blocks and translates them in PARALLEL via Promise.all.
+ * Preserves paragraph formatting (\n\n) and translates sentence blocks in PARALLEL.
  * Uses in-memory caching for instant 0ms responses on repeated text.
  */
 export async function translateTextFromPolish(text: string, targetLang: string): Promise<string> {
@@ -207,33 +209,41 @@ export async function translateTextFromPolish(text: string, targetLang: string):
     return translationCache.get(fullCacheKey)!;
   }
 
-  // 1. Split by sentence delimiters (period, exclamation, question mark, newline)
-  const sentences = text.match(/[^.!?\n]+[.!?\n]*/g) || [text];
+  // Split into paragraphs to preserve layout formatting
+  const rawParagraphs = text.split(/\n+/);
+  const translatedParagraphs: string[] = [];
 
-  // 2. Group sentences into optimal chunks of ~450 characters to minimize HTTP requests
-  const chunks: string[] = [];
-  let currentChunk = '';
+  for (const paragraph of rawParagraphs) {
+    const trimmedPara = paragraph.trim();
+    if (!trimmedPara) continue;
 
-  for (const sentence of sentences) {
-    if ((currentChunk + sentence).length > 450) {
-      if (currentChunk.trim()) {
-        chunks.push(currentChunk.trim());
+    // Split long paragraphs by sentence delimiters
+    const sentences = trimmedPara.match(/[^.!?]+[.!?]*/g) || [trimmedPara];
+    const chunks: string[] = [];
+    let currentChunk = '';
+
+    for (const sentence of sentences) {
+      if ((currentChunk + sentence).length > 400) {
+        if (currentChunk.trim()) {
+          chunks.push(currentChunk.trim());
+        }
+        currentChunk = sentence;
+      } else {
+        currentChunk += sentence;
       }
-      currentChunk = sentence;
-    } else {
-      currentChunk += sentence;
     }
-  }
-  if (currentChunk.trim()) {
-    chunks.push(currentChunk.trim());
+    if (currentChunk.trim()) {
+      chunks.push(currentChunk.trim());
+    }
+
+    const translatedChunks = await Promise.all(
+      chunks.map(chunk => translateChunk(chunk, targetLang))
+    );
+
+    translatedParagraphs.push(translatedChunks.join(' '));
   }
 
-  // 3. Fire ALL chunk translations concurrently in PARALLEL!
-  const translatedChunks = await Promise.all(
-    chunks.map(chunk => translateChunk(chunk, targetLang))
-  );
-
-  const finalResult = translatedChunks.join(' ');
+  const finalResult = translatedParagraphs.join('\n\n');
   if (finalResult && finalResult.trim().length > 0) {
     translationCache.set(fullCacheKey, finalResult);
   }
