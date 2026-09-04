@@ -1312,21 +1312,6 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
       ) : (
         /* STANDARD WORKSPACE LAYOUT FOR BLOG */
         <>
-          <TtsVoiceToolbar
-            targetLanguage={targetLanguage}
-            setTargetLanguage={setTargetLanguage}
-            selectedGender={selectedGender}
-            setSelectedGender={setSelectedGender}
-            selectedVoiceUri={selectedVoiceUri}
-            setSelectedVoiceUri={setSelectedVoiceUri}
-            theme={theme}
-            isTranslating={isTranslating}
-            onOptionChange={() => {
-              if (isPlaying) {
-                stopSpeech();
-              }
-            }}
-          />
 
           {/* Liturgical Day Selector & Cycle Information */}
           <div className={`border rounded-2xl p-3.5 sm:p-5 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 shadow-xl text-left transition-all duration-300 w-full max-w-full overflow-hidden ${
