@@ -261,7 +261,7 @@ export const getPolishVoice = (preference?: { voiceURI?: string; gender?: 'femal
     }
 
     if (polishVoices.length === 0) {
-      return allVoices[0] || null;
+      return null;
     }
 
     // 2. Male: try known male names → first non-female Polish voice → first available
@@ -339,6 +339,15 @@ const speakNextSegment = () => {
         gender: queueOptions.gender 
       });
       utterance.lang = 'pl-PL';
+      if (voiceToUse && (
+        voiceToUse.lang.toLowerCase().replace('_', '-').startsWith('pl') ||
+        isFemaleVoiceName(voiceToUse.name) ||
+        isMaleVoiceName(voiceToUse.name) ||
+        voiceToUse.name.toLowerCase().includes('polski') ||
+        voiceToUse.name.toLowerCase().includes('polish')
+      )) {
+        utterance.voice = voiceToUse;
+      }
     } else {
       const allVoices = window.speechSynthesis.getVoices();
       if (queueOptions.voiceURI) {
@@ -351,10 +360,9 @@ const speakNextSegment = () => {
         voiceToUse = allVoices.find(v => v.lang.toLowerCase().replace('_', '-').startsWith(targetLang)) || null;
       }
       utterance.lang = voiceToUse ? voiceToUse.lang : targetLang;
-    }
-
-    if (voiceToUse) {
-      utterance.voice = voiceToUse;
+      if (voiceToUse) {
+        utterance.voice = voiceToUse;
+      }
     }
 
     utterance.rate = queueOptions.rate !== undefined ? queueOptions.rate : 0.95;
@@ -425,7 +433,18 @@ const speakNextSegment = () => {
 export const sanitizeTextForTts = (text: string): string => {
   if (!text) return "";
 
-  return text
+  // Normalize Unicode and purge soft hyphens, zero-width characters, HTML tags, & entities
+  let clean = text
+    .normalize('NFC')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, ' i ')
+    .replace(/&quot;/gi, '')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/[\u00AD\u200B\u200C\u200D\uFEFF]/g, '');
+
+  return clean
     // 0. Remove QR codes and captions
     .replace(/\[qr:[^\]]+\]/gi, '')
     .replace(/\[caption:[^\]]+\]/gi, '')
