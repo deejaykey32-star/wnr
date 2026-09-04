@@ -109,40 +109,55 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
 
   // Helper to extract text of a single page with caching
   const getPageText = useCallback(async (pageNum: number): Promise<string> => {
-    if (!pdfDocument || pageNum < 1 || pageNum > numPages) return "";
+    if (pageNum < 1) return "";
     if (pageTextCacheRef.current[pageNum] !== undefined) {
       return pageTextCacheRef.current[pageNum];
     }
 
-    try {
-      const page = await pdfDocument.getPage(pageNum);
-      const textContent = await page.getTextContent();
-      const items: any[] = textContent.items || [];
+    // 1. Try extracting text from PDF document
+    if (pdfDocument && pageNum <= numPages) {
+      try {
+        const page = await pdfDocument.getPage(pageNum);
+        const textContent = await page.getTextContent();
+        const items: any[] = textContent.items || [];
+        const extractedText = items
+          .map((item: any) => item.str || '')
+          .join(' ')
+          .replace(/\s+/g, ' ')
+          .trim();
 
-      if (items.length === 0) {
-        const fallback = `Widoki na Raj (WnR365) — Strona ${pageNum}`;
-        pageTextCacheRef.current[pageNum] = fallback;
-        return fallback;
+        if (extractedText && extractedText.length > 10) {
+          pageTextCacheRef.current[pageNum] = extractedText;
+          return extractedText;
+        }
+      } catch (err) {
+        console.warn(`PDF text extract error page ${pageNum}:`, err);
       }
-
-      let text = items
-        .map((item: any) => item.str || '')
-        .join(' ')
-        .replace(/\s+/g, ' ')
-        .trim();
-
-      if (!text || text.length < 3) {
-        text = `Widoki na Raj (WnR365) — Strona ${pageNum}`;
-      }
-
-      pageTextCacheRef.current[pageNum] = text;
-      return text;
-    } catch (err) {
-      console.warn(`Błąd wyciągania tekstu ze strony ${pageNum}:`, err);
-      const fallback = `Widoki na Raj (WnR365) — Strona ${pageNum}`;
-      pageTextCacheRef.current[pageNum] = fallback;
-      return fallback;
     }
+
+    // 2. Fallback to wnr365_pdf_entries.json (blog_day_{pageNum-1})
+    try {
+      const entriesModule = await import('../data/wnr365_pdf_entries.json');
+      const entries = entriesModule.default || entriesModule;
+      const entryKey = `blog_day_${pageNum - 1}`;
+      const entry = (entries as any)[entryKey];
+      if (entry) {
+        const entryText = `${entry.title || ''}\n\n${entry.text || ''}`.trim();
+        if (entryText && entryText.length > 5) {
+          pageTextCacheRef.current[pageNum] = entryText;
+          return entryText;
+        }
+      }
+    } catch (err) {
+      console.warn(`JSON entries fallback error page ${pageNum}:`, err);
+    }
+
+    // 3. Fallback text guarantee
+    const fallback = `Widoki na Raj (WnR365) — Strona ${pageNum}`;
+    if (pdfDocument) {
+      pageTextCacheRef.current[pageNum] = fallback;
+    }
+    return fallback;
   }, [pdfDocument, numPages]);
 
   // Live on-screen page text translation (strictly single active page only)
@@ -156,22 +171,23 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
     setIsTranslating(true);
 
     getPageText(currentPage)
-      .then((rawPageText) => {
+      .then(async (rawPageText) => {
         if (!isSubscribed) return;
-        if (!rawPageText || !rawPageText.trim()) {
-          if (pdfDocument) {
-            setLiveTranslatedText('Brak treści tekstowej na tej stronie.');
-            setIsTranslating(false);
-          }
-          return;
+        const textToTranslate = rawPageText && rawPageText.trim()
+          ? rawPageText
+          : `Widoki na Raj (WnR365) — Strona ${currentPage}`;
+
+        const translated = await translateTextFromPolish(textToTranslate, targetLanguage);
+        if (isSubscribed) {
+          setLiveTranslatedText(translated || textToTranslate);
         }
-        return translateTextFromPolish(rawPageText, targetLanguage).then((translated) => {
-          if (isSubscribed) {
-            setLiveTranslatedText(translated || rawPageText);
-          }
-        });
       })
-      .catch((err) => console.warn("Page translation error:", err))
+      .catch((err) => {
+        console.warn("Page translation error:", err);
+        if (isSubscribed) {
+          setLiveTranslatedText(`Widoki na Raj (WnR365) — Strona ${currentPage}`);
+        }
+      })
       .finally(() => {
         if (isSubscribed) setIsTranslating(false);
       });
