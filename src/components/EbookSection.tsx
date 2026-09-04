@@ -25,6 +25,7 @@ interface EbookSectionProps {
   selectedVoiceUri?: string;
   setSelectedVoiceUri?: (u: string) => void;
   isTranslating?: boolean;
+  onOpenExportModal?: () => void;
 }
 
 export const EbookSection: React.FC<EbookSectionProps> = ({
@@ -35,7 +36,8 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
   setSelectedGender: propsSetSelectedGender,
   selectedVoiceUri: propsSelectedVoiceUri,
   setSelectedVoiceUri: propsSetSelectedVoiceUri,
-  isTranslating: propsIsTranslating
+  isTranslating: propsIsTranslating,
+  onOpenExportModal
 }) => {
   // PDF document state
   const [numPages, setNumPages] = useState<number>(0);
@@ -69,6 +71,10 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
   const [internalTargetLanguage, setInternalTargetLanguage] = useState<string>('pl');
   const [internalIsTranslating, setInternalIsTranslating] = useState<boolean>(false);
   const [liveTranslatedText, setLiveTranslatedText] = useState<string>('');
+  const [leftTranslatedText, setLeftTranslatedText] = useState<string>('');
+  const [rightTranslatedText, setRightTranslatedText] = useState<string>('');
+  const [isTranslatingLeft, setIsTranslatingLeft] = useState<boolean>(false);
+  const [isTranslatingRight, setIsTranslatingRight] = useState<boolean>(false);
 
   const targetLanguage = propsTargetLanguage ?? internalTargetLanguage;
   const setTargetLanguage = propsSetTargetLanguage ?? setInternalTargetLanguage;
@@ -152,42 +158,86 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
     return `Widoki na Raj (WnR365) — Strona ${pageNum}`;
   }, [pdfDocument, numPages]);
 
-  // Live on-screen page text translation (strictly single active page only)
+  // Active page numbers calculation
+  const leftPageNum = viewMode === 'double' ? (currentPage % 2 === 0 ? currentPage - 1 : currentPage) : currentPage;
+  const rightPageNum = viewMode === 'double' ? leftPageNum + 1 : null;
+
+  // Live on-screen page text translation (strictly translates left and right pages for 1-page or 2-page eBook spreads)
   useEffect(() => {
     if (targetLanguage === 'pl') {
       setLiveTranslatedText('');
+      setLeftTranslatedText('');
+      setRightTranslatedText('');
       setIsTranslating(false);
+      setIsTranslatingLeft(false);
+      setIsTranslatingRight(false);
       return;
     }
     let isSubscribed = true;
     setIsTranslating(true);
+    setIsTranslatingLeft(true);
 
-    getPageText(currentPage)
-      .then(async (rawPageText) => {
+    if (viewMode === 'double' && rightPageNum && rightPageNum <= numPages) {
+      setIsTranslatingRight(true);
+    } else {
+      setIsTranslatingRight(false);
+    }
+
+    // Translate Left Page
+    getPageText(leftPageNum)
+      .then(async (rawText) => {
         if (!isSubscribed) return;
-        const textToTranslate = rawPageText && rawPageText.trim()
-          ? rawPageText
-          : `Widoki na Raj (WnR365) — Strona ${currentPage}`;
+        const textToTranslate = rawText && rawText.trim()
+          ? rawText
+          : `Widoki na Raj (WnR365) — Strona ${leftPageNum}`;
 
         const translated = await translateTextFromPolish(textToTranslate, targetLanguage);
         if (isSubscribed) {
+          setLeftTranslatedText(translated || textToTranslate);
           setLiveTranslatedText(translated || textToTranslate);
         }
       })
       .catch((err) => {
-        console.warn("Page translation error:", err);
+        console.warn("Left page translation error:", err);
         if (isSubscribed) {
-          setLiveTranslatedText(`Widoki na Raj (WnR365) — Strona ${currentPage}`);
+          setLeftTranslatedText(`Widoki na Raj (WnR365) — Strona ${leftPageNum}`);
         }
       })
       .finally(() => {
-        if (isSubscribed) setIsTranslating(false);
+        if (isSubscribed) setIsTranslatingLeft(false);
       });
+
+    // Translate Right Page in double view mode
+    if (viewMode === 'double' && rightPageNum && rightPageNum <= numPages) {
+      getPageText(rightPageNum)
+        .then(async (rawText) => {
+          if (!isSubscribed) return;
+          const textToTranslate = rawText && rawText.trim()
+            ? rawText
+            : `Widoki na Raj (WnR365) — Strona ${rightPageNum}`;
+
+          const translated = await translateTextFromPolish(textToTranslate, targetLanguage);
+          if (isSubscribed) {
+            setRightTranslatedText(translated || textToTranslate);
+          }
+        })
+        .catch((err) => {
+          console.warn("Right page translation error:", err);
+          if (isSubscribed) {
+            setRightTranslatedText(`Widoki na Raj (WnR365) — Strona ${rightPageNum}`);
+          }
+        })
+        .finally(() => {
+          if (isSubscribed) setIsTranslatingRight(false);
+        });
+    } else {
+      setRightTranslatedText('');
+    }
 
     return () => {
       isSubscribed = false;
     };
-  }, [currentPage, targetLanguage, getPageText]);
+  }, [leftPageNum, rightPageNum, viewMode, targetLanguage, getPageText, numPages]);
 
   // Check if a credible male Polish voice exists
   const hasMaleVoice = availableVoices.some((v) => {
@@ -275,10 +325,6 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
       return null;
     }
   }, [pdfDocument, numPages, pageImages]);
-
-  // Active pages calculation
-  const leftPageNum = viewMode === 'double' ? (currentPage % 2 === 0 ? currentPage - 1 : currentPage) : currentPage;
-  const rightPageNum = viewMode === 'double' ? leftPageNum + 1 : null;
 
   // Trigger page rendering
   useEffect(() => {
@@ -499,8 +545,40 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
           </div>
         </div>
 
-        {/* View Mode & Zoom Controls */}
+        {/* View Mode, Language Selector, Export & Zoom Controls */}
         <div className="flex flex-wrap items-center gap-2">
+          {/* Target Language Dropdown Selector */}
+          <div className={`flex items-center gap-1.5 rounded-xl p-1 border ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-slate-200 border-slate-300'}`}>
+            <span className="text-xs px-2 text-slate-400 font-semibold hidden sm:inline">Język:</span>
+            <select
+              value={targetLanguage}
+              onChange={(e) => setTargetLanguage(e.target.value)}
+              className={`text-xs font-bold rounded-lg px-2.5 py-1.5 border-0 transition-colors cursor-pointer ${
+                isDark ? 'bg-slate-900 text-amber-400' : 'bg-white text-slate-800'
+              }`}
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option key={lang.code} value={lang.code}>
+                  {lang.flag} {lang.name}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Export PDF / EPUB Buttons in Header */}
+          {onOpenExportModal && (
+            <div className="flex items-center gap-1.5">
+              <button
+                onClick={onOpenExportModal}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 text-white text-xs font-bold shadow-md hover:from-indigo-500 hover:to-indigo-400 transition-all cursor-pointer"
+                title={`Eksportuj publikację PDF/EPUB (${getLanguageOption(targetLanguage).name})`}
+              >
+                <FileText className="w-4 h-4" />
+                <span className="hidden sm:inline">Eksportuj PDF ({getLanguageOption(targetLanguage).flag})</span>
+              </button>
+            </div>
+          )}
+
           {/* Zoom controls (Active Scaling) */}
           <div className={`flex items-center rounded-xl p-1 border ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-slate-200 border-slate-300'}`}>
             <button
@@ -677,29 +755,105 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
                 </motion.div>
               </AnimatePresence>
             ) : (
-              /* Single Translated Reader Container for Target Language */
-              <div className={`w-full min-h-[420px] p-6 sm:p-8 rounded-2xl border shadow-2xl transition-all ${
-                isDark ? 'bg-slate-900/90 border-sky-500/40 text-slate-100' : 'bg-sky-50/90 border-sky-200 text-slate-900'
-              }`}>
-                <div className="flex items-center justify-between border-b pb-3 mb-4 border-sky-500/30">
-                  <span className="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-2">
-                    🌐 Treść Książki — Strona {currentPage} z {numPages} ({getLanguageOption(targetLanguage).name})
-                  </span>
-                  <span className="text-xs font-semibold px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 border border-sky-500/40">
-                    {getLanguageOption(targetLanguage).flag} {getLanguageOption(targetLanguage).name}
-                  </span>
-                </div>
-                {(isTranslating || isLoadingPdf || !liveTranslatedText || liveTranslatedText.includes("Brak treści")) ? (
-                  <div className="flex flex-col items-center justify-center gap-3 py-16 text-sky-400">
-                    <Loader2 className="w-8 h-8 animate-spin" />
-                    <span className="text-sm font-semibold font-mono">Tłumaczenie strony {currentPage} w locie ({getLanguageOption(targetLanguage).name})...</span>
+              /* Interactive Translated eBook Spread Container (Single or Double Page) */
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`${currentPage}_${viewMode}_${targetLanguage}`}
+                  initial={{ 
+                    rotateY: flipDirection === 'next' ? 25 : -25, 
+                    opacity: 0.8,
+                    scale: 0.98
+                  }}
+                  animate={{ 
+                    rotateY: 0, 
+                    opacity: 1,
+                    scale: 1
+                  }}
+                  exit={{ 
+                    rotateY: flipDirection === 'next' ? -25 : 25, 
+                    opacity: 0.4,
+                    scale: 0.98
+                  }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
+                  style={{ perspective: 1400 }}
+                  className={`relative flex items-center justify-center rounded-2xl shadow-2xl overflow-hidden border p-3 sm:p-5 transition-all ${
+                    isDark ? 'bg-slate-900 border-slate-800 shadow-amber-500/5' : 'bg-[#fbf9f5] border-amber-200/80 shadow-slate-300'
+                  }`}
+                >
+                  {/* Book Spine shadow in double view */}
+                  {viewMode === 'double' && (
+                    <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-6 bg-gradient-to-r from-black/15 via-black/35 to-black/15 z-10 pointer-events-none" />
+                  )}
+
+                  {/* Left Page (Translated eBook Page) */}
+                  <div 
+                    style={{ fontSize: `${Math.max(12, Math.round(14 * scale))}px` }}
+                    className={`relative flex flex-col justify-between min-w-[280px] max-w-[480px] w-full min-h-[440px] p-6 sm:p-8 rounded-lg shadow-sm border ${
+                      isDark ? 'bg-slate-950 border-slate-800 text-slate-200' : 'bg-[#fcfaf7] border-amber-100 text-slate-800'
+                    }`}
+                  >
+                    <div className="border-b pb-2 mb-3 border-amber-500/20 flex items-center justify-between text-[11px] font-semibold text-amber-500 uppercase tracking-wider font-sans">
+                      <span>Widoki na Raj (WnR365)</span>
+                      <span>{getLanguageOption(targetLanguage).flag} {getLanguageOption(targetLanguage).name}</span>
+                    </div>
+
+                    {isTranslatingLeft ? (
+                      <div className="flex flex-col items-center justify-center py-20 gap-3 text-amber-500 font-sans">
+                        <Loader2 className="w-8 h-8 animate-spin" />
+                        <span className="text-xs font-mono">Tłumaczenie strony {leftPageNum}...</span>
+                      </div>
+                    ) : (
+                      <div className="flex-1 overflow-y-auto leading-relaxed text-justify whitespace-pre-line font-serif pr-1">
+                        {leftTranslatedText}
+                      </div>
+                    )}
+
+                    <div className="border-t pt-2 mt-4 border-amber-500/20 text-center text-xs font-mono text-slate-400 font-sans">
+                      — Strona {leftPageNum} z {numPages} —
+                    </div>
                   </div>
-                ) : (
-                  <p className="text-base sm:text-lg leading-relaxed text-justify whitespace-pre-line font-sans">
-                    {liveTranslatedText}
-                  </p>
-                )}
-              </div>
+
+                  {/* Right Page (Double View Translated eBook Page) */}
+                  {viewMode === 'double' && (
+                    <div 
+                      style={{ fontSize: `${Math.max(12, Math.round(14 * scale))}px` }}
+                      className={`relative flex flex-col justify-between min-w-[280px] max-w-[480px] w-full min-h-[440px] p-6 sm:p-8 rounded-lg shadow-sm border ml-3 sm:ml-5 ${
+                        rightPageNum && rightPageNum <= numPages
+                          ? isDark ? 'bg-slate-950 border-slate-800 text-slate-200' : 'bg-[#fcfaf7] border-amber-100 text-slate-800'
+                          : isDark ? 'bg-slate-900/50 border-slate-800 text-slate-500' : 'bg-amber-50/40 border-amber-200/50 text-slate-400'
+                      }`}
+                    >
+                      {rightPageNum && rightPageNum <= numPages ? (
+                        <>
+                          <div className="border-b pb-2 mb-3 border-amber-500/20 flex items-center justify-between text-[11px] font-semibold text-amber-500 uppercase tracking-wider font-sans">
+                            <span>Widoki na Raj (WnR365)</span>
+                            <span>{getLanguageOption(targetLanguage).flag} {getLanguageOption(targetLanguage).name}</span>
+                          </div>
+
+                          {isTranslatingRight ? (
+                            <div className="flex flex-col items-center justify-center py-20 gap-3 text-amber-500 font-sans">
+                              <Loader2 className="w-8 h-8 animate-spin" />
+                              <span className="text-xs font-mono">Tłumaczenie strony {rightPageNum}...</span>
+                            </div>
+                          ) : (
+                            <div className="flex-1 overflow-y-auto leading-relaxed text-justify whitespace-pre-line font-serif pr-1">
+                              {rightTranslatedText}
+                            </div>
+                          )}
+
+                          <div className="border-t pt-2 mt-4 border-amber-500/20 text-center text-xs font-mono text-slate-400 font-sans">
+                            — Strona {rightPageNum} z {numPages} —
+                          </div>
+                        </>
+                      ) : (
+                        <div className="flex items-center justify-center h-full text-slate-500 text-sm font-mono border-2 border-dashed border-slate-800/40 rounded-lg">
+                          Koniec Książki
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </motion.div>
+              </AnimatePresence>
             )}
 
             {/* Quick Navigation Side Buttons */}

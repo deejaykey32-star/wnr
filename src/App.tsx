@@ -3453,6 +3453,7 @@ export default function App() {
             selectedVoiceUri={selectedVoiceUri}
             setSelectedVoiceUri={setSelectedVoiceUri}
             isTranslating={isTranslating}
+            onOpenExportModal={() => setShowCustomExportModal(true)}
           />
         )}
       </main>
