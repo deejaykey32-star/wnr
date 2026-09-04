@@ -547,24 +547,6 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
 
         {/* View Mode, Language Selector, Export & Zoom Controls */}
         <div className="flex flex-wrap items-center gap-2">
-          {/* Target Language Dropdown Selector */}
-          <div className={`flex items-center gap-1.5 rounded-xl p-1 border ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-slate-200 border-slate-300'}`}>
-            <span className="text-xs px-2 text-slate-400 font-semibold hidden sm:inline">Język:</span>
-            <select
-              value={targetLanguage}
-              onChange={(e) => setTargetLanguage(e.target.value)}
-              className={`text-xs font-bold rounded-lg px-2.5 py-1.5 border-0 transition-colors cursor-pointer ${
-                isDark ? 'bg-slate-900 text-amber-400' : 'bg-white text-slate-800'
-              }`}
-            >
-              {SUPPORTED_LANGUAGES.map((lang) => (
-                <option key={lang.code} value={lang.code}>
-                  {lang.flag} {lang.name}
-                </option>
-              ))}
-            </select>
-          </div>
-
           {/* Export PDF / EPUB Buttons in Header */}
           {onOpenExportModal && (
             <div className="flex items-center gap-1.5">
