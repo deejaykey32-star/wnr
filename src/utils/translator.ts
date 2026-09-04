@@ -97,45 +97,87 @@ export function getLanguageOption(code: string): TargetLanguageOption {
   return list.find(l => l.code === code) || list[0] || { code: 'pl', name: 'Polski (Polish)', flag: '🇵🇱', voiceLangPrefix: 'pl' };
 }
 
+const translationCache = new Map<string, string>();
+
+/**
+ * Fast parallel translation helper for a single text chunk (up to ~450 chars).
+ */
+async function translateChunk(chunk: string, targetLang: string): Promise<string> {
+  const trimmed = chunk.trim();
+  if (!trimmed || targetLang === 'pl') return chunk;
+
+  const cacheKey = `${targetLang}_${trimmed}`;
+  if (translationCache.has(cacheKey)) {
+    return translationCache.get(cacheKey)!;
+  }
+
+  try {
+    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=pl&tl=${encodeURIComponent(targetLang)}&dt=t&q=${encodeURIComponent(trimmed)}`;
+    const response = await fetch(url);
+    if (!response.ok) return chunk;
+
+    const data = await response.json();
+    if (Array.isArray(data) && Array.isArray(data[0])) {
+      const result = data[0]
+        .map((part: any) => (Array.isArray(part) && part[0] ? part[0] : ''))
+        .join('');
+      if (result) {
+        translationCache.set(cacheKey, result);
+        return result;
+      }
+    }
+    return chunk;
+  } catch (err) {
+    console.warn("Chunk translation warning:", err);
+    return chunk;
+  }
+}
+
 /**
  * Translate text from Polish (sl=pl) to targetLang (tl=...) in real-time.
- * Automatically splits text into sentences to prevent HTTP GET URL length limit errors.
+ * Groups text into larger ~450-char blocks and translates them in PARALLEL via Promise.all.
+ * Uses in-memory caching for instant 0ms responses on repeated text.
  */
 export async function translateTextFromPolish(text: string, targetLang: string): Promise<string> {
   if (!text || !text.trim() || targetLang === 'pl') {
     return text;
   }
 
-  // Split by sentence delimiters (period, exclamation, question mark, newline)
-  const sentences = text.match(/[^.!?\n]+[.!?\n]*/g) || [text];
-  const translatedParts: string[] = [];
-
-  for (const sentence of sentences) {
-    const trimmed = sentence.trim();
-    if (!trimmed) continue;
-
-    try {
-      const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=pl&tl=${encodeURIComponent(targetLang)}&dt=t&q=${encodeURIComponent(trimmed)}`;
-      const response = await fetch(url);
-      if (!response.ok) {
-        translatedParts.push(trimmed);
-        continue;
-      }
-
-      const data = await response.json();
-      if (Array.isArray(data) && Array.isArray(data[0])) {
-        const sentenceTranslation = data[0]
-          .map((chunk: any) => (Array.isArray(chunk) && chunk[0] ? chunk[0] : ''))
-          .join('');
-        translatedParts.push(sentenceTranslation || trimmed);
-      } else {
-        translatedParts.push(trimmed);
-      }
-    } catch (err) {
-      console.warn("Translation failed for sentence:", trimmed.substring(0, 30), err);
-      translatedParts.push(trimmed);
-    }
+  const fullCacheKey = `${targetLang}_FULL_${text}`;
+  if (translationCache.has(fullCacheKey)) {
+    return translationCache.get(fullCacheKey)!;
   }
 
-  return translatedParts.join(' ');
+  // 1. Split by sentence delimiters (period, exclamation, question mark, newline)
+  const sentences = text.match(/[^.!?\n]+[.!?\n]*/g) || [text];
+
+  // 2. Group sentences into optimal chunks of ~450 characters to minimize HTTP requests
+  const chunks: string[] = [];
+  let currentChunk = '';
+
+  for (const sentence of sentences) {
+    if ((currentChunk + sentence).length > 450) {
+      if (currentChunk.trim()) {
+        chunks.push(currentChunk.trim());
+      }
+      currentChunk = sentence;
+    } else {
+      currentChunk += sentence;
+    }
+  }
+  if (currentChunk.trim()) {
+    chunks.push(currentChunk.trim());
+  }
+
+  // 3. Fire ALL chunk translations concurrently in PARALLEL!
+  const translatedChunks = await Promise.all(
+    chunks.map(chunk => translateChunk(chunk, targetLang))
+  );
+
+  const finalResult = translatedChunks.join(' ');
+  if (finalResult && finalResult.trim().length > 0) {
+    translationCache.set(fullCacheKey, finalResult);
+  }
+
+  return finalResult || text;
 }

@@ -192,6 +192,14 @@ export const EbookSection: React.FC<EbookSectionProps> = ({
           if (isSubscribed && translated) {
             setLiveTranslatedText(translated);
           }
+          // Background pre-fetch next page translation for instant page turns
+          if (isSubscribed && currentPage < numPages) {
+            getPageText(currentPage + 1).then((nextText) => {
+              if (nextText && nextText.trim()) {
+                translateTextFromPolish(nextText, targetLanguage).catch(() => {});
+              }
+            }).catch(() => {});
+          }
         });
       })
       .catch((err) => console.warn("Page translation error:", err))
