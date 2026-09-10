@@ -1,6 +1,6 @@
 {
-  "version": "wnr365-snapshot-2026-09-09",
-  "exportedAt": "2026-09-09T11:51:22.619Z",
+  "version": "wnr365-snapshot-2026-09-10",
+  "exportedAt": "2026-09-10T18:25:53.950Z",
   "source": "widokinaraj.pl NoSQL Core (GitHub / Cloudflare Pages)",
   "intro": {
     "introTextMain": {
@@ -22,7 +22,7 @@
     },
     "introTextMission": {
       "title": "Misja eMBiK365 (Pasek pod wstępem)",
-      "text": "[qr:https://widokinaraj.pl/#/wnr365-day-348][caption:Informacje o RHZ365 i WnR365]\n\neMBiK365 (elektroniczna Misja Barw i Kolorów) poprzez duchowe pielgrzymowanie przez Jezusa Chrystusa Pana ludzi i aniołów w Duchu Świętym, dzięki Bogu Ojcu i Maryi zawsze dziewicy, prowadzących wszystkich do świętości. Niech świeci świecą dla Nieba i świata całego. Amen.",
+      "text": "<a href=\"https://postimg.cc/nCyhZDjP\" target=\"_blank\"><img src=\"https://i.postimg.cc/T3wLVjRf/1789062040390.png\" alt=\"Książki - 5 tomów\">Książki - 5 tomów</a>\n<div class=\"qr-block\" data-url=\"https://widokinaraj.pl/#/wnr365-day-348\">\n  <a href=\"https://widokinaraj.pl/#/wnr365-day-348\" target=\"_blank\" rel=\"noopener noreferrer\">\n    <img src=\"https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fwidokinaraj.pl%2F%23%2Fwnr365-day-348\" alt=\"Kod QR\" />\n  </a>\n  \n</div>[caption:Informacje o RHZ365 i WnR365]\n\neMBiK365 (elektroniczna Misja Barw i Kolorów) poprzez duchowe pielgrzymowanie przez Jezusa Chrystusa Pana ludzi i aniołów w Duchu Świętym, dzięki Bogu Ojcu i Maryi zawsze dziewicy, prowadzących wszystkich do świętości. Niech świeci świecą dla Nieba i świata całego. Amen.",
       "notebookUrls": [],
       "notebookLabels": [
         "",
@@ -35,7 +35,7 @@
         ""
       ],
       "updatedBy": "kuta.dominik@gmail.com",
-      "updatedAt": "2026-09-09T11:50:58.731Z",
+      "updatedAt": "2026-09-10T18:25:38.198Z",
       "docId": "introTextMission"
     }
   },
@@ -122,7 +122,7 @@
     },
     "introTextMission": {
       "title": "Misja eMBiK365 (Pasek pod wstępem)",
-      "text": "[qr:https://widokinaraj.pl/#/wnr365-day-348][caption:Informacje o RHZ365 i WnR365]\n\neMBiK365 (elektroniczna Misja Barw i Kolorów) poprzez duchowe pielgrzymowanie przez Jezusa Chrystusa Pana ludzi i aniołów w Duchu Świętym, dzięki Bogu Ojcu i Maryi zawsze dziewicy, prowadzących wszystkich do świętości. Niech świeci świecą dla Nieba i świata całego. Amen.",
+      "text": "<a href=\"https://postimg.cc/nCyhZDjP\" target=\"_blank\"><img src=\"https://i.postimg.cc/T3wLVjRf/1789062040390.png\" alt=\"Książki - 5 tomów\">Książki - 5 tomów</a>\n<div class=\"qr-block\" data-url=\"https://widokinaraj.pl/#/wnr365-day-348\">\n  <a href=\"https://widokinaraj.pl/#/wnr365-day-348\" target=\"_blank\" rel=\"noopener noreferrer\">\n    <img src=\"https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fwidokinaraj.pl%2F%23%2Fwnr365-day-348\" alt=\"Kod QR\" />\n  </a>\n  \n</div>[caption:Informacje o RHZ365 i WnR365]\n\neMBiK365 (elektroniczna Misja Barw i Kolorów) poprzez duchowe pielgrzymowanie przez Jezusa Chrystusa Pana ludzi i aniołów w Duchu Świętym, dzięki Bogu Ojcu i Maryi zawsze dziewicy, prowadzących wszystkich do świętości. Niech świeci świecą dla Nieba i świata całego. Amen.",
       "notebookUrls": [],
       "notebookLabels": [
         "",
@@ -135,7 +135,7 @@
         ""
       ],
       "updatedBy": "kuta.dominik@gmail.com",
-      "updatedAt": "2026-09-09T11:50:58.731Z",
+      "updatedAt": "2026-09-10T18:25:38.198Z",
       "docId": "introTextMission"
     },
     "custom_step_step-hailmary-dec-2-7": {
@@ -1756,6 +1756,23 @@
       "updatedAt": "2026-08-07T15:06:40.358Z",
       "notebookLabels": [],
       "docId": "day_9_decade_rgba_4"
+    },
+    "custom_step_step-creed": {
+      "title": "Skład Apostolski (Wierzę w Boga)",
+      "text": "Wierzę w Boga, Ojca wszechmogącego, Stworzyciela Nieba i ziemi. I w Jezusa Chrystusa, Syna Jego jedynego, Pana naszego, który się począł z Ducha Świętego, narodził się z Maryi Panny. Umęczon pod Ponckim Piłatem, ukrzyżowan, umarł i pogrzebion. Zstąpił do piekieł, trzeciego dnia zmartwychwstał. Wstąpił na niebiosa, siedzi po prawicy Boga Ojca wszechmogącego. Stamtąd przyjdzie sądzić żywych i umarłych. Wierzę w Ducha Świętego, święty Kościół powszechny, świętych obcowanie, grzechów odpuszczenie, ciała zmartwychwstanie, żywot wieczny. Amen.",
+      "notebookUrls": [],
+      "notebookLabels": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "updatedBy": "kuta.dominik@gmail.com",
+      "updatedAt": "2026-09-04T09:52:21.888Z"
     },
     "custom_step_step-father-dec-1": {
       "title": "Modlitwa Pańska (Ojcze Nasz)",
