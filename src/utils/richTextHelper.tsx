@@ -1,4 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
+/**
+ * Normalizes Windows file paths (e.g. C:\proj\wnr1\covers.png or C:/proj/wnr1/covers.png),
+ * file:/// paths, and relative paths to browser-usable asset paths (/covers.png).
+ */
+export const normalizeImagePath = (pathStr: string): string => {
+  if (!pathStr) return '';
+  let trimmed = pathStr.trim();
+  // Strip enclosing quotes if any
+  trimmed = trimmed.replace(/^["']|["']$/g, '');
+
+  // If absolute Windows path (e.g., C:\proj\wnr1\covers.png) or file protocol URL
+  if (/^[a-zA-Z]:[\\/]/i.test(trimmed) || trimmed.startsWith('file:///')) {
+    const parts = trimmed.split(/[\\/]/);
+    const fileName = parts[parts.length - 1];
+    return fileName ? `/${fileName}` : trimmed;
+  }
+
+  // If relative path without leading slash (e.g. covers.png)
+  if (!trimmed.startsWith('http://') && !trimmed.startsWith('https://') && !trimmed.startsWith('data:') && !trimmed.startsWith('/')) {
+    return `/${trimmed}`;
+  }
+
+  return trimmed;
+};
 
 export const normalizeTextParagraphs = (rawText: string): string => {
   if (!rawText) return '';
@@ -27,7 +52,9 @@ export const normalizeTextParagraphs = (rawText: string): string => {
       if (
         line.startsWith('#') || 
         line.startsWith('[qr:') || 
+        line.startsWith('[image:') ||
         line.startsWith('![') ||
+        line.startsWith('```') ||
         line.startsWith('<') ||
         line.startsWith('Etap ') ||
         line.startsWith('Część ') ||
@@ -40,7 +67,11 @@ export const normalizeTextParagraphs = (rawText: string): string => {
         line.startsWith('Dzień ')
       ) {
         flushCurrent();
-        finalBlocks.push(line.startsWith('#') || line.startsWith('[') || line.startsWith('<') ? line : `### ${line}`);
+        finalBlocks.push(
+          line.startsWith('#') || line.startsWith('[') || line.startsWith('<') || line.startsWith('```') 
+            ? line 
+            : `### ${line}`
+        );
       } else {
         currentPara.push(line);
       }
@@ -52,15 +83,78 @@ export const normalizeTextParagraphs = (rawText: string): string => {
 };
 
 /**
+ * Interactive Code Block Component with language badge & copy-to-clipboard functionality
+ */
+const CodeBlockContainer: React.FC<{ code: string; language: string; theme: string }> = ({ code, language, theme }) => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const displayLang = language.toUpperCase() || 'CODE';
+
+  return (
+    <div className="my-5 border border-slate-700/80 rounded-xl overflow-hidden shadow-2xl bg-slate-950 font-mono text-xs text-left">
+      <div className="flex items-center justify-between px-3.5 py-2 bg-slate-900 border-b border-slate-800 text-slate-400 select-none">
+        <div className="flex items-center gap-2">
+          <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+          <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+          <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+          <span className="ml-2 font-bold text-[10px] tracking-wider text-emerald-400 uppercase font-mono">{displayLang}</span>
+        </div>
+        <button
+          type="button"
+          onClick={handleCopy}
+          className="text-[10px] font-sans px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition flex items-center gap-1 cursor-pointer border border-slate-700"
+        >
+          {copied ? '✓ Skopiowano!' : '📋 Kopiuj kod'}
+        </button>
+      </div>
+      <pre className="p-4 overflow-x-auto text-emerald-300 leading-relaxed font-mono text-xs whitespace-pre select-text">
+        <code>{code}</code>
+      </pre>
+    </div>
+  );
+};
+
+/**
+ * Embedded JavaScript Script execution container for live preview
+ */
+const ScriptBlockContainer: React.FC<{ scriptCode: string }> = ({ scriptCode }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current || !scriptCode.trim()) return;
+    try {
+      const scriptEl = document.createElement('script');
+      scriptEl.type = 'text/javascript';
+      scriptEl.text = scriptCode;
+      containerRef.current.appendChild(scriptEl);
+
+      return () => {
+        if (containerRef.current) {
+          containerRef.current.innerHTML = '';
+        }
+      };
+    } catch (err) {
+      console.warn("Błąd podczas wykonywania skryptu JS:", err);
+    }
+  }, [scriptCode]);
+
+  return <div ref={containerRef} className="my-2 text-xs font-mono" />;
+};
+
+/**
  * A robust, safe lightweight helper to format plain text / Markdown / HTML tags
  * into structured React elements with Tailwind CSS styling.
- * This avoids security risks of raw dangerouslySetInnerHTML while displaying rich layouts.
  */
 export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light' }> = ({ text, theme = 'dark' }) => {
   if (!text) return null;
 
   const normalizedText = normalizeTextParagraphs(text);
-  // Split normalized text by lines to parse blocks
   const lines = normalizedText.split('\n');
   const elements: React.ReactNode[] = [];
   
@@ -71,7 +165,6 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
   let currentFont: string | null = null;
   let currentColor: string | null = null;
   let currentBg: string | null = null;
-  // Buffer for accumulating lines into a single justified paragraph
   let paragraphBuffer: string[] = [];
 
   const flushParagraph = () => {
@@ -126,7 +219,6 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       line = line.replace('[align:justify]', '');
     }
 
-    // Also support standard HTML alignments in case someone copies/pastes HTML
     if (line.includes('<div align="left">') || line.includes('<p align="left">')) {
       currentAlignment = 'left';
       line = line.replace(/<div align="left">|<p align="left">/g, '');
@@ -151,7 +243,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       line = line.replace(/<\/div>|<\/p>|<\/center>/g, '');
     }
 
-    // Persistent Font, Color, and Background Tag State Tracking
+    // Font, Color, and Background Tag State Tracking
     const fontMatch = line.match(/\[font:([^\]]+)\]/);
     if (fontMatch) currentFont = fontMatch[1];
     
@@ -161,49 +253,83 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
     const bgMatch = line.match(/\[bg:([^\]]+)\]/);
     if (bgMatch) currentBg = bgMatch[1];
 
-    let closedFontThisLine = false;
-    if (line.includes('[/font]')) {
-      closedFontThisLine = true;
-    }
-
-    let closedColorThisLine = false;
-    if (line.includes('[/color]')) {
-      closedColorThisLine = true;
-    }
-
-    let closedBgThisLine = false;
-    if (line.includes('[/bg]')) {
-      closedBgThisLine = true;
-    }
+    let closedFontThisLine = line.includes('[/font]');
+    let closedColorThisLine = line.includes('[/color]');
+    let closedBgThisLine = line.includes('[/bg]');
 
     const alignClass = currentAlignment === 'center' ? 'text-center [text-align-last:center]' :
                        currentAlignment === 'right' ? 'text-right [text-align-last:right]' :
                        currentAlignment === 'justify' ? 'text-justify [text-align-last:left]' :
                        currentAlignment === 'left' ? 'text-left [text-align-last:left]' : 'text-justify [text-align-last:left]';
 
-    // 1. Detect QR code block (custom HTML or clean markup)
-    // Looking for qr-block patterns or specialized tags
+    // 0. Detect Multi-line Code Block (e.g. ```javascript ... ```)
+    if (line.startsWith('```')) {
+      flushParagraph();
+      flushList();
+      const lang = line.slice(3).trim();
+      const codeLines: string[] = [];
+      i++;
+      while (i < lines.length && !lines[i].trim().startsWith('```')) {
+        codeLines.push(lines[i]);
+        i++;
+      }
+      elements.push(
+        <CodeBlockContainer 
+          key={`code-${keyIndex++}`}
+          code={codeLines.join('\n')}
+          language={lang || 'text'}
+          theme={theme}
+        />
+      );
+      continue;
+    }
+
+    // 0b. Detect Inline or Tag Script Blocks (<script>...</script>)
+    if (line.includes('<script')) {
+      flushParagraph();
+      flushList();
+      let scriptCode = '';
+      if (line.includes('</script>')) {
+        scriptCode = line.replace(/<script[^>]*>/i, '').replace(/<\/script>/i, '').trim();
+      } else {
+        const scriptLines: string[] = [];
+        let curr = line.replace(/<script[^>]*>/i, '');
+        if (curr) scriptLines.push(curr);
+        i++;
+        while (i < lines.length && !lines[i].includes('</script>')) {
+          scriptLines.push(lines[i]);
+          i++;
+        }
+        if (i < lines.length) {
+          scriptLines.push(lines[i].replace(/<\/script>/i, ''));
+        }
+        scriptCode = scriptLines.join('\n').trim();
+      }
+
+      elements.push(
+        <ScriptBlockContainer key={`script-${keyIndex++}`} scriptCode={scriptCode} />
+      );
+      continue;
+    }
+
+    // 1. Detect QR code block
     if (line.includes('qr-block') || line.includes('api.qrserver.com') || line.includes('[qr:')) {
       flushParagraph();
       flushList();
       
-      // Attempt to extract URL and Caption
       let url = '';
       let caption = '';
 
       if (line.includes('[qr:')) {
-        // Syntax: [qr: URL | Caption]
         const match = line.match(/\[qr:\s*([^|\]]+)(?:\|\s*([^\]]+))?\]/);
         if (match) {
           url = match[1].trim();
           caption = match[2] ? match[2].trim() : '';
         }
       } else {
-        // HTML extract or generic fallback
         const srcMatch = lines[i].match(/src=["']([^"']+)["']/) || (lines[i+1] && lines[i+1].match(/src=["']([^"']+)["']/));
         const altMatch = lines[i].match(/alt=["']([^"']+)["']/) || (lines[i+1] && lines[i+1].match(/alt=["']([^"']+)["']/));
         
-        // Find text caption inside next few lines
         let captionText = '';
         for (let j = i; j < Math.min(i + 6, lines.length); j++) {
           if (lines[j].includes('text-slate-400') || lines[j].includes('caption')) {
@@ -220,7 +346,6 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       }
 
       if (url) {
-        // Auto-normalize any widokinaraj URLs to use /#/ hash routing format for 100% server compatibility
         let normalizedUrl = url;
         if (normalizedUrl.includes('widokinaraj') && !normalizedUrl.includes('#')) {
           normalizedUrl = normalizedUrl
@@ -282,7 +407,6 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
           </ContainerTag>
         );
 
-        // Skip to end of HTML block if we parsed multi-line HTML
         if (!line.includes('[qr:')) {
           while (i < lines.length && !lines[i].includes('</div>')) {
             i++;
@@ -296,32 +420,36 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       }
     }
 
-    // 2. Detect Image block (custom HTML or Markdown syntax)
-    if (line.includes('<img') || line.startsWith('![') || line.includes('image-block')) {
+    // 2. Detect Image block (supports [image:...], Markdown ![alt](src), or HTML <img src="...">)
+    if (line.includes('<img') || line.startsWith('![') || line.includes('image-block') || line.includes('[image:')) {
       flushParagraph();
       flushList();
 
       let imgSrc = '';
       let imgAlt = '';
 
-      if (line.startsWith('![')) {
-        // Markdown: ![alt](src)
+      if (line.includes('[image:')) {
+        // Syntax: [image:URL][caption:CAPTION] or [image:URL|CAPTION] or [image:URL]
+        const matchCap = line.match(/\[image:\s*([^|\]]+)\](?:\[caption:\s*([^\]]+)\])?/i) || line.match(/\[image:\s*([^|\]]+)(?:\|\s*([^\]]+))?\]/i);
+        if (matchCap) {
+          imgSrc = matchCap[1].trim();
+          imgAlt = matchCap[2] ? matchCap[2].trim() : '';
+        }
+      } else if (line.startsWith('![')) {
         const match = line.match(/!\[([^\]]*)\]\(([^)]+)\)/);
         if (match) {
           imgAlt = match[1];
           imgSrc = match[2];
         }
       } else {
-        // HTML extract
         const srcMatch = line.match(/src=["']([^"']+)["']/) || (lines[i+1] && lines[i+1].match(/src=["']([^"']+)["']/));
         const altMatch = line.match(/alt=["']([^"']+)["']/) || (lines[i+1] && lines[i+1].match(/alt=["']([^"']+)["']/));
         if (srcMatch) imgSrc = srcMatch[1];
         if (altMatch) imgAlt = altMatch[1];
 
-        // Find caption text
         let captionText = '';
         for (let j = i; j < Math.min(i + 6, lines.length); j++) {
-          if (lines[j].includes('text-slate-400') || lines[j].includes('caption')) {
+          if (lines[j].includes('text-slate-400') || lines[j].includes('caption') || lines[j].includes('<figcaption>')) {
             captionText = lines[j].replace(/<[^>]*>/g, '').trim();
             break;
           }
@@ -330,28 +458,45 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       }
 
       if (imgSrc) {
+        const resolvedSrc = normalizeImagePath(imgSrc);
+        const isLight = theme === 'light';
+
         elements.push(
           <div 
             key={`img-${keyIndex++}`}
-            className="my-6 bg-slate-950/40 border border-slate-850 rounded-2xl overflow-hidden shadow-2xl p-2.5 max-w-md mx-auto flex flex-col items-center"
+            className={`my-6 border rounded-2xl overflow-hidden shadow-2xl p-3 max-w-xl mx-auto flex flex-col items-center group transition duration-300 ${
+              isLight 
+                ? 'bg-white border-slate-200 hover:border-emerald-500' 
+                : 'bg-slate-950/90 border-slate-800 hover:border-emerald-500/50'
+            }`}
           >
             <img 
-              src={imgSrc} 
+              src={resolvedSrc} 
               alt={imgAlt || "Grafika"} 
-              className="max-h-80 w-auto rounded-xl object-cover hover:scale-[1.02] transition duration-300"
+              className="max-h-96 w-auto rounded-xl object-contain hover:scale-[1.02] transition duration-300 shadow-md"
               referrerPolicy="no-referrer"
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (!target.dataset.triedFallback) {
+                  target.dataset.triedFallback = 'true';
+                  const parts = imgSrc.split(/[\\/]/);
+                  const fileName = parts[parts.length - 1];
+                  if (fileName && !target.src.endsWith('/' + fileName)) {
+                    target.src = '/' + fileName;
+                  }
+                }
+              }}
             />
             {imgAlt && (
-              <p className="text-xs text-slate-400 text-center mt-2 font-serif italic">
+              <p className={`text-xs text-center mt-2.5 font-serif italic px-2 ${isLight ? 'text-slate-600 font-medium' : 'text-slate-400'}`}>
                 {imgAlt}
               </p>
             )}
           </div>
         );
 
-        // Skip end of HTML block if relevant
-        if (line.includes('image-block') || line.includes('<div')) {
-          while (i < lines.length && !lines[i].includes('</div>')) {
+        if (line.includes('image-block') || line.includes('<div') || line.includes('<figure')) {
+          while (i < lines.length && !lines[i].includes('</div>') && !lines[i].includes('</figure>')) {
             i++;
           }
         }
@@ -431,17 +576,31 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       if (closedBgThisLine) currentBg = null;
       continue;
     } else {
-      // If was in list and line is empty/different, flush list
       if (inList) {
         flushList();
       }
     }
 
+    // 6. Generic HTML Element blocks (e.g. <iframe>, <table...>, <svg...>, <div...>, <section...>)
+    if (line.startsWith('<iframe') || line.startsWith('<table') || line.startsWith('<svg') || line.startsWith('<style') || line.startsWith('<div')) {
+      flushParagraph();
+      flushList();
+      elements.push(
+        <div 
+          key={`html-block-${keyIndex++}`} 
+          className="my-4 overflow-x-auto" 
+          dangerouslySetInnerHTML={{ __html: line }} 
+        />
+      );
+      if (closedAlignmentThisLine) currentAlignment = null;
+      if (closedFontThisLine) currentFont = null;
+      if (closedColorThisLine) currentColor = null;
+      if (closedBgThisLine) currentBg = null;
+      continue;
+    }
 
-    // 6. Normal line / paragraph
-    // Lines are accumulated into paragraphs — empty line = paragraph boundary
+    // 7. Normal line / paragraph
     if (line === '') {
-      // Flush any accumulated paragraph text
       if (paragraphBuffer.length > 0) {
         const combined = paragraphBuffer.join(' ');
         const pClass = theme === 'light' ? 'light-mode-text' : 'text-slate-200';
@@ -455,7 +614,6 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
         );
         paragraphBuffer = [];
       } else {
-        // Extra spacing between paragraphs
         elements.push(<div key={`space-${keyIndex++}`} className="h-2" />);
       }
     } else {
@@ -468,7 +626,6 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
     if (closedBgThisLine) currentBg = null;
   }
 
-  // Flush remaining buffer and lists at the end
   flushParagraph();
   flushList();
 
@@ -476,10 +633,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
 };
 
 /**
- * Parses simple inline formatting tags:
- * **bold** -> <strong>bold</strong>
- * *italic* -> <em>italic</em>
- * <u>underline</u> -> <span class="underline">underline</span>
+ * Parses simple inline formatting tags
  */
 const parseInlineStyles = (
   html: string, 
@@ -488,6 +642,13 @@ const parseInlineStyles = (
 ): string => {
   let text = html;
   
+  // Custom Image Tags inline: [image:src][caption:cap] or [image:src]
+  text = text.replace(/\[image:\s*([^|\]]+)\](?:\[caption:\s*([^\]]+)\])?/gi, (match, src, cap) => {
+    const norm = normalizeImagePath(src);
+    const captionHtml = cap ? `<figcaption style="font-size: 11px; text-align: center; font-style: italic; margin-top: 4px; opacity: 0.8;">${cap}</figcaption>` : '';
+    return `<figure style="margin: 16px auto; text-align: center;"><img src="${norm}" alt="${cap || 'Grafika'}" style="max-height: 350px; max-width: 100%; border-radius: 12px; display: inline-block;" />${captionHtml}</figure>`;
+  });
+
   // Custom Color Tags: [color:#hex]text[/color]
   // Custom Background Tags: [bg:#hex]text[/bg]
   // Custom Font Tags: [font:FontName]text[/font]
@@ -505,7 +666,7 @@ const parseInlineStyles = (
     });
   }
 
-  // Unclosed or single-line active tag handling
+  // Unclosed active tags
   text = text.replace(/\[font:([^\]]+)\](.*)$/g, (match, fontName, content) => {
     return `<span style="font-family: '${fontName}', sans-serif;">${content}</span>`;
   });
@@ -516,7 +677,6 @@ const parseInlineStyles = (
     return `<span style="background-color: ${bgValue}; padding: 1px 4px; border-radius: 3px; display: inline;">${content}</span>`;
   });
 
-  // Strip standalone closing tags if leftover
   text = text.replace(/\[\/font\]|\[\/color\]|\[\/bg\]/g, '');
   
   // Bold **text**
@@ -527,14 +687,12 @@ const parseInlineStyles = (
   const italicClass = theme === 'light' ? 'light-mode-text italic' : 'text-slate-200 italic';
   text = text.replace(/\*([^*]+)\*/g, `<em class="${italicClass}">$1</em>`);
 
-  // Handle standard inline HTML bold / italic for copy-pasted or WYSIWYG generated markup
   text = text.replace(/<b>(.*?)<\/b>/g, `<strong class="${boldClass}">$1</strong>`);
   text = text.replace(/<i>(.*?)<\/i>/g, `<em class="${italicClass}">$1</em>`);
 
   const underlineClass = theme === 'light' ? 'underline text-indigo-700' : 'underline text-indigo-200';
   text = text.replace(/<u>(.*?)<\/u>/g, `<span class="${underlineClass}">$1</span>`);
 
-  // Wrap in activeState styles if present and not already styled
   if (activeState && (activeState.font || activeState.color || activeState.bg)) {
     let styles = '';
     if (activeState.font && !html.includes('[font:')) styles += `font-family: '${activeState.font}', sans-serif; `;
@@ -547,4 +705,4 @@ const parseInlineStyles = (
   }
 
   return text;
-};;
+};

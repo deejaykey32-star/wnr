@@ -1,4 +1,5 @@
 import rhzJsonData from '../../RHZ365_pierwszy_cykl_175_dni.json';
+import { BeadData, PrayerStep } from '../types';
 
 let loadedRhzData: any[] | null = rhzJsonData as any[];
 

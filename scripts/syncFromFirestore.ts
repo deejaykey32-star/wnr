@@ -139,7 +139,6 @@ async function syncAllFromFirestore() {
           changesCount++;
         }
       }
-    }
   });
 
   if (updatedRhzDays > 0) {
