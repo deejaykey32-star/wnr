@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { X, ZoomIn, Maximize2 } from 'lucide-react';
 
 /**
  * Normalizes Windows file paths (e.g. C:\proj\wnr1\covers.png or C:/proj/wnr1/covers.png),
@@ -149,9 +150,37 @@ const ScriptBlockContainer: React.FC<{ scriptCode: string }> = ({ scriptCode }) 
 
 /**
  * A robust, safe lightweight helper to format plain text / Markdown / HTML tags
- * into structured React elements with Tailwind CSS styling.
+ * into structured React elements with Tailwind CSS styling and Full-Screen Image Lightbox.
  */
 export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light' }> = ({ text, theme = 'dark' }) => {
+  const [activeLightboxImg, setActiveLightboxImg] = useState<{ src: string; alt: string } | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Close full screen modal on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setActiveLightboxImg(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  // Delegation click handler for inline or custom HTML <img> elements inside text
+  const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+    if (target && target.tagName === 'IMG' && !target.classList.contains('qr-code-img')) {
+      const img = target as HTMLImageElement;
+      if (img.src) {
+        setActiveLightboxImg({
+          src: img.src,
+          alt: img.alt || 'Powiększona grafika'
+        });
+      }
+    }
+  };
+
   if (!text) return null;
 
   const normalizedText = normalizeTextParagraphs(text);
@@ -262,7 +291,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
                        currentAlignment === 'justify' ? 'text-justify [text-align-last:left]' :
                        currentAlignment === 'left' ? 'text-left [text-align-last:left]' : 'text-justify [text-align-last:left]';
 
-    // 0. Detect Multi-line Code Block (e.g. ```javascript ... ```)
+    // 0. Detect Multi-line Code Block
     if (line.startsWith('```')) {
       flushParagraph();
       flushList();
@@ -384,7 +413,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
               <img 
                 src={qrUrl} 
                 alt={caption || "Kod QR"} 
-                className="w-32 h-32 object-contain"
+                className="w-32 h-32 object-contain qr-code-img"
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -429,7 +458,6 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       let imgAlt = '';
 
       if (line.includes('[image:')) {
-        // Syntax: [image:URL][caption:CAPTION] or [image:URL|CAPTION] or [image:URL]
         const matchCap = line.match(/\[image:\s*([^|\]]+)\](?:\[caption:\s*([^\]]+)\])?/i) || line.match(/\[image:\s*([^|\]]+)(?:\|\s*([^\]]+))?\]/i);
         if (matchCap) {
           imgSrc = matchCap[1].trim();
@@ -464,16 +492,24 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
         elements.push(
           <div 
             key={`img-${keyIndex++}`}
-            className={`my-6 border rounded-2xl overflow-hidden shadow-2xl p-3 max-w-xl mx-auto flex flex-col items-center group transition duration-300 ${
+            onClick={() => setActiveLightboxImg({ src: resolvedSrc, alt: imgAlt })}
+            title="Kliknij myszą, aby powiększyć obraz na pełny ekran"
+            className={`my-6 border rounded-2xl overflow-hidden shadow-2xl p-3 max-w-xl mx-auto flex flex-col items-center group transition duration-300 cursor-pointer relative ${
               isLight 
-                ? 'bg-white border-slate-200 hover:border-emerald-500' 
-                : 'bg-slate-950/90 border-slate-800 hover:border-emerald-500/50'
+                ? 'bg-white border-slate-200 hover:border-emerald-500 hover:shadow-emerald-500/20' 
+                : 'bg-slate-950/90 border-slate-800 hover:border-emerald-500/60 hover:shadow-emerald-500/20'
             }`}
           >
+            {/* Zoom Overlay Hint */}
+            <div className="absolute top-5 right-5 z-20 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-950/80 text-emerald-400 p-2 rounded-full border border-emerald-500/40 backdrop-blur-md shadow-lg flex items-center gap-1.5 text-[10px] font-bold">
+              <ZoomIn className="w-4 h-4 text-emerald-400" />
+              <span className="hidden sm:inline">Powiększ na pełny ekran</span>
+            </div>
+
             <img 
               src={resolvedSrc} 
               alt={imgAlt || "Grafika"} 
-              className="max-h-96 w-auto rounded-xl object-contain hover:scale-[1.02] transition duration-300 shadow-md"
+              className="max-h-96 w-auto rounded-xl object-contain group-hover:scale-[1.02] transition duration-300 shadow-md"
               referrerPolicy="no-referrer"
               onError={(e) => {
                 const target = e.currentTarget;
@@ -581,7 +617,7 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       }
     }
 
-    // 6. Generic HTML Element blocks (e.g. <iframe>, <table...>, <svg...>, <div...>, <section...>)
+    // 6. Generic HTML Element blocks
     if (line.startsWith('<iframe') || line.startsWith('<table') || line.startsWith('<svg') || line.startsWith('<style') || line.startsWith('<div')) {
       flushParagraph();
       flushList();
@@ -629,7 +665,58 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
   flushParagraph();
   flushList();
 
-  return <div className={`space-y-0 ${theme === 'light' ? 'light-mode-text' : ''}`} style={theme === 'light' ? { color: '#000000' } : undefined}>{elements}</div>;
+  return (
+    <div 
+      ref={containerRef}
+      onClick={handleContainerClick}
+      className={`space-y-0 ${theme === 'light' ? 'light-mode-text' : ''}`} 
+      style={theme === 'light' ? { color: '#000000' } : undefined}
+    >
+      {elements}
+
+      {/* FULL-SCREEN IMAGE LIGHTBOX MODAL OVERLAY */}
+      {activeLightboxImg && (
+        <div 
+          className="fixed inset-0 z-[99999] bg-slate-950/95 backdrop-blur-lg flex flex-col items-center justify-center p-4 select-none animate-fadeIn cursor-zoom-out"
+          onClick={() => setActiveLightboxImg(null)}
+          title="Kliknij tło lub naciśnij Esc, aby zamknąć podgląd"
+        >
+          {/* Top toolbar */}
+          <div className="absolute top-4 right-4 flex items-center gap-3 z-50">
+            <span className="text-xs text-slate-400 font-mono hidden sm:inline">[ESC] Zamknij podgląd</span>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setActiveLightboxImg(null);
+              }}
+              className="p-2.5 rounded-full bg-slate-900/90 hover:bg-rose-600 text-white border border-slate-700 hover:border-rose-500 transition-all shadow-2xl cursor-pointer"
+              title="Zamknij podgląd na pełnym ekranie (Esc)"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+
+          {/* Fullscreen Image Container */}
+          <div 
+            className="relative max-w-6xl max-h-[88vh] flex flex-col items-center justify-center p-2"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img 
+              src={activeLightboxImg.src} 
+              alt={activeLightboxImg.alt} 
+              className="max-h-[82vh] max-w-full w-auto object-contain rounded-2xl shadow-2xl border border-slate-700/80 transition-transform duration-300 hover:scale-[1.01]"
+            />
+            {activeLightboxImg.alt && (
+              <p className="mt-3.5 text-xs sm:text-sm text-slate-200 font-serif italic text-center max-w-2xl bg-slate-900/90 px-4 py-2 rounded-xl border border-slate-800 shadow-xl">
+                {activeLightboxImg.alt}
+              </p>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
 
 /**
@@ -646,7 +733,7 @@ const parseInlineStyles = (
   text = text.replace(/\[image:\s*([^|\]]+)\](?:\[caption:\s*([^\]]+)\])?/gi, (match, src, cap) => {
     const norm = normalizeImagePath(src);
     const captionHtml = cap ? `<figcaption style="font-size: 11px; text-align: center; font-style: italic; margin-top: 4px; opacity: 0.8;">${cap}</figcaption>` : '';
-    return `<figure style="margin: 16px auto; text-align: center;"><img src="${norm}" alt="${cap || 'Grafika'}" style="max-height: 350px; max-width: 100%; border-radius: 12px; display: inline-block;" />${captionHtml}</figure>`;
+    return `<figure style="margin: 16px auto; text-align: center; cursor: pointer;" title="Kliknij myszą, aby powiększyć na pełny ekran"><img src="${norm}" alt="${cap || 'Grafika'}" style="max-height: 350px; max-width: 100%; border-radius: 12px; display: inline-block; box-shadow: 0 10px 25px rgba(0,0,0,0.4);" />${captionHtml}</figure>`;
   });
 
   // Custom Color Tags: [color:#hex]text[/color]
