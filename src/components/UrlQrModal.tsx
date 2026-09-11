@@ -8,7 +8,8 @@ import { UrlLinkItem } from '../types';
 import {
   getUrlLinks, saveUrlLink, deleteUrlLink,
   shortenUrlWithApi, resetUrlLinksToDefaults,
-  downloadQrCodeImage, exportUrlLinksJson, normalizeUrl
+  downloadQrCodeImage, exportUrlLinksJson, normalizeUrl,
+  generateDynamicShortUrl
 } from '../utils/urlLinkStore';
 import { generateQrCodeDataUri } from '../utils/qrCodeGenerator';
 
@@ -83,6 +84,15 @@ export const UrlQrModal: React.FC<UrlQrModalProps> = ({
   }, [formUrl, formShortUrl]);
 
   if (!isOpen) return null;
+
+  const handleGenerateInternalShort = () => {
+    const slug = (formTitle || 'link')
+      .toLowerCase()
+      .replace(/[^a-z0-9_-]+/g, '-')
+      .substring(0, 20);
+    const dyn = generateDynamicShortUrl(slug || 'wnr');
+    setFormShortUrl(dyn);
+  };
 
   const handleAutoShorten = async () => {
     if (!formUrl.trim()) return;
@@ -522,6 +532,15 @@ export const UrlQrModal: React.FC<UrlQrModalProps> = ({
                   {editingId ? 'Edycja Parametrów Linku & QR' : 'Nowy Wpis Linku, Skrótu i QR'}
                 </h3>
 
+                {editingId && (
+                  <div className="p-3 bg-indigo-950/60 border border-indigo-800/80 rounded-xl text-xs text-indigo-200 flex items-start gap-2.5">
+                    <Sparkles className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-amber-300">Tryb Dynamicznego Kodu QR:</strong> Zmiana pełnego adresu URL zaktualizuje cel przekierowania, ale <strong>zachowa w 100% ten sam skrócony adres i wygenerowany Kod QR</strong> (nie trzeba go ponownie drukować!).
+                    </div>
+                  </div>
+                )}
+
                 {/* Form fields */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-3">
@@ -541,7 +560,7 @@ export const UrlQrModal: React.FC<UrlQrModalProps> = ({
 
                     <div>
                       <label className="block text-xs font-bold text-slate-300 uppercase mb-1">
-                        Pełny adres URL *
+                        Pełny adres URL (Docelowy) *
                       </label>
                       <input
                         type="url"
@@ -554,33 +573,47 @@ export const UrlQrModal: React.FC<UrlQrModalProps> = ({
                     </div>
 
                     <div>
-                      <div className="flex items-center justify-between mb-1">
+                      <div className="flex items-center justify-between mb-1 gap-1">
                         <label className="block text-xs font-bold text-emerald-400 uppercase">
-                          Skrócony adres URL
+                          Skrócony adres URL (Kodowany w QR)
                         </label>
-                        <button
-                          type="button"
-                          onClick={handleAutoShorten}
-                          disabled={!formUrl.trim() || isShortening}
-                          className="text-[10px] text-indigo-400 hover:text-indigo-300 font-bold uppercase disabled:opacity-40 flex items-center gap-1"
-                        >
-                          {isShortening ? (
-                            <>
-                              <RefreshCw className="w-3 h-3 animate-spin text-indigo-400" />
-                              Skracanie API...
-                            </>
-                          ) : (
-                            <>⚡ Generuj skrót API (TinyURL)</>
-                          )}
-                        </button>
+                        <div className="flex items-center gap-1.5">
+                          <button
+                            type="button"
+                            onClick={handleGenerateInternalShort}
+                            className="text-[10px] text-amber-400 hover:text-amber-300 font-bold uppercase flex items-center gap-1"
+                            title="Wygeneruj dynamiczny link wewnętrzny (rekomendowane - pozwala zmieniać cel bez zmiany QR)"
+                          >
+                            ⚡ Dynamiczny QR (/#/r/...)
+                          </button>
+                          <button
+                            type="button"
+                            onClick={handleAutoShorten}
+                            disabled={!formUrl.trim() || isShortening}
+                            className="text-[10px] text-indigo-400 hover:text-indigo-300 font-bold uppercase disabled:opacity-40 flex items-center gap-1"
+                            title="Wygeneruj skrót zewnętrzny z API"
+                          >
+                            {isShortening ? (
+                              <>
+                                <RefreshCw className="w-3 h-3 animate-spin text-indigo-400" />
+                                API...
+                              </>
+                            ) : (
+                              <>API (TinyURL)</>
+                            )}
+                          </button>
+                        </div>
                       </div>
                       <input
                         type="text"
                         value={formShortUrl}
                         onChange={(e) => setFormShortUrl(e.target.value)}
-                        placeholder="https://widokinaraj.pl/s/wnr1"
+                        placeholder="https://widokinaraj.pl/#/r/moj-link"
                         className="w-full bg-slate-900 border border-emerald-800/80 rounded-xl px-3 py-2 text-xs text-emerald-300 font-mono focus:ring-2 focus:ring-emerald-500 focus:outline-none"
                       />
+                      <p className="text-[10px] text-slate-400 mt-1">
+                        * Jeśli użyjesz formatu domeny z <code className="text-amber-300">/#/r/...</code>, zmiana adresu docelowego wyżej natychmiast przekieruje użytkowników bez zmiany drukowanego Kodu QR.
+                      </p>
                     </div>
 
                     <div>

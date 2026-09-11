@@ -20,6 +20,7 @@ import { parseDayText } from './utils/rhzParser';
 import { playBeadChime } from './utils/audio';
 import { extractHailMaryClausula } from './utils/clausulaHelper';
 import { getPrayerSegments, speakText, stopSpeech, pauseSpeech, resumeSpeech, isSpeechPaused, isSpeechSpeaking, isTtsSupported } from './utils/tts';
+import { resolveRedirectUrl } from './utils/urlLinkStore';
 import { 
   getCompletedRhzDays, toggleRhzDayCompleted, markRhzDayCompleted, isRhzDayCompleted,
   getCompletedWnrDays, toggleWnrDayCompleted, markWnrDayCompleted, isWnrDayCompleted
@@ -1037,6 +1038,17 @@ export default function App() {
       try {
         rawPath = decodeURIComponent(rawPath);
       } catch {}
+
+      // Match dynamic QR code redirect route e.g. /#/r/slug, /r/slug, /s/slug
+      const redirectMatch = rawPath.match(/[\/#](?:r|s)\/([^\/\?#]+)/i);
+      if (redirectMatch && redirectMatch[1]) {
+        const slug = redirectMatch[1];
+        resolveRedirectUrl(slug).then((targetUrl) => {
+          if (targetUrl) {
+            window.location.replace(targetUrl);
+          }
+        });
+      }
 
       if (!rawPath || rawPath === '/' || rawPath === '/index.html' || rawPath === '/#/' || rawPath === '/#') {
         const today = getInitialUniversalDate();

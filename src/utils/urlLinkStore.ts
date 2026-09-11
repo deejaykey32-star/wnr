@@ -81,6 +81,37 @@ export function generateShortUrlFallback(fullUrl: string): string {
 }
 
 /**
+ * Generates an internal dynamic short URL (e.g., https://domain.com/#/r/slug-or-id)
+ * Scanning this QR code or opening this short link will look up the item in DB
+ * and instantly redirect to whatever full URL is currently configured.
+ */
+export function generateDynamicShortUrl(slugOrId: string): string {
+  const origin = (typeof window !== 'undefined' && window.location?.origin)
+    ? window.location.origin
+    : 'https://widokinaraj.pl';
+  const cleanSlug = slugOrId.replace(/^[\/#]+r\//, '').trim();
+  return `${origin}/#/r/${cleanSlug}`;
+}
+
+/**
+ * Resolves a redirect target URL from a slug or item ID
+ */
+export async function resolveRedirectUrl(slugOrId: string): Promise<string | null> {
+  if (!slugOrId) return null;
+  const clean = slugOrId.replace(/^[\/#]+r\//, '').trim().toLowerCase();
+  const links = await getUrlLinks();
+
+  const match = links.find((item) => {
+    if (item.id.toLowerCase() === clean) return true;
+    if (item.shortUrl && item.shortUrl.toLowerCase().includes(`/r/${clean}`)) return true;
+    if (item.shortUrl && item.shortUrl.toLowerCase().endsWith(`/${clean}`)) return true;
+    return false;
+  });
+
+  return match ? match.url : null;
+}
+
+/**
  * Legacy synchronous short URL generator (wraps fallback for instant UI response)
  */
 export function generateShortUrl(fullUrl: string): string {
@@ -165,23 +196,38 @@ export async function getUrlLinks(): Promise<UrlLinkItem[]> {
 }
 
 /**
- * Saves a URL link item (creates or updates) and updates localStorage & state
+ * Saves a URL link item (creates or updates) and updates localStorage & state.
+ * Preserves the exact same shortUrl and QR Code image when modifying the full target URL.
  */
 export async function saveUrlLink(
   item: Omit<UrlLinkItem, 'id' | 'createdAt' | 'updatedAt'> & { id?: string }
 ): Promise<UrlLinkItem> {
   const normUrl = normalizeUrl(item.url);
+  const currentList = await getUrlLinks();
+  const existingItem = item.id ? currentList.find((x) => x.id === item.id) : undefined;
 
-  // If short URL not provided or generated automatically, shorten via API
+  const id = item.id || `url-${Date.now()}-${Math.random().toString(36).substring(2, 6)}`;
+
+  // If short URL provided, normalize it. If not provided during edit, keep existing shortUrl.
   let normShortUrl = item.shortUrl ? normalizeUrl(item.shortUrl) : '';
+  if (!normShortUrl && existingItem?.shortUrl) {
+    normShortUrl = existingItem.shortUrl;
+  }
+
+  // If still no short URL (new item), generate internal dynamic short URL as default
   if (!normShortUrl) {
-    normShortUrl = await shortenUrlWithApi(normUrl);
+    const slug = id.startsWith('url-') ? id.replace('url-', '') : id;
+    normShortUrl = generateDynamicShortUrl(slug);
   }
 
   const now = new Date().toISOString();
-  const id = item.id || `url-${Date.now()}-${Math.random().toString(36).substring(2, 6)}`;
   const qrTarget = normShortUrl || normUrl;
-  const qrDataUrl = await generateQrCodeDataUri(qrTarget);
+
+  // Re-use existing QR Data URL if short URL hasn't changed, otherwise re-generate
+  let qrDataUrl = existingItem?.qrCodeDataUrl;
+  if (!qrDataUrl || normShortUrl !== existingItem?.shortUrl) {
+    qrDataUrl = await generateQrCodeDataUri(qrTarget);
+  }
 
   const newItem: UrlLinkItem = {
     id,
@@ -190,7 +236,7 @@ export async function saveUrlLink(
     shortUrl: normShortUrl,
     qrCaption: item.qrCaption !== undefined ? item.qrCaption.trim() : (item.title.trim() || ''),
     qrCodeDataUrl: qrDataUrl,
-    createdAt: now,
+    createdAt: existingItem?.createdAt || now,
     updatedAt: now
   };
 
@@ -203,16 +249,10 @@ export async function saveUrlLink(
     } catch {}
   }
 
-  const currentList = await getUrlLinks();
   const existingIdx = currentList.findIndex((x) => x.id === id);
 
   if (existingIdx >= 0) {
-    currentList[existingIdx] = {
-      ...currentList[existingIdx],
-      ...newItem,
-      createdAt: currentList[existingIdx].createdAt,
-      updatedAt: now
-    };
+    currentList[existingIdx] = newItem;
   } else {
     currentList.unshift(newItem);
   }
