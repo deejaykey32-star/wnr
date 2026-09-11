@@ -35,11 +35,12 @@ export const convertWysiwygToHtml = (rawText: string): string => {
     return `<figure>\n  <img src="${norm}" alt="${(cap || 'Grafika').trim()}" />${captionHtml}\n</figure>`;
   });
 
-  // QR Codes: [qr:url][caption:cap] or [qr:url|cap]
-  html = html.replace(/\[qr:\s*([^|\]]+)(?:\[caption:\s*([^\]]+)\]|\|\s*([^\]]+))?\]/gi, (match, url, cap1, cap2) => {
+  // QR Codes: [qr:url][caption:cap] or [qr:url|cap] or [qr:url]
+  html = html.replace(/\[qr:\s*([^|\]]+)\](?:\[caption:\s*([^\]]+)\])?|\[qr:\s*([^|\]]+)\|\s*([^\]]+)\]/gi, (match, url1, cap1, url2, cap2) => {
+    const url = (url1 || url2 || '').trim();
     const caption = (cap1 || cap2 || '').trim();
-    const qrImg = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(url.trim())}`;
-    return `<div class="qr-block" data-url="${url.trim()}">\n  <a href="${url.trim()}" target="_blank" rel="noopener noreferrer">\n    <img src="${qrImg}" alt="${caption || 'Kod QR'}" />\n  </a>\n  ${caption ? `<p>${caption}</p>` : ''}\n</div>`;
+    const qrImg = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(url)}`;
+    return `<div class="qr-block text-center my-6" data-url="${url}">\n  <a href="${url}" target="_blank" rel="noopener noreferrer">\n    <img src="${qrImg}" alt="${caption || 'Kod QR'}" class="w-32 h-32 mx-auto" />\n  </a>\n  ${caption ? `<p class="text-xs font-bold text-amber-400 mt-2.5">${caption}</p>` : ''}\n</div>`;
   });
 
   // Fonts: [font:FontName]text[/font]

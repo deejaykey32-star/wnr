@@ -350,10 +350,14 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
       let caption = '';
 
       if (line.includes('[qr:')) {
-        const match = line.match(/\[qr:\s*([^|\]]+)(?:\|\s*([^\]]+))?\]/);
-        if (match) {
-          url = match[1].trim();
-          caption = match[2] ? match[2].trim() : '';
+        const fullMatch = line.match(/\[qr:\s*([^|\]]+)\](?:\[caption:\s*([^\]]+)\])?/i) || line.match(/\[qr:\s*([^|\]]+)\|\s*([^\]]+)\]/i);
+        if (fullMatch) {
+          url = fullMatch[1].trim();
+          caption = fullMatch[2] ? fullMatch[2].trim() : '';
+        }
+        if (!caption) {
+          const capMatch = line.match(/\[caption:\s*([^\]]+)\]/i);
+          if (capMatch) caption = capMatch[1].trim();
         }
       } else {
         const srcMatch = lines[i].match(/src=["']([^"']+)["']/) || (lines[i+1] && lines[i+1].match(/src=["']([^"']+)["']/));
