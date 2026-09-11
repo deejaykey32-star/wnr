@@ -18,27 +18,14 @@ export function normalizeUrl(url: string): string {
 }
 
 /**
- * Shortens a URL via free & stable APIs (TinyURL API -> CleanURI API -> Fallback)
- * Does NOT rely on custom widokinaraj.pl domain.
+ * Shortens a URL via free & stable APIs (CleanURI API -> clck.ru API -> Fallback)
+ * Direct instant HTTP redirects (301/302) without intermediate or preview screens.
  */
 export async function shortenUrlWithApi(fullUrl: string): Promise<string> {
   const norm = normalizeUrl(fullUrl);
   if (!norm) return '';
 
-  // 1. Try TinyURL API (Free, stable, no API key required, fast)
-  try {
-    const res = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(norm)}`);
-    if (res.ok) {
-      const shortText = await res.text();
-      if (shortText && shortText.startsWith('http')) {
-        return shortText.trim();
-      }
-    }
-  } catch (err) {
-    console.warn('[UrlLinkStore] TinyURL API failed, trying fallback:', err);
-  }
-
-  // 2. Try CleanURI API (Free, stable)
+  // 1. Try CleanURI API (Free, stable, direct 301 HTTP redirect, 0 interstitial screens)
   try {
     const res = await fetch('https://cleanuri.com/api/v1/shorten', {
       method: 'POST',
@@ -55,7 +42,20 @@ export async function shortenUrlWithApi(fullUrl: string): Promise<string> {
     console.warn('[UrlLinkStore] CleanURI API failed, trying fallback:', err);
   }
 
-  // 3. Fallback if offline or network APIs blocked
+  // 2. Try clck.ru API (Free, stable, direct 302 HTTP redirect, 0 interstitial screens)
+  try {
+    const res = await fetch(`https://clck.ru/--?url=${encodeURIComponent(norm)}`);
+    if (res.ok) {
+      const shortText = await res.text();
+      if (shortText && shortText.startsWith('http')) {
+        return shortText.trim();
+      }
+    }
+  } catch (err) {
+    console.warn('[UrlLinkStore] clck.ru API failed, trying fallback:', err);
+  }
+
+  // 3. Fallback if network APIs are unreachable
   return generateShortUrlFallback(norm);
 }
 
@@ -73,10 +73,10 @@ export function generateShortUrlFallback(fullUrl: string): string {
       hash |= 0;
     }
     const slug = Math.abs(hash).toString(36).substring(0, 7);
-    return `https://tinyurl.com/${slug}`;
+    return `https://cleanuri.com/${slug}`;
   } catch {
     const rnd = Math.random().toString(36).substring(2, 8);
-    return `https://tinyurl.com/${rnd}`;
+    return `https://cleanuri.com/${rnd}`;
   }
 }
 
