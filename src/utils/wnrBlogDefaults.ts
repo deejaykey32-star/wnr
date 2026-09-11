@@ -44,7 +44,7 @@ function getRhzList() {
  * Helper to check if a blog text is a legacy generic placeholder/preamble
  */
 export function isGenericBlogText(text?: string): boolean {
-  if (!text || text.trim().length === 0) return true;
+  if (!text || text.trim().length < 50) return true;
   return text.includes("Chwała Jezusowi w Bogu Ojcu!") ||
          text.includes("To jest Twój wpis blogowy Widoki na Raj") ||
          text.includes("Kliknij przycisk „Edytuj Wpis” powyżej") ||
