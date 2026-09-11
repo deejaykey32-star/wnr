@@ -1,6 +1,6 @@
 # Widoki na Raj — Miesiąc 12 (365 Dni Modlitwy)
 
-# Dzień 337 — Widoki na Raj — Dzień 337 — „Bądź wola Twoja, jako w niebie, tak i na ziemi”
+# Dzień 337 — WnR365 — Widoki na Raj — Dzień 337 — „Bądź wola Twoja, jako w
 
 ## Wstęp
 Wstęp modlitewny dnia 337. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -161,24 +161,110 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj — Dzień 337 — „Bądź wola Twoja, jako w niebie, tak i na ziemi”
-Słowa modlitwy „Ojcze nasz” skłaniają mnie do refleksji nad relacją między tym, co duchowe, a tym, co materialne. To, co ziemskie, kojarzy mi się z barwami modelu CMYK, związanymi z materią i drukiem, natomiast to, co duchowe, przywodzi mi na myśl model RGBA, oparty na świetle. Traktuję te obrazy jedynie jako symbole dwóch wymiarów rzeczywistości: widzialnego i niewidzialnego.
+### WnR365 — Widoki na Raj — Dzień 337 — „Bądź wola Twoja, jako w
+niebie, tak i na ziemi”
 
-Wierzę, że człowiek jest powołany do tego, aby to, co ziemskie, coraz bardziej otwierało się na to, co pochodzi od Boga, aż Jego wola będzie obecna wszędzie – „jako w niebie, tak i na ziemi”.
+Słowa modlitwy „Ojcze nasz” skłaniają mnie do refleksji nad
 
-Podobne znaczenie odnajduję w różnych symbolach. Motyl ze złożonymi skrzydłami przestaje latać. Zamknięta klepsydra nie odmierza już czasu. Dwa nałożone na siebie trójkąty tworzą gwiazdę Dawida, lecz gdy spojrzeć na nie osobno, można dostrzec w nich dwa przeciwstawne kierunki – ku górze i ku dołowi. W moim odczuciu są one obrazem ludzkiej drogi, na której człowiek nieustannie dokonuje wyboru między dobrem a złem.
+relacją między tym, co duchowe, a tym, co materialne. To, co
 
-Trójkąt staje się dla mnie symbolem jedności, harmonii i dobra, natomiast gwiazda – obrazem napięcia pomiędzy przeciwieństwami. Odczytuję to jako wezwanie do tego, aby wszystko zostało na nowo skierowane ku dobru, którego źródłem jest Bóg.
+ziemskie, kojarzy mi się z barwami modelu CMYK, związanymi z
 
-Jezus powiedział: „Niech wasza mowa będzie: tak, tak; nie, nie”. Ja patrzę na te słowa jak na zwierciadło własnego życia. Dostrzegam w sobie to, co wymaga przemiany: aby moje „tak” dla zła stało się „nie”, a moje „nie” wobec dobra przemieniło się w „tak”. W ten sposób człowiek coraz bardziej uczy się mówić tym samym językiem co Chrystus, językiem prawdy, miłości i bezinteresownej służby.
+materią i drukiem, natomiast to, co duchowe, przywodzi mi na
 
-Wierzę, że celem człowieka jest zjednoczenie z Bogiem. Gdy wszystko zostanie oczyszczone przez Jego miłość, nastąpi odnowienie. Nie będzie to powrót do początku w dawnym znaczeniu, lecz wejście w nową rzeczywistość – bogatszą o doświadczenie, mądrość i pamięć o tym, jak wielkim dobrem jest trwanie przy Bogu.
+myśl model RGBA, oparty na świetle. Traktuję te obrazy jedynie
 
-W tradycji chrześcijańskiej taki stan określa się mianem przebóstwienia. Oznacza on nie przemianę człowieka w Boga, lecz pełne otwarcie się na Jego obecność i działanie. Wówczas Królestwo Boże, które już teraz jest ukryte w ludzkim sercu, przeniknie całą rzeczywistość.
+jako symbole dwóch wymiarów rzeczywistości: widzialnego i
 
-Obrazowo powiedziałbym, że światło zjednoczy się z materią, a to, co symbolicznie określam jako RGBA i CMYK, stanie się jednym. Pozostanie tylko światłość rozpraszająca mrok, zgodnie ze słowami Ewangelii: „A światłość w ciemności świeci i ciemność jej nie ogarnęła”.
+niewidzialnego.
 
-Jednym z najważniejszych symboli jest dla mnie biały okrąg na czarnym tle z punktem pośrodku. Punkt oznacza obecność Boga w ludzkiej duszy, a okrąg przypomina o Bożej opatrzności, która obejmuje cały świat. Nawet wtedy, gdy człowiek doświadcza ciemności, światło pozostaje obecne, ponieważ jego źródłem jest sam Bóg.
+Wierzę, że człowiek jest powołany do tego, aby to, co ziemskie,
+
+coraz bardziej otwierało się na to, co pochodzi od Boga, aż Jego
+
+wola będzie obecna wszędzie – „jako w niebie, tak i na ziemi”.
+
+Podobne znaczenie odnajduję w różnych symbolach. Motyl ze
+
+złożonymi skrzydłami przestaje latać. Zamknięta klepsydra nie
+
+odmierza już czasu. Dwa nałożone na siebie trójkąty tworzą
+
+gwiazdę Dawida, lecz gdy spojrzeć na nie osobno, można
+
+dostrzec w nich dwa przeciwstawne kierunki – ku górze i ku
+
+dołowi. W moim odczuciu są one obrazem ludzkiej drogi, na której
+
+człowiek nieustannie dokonuje wyboru między dobrem a złem.
+
+Trójkąt staje się dla mnie symbolem jedności, harmonii i dobra,
+
+natomiast gwiazda – obrazem napięcia pomiędzy
+
+przeciwieństwami. Odczytuję to jako wezwanie do tego, aby
+
+wszystko zostało na nowo skierowane ku dobru, którego źródłem
+
+jest Bóg.
+
+Jezus powiedział: „Niech wasza mowa będzie: tak, tak; nie, nie”.
+
+Ja patrzę na te słowa jak na zwierciadło własnego życia.
+
+Dostrzegam w sobie to, co wymaga przemiany: aby moje „tak” dla
+
+zła stało się „nie”, a moje „nie” wobec dobra przemieniło się w
+
+„tak”. W ten sposób człowiek coraz bardziej uczy się mówić tym
+
+samym językiem co Chrystus, językiem prawdy, miłości i
+
+bezinteresownej służby.
+
+Wierzę, że celem człowieka jest zjednoczenie z Bogiem. Gdy
+
+wszystko zostanie oczyszczone przez Jego miłość, nastąpi
+
+odnowienie. Nie będzie to powrót do początku w dawnym
+
+znaczeniu, lecz wejście w nową rzeczywistość – bogatszą o
+
+doświadczenie, mądrość i pamięć o tym, jak wielkim dobrem jest
+
+trwanie przy Bogu.
+
+W tradycji chrześcijańskiej taki stan określa się mianem
+
+przebóstwienia. Oznacza on nie przemianę człowieka w Boga,
+
+lecz pełne otwarcie się na Jego obecność i działanie. Wówczas
+
+Królestwo Boże, które już teraz jest ukryte w ludzkim sercu,
+
+przeniknie całą rzeczywistość.
+
+Obrazowo powiedziałbym, że światło zjednoczy się z materią, a
+
+to, co symbolicznie określam jako RGBA i CMYK, stanie się
+
+jednym. Pozostanie tylko światłość rozpraszająca mrok, zgodnie
+
+ze słowami Ewangelii: „A światłość w ciemności świeci i
+
+ciemność jej nie ogarnęła”.
+
+Jednym z najważniejszych symboli jest dla mnie biały okrąg na
+
+czarnym tle z punktem pośrodku. Punkt oznacza obecność Boga
+
+w ludzkiej duszy, a okrąg przypomina o Bożej opatrzności, która
+
+obejmuje cały świat. Nawet wtedy, gdy człowiek doświadcza
+
+ciemności, światło pozostaje obecne, ponieważ jego źródłem jest
+
+sam Bóg.
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 337
@@ -187,7 +273,7 @@ Rozważanie Pisma Świętego dla dnia 337.
 
 ---
 
-# Dzień 338 — Widoki na Raj — Dzień 338 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
+# Dzień 338 — WnR365 — Widoki na Raj — Dzień 338 — [01.09.2026] AI jako narzędzie
 
 ## Wstęp
 Wstęp modlitewny dnia 338. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -333,8 +419,312 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj — Dzień 338 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
-Świętym.
+### WnR365 — Widoki na Raj — Dzień 338 — [01.09.2026] AI jako narzędzie
+poznawania Biblii i nauczania Kościoła
+
+Sztuczna inteligencja budzi dziś wiele obaw. Niektórzy
+
+przedstawiają ją jako zagrożenie dla człowieka, kultury, pracy, a
+
+nawet całej cywilizacji. Uważam jednak, że samo istnienie nowej
+
+technologii nie powinno być powodem do lęku. Tak jak nóż może
+
+służyć do przygotowania posiłku albo wyrządzenia krzywdy, a
+
+internet może być źródłem zarówno dobra, jak i zła, tak samo AI
+
+jest przede wszystkim narzędziem. O tym, czym się stanie,
+
+decyduje sposób, w jaki człowiek się nim posługuje.
+
+Dlatego warto również wykorzystać sztuczną inteligencję do
+
+czegoś, co może służyć dobru człowieka — do poznawania i
+
+lepszego rozumienia Biblii oraz dzieł i nauczania Kościoła.
+
+Biblia jest ogromnym skarbem
+
+Biblia jest księgą, do której można wracać przez całe życie, a
+
+mimo to wciąż odkrywać w niej coś nowego. Jej zrozumienie
+
+wymaga jednak znajomości kontekstu historycznego, języka,
+
+kultury, symboliki, różnych gatunków literackich oraz wzajemnych
+
+zależności pomiędzy poszczególnymi księgami.
+
+Podobnie ogromnym dorobkiem jest nauczanie Kościoła: pisma
+
+Ojców Kościoła, sobory, dokumenty papieskie, katechizmy,
+
+komentarze biblijne i dzieła teologiczne. Człowiek może mieć
+
+trudność z samodzielnym przebrnięciem przez tak wielką ilość
+
+materiału.
+
+I właśnie tutaj AI może okazać się bardzo pomocna.
+
+Możemy wykorzystać ją jako inteligentnego pomocnika w pracy z
+
+tekstem — poprosić o wyjaśnienie trudnego fragmentu, wskazanie
+
+powiązań pomiędzy księgami biblijnymi, uporządkowanie
+
+argumentów autora, porównanie różnych interpretacji czy
+
+stworzenie pytań pomagających w osobistym studium.
+
+AI nie zamiast Biblii, lecz obok Biblii
+
+Nie chodzi o to, aby zamiast otworzyć Pismo Święte, zapytać
+
+sztuczną inteligencję: „Co mam wierzyć?”.
+
+To byłoby odwróceniem właściwej kolejności.
+
+Najpierw jest Słowo Boże, a dopiero potem narzędzie pomagające
+
+je zrozumieć.
+
+AI nie jest Bogiem, nie jest Kościołem i nie jest źródłem
+
+Objawienia. Nie powinna być traktowana jak wyrocznia. Jej
+
+odpowiedzi mogą zawierać błędy, uproszczenia, a nawet
+
+informacje niezgodne z nauczaniem Kościoła. Dlatego każdą
+
+ważną odpowiedź należy weryfikować w samym źródle.
+
+Można przyjąć prostą zasadę:
+
+AI może pomagać mi pytać, szukać, porządkować i rozumieć, ale
+
+nie może zastąpić mojego sumienia, wiary, modlitwy, Pisma
+
+Świętego ani rozeznania Kościoła.
+
+NotebookLM, Gemini i inne narzędzia
+
+Szczególnie interesujące są narzędzia, które pozwalają pracować
+
+bezpośrednio z dostarczonymi dokumentami.
+
+Google Gemini może pomagać w analizowaniu tekstów,
+
+zadawaniu pytań i porządkowaniu informacji.
+
+NotebookLM jest interesujący dlatego, że można przekazać mu
+
+konkretne materiały źródłowe i na ich podstawie prowadzić pracę
+
+nad dokumentami. Dzięki temu można np. zgromadzić wybrane
+
+księgi Biblii, dokumenty Kościoła czy dzieła teologiczne i zadawać
+
+pytania odnoszące się właśnie do tych materiałów.
+
+Podobną funkcję można wykorzystywać również w innych
+
+narzędziach AI, takich jak NoteGPT czy rozwiązania przeznaczone
+
+do pracy z dokumentami i tekstami.
+
+Nie chodzi więc tylko o pytanie: „Co AI wie o Biblii?”.
+
+Znacznie ciekawsze może być pytanie:
+
+„Oto konkretny tekst. Pomóż mi go przeczytać, uporządkować i
+
+lepiej zrozumieć.”
+
+To zasadnicza różnica.
+
+AI może pomóc zobaczyć Biblię jako całość
+
+Jedną z największych zalet takich narzędzi jest możliwość
+
+dostrzegania połączeń, które podczas zwykłego czytania mogą
+
+nam umknąć.
+
+Możemy zapytać:
+
+- gdzie w Biblii pojawia się określone słowo lub motyw, - jakie
+
+fragmenty Starego Testamentu są przywoływane w Nowym
+
+Testamencie, - jak rozwija się określony temat od Księgi Rodzaju
+
+aż po Apokalipsę, - jakie znaczenie ma dany symbol, - jakie są
+
+różnice pomiędzy poszczególnymi Ewangeliami, - co na dany
+
+temat mówi Katechizm, - jak określony fragment interpretowali
+
+Ojcowie Kościoła, - jakie stanowisko przedstawia konkretny
+
+dokument Kościoła.
+
+AI może również pomóc stworzyć mapę tematów, chronologię
+
+wydarzeń, zestawienie fragmentów czy pytania do osobistego
+
+studium.
+
+W ten sposób technologia może stać się czymś w rodzaju lupy,
+
+indeksu, wyszukiwarki i pomocnika w jednym.
+
+Ale lupa nie jest tym, na co patrzymy.
+
+Tym, na co patrzymy, pozostaje tekst.
+
+Człowiek nadal musi myśleć
+
+Istnieje jednak pewne niebezpieczeństwo: można przestać
+
+samemu myśleć i bezkrytycznie przyjmować odpowiedzi AI.
+
+Dlatego korzystanie ze sztucznej inteligencji wymaga jeszcze
+
+większej odpowiedzialności za własne myślenie.
+
+Jeżeli AI przedstawia mi interpretację fragmentu Ewangelii,
+
+powinienem wrócić do Ewangelii i sprawdzić, czy rzeczywiście to
+
+z niej wynika.
+
+Jeżeli przedstawia mi nauczanie Kościoła, powinienem sprawdzić
+
+dokument, z którego rzekomo pochodzi dana informacja.
+
+Jeżeli podaje cytat, warto sprawdzić jego źródło.
+
+Jeżeli przedstawia kilka interpretacji, warto zobaczyć, które z nich
+
+rzeczywiście mają podstawy w tekście i w tradycji Kościoła.
+
+AI powinna więc pobudzać do myślenia, a nie zwalniać z
+
+myślenia.
+
+Technologia nie jest wrogiem cywilizacji
+
+Nie jestem zwolennikiem traktowania każdej nowej technologii
+
+jako wroga człowieka.
+
+Cywilizacja rozwijała się między innymi dlatego, że człowiek
+
+tworzył narzędzia. Pismo, druk, biblioteki, maszyny, telefon,
+
+komputer i internet zmieniły sposób, w jaki przechowujemy i
+
+przekazujemy wiedzę.
+
+Sztuczna inteligencja jest kolejnym etapem tego procesu.
+
+Może być wykorzystana do manipulacji, oszustw, dezinformacji
+
+czy czynienia zła — i dlatego potrzebujemy odpowiedzialności,
+
+zasad oraz rozsądku. Ale dokładnie z tego samego powodu nie
+
+powinniśmy odrzucać jej możliwości wykorzystania do dobra.
+
+Nie bójmy się narzędzia. Nauczmy się odpowiedzialnie nim
+
+posługiwać.
+
+Jeżeli człowiek może dzięki AI szybciej dotrzeć do Biblii,
+
+przeczytać trudny dokument Kościoła, znaleźć powiązania
+
+pomiędzy fragmentami Pisma Świętego i lepiej zrozumieć tekst,
+
+to dlaczego nie mielibyśmy tego wykorzystać?
+
+Wiara i technologia
+
+Nie widzę sprzeczności pomiędzy wiarą a korzystaniem z
+
+nowoczesnych technologii.
+
+Jeżeli Bóg dał człowiekowi rozum i zdolność tworzenia, to
+
+również rozwój nauki i technologii może być wykorzystywany do
+
+dobra.
+
+Nie oznacza to oczywiście, że każda technologia jest dobra sama
+
+w sobie. Człowiek może wykorzystać niemal każde narzędzie
+
+zarówno w dobrym, jak i złym celu. Dlatego najważniejszy
+
+pozostaje człowiek, jego intencje, odpowiedzialność i moralność.
+
+AI może pomóc mi znaleźć odpowiedź, ale nie przeżyje za mnie
+
+wiary.
+
+Może pomóc mi przeczytać Ewangelię, ale nie pomodli się za
+
+mnie.
+
+Może zestawić nauczanie Kościoła, ale nie zastąpi mojego
+
+sumienia.
+
+Może wskazać różne interpretacje, ale nie podejmie za mnie
+
+decyzji, jak mam żyć.
+
+I właśnie dlatego widzę w niej narzędzie, a nie wroga.
+
+Zacznijmy korzystać z tego, co może służyć dobru
+
+Zamiast bać się sztucznej inteligencji, warto nauczyć się
+
+korzystać z niej mądrze.
+
+Możemy stworzyć własną cyfrową bibliotekę Biblii i dzieł
+
+Kościoła, a następnie wykorzystywać AI do ich analizy. Możemy
+
+zadawać pytania, których wcześniej nie potrafiliśmy sformułować.
+
+Możemy porównywać teksty, szukać kontekstu, tworzyć notatki i
+
+wracać do tematów, które wymagają głębszego poznania.
+
+Warto jednak zachować właściwą hierarchię:
+
+Bóg — źródło. Biblia i Objawienie — fundament. Kościół i jego
+
+nauczanie — pomoc w wiernym odczytywaniu wiary. Człowiek —
+
+osoba, która myśli, wierzy i rozeznaje. AI — narzędzie
+
+pomocnicze.
+
+Wtedy sztuczna inteligencja nie musi być konkurencją dla wiary.
+
+Może stać się jednym z narzędzi, dzięki którym człowiek jeszcze
+
+lepiej poznaje to, co już zostało mu dane.
+
+Niech więc AI nie oddala nas od Boga, ale pomaga nam mądrzej
+
+szukać prawdy, głębiej czytać Pismo Święte i lepiej poznawać
+
+skarb, który Kościół przechowuje od pokoleń.
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 338
@@ -343,7 +733,7 @@ Rozważanie Pisma Świętego dla dnia 338.
 
 ---
 
-# Dzień 339 — Widoki na Raj — Dzień 339 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
+# Dzień 339 — WnR365 — Widoki na Raj — Dzień 339 — Człowiek jako jedność ducha,
 
 ## Wstęp
 Wstęp modlitewny dnia 339. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -498,8 +888,534 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj — Dzień 339 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
-Świętym.
+### WnR365 — Widoki na Raj — Dzień 339 — Człowiek jako jedność ducha,
+psychiki i ciała
+
+Dziewięć obszarów holistycznego życia
+
+Człowiek jest jednością, choć można spojrzeć na niego poprzez
+
+trzy wzajemnie przenikające się obszary:
+
+I. Duchowość II. Psychika III. Fizjonomia, czyli cielesność
+
+Każdy z tych trzech wymiarów można następnie podzielić na trzy
+
+kolejne obszary. Otrzymujemy w ten sposób dziewięć sfer
+
+ludzkiego życia, które wzajemnie na siebie oddziałują.
+
+Chcę przy tym wyraźnie zaznaczyć, że w moim blogu szczególną
+
+uwagę poświęcam duchowości, ponieważ właśnie ona jest
+
+głównym przedmiotem moich rozważań. Nie oznacza to jednak,
+
+że uważam duchowość za ważniejszą od psychiki czy ciała.
+
+Wszystkie trzy wymiary człowieka są równie istotne, choć każdy
+
+pełni inną funkcję.
+
+Moje skupienie na duchowości wynika więc z tematyki bloga, a
+
+nie z wartościowania poszczególnych części człowieka. Psychika
+
+i ciało są równie ważnymi elementami ludzkiej osoby, a
+
+prawdziwa troska o człowieka wymaga spojrzenia na niego
+
+całościowo.
+
+Nie jest to również próba stworzenia naukowego modelu
+
+człowieka. Jest to przede wszystkim model porządkujący moje
+
+przemyślenia, łączący perspektywę duchową, psychologiczną i
+
+cielesną.
+
+---
+
+I. DUCHOWOŚĆ
+
+Duchowość rozumiem jako relację człowieka z Bogiem,
+
+poszukiwanie prawdy, sensu i dobra oraz wzrastanie w mądrości
+
+Bożej.
+
+W moim rozumieniu można ją przedstawić poprzez trzy
+
+wzajemnie powiązane elementy:
+
+1. Wiara — modlitwa — Jezus
+
+Z wiary wypływa modlitwa, która koreluje z osobą Jezusa
+
+Chrystusa.
+
+Modlitwa jest dialogiem człowieka z Bogiem. Nie polega tylko na
+
+przedstawianiu Bogu własnych próśb, ale również na zawierzeniu,
+
+słuchaniu i szukaniu Jego woli.
+
+Jezus mówi o sobie:
+
+„Ja jestem drogą, prawdą i życiem”.
+
+Dlatego wiara prowadząca do modlitwy jest dla mnie wejściem na
+
+drogę Chrystusa — drogę zawierzenia, prawdy i życia.
+
+Wiara daje człowiekowi fundament, dzięki któremu może zaufać
+
+Bogu również wtedy, gdy nie rozumie jeszcze całej
+
+rzeczywistości.
+
+---
+
+2. Nadzieja — głoszenie słowa — Duch Święty
+
+Z wiary wypływa nadzieja, a nadzieja prowadzi do dzielenia się
+
+dobrem z innymi.
+
+Dlatego drugim obszarem jest głoszenie słowa, które koreluje z
+
+osobą Ducha Świętego.
+
+Głoszenie może oznaczać przekazywanie Ewangelii, świadectwa,
+
+prawdy, doświadczenia i nadziei. Nie powinno jednak oznaczać
+
+narzucania drugiemu człowiekowi własnych przekonań.
+
+Człowiek może dawać świadectwo, ale to Duch Święty działa w
+
+sercu drugiego człowieka.
+
+Nadzieja otwiera więc człowieka na przyszłość i uzdalnia go do
+
+przekazywania innym tego, co sam otrzymał.
+
+---
+
+3. Miłość — Biblia — słuchanie głosu Boga
+
+Trzecim obszarem jest miłość, której wyrazem staje się czytanie
+
+Biblii oraz słuchanie głosu Boga.
+
+Biblia pozwala człowiekowi konfrontować własne myśli,
+
+pragnienia i decyzje ze słowem Bożym. Samo czytanie nie
+
+wystarcza jednak — potrzebne jest również rozeznawanie i próba
+
+właściwego rozumienia tego, co się czyta.
+
+Miłość powinna przenikać pozostałe dwa obszary.
+
+Wiara bez miłości może stać się sztywnością, a nadzieja bez
+
+miłości może stać się oczekiwaniem skupionym na sobie.
+
+Miłość kieruje człowieka ku Bogu i drugiemu człowiekowi.
+
+Celem tych trzech dróg jest wzrastanie w mądrości Bożej — nie
+
+tylko wiedzieć więcej o Bogu, ale coraz lepiej rozpoznawać dobro i
+
+żyć nim.
+
+---
+
+II. PSYCHIKA
+
+Drugim wymiarem człowieka jest psychika.
+
+W tym modelu wykorzystuję klasyczny podział Freuda na id, ego i
+
+superego. Traktuję go jednak jako uproszczony język opisu
+
+różnych procesów psychicznych, a nie jako kompletny
+
+współczesny model psychologiczny.
+
+4. Id — potrzeby, popędy i pragnienia
+
+Id można rozumieć jako obszar podstawowych potrzeb,
+
+impulsów, popędów i spontanicznych pragnień.
+
+Należą do niego między innymi potrzeba przyjemności,
+
+bezpieczeństwa, bliskości, zaspokojenia głodu, a także popęd
+
+seksualny.
+
+Samo istnienie potrzeb i popędów nie jest czymś złym. Są częścią
+
+ludzkiej natury. Problem pojawia się wtedy, gdy człowiek uznaje,
+
+że każda pojawiająca się potrzeba musi zostać natychmiast
+
+zaspokojona.
+
+Dojrzałość nie polega więc na zniszczeniu pragnień, lecz na ich
+
+rozpoznaniu i właściwym ukierunkowaniu.
+
+---
+
+5. Ego — świadomość, decyzja i rzeczywistość
+
+Ego można rozumieć jako obszar świadomego funkcjonowania
+
+człowieka.
+
+Tutaj człowiek rozpoznaje rzeczywistość, planuje, podejmuje
+
+decyzje, kontroluje impulsy i zastanawia się nad konsekwencjami
+
+własnych działań.
+
+Ego próbuje odpowiedzieć na pytanie:
+
+„Czego pragnę, co jest możliwe i co powinienem zrobić?”
+
+Jest więc pewnego rodzaju pośrednikiem pomiędzy pragnieniami
+
+id, wymaganiami superego a rzeczywistością.
+
+W tym obszarze znajdują się również świadomość własnego „ja”,
+
+odpowiedzialność, samokontrola, zdolność podejmowania
+
+decyzji, budowanie relacji i rozwiązywanie problemów.
+
+---
+
+6. Superego — wartości, normy i ideały
+
+Superego w klasycznej teorii Freuda odnosi się do
+
+uwewnętrznionych norm, zakazów, wartości i ideałów.
+
+Można je więc powiązać z pytaniem:
+
+„Jak powinienem żyć?”
+
+Tutaj pojawiają się zasady, wartości, obowiązki, ideały oraz
+
+poczucie odpowiedzialności.
+
+Warto jednak odróżnić freudowskie superego od
+
+chrześcijańskiego rozumienia sumienia. Sumienie nie jest po
+
+prostu zbiorem zakazów przejętych od rodziców czy
+
+społeczeństwa. W perspektywie chrześcijańskiej jest ono
+
+miejscem rozeznawania dobra i zła w świetle prawdy.
+
+Dojrzałość psychiczna polega więc nie tylko na tym, aby mieć
+
+zasady, ale również na tym, aby potrafić je rozumieć, rozeznawać i
+
+odpowiedzialnie stosować.
+
+---
+
+Seksualność — obszar łączący człowieka
+
+Szczególnym przykładem wzajemnego przenikania się psychiki,
+
+ciała i duchowości jest seksualność.
+
+Nie umieszczałbym jej wyłącznie w id.
+
+Seksualność ma oczywiście wymiar popędowy, dlatego silnie
+
+wiąże się z id.
+
+Jednocześnie człowiek może świadomie decydować, jak
+
+przeżywa swoją seksualność, jakie podejmuje relacje i jakie
+
+stawia granice — dlatego seksualność dotyczy również ego.
+
+Ma również wymiar wartości, odpowiedzialności i sumienia,
+
+dlatego wiąże się z superego.
+
+Można więc przedstawić ją jako:
+
+id  pragnienie ego  świadomy wybór superego  wartości i
+
+odpowiedzialność
+
+Ale seksualność nie należy wyłącznie do psychiki. Jest również
+
+związana z ciałem, emocjami, relacjami, miłością, bliskością i
+
+płodnością.
+
+Dlatego jest jednym z najlepszych przykładów na to, że człowieka
+
+nie da się naprawdę podzielić na trzy niezależne części.
+
+---
+
+III. FIZJONOMIA — CIAŁO
+
+Trzecim wymiarem człowieka jest fizjonomia, czyli jego
+
+cielesność.
+
+Ciało nie jest czymś oddzielonym od psychiki i duchowości. To
+
+poprzez ciało człowiek doświadcza świata, pracuje, odpoczywa,
+
+komunikuje się, kocha i działa.
+
+7. Jedzenie i picie — odżywianie
+
+Pierwszym obszarem cielesności jest jedzenie i picie.
+
+Organizm potrzebuje odpowiedniego odżywiania i nawodnienia,
+
+aby prawidłowo funkcjonować.
+
+Jedzenie nie jest jednak tylko czynnością biologiczną. Wiąże się
+
+również z psychiką, emocjami, kulturą, relacjami i przyjemnością.
+
+Dlatego zdrowa relacja z jedzeniem nie polega ani na
+
+bezrefleksyjnym zaspokajaniu każdego apetytu, ani na obsesyjnej
+
+kontroli.
+
+Potrzebna jest równowaga.
+
+Ciało potrzebuje pokarmu, psychika właściwej relacji z jedzeniem,
+
+a duchowość może uczyć wdzięczności i odpowiedzialności za
+
+otrzymane życie.
+
+---
+
+8. Sprawność fizyczna i intelektualna — działanie
+
+Drugim obszarem jest aktywność, czyli sprawność fizyczna i
+
+intelektualna.
+
+Obejmuje ona ruch, pracę, naukę, rozwój intelektualny,
+
+kreatywność, wykonywanie obowiązków oraz rozwijanie własnych
+
+zdolności.
+
+Człowiek potrzebuje zarówno ruchu ciała, jak i wysiłku umysłu.
+
+Nie został stworzony wyłącznie do odpoczynku. Potrzebuje
+
+również działania, tworzenia, poznawania i rozwoju.
+
+Jednocześnie aktywność musi mieć swoje granice.
+
+Praca bez odpoczynku prowadzi do wyczerpania, a odpoczynek
+
+bez działania może prowadzić do stagnacji.
+
+---
+
+9. Odpoczynek i relaks — regeneracja
+
+Trzecim obszarem jest odpoczynek, sen i regeneracja.
+
+Człowiek potrzebuje czasu, w którym nie musi niczego
+
+produkować, osiągać ani rozwiązywać.
+
+Sen regeneruje ciało, relaks zmniejsza napięcie, a czas wolny
+
+pozwala psychice odzyskać równowagę.
+
+Odpoczynek nie jest przeciwieństwem pracy.
+
+Jest warunkiem dalszego działania.
+
+Życie człowieka potrzebuje więc rytmu:
+
+pokarm  działanie  odpoczynek  ponowne działanie.
+
+Podobny rytm można dostrzec również w życiu duchowym:
+
+modlitwa, działanie, słuchanie Boga i wewnętrzna regeneracja.
+
+---
+
+Dziewięć obszarów — jeden człowiek
+
+Mój model można więc przedstawić następująco:
+
+Wymiar| Obszar| Główna funkcja Duchowość| 1. Wiara —
+
+modlitwa — Jezus| zawierzenie i relacja z Bogiem Duchowość| 2.
+
+Nadzieja — głoszenie — Duch Święty| przekazywanie dobra i
+
+nadziei Duchowość| 3. Miłość — Biblia — słuchanie Boga|
+
+poznawanie prawdy i wzrastanie w mądrości Psychika| 4. Id|
+
+potrzeby, popędy i pragnienia Psychika| 5. Ego| świadomość,
+
+decyzje i rzeczywistość Psychika| 6. Superego| wartości, normy i
+
+odpowiedzialność Ciało| 7. Jedzenie i picie| odżywianie Ciało| 8.
+
+Sprawność fizyczna i intelektualna| działanie i rozwój Ciało| 9.
+
+Odpoczynek i relaks| regeneracja
+
+Te dziewięć obszarów nie powinno być traktowanych jako
+
+dziewięć oddzielnych części człowieka.
+
+Tworzą jeden system wzajemnych zależności.
+
+To, co dzieje się w duchowości, może wpływać na psychikę.
+
+To, co dzieje się w psychice, może wpływać na ciało.
+
+To, co dzieje się w ciele, może wpływać na psychikę i duchowość.
+
+Człowiek przemęczony może mieć trudności z koncentracją na
+
+modlitwie. Człowiek przeżywający wewnętrzny chaos może
+
+zaniedbywać ciało. Człowiek pozbawiony poczucia sensu może
+
+próbować wypełniać wewnętrzną pustkę nadmierną pracą,
+
+jedzeniem, przyjemnością lub innymi bodźcami.
+
+Dlatego holistyczna troska o człowieka wymaga troski o
+
+wszystkie trzy wymiary.
+
+---
+
+Równowaga nie oznacza matematycznej równości
+
+Wszystkie dziewięć obszarów jest ważnych, ale nie oznacza to, że
+
+człowiek każdego dnia powinien poświęcać im dokładnie tyle
+
+samo czasu.
+
+Holistyczna równowaga nie jest matematyczną równością.
+
+W jednym okresie życia człowiek może potrzebować więcej
+
+odpoczynku. W innym więcej nauki, pracy, modlitwy, relacji czy
+
+aktywności fizycznej.
+
+Równowaga oznacza raczej umiejętność rozpoznawania, czego w
+
+danym momencie potrzebuje cały człowiek.
+
+Nie chodzi więc o to, aby dziewięć pól było zawsze jednakowo
+
+wypełnionych, lecz aby żadne z nich nie było trwale
+
+zaniedbywane.
+
+---
+
+Mądrość jako integracja całego człowieka
+
+Ostatecznym celem nie jest perfekcyjne zadbanie o dziewięć
+
+obszarów.
+
+Celem jest mądrość, czyli umiejętność właściwego
+
+porządkowania całego życia.
+
+Duch nadaje kierunek. Psychika pomaga rozeznawać. Ciało
+
+pozwala działać w świecie.
+
+Duchowość, psychika i ciało nie powinny ze sobą walczyć.
+
+Pragnienia nie muszą być wrogiem wartości. Wartości nie muszą
+
+oznaczać odrzucenia potrzeb. Aktywność nie musi oznaczać
+
+rezygnacji z odpoczynku. Odpoczynek nie musi oznaczać
+
+rezygnacji z działania. Duchowość nie musi oznaczać ucieczki od
+
+rzeczywistości. Troska o ciało nie musi oznaczać zapomnienia o
+
+duchu.
+
+Człowiek jest jednością.
+
+Dlatego mój blog skupia się na duchowości, ale duchowość jest
+
+przeżywana przez konkretnego człowieka — posiadającego
+
+psychikę, ciało, potrzeby, emocje, pragnienia, relacje, rozum i
+
+wolną wolę.
+
+Moim celem nie jest więc przeciwstawianie ducha ciału ani
+
+duchowości psychice.
+
+Przeciwnie — chcę spojrzeć na człowieka jako na całość.
+
+Wiara daje fundament. Nadzieja otwiera na przyszłość. Miłość
+
+nadaje właściwy kierunek.
+
+Id ujawnia pragnienia. Ego pomaga dokonywać wyborów.
+
+Superego przypomina o wartościach i odpowiedzialności.
+
+Pokarm daje siłę. Aktywność pozwala ją wykorzystać.
+
+Odpoczynek pozwala ją odzyskać.
+
+W ten sposób dziewięć obszarów tworzy jednego człowieka.
+
+A zdrowie i dojrzałość nie polegają na tym, że wszystko zawsze
+
+działa idealnie. Polegają na umiejętności zauważenia braku
+
+równowagi i stopniowego przywracania właściwych proporcji.
+
+Człowiek zdrowy holistycznie to nie człowiek pozbawiony
+
+słabości, lecz człowiek, który troszczy się o całego siebie — o
+
+ducha, psychikę i ciało — i dąży do tego, aby wszystkie te wymiary
+
+współpracowały ze sobą w poszukiwaniu prawdy, dobra, miłości i
+
+mądrości.
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 339
@@ -508,7 +1424,7 @@ Rozważanie Pisma Świętego dla dnia 339.
 
 ---
 
-# Dzień 340 — Widoki na Raj — Dzień 340 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
+# Dzień 340 — WnR365 — Widoki na Raj — Dzień 340 — [01.09.2026] Komuna —
 
 ## Wstęp
 Wstęp modlitewny dnia 340. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -656,8 +1572,188 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj — Dzień 340 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
-Świętym.
+### WnR365 — Widoki na Raj — Dzień 340 — [01.09.2026] Komuna —
+własność Boga i praca dla wspólnego dobra
+
+Komuna nie jest wymysłem komunizmu ani marksizmu. Sama
+
+idea wspólnoty dóbr ma swoje korzenie znacznie wcześniej — w
+
+nauczaniu Jezusa i w życiu pierwszych chrześcijan.
+
+W Dziejach Apostolskich czytamy o wspólnocie, w której wierzący
+
+dzielili się tym, co posiadali: „Wszystko mieli wspólne”. Nie
+
+chodziło jednak o system narzucony przez państwo, lecz o
+
+dobrowolną wspólnotę opartą na wierze, miłości,
+
+odpowiedzialności i przekonaniu, że ostatecznie wszystko, co
+
+posiadamy, należy do Boga.
+
+W pierwszych wspólnotach chrześcijańskich człowiek nie miał
+
+być pozostawiony sam sobie. To, co wspólnota posiadała, miało
+
+służyć wszystkim, a pomoc była rozdzielana według potrzeb. Nie
+
+oznaczało to mechanicznego rozdawania każdemu dokładnie tej
+
+samej ilości, ponieważ sprawiedliwość nie zawsze oznacza
+
+równość matematyczną. Każdy powinien mieć zapewnione to,
+
+czego potrzebuje do godnego życia, a człowiek znajdujący się w
+
+szczególnej sytuacji powinien otrzymać dodatkowe wsparcie.
+
+Dlatego wyobrażam sobie wspólnotę, w której każdy ma
+
+zapewnione podstawowe środki do życia, a jeśli ktoś potrzebuje
+
+czegoś więcej, jego sytuację rozpatrują osoby odpowiedzialne za
+
+wspólnotę — na wzór diakonów. Nie po to, aby jedni mieli władzę
+
+nad drugimi, ale aby pomoc była roztropna, sprawiedliwa i
+
+rzeczywiście odpowiadała potrzebom człowieka.
+
+Jednocześnie bardzo ważna jest praca.
+
+Słowa św. Pawła: „Kto nie chce pracować, niech też nie je” nie
+
+rozumiem jako wezwania do pozostawienia człowieka bez
+
+środków do życia. Przeciwnie — rozumiem je jako podkreślenie
+
+wartości pracy i odpowiedzialności za wspólnotę. Człowiek, który
+
+nie ma zatrudnienia, powinien mieć możliwość otrzymania pracy.
+
+Nie każdy musi wykonywać tę samą pracę i nie każdy ma takie
+
+same możliwości, ale każdy, kto może pracować, powinien mieć
+
+możliwość wniesienia swojego wkładu we wspólne dobro.
+
+W takim ujęciu nie chodzi przede wszystkim o pieniądze ani o to,
+
+ile ktoś zarabia. Chodzi o samą pracę — o uczestnictwo w życiu
+
+wspólnoty i o świadomość, że każdy człowiek może być
+
+potrzebny.
+
+To szczególnie ważne w czasach, gdy sztuczna inteligencja i
+
+automatyzacja coraz bardziej zastępują człowieka w wielu
+
+rodzajach pracy. Jeżeli technologia będzie wykonywała coraz
+
+więcej zadań, nie możemy dopuścić do sytuacji, w której człowiek
+
+traci możliwość godnego życia tylko dlatego, że jego praca
+
+przestała być potrzebna ekonomicznie. Być może właśnie wtedy
+
+będziemy musieli na nowo odkryć, że człowiek ma wartość nie
+
+dlatego, że jest opłacalny, lecz dlatego, że jest człowiekiem.
+
+Wspólnota oparta na Bogu mogłaby więc działać inaczej:
+
+człowiek otrzymuje możliwość pracy, praca służy wspólnocie, a
+
+dobra wspólnoty służą człowiekowi.
+
+Nie oznacza to jednak, że wszyscy muszą mieć dokładnie tyle
+
+samo. Oznacza raczej, że nikt nie powinien gromadzić dóbr
+
+kosztem innych, podczas gdy ktoś obok nie ma tego, czego
+
+potrzebuje. Równość godności nie musi oznaczać identyczności
+
+potrzeb. Sprawiedliwość polega na tym, aby każdy otrzymał to, co
+
+jest mu potrzebne, a jednocześnie aby każdy — na miarę swoich
+
+możliwości — dawał coś od siebie.
+
+Współczesny świat często prowadzi nas w przeciwnym kierunku.
+
+Jednostki, indywidualiści i karierowicze chcą mieć jak najwięcej.
+
+Pojawia się myślenie: „to jest moje”, „to należy do mnie”, „mam
+
+prawo do własności”. Prawo własności może mieć swoje miejsce
+
+w społeczeństwie, ale chrześcijaństwo przypomina, że własność
+
+nie jest wartością absolutną. Wszystko, co człowiek posiada,
+
+ostatecznie pochodzi od Boga i powinno być używane również dla
+
+dobra innych.
+
+Podobną ideę można odnaleźć nie tylko w chrześcijaństwie. W
+
+judaizmie również istnieją tradycje wspólnotowego życia i
+
+dzielenia się dobrami. W chrześcijaństwie szczególnym
+
+przykładem są zakony, w których człowiek rezygnuje z osobistego
+
+gromadzenia majątku i przyjmuje życie wspólnotowe. Nie
+
+oznacza to zniesienia odpowiedzialności, lecz zmianę sposobu
+
+rozumienia własności: z „moje” na „powierzone nam”.
+
+I właśnie tego najbardziej pragnę.
+
+Marzę o życiu, w którym nie muszę ciągle mówić: „to jest moje”.
+
+Chciałbym móc powiedzieć: to jest Boga i zostało mi powierzone.
+
+Dom, pieniądze, rzeczy, talenty, wiedza, praca, czas i całe życie —
+
+nic z tego nie jest naprawdę moje w sensie absolutnym. Jestem
+
+tylko zarządcą tego, co otrzymałem.
+
+Dlatego prawdziwa „komuna” nie musi oznaczać komunizmu.
+
+Może oznaczać wspólnotę ludzi, którzy uznają, że Bóg jest
+
+właścicielem wszystkiego, człowiek jest jego zarządcą, a dobra
+
+stworzenia powinny służyć wszystkim.
+
+Jeżeli taka wspólnota jest oparta nie na przymusie, lecz na wierze,
+
+miłości, odpowiedzialności i sprawiedliwości, może stać się nie
+
+tylko wspomnieniem pierwszych chrześcijan, ale również
+
+odpowiedzią na przyszłość, w której coraz więcej pracy będzie
+
+wykonywała sztuczna inteligencja.
+
+Być może właśnie wtedy będziemy musieli zadać sobie pytanie
+
+nie: „Ile jestem wart, skoro nie jestem już potrzebny na rynku
+
+pracy?”, lecz: „Jak mogę służyć wspólnocie tym, co Bóg mi dał?”
+
+Bo człowiek nie żyje po to, aby posiadać.
+
+Posiadamy po to, aby służyć. Pracujemy po to, aby budować
+
+wspólnotę. A wszystko, co mamy, ostatecznie należy do Boga.
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 340
@@ -666,7 +1762,7 @@ Rozważanie Pisma Świętego dla dnia 340.
 
 ---
 
-# Dzień 341 — Widoki na Raj — Dzień 341 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
+# Dzień 341 — WnR365 — Widoki na Raj — Dzień 341 — [26.08.2026] Krzyż — mapa
 
 ## Wstęp
 Wstęp modlitewny dnia 341. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -825,8 +1921,346 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj — Dzień 341 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
-Świętym.
+### WnR365 — Widoki na Raj — Dzień 341 — [26.08.2026] Krzyż — mapa
+barw widzialnego i niewidzialnego świata
+
+Krzyż Jezusa Chrystusa można odczytać nie tylko jako znak Jego
+
+męki i zbawienia, lecz także jako symboliczną mapę dwóch
+
+rzeczywistości: tego, co widzialne i dotykalne, oraz tego, co
+
+niewidzialne i duchowe. Rany Chrystusa mogą być w tym obrazie
+
+odczytane jako barwy, a ich układ jako pewien duchowy schemat,
+
+w którym spotykają się światło i ciemność, materia i duch, życie i
+
+śmierć.
+
+Nie jest to próba stworzenia nauki o Bogu, lecz osobista
+
+symboliczna refleksja nad tajemnicą Krzyża i nad tym, jak
+
+człowiek może rozeznawać dobro, zło, prawdę i własną drogę ku
+
+Bogu.
+
+1. Biel — światło
+
+Nad Krzyżem rozciąga się biel — światło, czystość, prawda i to, co
+
+pochodzi od Boga. To kierunek ku Niebu, ku pełni i ku życiu.
+
+Biel znajduje się ponad Krzyżem, jakby wskazywała, że
+
+ostatecznym celem człowieka nie jest ciemność, cierpienie ani
+
+nicość, lecz światło Boga. To właśnie w to światło powinniśmy się
+
+wpatrywać.
+
+2. Czerń — ciemność
+
+Na dole pionowej belki pojawia się czerń — ziemia, ciężar materii,
+
+cierpienie, śmierć i granica ludzkiego poznania.
+
+Czerń nie musi jednak oznaczać wyłącznie zła. Może być także
+
+miejscem tajemnicy, granicą naszego poznania. Dopiero zejście w
+
+ciemność pozwala zobaczyć, jak bardzo potrzebujemy światła.
+
+3. Niebieski — Niebo
+
+Po prawej stronie widzialnego Krzyża widzę niebieski — barwę
+
+nieba, nadziei i przestrzeni, która prowadzi wzrok ku górze.
+
+Niebieski może przypominać o rzeczywistości duchowej, która
+
+przekracza to, co materialne. Nie odrywa jednak człowieka od
+
+ziemi, lecz wskazuje kierunek, w którym powinien podnosić swoje
+
+serce.
+
+4. Czerwień — ofiara
+
+Po lewej stronie widzialnego Krzyża pojawia się czerwień — krew,
+
+życie, ofiara i miłość, która gotowa jest ponieść koszt.
+
+To przede wszystkim krew Chrystusa przelana na Krzyżu dla
+
+naszego zbawienia. Czerwień przypomina, że zbawienie nie jest
+
+abstrakcyjną ideą. Dokonało się w prawdziwym ciele, w
+
+prawdziwym cierpieniu i przez prawdziwą ofiarę Jezusa.
+
+5. Zieleń i szarość — miejsce spotkania
+
+W środku Krzyża pojawiają się zieleń i szarość.
+
+Zieleń oznacza życie, wzrost, naturę i stworzenie. Przypomina, że
+
+Bóg działa również poprzez rzeczy zwyczajne i naturalne.
+
+Człowiek nie musi nieustannie szukać tego, co niezwykłe.
+
+Szarość natomiast oznacza zwyczajność, codzienność,
+
+przeciętność i to, co niepozorne i często niedoceniane.
+
+Jest w tym dla mnie szczególna symbolika Chrystusa. Jezus
+
+narodził się w Betlejem — miejscu, które nie było centrum ludzkiej
+
+potęgi. To, co małe i pozornie nieistotne, zostało przez Boga
+
+wyniesione do wielkiej chwały.
+
+Tak samo Krzyż może wyglądać jak coś zwyczajnego, surowego i
+
+pozbawionego blasku, a jednak właśnie w nim objawia się chwała
+
+Zbawiciela.
+
+6. RGBA — barwy światła
+
+Widzialna część Krzyża przypomina schemat RGBA: czerwony,
+
+zielony, niebieski oraz alfa — przezroczystość.
+
+Czerwień, zieleń i niebieski tworzą mapę barw światła —
+
+rzeczywistości widzialnej dzięki światłu. Kanał alfa przypomina
+
+natomiast, że również widzialność może mieć różny stopień
+
+przejrzystości.
+
+A skoro widzimy dzięki światłu, to światło może stać się dla nas
+
+obrazem Boga — niewidzialnego źródła wszelkiego światła.
+
+7. Odbicie pod ziemią
+
+Pod powierzchnią ziemi znajduje się symboliczne odbicie Krzyża
+
+— jego niewidzialne korzenie.
+
+Tam zaczyna się droga od czerni ku pustce — ku
+
+przezroczystości, w której dusza nie widzi Boga.
+
+Nie oznacza to, że Bóg przestaje istnieć. To człowiek może
+
+utracić zdolność dostrzegania Boga, gdy coraz bardziej oddala się
+
+od światła, prawdy i rzeczywistości.
+
+Podziemne odbicie jest więc obrazem rzeczywistości ukrytej i
+
+tajemnicy, w której człowiek potrzebuje szczególnego rozeznania.
+
+8. CMYK — barwy materii
+
+Pod ziemią pojawia się drugi porządek barw: CMYK — cyan,
+
+magenta, yellow i black.
+
+Tutaj barwa jest związana z materią, pigmentem, ziemią i tym, co
+
+można fizycznie zapisać i odtworzyć.
+
+RGBA i CMYK stają się więc symbolicznym zestawieniem dwóch
+
+sposobów patrzenia na rzeczywistość: światła i materii.
+
+Jedno nie musi negować drugiego. Człowiek żyje przecież
+
+jednocześnie w świecie fizycznym i duchowym.
+
+9. Cyan — płynność i struktura
+
+Po lewej stronie podziemnej belki poziomej pojawia się cyan —
+
+barwa wody, przepływu, komunikacji i struktury materii.
+
+To, co nadaje formę i kierunek światu fizycznemu. Cyan należy do
+
+materialnego porządku CMYK i tworzy część niewidocznego pod
+
+ziemią odbicia Krzyża.
+
+W zestawieniu z czerwienią widoczną nad ziemią tworzy inną
+
+perspektywę patrzenia na rzeczywistość: nie światło padające na
+
+materię, lecz barwę zapisaną w samej materii.
+
+10. Magenta — energia i przemiana
+
+Po prawej stronie podziemnej belki poziomej znajduje się
+
+magenta — barwa energii, przemiany, siły i pasji.
+
+To moc, która może poruszać materię, ale może też prowadzić do
+
+błędu, jeśli zostanie pozbawiona właściwego kierunku.
+
+Jej położenie po przeciwnej stronie niż cyan pokazuje dwa
+
+kierunki podziemnego, niewidzialnego odbicia Krzyża. Dopiero ich
+
+spotkanie z pionową belką tworzy centrum tego symbolicznego
+
+układu.
+
+11. Duch Święty — obecność i światło
+
+W centrum, na przecięciu widzialnych belek Krzyża, obecny jest
+
+symbolicznie Duch Święty — Ten, który łączy, ożywia i prowadzi
+
+ku światłu.
+
+W tym miejscu spotykają się różne barwy i różne rzeczywistości.
+
+Zieleń, szarość, czerwień, niebieski, materia i światło tworzą jeden
+
+Krzyż.
+
+Duch Święty jest więc dla mnie obrazem życia, jedności,
+
+rozeznania i kierunku prowadzącego ku Bogu.
+
+12. Duch zły — przeciwieństwo drogi ku światłu
+
+W miejscu przecięcia niewidzialnych belek pod ziemią widzę
+
+obraz ducha złego — rzeczywistości, która próbuje odciągnąć
+
+człowieka od prawdy, dobra, rzeczywistości i zakorzenienia w
+
+Bogu.
+
+Każdy człowiek doświadcza różnych poruszeń wewnętrznych i
+
+dlatego często trudno mu rozpoznać, które prowadzą ku dobru, a
+
+które ku złu.
+
+Tym bardziej potrzebujemy czujności, rozeznania i światła.
+
+Nie każdy głos, który pojawia się w naszym wnętrzu, jest głosem
+
+Boga.
+
+13. Motyl — materia ożywiona duchem
+
+Motyl staje się znakiem przemiany.
+
+Jego żółto-zielony korpus może symbolizować miejsce, w którym
+
+martwa materia spotyka się z żywym duchem, wprawiając
+
+wszystko w ruch.
+
+Motyl jest obrazem tego, co związane z ziemią, a następnie
+
+zostaje skierowane ku powietrzu i światłu. Może więc
+
+symbolizować przemianę, życie i nadzieję.
+
+Człowiek powinien podejmować dobre wybory, których źródłem
+
+jest Duch Święty, a unikać tego, co prowadzi ku złemu duchowi,
+
+który odcina od rzeczywistości, prawdy i życia.
+
+14. Prawda nad ziemią, tajemnica pod ziemią
+
+Nad ziemią znajduje się to, co można zobaczyć, dotknąć i
+
+zweryfikować. Pod ziemią znajduje się świat ukryty, w którym
+
+łatwo pomylić prawdę z iluzją, rzeczywistość z wyobrażeniem, a
+
+światło z pustką.
+
+Nie oznacza to, że wszystko, co niewidzialne, jest fałszem — Bóg
+
+przecież jest niewidzialny.
+
+Chodzi o rozeznanie.
+
+Człowiek nie powinien pozwolić, aby to, czego nie potrafi
+
+rozpoznać, oderwało go od prawdy i rzeczywistości.
+
+Dlatego potrzebujemy czujności i światła, aby rozróżniać to, co
+
+prowadzi ku Bogu, od tego, co prowadzi ku oddaleniu od Niego.
+
+15. Wpatrzenie w światło
+
+Nie wpatrujmy się w czerń ani w pustkę, lecz w światło ponad
+
+Krzyżem — ponad ciemnością, ponad szarością codzienności i
+
+ponad pustką.
+
+Dusza ma być zwrócona ku Niebu, a ciało ma twardo stąpać po
+
+ziemi.
+
+Mamy żyć w prawdzie i rzeczywistości, pamiętając o fizycznie
+
+prawdziwym Jezusie Chrystusie, który narodził się w Betlejem, żył
+
+pośród ludzi, cierpiał, umarł na Krzyżu i zmartwychwstał.
+
+To On prowadzi nas do światła przez zwyczajność codzienności i
+
+przez naturę.
+
+Nie musimy nieustannie szukać fajerwerków. Bóg może być
+
+obecny właśnie w tym, co ciche, zwyczajne i pozornie niepozorne
+
+— jak delikatny podmuch wiatru, którego nie widzimy, a jednak
+
+możemy odczuć jego obecność.
+
+Dlatego uczmy się rozpoznawać Boga nie tylko w tym, co
+
+niezwykłe, ale również w ciszy, prawdzie, miłości, drugim
+
+człowieku, świecie stworzonym i zwyczajności życia.
+
+Bo Krzyż pokazuje nam, że to, co ludzkie odrzuca jako małe,
+
+zwyczajne i niegodne uwagi, Bóg może wynieść do swojej chwały.
+
+Jezus Chrystus — odrzucony przez budujących — stał się
+
+kamieniem węgielnym.
+
+A my, stojąc mocno na ziemi, mamy podnosić serce ku Niebu.
+
+Dusza w świetle. Ciało na ziemi. Serce przy Chrystusie.
+
+Amen.
+
+---
+
+KRZYŻ — MIEJSCE SPOTKANIA NIEBA I ZIEMI, ŚWIATŁA I
+
+CIEMNOŚCI, BOGA I CZŁOWIEKA.
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 341
@@ -835,7 +2269,7 @@ Rozważanie Pisma Świętego dla dnia 341.
 
 ---
 
-# Dzień 342 — Widoki na Raj — Dzień 342 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
+# Dzień 342 — WnR365 — Widoki na Raj — Dzień 342 — [24.08.2026] Sen o pracy,
 
 ## Wstęp
 Wstęp modlitewny dnia 342. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -989,8 +2423,350 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj — Dzień 342 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
-Świętym.
+### WnR365 — Widoki na Raj — Dzień 342 — [24.08.2026] Sen o pracy,
+powołaniu i poszukiwaniu kościoła
+
+Miałem sen, który odebrałem jako bardzo osobistą i duchową
+
+opowieść. Nie wiem, czy był to jedynie sen będący odbiciem
+
+moich myśli, pragnień i doświadczeń, czy też coś, co może stać
+
+się dla mnie impulsem do głębszej refleksji. Nie chcę przypisywać
+
+mu z góry nadprzyrodzonego znaczenia. Chcę raczej przyjrzeć się
+
+temu, co pojawiło się w nim w sposób niezwykle wyraźny.
+
+Śniło mi się, że rozpocząłem nową pracę przy komputerze. Była
+
+tam jakaś załoga, ludzie, z którymi miałem pracować. W pewnym
+
+momencie jedna z osób powiedziała mi, że właściwie nie muszę
+
+pracować — wystarczy, że jestem.
+
+To zdanie bardzo mnie zastanowiło.
+
+„Nie musisz pracować. Wystarczy, że jesteś.”
+
+Może kryje się w nim przypomnienie, że moja wartość nie zależy
+
+wyłącznie od tego, ile wykonuję zadań, ile zarabiam, ile projektów
+
+kończę ani jak bardzo jestem produktywny. Człowiek nie staje się
+
+wartościowy dopiero wtedy, gdy coś zrobi. Najpierw jest osobą.
+
+Dopiero później przychodzą jego działania, praca, osiągnięcia i
+
+obowiązki.
+
+Być może jest to również ważne w mojej relacji z Bogiem. Przed
+
+Bogiem nie muszę niczego udowadniać. Nie muszę zasługiwać
+
+na Jego uwagę poprzez własną doskonałość. Mogę po prostu być
+
+— stanąć przed Nim taki, jaki jestem.
+
+Ale sen nie zatrzymał się na tym.
+
+Wyszedłem gdzieś i spotkałem kobietę o imieniu Jezusa. To imię
+
+było dla mnie szczególnie niezwykłe, ponieważ kojarzy się
+
+bezpośrednio z Jezusem Chrystusem. Nie chcę jednak
+
+utożsamiać tej postaci ze Zbawicielem ani traktować snu jako
+
+objawienia. Sam fakt, że pojawiło się właśnie takie imię, skłania
+
+mnie jednak do refleksji.
+
+Kobieta zaproponowała mi pracę. Jednocześnie sugerowała, że
+
+chce mnie sprawdzić — zobaczyć, czy dam sobie w tej pracy radę.
+
+To było zupełnie inne przesłanie niż wcześniejsze: najpierw
+
+usłyszałem, że wystarczy, że jestem, a chwilę później ktoś
+
+proponuje mi zadanie i chce sprawdzić moje możliwości.
+
+Może właśnie tutaj pojawia się pewne napięcie, które znam
+
+również z życia.
+
+Najpierw trzeba nauczyć się być, a dopiero potem działać.
+
+Nie chodzi o to, że praca i wysiłek są nieważne. Przeciwnie.
+
+Człowiek otrzymuje talenty, możliwości i odpowiedzialność po to,
+
+aby je rozwijać i wykorzystywać dla dobra. Ale działanie nie
+
+powinno zastępować istnienia. Nie powinienem budować całej
+
+swojej wartości na tym, czy jestem wystarczająco skuteczny.
+
+Być może sen przypomina mi więc o właściwej kolejności:
+
+najpierw jestem — potem działam. Najpierw przyjmuję swoją
+
+wartość — potem podejmuję odpowiedzialność. Najpierw jestem
+
+z Bogiem — potem próbuję coś dla Niego zrobić.
+
+Kiedy wróciłem do swojej pracy, okazało się, że cała załoga
+
+wyszła do restauracji na kolację. Zostałem więc sam i poszedłem
+
+dalej.
+
+To również wydaje mi się znaczące.
+
+Inni poszli razem na kolację, a ja poszedłem w inną stronę. Nie
+
+wiem, czy oznacza to samotność, poczucie wyobcowania, czy po
+
+prostu inną drogę. Być może sen pokazuje mi, że czasami
+
+człowiek musi iść dalej, nawet jeśli inni wybierają inną drogę.
+
+Nie poszedłem jednak do restauracji.
+
+Zacząłem szukać kościoła.
+
+I właśnie wtedy sen nabrał dla mnie szczególnego charakteru.
+
+Szukałem miejsca, w którym mógłbym odnaleźć Boga. W końcu
+
+znalazłem kościół, ale jego zakrystia znajdowała się na zewnątrz,
+
+w osobnym budynku. Zobaczyłem tam stroje ministrantów —
+
+białe komże oraz zielone elementy stroju, kołnierze i sutanki.
+
+Biel skojarzyła mi się z czystością, światłem i nowym początkiem.
+
+Zieleń natomiast z życiem, wzrostem, nadzieją i naturą. W moim
+
+sposobie przeżywania wiary kolory mają szczególne znaczenie,
+
+dlatego ten fragment snu zwrócił moją uwagę jeszcze bardziej.
+
+A jednak to nie był kościół, którego szukałem.
+
+Poszedłem dalej.
+
+Szukałem innego kościoła, ale go nie znalazłem.
+
+I wtedy się obudziłem.
+
+Czy szukałem Boga, czy miejsca dla Boga?
+
+Najbardziej porusza mnie zakończenie tego snu.
+
+Przez całą jego historię pojawiały się trzy rzeczy: praca, obecność
+
+i poszukiwanie kościoła.
+
+Najpierw praca, w której usłyszałem, że wystarczy, iż jestem.
+
+Potem propozycja innej pracy, w której ktoś chciał sprawdzić, czy
+
+dam sobie radę.
+
+Na końcu — odejście od ludzi i poszukiwanie kościoła.
+
+Może ten sen nie mówi mi przede wszystkim o konkretnej pracy.
+
+Być może mówi o mojej drodze.
+
+Możliwe, że pytanie nie brzmi:
+
+„Co mam robić?”
+
+ale:
+
+„Kim mam być, kiedy to robię?”
+
+I jeszcze głębiej:
+
+„Dokąd właściwie zmierzam?”
+
+Kościół, którego szukałem, a którego ostatecznie nie znalazłem,
+
+może być obrazem mojego ciągłego poszukiwania właściwego
+
+miejsca spotkania z Bogiem. Znalazłem pewne miejsce,
+
+zobaczyłem jego zewnętrzne znaki, zobaczyłem zakrystię i stroje
+
+ministrantów, ale mimo to czułem, że powinienem szukać dalej.
+
+Nie chcę jednak rozumieć tego jako odrzucenia Kościoła. Wręcz
+
+przeciwnie. Być może jest to zaproszenie, aby nie zatrzymywać
+
+się wyłącznie na tym, co zewnętrzne.
+
+Można znaleźć budynek kościoła i nadal szukać Boga.
+
+Można zobaczyć szaty liturgiczne i nadal szukać ich znaczenia.
+
+Można być blisko religijnych znaków, a jednocześnie pytać:
+
+„Czy moje serce rzeczywiście jest skierowane ku Chrystusowi?”
+
+Być może właśnie dlatego we śnie poszedłem dalej.
+
+Jezus, praca i droga
+
+Szczególnie zastanawia mnie kobieta o imieniu Jezusa.
+
+Nie chcę tworzyć z tego symbolu zbyt daleko idących wniosków.
+
+Imię mogło być przypadkowym elementem snu. Ale skoro
+
+pojawiło się w takiej historii, mogę potraktować je jako punkt do
+
+modlitewnego rozważania.
+
+Kobieta o tym imieniu nie powiedziała mi: „nic nie rób”.
+
+Zaproponowała mi pracę.
+
+Chciała sprawdzić, czy dam sobie radę.
+
+To przypomina mi, że wiara nie jest ucieczką od życia. Chrystus
+
+nie musi oznaczać rezygnacji z odpowiedzialności, pracy,
+
+talentów czy działania. Być może przeciwnie — spotkanie z Nim
+
+powinno prowadzić człowieka do właściwego wykorzystania tego,
+
+co otrzymał.
+
+Ale jednocześnie sen rozpoczął się od bardzo prostego
+
+przesłania:
+
+„Wystarczy, że jesteś.”
+
+Może więc prawdziwe powołanie zaczyna się nie od pytania:
+
+„Co mam zrobić dla Boga?”
+
+lecz od pytania:
+
+„Czy potrafię być z Bogiem?”
+
+Dopiero z tej obecności może narodzić się działanie.
+
+Nie wiem, dokąd prowadzi ta droga
+
+Nie wiem, czy mój sen miał jakiekolwiek nadprzyrodzone źródło.
+
+Nie chcę tego rozstrzygać. Sny mogą być przecież mieszaniną
+
+wspomnień, emocji, pragnień, lęków i codziennych doświadczeń.
+
+Mogę jednak potraktować ten sen jako zaproszenie do refleksji i
+
+modlitwy.
+
+Widzę w nim człowieka, który rozpoczyna nową pracę.
+
+Człowieka, któremu przypomina się, że jego wartość nie zależy
+
+wyłącznie od pracy.
+
+Człowieka, który otrzymuje kolejne zadanie i zostaje poddany
+
+próbie.
+
+Człowieka, który ostatecznie nie idzie za tłumem do restauracji,
+
+lecz zaczyna szukać kościoła.
+
+I człowieka, który znajduje pewien kościół, ale nadal czuje, że
+
+powinien szukać dalej.
+
+Może właśnie tym człowiekiem jestem ja.
+
+Nie wiem jeszcze, gdzie znajduje się kościół, którego szukam.
+
+Nie wiem również, jaka będzie moja następna praca, jakie zadania
+
+otrzymam i czy dam sobie z nimi radę.
+
+Ale być może nie muszę znać całej drogi.
+
+Wystarczy, że zrobię kolejny krok.
+
+Jeżeli Bóg rzeczywiście prowadzi człowieka, nie zawsze pokazuje
+
+mu całą drogę naraz. Czasami pokazuje tylko następny krok.
+
+A więc chcę iść dalej.
+
+Nie za własną ambicją.
+
+Nie tylko za pracą.
+
+Nie tylko za sukcesem.
+
+Nie tylko za ludźmi.
+
+Chcę szukać Chrystusa.
+
+I może właśnie dlatego w tym śnie, kiedy nie znalazłem jeszcze
+
+kościoła, droga się nie skończyła.
+
+Obudziłem się.
+
+Ale nadal mogę iść.
+
+Modlitwa
+
+Jezu, jeśli ten sen jest tylko snem — pozwól mi mimo wszystko
+
+wydobyć z niego dobro. Jeśli jest odbiciem moich pragnień —
+
+pokaż mi, które z nich prowadzą ku Tobie. Jeśli jest pytaniem —
+
+daj mi cierpliwość, abym nie wymuszał odpowiedzi.
+
+Naucz mnie najpierw być, a dopiero potem działać. Naucz mnie
+
+pracować, ale nie budować własnej wartości wyłącznie na pracy.
+
+Naucz mnie przyjmować zadania i próby bez lęku. Naucz mnie
+
+rozpoznawać dobro, nawet wtedy, gdy droga nie jest jeszcze
+
+jasna.
+
+A kiedy będę szukał kościoła, wspólnoty, miejsca i właściwej
+
+drogi — nie pozwól mi zapomnieć, że najważniejsze nie jest samo
+
+miejsce, lecz Ty, którego szukam.
+
+Jeżeli mam iść dalej — prowadź mnie. Jeżeli mam się zatrzymać
+
+— naucz mnie czekać. Jeżeli mam pracować — pokaż mi, dla
+
+kogo i po co. A jeśli wystarczy, że po prostu jestem — naucz mnie
+
+uwierzyć, że przed Tobą naprawdę wystarczy.
+
+Amen.
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 342
@@ -999,7 +2775,7 @@ Rozważanie Pisma Świętego dla dnia 342.
 
 ---
 
-# Dzień 343 — Widoki na Raj — Dzień 343 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
+# Dzień 343 — WnR365 — Widoki na Raj — Dzień 343 — [23.08.2026] Bóg, medycyna i
 
 ## Wstęp
 Wstęp modlitewny dnia 343. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -1170,8 +2946,228 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj — Dzień 343 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
-Świętym.
+### WnR365 — Widoki na Raj — Dzień 343 — [23.08.2026] Bóg, medycyna i
+życie
+
+Wierzę, że Bóg jest wszędzie — również w medycynie, nauce oraz
+
+w ludziach, którzy mają wpływ na ich rozwój. Bóg działa przez
+
+ludzi, dlatego także w ich pracy, odkryciach i wysiłkach może
+
+objawiać się Jego działanie. Człowiek, posługując się rozumem,
+
+odkrywa prawa stworzenia, szuka sposobów leczenia chorób i
+
+przedłużania życia. Wierzę, że również w tym może działać Bóg,
+
+prowadząc człowieka coraz głębiej w poznawaniu tajemnicy
+
+życia.
+
+Trudno mi pogodzić się z tym, że nie mam potomka. Jest we mnie
+
+żal, że nie będę wychowywał własnego dziecka i nie przekażę
+
+swoich genów dalej — w biologicznym łańcuchu kolejnych
+
+pokoleń człowieka. To jest konkretna strata, której nie chcę
+
+udawać, że nie ma.
+
+Jednocześnie coraz bardziej dostrzegam, że człowiek może
+
+przekazywać siebie dalej nie tylko poprzez własne dzieci i geny.
+
+Możemy pozostawić po sobie również miłość, dobro, myśli,
+
+wiedzę, relacje i czyny, które będą miały wpływ na innych ludzi. To
+
+także jest pewnego rodzaju dziedzictwo.
+
+Dlatego wspólnie z żoną chcemy przekazać nasze ciała do badań,
+
+być może również do badań genetycznych. Jeżeli po naszej
+
+śmierci nasze ciała mogą pomóc lekarzom i naukowcom lepiej
+
+poznawać człowieka, choroby, dziedziczenie czy mechanizmy
+
+życia, chcemy, aby to, co po nas pozostanie, mogło służyć
+
+przyszłym pokoleniom.
+
+W pewnym sensie jest to dla mnie inny sposób przekazania siebie
+
+dalej. Nie poprzez własne potomstwo, lecz poprzez możliwość
+
+wykorzystania naszego ciała i pozostawienia po sobie czegoś, co
+
+może pomóc innym żyć dłużej i lepiej. Geny są jednym ze
+
+sposobów przekazywania życia dalej. Miłość, wiedza, dobro i
+
+wiara są innymi.
+
+Wierzę, że nauka i wiara nie muszą być przeciwieństwami. Jeżeli
+
+Bóg jest źródłem życia i obdarzył człowieka rozumem, to
+
+poszukiwanie prawdy o życiu, chorobie, starzeniu się i śmierci
+
+może być również drogą poznawania Jego stworzenia. Medycyna
+
+może stać się narzędziem dobra, kiedy człowiek wykorzystuje
+
+wiedzę, aby ratować życie, leczyć, łagodzić cierpienie i pomagać
+
+drugiemu człowiekowi.
+
+Wierzę więc, że Bóg prowadzi medycynę i inne dziedziny nauki ku
+
+coraz głębszemu poznaniu życia. Człowiek jest dziś bliżej
+
+poznania mechanizmów, które jeszcze niedawno wydawały się
+
+całkowicie poza jego możliwościami. Możemy coraz skuteczniej
+
+walczyć z chorobami, starzeniem się i śmiercią biologiczną. Być
+
+może jesteśmy również bliżej poznania tajemnicy życia niż
+
+kiedykolwiek wcześniej.
+
+Ale wierzę, że trzeba zachować właściwą perspektywę. Nie chodzi
+
+o to, że człowiek własnymi siłami może pokonać śmierć. Chodzi o
+
+to, że Bóg może działać przez człowieka, jego rozum, naukę,
+
+pracę, talenty i dary Ducha Świętego. Bóg nie chce, abyśmy byli
+
+jedynie biernymi obserwatorami Jego działania. Chce nas uczyć,
+
+wychowywać i prowadzić do pełni miłości, dlatego daje nam
+
+wolność, rozum, sumienie, talenty i możliwość współpracy z Jego
+
+łaską.
+
+Dlatego Boże działanie i ludzkie działanie nie muszą się
+
+wykluczać. Przeciwnie — człowiek może współpracować z
+
+Bogiem w walce o życie. Bóg może działać przez nasze ręce,
+
+nasze umysły i nasze serca. Może prowadzić naukę, medycynę i
+
+całą ludzką twórczość ku temu, czego jeszcze nie potrafimy sobie
+
+wyobrazić.
+
+Być może również zwycięstwo nad śmiercią będzie związane z
+
+taką współpracą Boga i człowieka — nie dlatego, że człowiek sam
+
+z siebie może stworzyć zmartwychwstanie, lecz dlatego, że Bóg
+
+może dokonać tego przez człowieka, prowadząc go dalej, niż dziś
+
+jesteśmy w stanie pojąć. Nauka i medycyna mogą być częścią tej
+
+drogi, jeżeli człowiek wykorzystuje swoje dary dla dobra i życia.
+
+Wierzę, że wszyscy, na wzór Jezusa, przejdziemy przez śmierć ku
+
+zmartwychwstaniu. Chrystus jest dla nas wzorem tej drogi. Tak
+
+jak Jezus przeszedł przez śmierć do życia, tak również człowiek
+
+może zostać poprowadzony przez Boga ku pełni życia,
+
+uczestnicząc w tej drodze całym sobą.
+
+Bóg daje łaskę, a człowiek może na nią odpowiedzieć i z nią
+
+współpracować. Obecny wszędzie Duch Święty może prowadzić
+
+człowieka przez jego rozum, sumienie, miłość, odkrycia, pracę i
+
+relacje z innymi. Zmartwychwstanie nie musi więc być dla mnie
+
+przeciwieństwem ludzkiego działania. Może być ostatecznym
+
+spełnieniem Bożego działania poprzez człowieka, który przez całe
+
+życie uczy się współpracy z Bogiem.
+
+Nie oznacza to, że człowiek staje się Bogiem ani że sam może
+
+stworzyć życie wieczne. Oznacza natomiast, że Bóg może
+
+posłużyć się człowiekiem w realizacji swojego zamysłu. Być może
+
+to właśnie jest częścią naszego powołania — aby poprzez rozum,
+
+wolność, naukę, miłość i współpracę z Bożą łaską uczestniczyć w
+
+przemianie świata.
+
+Dlatego kiedy mówię, że wierzę, iż jesteśmy blisko pokonania
+
+śmierci, widzę w tym zarówno rozwój ludzkiej wiedzy, jak i znak
+
+nadziei. Nie wiem, jak miałoby to wyglądać ani dokąd doprowadzi
+
+nas nauka. Wiem jednak, że człowiek coraz więcej rozumie, a im
+
+więcej poznaje, tym bardziej może odkrywać, jak wielka jest
+
+tajemnica życia.
+
+Być może również w tej drodze Bóg wychowuje ludzkość do pełni
+
+miłości — ucząc nas nie tylko, jak przedłużać życie, ale przede
+
+wszystkim jak życie chronić, przekazywać i służyć nim drugiemu
+
+człowiekowi.
+
+Może więc moje życie nie przekaże dalej moich genów poprzez
+
+własne dziecko. Ale może przekazać coś innego. Razem z żoną
+
+możemy przekazać nasze ciała przyszłym pokoleniom, aby
+
+służyły nauce. Możemy przekazać nasze myśli, doświadczenie i
+
+dobro innym ludziom. Możemy uczestniczyć w poznawaniu
+
+tajemnicy życia.
+
+A przede wszystkim możemy wierzyć, że nasze życie nie kończy
+
+się na tym, co biologiczne.
+
+Ostatecznie wierzę, że źródłem życia jest Bóg — i że prowadzi
+
+człowieka przez poznanie, naukę, medycynę, miłość i współpracę
+
+z Jego łaską ku pełni życia.
+
+Może więc droga do zwycięstwa nad śmiercią nie będzie polegała
+
+na tym, że człowiek pokona Boga swoją wiedzą, lecz na tym, że
+
+człowiek, współpracując z Bogiem, pozwoli Mu działać przez
+
+swoje ręce, umysł i serce.
+
+I właśnie dlatego wierzę, że jesteśmy blisko — nie tylko poznania
+
+tajemnicy życia, ale również odkrycia, do czego Bóg stworzył
+
+człowieka.
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 343
@@ -1180,7 +3176,7 @@ Rozważanie Pisma Świętego dla dnia 343.
 
 ---
 
-# Dzień 344 — Widoki na Raj — Dzień 344 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
+# Dzień 344 — WnR365 — Widoki na Raj — Dzień 344 — Droga z Rudy Śląskiej do
 
 ## Wstęp
 Wstęp modlitewny dnia 344. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -1336,8 +3332,140 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj — Dzień 344 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
-Świętym.
+### WnR365 — Widoki na Raj — Dzień 344 — Droga z Rudy Śląskiej do
+Chorzowa — trzy drogi po śmierci
+
+Droga z Rudy Śląskiej do Chorzowa jest dla mnie czymś więcej niż
+
+tylko drogą łączącą dwa miejsca. Można odczytać ją również jako
+
+obraz **drogi życia człowieka** — drogi, która w pewnym
+
+momencie prowadzi każdego do miejsca, którego nikt nie może
+
+ominąć.
+
+Na końcu tej drogi znajduje się **cmentarz**.
+
+Cmentarz jest symbolem śmierci, ale nie musi być symbolem
+
+końca. Jest granicą pomiędzy tym, co znamy, a tym, czego
+
+jeszcze nie widzimy. Każdy człowiek wcześniej czy później
+
+dociera do tego miejsca. Nie możemy wybrać, czy tam trafimy —
+
+możemy jednak zastanawiać się, **co wybierzemy dalej**.
+
+Za cmentarzem pojawiają się trzy kierunki.
+
+**Na prawo — Katowice.** Można odczytać tę nazwę
+
+symbolicznie jako „katowanie” — doświadczenie kary,
+
+konsekwencji i sądu. Prawa strona przypomina więc o tym, że
+
+człowiek ponosi odpowiedzialność za swoje życie i swoje wybory.
+
+**Na lewo — Piekary Śląskie.** Tutaj pojawia się symbolika pieca i
+
+ognia. W piecu wypieka się chleb, ale ogień może również
+
+kojarzyć się z oczyszczeniem i cierpieniem. To obraz drugiej
+
+możliwości — przejścia przez ogień, który niekoniecznie musi
+
+oznaczać całkowite zniszczenie, lecz może być również
+
+doświadczeniem oczyszczenia.
+
+Ale istnieje **trzecia droga — prosto, za cmentarzem, w kierunku
+
+Starego Chorzowa.**
+
+I właśnie ta droga jest dla mnie szczególnie ważna.
+
+„Stary Chorzów” można odczytać jako symbol **powrotu do
+
+korzeni**. Powrotu do tego, co było na początku. Powrotu do
+
+źródła, do domu, do pierwotnego zamysłu Boga wobec człowieka.
+
+Ale nie chodzi o zwykły powrót do przeszłości.
+
+Chodzi o to, aby **to, co stare, stało się nowe**.
+
+To przypomina chrześcijańską nadzieję związaną ze
+
+zmartwychwstaniem: śmierć nie jest ostatnim słowem. Stare
+
+życie może zostać przemienione, a człowiek może otrzymać
+
+nowe życie.
+
+Dlatego można spojrzeć na tę drogę jak na pewien obraz **Sądu
+
+Bożego**.
+
+Każdego człowieka czeka cmentarz. Każdy stanie wobec granicy
+
+życia i śmierci. I symbolicznie możemy zobaczyć trzy drogi:
+
+**prawo — sąd, lewo — oczyszczenie, prosto — Miłosierdzie.**
+
+Nie oznacza to, że Bóg działa według ludzkiej mapy czy że
+
+konkretne miasta wyznaczają los człowieka. To moja osobista
+
+symboliczna interpretacja przestrzeni, w której droga, nazwy
+
+miejsc i ich znaczenia tworzą obraz duchowej rzeczywistości.
+
+Najważniejsze jest jednak to, że **droga na wprost nie prowadzi
+
+do przeszłości, lecz do odnowienia**.
+
+Człowiek może wrócić do swoich korzeni. Może powrócić do
+
+Boga, od którego pochodzi. Może pozwolić, aby to, co w nim
+
+stare, zostało przemienione w nowe.
+
+Miłosierdzie nie oznacza zaprzeczenia sprawiedliwości. Oznacza
+
+możliwość przyjęcia Bożej łaski. Człowiek nie może zmienić tego,
+
+co już zrobił, ale może otworzyć swoje serce na Tego, który
+
+potrafi przemienić nawet to, co wydaje się nieodwracalne.
+
+Dlatego **trzy drogi po śmierci są dla mnie również trzema
+
+postawami serca**.
+
+Można odrzucić Boga i pozostać przy konsekwencjach własnego
+
+wyboru.
+
+Można przejść przez doświadczenie oczyszczenia.
+
+Można też otworzyć się na Miłosierdzie i pozwolić Bogu
+
+poprowadzić się drogą powrotu do źródła.
+
+Ostatecznie decyzja nie polega tylko na tym, **którą drogę
+
+człowiek wybierze po śmierci**. Najważniejsze jest to, **jaką
+
+drogę wybiera już teraz i co przyjmuje do swojego serca**.
+
+Bo może się okazać, że droga po śmierci jest w pewnym sensie
+
+konsekwencją drogi, którą człowiek wybierał przez całe życie.
+
+Cmentarz jest więc nie tylko końcem drogi.
+
+Może być również **miejscem przejścia**.
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 344
@@ -1346,7 +3474,7 @@ Rozważanie Pisma Świętego dla dnia 344.
 
 ---
 
-# Dzień 345 — Widoki na Raj — Dzień 345 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
+# Dzień 345 — Widoki na Raj — Dzień 345 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu Świętym.
 
 ## Wstęp
 Wstęp modlitewny dnia 345. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -1518,8 +3646,8 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj — Dzień 345 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
-Świętym.
+### Widoki na Raj — Dzień 345 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu Świętym.
+Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu Świętym.
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 345
@@ -1528,7 +3656,7 @@ Rozważanie Pisma Świętego dla dnia 345.
 
 ---
 
-# Dzień 346 — Widoki na Raj — Dzień 346 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
+# Dzień 346 — WnR365 — Widoki na Raj — Dzień 346 — Rozważanie Słowa Bożego i
 
 ## Wstęp
 Wstęp modlitewny dnia 346. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -1703,7 +3831,9 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj — Dzień 346 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
+### WnR365 — Widoki na Raj — Dzień 346 — Rozważanie Słowa Bożego i
+natchnienia modlitewne w Duchu
+
 Świętym.
 
 ## Biblia365
@@ -1713,7 +3843,7 @@ Rozważanie Pisma Świętego dla dnia 346.
 
 ---
 
-# Dzień 347 — Widoki na Raj — Dzień 347 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
+# Dzień 347 — WnR365 — Widoki na Raj — Dzień 347 — Rozważanie Słowa Bożego i
 
 ## Wstęp
 Wstęp modlitewny dnia 347. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -1870,8 +4000,24 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj — Dzień 347 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
+### WnR365 — Widoki na Raj — Dzień 347 — Rozważanie Słowa Bożego i
+natchnienia modlitewne w Duchu
+
 Świętym.
+
+A za nim pozostaje pytanie:
+
+**Czy wybiorę prawo, lewo, czy drogę na wprost — drogę
+
+Miłosierdzia, powrotu do korzeni i przemiany starego w nowe?**
+
+Każdy człowiek musi kiedyś stanąć przed tym pytaniem.
+
+I choć nie wiemy dokładnie, co znajduje się za granicą śmierci,
+
+możemy już dziś zdecydować, **w którą stronę zwrócimy swoje
+
+serce.**
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 347
@@ -1880,7 +4026,7 @@ Rozważanie Pisma Świętego dla dnia 347.
 
 ---
 
-# Dzień 348 — Widoki na Raj — Dzień 348 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
+# Dzień 348 — WnR365 — Widoki na Raj — Dzień 348 — Rozważanie Słowa Bożego i
 
 ## Wstęp
 Wstęp modlitewny dnia 348. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -2054,7 +4200,9 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj — Dzień 348 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
+### WnR365 — Widoki na Raj — Dzień 348 — Rozważanie Słowa Bożego i
+natchnienia modlitewne w Duchu
+
 Świętym.
 
 ## Biblia365
@@ -2064,7 +4212,7 @@ Rozważanie Pisma Świętego dla dnia 348.
 
 ---
 
-# Dzień 349 — Widoki na Raj — Dzień 349 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
+# Dzień 349 — WnR365 — Widoki na Raj — Dzień 349 — Rozważanie Słowa Bożego i
 
 ## Wstęp
 Wstęp modlitewny dnia 349. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -2239,7 +4387,9 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj — Dzień 349 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
+### WnR365 — Widoki na Raj — Dzień 349 — Rozważanie Słowa Bożego i
+natchnienia modlitewne w Duchu
+
 Świętym.
 
 ## Biblia365
@@ -2249,7 +4399,7 @@ Rozważanie Pisma Świętego dla dnia 349.
 
 ---
 
-# Dzień 350 — Widoki na Raj — Dzień 350 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
+# Dzień 350 — WnR365 — Widoki na Raj — Dzień 350 — Rozważanie Słowa Bożego i
 
 ## Wstęp
 Wstęp modlitewny dnia 350. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -2410,7 +4560,9 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj — Dzień 350 — Rozważanie Słowa Bożego i natchnienia modlitewne w Duchu
+### WnR365 — Widoki na Raj — Dzień 350 — Rozważanie Słowa Bożego i
+natchnienia modlitewne w Duchu
+
 Świętym.
 
 ## Biblia365
@@ -2420,7 +4572,7 @@ Rozważanie Pisma Świętego dla dnia 350.
 
 ---
 
-# Dzień 351 — Widoki na Raj - Dzień 169 (Cykl II - Dzień 169 z 175) - Spojrzenie przez światło
+# Dzień 351 — WnR365 — Widoki na Raj - Dzień 169 (Cykl II - Dzień 169 z 175) -
 
 ## Wstęp
 Wstęp modlitewny dnia 351. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -2592,68 +4744,284 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj - Dzień 169 (Cykl II - Dzień 169 z 175) - Spojrzenie przez światło
+### WnR365 — Widoki na Raj - Dzień 169 (Cykl II - Dzień 169 z 175) -
+Spojrzenie przez światło
+
 # Zorza i tęcza – dwa znaki jednego przymierza
 
-Ojciec Adam Szustak nazwał swoje tegoroczne rekolekcje wielkopostne „Zorzaki”. Ten tytuł otworzył we mnie ciąg myśli, który nie chce się zatrzymać. Zapisuję go tutaj, ponieważ wydaje mi się, że dotknął czegoś bardzo głębokiego – tajemnicy Boga, małżeństwa, stworzenia oraz znaków pozostawionych przez Stwórcę w świecie, który nas otacza. Dziękuję za tę inspirację, ojcze Adamie. Nie twierdzę, że wszystkie przedstawione tutaj skojarzenia są pełną wykładnią Pisma Świętego. Są one raczej osobistą próbą odczytania symboli, które od wieków towarzyszą człowiekowi. Im dłużej nad nimi rozmyślam, tym mocniej widzę, że to, co materialne, i to, co duchowe, nieustannie się przenikają.
+Ojciec Adam Szustak nazwał swoje tegoroczne rekolekcje
+
+wielkopostne „Zorzaki”. Ten tytuł otworzył we mnie ciąg myśli,
+
+który nie chce się zatrzymać. Zapisuję go tutaj, ponieważ wydaje
+
+mi się, że dotknął czegoś bardzo głębokiego – tajemnicy Boga,
+
+małżeństwa, stworzenia oraz znaków pozostawionych przez
+
+Stwórcę w świecie, który nas otacza. Dziękuję za tę inspirację,
+
+ojcze Adamie. Nie twierdzę, że wszystkie przedstawione tutaj
+
+skojarzenia są pełną wykładnią Pisma Świętego. Są one raczej
+
+osobistą próbą odczytania symboli, które od wieków towarzyszą
+
+człowiekowi. Im dłużej nad nimi rozmyślam, tym mocniej widzę,
+
+że to, co materialne, i to, co duchowe, nieustannie się przenikają.
 
 ## Zorza – słońce działające na noc
 
-Zorza polarna powstaje podczas burzy geomagnetycznej. Słońce emituje strumień naładowanych cząstek, które wchodzą w kontakt z atmosferą ziemską. Wówczas niebo zaczyna płonąć niezwykłymi barwami. Nie jest to zwykłe odbicie światła. Nie jest to również ogień w jego ziemskim znaczeniu. To energia, która staje się widzialna. To niewidzialna siła objawiająca się pośród ciemności. Im dłużej się nad tym zastanawiam, tym częściej wracam myślami do pierwszej wizji proroka Ezechiela: „Patrzyłem, a oto wiatr gwałtowny nadciągał od północy, wielki obłok i ogień płonący, a wokół niego blask, a w środku ognia coś jakby połysk stopu złota i srebra.”
+Zorza polarna powstaje podczas burzy geomagnetycznej. Słońce
 
-### (Ez 1,4)
+emituje strumień naładowanych cząstek, które wchodzą w
 
-Ogień nadciągający z północy. Blask otaczający ciemność. Światło pojawiające się tam, gdzie człowiek spodziewałby się jedynie lęku i niepewności. Bóg objawia swoją obecność nie tylko w tym, co jasne i spokojne, lecz również w tym, co tajemnicze, nieoczekiwane i trudne do pojęcia. Pod koniec tej samej wizji Ezechiel wypowiada słowa, które zdają się łączyć dwa wielkie znaki nieba: „Jak wygląd tęczy, która jest w chmurach w deszczowy dzień, takie było to światło wokół. Taki był widok podobizny Chwały Pańskiej.”
+kontakt z atmosferą ziemską. Wówczas niebo zaczyna płonąć
 
-### (Ez 1,28)
+niezwykłymi barwami. Nie jest to zwykłe odbicie światła. Nie jest
 
-Ogień i tęcza. Noc i dzień. Energia i materia. Dwa znaki, lecz jedna Chwała.
+to również ogień w jego ziemskim znaczeniu. To energia, która
+
+staje się widzialna. To niewidzialna siła objawiająca się pośród
+
+ciemności. Im dłużej się nad tym zastanawiam, tym częściej
+
+wracam myślami do pierwszej wizji proroka Ezechiela:
+
+„Patrzyłem, a oto wiatr gwałtowny nadciągał od północy, wielki
+
+obłok i ogień płonący, a wokół niego blask, a w środku ognia coś
+
+jakby połysk stopu złota i srebra.”
+
+(Ez 1,4)
+
+Ogień nadciągający z północy. Blask otaczający ciemność.
+
+Światło pojawiające się tam, gdzie człowiek spodziewałby się
+
+jedynie lęku i niepewności. Bóg objawia swoją obecność nie tylko
+
+w tym, co jasne i spokojne, lecz również w tym, co tajemnicze,
+
+nieoczekiwane i trudne do pojęcia. Pod koniec tej samej wizji
+
+Ezechiel wypowiada słowa, które zdają się łączyć dwa wielkie
+
+znaki nieba: „Jak wygląd tęczy, która jest w chmurach w
+
+deszczowy dzień, takie było to światło wokół. Taki był widok
+
+podobizny Chwały Pańskiej.”
+
+(Ez 1,28)
+
+Ogień i tęcza. Noc i dzień. Energia i materia. Dwa znaki, lecz jedna
+
+Chwała.
 
 ## Tęcza – słońce działające na wodę
 
-Tęcza jest zjawiskiem optycznym. Powstaje wtedy, gdy promienie słoneczne przenikają przez krople wody i rozszczepiają się na wiele barw. Do jej zaistnienia potrzebne są jednocześnie światło i woda. Jest ona znakiem widzialnym, materialnym i uporządkowanym. Można ją opisać, zmierzyć i przewidzieć. Po potopie Bóg powiedział do Noego: „Łuk mój kładę na obłoki, aby był znakiem przymierza między Mną a ziemią. A gdy rozciągnę obłoki nad ziemią i gdy ukaże się ten łuk na obłokach, wspomnę na moje przymierze.”
+Tęcza jest zjawiskiem optycznym. Powstaje wtedy, gdy promienie
 
-### (Rdz 9,13–15)
+słoneczne przenikają przez krople wody i rozszczepiają się na
 
-W języku hebrajskim słowo oznaczające tęczę brzmi „keszet”, czyli „łuk”. Jest to nie tylko znak piękna, ale również znak odłożonej broni. Bóg odkłada łuk wojenny na obłoki. Gniew ustępuje miejsca miłosierdziu. Sąd ustępuje miejsca przymierzu. Dlatego tęcza jest znakiem pamięci, trwałości, ochrony i obietnicy.
+wiele barw. Do jej zaistnienia potrzebne są jednocześnie światło i
+
+woda. Jest ona znakiem widzialnym, materialnym i
+
+uporządkowanym. Można ją opisać, zmierzyć i przewidzieć. Po
+
+potopie Bóg powiedział do Noego: „Łuk mój kładę na obłoki, aby
+
+był znakiem przymierza między Mną a ziemią. A gdy rozciągnę
+
+obłoki nad ziemią i gdy ukaże się ten łuk na obłokach, wspomnę
+
+na moje przymierze.”
+
+(Rdz 9,13–15)
+
+W języku hebrajskim słowo oznaczające tęczę brzmi „keszet”,
+
+czyli „łuk”. Jest to nie tylko znak piękna, ale również znak
+
+odłożonej broni. Bóg odkłada łuk wojenny na obłoki. Gniew
+
+ustępuje miejsca miłosierdziu. Sąd ustępuje miejsca przymierzu.
+
+Dlatego tęcza jest znakiem pamięci, trwałości, ochrony i obietnicy.
 
 ## Dwa chrzty – woda i ogień
 
-Jan Chrzciciel powiedział: „Ja chrzczę was wodą, lecz Ten, który idzie za mną, chrzcić będzie Duchem Świętym i ogniem.”
+Jan Chrzciciel powiedział: „Ja chrzczę was wodą, lecz Ten, który
 
-### (Mt 3,11)
+idzie za mną, chrzcić będzie Duchem Świętym i ogniem.”
 
-Pojawiają się tutaj dwa żywioły. Woda i ogień. To, co widzialne, i to, co niewidzialne. Tęcza – światło działające na wodę – może stać się symbolem chrztu z wody. Jest znakiem oczyszczenia, nowego początku i wejścia w przymierze. Zorza – energia słońca działająca pośród ciemności – może natomiast przypominać o chrzcie Duchem Świętym i ogniem. Jeden znak prowadzi przez dzień. Drugi prowadzi przez noc. Jeden daje bezpieczeństwo. Drugi pobudza do walki. Oba pochodzą od Boga.
+(Mt 3,11)
+
+Pojawiają się tutaj dwa żywioły. Woda i ogień. To, co widzialne, i
+
+to, co niewidzialne. Tęcza – światło działające na wodę – może
+
+stać się symbolem chrztu z wody. Jest znakiem oczyszczenia,
+
+nowego początku i wejścia w przymierze. Zorza – energia słońca
+
+działająca pośród ciemności – może natomiast przypominać o
+
+chrzcie Duchem Świętym i ogniem. Jeden znak prowadzi przez
+
+dzień. Drugi prowadzi przez noc. Jeden daje bezpieczeństwo.
+
+Drugi pobudza do walki. Oba pochodzą od Boga.
 
 ## Oblubieniec i oblubienica
 
-Pieśń nad Pieśniami rozpoczyna się słowami oblubienicy: „Jestem czarna, lecz piękna, córki jerozolimskie, jak namioty Kedaru, jak zasłony Salomona. Nie patrzcie na mnie, że jestem śniada, bo słońce mnie opaliło.”
+Pieśń nad Pieśniami rozpoczyna się słowami oblubienicy:
 
-### (Pnp 1,5–6)
+„Jestem czarna, lecz piękna, córki jerozolimskie, jak namioty
 
-Jest w tych słowach coś niezwykłego. Oblubienica nie ukrywa swojej ciemności. Nie odrzuca jej. Przyjmuje ją. Oblubieniec zostaje natomiast opisany następująco: „Mój miły jest biały i rumiany, wyróżnia się spośród tysięcy.”
+Kedaru, jak zasłony Salomona. Nie patrzcie na mnie, że jestem
 
-### (Pnp 5,10)
+śniada, bo słońce mnie opaliło.”
 
-### Dzień i noc spotykają się w jednym przymierzu.
+(Pnp 1,5–6)
 
-Jasność nie niszczy ciemności, a ciemność nie pochłania światła. Oboje nieustannie się odnajdują. Być może właśnie dlatego małżeństwo jest jednym z najgłębszych obrazów relacji Boga i człowieka.
+Jest w tych słowach coś niezwykłego. Oblubienica nie ukrywa
+
+swojej ciemności. Nie odrzuca jej. Przyjmuje ją. Oblubieniec
+
+zostaje natomiast opisany następująco: „Mój miły jest biały i
+
+rumiany, wyróżnia się spośród tysięcy.”
+
+(Pnp 5,10)
+
+Dzień i noc spotykają się w jednym przymierzu.
+
+Jasność nie niszczy ciemności, a ciemność nie pochłania światła.
+
+Oboje nieustannie się odnajdują. Być może właśnie dlatego
+
+małżeństwo jest jednym z najgłębszych obrazów relacji Boga i
+
+człowieka.
 
 ## Małżeństwo jako spotkanie zorzy i tęczy
 
-Pomyślałem, że zorza i tęcza mogą stać się symbolami dwóch różnych sposobów przeżywania tej samej miłości. Nie chodzi tutaj o sztywny podział ról, lecz o pewien obraz duchowej rzeczywistości. Żona przypomina zorzę. Jest związana z tajemnicą, intuicją, wrażliwością i czuwaniem. Potrafi dostrzec to, co ukryte. Potrafi usłyszeć to, czego inni jeszcze nie słyszą. Jest jak miecz przecinający ciemność i jak strzała trafiająca w cel. Mąż przypomina tęczę. Jest związany z trwałością, odpowiedzialnością, ochroną i widzialnym wymiarem przymierza. Jest jak tarcza osłaniająca powierzonych mu ludzi oraz jak łuk zawieszony na obłokach. Oba obrazy spotykają się i dopełniają. Tak jak w wizji Ezechiela. Tak jak w Pieśni nad Pieśniami. Tak jak w przymierzu Boga z człowiekiem.
+Pomyślałem, że zorza i tęcza mogą stać się symbolami dwóch
+
+różnych sposobów przeżywania tej samej miłości. Nie chodzi
+
+tutaj o sztywny podział ról, lecz o pewien obraz duchowej
+
+rzeczywistości. Żona przypomina zorzę. Jest związana z
+
+tajemnicą, intuicją, wrażliwością i czuwaniem. Potrafi dostrzec to,
+
+co ukryte. Potrafi usłyszeć to, czego inni jeszcze nie słyszą. Jest
+
+jak miecz przecinający ciemność i jak strzała trafiająca w cel.
+
+Mąż przypomina tęczę. Jest związany z trwałością,
+
+odpowiedzialnością, ochroną i widzialnym wymiarem przymierza.
+
+Jest jak tarcza osłaniająca powierzonych mu ludzi oraz jak łuk
+
+zawieszony na obłokach. Oba obrazy spotykają się i dopełniają.
+
+Tak jak w wizji Ezechiela. Tak jak w Pieśni nad Pieśniami. Tak jak
+
+w przymierzu Boga z człowiekiem.
 
 ## Schemat przymierza
 
-Zorza: – noc, – duch, – ogień, – energia, – tajemnica, – walka, – czuwanie, – znak niewidzialnego działania Boga. Tęcza: – dzień, – woda, – materia, – ochrona, – trwałość, – przymierze, – pamięć, – znak widzialnej obecności Boga. Małżeństwo: – spotkanie nocy i dnia, – spotkanie ognia i wody, – spotkanie oblubieńca i oblubienicy, – spotkanie tego, co duchowe, z tym, co materialne. Bóg pozostawia dwa podpisy pod jednym przymierzem. Pierwszym jest tęcza. Drugim jest zorza. Oba znaki wskazują na jedno źródło światła.
+Zorza: – noc, – duch, – ogień, – energia, – tajemnica, – walka, –
+
+czuwanie, – znak niewidzialnego działania Boga. Tęcza: – dzień,
+
+– woda, – materia, – ochrona, – trwałość, – przymierze, –
+
+pamięć, – znak widzialnej obecności Boga. Małżeństwo: –
+
+spotkanie nocy i dnia, – spotkanie ognia i wody, – spotkanie
+
+oblubieńca i oblubienicy, – spotkanie tego, co duchowe, z tym, co
+
+materialne. Bóg pozostawia dwa podpisy pod jednym
+
+przymierzem. Pierwszym jest tęcza. Drugim jest zorza. Oba znaki
+
+wskazują na jedno źródło światła.
 
 ## Piasek, szkło i światło
 
-Coraz częściej odnoszę wrażenie, że również człowiek jest podobny do tych znaków. Jesteśmy jak ziarenka piasku przesypujące się w klepsydrze czasu. Każdy dzień jest jednym ziarnem. Każda decyzja pozostawia po sobie ślad. Piasek sam w sobie wydaje się czymś zwyczajnym i niepozornym. Jednak pod wpływem ognia zmienia się w szkło. Być może podobnie dzieje się z człowiekiem. Dopóki pozostajemy zamknięci w sobie, jesteśmy jak rozproszone drobiny. Kiedy jednak oddajemy swoje życie Jezusowi i przyjmujemy przebaczenie Boga Ojca, rozpoczyna się przemiana. Ogień oczyszcza. Światło przenika. Serce staje się przezroczyste. Człowiek zaczyna dostrzegać więcej. Kryształ rozszczepia światło na wiele barw, lecz źródło pozostaje jedno. Tak samo jest z Bogiem. Miłość, miłosierdzie, mądrość, odwaga, sprawiedliwość, cierpliwość, pokój i prawda są jedynie różnymi odcieniami tego samego światła.
+Coraz częściej odnoszę wrażenie, że również człowiek jest
+
+podobny do tych znaków. Jesteśmy jak ziarenka piasku
+
+przesypujące się w klepsydrze czasu. Każdy dzień jest jednym
+
+ziarnem. Każda decyzja pozostawia po sobie ślad. Piasek sam w
+
+sobie wydaje się czymś zwyczajnym i niepozornym. Jednak pod
+
+wpływem ognia zmienia się w szkło. Być może podobnie dzieje
+
+się z człowiekiem. Dopóki pozostajemy zamknięci w sobie,
+
+jesteśmy jak rozproszone drobiny. Kiedy jednak oddajemy swoje
+
+życie Jezusowi i przyjmujemy przebaczenie Boga Ojca,
+
+rozpoczyna się przemiana. Ogień oczyszcza. Światło przenika.
+
+Serce staje się przezroczyste. Człowiek zaczyna dostrzegać
+
+więcej. Kryształ rozszczepia światło na wiele barw, lecz źródło
+
+pozostaje jedno. Tak samo jest z Bogiem. Miłość, miłosierdzie,
+
+mądrość, odwaga, sprawiedliwość, cierpliwość, pokój i prawda są
+
+jedynie różnymi odcieniami tego samego światła.
 
 ## Po drugiej stronie lustra
 
-Czasami mam wrażenie, że chrześcijaństwo nie polega wyłącznie na wpatrywaniu się w Jezusa. Niekiedy jest również próbą spojrzenia na siebie i innych ludzi Jego oczami. To tak, jakby przejść na drugą stronę lustra i spróbować zobaczyć świat z perspektywy Chrystusa. Nie po to, aby osądzać, lecz po to, aby zrozumieć. Nie po to, aby potępiać, lecz po to, aby kochać. Nie po to, aby wywyższać siebie, lecz po to, aby odnaleźć prawdę. To Jezus wyznacza drogę współczucia, empatii, przebaczenia i miłosierdzia. To On uczy nas, jak dobrze żyć. Być może właśnie dlatego Bóg rozświetla ludzi swoimi barwami – nie po to, aby zachwycali się sobą, lecz po to, aby odbijali Jego światło i czynili świat odrobinę piękniejszym. A wtedy zorza i tęcza przestają być jedynie zjawiskami na niebie. Stają się znakami przymierza zapisanego w ludzkim sercu. Ten tekst jest owocem rekolekcji wielkopostnych „Zorzaki” ojca Adama Szustaka. Dziękuję za iskrę, od której zapłonęła ta refleksja.
+Czasami mam wrażenie, że chrześcijaństwo nie polega wyłącznie
+
+na wpatrywaniu się w Jezusa. Niekiedy jest również próbą
+
+spojrzenia na siebie i innych ludzi Jego oczami. To tak, jakby
+
+przejść na drugą stronę lustra i spróbować zobaczyć świat z
+
+perspektywy Chrystusa. Nie po to, aby osądzać, lecz po to, aby
+
+zrozumieć. Nie po to, aby potępiać, lecz po to, aby kochać. Nie po
+
+to, aby wywyższać siebie, lecz po to, aby odnaleźć prawdę. To
+
+Jezus wyznacza drogę współczucia, empatii, przebaczenia i
+
+miłosierdzia. To On uczy nas, jak dobrze żyć. Być może właśnie
+
+dlatego Bóg rozświetla ludzi swoimi barwami – nie po to, aby
+
+zachwycali się sobą, lecz po to, aby odbijali Jego światło i czynili
+
+świat odrobinę piękniejszym. A wtedy zorza i tęcza przestają być
+
+jedynie zjawiskami na niebie. Stają się znakami przymierza
+
+zapisanego w ludzkim sercu. Ten tekst jest owocem rekolekcji
+
+wielkopostnych „Zorzaki” ojca Adama Szustaka. Dziękuję za iskrę,
+
+od której zapłonęła ta refleksja.
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 351
@@ -2662,7 +5030,7 @@ Rozważanie Pisma Świętego dla dnia 351.
 
 ---
 
-# Dzień 352 — Widoki na Raj - Dzień 170 (Cykl II - Dzień 170 z 175) - [02.06.2026] Paleta Barw i Kolorów – materialność, duchowość, istnienie i światło
+# Dzień 352 — WnR365 — Widoki na Raj - Dzień 170 (Cykl II - Dzień 170 z 175) - [02.06.2026] Paleta Barw i Kolorów – materialność, duchowość,
 
 ## Wstęp
 Wstęp modlitewny dnia 352. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -2818,54 +5186,192 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj - Dzień 170 (Cykl II - Dzień 170 z 175) - [02.06.2026] Paleta Barw i Kolorów – materialność, duchowość, istnienie i światło
-[qr:https://codepen.io/Aledom/pen/emZXYjJ]
-
+### WnR365 — Widoki na Raj - Dzień 170 (Cykl II - Dzień 170 z 175) - [02.06.2026] Paleta Barw i Kolorów – materialność, duchowość,
 [qr:https://postimg.cc/d7CVc11Z]
 
-„Paleta Barw i Kolorów” jest próbą opisania świata za pomocą symboli. Nie jest naukową teorią ani wykładem teologicznym, lecz osobistą mapą duchową, dzięki której staram się lepiej zrozumieć człowieka, jego drogę oraz miejsce Boga w historii stworzenia. W moim rozumieniu świat duchowy i świat materialny posługują się dwoma odmiennymi językami.
+[qr:https://codepen.io/Aledom/pen/emZXYjJ]
 
-### Świat duchowy – barwy RGB
+istnienie i światło
 
-Model RGB opiera się na świetle. Trzy podstawowe barwy – czerwień, zieleń i błękit – łączą się ze sobą, tworząc niezliczoną liczbę odcieni. Właśnie dlatego traktuję je jako symbol życia duchowego, talentów, powołań, natchnień oraz wszystkich dróg prowadzących człowieka ku prawdzie. Każda barwa jest wyjątkowa, tak jak wyjątkowa jest każda dusza. Każdy człowiek otrzymał od Boga własne dary, własną historię i własne powołanie. Jedni rozwijają je szybciej, inni wolniej, ale wszyscy pozostają zanurzeni w tym samym świetle. Im bardziej człowiek odkrywa swoje talenty i wykorzystuje je dla dobra innych, tym pełniej objawia się piękno jego duchowej barwy.
+„Paleta Barw i Kolorów” jest próbą opisania świata za pomocą
 
-### Świat materialny – kolory CMYK
+symboli. Nie jest naukową teorią ani wykładem teologicznym, lecz
 
-Model CMYK przedstawia rzeczywistość materialną, a więc wszystko to, co można zbudować, dotknąć, zmierzyć i opisać. Jest to świat nauki, techniki, pracy, kultury i ludzkiej cywilizacji. Cyan, magenta i yellow tworzą widzialną rzeczywistość, natomiast czerń – oznaczana literą K – nadaje jej głębię i kontrast. W mojej symbolice nie oznacza ona wyłącznie zła. Jest raczej przypomnieniem, że człowiek poznaje światło właśnie dlatego, że doświadcza ciemności. Nie jest to pochwała mroku, lecz uznanie, że bez kontrastu trudno byłoby dostrzec piękno światła.
+osobistą mapą duchową, dzięki której staram się lepiej zrozumieć
 
-### Cztery poziomy rzeczywistości
+człowieka, jego drogę oraz miejsce Boga w historii stworzenia. W
 
-### 1. Kontrast
+moim rozumieniu świat duchowy i świat materialny posługują się
 
-Kontrast jest granicą, dzięki której człowiek odróżnia światło od ciemności, dobro od zła, prawdę od fałszu. Dzięki niemu możemy dostrzec piękno stworzenia i uświadomić sobie, że wszystko ma swoje miejsce oraz znaczenie.
+dwoma odmiennymi językami.
 
-### 2. Przezroczystość
+Świat duchowy – barwy RGB
 
-Przezroczystość symbolizuje czystość serca, pokorę i gotowość do przyjęcia światła. Dusza przezroczysta nie skupia uwagi na sobie, lecz pozwala, aby dobro przechodziło przez nią i docierało do innych ludzi. Być może właśnie dlatego Jezus tak często wskazywał na prostotę, ufność i dziecięcą wiarę.
+Model RGB opiera się na świetle. Trzy podstawowe barwy –
 
-### 3. Pełnia barw
+czerwień, zieleń i błękit – łączą się ze sobą, tworząc niezliczoną
 
-Pełnia barw oznacza różnorodność dróg, poglądów, przekonań i sposobów poznawania świata. Jedni odnajdują Boga poprzez modlitwę, inni poprzez naukę, sztukę, cierpienie, zachwyt nad światem albo służbę drugiemu człowiekowi. Tylko Bóg zna głębię ludzkiego serca.
+liczbę odcieni. Właśnie dlatego traktuję je jako symbol życia
 
-### 4. Biel
+duchowego, talentów, powołań, natchnień oraz wszystkich dróg
 
-Biel jest dla mnie symbolem światła Bożego, które przenika całe stworzenie. Nie oznacza jednak samego Boga, ponieważ Bóg przekracza wszelkie symbole. Nie jest jedną z barw ani jednym z kolorów. Jest źródłem wszystkiego, co istnieje. Światło pozwala dostrzec zarówno barwy, jak i cienie. Dzięki niemu możliwe staje się poznanie, przemiana i odrodzenie.
+prowadzących człowieka ku prawdzie. Każda barwa jest
 
-### Światło pośród ciemności
+wyjątkowa, tak jak wyjątkowa jest każda dusza. Każdy człowiek
 
-Niezależnie od tego, gdzie człowiek znajduje się na swojej drodze, zawsze może zwrócić się ku światłu. Jedni doświadczają zwątpienia, inni cierpienia, jeszcze inni zagubienia. Niektórzy odnajdują Boga szybko, inni potrzebują na to wielu lat. Nie do nas należy osądzanie ludzkich serc. Światło świeci bowiem zarówno pośród jasności, jak i pośród ciemności. „A światłość w ciemności świeci i ciemność jej nie ogarnęła” (J 1,5).
+otrzymał od Boga własne dary, własną historię i własne
 
-### Tajemnica dobra i zła
+powołanie. Jedni rozwijają je szybciej, inni wolniej, ale wszyscy
 
-W Księdze Izajasza czytamy: „Ja tworzę światłość i stwarzam ciemność, sprawiam pokój i dopuszczam nieszczęście. Ja, Pan, czynię to wszystko” (Iz 45,7). Słowa te przypominają, że Bóg pozostaje Panem całego stworzenia i że nic nie wymyka się Jego woli oraz opatrzności. Nie oznacza to jednak, że dobro i zło są tym samym. Zło dzieli, niszczy i oddziela człowieka od miłości. Dobro natomiast prowadzi do jedności, przebaczenia i pokoju. Chrystus nie przyszedł po to, aby zatrzeć różnicę między dobrem i złem, lecz po to, aby zwyciężyć zło dobrem.
+pozostają zanurzeni w tym samym świetle. Im bardziej człowiek
 
-### Historia zbawienia zapisana w kolorach
+odkrywa swoje talenty i wykorzystuje je dla dobra innych, tym
 
-W mojej symbolice poszczególne kolory odnoszą się do różnych etapów historii zbawienia. Błękit przypomina o Ojcu i początku stworzenia. Magenta staje się symbolem pychy, rozdarcia i utraty jedności. Żółć oznacza czas oczekiwania, prób i dojrzewania. Zieleń jest znakiem przemiany, odrodzenia i działania Ducha Świętego. Cyan przywodzi na myśl wodę, niebo i obietnicę nowego stworzenia. Nie są to jednak dogmaty, lecz obrazy pomagające mi opowiadać o drodze człowieka ku Bogu.
+pełniej objawia się piękno jego duchowej barwy.
 
-### Wszystko prowadzi ku światłu
+Świat materialny – kolory CMYK
 
-Im dłużej patrzę na tę paletę, tym bardziej dochodzę do przekonania, że człowiek nie został stworzony po to, aby pozostać zamkniętym w jednym kolorze. Naszym zadaniem jest nieustanne wzrastanie. Bóg nie jest bowiem barwą ani kolorem. Nie jest światłem ani cieniem. Jest samym istnieniem. A wszystkie barwy, wszystkie kolory i wszystkie drogi są jedynie śladami prowadzącymi ku Niemu. Przyjdź, Duchu Święty. Przyjdź, Panie Jezu. Amen.
+Model CMYK przedstawia rzeczywistość materialną, a więc
+
+wszystko to, co można zbudować, dotknąć, zmierzyć i opisać.
+
+Jest to świat nauki, techniki, pracy, kultury i ludzkiej cywilizacji.
+
+Cyan, magenta i yellow tworzą widzialną rzeczywistość,
+
+natomiast czerń – oznaczana literą K – nadaje jej głębię i
+
+kontrast. W mojej symbolice nie oznacza ona wyłącznie zła. Jest
+
+raczej przypomnieniem, że człowiek poznaje światło właśnie
+
+dlatego, że doświadcza ciemności. Nie jest to pochwała mroku,
+
+lecz uznanie, że bez kontrastu trudno byłoby dostrzec piękno
+
+światła.
+
+Cztery poziomy rzeczywistości
+
+1. Kontrast
+
+Kontrast jest granicą, dzięki której człowiek odróżnia światło od
+
+ciemności, dobro od zła, prawdę od fałszu. Dzięki niemu możemy
+
+dostrzec piękno stworzenia i uświadomić sobie, że wszystko ma
+
+swoje miejsce oraz znaczenie.
+
+2. Przezroczystość
+
+Przezroczystość symbolizuje czystość serca, pokorę i gotowość
+
+do przyjęcia światła. Dusza przezroczysta nie skupia uwagi na
+
+sobie, lecz pozwala, aby dobro przechodziło przez nią i docierało
+
+do innych ludzi. Być może właśnie dlatego Jezus tak często
+
+wskazywał na prostotę, ufność i dziecięcą wiarę.
+
+3. Pełnia barw
+
+Pełnia barw oznacza różnorodność dróg, poglądów, przekonań i
+
+sposobów poznawania świata. Jedni odnajdują Boga poprzez
+
+modlitwę, inni poprzez naukę, sztukę, cierpienie, zachwyt nad
+
+światem albo służbę drugiemu człowiekowi. Tylko Bóg zna głębię
+
+ludzkiego serca.
+
+4. Biel
+
+Biel jest dla mnie symbolem światła Bożego, które przenika całe
+
+stworzenie. Nie oznacza jednak samego Boga, ponieważ Bóg
+
+przekracza wszelkie symbole. Nie jest jedną z barw ani jednym z
+
+kolorów. Jest źródłem wszystkiego, co istnieje. Światło pozwala
+
+dostrzec zarówno barwy, jak i cienie. Dzięki niemu możliwe staje
+
+się poznanie, przemiana i odrodzenie.
+
+Światło pośród ciemności
+
+Niezależnie od tego, gdzie człowiek znajduje się na swojej drodze,
+
+zawsze może zwrócić się ku światłu. Jedni doświadczają
+
+zwątpienia, inni cierpienia, jeszcze inni zagubienia. Niektórzy
+
+odnajdują Boga szybko, inni potrzebują na to wielu lat. Nie do nas
+
+należy osądzanie ludzkich serc. Światło świeci bowiem zarówno
+
+pośród jasności, jak i pośród ciemności. „A światłość w
+
+ciemności świeci i ciemność jej nie ogarnęła” (J 1,5).
+
+Tajemnica dobra i zła
+
+W Księdze Izajasza czytamy: „Ja tworzę światłość i stwarzam
+
+ciemność, sprawiam pokój i dopuszczam nieszczęście. Ja, Pan,
+
+czynię to wszystko” (Iz 45,7). Słowa te przypominają, że Bóg
+
+pozostaje Panem całego stworzenia i że nic nie wymyka się Jego
+
+woli oraz opatrzności. Nie oznacza to jednak, że dobro i zło są
+
+tym samym. Zło dzieli, niszczy i oddziela człowieka od miłości.
+
+Dobro natomiast prowadzi do jedności, przebaczenia i pokoju.
+
+Chrystus nie przyszedł po to, aby zatrzeć różnicę między dobrem i
+
+złem, lecz po to, aby zwyciężyć zło dobrem.
+
+Historia zbawienia zapisana w kolorach
+
+W mojej symbolice poszczególne kolory odnoszą się do różnych
+
+etapów historii zbawienia. Błękit przypomina o Ojcu i początku
+
+stworzenia. Magenta staje się symbolem pychy, rozdarcia i utraty
+
+jedności. Żółć oznacza czas oczekiwania, prób i dojrzewania.
+
+Zieleń jest znakiem przemiany, odrodzenia i działania Ducha
+
+Świętego. Cyan przywodzi na myśl wodę, niebo i obietnicę
+
+nowego stworzenia. Nie są to jednak dogmaty, lecz obrazy
+
+pomagające mi opowiadać o drodze człowieka ku Bogu.
+
+Wszystko prowadzi ku światłu
+
+Im dłużej patrzę na tę paletę, tym bardziej dochodzę do
+
+przekonania, że człowiek nie został stworzony po to, aby
+
+pozostać zamkniętym w jednym kolorze. Naszym zadaniem jest
+
+nieustanne wzrastanie. Bóg nie jest bowiem barwą ani kolorem.
+
+Nie jest światłem ani cieniem. Jest samym istnieniem. A
+
+wszystkie barwy, wszystkie kolory i wszystkie drogi są jedynie
+
+śladami prowadzącymi ku Niemu. Przyjdź, Duchu Święty. Przyjdź,
+
+Panie Jezu. Amen.
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 352
@@ -2874,7 +5380,7 @@ Rozważanie Pisma Świętego dla dnia 352.
 
 ---
 
-# Dzień 353 — Widoki na Raj - Dzień 171 (Cykl II - Dzień 171 z 175) - [02.06.2026] Krzyż i znak nieskończoności
+# Dzień 353 — WnR365 — Widoki na Raj - Dzień 171 (Cykl II - Dzień 171 z 175) - [02.06.2026] Krzyż i znak nieskończoności
 
 ## Wstęp
 Wstęp modlitewny dnia 353. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -3040,30 +5546,122 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj - Dzień 171 (Cykl II - Dzień 171 z 175) - [02.06.2026] Krzyż i znak nieskończoności
-Powyżej widnieje symbol nieskończoności wpisany w krzyż. W jego centrum spotykają się „tak” i „nie”, czas i wieczność, człowiek i Bóg. Wokół znajdują się 365 paciorków, podobnych do paciorków różańca, oznaczających dni roku. Dzień 29 lutego, pojawiający się raz na cztery lata, pozostaje dniem pustki i ciszy. Patrząc na ten znak, wyobrażam sobie duchowe przejście na drugą stronę lustra, aby spojrzeć na rzeczywistość oczami Chrystusa. Nie chodzi o zajęcie Jego miejsca, ale o próbę spojrzenia na świat z miłością, współczuciem i miłosierdziem. Myślę wtedy o tym, jak bardzo Bóg cierpi z powodu ludzkiego grzechu. Moje cierpienie wydaje mi się zaledwie punktem wobec ogromu Jego miłości. Człowiek doświadcza własnego bólu, ale Chrystus bierze na siebie cierpienie całego świata. Panie, jak bardzo świat zranił Cię swoim grzechem, a szczególnie moimi grzechami. Żadne słowa nie są w stanie wyrazić żalu za zło, które popełniłem. Dziękuję Ci jednak za przebaczenie, ponieważ Twoje miłosierdzie jest większe od mojego upadku.
+### WnR365 — Widoki na Raj - Dzień 171 (Cykl II - Dzień 171 z 175) - [02.06.2026] Krzyż i znak nieskończoności
+Powyżej widnieje symbol nieskończoności wpisany w krzyż. W
 
-### Jezus odnaleziony w świątyni
+jego centrum spotykają się „tak” i „nie”, czas i wieczność,
 
-### Łk 2,48–52
+człowiek i Bóg. Wokół znajdują się 365 paciorków, podobnych do
 
-«„Synu, czemuś nam to uczynił? Oto ojciec Twój i ja z bólem serca szukaliśmy Ciebie”.» Lecz On im odpowiedział: «„Czemuście Mnie szukali? Czy nie wiedzieliście, że powinienem być w tym, co należy do mego Ojca?”» Oni jednak nie zrozumieli tego, co im powiedział. Potem poszedł z nimi i wrócił do Nazaretu; i był im poddany. A Matka Jego chowała wiernie wszystkie te wspomnienia w swoim sercu. Jezus zaś czynił postępy w mądrości, w latach i w łasce u Boga i u ludzi.
+paciorków różańca, oznaczających dni roku. Dzień 29 lutego,
 
-### Świątynia serca
+pojawiający się raz na cztery lata, pozostaje dniem pustki i ciszy.
 
-Wierzę, że należę do Boga Ojca, a Chrystus mieszka we mnie. Nie oznacza to, że jestem Chrystusem, ale że dzięki łasce mogę uczestniczyć w Jego życiu. Moje serce staje się świątynią, w której Duch Święty nieustannie przypomina mi o obecności Boga. Niech każdy, kto należy do Chrystusa, skosztuje tej żywej wody i odnajdzie w niej pokój. Jezus modli się we mnie, a ja modlę się razem z Nim: «Ojcze nasz, któryś jest w niebie, święć się Imię Twoje; przyjdź Królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi.
+Patrząc na ten znak, wyobrażam sobie duchowe przejście na
 
-### Chleba naszego powszedniego daj nam dzisiaj
+drugą stronę lustra, aby spojrzeć na rzeczywistość oczami
 
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego.
+Chrystusa. Nie chodzi o zajęcie Jego miejsca, ale o próbę
 
-### Amen.»
+spojrzenia na świat z miłością, współczuciem i miłosierdziem.
 
-Jezus nie jest daleko ode mnie. Nie idzie wyłącznie przede mną ani za mną. Jest obecny w moim sercu, a ja dzięki Niemu mogę zwracać się do Boga słowami: „Ojcze”.
+Myślę wtedy o tym, jak bardzo Bóg cierpi z powodu ludzkiego
 
-### Dziecko Boże
+grzechu. Moje cierpienie wydaje mi się zaledwie punktem wobec
 
-Jezus jest prawdziwym Synem Bożym i Synem Człowieczym. Ja natomiast jestem człowiekiem i dzieckiem Bożym, powołanym do życia w jedności z Chrystusem. Znak nieskończoności przypomina mi o tej tajemnicy. Punkt przecięcia linii staje się dla mnie symbolem spotkania ludzkiej słabości z Bożym miłosierdziem. Człowiek nie staje się Bogiem, ale przez łaskę zostaje zaproszony do uczestnictwa w Jego życiu. Święty Paweł napisał: «„Żyję już nie ja, lecz żyje we mnie Chrystus” (Ga 2,20).» Nie oznacza to utraty własnej tożsamości, ale przemianę serca. Panie, przygarnij mnie jak syna marnotrawnego. Przepraszam, dziękuję i proszę. Bądź uwielbiony, Boże Ojcze, Synu i Duchu Święty. Amen. Alleluja. Amen.
+ogromu Jego miłości. Człowiek doświadcza własnego bólu, ale
+
+Chrystus bierze na siebie cierpienie całego świata. Panie, jak
+
+bardzo świat zranił Cię swoim grzechem, a szczególnie moimi
+
+grzechami. Żadne słowa nie są w stanie wyrazić żalu za zło, które
+
+popełniłem. Dziękuję Ci jednak za przebaczenie, ponieważ Twoje
+
+miłosierdzie jest większe od mojego upadku.
+
+Jezus odnaleziony w świątyni
+
+Łk 2,48–52
+
+«„Synu, czemuś nam to uczynił? Oto ojciec Twój i ja z bólem serca
+
+szukaliśmy Ciebie”.» Lecz On im odpowiedział: «„Czemuście Mnie
+
+szukali? Czy nie wiedzieliście, że powinienem być w tym, co
+
+należy do mego Ojca?”» Oni jednak nie zrozumieli tego, co im
+
+powiedział. Potem poszedł z nimi i wrócił do Nazaretu; i był im
+
+poddany. A Matka Jego chowała wiernie wszystkie te
+
+wspomnienia w swoim sercu. Jezus zaś czynił postępy w
+
+mądrości, w latach i w łasce u Boga i u ludzi.
+
+Świątynia serca
+
+Wierzę, że należę do Boga Ojca, a Chrystus mieszka we mnie. Nie
+
+oznacza to, że jestem Chrystusem, ale że dzięki łasce mogę
+
+uczestniczyć w Jego życiu. Moje serce staje się świątynią, w
+
+której Duch Święty nieustannie przypomina mi o obecności Boga.
+
+Niech każdy, kto należy do Chrystusa, skosztuje tej żywej wody i
+
+odnajdzie w niej pokój. Jezus modli się we mnie, a ja modlę się
+
+razem z Nim: «Ojcze nasz, któryś jest w niebie, święć się Imię
+
+Twoje; przyjdź Królestwo Twoje; bądź wola Twoja jako w niebie,
+
+tak i na ziemi.
+
+Chleba naszego powszedniego daj nam dzisiaj
+
+i odpuść nam nasze winy, jako i my odpuszczamy naszym
+
+winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode
+
+złego.
+
+Amen.»
+
+Jezus nie jest daleko ode mnie. Nie idzie wyłącznie przede mną
+
+ani za mną. Jest obecny w moim sercu, a ja dzięki Niemu mogę
+
+zwracać się do Boga słowami: „Ojcze”.
+
+Dziecko Boże
+
+Jezus jest prawdziwym Synem Bożym i Synem Człowieczym. Ja
+
+natomiast jestem człowiekiem i dzieckiem Bożym, powołanym do
+
+życia w jedności z Chrystusem. Znak nieskończoności
+
+przypomina mi o tej tajemnicy. Punkt przecięcia linii staje się dla
+
+mnie symbolem spotkania ludzkiej słabości z Bożym
+
+miłosierdziem. Człowiek nie staje się Bogiem, ale przez łaskę
+
+zostaje zaproszony do uczestnictwa w Jego życiu. Święty Paweł
+
+napisał: «„Żyję już nie ja, lecz żyje we mnie Chrystus” (Ga 2,20).»
+
+Nie oznacza to utraty własnej tożsamości, ale przemianę serca.
+
+Panie, przygarnij mnie jak syna marnotrawnego. Przepraszam,
+
+dziękuję i proszę. Bądź uwielbiony, Boże Ojcze, Synu i Duchu
+
+Święty. Amen. Alleluja. Amen.
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 353
@@ -3072,7 +5670,7 @@ Rozważanie Pisma Świętego dla dnia 353.
 
 ---
 
-# Dzień 354 — Widoki na Raj - Dzień 172 (Cykl II - Dzień 172 z 175) - [02.06.2026] Piąta świeca
+# Dzień 354 — WnR365 — Widoki na Raj - Dzień 172 (Cykl II - Dzień 172 z 175) - [02.06.2026] Piąta świeca
 
 ## Wstęp
 Wstęp modlitewny dnia 354. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -3232,12 +5830,122 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj - Dzień 172 (Cykl II - Dzień 172 z 175) - [02.06.2026] Piąta świeca
-Widzę pięć świec adwentowych. Cztery z nich odpowiadają czterem tygodniom Adwentu, natomiast piąta znajduje się pośrodku. Jest ona jak kropka, pełnia i pieczęć potwierdzająca wszystko, ponieważ wszystko dokonało się w narodzeniu Jezusa Chrystusa. Widzę w tym również pięć części i pięć tajemnic Różańca Historii Zbawienia, a szczególnie etap czwarty, część drugą, w której cisza staje się Królestwem Boga Prawdziwego i Miłosiernego. Podobnie jest z Adwentem. Jest to czas oczekiwania, wyciszenia, przygotowania serca i otwarcia go na przyjście Boga wcielonego. Przypominają mi się słowa Ewangelii: «„A Jezus rzekł im: «Dla niedowiarstwa waszego; bo zaprawdę powiadam wam: Gdybyście mieli wiarę jako ziarnko gorczyczne, rzeklibyście tej górze: Przenieś się stąd tam, a przeniosłaby się; i nic by wam niemożliwego nie było».”
+### WnR365 — Widoki na Raj - Dzień 172 (Cykl II - Dzień 172 z 175) - [02.06.2026] Piąta świeca
+Widzę pięć świec adwentowych. Cztery z nich odpowiadają
 
-### (Mt 17,20)»
+czterem tygodniom Adwentu, natomiast piąta znajduje się
 
-Dzisiaj coraz wyraźniej widzimy, że człowiek nieustannie przekracza granice własnego poznania. To, co dawniej wydawało się niemożliwe, staje się przedmiotem badań i odkryć naukowych. Nie oznacza to jednak, że człowiek staje się równy Bogu. Przeciwnie, dostrzegamy coraz więcej praw rządzących stworzeniem, które od początku istniały, choć pozostawały przed nami ukryte. Możliwe, że kiedyś ludzkość odkryje sposoby podróżowania, o których dzisiaj potrafimy jedynie marzyć. Być może pewnego dnia człowiek będzie przemieszczał się nie tylko w sposób liniowy, lecz także dzięki zjawiskom, których jeszcze nie rozumiemy. Niezależnie od tego, jak daleko zaprowadzi nas nauka, zawsze będziemy poruszać się w granicach świata stworzonego przez Boga. Bóg jest bowiem obecny zarówno w tym, co widzialne, jak i w tym, co pozostaje ukryte. Patrząc na układ świec w Sanktuarium Bożego Miłosierdzia w Łagiewnikach, widzę obraz „Jezu, ufam Tobie”. Widzę również duszę człowieka – swoją i każdego chrześcijanina – spoczywającą u stóp Chrystusa. Widzę złote tabernakulum, przypominające mi, że Bóg potrafi przemieniać ludzką słabość w drogę prowadzącą ku zbawieniu. Nie oznacza to, że zło staje się dobrem. Oznacza jedynie, że Boże miłosierdzie jest większe od każdego grzechu. Winorośl prowadzi ku Jezusowi i ku świętej siostrze Faustynie, aby wszystkie dusze mogły odnaleźć drogę do Bożego Miłosierdzia. Widzę w tym obraz Kościoła, który mimo różnic, podziałów i słabości nieustannie wskazuje drogę ku Temu, który jest źródłem życia. Dostrzegam również ciemną kropkę – znak grzechu, pychy, słabości i oddalenia od Boga. Nie jest ona jednak centrum całego obrazu. Zostaje zakryta przez światło Chrystusa, podobnie jak pięta Zbawiciela miażdży głowę węża. Widzę także białą kropkę, przypominającą pieczęć wykonaną z roztopionego wosku piątej świecy. Jest ona dla mnie symbolem chrztu świętego i gromnicy, którą otrzymujemy jako znak zwycięstwa światła nad ciemnością, życia nad śmiercią oraz miłosierdzia nad potępieniem. Wierzę, że człowiek jest wolny, a jednocześnie pozostaje częścią Bożego planu. Bóg zna nasze wybory, lecz nie odbiera nam wolności. Nie prowadzi człowieka ku złu, ale nieustannie wskazuje drogę ku prawdzie, dobru i miłości. Nie wszystko rozumiemy. Widzimy jedynie fragmenty większej całości, tak jak patrzymy na pojedyncze gwiazdy, nie dostrzegając jeszcze całego nieba. Być może właśnie dlatego Chrystus pozostawił nam tak prostą drogę. Przyjąć przebaczenie od Boga. Przebaczyć innym. Przebaczyć samemu sobie. Zaufać. I pójść za światłem. Jezu, ufam Tobie.
+pośrodku. Jest ona jak kropka, pełnia i pieczęć potwierdzająca
+
+wszystko, ponieważ wszystko dokonało się w narodzeniu Jezusa
+
+Chrystusa. Widzę w tym również pięć części i pięć tajemnic
+
+Różańca Historii Zbawienia, a szczególnie etap czwarty, część
+
+drugą, w której cisza staje się Królestwem Boga Prawdziwego i
+
+Miłosiernego. Podobnie jest z Adwentem. Jest to czas
+
+oczekiwania, wyciszenia, przygotowania serca i otwarcia go na
+
+przyjście Boga wcielonego. Przypominają mi się słowa Ewangelii:
+
+«„A Jezus rzekł im: «Dla niedowiarstwa waszego; bo zaprawdę
+
+powiadam wam: Gdybyście mieli wiarę jako ziarnko gorczyczne,
+
+rzeklibyście tej górze: Przenieś się stąd tam, a przeniosłaby się; i
+
+nic by wam niemożliwego nie było».”
+
+(Mt 17,20)»
+
+Dzisiaj coraz wyraźniej widzimy, że człowiek nieustannie
+
+przekracza granice własnego poznania. To, co dawniej wydawało
+
+się niemożliwe, staje się przedmiotem badań i odkryć naukowych.
+
+Nie oznacza to jednak, że człowiek staje się równy Bogu.
+
+Przeciwnie, dostrzegamy coraz więcej praw rządzących
+
+stworzeniem, które od początku istniały, choć pozostawały przed
+
+nami ukryte. Możliwe, że kiedyś ludzkość odkryje sposoby
+
+podróżowania, o których dzisiaj potrafimy jedynie marzyć. Być
+
+może pewnego dnia człowiek będzie przemieszczał się nie tylko
+
+w sposób liniowy, lecz także dzięki zjawiskom, których jeszcze nie
+
+rozumiemy. Niezależnie od tego, jak daleko zaprowadzi nas
+
+nauka, zawsze będziemy poruszać się w granicach świata
+
+stworzonego przez Boga. Bóg jest bowiem obecny zarówno w
+
+tym, co widzialne, jak i w tym, co pozostaje ukryte. Patrząc na
+
+układ świec w Sanktuarium Bożego Miłosierdzia w Łagiewnikach,
+
+widzę obraz „Jezu, ufam Tobie”. Widzę również duszę człowieka
+
+– swoją i każdego chrześcijanina – spoczywającą u stóp
+
+Chrystusa. Widzę złote tabernakulum, przypominające mi, że Bóg
+
+potrafi przemieniać ludzką słabość w drogę prowadzącą ku
+
+zbawieniu. Nie oznacza to, że zło staje się dobrem. Oznacza
+
+jedynie, że Boże miłosierdzie jest większe od każdego grzechu.
+
+Winorośl prowadzi ku Jezusowi i ku świętej siostrze Faustynie,
+
+aby wszystkie dusze mogły odnaleźć drogę do Bożego
+
+Miłosierdzia. Widzę w tym obraz Kościoła, który mimo różnic,
+
+podziałów i słabości nieustannie wskazuje drogę ku Temu, który
+
+jest źródłem życia. Dostrzegam również ciemną kropkę – znak
+
+grzechu, pychy, słabości i oddalenia od Boga. Nie jest ona jednak
+
+centrum całego obrazu. Zostaje zakryta przez światło Chrystusa,
+
+podobnie jak pięta Zbawiciela miażdży głowę węża. Widzę także
+
+białą kropkę, przypominającą pieczęć wykonaną z roztopionego
+
+wosku piątej świecy. Jest ona dla mnie symbolem chrztu
+
+świętego i gromnicy, którą otrzymujemy jako znak zwycięstwa
+
+światła nad ciemnością, życia nad śmiercią oraz miłosierdzia nad
+
+potępieniem. Wierzę, że człowiek jest wolny, a jednocześnie
+
+pozostaje częścią Bożego planu. Bóg zna nasze wybory, lecz nie
+
+odbiera nam wolności. Nie prowadzi człowieka ku złu, ale
+
+nieustannie wskazuje drogę ku prawdzie, dobru i miłości. Nie
+
+wszystko rozumiemy. Widzimy jedynie fragmenty większej
+
+całości, tak jak patrzymy na pojedyncze gwiazdy, nie dostrzegając
+
+jeszcze całego nieba. Być może właśnie dlatego Chrystus
+
+pozostawił nam tak prostą drogę. Przyjąć przebaczenie od Boga.
+
+Przebaczyć innym. Przebaczyć samemu sobie. Zaufać. I pójść za
+
+światłem. Jezu, ufam Tobie.
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 354
@@ -3246,7 +5954,7 @@ Rozważanie Pisma Świętego dla dnia 354.
 
 ---
 
-# Dzień 355 — Widoki na Raj - Dzień 173 (Cykl II - Dzień 173 z 175) - [14.12.2026] Droga ku światłu
+# Dzień 355 — WnR365 — Widoki na Raj - Dzień 173 (Cykl II - Dzień 173 z 175) - [14.12.2026] Droga ku światłu
 
 ## Wstęp
 Wstęp modlitewny dnia 355. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -3406,8 +6114,114 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj - Dzień 173 (Cykl II - Dzień 173 z 175) - [14.12.2026] Droga ku światłu
-Słońce jest symbolem Boga ukrytego w Hostii. Ku temu światłu zwróceni są mężczyzna i kobieta. Za swoimi plecami trzymają broń: miecz i tarczę. Nie służą one jednak do walki z drugim człowiekiem, ale do ochrony przed tym, co oddala od dobra, prawdy i miłości. Mężczyzna prawą dłonią obejmuje lewą dłoń kobiety niczym miecz, a kobieta lewą dłonią obejmuje prawą dłoń mężczyzny niczym tarczę. Oboje stają się jednością – nową rzeczywistością duchową, a częściowo również cielesną. Przypominają słowa Pisma: „Co więc Bóg złączył, niech człowiek nie rozdziela”. Kobieta kocha pustynię i oazy, w których pośród piasku rozkwita życie. Mężczyzna spogląda ku gwiazdom, planetom i bezkresowi kosmosu. Oboje patrzą jednak w tym samym kierunku – ku światłu. Tyle jest gwiazd na niebie i tyle ziaren piasku na ziemi, ile dusz zmierza tą drogą. Jeśli Bóg pozwoli, przez Jezusa Chrystusa, w mocy Ducha Świętego, wszyscy zostaną poprowadzeni ku ramionom Ojca. Woda jest symbolem słowa Bożego. Obecne są tutaj cztery żywioły: woda, ziemia, powietrze i ogień. Trwają one we wzajemnej harmonii, ponieważ tylko porządek pozwala zachować życie. Człowiek idzie drogą pomiędzy tym, co ziemskie, a tym, co niebiańskie. Żółty piasek przypomina o ludzkiej słabości, a światło gwiazd symbolizuje łaskę Boga, która oczyszcza ludzkie serce. To właśnie dlatego światłość świeci w ciemności. To, o czym pisałem do tej pory, postrzegam jako odbicie dawnych wydarzeń, których początek sięga czasów Jezusa. Historia ta wciąż trwa, ponieważ Chrystusa można odnaleźć w drugim człowieku. W sobie samym dostrzegam przede wszystkim własną słabość. Wierzę jednak, że Bóg może przemienić ludzkie serce. Adam obwiniał Ewę, Ewa obwiniała węża, a człowiek do dziś szuka winy poza sobą. Tymczasem droga ku światłu rozpoczyna się od uznania własnych błędów i od prośby o miłosierdzie. Nie ja mam być światłem. Światłem jest Chrystus. Nie ja mam być drogą. Drogą jest Chrystus. Nie ja mam być prawdą. Prawdą jest Chrystus. Jestem jedynie człowiekiem, który wciąż uczy się stawiać dobro ponad własną pychę i własny lęk. Wolę pozostać dzieckiem przed Bogiem, niż udawać kogoś, kim nie jestem. Niebo wyobrażam sobie jako rzeczywistość doskonałej jedności, w której każda dusza odnajduje swoje miejsce. Wierzę, że przebaczenie ma moc kruszenia lodu zalegającego w ludzkich sercach, a miłosierdzie potrafi przywrócić nadzieję tam, gdzie wydaje się ona utracona. Nie powinniśmy bać się zła ani pozwolić, by zapanowała nad nami nienawiść. Mamy natomiast nieustannie zwracać się ku dobru, ponieważ tylko miłość jest zdolna przemienić ludzkie serce. W „Testamencie Duchowym” pisałem o ścieżce podzielonej na trzy części, o pięciu świecach i o drodze prowadzącej ku pełni. Pisałem również o trzech postaciach: mężczyźnie, kobiecie i aniele. Mężczyzna symbolizuje Chrystusa, kobieta przypomina o Maryi, a anioł jest znakiem duchowego powołania człowieka. Każdy człowiek otrzymał swojego anioła stróża, który prowadzi go przez życie i stawia przed obliczem Boga. Wierzę, że człowiek został stworzony dla życia, a nie dla śmierci. Dlatego niebo nie jest końcem drogi, lecz jej spełnieniem. Kto wytrwa do końca, ten będzie zbawiony. A światłość nadal będzie świecić w ciemności.
+### WnR365 — Widoki na Raj - Dzień 173 (Cykl II - Dzień 173 z 175) - [14.12.2026] Droga ku światłu
+Słońce jest symbolem Boga ukrytego w Hostii. Ku temu światłu
+
+zwróceni są mężczyzna i kobieta. Za swoimi plecami trzymają
+
+broń: miecz i tarczę. Nie służą one jednak do walki z drugim
+
+człowiekiem, ale do ochrony przed tym, co oddala od dobra,
+
+prawdy i miłości. Mężczyzna prawą dłonią obejmuje lewą dłoń
+
+kobiety niczym miecz, a kobieta lewą dłonią obejmuje prawą dłoń
+
+mężczyzny niczym tarczę. Oboje stają się jednością – nową
+
+rzeczywistością duchową, a częściowo również cielesną.
+
+Przypominają słowa Pisma: „Co więc Bóg złączył, niech człowiek
+
+nie rozdziela”. Kobieta kocha pustynię i oazy, w których pośród
+
+piasku rozkwita życie. Mężczyzna spogląda ku gwiazdom,
+
+planetom i bezkresowi kosmosu. Oboje patrzą jednak w tym
+
+samym kierunku – ku światłu. Tyle jest gwiazd na niebie i tyle
+
+ziaren piasku na ziemi, ile dusz zmierza tą drogą. Jeśli Bóg
+
+pozwoli, przez Jezusa Chrystusa, w mocy Ducha Świętego,
+
+wszyscy zostaną poprowadzeni ku ramionom Ojca. Woda jest
+
+symbolem słowa Bożego. Obecne są tutaj cztery żywioły: woda,
+
+ziemia, powietrze i ogień. Trwają one we wzajemnej harmonii,
+
+ponieważ tylko porządek pozwala zachować życie. Człowiek idzie
+
+drogą pomiędzy tym, co ziemskie, a tym, co niebiańskie. Żółty
+
+piasek przypomina o ludzkiej słabości, a światło gwiazd
+
+symbolizuje łaskę Boga, która oczyszcza ludzkie serce. To
+
+właśnie dlatego światłość świeci w ciemności. To, o czym
+
+pisałem do tej pory, postrzegam jako odbicie dawnych wydarzeń,
+
+których początek sięga czasów Jezusa. Historia ta wciąż trwa,
+
+ponieważ Chrystusa można odnaleźć w drugim człowieku. W
+
+sobie samym dostrzegam przede wszystkim własną słabość.
+
+Wierzę jednak, że Bóg może przemienić ludzkie serce. Adam
+
+obwiniał Ewę, Ewa obwiniała węża, a człowiek do dziś szuka winy
+
+poza sobą. Tymczasem droga ku światłu rozpoczyna się od
+
+uznania własnych błędów i od prośby o miłosierdzie. Nie ja mam
+
+być światłem. Światłem jest Chrystus. Nie ja mam być drogą.
+
+Drogą jest Chrystus. Nie ja mam być prawdą. Prawdą jest
+
+Chrystus. Jestem jedynie człowiekiem, który wciąż uczy się
+
+stawiać dobro ponad własną pychę i własny lęk. Wolę pozostać
+
+dzieckiem przed Bogiem, niż udawać kogoś, kim nie jestem.
+
+Niebo wyobrażam sobie jako rzeczywistość doskonałej jedności,
+
+w której każda dusza odnajduje swoje miejsce. Wierzę, że
+
+przebaczenie ma moc kruszenia lodu zalegającego w ludzkich
+
+sercach, a miłosierdzie potrafi przywrócić nadzieję tam, gdzie
+
+wydaje się ona utracona. Nie powinniśmy bać się zła ani pozwolić,
+
+by zapanowała nad nami nienawiść. Mamy natomiast nieustannie
+
+zwracać się ku dobru, ponieważ tylko miłość jest zdolna
+
+przemienić ludzkie serce. W „Testamencie Duchowym” pisałem o
+
+ścieżce podzielonej na trzy części, o pięciu świecach i o drodze
+
+prowadzącej ku pełni. Pisałem również o trzech postaciach:
+
+mężczyźnie, kobiecie i aniele. Mężczyzna symbolizuje Chrystusa,
+
+kobieta przypomina o Maryi, a anioł jest znakiem duchowego
+
+powołania człowieka. Każdy człowiek otrzymał swojego anioła
+
+stróża, który prowadzi go przez życie i stawia przed obliczem
+
+Boga. Wierzę, że człowiek został stworzony dla życia, a nie dla
+
+śmierci. Dlatego niebo nie jest końcem drogi, lecz jej spełnieniem.
+
+Kto wytrwa do końca, ten będzie zbawiony. A światłość nadal
+
+będzie świecić w ciemności.
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 355
@@ -3416,7 +6230,7 @@ Rozważanie Pisma Świętego dla dnia 355.
 
 ---
 
-# Dzień 356 — Widoki na Raj - Dzień 174 (Cykl II - Dzień 174 z 175) - [15.06.2026] Sól, lustro i droga ku Dobru
+# Dzień 356 — WnR365 — Widoki na Raj - Dzień 174 (Cykl II - Dzień 174 z 175) - [15.06.2026] Sól, lustro i droga ku Dobru
 
 ## Wstęp
 Wstęp modlitewny dnia 356. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -3586,8 +6400,108 @@ i dopomóż szczególnie tym,
 które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj - Dzień 174 (Cykl II - Dzień 174 z 175) - [15.06.2026] Sól, lustro i droga ku Dobru
-Jezus powiedział, że sól, która utraci swój smak, nie nadaje się już do niczego. Zadał przy tym pytanie: czym można posolić sól, która zwietrzała? Czasami myślę, że mój blog przypomina właśnie przesoloną potrawę. Jest w nim nadmiar słów, myśli, symboli, skojarzeń i obrazów. Wierzę jednak, że nawet z takiej potrawy można wydobyć to, co najważniejsze i najcenniejsze, aby użyć tego tam, gdzie brakuje smaku, światła, nadziei i prawdy. Mam nadzieję, że nie tylko kaznodzieje, lecz także wszyscy poszukujący odnajdą tutaj coś dla siebie. Pragnę, aby każdy, kto szuka prawdy, mógł zbliżyć się do Boga i doświadczyć Jego obecności w Jezusie Chrystusie, który prowadzi do Ojca mocą Ducha Świętego. W tej drodze towarzyszy nam Maryja, Matka Boża, święci, aniołowie oraz anioł stróż, czuwający nad każdym człowiekiem. Niech ta ludzko-duchowa wspólnota trwa przez wszystkie wieki. Amen. Podczas modlitwy różańcowej spojrzałem w głąb własnej duszy. Chociaż moje ciało siedzi lub leży, duch trwa na modlitwie. To właśnie on klęczy przed Bogiem. Ciało doświadcza słabości, lecz dusza nie przestaje wołać. Wyobraziłem sobie, że modlę się razem z Jezusem. Nie pragnę być jedynie Jego odbiciem, ale chcę znaleźć się po Jego stronie. Chcę przejść przez lustro własnego ego i stanąć obok Niego, wybierając dobro, które uczestniczy w Bożym Dobru. Człowiek nie staje się dobry wyłącznie dzięki własnym siłom. Potrzebuje Bożej łaski. Potrzebuje pokory, ufności i wiary. Za każdym razem, gdy pojawia się pycha, człowiek oddala się od Boga i łatwiej ulega złu. Dlatego tak ważne są pokuta, nawrócenie i pojednanie z Bogiem. Początkiem tej drogi jest konfesjonał i słowa przebaczenia wypowiadane przez kapłana. Później pozostaje już tylko wytrwanie, świadomość własnej słabości i nieustanne zawierzanie się Bożemu miłosierdziu. Wierzę, że wolna wola nie polega na odrzucaniu Boga, lecz na otwieraniu się na Jego wolę i przyjmowaniu Jego miłości. Miłość nie jest jedynie uczuciem. Jest również decyzją, troską, odpowiedzialnością i codziennym wyborem. Mam również świadomość własnego wewnętrznego rozdarcia. Człowiek nieustannie zmaga się ze swoim dawnym i nowym „ja”. Święty Paweł napisał: „Teraz zaś już nie ja żyję, lecz żyje we mnie Chrystus”. Pragnę więc odrzucić wszystko to, co oddala mnie od Boga, i pozostawić tylko to, co prowadzi ku światłu. Chcę uczyć się patrzeć na świat oczami Jezusa Miłosiernego, pamiętając o Jego słowach: „Niech wasza mowa będzie: tak, tak; nie, nie”. Nie zawsze to, co wydaje się dobre, jest naprawdę dobre. Nie zawsze też to, co wydaje się złe, okazuje się całkowicie pozbawione sensu, ponieważ Bóg potrafi wyprowadzić dobro nawet z ludzkiej słabości. Dopiero u kresu czasu wszystko zostanie ukazane w pełnym świetle prawdy. Już dzisiaj możemy jednak doświadczać cząstki tej rzeczywistości dzięki przykazaniu miłości i darom Ducha Świętego, które niczym siedem życiodajnych strumieni wypływają od Ojca przez Jezusa Chrystusa. Niech Chrystus wzrasta w nas, a nasze własne „ja” staje się coraz mniejsze. Niech sól zachowa swój smak, a lustro nie odbija już tylko nas samych, lecz także światło Boga. Amen.
+### WnR365 — Widoki na Raj - Dzień 174 (Cykl II - Dzień 174 z 175) - [15.06.2026] Sól, lustro i droga ku Dobru
+Jezus powiedział, że sól, która utraci swój smak, nie nadaje się już
+
+do niczego. Zadał przy tym pytanie: czym można posolić sól,
+
+która zwietrzała? Czasami myślę, że mój blog przypomina właśnie
+
+przesoloną potrawę. Jest w nim nadmiar słów, myśli, symboli,
+
+skojarzeń i obrazów. Wierzę jednak, że nawet z takiej potrawy
+
+można wydobyć to, co najważniejsze i najcenniejsze, aby użyć
+
+tego tam, gdzie brakuje smaku, światła, nadziei i prawdy. Mam
+
+nadzieję, że nie tylko kaznodzieje, lecz także wszyscy poszukujący
+
+odnajdą tutaj coś dla siebie. Pragnę, aby każdy, kto szuka prawdy,
+
+mógł zbliżyć się do Boga i doświadczyć Jego obecności w
+
+Jezusie Chrystusie, który prowadzi do Ojca mocą Ducha
+
+Świętego. W tej drodze towarzyszy nam Maryja, Matka Boża,
+
+święci, aniołowie oraz anioł stróż, czuwający nad każdym
+
+człowiekiem. Niech ta ludzko-duchowa wspólnota trwa przez
+
+wszystkie wieki. Amen. Podczas modlitwy różańcowej spojrzałem
+
+w głąb własnej duszy. Chociaż moje ciało siedzi lub leży, duch
+
+trwa na modlitwie. To właśnie on klęczy przed Bogiem. Ciało
+
+doświadcza słabości, lecz dusza nie przestaje wołać.
+
+Wyobraziłem sobie, że modlę się razem z Jezusem. Nie pragnę
+
+być jedynie Jego odbiciem, ale chcę znaleźć się po Jego stronie.
+
+Chcę przejść przez lustro własnego ego i stanąć obok Niego,
+
+wybierając dobro, które uczestniczy w Bożym Dobru. Człowiek nie
+
+staje się dobry wyłącznie dzięki własnym siłom. Potrzebuje Bożej
+
+łaski. Potrzebuje pokory, ufności i wiary. Za każdym razem, gdy
+
+pojawia się pycha, człowiek oddala się od Boga i łatwiej ulega złu.
+
+Dlatego tak ważne są pokuta, nawrócenie i pojednanie z Bogiem.
+
+Początkiem tej drogi jest konfesjonał i słowa przebaczenia
+
+wypowiadane przez kapłana. Później pozostaje już tylko
+
+wytrwanie, świadomość własnej słabości i nieustanne
+
+zawierzanie się Bożemu miłosierdziu. Wierzę, że wolna wola nie
+
+polega na odrzucaniu Boga, lecz na otwieraniu się na Jego wolę i
+
+przyjmowaniu Jego miłości. Miłość nie jest jedynie uczuciem.
+
+Jest również decyzją, troską, odpowiedzialnością i codziennym
+
+wyborem. Mam również świadomość własnego wewnętrznego
+
+rozdarcia. Człowiek nieustannie zmaga się ze swoim dawnym i
+
+nowym „ja”. Święty Paweł napisał: „Teraz zaś już nie ja żyję, lecz
+
+żyje we mnie Chrystus”. Pragnę więc odrzucić wszystko to, co
+
+oddala mnie od Boga, i pozostawić tylko to, co prowadzi ku
+
+światłu. Chcę uczyć się patrzeć na świat oczami Jezusa
+
+Miłosiernego, pamiętając o Jego słowach: „Niech wasza mowa
+
+będzie: tak, tak; nie, nie”. Nie zawsze to, co wydaje się dobre, jest
+
+naprawdę dobre. Nie zawsze też to, co wydaje się złe, okazuje się
+
+całkowicie pozbawione sensu, ponieważ Bóg potrafi wyprowadzić
+
+dobro nawet z ludzkiej słabości. Dopiero u kresu czasu wszystko
+
+zostanie ukazane w pełnym świetle prawdy. Już dzisiaj możemy
+
+jednak doświadczać cząstki tej rzeczywistości dzięki przykazaniu
+
+miłości i darom Ducha Świętego, które niczym siedem
+
+życiodajnych strumieni wypływają od Ojca przez Jezusa
+
+Chrystusa. Niech Chrystus wzrasta w nas, a nasze własne „ja”
+
+staje się coraz mniejsze. Niech sól zachowa swój smak, a lustro
+
+nie odbija już tylko nas samych, lecz także światło Boga. Amen.
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 356
@@ -3596,7 +6510,7 @@ Rozważanie Pisma Świętego dla dnia 356.
 
 ---
 
-# Dzień 357 — Widoki na Raj - Dzień 175 (Cykl II - Dzień 175 z 175) - [02.06.2026] Przez piasek ku światłu
+# Dzień 357 — WnR365 — Widoki na Raj - Dzień 175 (Cykl II - Dzień 175 z 175) - [02.06.2026] Przez piasek ku światłu
 
 ## Wstęp
 Wstęp modlitewny dnia 357. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -3615,8 +6529,66 @@ Trzy Wezwania do Działania
 3. Zatrzymaj się i zobacz, że jest dobre. Naucz się dziękować za to, co już istnieje. Dobro trzeba zauważyć, by rosło.
 
 ## WnR365
-### Widoki na Raj - Dzień 175 (Cykl II - Dzień 175 z 175) - [02.06.2026] Przez piasek ku światłu
-Jesteśmy jak ziarenka piasku przesypujące się przez klepsydrę czasu. Każdy dzień przybliża nas do chwili spotkania z Bogiem. Piasek sam w sobie wydaje się czymś zwyczajnym, rozproszonym i kruchym, lecz poddany działaniu ognia przemienia się w szkło. A szkło, odpowiednio oszlifowane, może stać się kryształem, który nie zatrzymuje światła, lecz pozwala mu przechodzić przez siebie i rozszczepiać się na niezliczone barwy. Być może właśnie tak wygląda droga człowieka. Dopóki pozostajemy zamknięci w sobie, jesteśmy jak piasek rozsypywany przez wiatr. Kiedy jednak oddajemy się Jezusowi i przyjmujemy przebaczenie Ojca, zaczyna się przemiana. Ogień doświadczeń, modlitwy, miłości i prawdy nie ma nas zniszczyć, ale oczyścić i przemienić. Wtedy światło Chrystusa nie zatrzymuje się na nas, lecz przechodzi przez nas i rozświetla świat. Nie po to, aby ludzie podziwiali szkło, ale po to, aby zobaczyli światło. Czasami patrzę na Jezusa, starając się dostrzec Jego spojrzenie skierowane ku człowiekowi. Innym razem mam wrażenie, jakbym przechodził na drugą stronę lustra i próbował spojrzeć na siebie oraz na innych Jego oczami. Właśnie wtedy odkrywam, że prawdziwa empatia nie polega na tym, by odczuwać jedynie własne emocje lub emocje drugiego człowieka. Polega na tym, by uczyć się patrzeć z miłością, prawdą i miłosierdziem, których źródłem jest Chrystus. To On wyznacza kierunek. To On uczy, jak dobrze żyć. To On sprawia, że noc staje się świtem, a światło rozbłyskuje pośród ciemności. Może właśnie dlatego tęcza i zorza są tak pięknymi znakami. Jedna rodzi się w świetle dnia, druga w ciemności nocy. Obie przypominają, że nawet to, czego nie rozumiemy, może zostać dotknięte Bożym światłem. A człowiek, podobnie jak szkło, staje się najpiękniejszy nie wtedy, gdy świeci własnym blaskiem, lecz wtedy, gdy pozwala przejść przez siebie światłu Boga.
+### WnR365 — Widoki na Raj - Dzień 175 (Cykl II - Dzień 175 z 175) - [02.06.2026] Przez piasek ku światłu
+Jesteśmy jak ziarenka piasku przesypujące się przez klepsydrę
+
+czasu. Każdy dzień przybliża nas do chwili spotkania z Bogiem.
+
+Piasek sam w sobie wydaje się czymś zwyczajnym,
+
+rozproszonym i kruchym, lecz poddany działaniu ognia
+
+przemienia się w szkło. A szkło, odpowiednio oszlifowane, może
+
+stać się kryształem, który nie zatrzymuje światła, lecz pozwala mu
+
+przechodzić przez siebie i rozszczepiać się na niezliczone barwy.
+
+Być może właśnie tak wygląda droga człowieka. Dopóki
+
+pozostajemy zamknięci w sobie, jesteśmy jak piasek rozsypywany
+
+przez wiatr. Kiedy jednak oddajemy się Jezusowi i przyjmujemy
+
+przebaczenie Ojca, zaczyna się przemiana. Ogień doświadczeń,
+
+modlitwy, miłości i prawdy nie ma nas zniszczyć, ale oczyścić i
+
+przemienić. Wtedy światło Chrystusa nie zatrzymuje się na nas,
+
+lecz przechodzi przez nas i rozświetla świat. Nie po to, aby ludzie
+
+podziwiali szkło, ale po to, aby zobaczyli światło. Czasami patrzę
+
+na Jezusa, starając się dostrzec Jego spojrzenie skierowane ku
+
+człowiekowi. Innym razem mam wrażenie, jakbym przechodził na
+
+drugą stronę lustra i próbował spojrzeć na siebie oraz na innych
+
+Jego oczami. Właśnie wtedy odkrywam, że prawdziwa empatia
+
+nie polega na tym, by odczuwać jedynie własne emocje lub
+
+emocje drugiego człowieka. Polega na tym, by uczyć się patrzeć z
+
+miłością, prawdą i miłosierdziem, których źródłem jest Chrystus.
+
+To On wyznacza kierunek. To On uczy, jak dobrze żyć. To On
+
+sprawia, że noc staje się świtem, a światło rozbłyskuje pośród
+
+ciemności. Może właśnie dlatego tęcza i zorza są tak pięknymi
+
+znakami. Jedna rodzi się w świetle dnia, druga w ciemności nocy.
+
+Obie przypominają, że nawet to, czego nie rozumiemy, może
+
+zostać dotknięte Bożym światłem. A człowiek, podobnie jak szkło,
+
+staje się najpiękniejszy nie wtedy, gdy świeci własnym blaskiem,
+
+lecz wtedy, gdy pozwala przejść przez siebie światłu Boga.
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 357
@@ -3625,7 +6597,7 @@ Rozważanie Pisma Świętego dla dnia 357.
 
 ---
 
-# Dzień 358 — Widoki na Raj - Dzień 1 i ostatni (Okres Przygotowania - Dzień 1) - [11.12.2025] – Jesteśmy na końcu drogi - czas Miłosierdzia
+# Dzień 358 — WnR365 — Widoki na Raj - Dzień 1 i ostatni (Okres Przygotowania - Dzień 1) - [11.12.2025] – Jesteśmy na końcu drogi - czas Miłosierdzia
 
 ## Wstęp
 Wstęp modlitewny dnia 358. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -3754,46 +6726,112 @@ zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
 najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj - Dzień 1 i ostatni (Okres Przygotowania - Dzień 1) - [11.12.2025] – Jesteśmy na końcu drogi - czas Miłosierdzia
+### WnR365 — Widoki na Raj - Dzień 1 i ostatni (Okres Przygotowania - Dzień 1) - [11.12.2025] – Jesteśmy na końcu drogi - czas Miłosierdzia
 # Ostateczna Tajemnica Nadziei
 
-> „A Bóg będzie wszystkim we wszystkich.” (1 Kor 15,28) > „Królestwo Boże jest pośród was.” (Łk 17,21)
+> „A Bóg będzie wszystkim we wszystkich.” (1 Kor 15,28) >
+
+„Królestwo Boże jest pośród was.” (Łk 17,21)
 
 ## Świadectwo
 
 To nie jest „lipa” — to może być miód
 
-11 grudnia 2025 roku uczestniczyłem przez internet we Mszy Świętej odprawianej w kościele Jezuitów w Łodzi, w parafii Najświętszego Imienia Jezus. Podczas kazania ojciec zakonny skierował do wiernych słowa, że nie możemy pozostawać w połowie drogi, ponieważ od dwóch tysięcy lat jesteśmy już u kresu tej drogi — odkąd Jezus Chrystus, Mesjasz i Pan, odkupił człowieka. Potrzeba jedynie wiary, aby Bóg przez Ducha Świętego zamieszkał w ludzkim sercu.
+11 grudnia 2025 roku uczestniczyłem przez internet we Mszy
+
+Świętej odprawianej w kościele Jezuitów w Łodzi, w parafii
+
+Najświętszego Imienia Jezus. Podczas kazania ojciec zakonny
+
+skierował do wiernych słowa, że nie możemy pozostawać w
+
+połowie drogi, ponieważ od dwóch tysięcy lat jesteśmy już u kresu
+
+tej drogi — odkąd Jezus Chrystus, Mesjasz i Pan, odkupił
+
+człowieka. Potrzeba jedynie wiary, aby Bóg przez Ducha Świętego
+
+zamieszkał w ludzkim sercu.
 
 Amen.
 
-To koniec pewnego cyklu, który — paradoksalnie — niech trwa bez końca.
+To koniec pewnego cyklu, który — paradoksalnie — niech trwa bez
 
-Mieszkam przy ulicy Lipińskiej, biegnącej równolegle do ulicy Lipa, przy której znajduje się szpital. Zaraz za drzwiami rozpoczyna się dzielnica Lipiny i osiedle Nowy Paryż. Kilka lat temu Aleksandra mieszkała w Paryżu, a poprzedni lokator mojego mieszkania nosił nazwisko Lipok. Wokół rośnie wiele lip.
+końca.
 
-Trudno nie zauważyć tych wszystkich „przypadków”. 😊
+Mieszkam przy ulicy Lipińskiej, biegnącej równolegle do ulicy Lipa,
 
-Wierzę więc, że to, co przyniosłem, nie jest „lipą” — czymś bezwartościowym, nieudanym czy pozbawionym sensu — lecz raczej wyrazem szczególnego poczucia humoru, które przypisuję Bogu: humoru, który nie ośmiesza człowieka, ale pomaga mu dostrzec sens, nadzieję i dobro tam, gdzie na pierwszy rzut oka można zobaczyć jedynie zbieg okoliczności.
+przy której znajduje się szpital. Zaraz za drzwiami rozpoczyna się
+
+dzielnica Lipiny i osiedle Nowy Paryż. Kilka lat temu Aleksandra
+
+mieszkała w Paryżu, a poprzedni lokator mojego mieszkania nosił
+
+nazwisko Lipok. Wokół rośnie wiele lip.
+
+Trudno nie zauważyć tych wszystkich „przypadków”.
+
+Wierzę więc, że to, co przyniosłem, nie jest „lipą” — czymś
+
+bezwartościowym, nieudanym czy pozbawionym sensu — lecz
+
+raczej wyrazem szczególnego poczucia humoru, które przypisuję
+
+Bogu: humoru, który nie ośmiesza człowieka, ale pomaga mu
+
+dostrzec sens, nadzieję i dobro tam, gdzie na pierwszy rzut oka
+
+można zobaczyć jedynie zbieg okoliczności.
 
 A przecież nawet „lipa” ma swoje dobre owoce.
 
-Kwiaty lipy, choć nie są owocami w dosłownym znaczeniu, przynoszą pożytek człowiekowi i pszczołom. Pszczoły zbierają z nich nektar i pyłek, a człowiek otrzymuje miód lipowy, który od pokoleń jest ceniony i wykorzystywany między innymi w ziołolecznictwie.
+Kwiaty lipy, choć nie są owocami w dosłownym znaczeniu,
+
+przynoszą pożytek człowiekowi i pszczołom. Pszczoły zbierają z
+
+nich nektar i pyłek, a człowiek otrzymuje miód lipowy, który od
+
+pokoleń jest ceniony i wykorzystywany między innymi w
+
+ziołolecznictwie.
 
 I właśnie tutaj widzę kolejną metaforę mojego bloga.
 
-Być może są w nim słabe punkty. Być może nie wszystko jest doskonałe. Być może niektóre moje przemyślenia okażą się z czasem niedopracowane, a niektóre słowa będę musiał poprawić lub lepiej zrozumieć. Nie jestem teologiem ani osobą duchowną. Jestem człowiekiem, który idzie swoją drogą wiary i próbuje zapisać to, co zobaczył, przeżył i zrozumiał.
+Być może są w nim słabe punkty. Być może nie wszystko jest
+
+doskonałe. Być może niektóre moje przemyślenia okażą się z
+
+czasem niedopracowane, a niektóre słowa będę musiał poprawić
+
+lub lepiej zrozumieć. Nie jestem teologiem ani osobą duchowną.
+
+Jestem człowiekiem, który idzie swoją drogą wiary i próbuje
+
+zapisać to, co zobaczył, przeżył i zrozumiał.
 
 Ale czy niedoskonałość musi oznaczać bezwartościowość?
 
 Nie.
 
-Tak jak pszczoła może zebrać z kwiatu lipy coś, czego człowiek sam nie potrafiłby stworzyć, tak Bóg może posłużyć się czymś bardzo niedoskonałym, aby powstało z tego dobro dla drugiego człowieka.
+Tak jak pszczoła może zebrać z kwiatu lipy coś, czego człowiek
+
+sam nie potrafiłby stworzyć, tak Bóg może posłużyć się czymś
+
+bardzo niedoskonałym, aby powstało z tego dobro dla drugiego
+
+człowieka.
 
 Może więc mój blog również jest trochę jak lipa.
 
-Może ktoś zobaczy w nim tylko niedoskonałość. Może ktoś powie: „To jest lipa”. I być może czasami będzie miał ku temu powody. 😊
+Może ktoś zobaczy w nim tylko niedoskonałość. Może ktoś
 
-Ale ja wierzę, że nawet z takiej „lipy” Bóg może pozwolić powstać „miodowi”.
+powie: „To jest lipa”. I być może czasami będzie miał ku temu
+
+powody.
+
+Ale ja wierzę, że nawet z takiej „lipy” Bóg może pozwolić powstać
+
+„miodowi”.
 
 Nie wiem, dla kogo.
 
@@ -3803,19 +6841,41 @@ Nie wiem nawet, w jaki sposób.
 
 I chyba właśnie w tym jest miejsce na wiarę.
 
-Bóg tylko wie, jaką drogę przejdą słowa zapisane tutaj. Może ktoś dzięki nim zatrzyma się na chwilę. Może ktoś przypomni sobie o Jezusie. Może ktoś odnajdzie nadzieję. Może ktoś zacznie się modlić. Może ktoś, kto czuje się zagubiony, zobaczy choćby małe światło.
+Bóg tylko wie, jaką drogę przejdą słowa zapisane tutaj. Może ktoś
 
-A może sens niektórych słów zrozumiem dopiero ja sam po wielu latach.
+dzięki nim zatrzyma się na chwilę. Może ktoś przypomni sobie o
 
-Dlatego nie chcę twierdzić, że stworzyłem coś wielkiego. Chcę raczej pozostawić to, co powstało, w rękach Boga.
+Jezusie. Może ktoś odnajdzie nadzieję. Może ktoś zacznie się
+
+modlić. Może ktoś, kto czuje się zagubiony, zobaczy choćby małe
+
+światło.
+
+A może sens niektórych słów zrozumiem dopiero ja sam po wielu
+
+latach.
+
+Dlatego nie chcę twierdzić, że stworzyłem coś wielkiego. Chcę
+
+raczej pozostawić to, co powstało, w rękach Boga.
 
 Jeżeli jest w tym coś dobrego — niech Bóg pomnoży to dobro.
 
-Jeżeli jest w tym coś niedoskonałego — niech Bóg pozwoli mi to dostrzec i poprawić.
+Jeżeli jest w tym coś niedoskonałego — niech Bóg pozwoli mi to
 
-Jeżeli zaś jest w tym coś, co może komuś pomóc — niech Duch Święty poprowadzi te słowa tam, gdzie będą potrzebne.
+dostrzec i poprawić.
 
-Bo może właśnie tak działa Boża ekonomia łaski: człowiek przynosi to, co ma, nawet jeśli wydaje mu się małe i niedoskonałe, a Bóg potrafi uczynić z tego coś, czego człowiek sam nigdy by nie przewidział.
+Jeżeli zaś jest w tym coś, co może komuś pomóc — niech Duch
+
+Święty poprowadzi te słowa tam, gdzie będą potrzebne.
+
+Bo może właśnie tak działa Boża ekonomia łaski: człowiek
+
+przynosi to, co ma, nawet jeśli wydaje mu się małe i niedoskonałe,
+
+a Bóg potrafi uczynić z tego coś, czego człowiek sam nigdy by nie
+
+przewidział.
 
 Dlatego kończąc ten cykl, nie chcę powiedzieć: „To już koniec”.
 
@@ -3823,11 +6883,21 @@ Chcę powiedzieć:
 
 To koniec pewnego cyklu — ale nie koniec drogi.
 
-Droga do Boga została już otwarta przez Jezusa Chrystusa. Nie musimy jej dopiero budować. Możemy po niej iść.
+Droga do Boga została już otwarta przez Jezusa Chrystusa. Nie
 
-Potrzeba wiary, aby otworzyć serce i pozwolić Duchowi Świętemu w nim zamieszkać.
+musimy jej dopiero budować. Możemy po niej iść.
 
-A wtedy może nawet zwyczajna lipa, rosnąca przy zwyczajnej ulicy, stanie się dla człowieka przypomnieniem, że Bóg potrafi posłużyć się tym, co zwyczajne, niedoskonałe i pozornie przypadkowe.
+Potrzeba wiary, aby otworzyć serce i pozwolić Duchowi Świętemu
+
+w nim zamieszkać.
+
+A wtedy może nawet zwyczajna lipa, rosnąca przy zwyczajnej
+
+ulicy, stanie się dla człowieka przypomnieniem, że Bóg potrafi
+
+posłużyć się tym, co zwyczajne, niedoskonałe i pozornie
+
+przypadkowe.
 
 Niech więc z tej „lipy” powstanie miód.
 
@@ -3837,31 +6907,165 @@ Boży.
 
 Niech Bóg błogosławi wszystkim ludziom.
 
-Niech Boża Dziecina gości w naszych domach nie tylko podczas świąt, ale każdego dnia naszego życia.
+Niech Boża Dziecina gości w naszych domach nie tylko podczas
 
-I niech Jezus Chrystus — Mesjasz i Pan — prowadzi nas dalej, nawet wtedy, gdy wydaje nam się, że jesteśmy dopiero w połowie drogi.
+świąt, ale każdego dnia naszego życia.
+
+I niech Jezus Chrystus — Mesjasz i Pan — prowadzi nas dalej,
+
+nawet wtedy, gdy wydaje nam się, że jesteśmy dopiero w połowie
+
+drogi.
 
 Amen.
 
 ## O wierze, prawdzie i wdzięczności
 
-Wiara nie jest jedynie przekonaniem ani uczuciem. Jest przyjęciem przebaczenia i obdarowaniem nim drugiego człowieka. To właśnie ono prowadzi do zbawienia, o którym mówił Jezus. Wszyscy się mylimy. Wszyscy poszukujemy prawdy. Chrześcijanie wierzą jednak, że pełnia prawdy objawiła się w Jezusie Chrystusie. Dlatego szukajmy, ponieważ On nieustannie na nas oczekuje. Bóg nie potrzebuje chwały, ponieważ sam jest jej dawcą. Oczekuje natomiast wdzięczności. Kto zna czytania liturgiczne z 1 lutego 2026 roku, być może łatwiej zrozumie sens tych słów. Kto ich nie zna, tego Bóg również miłuje. Wspominam także wieczorną Mszę Świętą z 31 stycznia 2026 roku, sprawowaną we wspomnienie świętego Jana Bosko. Dla tych, którzy znają moją historię, znaczenie tych dni może okazać się szczególnie ważne.
+Wiara nie jest jedynie przekonaniem ani uczuciem. Jest
+
+przyjęciem przebaczenia i obdarowaniem nim drugiego
+
+człowieka. To właśnie ono prowadzi do zbawienia, o którym
+
+mówił Jezus. Wszyscy się mylimy. Wszyscy poszukujemy prawdy.
+
+Chrześcijanie wierzą jednak, że pełnia prawdy objawiła się w
+
+Jezusie Chrystusie. Dlatego szukajmy, ponieważ On nieustannie
+
+na nas oczekuje. Bóg nie potrzebuje chwały, ponieważ sam jest jej
+
+dawcą. Oczekuje natomiast wdzięczności. Kto zna czytania
+
+liturgiczne z 1 lutego 2026 roku, być może łatwiej zrozumie sens
+
+tych słów. Kto ich nie zna, tego Bóg również miłuje. Wspominam
+
+także wieczorną Mszę Świętą z 31 stycznia 2026 roku,
+
+sprawowaną we wspomnienie świętego Jana Bosko. Dla tych,
+
+którzy znają moją historię, znaczenie tych dni może okazać się
+
+szczególnie ważne.
 
 ## O obecności Boga
 
-W nocy z 31 stycznia na 1 lutego 2026 roku obudziłem się dokładnie o północy, słysząc słowo „in”, oznaczające w języku angielskim „w”. Odczytałem to jako przypomnienie, że ani ja, ani żaden inny człowiek nie jest Bogiem. Każdy człowiek istnieje jednak w Bogu i nosi w sobie ślad Jego obecności. W taki sposób to, co rozdzielone, może stać się jednością. Wierzę, że Bóg objawia się ludziom na wiele sposobów, a ludzie różnych kultur i religii próbują opisać tę samą rzeczywistość, posługując się odmiennym językiem i odmiennymi symbolami. Wcześniej pisałem o sicie, soczewce i kuli. Dzisiaj postrzegam je jako symbol duchowej rzeczywistości przypominającej przełącznik sieciowy w informatyce, w którym wiele połączeń prowadzi do jednego centrum. Bóg jest wszędzie. Jest obecny w tym, co było, w tym, co jest, i w tym, co dopiero nadejdzie. Jestem darem dla Boga, a Bóg jest darem dla mnie. Wszyscy jesteśmy darami dla siebie nawzajem. Dlatego powinniśmy okazywać sobie wzajemny szacunek, miłosierdzie i dobroć.
+W nocy z 31 stycznia na 1 lutego 2026 roku obudziłem się
+
+dokładnie o północy, słysząc słowo „in”, oznaczające w języku
+
+angielskim „w”. Odczytałem to jako przypomnienie, że ani ja, ani
+
+żaden inny człowiek nie jest Bogiem. Każdy człowiek istnieje
+
+jednak w Bogu i nosi w sobie ślad Jego obecności. W taki sposób
+
+to, co rozdzielone, może stać się jednością. Wierzę, że Bóg
+
+objawia się ludziom na wiele sposobów, a ludzie różnych kultur i
+
+religii próbują opisać tę samą rzeczywistość, posługując się
+
+odmiennym językiem i odmiennymi symbolami. Wcześniej
+
+pisałem o sicie, soczewce i kuli. Dzisiaj postrzegam je jako
+
+symbol duchowej rzeczywistości przypominającej przełącznik
+
+sieciowy w informatyce, w którym wiele połączeń prowadzi do
+
+jednego centrum. Bóg jest wszędzie. Jest obecny w tym, co było,
+
+w tym, co jest, i w tym, co dopiero nadejdzie. Jestem darem dla
+
+Boga, a Bóg jest darem dla mnie. Wszyscy jesteśmy darami dla
+
+siebie nawzajem. Dlatego powinniśmy okazywać sobie wzajemny
+
+szacunek, miłosierdzie i dobroć.
 
 ## O ludzkiej niedoskonałości
 
-Wszystko, co pisałem, uważałem w danej chwili za prawdę. Nawet jeśli później pojawiały się korekty, pozostawało pytanie, czy wynikały one z lęku, czy z głębszego zrozumienia. Każdy człowiek postrzega świat inaczej. Ja odnalazłem Prawdę w Jezusie Chrystusie, ponieważ wierzę, że przyniósł ją na świat przez Boże miłosierdzie. Dobro i zło istnieją naprawdę, ale grzech pierworodny sprawia, że często trudno nam je odróżnić. Jestem wielkim grzesznikiem i mam świadomość własnych słabości. Przepraszam za wszystkie moje błędy, szczególnie za te, o których mówi Jezus w Kazaniu na Górze (Mt 5–7). Ewangelia nieustannie przypomina mi o pokorze. Proszę tych, którzy kroczą dobrą drogą, aby na niej wytrwali. Proszę również tych, którzy zeszli z właściwej ścieżki, aby nie tracili nadziei i prosili Boga o łaskę nawrócenia. Ucz mnie, Boże, rozpoznawać Twoje dobro.
+Wszystko, co pisałem, uważałem w danej chwili za prawdę.
+
+Nawet jeśli później pojawiały się korekty, pozostawało pytanie,
+
+czy wynikały one z lęku, czy z głębszego zrozumienia. Każdy
+
+człowiek postrzega świat inaczej. Ja odnalazłem Prawdę w
+
+Jezusie Chrystusie, ponieważ wierzę, że przyniósł ją na świat
+
+przez Boże miłosierdzie. Dobro i zło istnieją naprawdę, ale grzech
+
+pierworodny sprawia, że często trudno nam je odróżnić. Jestem
+
+wielkim grzesznikiem i mam świadomość własnych słabości.
+
+Przepraszam za wszystkie moje błędy, szczególnie za te, o
+
+których mówi Jezus w Kazaniu na Górze (Mt 5–7). Ewangelia
+
+nieustannie przypomina mi o pokorze. Proszę tych, którzy kroczą
+
+dobrą drogą, aby na niej wytrwali. Proszę również tych, którzy
+
+zeszli z właściwej ścieżki, aby nie tracili nadziei i prosili Boga o
+
+łaskę nawrócenia. Ucz mnie, Boże, rozpoznawać Twoje dobro.
 
 ## Modlitwa
 
-Ojcze, w imię Jezusa Chrystusa i przez moc Ducha Świętego, proszę Cię o uzdrowienie mnie i mojej żony. Proszę Cię o pojednanie naszej rodziny. Dziękuję Ci za wszystkie otrzymane łaski. Odpuść nam nasze winy, aby zostały uzdrowione nasze dusze i nasze ciała. Niech w tej drodze wspierają nas wszyscy święci, imienni i bezimienni, przez wstawiennictwo Najświętszej Maryi Panny, Matki Bożej, u Jej Syna, Jezusa Chrystusa. Amen.
+Ojcze, w imię Jezusa Chrystusa i przez moc Ducha Świętego,
+
+proszę Cię o uzdrowienie mnie i mojej żony. Proszę Cię o
+
+pojednanie naszej rodziny. Dziękuję Ci za wszystkie otrzymane
+
+łaski. Odpuść nam nasze winy, aby zostały uzdrowione nasze
+
+dusze i nasze ciała. Niech w tej drodze wspierają nas wszyscy
+
+święci, imienni i bezimienni, przez wstawiennictwo Najświętszej
+
+Maryi Panny, Matki Bożej, u Jej Syna, Jezusa Chrystusa. Amen.
 
 ## Ostateczna Tajemnica Nadziei
 
-Cała historia zbawienia – stworzenie, przymierza, działalność proroków, wcielenie Chrystusa, Jego śmierć i zmartwychwstanie, dzieje Kościoła oraz duchowa droga człowieka – prowadzi do jednego celu: aby Bóg zamieszkał w człowieku, a człowiek odnalazł swoje miejsce w Bogu. Triumf Boga nie dokonuje się w polityce, bogactwie, potędze, liczbach ani w ludzkiej chwale. Dokonuje się w sercu człowieka. Bóg nie zmusza. Nie narzuca swojej obecności. Czeka. Puka do drzwi. Szanuje ludzką wolność. Kocha. A kiedy człowiek odpowiada: „Tak, Panie”, serce staje się świątynią. Bóg nie szuka złotych pałaców. Poszukuje ludzkiego serca. Największym triumfem Boga jest triumf miłości. Kiedy człowiek przebacza, ufa i wierzy nawet pośród ciemności, wówczas w jego wnętrzu zwycięża Bóg. To zwycięstwo nie jest spektaklem. Jest cichym światłem, którego nic nie może pokonać. Kiedy dopełni się czas, nie będzie już lęku, pytań ani cierpienia. Pozostanie jedynie miłość. I wtedy Bóg będzie wszystkim we wszystkich. Koniec okaże się początkiem. Amen.
+Cała historia zbawienia – stworzenie, przymierza, działalność
+
+proroków, wcielenie Chrystusa, Jego śmierć i zmartwychwstanie,
+
+dzieje Kościoła oraz duchowa droga człowieka – prowadzi do
+
+jednego celu: aby Bóg zamieszkał w człowieku, a człowiek
+
+odnalazł swoje miejsce w Bogu. Triumf Boga nie dokonuje się w
+
+polityce, bogactwie, potędze, liczbach ani w ludzkiej chwale.
+
+Dokonuje się w sercu człowieka. Bóg nie zmusza. Nie narzuca
+
+swojej obecności. Czeka. Puka do drzwi. Szanuje ludzką wolność.
+
+Kocha. A kiedy człowiek odpowiada: „Tak, Panie”, serce staje się
+
+świątynią. Bóg nie szuka złotych pałaców. Poszukuje ludzkiego
+
+serca. Największym triumfem Boga jest triumf miłości. Kiedy
+
+człowiek przebacza, ufa i wierzy nawet pośród ciemności,
+
+wówczas w jego wnętrzu zwycięża Bóg. To zwycięstwo nie jest
+
+spektaklem. Jest cichym światłem, którego nic nie może
+
+pokonać. Kiedy dopełni się czas, nie będzie już lęku, pytań ani
+
+cierpienia. Pozostanie jedynie miłość. I wtedy Bóg będzie
+
+wszystkim we wszystkich. Koniec okaże się początkiem. Amen.
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 358
@@ -3870,7 +7074,7 @@ Rozważanie Pisma Świętego dla dnia 358.
 
 ---
 
-# Dzień 359 — Widoki na Raj - Dzień 2 (Okres Przygotowania - Dzień 2) - Bóg Ojciec
+# Dzień 359 — WnR365 — Widoki na Raj - Dzień 2 (Okres Przygotowania - Dzień 2) -
 
 ## Wstęp
 Wstęp modlitewny dnia 359. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -4006,14 +7210,144 @@ zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
 najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj - Dzień 2 (Okres Przygotowania - Dzień 2) - Bóg Ojciec
-### Medytacja nad tematem: "Bóg Ojciec"
+### WnR365 — Widoki na Raj - Dzień 2 (Okres Przygotowania - Dzień 2) -
+Bóg Ojciec
 
-Bóg Ojciec – Źródło Życia, Miłosierdzia i Bezwarunkowej Miłości W sercu chrześcijańskiego objawienia i ludzkiej refleksji nad sacrum stoi postać Boga Ojca – pierwszego i fundamentalnego źródła wszelkiego istnienia. Choć pojęcie to pojawia się w wielu religiach świata, to właśnie w judeochrześcijańskiej tradycji zyskało ono niespotykaną dotąd głębię relacyjną. Bóg nie jest tu jedynie odległym Architektem wszechświata czy bezduszną Siłą wyższą, lecz osobowym Ojcem, który pochyla się nad losem każdego człowieka.
+Medytacja nad tematem: "Bóg Ojciec"
 
-### 1. Rewolucja pojęcia „Ojca” w Biblii
+Bóg Ojciec – Źródło Życia, Miłosierdzia i Bezwarunkowej Miłości
 
-W starożytnych kulturach Bliskiego Wschodu mianem „ojców” obdarzano królów, patriarchów lub bóstwa narodowe, które budziły respekt i lęk. Przełom, jaki przyniosła Biblia, polegał na nadaniu temu określeniu wymiaru czułości, bliskości i intymności. W Starym Testamencie obraz Boga jako Ojca budował się stopniowo. Prorocy tacy jak Izajasz czy Ozeasz ukazali Boga o sercu matki i ojca, który uczy swoje dziecko stawiać pierwsze kroki, nosi je na rękach i lituje się nad jego słabościami: „Czyż może niewiasta zapomnieć o swym niemowlęciu? [...] A nawet, gdyby ona zapomniała, Ja nie zapomnę o tobie” (Iz 49, 15). W Nowym Testamencie Jezus objawia Boga Ojca w sposób radykalny. Słowo, którego używa w modlitwie – „Abba” (aramejski odpowiednik czułego „Tatusiu”) – było w tamtych czasach zaskakującą poufałością wobec Stwórcy. Jezus uczy swoich uczniów, że relacja z Bogiem opiera się nie na strachu przed karą, lecz na zaufaniu dziecięctwa. 2. Kim jest Bóg Ojciec w teologii? Z perspektywy dogmatycznej Bóg Ojciec to Początek bez początku (łac. Principium sine principio). W Trójcy Świętej jest On Osobą, która nie pochodzi od nikogo innego, lecz rodzi Syna na wieczność i od której – wraz z Synem – pochodzi Duch Święty. Ojcowska rola Boga we wszechświecie przejawia się w trzech kluczowych wymiarach: Stworzenie (Powołanie do istnienia): To z woli Ojca powstał świat, a człowiek został uformowany na Jego obraz i podobieństwo. Wszystko, co istnieje, ma swoje korzenie w Jego miłości. Opatrzność (Nieustanna troska): Bóg Ojciec nie porzucił stworzonego świata. Jak mówi Jezus, On troszczy się o ptaki na niebie i polne lilie – tym bardziej zna potrzeby każdego człowieka. Miłosierdzie (Przebaczenie i powrót): Najpełniej oblicze Boga Ojca ukazuje przypowieść o marnotrawnym synu. Ojciec nie czeka biernie na skruszonego potomka w pałacu; wybiega mu naprzeciw, rzuca się na szyję i przywraca mu pełną godność. 3. Pułapki w postrzeganiu Boga Ojca W ludzkim doświadczeniu pojęcie „ojcostwa” bywa poranione. Z tego powodu wielu ludzi nieświadomie przenosi ziemskie doświadczenia – związane z surowością, nieobecnością, obojętnością czy przemocą ze strony własnych ojców – na obraz Boga. Bóg jako „policjant” lub „sędzia”: Często postrzegamy Ojca niebiańskiego jako kogoś, kto czeka z gromem w ręku na nasze potknięcie, gotowego ukarać za każdy błąd. Tymczasem autentyczne oblicze Boga Ojca – objawione przez Jezusa – to Ojciec o otwartych ramionach, który bardziej pragnie naszego szczęścia i wolności niż naszego strachu. 4. Co ojcostwo Boga zmienia w naszym życiu? Świadomość, że mamy Boga za Ojca, ma potężną moc terapeutyczną i egzystencjalną: Wyzwolenie z lęku o przyszłość: Skoro Bóg jest Ojcem, który kocha nas bardziej niż jakikolwiek ziemski rodzic, troska o jutro przestaje być paraliżującym ciężarem. Pojawia się miejsce na fundamentalny spokój. Odzyskanie własnej wartości: Nasza godność nie zależy od sukcesów zawodowych, opinii innych ludzi czy statusu społecznego. Jesteśmy cenni, ponieważ nosimy w sobie tożsamość ukochanego dziecka Bożego. Solidarność międzyludzka: Skoro wszyscy mamy jednego Ojca, to cała ludzkość staje się wielką rodziną, w której podziały, nienawiść i mury tracą swój ostateczny sens. „Spójrz w niebo nie jak w pustą przestrzeń kosmiczną, ale jak w dom, w którym czeka na ciebie Ojciec – taki, który zna twoje imię, ociera każdą łzę i powtarza z dumą: Jesteś moim dzieckiem.”
+W sercu chrześcijańskiego objawienia i ludzkiej refleksji nad
+
+sacrum stoi postać Boga Ojca – pierwszego i fundamentalnego
+
+źródła wszelkiego istnienia. Choć pojęcie to pojawia się w wielu
+
+religiach świata, to właśnie w judeochrześcijańskiej tradycji
+
+zyskało ono niespotykaną dotąd głębię relacyjną. Bóg nie jest tu
+
+jedynie odległym Architektem wszechświata czy bezduszną Siłą
+
+wyższą, lecz osobowym Ojcem, który pochyla się nad losem
+
+każdego człowieka.
+
+1. Rewolucja pojęcia „Ojca” w Biblii
+
+W starożytnych kulturach Bliskiego Wschodu mianem „ojców”
+
+obdarzano królów, patriarchów lub bóstwa narodowe, które
+
+budziły respekt i lęk. Przełom, jaki przyniosła Biblia, polegał na
+
+nadaniu temu określeniu wymiaru czułości, bliskości i intymności.
+
+W Starym Testamencie obraz Boga jako Ojca budował się
+
+stopniowo. Prorocy tacy jak Izajasz czy Ozeasz ukazali Boga o
+
+sercu matki i ojca, który uczy swoje dziecko stawiać pierwsze
+
+kroki, nosi je na rękach i lituje się nad jego słabościami: „Czyż
+
+może niewiasta zapomnieć o swym niemowlęciu? [...] A nawet,
+
+gdyby ona zapomniała, Ja nie zapomnę o tobie” (Iz 49, 15). W
+
+Nowym Testamencie Jezus objawia Boga Ojca w sposób
+
+radykalny. Słowo, którego używa w modlitwie – „Abba” (aramejski
+
+odpowiednik czułego „Tatusiu”) – było w tamtych czasach
+
+zaskakującą poufałością wobec Stwórcy. Jezus uczy swoich
+
+uczniów, że relacja z Bogiem opiera się nie na strachu przed karą,
+
+lecz na zaufaniu dziecięctwa. 2. Kim jest Bóg Ojciec w teologii? Z
+
+perspektywy dogmatycznej Bóg Ojciec to Początek bez początku
+
+(łac. Principium sine principio). W Trójcy Świętej jest On Osobą,
+
+która nie pochodzi od nikogo innego, lecz rodzi Syna na
+
+wieczność i od której – wraz z Synem – pochodzi Duch Święty.
+
+Ojcowska rola Boga we wszechświecie przejawia się w trzech
+
+kluczowych wymiarach: Stworzenie (Powołanie do istnienia): To z
+
+woli Ojca powstał świat, a człowiek został uformowany na Jego
+
+obraz i podobieństwo. Wszystko, co istnieje, ma swoje korzenie w
+
+Jego miłości. Opatrzność (Nieustanna troska): Bóg Ojciec nie
+
+porzucił stworzonego świata. Jak mówi Jezus, On troszczy się o
+
+ptaki na niebie i polne lilie – tym bardziej zna potrzeby każdego
+
+człowieka. Miłosierdzie (Przebaczenie i powrót): Najpełniej
+
+oblicze Boga Ojca ukazuje przypowieść o marnotrawnym synu.
+
+Ojciec nie czeka biernie na skruszonego potomka w pałacu;
+
+wybiega mu naprzeciw, rzuca się na szyję i przywraca mu pełną
+
+godność. 3. Pułapki w postrzeganiu Boga Ojca W ludzkim
+
+doświadczeniu pojęcie „ojcostwa” bywa poranione. Z tego
+
+powodu wielu ludzi nieświadomie przenosi ziemskie
+
+doświadczenia – związane z surowością, nieobecnością,
+
+obojętnością czy przemocą ze strony własnych ojców – na obraz
+
+Boga. Bóg jako „policjant” lub „sędzia”: Często postrzegamy Ojca
+
+niebiańskiego jako kogoś, kto czeka z gromem w ręku na nasze
+
+potknięcie, gotowego ukarać za każdy błąd. Tymczasem
+
+autentyczne oblicze Boga Ojca – objawione przez Jezusa – to
+
+Ojciec o otwartych ramionach, który bardziej pragnie naszego
+
+szczęścia i wolności niż naszego strachu. 4. Co ojcostwo Boga
+
+zmienia w naszym życiu? Świadomość, że mamy Boga za Ojca,
+
+ma potężną moc terapeutyczną i egzystencjalną: Wyzwolenie z
+
+lęku o przyszłość: Skoro Bóg jest Ojcem, który kocha nas bardziej
+
+niż jakikolwiek ziemski rodzic, troska o jutro przestaje być
+
+paraliżującym ciężarem. Pojawia się miejsce na fundamentalny
+
+spokój. Odzyskanie własnej wartości: Nasza godność nie zależy
+
+od sukcesów zawodowych, opinii innych ludzi czy statusu
+
+społecznego. Jesteśmy cenni, ponieważ nosimy w sobie
+
+tożsamość ukochanego dziecka Bożego. Solidarność
+
+międzyludzka: Skoro wszyscy mamy jednego Ojca, to cała
+
+ludzkość staje się wielką rodziną, w której podziały, nienawiść i
+
+mury tracą swój ostateczny sens. „Spójrz w niebo nie jak w pustą
+
+przestrzeń kosmiczną, ale jak w dom, w którym czeka na ciebie
+
+Ojciec – taki, który zna twoje imię, ociera każdą łzę i powtarza z
+
+dumą: Jesteś moim dzieckiem.”
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 359
@@ -4022,7 +7356,7 @@ Rozważanie Pisma Świętego dla dnia 359.
 
 ---
 
-# Dzień 360 — Widoki na Raj - Dzień 3 (Okres Przygotowania - Dzień 3) - Duch Święty
+# Dzień 360 — WnR365 — Widoki na Raj - Dzień 3 (Okres Przygotowania - Dzień 3) -
 
 ## Wstęp
 Wstęp modlitewny dnia 360. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -4155,16 +7489,132 @@ zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
 najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj - Dzień 3 (Okres Przygotowania - Dzień 3) - Duch Święty
-Medytacja nad tematem: "Wigilia dnia Boga Ojca poświęcona Duchowi Świętemu – Tajemnica Oczekiwania i Daru" W bogatym skarbcu tradycji duchowych i liturgicznych istnieją dni oraz momenty, które łączą w sobie niesamowitą głębię teologiczną i intymność modlitwy. Jednym z takich wyjątkowych, choć rzadziej poruszanych w powszechnej świadomości okresów, jest czas szczególnego skupienia łączący cześć oddawaną Bogu Ojcu z tajemnicą Ducha Świętego – swoista „wigilia”, czyli czas czuwania, przygotowania i otwarcia na tchnienie trzeciej Osoby Trójcy Świętej. 1. Czym jest „Wigilia” w uduchowionym sensie? Słowo wigilia (z łac. vigilia – czuwanie) kojarzy nam się przede wszystkim z wieczorem poprzedzającym wielkie święto, czasem radosnego oczekiwania i bliskości. W wymiarze duchowym wigilia to jednak przede wszystkim moment progu – przestrzeń, w której Stare spotyka się z Nowym, a ludzkie milczenie cichnie, by ustąpić miejsca działaniu Boga. Kiedy zestawiamy ze sobą majestat Boga Ojca – Stwórcy i Źródła wszystkiego – oraz Ducha Świętego, który jest Ożywczy, tchnieniem i Miłością łączącą Ojca i Syna, wchodzimy w sam środek wewnętrznego życia Boga (tzw. Ad intra).
+### WnR365 — Widoki na Raj - Dzień 3 (Okres Przygotowania - Dzień 3) -
+Duch Święty
 
-### 2. Duch Święty jako „Paraklet” i Przewodnik oczekiwania
+Medytacja nad tematem: "Wigilia dnia Boga Ojca poświęcona
 
-W tradycji biblijnej Duch Święty jest często nazywany Parakletem – Pocieszycielem, Rzecznikiem i Tym, który stoi przy nas. Kierując wzrok ku Bogu Ojcu, łatwo czasem popaść w postawy nadmiernego dystansu, postrzegając Go jako odległego Władcę wszechświata. W tym miejscu kluczową rolę odgrywa Duch Święty: Budzi w nas relację dziecięctwa: Jak pisał święty Paweł, to właśnie Duch Święty sprawia, że w naszych sercach wołamy: „Abb, Ojcze!” (por. Rz 8, 15). Bez Ducha Świętego Bóg Ojciec pozostaje jedynie abstrakcyjną Ideą; dzięki Duchowi Świętemu staje się On czułym Tatą. Przygotowuje serce na dar: Czuwanie wigilijne poświęcone Duchowi Świętemu to czas ogołocenia z własnych kalkulacji i zrobienia miejsca w duszy na ogień, który nie spala, lecz oczyszcza. 3. Dynamika relacji: Od Ojca, przez Ducha, do codzienności Taka szczególna chwila skupienia ukazuje nam dynamikę miłości trynitarnej: Inicjatywa należy do Ojca: To On jest początkiem wszelkiego istnienia, źródłem darów i miłosierdzia, które obejmuje każdego człowieka. Realizatorem jest Duch Święty: To Duch unosił się nad wodami podczas stworzenia, to On zstąpił na Maryję i na apostołów w wieczerniku. On sprawia, że wola Ojca staje się ciałem w naszym życiu. Wigilia poświęcona Duchowi Świętemu, przeżywana w perspektywie bliskości Boga Ojca, to zaproszenie do wejścia w ten boski nurt. To moment, w którym człowiek uświadamia sobie, że nie jest w swoich zmaganiach sam – ma w sobie wewnętrznego Przewodnika.
+Duchowi Świętemu – Tajemnica Oczekiwania i Daru" W bogatym
 
-### 4. Owoce czuwania: Pokój, odnowa i moc
+skarbcu tradycji duchowych i liturgicznych istnieją dni oraz
 
-Co daje człowiekowi takie duchowe zatrzymanie? W zagonionym świecie, w którym dominują lęk o przyszłość i natłok informacji, czas spędzony na otwarciu się na Ducha Świętego przynosi konkretne owoce: Zniknięcie lęku: Tam, gdzie wstępuje Duch Ojca, ulatniają się ludzkie obawy o jutro. Pojawia się głęboki, wewnętrzny pokój. Odwaga świadectwa: Podobnie jak apostołowie zamknięci w wieczerniku ze strachu, po otrzymaniu Ducha Świętego wyśli na ulice, tak i współczesny człowiek zyskuje odwagę do mężnego wyznawania swoich wartości. Jedność w różnorodności: Duch Święty jest tym, który harmonizuje sprzeczności. W relacji z Bogiem Ojcem uczy nas patrzenia na bliźnich nie przez pryzmat podziałów, lecz jako na braci i siostry. „Nie musisz wiedzieć, dokąd dokładnie prowadzi cię jutrzejszy dzień. Wystarczy, że w ciszy swojego serca pozwolisz Duchowi Świętemu na nowo wyszeptać imię, które nadał ci Bóg Ojciec: Jesteś moim ukochanym dzieckiem.”
+momenty, które łączą w sobie niesamowitą głębię teologiczną i
+
+intymność modlitwy. Jednym z takich wyjątkowych, choć rzadziej
+
+poruszanych w powszechnej świadomości okresów, jest czas
+
+szczególnego skupienia łączący cześć oddawaną Bogu Ojcu z
+
+tajemnicą Ducha Świętego – swoista „wigilia”, czyli czas
+
+czuwania, przygotowania i otwarcia na tchnienie trzeciej Osoby
+
+Trójcy Świętej. 1. Czym jest „Wigilia” w uduchowionym sensie?
+
+Słowo wigilia (z łac. vigilia – czuwanie) kojarzy nam się przede
+
+wszystkim z wieczorem poprzedzającym wielkie święto, czasem
+
+radosnego oczekiwania i bliskości. W wymiarze duchowym wigilia
+
+to jednak przede wszystkim moment progu – przestrzeń, w której
+
+Stare spotyka się z Nowym, a ludzkie milczenie cichnie, by ustąpić
+
+miejsca działaniu Boga. Kiedy zestawiamy ze sobą majestat Boga
+
+Ojca – Stwórcy i Źródła wszystkiego – oraz Ducha Świętego, który
+
+jest Ożywczy, tchnieniem i Miłością łączącą Ojca i Syna,
+
+wchodzimy w sam środek wewnętrznego życia Boga (tzw. Ad
+
+intra).
+
+2. Duch Święty jako „Paraklet” i Przewodnik oczekiwania
+
+W tradycji biblijnej Duch Święty jest często nazywany Parakletem
+
+– Pocieszycielem, Rzecznikiem i Tym, który stoi przy nas. Kierując
+
+wzrok ku Bogu Ojcu, łatwo czasem popaść w postawy
+
+nadmiernego dystansu, postrzegając Go jako odległego Władcę
+
+wszechświata. W tym miejscu kluczową rolę odgrywa Duch
+
+Święty: Budzi w nas relację dziecięctwa: Jak pisał święty Paweł,
+
+to właśnie Duch Święty sprawia, że w naszych sercach wołamy:
+
+„Abb, Ojcze!” (por. Rz 8, 15). Bez Ducha Świętego Bóg Ojciec
+
+pozostaje jedynie abstrakcyjną Ideą; dzięki Duchowi Świętemu
+
+staje się On czułym Tatą. Przygotowuje serce na dar: Czuwanie
+
+wigilijne poświęcone Duchowi Świętemu to czas ogołocenia z
+
+własnych kalkulacji i zrobienia miejsca w duszy na ogień, który nie
+
+spala, lecz oczyszcza. 3. Dynamika relacji: Od Ojca, przez Ducha,
+
+do codzienności Taka szczególna chwila skupienia ukazuje nam
+
+dynamikę miłości trynitarnej: Inicjatywa należy do Ojca: To On jest
+
+początkiem wszelkiego istnienia, źródłem darów i miłosierdzia,
+
+które obejmuje każdego człowieka. Realizatorem jest Duch
+
+Święty: To Duch unosił się nad wodami podczas stworzenia, to On
+
+zstąpił na Maryję i na apostołów w wieczerniku. On sprawia, że
+
+wola Ojca staje się ciałem w naszym życiu. Wigilia poświęcona
+
+Duchowi Świętemu, przeżywana w perspektywie bliskości Boga
+
+Ojca, to zaproszenie do wejścia w ten boski nurt. To moment, w
+
+którym człowiek uświadamia sobie, że nie jest w swoich
+
+zmaganiach sam – ma w sobie wewnętrznego Przewodnika.
+
+4. Owoce czuwania: Pokój, odnowa i moc
+
+Co daje człowiekowi takie duchowe zatrzymanie? W zagonionym
+
+świecie, w którym dominują lęk o przyszłość i natłok informacji,
+
+czas spędzony na otwarciu się na Ducha Świętego przynosi
+
+konkretne owoce: Zniknięcie lęku: Tam, gdzie wstępuje Duch Ojca,
+
+ulatniają się ludzkie obawy o jutro. Pojawia się głęboki,
+
+wewnętrzny pokój. Odwaga świadectwa: Podobnie jak
+
+apostołowie zamknięci w wieczerniku ze strachu, po otrzymaniu
+
+Ducha Świętego wyśli na ulice, tak i współczesny człowiek
+
+zyskuje odwagę do mężnego wyznawania swoich wartości.
+
+Jedność w różnorodności: Duch Święty jest tym, który
+
+harmonizuje sprzeczności. W relacji z Bogiem Ojcem uczy nas
+
+patrzenia na bliźnich nie przez pryzmat podziałów, lecz jako na
+
+braci i siostry. „Nie musisz wiedzieć, dokąd dokładnie prowadzi
+
+cię jutrzejszy dzień. Wystarczy, że w ciszy swojego serca
+
+pozwolisz Duchowi Świętemu na nowo wyszeptać imię, które
+
+nadał ci Bóg Ojciec: Jesteś moim ukochanym dzieckiem.”
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 360
@@ -4173,7 +7623,7 @@ Rozważanie Pisma Świętego dla dnia 360.
 
 ---
 
-# Dzień 361 — Widoki na Raj - Dzień 4 (Okres Przygotowania - Dzień 4) - Syn Boży
+# Dzień 361 — WnR365 — Widoki na Raj - Dzień 4 (Okres Przygotowania - Dzień 4) -
 
 ## Wstęp
 Wstęp modlitewny dnia 361. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -4304,18 +7754,128 @@ zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
 najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj - Dzień 4 (Okres Przygotowania - Dzień 4) - Syn Boży
-### medytacja nad tematem: "Syn Człowieczy - Dziecko Boże"
+### WnR365 — Widoki na Raj - Dzień 4 (Okres Przygotowania - Dzień 4) -
+Syn Boży
 
-Syn Człowieczy i Dziecko Boże – dwa oblicza naszej tożsamości W bogatej symbolice biblijnej i teologicznej trudno o pojęcia bardziej poruszające, a zarazem tajemnicze niż „Syn Człowieczy” oraz „Dziecko Boże”. Choć na pierwszy rzut oka wydają się one określać dwa odrębne bieguny – ludzki i boski – w chrześcijaństwie tworzą one niezwykłą opowieść o godności człowieka, jego pochodzeniu oraz ostatecznym przeznaczeniu.
+medytacja nad tematem: "Syn Człowieczy - Dziecko Boże"
 
-### 1. Kim jest „Syn Człowieczy”? Od proroctwa do Jezusa
+Syn Człowieczy i Dziecko Boże – dwa oblicza naszej tożsamości
 
-Wyrażenie to ma głębokie korzenie w Biblii i na przestrzeni wieków ewoluowało: W Starym Testamencie (zwłaszcza u proroka Ezechiela i w Księdze Daniela) określenie to oznaczało po prostu śmiertelnego człowieka w całej jego kruchości i słabości wobec wielkości Stwórcy. Z czasem jednak w wizjach Daniela „Syn Człowieczy” urósł do rangi eschatologicznego władcy, któremu Bóg powierza panowanie nad wszelkimi narodami. W Nowym Testamencie Jezus używał tego tytułu najczęściej w odniesieniu do samego siebie. Był to niezwykle mądry zabieg retoryczny i teologiczny: z jednej strony podkreślał swoje prawdziwe, ludzkie cery i solidarność z cierpiącym człowiekiem, z drugiej zaś nawiązywał do majestatycznej wizji Daniela, skrywając pod nim swoją boską tożsamość. Syn Człowieczy to zatem ten, który zna ludzki ból, zmęczenie i lęk, a jednocześnie ma moc, by podnieść człowieka z upadku.
+W bogatej symbolice biblijnej i teologicznej trudno o pojęcia
 
-### 2. „Dziecko Boże” – rewolucyjna godność człowieka
+bardziej poruszające, a zarazem tajemnicze niż „Syn Człowieczy”
 
-Jeśli Syn Człowieczy to spojrzenie na Boga, który stał się człowiekiem, to pojęcie Dziecka Bożego odnosi się do każdego z nas. W starożytnych kulturach pogańskich mianem „synów bóstw” obdarzano jedynie królów, faraonów lub mitycznych bohaterów. Nowy Testament dokonał tu absolutnego przewrotu: Apostoł Jan pisał wprost: „Patrzcie, jaką miłością obdarzył nas Ojciec: zostaliśmy nazwani dziećmi Bożymi i faktycznie nimi jesteśmy” (1 J 3, 1). Być dzieckiem Bożym to nie tylko metafora czy wyraz poetyckiej czułości. To realna relacja opierta na łasce, która sprawia, że człowiek zyskuje dostęp do Boga jako do kochającego Ojca (Abb – Tatusiu). 3. Synteza: Kiedy Syn Człowieczy spotyka dziecko Boże Teologiczna głębia tych pojęć ukazuje nam fascynujący paradoks: droga do stania się dzieckiem Bożym wiedzie przez zrozumienie tego, kim jest Syn Człowieczy. Solidarność w cierpieniu: Jezus jako Syn Człowieczy przeszedł przez wszystkie trudy ludzkiego życia – głód, odrzucenie, samotność i śmierć. Dzięki temu żaden człowiek w swoich trudnych chwilach nie może powiedzieć, że Bóg go nie rozumie. Przebóstwienie człowieka: Przez to, że Syn Boży stał się Synem Człowieczym, ludzie mogą stać się przybranymi dziećmi Bożymi. To wymiana darów: boskość pochyla się nad ludzkością, by wyciągnąć ją ku niebu. 4. Co to oznacza dla nas na co dzień? W świecie pełnym rywalizacji, oceniania ludzi przez pryzmat ich sukcesów, statusu materialnego czy wyglądu, pojęcie „dziecka Bożego” stanowi fundamentalne źródło niezbywalnej godności. Koniec lęku przed odrzuceniem: Jako dzieci Boże nie musimy nieustannie udowadniać swojej wartości. Nasza tożsamość nie opiera się na tym, co robimy, ale na tym, czyimi jesteśmy. Odwaga Syna Człowieczego: Świadomość, że mamy w niebie Ojca, daje odwagę do mierzenia się z codziennymi kryzysami, pozwalając nam kroczyć przez życie z podniesioną głową, nawet gdy wokół panuje ciemność. „Nie jesteś przypadkowym pyłem we wszechświecie. Jesteś dzieckiem Stwórcy, który w osobie Syna Człowieczego przeszedł tę samą drogę, by pokazać Ci, jak bardzo jesteś dla Niego ważny.”
+oraz „Dziecko Boże”. Choć na pierwszy rzut oka wydają się one
+
+określać dwa odrębne bieguny – ludzki i boski – w
+
+chrześcijaństwie tworzą one niezwykłą opowieść o godności
+
+człowieka, jego pochodzeniu oraz ostatecznym przeznaczeniu.
+
+1. Kim jest „Syn Człowieczy”? Od proroctwa do Jezusa
+
+Wyrażenie to ma głębokie korzenie w Biblii i na przestrzeni
+
+wieków ewoluowało: W Starym Testamencie (zwłaszcza u
+
+proroka Ezechiela i w Księdze Daniela) określenie to oznaczało po
+
+prostu śmiertelnego człowieka w całej jego kruchości i słabości
+
+wobec wielkości Stwórcy. Z czasem jednak w wizjach Daniela
+
+„Syn Człowieczy” urósł do rangi eschatologicznego władcy,
+
+któremu Bóg powierza panowanie nad wszelkimi narodami. W
+
+Nowym Testamencie Jezus używał tego tytułu najczęściej w
+
+odniesieniu do samego siebie. Był to niezwykle mądry zabieg
+
+retoryczny i teologiczny: z jednej strony podkreślał swoje
+
+prawdziwe, ludzkie cery i solidarność z cierpiącym człowiekiem, z
+
+drugiej zaś nawiązywał do majestatycznej wizji Daniela, skrywając
+
+pod nim swoją boską tożsamość. Syn Człowieczy to zatem ten,
+
+który zna ludzki ból, zmęczenie i lęk, a jednocześnie ma moc, by
+
+podnieść człowieka z upadku.
+
+2. „Dziecko Boże” – rewolucyjna godność człowieka
+
+Jeśli Syn Człowieczy to spojrzenie na Boga, który stał się
+
+człowiekiem, to pojęcie Dziecka Bożego odnosi się do każdego z
+
+nas. W starożytnych kulturach pogańskich mianem „synów
+
+bóstw” obdarzano jedynie królów, faraonów lub mitycznych
+
+bohaterów. Nowy Testament dokonał tu absolutnego przewrotu:
+
+Apostoł Jan pisał wprost: „Patrzcie, jaką miłością obdarzył nas
+
+Ojciec: zostaliśmy nazwani dziećmi Bożymi i faktycznie nimi
+
+jesteśmy” (1 J 3, 1). Być dzieckiem Bożym to nie tylko metafora
+
+czy wyraz poetyckiej czułości. To realna relacja opierta na łasce,
+
+która sprawia, że człowiek zyskuje dostęp do Boga jako do
+
+kochającego Ojca (Abb – Tatusiu). 3. Synteza: Kiedy Syn
+
+Człowieczy spotyka dziecko Boże Teologiczna głębia tych pojęć
+
+ukazuje nam fascynujący paradoks: droga do stania się dzieckiem
+
+Bożym wiedzie przez zrozumienie tego, kim jest Syn Człowieczy.
+
+Solidarność w cierpieniu: Jezus jako Syn Człowieczy przeszedł
+
+przez wszystkie trudy ludzkiego życia – głód, odrzucenie,
+
+samotność i śmierć. Dzięki temu żaden człowiek w swoich
+
+trudnych chwilach nie może powiedzieć, że Bóg go nie rozumie.
+
+Przebóstwienie człowieka: Przez to, że Syn Boży stał się Synem
+
+Człowieczym, ludzie mogą stać się przybranymi dziećmi Bożymi.
+
+To wymiana darów: boskość pochyla się nad ludzkością, by
+
+wyciągnąć ją ku niebu. 4. Co to oznacza dla nas na co dzień? W
+
+świecie pełnym rywalizacji, oceniania ludzi przez pryzmat ich
+
+sukcesów, statusu materialnego czy wyglądu, pojęcie „dziecka
+
+Bożego” stanowi fundamentalne źródło niezbywalnej godności.
+
+Koniec lęku przed odrzuceniem: Jako dzieci Boże nie musimy
+
+nieustannie udowadniać swojej wartości. Nasza tożsamość nie
+
+opiera się na tym, co robimy, ale na tym, czyimi jesteśmy. Odwaga
+
+Syna Człowieczego: Świadomość, że mamy w niebie Ojca, daje
+
+odwagę do mierzenia się z codziennymi kryzysami, pozwalając
+
+nam kroczyć przez życie z podniesioną głową, nawet gdy wokół
+
+panuje ciemność. „Nie jesteś przypadkowym pyłem we
+
+wszechświecie. Jesteś dzieckiem Stwórcy, który w osobie Syna
+
+Człowieczego przeszedł tę samą drogę, by pokazać Ci, jak bardzo
+
+jesteś dla Niego ważny.”
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 361
@@ -4324,7 +7884,7 @@ Rozważanie Pisma Świętego dla dnia 361.
 
 ---
 
-# Dzień 362 — Widoki na Raj - Dzień 5 (Okres Przygotowania - Dzień 5) - TAK, TAK, NIE, NIE
+# Dzień 362 — WnR365 — Widoki na Raj - Dzień 5 (Okres Przygotowania - Dzień 5) -
 
 ## Wstęp
 Wstęp modlitewny dnia 362. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -4432,8 +7992,104 @@ zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
 najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj - Dzień 5 (Okres Przygotowania - Dzień 5) - TAK, TAK, NIE, NIE
-Urodziłem się 21 czerwca. Jezus Chrystus narodził się 25 grudnia. Nie przypisuję tej zbieżności żadnego szczególnego znaczenia poza tym, że skłoniła mnie do pewnej duchowej refleksji. Jezus powiedział: „Niech wasza mowa będzie: Tak, tak; nie, nie. A co nadto jest, od Złego pochodzi.” (Mt 5,37) Przez wiele lat odnosiłem wrażenie, że moje życie wyglądało odwrotnie. Najpierw było „nie, nie”, a dopiero później uczyłem się mówić „tak, tak”. Najpierw odrzucanie, lęk, bunt i zamęt, a dopiero z czasem rodziło się zaufanie Bogu. Dzisiaj widzę w tym pewną duchową symbolikę. Jezus jest doskonałym „Tak” wypowiedzianym Ojcu i jednocześnie doskonałym „Nie” wobec grzechu, kłamstwa i śmierci. Ja natomiast jestem człowiekiem, który uczy się coraz pełniej mówić Bogu „tak”, a złu „nie”. Wierzę, że cała historia zbawienia prowadzi do chwili, w której nie będzie już potrzeby wypowiadać „nie”, ponieważ nie będzie już zła. Nie dlatego, że Jezus przestanie odrzucać grzech, lecz dlatego, że grzech zostanie ostatecznie pokonany. Wtedy pozostanie już tylko jedno wielkie „Tak”. Tak dla Boga. Tak dla Miłości. Tak dla Prawdy. Tak dla Życia. To będzie Królestwo Boże w całej swojej pełni. Bóg stworzył świat jako dobry. Człowiek, nadużywając wolności, poznał dobro i zło. Historia ludzkości stała się drogą bolesnego dojrzewania. Jednak wierzę, że Bóg nie dopuścił tego doświadczenia po to, abyśmy pozostali w ciemności, lecz aby przez Jezusa Chrystusa wyprowadzić nas ku dobru jeszcze pełniejszemu. Nie będzie to powrót do stanu niewiedzy, lecz wejście w pełnię życia. Człowiek zachowa doświadczenie swojej drogi, ale nie będzie już niewolnikiem grzechu. Tak jak złoto oczyszczone w ogniu staje się jeszcze piękniejsze, tak człowiek oczyszczony przez Miłość Boga osiągnie cel, do którego został stworzony. Dlatego patrzę na swoje życie z nadzieją. Nie dlatego, że jestem wyjątkowy. Nie jestem wyjątkowy bardziej niż ktokolwiek inny. Jestem zwykłym człowiekiem, grzesznikiem potrzebującym Bożego miłosierdzia. Jednak dla Boga Jestem wyjątkowy, tak jak wyjątkowy jest każdy człowiek. Każdy z nas jest dla Niego bezcennym skarbem, za którego Jezus oddał swoje życie na krzyżu. Skoro Bóg tak umiłował każdego z nas, najpiękniejszą odpowiedzią jest odwzajemnić tę Miłość. Uczyć się przebaczać, okazywać miłosierdzie, służyć bliźnim i wsłuchiwać się w cichy głos Ducha Świętego, który przemawia w głębi serca. Wtedy nasze „tak” będzie coraz bardziej podobne do „Tak” Jezusa. A nasze „nie” będzie skierowane wyłącznie przeciw temu, co oddziela nas od Boga. I wierzę, że nadejdzie dzień, o którym pisał św. Jan: „I otrze z ich oczu wszelką łzę, a śmierci już odtąd nie będzie. Ani żałoby, ani krzyku, ani trudu już odtąd nie będzie, bo pierwsze rzeczy przeminęły.” (Ap 21,4) oraz dzień, o którym pisał św. Paweł: „Aby Bóg był wszystkim we wszystkich.” (1 Kor 15,28) Wtedy nie będzie już dobra i zła. Będzie tylko Dobro. Będzie tylko Bóg. Amen.
+### WnR365 — Widoki na Raj - Dzień 5 (Okres Przygotowania - Dzień 5) -
+TAK, TAK, NIE, NIE
+
+Urodziłem się 21 czerwca. Jezus Chrystus narodził się 25
+
+grudnia. Nie przypisuję tej zbieżności żadnego szczególnego
+
+znaczenia poza tym, że skłoniła mnie do pewnej duchowej
+
+refleksji. Jezus powiedział: „Niech wasza mowa będzie: Tak, tak;
+
+nie, nie. A co nadto jest, od Złego pochodzi.” (Mt 5,37) Przez wiele
+
+lat odnosiłem wrażenie, że moje życie wyglądało odwrotnie.
+
+Najpierw było „nie, nie”, a dopiero później uczyłem się mówić „tak,
+
+tak”. Najpierw odrzucanie, lęk, bunt i zamęt, a dopiero z czasem
+
+rodziło się zaufanie Bogu. Dzisiaj widzę w tym pewną duchową
+
+symbolikę. Jezus jest doskonałym „Tak” wypowiedzianym Ojcu i
+
+jednocześnie doskonałym „Nie” wobec grzechu, kłamstwa i
+
+śmierci. Ja natomiast jestem człowiekiem, który uczy się coraz
+
+pełniej mówić Bogu „tak”, a złu „nie”. Wierzę, że cała historia
+
+zbawienia prowadzi do chwili, w której nie będzie już potrzeby
+
+wypowiadać „nie”, ponieważ nie będzie już zła. Nie dlatego, że
+
+Jezus przestanie odrzucać grzech, lecz dlatego, że grzech
+
+zostanie ostatecznie pokonany. Wtedy pozostanie już tylko jedno
+
+wielkie „Tak”. Tak dla Boga. Tak dla Miłości. Tak dla Prawdy. Tak
+
+dla Życia. To będzie Królestwo Boże w całej swojej pełni. Bóg
+
+stworzył świat jako dobry. Człowiek, nadużywając wolności,
+
+poznał dobro i zło. Historia ludzkości stała się drogą bolesnego
+
+dojrzewania. Jednak wierzę, że Bóg nie dopuścił tego
+
+doświadczenia po to, abyśmy pozostali w ciemności, lecz aby
+
+przez Jezusa Chrystusa wyprowadzić nas ku dobru jeszcze
+
+pełniejszemu. Nie będzie to powrót do stanu niewiedzy, lecz
+
+wejście w pełnię życia. Człowiek zachowa doświadczenie swojej
+
+drogi, ale nie będzie już niewolnikiem grzechu. Tak jak złoto
+
+oczyszczone w ogniu staje się jeszcze piękniejsze, tak człowiek
+
+oczyszczony przez Miłość Boga osiągnie cel, do którego został
+
+stworzony. Dlatego patrzę na swoje życie z nadzieją. Nie dlatego,
+
+że jestem wyjątkowy. Nie jestem wyjątkowy bardziej niż
+
+ktokolwiek inny. Jestem zwykłym człowiekiem, grzesznikiem
+
+potrzebującym Bożego miłosierdzia. Jednak dla Boga Jestem
+
+wyjątkowy, tak jak wyjątkowy jest każdy człowiek. Każdy z nas
+
+jest dla Niego bezcennym skarbem, za którego Jezus oddał swoje
+
+życie na krzyżu. Skoro Bóg tak umiłował każdego z nas,
+
+najpiękniejszą odpowiedzią jest odwzajemnić tę Miłość. Uczyć się
+
+przebaczać, okazywać miłosierdzie, służyć bliźnim i wsłuchiwać
+
+się w cichy głos Ducha Świętego, który przemawia w głębi serca.
+
+Wtedy nasze „tak” będzie coraz bardziej podobne do „Tak”
+
+Jezusa. A nasze „nie” będzie skierowane wyłącznie przeciw temu,
+
+co oddziela nas od Boga. I wierzę, że nadejdzie dzień, o którym
+
+pisał św. Jan: „I otrze z ich oczu wszelką łzę, a śmierci już odtąd
+
+nie będzie. Ani żałoby, ani krzyku, ani trudu już odtąd nie będzie,
+
+bo pierwsze rzeczy przeminęły.” (Ap 21,4) oraz dzień, o którym
+
+pisał św. Paweł: „Aby Bóg był wszystkim we wszystkich.” (1 Kor
+
+15,28) Wtedy nie będzie już dobra i zła. Będzie tylko Dobro. Będzie
+
+tylko Bóg. Amen.
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 362
@@ -4442,7 +8098,7 @@ Rozważanie Pisma Świętego dla dnia 362.
 
 ---
 
-# Dzień 363 — Widoki na Raj - Dzień 6 (Okres Przygotowania - Dzień 6) - Bóg
+# Dzień 363 — WnR365 — Widoki na Raj - Dzień 6 (Okres Przygotowania - Dzień 6) -
 
 ## Wstęp
 Wstęp modlitewny dnia 363. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -4551,12 +8207,132 @@ zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
 najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj - Dzień 6 (Okres Przygotowania - Dzień 6) - Bóg
-### Medytacja nad tematem: "Bóg"
+### WnR365 — Widoki na Raj - Dzień 6 (Okres Przygotowania - Dzień 6) -
+Bóg
 
-### Bóg – Kim jest Absolut? Pojęcie, istota i poszukiwanie Sensu
+Medytacja nad tematem: "Bóg"
 
-Pojęcie Boga stanowi fundament ludzkiej refleksji, filozofii, sztuki i religii od zarania dziejów. Niezależnie od kręgu kulturowego, stulecia badań oraz rozwoju nauki, pytania o Istotę Najwyższą pozostają najbardziej uniwersalnymi i fascynującymi zagadnieniami, z jakimi mierzy się ludzkość. 1. Jak definiujemy Boga? Perspektywy filozoficzne i religijne Próby zdefiniowania Boga przybierały w historii najróżniejsze formy, od wierzeń politeistycznych po rygorystyczne systemy monoteistyczne i koncepcje czysto abstrakcyjne: Monoteizm (chrześcijaństwo, islam, judaizm): Bóg jest jedynym Stwórcą wszechświata, bytem transcendentnym (istniejącym poza światem), a zarazem immanentnym (obecnym w nim). Charakteryzuje się pełnią doskonałości: jest wszechmogący, wszechwiedzący, miłosierny i wieczny. Pantheizm i Panteizm kosmiczny: Koncepcje (rozwijane m.in. przez Spinozę), w których Bóg nie jest osobistym stwórcą siedzącym poza wszechświatem, lecz utożsamia się z samą przyrodą, prawami fizyki i całą rzeczywistością. Agnostycyzm i Ateizm: Stanowiska sceptyczne lub negujące istnienie Boga. Agnostycyzm zakłada, że rozum ludzki nie jest w stanie dowieść ani obalić istnienia Absolutu, natomiast ateizm całkowicie odrzuca wiarę w istnienie jakichkolwiek bóstw. 2. Klasyczne dowody na istnienie Boga w filozofii Filozofowie starożytni i średniowieczni (takimi jak Platon, Arystoteles czy św. Tomasz z Akwinu) starali się ubrać wiarę w ramy racjonalnego dowodzenia. Do najsłynniejszych należą: Dowód z ruchu (Pierwszy Poruszyciel): Skoro wszystko, co się porusza, jest poruszane przez coś innego, musi istnieć Pierwsza Przyczyna – byt nieruchomy, który sam daje początek wszystkiemu. Dowód z celowości świata: Złożoność przyrody, harmonijne funkcjonowanie ekosystemów oraz porządek kosmiczny sugerują obecność inteligentnego Projektanta. Dowód ontologiczny: Sformułowany przez św. Anzelma z Canterbury – skoro potrafimy pomyśleć sobie byt absolutnie największy i najdoskonalszy, to taki byt musi istnieć również w rzeczywistości, w przeciwnym razie nie byłby najdoskonalszy. 3. Oblicza Boga w wielkich religii świata Choć wiele religii zgadza się co do wyższości Absolutu, inaczej opisują Jego relację z człowiekiem: W chrześcijaństwie: Bóg objawia się jako Trójca Święta (Ojciec, Syn i Duch Święty), a Jego istotą jest bezwarunkowa miłość oraz wcielenie w postaci Jezusa Chrystusa, który stał się człowiekiem, by odkupić ludzkość. W islamie: Bóg (Allah) jest jedyny, absolutny i transcendentny. Islam kładzie ogromny nacisk na Jego wielkość oraz całkowitą poddanie się człowieka (stąd słowo islam oznacza posłuszeństwo) Jego woli. W judaizmie: Bóg jest Stwórcą, który zawarł przymierze z wybranym narodem, a relacja z Nim opiera się na dialogu, posłuszeństwie wobec Tory oraz pamięci o historii. W religiach wschodnich (np. hinduizm): Bóg bywa postrzegany jako bezosobowy Absolut (Brahman), który przejawia się w niezliczonych formach i bóstwach (deiwach), a także jako boska iskra obecna w każdym żywym stworzeniu (Atman). 4. Współczesne poszukiwania i wymiar egzystencjalny W erze nowoczesnej technologii i nauki pojęcie Boga często ulega transformacji. Dla wielu współczesnych ludzi Bóg przestał być „staruszkiem na chmurze”, a stał się metaforą ostatecznego Sensu, tajemnicy istnienia oraz źródłem moralnego zakorzenienia. Niezależnie od tego, czy patrzymy na Boga przez pryzmat dogmatów religijnych, filozoficznej refleksji, czy osobistego doświadczenia duchowego, poszukiwanie Absolutu pozostaje jedną z najgłębszych potrzeb ludzkiej natury – odpowiedzią na lęk przed przemijaniem i pragnieniem nieskończoności.
+Bóg – Kim jest Absolut? Pojęcie, istota i poszukiwanie Sensu
+
+Pojęcie Boga stanowi fundament ludzkiej refleksji, filozofii, sztuki
+
+i religii od zarania dziejów. Niezależnie od kręgu kulturowego,
+
+stulecia badań oraz rozwoju nauki, pytania o Istotę Najwyższą
+
+pozostają najbardziej uniwersalnymi i fascynującymi
+
+zagadnieniami, z jakimi mierzy się ludzkość. 1. Jak definiujemy
+
+Boga? Perspektywy filozoficzne i religijne Próby zdefiniowania
+
+Boga przybierały w historii najróżniejsze formy, od wierzeń
+
+politeistycznych po rygorystyczne systemy monoteistyczne i
+
+koncepcje czysto abstrakcyjne: Monoteizm (chrześcijaństwo,
+
+islam, judaizm): Bóg jest jedynym Stwórcą wszechświata, bytem
+
+transcendentnym (istniejącym poza światem), a zarazem
+
+immanentnym (obecnym w nim). Charakteryzuje się pełnią
+
+doskonałości: jest wszechmogący, wszechwiedzący, miłosierny i
+
+wieczny. Pantheizm i Panteizm kosmiczny: Koncepcje (rozwijane
+
+m.in. przez Spinozę), w których Bóg nie jest osobistym stwórcą
+
+siedzącym poza wszechświatem, lecz utożsamia się z samą
+
+przyrodą, prawami fizyki i całą rzeczywistością. Agnostycyzm i
+
+Ateizm: Stanowiska sceptyczne lub negujące istnienie Boga.
+
+Agnostycyzm zakłada, że rozum ludzki nie jest w stanie dowieść
+
+ani obalić istnienia Absolutu, natomiast ateizm całkowicie
+
+odrzuca wiarę w istnienie jakichkolwiek bóstw. 2. Klasyczne
+
+dowody na istnienie Boga w filozofii Filozofowie starożytni i
+
+średniowieczni (takimi jak Platon, Arystoteles czy św. Tomasz z
+
+Akwinu) starali się ubrać wiarę w ramy racjonalnego dowodzenia.
+
+Do najsłynniejszych należą: Dowód z ruchu (Pierwszy
+
+Poruszyciel): Skoro wszystko, co się porusza, jest poruszane
+
+przez coś innego, musi istnieć Pierwsza Przyczyna – byt
+
+nieruchomy, który sam daje początek wszystkiemu. Dowód z
+
+celowości świata: Złożoność przyrody, harmonijne
+
+funkcjonowanie ekosystemów oraz porządek kosmiczny sugerują
+
+obecność inteligentnego Projektanta. Dowód ontologiczny:
+
+Sformułowany przez św. Anzelma z Canterbury – skoro potrafimy
+
+pomyśleć sobie byt absolutnie największy i najdoskonalszy, to
+
+taki byt musi istnieć również w rzeczywistości, w przeciwnym
+
+razie nie byłby najdoskonalszy. 3. Oblicza Boga w wielkich religii
+
+świata Choć wiele religii zgadza się co do wyższości Absolutu,
+
+inaczej opisują Jego relację z człowiekiem: W chrześcijaństwie:
+
+Bóg objawia się jako Trójca Święta (Ojciec, Syn i Duch Święty), a
+
+Jego istotą jest bezwarunkowa miłość oraz wcielenie w postaci
+
+Jezusa Chrystusa, który stał się człowiekiem, by odkupić
+
+ludzkość. W islamie: Bóg (Allah) jest jedyny, absolutny i
+
+transcendentny. Islam kładzie ogromny nacisk na Jego wielkość
+
+oraz całkowitą poddanie się człowieka (stąd słowo islam oznacza
+
+posłuszeństwo) Jego woli. W judaizmie: Bóg jest Stwórcą, który
+
+zawarł przymierze z wybranym narodem, a relacja z Nim opiera
+
+się na dialogu, posłuszeństwie wobec Tory oraz pamięci o historii.
+
+W religiach wschodnich (np. hinduizm): Bóg bywa postrzegany
+
+jako bezosobowy Absolut (Brahman), który przejawia się w
+
+niezliczonych formach i bóstwach (deiwach), a także jako boska
+
+iskra obecna w każdym żywym stworzeniu (Atman). 4.
+
+Współczesne poszukiwania i wymiar egzystencjalny W erze
+
+nowoczesnej technologii i nauki pojęcie Boga często ulega
+
+transformacji. Dla wielu współczesnych ludzi Bóg przestał być
+
+„staruszkiem na chmurze”, a stał się metaforą ostatecznego
+
+Sensu, tajemnicy istnienia oraz źródłem moralnego zakorzenienia.
+
+Niezależnie od tego, czy patrzymy na Boga przez pryzmat
+
+dogmatów religijnych, filozoficznej refleksji, czy osobistego
+
+doświadczenia duchowego, poszukiwanie Absolutu pozostaje
+
+jedną z najgłębszych potrzeb ludzkiej natury – odpowiedzią na lęk
+
+przed przemijaniem i pragnieniem nieskończoności.
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 363
@@ -4565,7 +8341,7 @@ Rozważanie Pisma Świętego dla dnia 363.
 
 ---
 
-# Dzień 364 — Widoki na Raj - Dzień 7 (Okres Przygotowania - Dzień 7) - aniołowie
+# Dzień 364 — WnR365 — Widoki na Raj - Dzień 7 (Okres Przygotowania - Dzień 7) -
 
 ## Wstęp
 Wstęp modlitewny dnia 364. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -4682,16 +8458,120 @@ zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
 najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj - Dzień 7 (Okres Przygotowania - Dzień 7) - aniołowie
-### Medytacja nad tematem: "anioły"
+### WnR365 — Widoki na Raj - Dzień 7 (Okres Przygotowania - Dzień 7) -
+aniołowie
 
-### Anioły – tajemniczy posłańcy między niebem a ziemią
+Medytacja nad tematem: "anioły"
 
-W niemal każdej kulturze, religii i systemie filozoficznym pojawia się motyw istot duchowych, które stoją ponad człowiekiem, a zarazem służą jako jego opiekuni, przewodnicy i powiernicy. Anioły, bo o nich mowa, od tysięcy lat pobudzają ludzką wyobraźnię, literaturę, sztukę i teologię.
+Anioły – tajemniczy posłańcy między niebem a ziemią
 
-### 1. Kim są anioły? Etymologia i istota
+W niemal każdej kulturze, religii i systemie filozoficznym pojawia
 
-Samo słowo „anioł” pochodzi od greckiego angelos (oraz hebrajskiego mal'ach), co oznacza dosłownie posłańca lub wysłannika. W tradycji judeochrześcijańskiej i muzułmańskiej anioły to czyste istoty duchowe, pozbawione ciała fizycznego, obdarzone rozumem, wolną wolą oraz potężną mocą działającą z woli Stwórcy. Ich głównym zadaniem jest: Uwielbianie Boga i trwanie w Jego bezpośredniej obecności. Przekazywanie woli nieba ludziom w kluczowych momentach historii. Opieka i obrona – zarówno nad całymi narodami, jak i nad poszczególnymi jednostkami. 2. Hierarchia anielska – jak dzielą się istoty niebieskie? W tradycji chrześcijańskiej (najpełniej opisanej w pismach Pseudo-Dionizego Areopagity) aniołowie tworzą złożoną strukturę zwaną hierarchią anielską, podzieloną na trzy chóry (po trzy stopnie w każdym): Pierwsza hierarchia (kontemplujący): Serafini – najbliżsi Bogu, płonący czystą miłością, przedstawiani z sześcioma skrzydłami. Cherubini – strażnicy Bożego tronu, symbolizujący mądrość i wiedzę. Trony – istoty, na których spoczywa Boski majestat, uosabiające sprawiedliwość. Druga hierarchia (zarządzający kosmosem): Panowania – sprawują władzę nad niższymi zastępami anielskimi. Cnoty – odpowiedzialne za cuda i odwagę zsyłaną ludziom. Potęgi – wojownicy światła powstrzymujący siły chaosu i zła. Trzecia hierarchia (posłańcy dla ludzi): Zwierzchności (Księstwa) – opiekunowie miast, narodów i instytucji. Arcyanioły – wysłannici do zadań specjalnych o wielkiej wadze (np. Michał, Gabriel, Rafał). Aniołowie Stróżowie – najbliżsi każdemu człowiekowi, powierzeni do osobistej opieki nad nami. 3. Najważniejsze archanioły w tradycji Choć chórów anielskich są tysiące, Pismo Święte i podania wyodrębniają konkretne postacie o potężnych imionach: Święty Michał – „Któż jak Bóg”. Naczelny wodzostwa niebieskiego, pogromca złych duchów, często przedstawiany w zbroi i z mieczem depczący smoka. Święty Gabriel – „Moc Boża”. Posłaniec wielkich nowin, który obwieszczający Maryi narodzenie Jezusa oraz przekazujący proroctwa Danielowi i Zachariaszowi. Święty Rafał – „Bóg uzdrawia”. Opiekun podróżnych, uzdrowiciel chorych, znany przede wszystkim z biblijnej Księgi Tobiasza. 4. Aniołoły we współczesnej kulturze i codzienności Mimo postępu technologicznego i racjonalizacji świata, pojęcie aniołów nie straciło na popularności. Wręcz przeciwnie – w kulturze masowej, literaturze fantasy oraz filmach anioły są przedstawiani na przeróżne sposoby: od klasycznych, świetlistych opiekunów z białymi skrzydłami, po zbuntowane istoty szukające swojej drogi między dobrem a złem. Dla wielu ludzi współczesnych anioły to przede wszystkim symbol wewnętrznego głosu, intuicji lub nienazwanej opieki, która chroni nas w niebezpiecznych momentach życia. „Nawet jeśli ich nie widzimy, anioły są bliżej, niż nam się wydaje – przypominają nam, że w trudnych chwilach nigdy nie jesteśmy sami.”
+się motyw istot duchowych, które stoją ponad człowiekiem, a
+
+zarazem służą jako jego opiekuni, przewodnicy i powiernicy.
+
+Anioły, bo o nich mowa, od tysięcy lat pobudzają ludzką
+
+wyobraźnię, literaturę, sztukę i teologię.
+
+1. Kim są anioły? Etymologia i istota
+
+Samo słowo „anioł” pochodzi od greckiego angelos (oraz
+
+hebrajskiego mal'ach), co oznacza dosłownie posłańca lub
+
+wysłannika. W tradycji judeochrześcijańskiej i muzułmańskiej
+
+anioły to czyste istoty duchowe, pozbawione ciała fizycznego,
+
+obdarzone rozumem, wolną wolą oraz potężną mocą działającą z
+
+woli Stwórcy. Ich głównym zadaniem jest: Uwielbianie Boga i
+
+trwanie w Jego bezpośredniej obecności. Przekazywanie woli
+
+nieba ludziom w kluczowych momentach historii. Opieka i obrona
+
+– zarówno nad całymi narodami, jak i nad poszczególnymi
+
+jednostkami. 2. Hierarchia anielska – jak dzielą się istoty
+
+niebieskie? W tradycji chrześcijańskiej (najpełniej opisanej w
+
+pismach Pseudo-Dionizego Areopagity) aniołowie tworzą złożoną
+
+strukturę zwaną hierarchią anielską, podzieloną na trzy chóry (po
+
+trzy stopnie w każdym): Pierwsza hierarchia (kontemplujący):
+
+Serafini – najbliżsi Bogu, płonący czystą miłością, przedstawiani z
+
+sześcioma skrzydłami. Cherubini – strażnicy Bożego tronu,
+
+symbolizujący mądrość i wiedzę. Trony – istoty, na których
+
+spoczywa Boski majestat, uosabiające sprawiedliwość. Druga
+
+hierarchia (zarządzający kosmosem): Panowania – sprawują
+
+władzę nad niższymi zastępami anielskimi. Cnoty –
+
+odpowiedzialne za cuda i odwagę zsyłaną ludziom. Potęgi –
+
+wojownicy światła powstrzymujący siły chaosu i zła. Trzecia
+
+hierarchia (posłańcy dla ludzi): Zwierzchności (Księstwa) –
+
+opiekunowie miast, narodów i instytucji. Arcyanioły – wysłannici
+
+do zadań specjalnych o wielkiej wadze (np. Michał, Gabriel, Rafał).
+
+Aniołowie Stróżowie – najbliżsi każdemu człowiekowi, powierzeni
+
+do osobistej opieki nad nami. 3. Najważniejsze archanioły w
+
+tradycji Choć chórów anielskich są tysiące, Pismo Święte i
+
+podania wyodrębniają konkretne postacie o potężnych imionach:
+
+Święty Michał – „Któż jak Bóg”. Naczelny wodzostwa
+
+niebieskiego, pogromca złych duchów, często przedstawiany w
+
+zbroi i z mieczem depczący smoka. Święty Gabriel – „Moc Boża”.
+
+Posłaniec wielkich nowin, który obwieszczający Maryi narodzenie
+
+Jezusa oraz przekazujący proroctwa Danielowi i Zachariaszowi.
+
+Święty Rafał – „Bóg uzdrawia”. Opiekun podróżnych, uzdrowiciel
+
+chorych, znany przede wszystkim z biblijnej Księgi Tobiasza. 4.
+
+Aniołoły we współczesnej kulturze i codzienności Mimo postępu
+
+technologicznego i racjonalizacji świata, pojęcie aniołów nie
+
+straciło na popularności. Wręcz przeciwnie – w kulturze masowej,
+
+literaturze fantasy oraz filmach anioły są przedstawiani na
+
+przeróżne sposoby: od klasycznych, świetlistych opiekunów z
+
+białymi skrzydłami, po zbuntowane istoty szukające swojej drogi
+
+między dobrem a złem. Dla wielu ludzi współczesnych anioły to
+
+przede wszystkim symbol wewnętrznego głosu, intuicji lub
+
+nienazwanej opieki, która chroni nas w niebezpiecznych
+
+momentach życia. „Nawet jeśli ich nie widzimy, anioły są bliżej,
+
+niż nam się wydaje – przypominają nam, że w trudnych chwilach
+
+nigdy nie jesteśmy sami.”
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 364
@@ -4700,7 +8580,7 @@ Rozważanie Pisma Świętego dla dnia 364.
 
 ---
 
-# Dzień 365 — Widoki na Raj - Dzień 8 (Okres Przygotowania - Dzień 8) - święci ludzie
+# Dzień 365 — WnR365 — Widoki na Raj - Dzień 8 (Okres Przygotowania - Dzień 8) -
 
 ## Wstęp
 Wstęp modlitewny dnia 365. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w elektronicznej Misji Barw i Kolorów (eMBiK365).
@@ -4810,8 +8690,116 @@ zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
 najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
-### Widoki na Raj - Dzień 8 (Okres Przygotowania - Dzień 8) - święci ludzie
-Medytacja nad tematem: "święci ludzie" - obecność dzieciątka Jezus w łonie Maryi, który zstąpił z Nieba Święci ludzie – kim są i czego mogą nas nauczyć? Pojęcie świętości przewija się przez dzieje ludzkości, przyjmując różnorodne formy w zależności od kultury, tradycji czy religii. Choć najczęściej kojarzy nam się z religią chrześcijańską i postaciami wyniesionymi na ołtarze, idea człowieka prawego, oddanego wyższym wartościom i żyjącego z poszanowaniem drugiego człowieka jest uniwersalna. 1. Kim jest człowiek święty we współczesnym rozumieniu? Tradycyjnie święty to osoba, która osiągnęła zjednoczenie z Bogiem i jest wzorem do wiary. Jednak spoglądając na świętość szerzej – także w wymiarze świeckim – możemy zauważyć, że święci to ludzie, którzy: Kierują się głębokim systemem wartości opartym na miłości, empatii, prawdzie i sprawiedliwości. Przekładają dobro innych nad własny egoizm, często poświęcając swój czas, zdrowie czy zasoby, by nieść pomoc potrzebującym. Charakteryzują się wewnętrznym pokorą i spokojem, potrafią przebaczać i nie szukają zemsty nawet w obliczu niesprawiedliwości. 2. Przykłady z historii i współczesności Historia zna setki wybitnych postaci, których czyny i postawy inspirowały kolejne pokolenia. Wśród nich znajdują się zarówno dawni mistycy, jak i nowoczesni społecznicy: Święty Franciszek z Asyżu – patron ekologów i ubogich, który zrezygnował z bogactwa na rzecz życia w harmonii z przyrodą i wszelkimi stworzeniami. Matka Teresa z Kalkuty – symbol bezinteresownej miłości, która całe swoje dorosłe życie poświęciła opiece nad najuboższymi i umierającymi w Indiach. Jan Paweł II – papież, który poprzez swoje pielgrzymki, dialog międzyreligijny oraz nawoływanie do pokoju wpłynął na losy całego świata. Irena Sendlerowa – polska działaczka społeczna, która podczas II wojny światowej uratowała z getta warszawskiego setki żydowskich dzieci, ryzykując własne życie. 3. Cechy wspólne ludzi świętych Niezależnie od epoki, w której żyli, święci ludzie wykazują zestaw cech, które pozwalają im wyróżnić się z tłumu: Autentyczność: Ich słowa idą w parze z czynami. Nie pouczają innych, lecz dają przykład własnym życiem. Odporność psychiczna i duchowa: Trudności, cierpienie czy prześladowania nie łamią ich ducha, a wręcz wzmacniają ich determinację w czynieniu dobra. Zdolność do radykalnej miłości: Miłość do bliźniego, a nawet do swoich nieprzyjaciół, jest dla nich drogowskazem w każdej sytuacji. 4. Czego święci mogą nas nauczyć dzisiaj? W pędzącym, pełnym rywalizacji i konsumpcjonizmu świecie, postacie świętych ludzi mogą wydawać się nieosiągnałem oderwanym od rzeczywistości. Jednak ich przesłanie jest niezwykle aktualne: Zatrzymanie się i refleksja: Przypominają nam o potrzebie dbania o sferę duchową, a nie tylko materialną. Empatia w codzienności: Pokazują, że wielkość nie musi polegać na dokonywaniu wielkich odkryć, ale na małych, codziennych gestach życzliwości wobec sąsiada, współpracownika czy nieznajomego. Odwaga w obronie wartości: Uczą, że warto stać po stronie prawdy i dobra, nawet gdy wiąże się to z ceną i sprzeciwem otoczenia. „Świętość to nie bezgrzeszność, ale nieustanne powracanie do miłości po każdym upadku.”
+### WnR365 — Widoki na Raj - Dzień 8 (Okres Przygotowania - Dzień 8) -
+święci ludzie
+
+Medytacja nad tematem: "święci ludzie" - obecność dzieciątka
+
+Jezus w łonie Maryi, który zstąpił z Nieba Święci ludzie – kim są i
+
+czego mogą nas nauczyć? Pojęcie świętości przewija się przez
+
+dzieje ludzkości, przyjmując różnorodne formy w zależności od
+
+kultury, tradycji czy religii. Choć najczęściej kojarzy nam się z
+
+religią chrześcijańską i postaciami wyniesionymi na ołtarze, idea
+
+człowieka prawego, oddanego wyższym wartościom i żyjącego z
+
+poszanowaniem drugiego człowieka jest uniwersalna. 1. Kim jest
+
+człowiek święty we współczesnym rozumieniu? Tradycyjnie
+
+święty to osoba, która osiągnęła zjednoczenie z Bogiem i jest
+
+wzorem do wiary. Jednak spoglądając na świętość szerzej –
+
+także w wymiarze świeckim – możemy zauważyć, że święci to
+
+ludzie, którzy: Kierują się głębokim systemem wartości opartym
+
+na miłości, empatii, prawdzie i sprawiedliwości. Przekładają dobro
+
+innych nad własny egoizm, często poświęcając swój czas,
+
+zdrowie czy zasoby, by nieść pomoc potrzebującym.
+
+Charakteryzują się wewnętrznym pokorą i spokojem, potrafią
+
+przebaczać i nie szukają zemsty nawet w obliczu
+
+niesprawiedliwości. 2. Przykłady z historii i współczesności
+
+Historia zna setki wybitnych postaci, których czyny i postawy
+
+inspirowały kolejne pokolenia. Wśród nich znajdują się zarówno
+
+dawni mistycy, jak i nowoczesni społecznicy: Święty Franciszek z
+
+Asyżu – patron ekologów i ubogich, który zrezygnował z
+
+bogactwa na rzecz życia w harmonii z przyrodą i wszelkimi
+
+stworzeniami. Matka Teresa z Kalkuty – symbol bezinteresownej
+
+miłości, która całe swoje dorosłe życie poświęciła opiece nad
+
+najuboższymi i umierającymi w Indiach. Jan Paweł II – papież,
+
+który poprzez swoje pielgrzymki, dialog międzyreligijny oraz
+
+nawoływanie do pokoju wpłynął na losy całego świata. Irena
+
+Sendlerowa – polska działaczka społeczna, która podczas II
+
+wojny światowej uratowała z getta warszawskiego setki
+
+żydowskich dzieci, ryzykując własne życie. 3. Cechy wspólne ludzi
+
+świętych Niezależnie od epoki, w której żyli, święci ludzie
+
+wykazują zestaw cech, które pozwalają im wyróżnić się z tłumu:
+
+Autentyczność: Ich słowa idą w parze z czynami. Nie pouczają
+
+innych, lecz dają przykład własnym życiem. Odporność
+
+psychiczna i duchowa: Trudności, cierpienie czy prześladowania
+
+nie łamią ich ducha, a wręcz wzmacniają ich determinację w
+
+czynieniu dobra. Zdolność do radykalnej miłości: Miłość do
+
+bliźniego, a nawet do swoich nieprzyjaciół, jest dla nich
+
+drogowskazem w każdej sytuacji. 4. Czego święci mogą nas
+
+nauczyć dzisiaj? W pędzącym, pełnym rywalizacji i
+
+konsumpcjonizmu świecie, postacie świętych ludzi mogą
+
+wydawać się nieosiągnałem oderwanym od rzeczywistości.
+
+Jednak ich przesłanie jest niezwykle aktualne: Zatrzymanie się i
+
+refleksja: Przypominają nam o potrzebie dbania o sferę duchową,
+
+a nie tylko materialną. Empatia w codzienności: Pokazują, że
+
+wielkość nie musi polegać na dokonywaniu wielkich odkryć, ale
+
+na małych, codziennych gestach życzliwości wobec sąsiada,
+
+współpracownika czy nieznajomego. Odwaga w obronie wartości:
+
+Uczą, że warto stać po stronie prawdy i dobra, nawet gdy wiąże
+
+się to z ceną i sprzeciwem otoczenia. „Świętość to nie
+
+bezgrzeszność, ale nieustanne powracanie do miłości po każdym
+
+upadku.”
 
 ## Biblia365
 ### Biblia365 — Czytanie Dnia 365
