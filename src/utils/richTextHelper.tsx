@@ -418,20 +418,11 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
               />
             </div>
             {caption && (
-              <p className={`text-xs mt-2 font-mono font-semibold tracking-wide uppercase transition-colors duration-300 ${
-                isLight ? 'text-slate-600 group-hover:text-indigo-600' : 'text-slate-400 group-hover:text-indigo-300'
+              <p className={`text-xs mt-2.5 font-bold tracking-wide transition-colors duration-300 ${
+                isLight ? 'text-slate-800 group-hover:text-indigo-600' : 'text-amber-300 group-hover:text-amber-200'
               }`}>
                 {caption}
               </p>
-            )}
-            {isExternalLink && (
-              <span 
-                className={`text-[10px] mt-1 font-mono break-all max-w-[200px] ${
-                  isLight ? 'text-indigo-600 group-hover:text-indigo-700 group-hover:underline' : 'text-indigo-400 group-hover:text-indigo-300 group-hover:underline'
-                }`}
-              >
-                {clickUrl}
-              </span>
             )}
           </ContainerTag>
         );

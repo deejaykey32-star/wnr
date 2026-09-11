@@ -613,9 +613,6 @@ export const UrlQrModal: React.FC<UrlQrModalProps> = ({
                         <p className="text-xs font-bold text-amber-300 max-w-xs mx-auto pt-1">
                           {formQrCaption || formTitle || 'Tytuł pod kodem QR'}
                         </p>
-                        <p className="text-[10px] text-emerald-400 font-mono truncate max-w-xs mx-auto">
-                          {formShortUrl || formUrl}
-                        </p>
                       </div>
                     ) : (
                       <div className="w-36 h-36 bg-slate-950 rounded-xl border border-dashed border-slate-800 flex items-center justify-center text-slate-600">
