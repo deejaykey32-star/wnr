@@ -419,9 +419,11 @@ export const UrlQrModal: React.FC<UrlQrModalProps> = ({
                               <QrCode className="w-8 h-8" />
                             </div>
                           )}
-                          <p className="text-[10px] font-bold text-amber-300 text-center mt-1.5 leading-tight break-words max-w-[105px]">
-                            {item.qrCaption || item.title}
-                          </p>
+                          <div className="mt-1.5 px-2 py-0.5 rounded-lg bg-amber-950/60 border border-amber-800/60 max-w-[110px] w-full text-center">
+                            <p className="text-[10px] font-semibold text-amber-300 leading-tight break-words">
+                              {item.qrCaption || item.title}
+                            </p>
+                          </div>
                         </div>
 
                         {/* Title & Url info */}
@@ -645,15 +647,17 @@ export const UrlQrModal: React.FC<UrlQrModalProps> = ({
                     </span>
 
                     {liveQrUri ? (
-                      <div className="space-y-1 text-center">
+                      <div className="space-y-1.5 text-center flex flex-col items-center">
                         <img
                           src={liveQrUri}
                           alt="Podgląd kodu QR"
                           className="w-36 h-36 bg-white p-2 rounded-xl shadow-xl mx-auto border border-slate-700"
                         />
-                        <p className="text-xs font-bold text-amber-300 max-w-xs mx-auto pt-1">
-                          {formQrCaption || formTitle || 'Tytuł pod kodem QR'}
-                        </p>
+                        <div className="px-3 py-1 rounded-xl bg-amber-950/60 border border-amber-800/60 max-w-xs mx-auto shadow-sm flex items-center justify-center gap-1">
+                          <span className="text-xs font-semibold text-amber-300 text-center leading-snug break-words">
+                            {formQrCaption || formTitle || 'Tytuł pod kodem QR'}
+                          </span>
+                        </div>
                       </div>
                     ) : (
                       <div className="w-36 h-36 bg-slate-950 rounded-xl border border-dashed border-slate-800 flex items-center justify-center text-slate-600">

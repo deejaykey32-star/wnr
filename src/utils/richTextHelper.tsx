@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { X, ZoomIn, Maximize2 } from 'lucide-react';
+import { X, ZoomIn, Maximize2, ExternalLink } from 'lucide-react';
 
 /**
  * Normalizes Windows file paths (e.g. C:\proj\wnr1\covers.png or C:/proj/wnr1/covers.png),
@@ -441,14 +441,19 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
               />
             </div>
             {caption && (
-              <p className={`text-xs mt-2.5 font-bold tracking-wide transition-colors duration-300 ${
-                isLight ? 'text-slate-800 group-hover:text-indigo-600' : 'text-amber-300 group-hover:text-amber-200'
+              <div className={`mt-3 px-3.5 py-1.5 rounded-xl border text-xs font-semibold tracking-wide flex items-center justify-center gap-1.5 transition-all duration-300 shadow-md max-w-full ${
+                isLight
+                  ? 'bg-indigo-50/90 border-indigo-200 text-indigo-950 group-hover:bg-indigo-100 group-hover:border-indigo-300'
+                  : 'bg-amber-950/50 border-amber-500/40 text-amber-300 group-hover:bg-amber-900/60 group-hover:border-amber-400/60 group-hover:text-amber-200'
               }`}>
-                {caption}
-              </p>
+                <ExternalLink className="w-3.5 h-3.5 shrink-0 text-amber-400 opacity-90" />
+                <span className="leading-snug break-words">{caption}</span>
+              </div>
             )}
-            <span className="text-[10px] text-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity mt-1 flex items-center gap-1 font-sans font-semibold">
-              🔗 Otwórz stronę docelową
+            <span className={`text-[11px] font-bold mt-2 flex items-center gap-1.5 transition-colors duration-200 ${
+              isLight ? 'text-indigo-600 group-hover:text-indigo-700' : 'text-indigo-400 group-hover:text-indigo-300'
+            }`}>
+              Zeskanuj QR lub kliknij, aby otworzyć ➔
             </span>
           </a>
         );
