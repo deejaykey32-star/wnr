@@ -401,11 +401,19 @@ export const UrlQrModal: React.FC<UrlQrModalProps> = ({
                         {/* QR Code graphic preview + Title under QR */}
                         <div className="flex flex-col items-center shrink-0 max-w-[110px]">
                           {item.qrCodeDataUrl ? (
-                            <img
-                              src={item.qrCodeDataUrl}
-                              alt={`Kod QR dla ${item.title}`}
-                              className="w-24 h-24 bg-white p-1.5 rounded-xl border border-slate-300 shadow-md group-hover:scale-105 transition duration-200"
-                            />
+                            <a
+                              href={item.shortUrl || item.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              title={`Kliknij, aby otworzyć stronę: ${item.shortUrl || item.url}`}
+                              className="group block cursor-pointer"
+                            >
+                              <img
+                                src={item.qrCodeDataUrl}
+                                alt={`Kod QR dla ${item.title}`}
+                                className="w-24 h-24 bg-white p-1.5 rounded-xl border border-slate-300 shadow-md group-hover:scale-105 transition duration-200"
+                              />
+                            </a>
                           ) : (
                             <div className="w-24 h-24 bg-slate-800 rounded-xl flex items-center justify-center text-slate-500">
                               <QrCode className="w-8 h-8" />

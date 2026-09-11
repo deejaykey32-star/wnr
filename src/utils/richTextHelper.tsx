@@ -167,10 +167,15 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Delegation click handler for inline or custom HTML <img> elements inside text
+  // Delegation click handler for inline or custom HTML <img> elements inside text (excluding QR codes)
   const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLElement;
-    if (target && target.tagName === 'IMG' && !target.classList.contains('qr-code-img')) {
+    if (
+      target && 
+      target.tagName === 'IMG' && 
+      !target.classList.contains('qr-code-img') &&
+      !target.closest('.qr-code-container')
+    ) {
       const img = target as HTMLImageElement;
       if (img.src) {
         setActiveLightboxImg({
@@ -387,31 +392,45 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
             .replace('/day', '/#/day');
         }
 
+        let targetHref = normalizedUrl;
+        if (!targetHref.startsWith('http://') && !targetHref.startsWith('https://') && !targetHref.startsWith('/') && !targetHref.startsWith('#')) {
+          targetHref = `https://${targetHref}`;
+        }
+
+        const isInternalRoute = targetHref.startsWith('/#/') || targetHref.startsWith('#/') || targetHref.startsWith('/r/') || targetHref.startsWith('/s/');
+
         const qrUrl = normalizedUrl.startsWith('http') 
           ? `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(normalizedUrl)}`
           : `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent('https://' + normalizedUrl)}`;
 
-        const isExternalLink = normalizedUrl.startsWith('http') || normalizedUrl.startsWith('www.') || normalizedUrl.includes('.');
-        const clickUrl = (normalizedUrl.startsWith('http') || normalizedUrl.startsWith('https')) ? normalizedUrl : `https://${normalizedUrl}`;
-        const ContainerTag = isExternalLink ? 'a' : 'div';
-        const extraProps = isExternalLink ? {
-          href: clickUrl,
-          target: "_blank",
-          rel: "noopener noreferrer",
-          title: `Kliknij, aby otworzyć: ${clickUrl}`
-        } : {};
+        const handleQrClick = (e: React.MouseEvent) => {
+          e.stopPropagation();
+          if (isInternalRoute) {
+            e.preventDefault();
+            const hashPart = targetHref.replace(/^[^#]*#\/?/, '').replace(/^\//, '');
+            if (hashPart) {
+              window.location.hash = hashPart;
+            }
+          } else if (targetHref.startsWith('http://') || targetHref.startsWith('https://')) {
+            window.open(targetHref, '_blank', 'noopener,noreferrer');
+          }
+        };
 
         const isLight = theme === 'light';
 
         elements.push(
-          <ContainerTag 
+          <a 
             key={`qr-${keyIndex++}`}
-            className={`my-6 p-5 rounded-2xl flex flex-col items-center justify-center text-center max-w-xs mx-auto shadow-2xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] block cursor-pointer group ${
+            href={targetHref}
+            target={isInternalRoute ? "_self" : "_blank"}
+            rel="noopener noreferrer"
+            onClick={handleQrClick}
+            title={`Kliknij, aby otworzyć stronę docelową: ${targetHref}`}
+            className={`my-6 p-5 rounded-2xl flex flex-col items-center justify-center text-center max-w-xs mx-auto shadow-2xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] block cursor-pointer group qr-code-container ${
               isLight 
                 ? 'bg-white border border-slate-200 hover:border-indigo-500 hover:bg-slate-100/50' 
                 : 'bg-slate-950/95 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900'
             }`}
-            {...extraProps}
           >
             <div className="p-2 bg-white rounded-xl shadow-inner transition-transform duration-300 group-hover:scale-105">
               <img 
@@ -428,7 +447,10 @@ export const RichTextRenderer: React.FC<{ text: string; theme?: 'dark' | 'light'
                 {caption}
               </p>
             )}
-          </ContainerTag>
+            <span className="text-[10px] text-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity mt-1 flex items-center gap-1 font-sans font-semibold">
+              🔗 Otwórz stronę docelową
+            </span>
+          </a>
         );
 
         if (!line.includes('[qr:')) {
