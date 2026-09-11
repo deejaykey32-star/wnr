@@ -7,133 +7,47 @@ Wstęp modlitewny dnia 184. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Kain i Abel (Księga Rodzaju 4, 1–10)
-Etap 1 - Część 1 - Tajemnica 3 - Kain i Abel
-(Księga Rodzaju 4, 1–10)
-Adam poznał swoją żonę Ewę, a ta poczęła i urodziła Kaina, mówiąc:
-„Otrzymałam mężczyznę dzięki Panu.”
-Potem urodziła jego brata, Abla.
+(Księga Rodzaju 4, 1–10) Adam poznał swoją żonę Ewę, a ta poczęła i urodziła Kaina, mówiąc: „Otrzymałam mężczyznę dzięki Panu.” Potem urodziła jego brata, Abla. Abel był pasterzem trzód, a Kain uprawiał rolę. Po pewnym czasie Kain złożył Panu ofiarę z płodów rolnych, a Abel także ofiarował pierwociny ze swej trzody i z ich tłuszczu. Pan wejrzał na Abla i na jego ofiarę, ale na Kaina i na jego ofiarę nie wejrzał. Kain rozgniewał się bardzo, a oblicze jego zasępiło się. Pan zapytał Kaina: „Dlaczego jesteś zagniewany? I dlaczego zasępiło się twoje oblicze? Jeśli dobrze czynisz, czyż nie będziesz pogodzony? A jeśli nie czynisz dobrze, grzech leży u wrót i czyha na ciebie, lecz ty masz nad nim panować.” Kain powiedział do swego brata Abla: „Chodźmy na pole.” A gdy byli na polu, rzucił się Kain na swego brata Abla i zabił go. Wtedy rzekł Pan do Kaina: „Gdzie jest brat twój, Abel?” A on odpowiedział „Nie wiem. Czyż jestem stróżem brata mego?” Rzekł Bóg: „Cóż uczyniłeś? Krew brata twego głośno woła do Mnie z ziemi!”
 
-Abel był pasterzem trzód, a Kain uprawiał rolę.
-Po pewnym czasie Kain złożył Panu ofiarę z płodów rolnych,
-a Abel także ofiarował pierwociny ze swej trzody i z ich tłuszczu.
-Pan wejrzał na Abla i na jego ofiarę,
-ale na Kaina i na jego ofiarę nie wejrzał.
+Słowo Wyjaśnienia:
 
-Kain rozgniewał się bardzo, a oblicze jego zasępiło się.
-Pan zapytał Kaina:
-„Dlaczego jesteś zagniewany? I dlaczego zasępiło się twoje oblicze?
-Jeśli dobrze czynisz, czyż nie będziesz pogodzony?
-A jeśli nie czynisz dobrze, grzech leży u wrót i czyha na ciebie,
-lecz ty masz nad nim panować.”
+To pierwsze morderstwo, ale też pierwszy dramat serca rozdartego przez zazdrość. Kain nie potrafił znieść, że ktoś inny został pobłogosławiony. Nie rozumiał, że Boża miłość nie dzieli – ona jest pełna dla każdego. Bóg rozmawia z Kainem zanim ten popełni zło. Przestrzega go: „grzech czyha u wrót” – ale daje też władzę: „ty masz nad nim panować.” Człowiek jednak wybiera gniew zamiast rozmowy. I ziemia, która miała rodzić życie przyjmuje krew niewinnego. A jednak nawet wtedy Bóg nie przestaje mówić. Zna zło, ale nadal stawia pytanie: „Gdzie jest twój brat?” To pytanie rozbrzmiewa przez całą historię ludzkości i dziś, i w każdym z nas.
 
-Kain powiedział do swego brata Abla:
-„Chodźmy na pole.”
-A gdy byli na polu, rzucił się Kain na swego brata Abla i zabił go.
+Trzy Wezwania do Działania:
 
-Wtedy rzekł Pan do Kaina:
-„Gdzie jest brat twój, Abel?”
-A on odpowiedział:
+1. Nazwij swojego brata. Kain przestał widzieć w Ablu brata, zobaczył w nim rywala.
 
-„Nie wiem. Czyż jestem stróżem brata mego?”
-Rzekł Bóg:
-„Cóż uczyniłeś? Krew brata twego głośno woła do Mnie z ziemi!”
-To pierwsze morderstwo, ale też pierwszy dramat serca rozdartego przez
-zazdrość.
-Kain nie potrafił znieść, że ktoś inny został pobłogosławiony.
-Nie rozumiał, że Boża miłość nie dzieli – ona jest pełna dla każdego.
-Bóg rozmawia z Kainem zanim ten popełni zło.
-Przestrzega go: „grzech czyha u wrót” – ale daje też władzę: „ty masz nad
-nim panować.”
-Człowiek jednak wybiera gniew zamiast rozmowy.
-I ziemia, która miała rodzić życie, przyjmuje krew niewinnego.
-A jednak nawet wtedy Bóg nie przestaje mówić.
-Zna zło, ale nadal stawia pytanie: „Gdzie jest twój brat?”
-To pytanie rozbrzmiewa przez całą historię ludzkości – i dziś, i w każdym z
-nas.
-Trzy Wezwania do Działania
-Nazwij swojego brata.
-Kain przestał widzieć w Ablu brata, zobaczył w nim rywala. Zobacz dziś w
-drugim człowieku dar, nie zagrożenie.
-Nie karm gniewu.
-Zanim słowo lub myśl zrani – zatrzymaj się. Pan pyta: „Dlaczego jesteś
-zagniewany?”
-Bądź stróżem brata swego.
-Nie obojętnym. Strzeż jego dobra, czuwaj nad jego życiem.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kain i Abel złożyli Panu ofiary ze swej pracy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
+2. Zobacz dziś w drugim człowieku dar, nie zagrożenie. Nie karm gniewu. Zanim słowo lub myśl zrani – zatrzymaj się.
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg spojrzał z upodobaniem na serce Abla.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kain rozgniewał się, gdy nie znalazł uznania.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan przestrzegł człowieka: „grzech czyha u wrót, lecz ty masz
-nad nim panować.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego brat podniósł rękę na brata i przelał niewinną krew.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego ziemia zapłakała głosem krwi Abla.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg zapytał: „Gdzie jest brat twój?”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
+3. Pan pyta: „Dlaczego jesteś zagniewany?” Bądź stróżem brata swego. Nie obojętnym. Strzeż jego dobra, czuwaj nad jego życiem.
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kain nosił na sobie znak Bożego miłosierdzia.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg pomścił krew niewinnych, lecz oszczędził winnego.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego głos Abla woła o miłosierdzie, nie o zemstę.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kain i Abel złożyli Panu ofiary ze swej pracy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg spojrzał z upodobaniem na serce Abla. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kain rozgniewał się, gdy nie znalazł uznania. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan przestrzegł człowieka: „grzech czyha u wrót, lecz ty masz nad nim panować.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego brat podniósł rękę na brata i przelał niewinną krew. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego ziemia zapłakała głosem krwi Abla. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg zapytał: „Gdzie jest brat twój?” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kain nosił na sobie znak Bożego miłosierdzia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg pomścił krew niewinnych, lecz oszczędził winnego. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego głos Abla woła o miłosierdzie, nie o zemstę. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 2 (Cykl II - Dzień 2 z 175) - [13.10.2015] Jest ruch, światło i nadzieja
@@ -303,130 +217,47 @@ Wstęp modlitewny dnia 185. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Potop i Przymierze z Noem (Księga Rodzaju 6, 5–22; 8, 6–22; 9, 8–17)
-Etap 1 - Część 1 - Tajemnica 4 - Potop i Przymierze z Noem
-(Księga Rodzaju 6, 5–22; 8, 6–22; 9, 8–17)
-A gdy Pan widział, że wielka jest nieprawość człowieka na ziemi
-i że wszelkie jego myśli i pragnienia są ustawicznie złe,
-żałował Pan, że stworzył człowieka na ziemi,
-i zasmucił się w sercu swoim.
+(Księga Rodzaju 6, 5–22; 8, 6–22; 9, 8–17). A gdy Pan widział, że wielka jest nieprawość człowieka na ziemi i że wszelkie jego myśli i pragnienia są ustawicznie złe, żałował Pan, że stworzył człowieka na ziemi, i zasmucił się w sercu swoim. Rzekł więc Pan: „Zgładzę człowieka, którego stworzyłem, z powierzchni ziemi.” Ale Noe znalazł łaskę w oczach Pana. Pan rzekł do Noego: „Zbuduj sobie arkę z drzewa żywicznego podziel ją na komory i powlecz smołą wewnątrz i zewnątrz. Wprowadzisz do niej po parze ze wszystkich zwierząt, aby ocaliły życie z tobą.” I spadł deszcz na ziemię czterdzieści dni i czterdzieści nocy. Wody wezbrały ponad góry, ale arka unosiła się na powierzchni wód. A gdy wody opadły, Noe wypuścił gołębicę; powróciła do niego z gałązką oliwną w dziobie, i Noe poznał, że ziemia znów daje życie. I przemówił Pan: „Oto Ja zawieram z wami przymierze. Łuk mój kładę na obłoki, aby był znakiem przymierza między Mną a ziemią.”
 
-Rzekł więc Pan: „Zgładzę człowieka, którego stworzyłem, z powierzchni
-ziemi.”
+Słowo Wyjaśnienia:
 
-Ale Noe znalazł łaskę w oczach Pana.
+To opowieść o sądzie i ocaleniu. Bóg nie niszczy z gniewu, lecz oczyszcza z miłości. Potop jest jak wielkie chrzczenie świata — stare ginie, by mogło powstać nowe. Noe nie jest herosem, ale człowiekiem wiernym, który słucha, gdy inni szydzą, i ufa, gdy nikt nie rozumie. Wchodzi do arki, gdy świat odwraca się od Boga. A Bóg, wierny jak zawsze, ocala resztę, z której rodzi się nadzieja. Gołębica z gałązką oliwną to znak, że nawet po burzy Bóg nie milknie. A tęcza — łuk odwrócony ku niebu — mówi: Bóg nie wymierzy już strzały przeciwko człowiekowi. To On pierwszy złożył broń.
 
-Pan rzekł do Noego:
-„Zbuduj sobie arkę z drzewa żywicznego,
-podziel ją na komory i powlecz smołą wewnątrz i zewnątrz.
-Wprowadzisz do niej po parze ze wszystkich zwierząt,
-aby ocaliły życie z tobą.”
+Trzy Wezwania do Działania:
 
-I spadł deszcz na ziemię czterdzieści dni i czterdzieści nocy.
-Wody wezbrały ponad góry,
-ale arka unosiła się na powierzchni wód.
+1. Zbuduj swoją arkę posłuszeństwa. Nie czekaj, aż przyjdą burze — przygotuj się przez wierność i modlitwę.
 
-A gdy wody opadły, Noe wypuścił gołębicę;
-powróciła do niego z gałązką oliwną w dziobie,
-i Noe poznał, że ziemia znów daje życie.
+2. Zachowaj w sobie gałązkę oliwną. W świecie pełnym przemocy bądź posłańcem pokoju i życia.
 
-I przemówił Pan:
-„Oto Ja zawieram z wami przymierze.
-Łuk mój kładę na obłoki, aby był znakiem przymierza
-między Mną a ziemią.”
-To opowieść o sądzie i ocaleniu.
-Bóg nie niszczy z gniewu, lecz oczyszcza z miłości.
-Potop jest jak wielkie chrzczenie świata — stare ginie, by mogło powstać
-nowe.
-Noe nie jest herosem, ale człowiekiem wiernym,
-który słucha, gdy inni szydzą, i ufa, gdy nikt nie rozumie.
-Wchodzi do arki, gdy świat odwraca się od Boga.
-A Bóg, wierny jak zawsze, ocala resztę, z której rodzi się nadzieja.
-Gołębica z gałązką oliwną to znak, że nawet po burzy Bóg nie milknie.
-A tęcza — łuk odwrócony ku niebu — mówi:
-Bóg nie wymierzy już strzały przeciwko człowiekowi.
-To On pierwszy złożył broń.
-Trzy Wezwania do Działania
-Zbuduj swoją arkę posłuszeństwa.
-Nie czekaj, aż przyjdą burze — przygotuj się przez wierność i modlitwę.
-Zachowaj w sobie gałązkę oliwną.
-W świecie pełnym przemocy bądź posłańcem pokoju i życia.
-Zaufaj Bogu pośród potopu.
-Nawet jeśli wody rosną, On zna dzień, gdy znów ukaże się suchy ląd.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+3. Zaufaj Bogu pośród potopu. Nawet jeśli wody rosną, On zna dzień, gdy znów ukaże się suchy ląd.
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego ziemia napełniła się nieprawością i smutkiem Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Noe znalazł łaskę w oczach Pana.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg nakazał zbudować arkę ocalenia.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wody potopu oczyściły ziemię z przemocy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego arka unosiła się na wodach, jak Kościół pośród fal świata.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Noe wypuścił gołębicę i ujrzał gałązkę oliwną pokoju.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego ziemia znów stała się sucha i gotowa przyjąć życie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg zawarł nowe przymierze z całym stworzeniem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego tęcza stała się znakiem miłosierdzia, nie gniewu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego przymierze z Noem zapowiedziało chrzest świata w Duchu
-Świętym.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego ziemia napełniła się nieprawością i smutkiem Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Noe znalazłaskę w oczach Pana. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg nakazał zbudować arkę ocalenia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wody potopu oczyściły ziemię z przemocy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego arka unosiła się na wodach, jak Kościół pośród fal świata. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Noe wypuścił gołębicę i ujrzał gałązkę oliwną pokoju. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego ziemia znów stała się sucha i gotowa przyjąć życie. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg zawarł nowe przymierze z całym stworzeniem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego tęcza stała się znakiem miłosierdzia, nie gniewu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego przymierze z Noem zapowiedziało chrzest świata w Duchu Świętym. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 3 (Cykl II - Dzień 3 z 175) - [28.11.2015] Milczenie Boga i pełnia życia
@@ -546,128 +377,47 @@ Wstęp modlitewny dnia 186. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Wieża Babel (Księga Rodzaju 11, 1–9)
-Etap 1 - Część 1 - Tajemnica 5 - Wieża Babel
-(Księga Rodzaju 11, 1–9)
-Cała ziemia miała jeden język i jednakowe słowa.
-A gdy ludzie wędrowali ze wschodu,
-znaleźli równinę w kraju Szinear i tam się osiedlili.
-I mówili jeden do drugiego:
-„Chodźcie, wyrabiajmy cegły i wypalmy je w ogniu!”
+(Księga Rodzaju 11, 1–9) Cała ziemia miała jeden język i jednakowe słowa. A gdy ludzie wędrowali ze wschodu, znaleźli równinę w kraju Szinear i tam się osiedlili. I mówili jeden do drugiego: „Chodźcie, wyrabiajmy cegły i wypalmy je w ogniu!” I rzekli: „Chodźcie, zbudujmy sobie miasto i wieżę, której szczyt będzie sięgał nieba, i uczyńmy sobie imię, abyśmy się nie rozproszyli po całej ziemi.” Wtedy Pan zstąpił, aby zobaczyć miasto i wieżę, które budowali synowie ludzcy. I rzekł Pan: „Oto lud jeden i jeden mają język, a to jest dopiero początek ich działań. Nic ich nie powstrzyma od tego co zamierzają uczynić. Zstąpmy więc i pomieszajmy tam ich język, aby jeden nie rozumiał mowy drugiego.” Tak rozproszył ich Pan stamtąd po całej powierzchni ziemi i przestali budować miasto. Dlatego nazwano je Babel, bo tam pomieszał Pan język całej ziemi.
 
-I rzekli:
-„Chodźcie, zbudujmy sobie miasto i wieżę,
-której szczyt będzie sięgał nieba,
-i uczyńmy sobie imię, abyśmy się nie rozproszyli po całej ziemi.”
+Słowo Wyjaśnienia:
 
-Wtedy Pan zstąpił, aby zobaczyć miasto i wieżę, które budowali synowie
-ludzcy.
-I rzekł Pan:
-„Oto lud jeden i jeden mają język,
-a to jest dopiero początek ich działań.
-Nic ich nie powstrzyma od tego, co zamierzają uczynić.
-Zstąpmy więc i pomieszajmy tam ich język,
-aby jeden nie rozumiał mowy drugiego.”
+Ludzie chcieli zbudować niebo z cegieł i gliny. To nie był projekt architektoniczny – to był bunt ducha. Wieża miała unieść człowieka ponad Boga, uczynić go samowystarczalnym, niezależnym, wielkim bez miłości. Bóg nie niszczy ich z zazdrości. On przerywa budowę, by ocalić człowieka od jego własnej pychy. Pomieszanie języków to nie kara, ale ocalenie przed zniewoleniem przez jednolitość bez serca. Jedność bez Boga zawsze kończy się przemocą. Dopiero Duch Święty w dniu Pięćdziesiątnicy przywróci prawdziwą jedność języków — nie przez siłę, lecz przez miłość.
 
-Tak rozproszył ich Pan stamtąd po całej powierzchni ziemi,
+Trzy Wezwania do Działania:
 
-i przestali budować miasto.
-Dlatego nazwano je Babel,
-bo tam pomieszał Pan język całej ziemi.
-Ludzie chcieli zbudować niebo z cegieł i gliny.
-To nie był projekt architektoniczny – to był bunt ducha.
-Wieża miała unieść człowieka ponad Boga,
-uczynić go samowystarczalnym, niezależnym, wielkim bez miłości.
-Bóg nie niszczy ich z zazdrości.
-On przerywa budowę, by ocalić człowieka od jego własnej pychy.
-Pomieszanie języków to nie kara, ale ocalenie przed zniewoleniem przez
-jednolitość bez serca.
-Jedność bez Boga zawsze kończy się przemocą.
-Dopiero Duch Święty w dniu Pięćdziesiątnicy przywróci prawdziwą jedność
-języków —
-nie przez siłę, lecz przez miłość.
-Trzy Wezwania do Działania
-Zrezygnuj z wieży własnej chwały.
-Bóg pragnie wspólnoty, nie dominacji. Zamiast „uczynić sobie imię”,
-pozwól, by to On wypowiedział twoje imię z miłością.
-Szukaj jedności w różnorodności.
-Różne języki i kultury są bogactwem, nie przeszkodą. Słuchaj, by rozumieć.
-Nie bój się rozproszenia.
-Czasem Bóg rozprasza, byśmy nauczyli się kochać szerzej niż własny krąg.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego ludzie postanowili zbudować wieżę sięgającą nieba.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
+1. Zrezygnuj z wieży własnej chwały. Bóg pragnie wspólnoty, nie dominacji. Zamiast „uczynić sobie imię”, pozwól by to On wypowiedział twoje imię z miłością.
 
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego człowiek chciał uczynić sobie imię większe niż Boże.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg zstąpił, by zobaczyć dzieło ludzkiej pychy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan pomieszał języki, by człowiek przestał czynić zło.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego ludzie zostali rozproszeni po całej ziemi.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego pomieszanie języków ocaliło ludzkość przed jednością bez
-Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego każda mowa ma wartość w Bożych oczach.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
+2. Szukaj jedności w różnorodności. Różne języki i kultury są bogactwem, nie przeszkodą.
 
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Duch Święty w dniu Pięćdziesiątnicy odwrócił klątwę Babel.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół stał się nową jednością języków w miłości.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego pokora stała się nowym językiem nieba.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+3. Słuchaj, by rozumieć. Nie bój się rozproszenia. Czasem Bóg rozprasza, byśmy nauczyli się kochać szerzej niż własny krąg.
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego ludzie postanowili zbudować wieżę sięgającą nieba. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego człowiek chciał uczynić sobie imię większe niż Boże. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg zstąpił, by zobaczyć dzieło ludzkiej pychy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan pomieszał języki, by człowiek przestał czynić zło. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego ludzie zostali rozproszeni po całej ziemi. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego pomieszanie języków ocaliło ludzkość przed jednością bez Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego każda mowa ma wartość w Bożych oczach. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Duch Święty w dniu Pięćdziesiątnicy odwrócił klątwę Babel. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół stał się nową jednością języków miłości. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego pokora stała się nowym językiem nieba. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 4 (Cykl II - Dzień 4 z 175) - [29.11.2015] Drzewo życia i jabłka
@@ -755,105 +505,47 @@ Wstęp modlitewny dnia 187. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Powołanie Abrahama (Księga Rodzaju 12, 1–4)
-Etap 1 - Część 2 - Tajemnica 1 - Powołanie Abrahama
-(Księga Rodzaju 12, 1–4)
-I rzekł Pan do Abrama:
-„Wyjdź z ziemi twojej, z rodziny twojej i z domu ojca twojego,
-a idź do ziemi, którą ci ukażę.
-Uczynię z ciebie naród wielki, będę ci błogosławił
-i twoje imię rozsławię,
-a będziesz błogosławieństwem.
+(Księga Rodzaju 12, 1–4) I rzekł Pan do Abrama: „Wyjdź z ziemi twojej, z rodziny twojej i z domu ojca twojego, a idź do ziemi, którą ci ukażę. Uczynię z ciebie naród wielki, będę ci błogosławił i twoje imię rozsławię, a będziesz błogosławieństwem. Błogosławię tym, którzy tobie błogosławić będą, a przeklnę tych którzy tobie złorzeczą; w tobie będą błogosławione wszystkie plemiona ziemi.” I wyszedł Abram, jak mu Pan rozkazał.
 
-Błogosławię tym, którzy tobie błogosławić będą,
-a przeklnę tych, którzy tobie złorzeczą;
-w tobie będą błogosławione wszystkie plemiona ziemi.”
+Słowo Wyjaśnienia:
 
-I wyszedł Abram, jak mu Pan rozkazał.
-Bóg wchodzi w historię człowieka przez jedno słowo: „Wyjdź”.
-To wezwanie jest początkiem wiary, początkiem drogi, początkiem
-błogosławieństwa.
-Abraham opuszcza wszystko, co znał, by zawierzyć Temu, który nie daje
-mapy, lecz obietnicę.
-Wiara jest ruchem serca ku niewidzialnemu — zaufaniem, że Boże Słowo
-wystarczy, by zacząć podróż.
-Abraham nie wie, dokąd idzie. Ale wie, z Kim idzie.
-I to wystarczy.
-Od tego momentu historia zbawienia staje się historią drogi i przymierza.
-Trzy Wezwania do Działania
-Zrób krok wiary.
-Wybierz dziś jedną rzecz, którą odkładasz ze strachu. Zrób ją, powierzając
-ją Bogu, który prowadzi.
-Wyjdź z własnej strefy bezpieczeństwa.
-Opuść to, co zatrzymuje Cię w miejscu: zranienie, rutynę, nieufność. Uczyń
-dziś krok ku wolności.
-Stań się błogosławieństwem.
-Twoja wiara ma przemieniać innych. Zrób coś dobrego, nie oczekując nic w
-zamian.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w
-niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy,
-jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Abraham usłyszał: „Wyjdź z ziemi twojej” i wyruszył w drogę
-wiary.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
+Bóg wchodzi w historię człowieka przez jedno słowo: „Wyjdź”. To wezwanie jest początkiem wiary, początkiem drogi, początkiem błogosławieństwa. Abraham opuszcza wszystko, co znał, by zawierzyć Temu, który nie daje mapy, lecz obietnicę. Wiara jest ruchem serca ku niewidzialnemu — zaufaniem, że Boże Słowo wystarczy, by zacząć podróż. Abraham nie wie, dokąd idzie. Ale wie, z Kim idzie. I to wystarczy. Od tego momentu historia zbawienia staje się historią drogi i przymierza.
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg uczynił z Abrahama naród wielki.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Abraham zaufał, nie wiedząc, dokąd idzie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg obiecał błogosławić wszystkim ludom ziemi.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Abraham stał się ojcem wiary.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg zamienił lęk Abrahama w zaufanie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wiara stała się początkiem błogosławieństwa.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Abraham zostawił wszystko, by pójść za głosem Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
+Trzy Wezwania do Działania:
 
-dla którego Bóg wzywa każdego z nas, byśmy zaufali Jego Słowu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Abraham stał się błogosławieństwem dla wszystkich narodów.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+1. Zrób krok wiary. Wybierz dziś jedną rzecz, którą odkładasz ze strachu. Zrób ją, powierzając ją Bogu, który prowadzi.
+
+2. Wyjdź z własnej strefy bezpieczeństwa. Opuść to, co zatrzymuje Cię w miejscu: zranienie, rutynę, nieufność.
+
+3. Uczyń dziś krok ku wolności. Stań się błogosławieństwem. Twoja wiara ma przemieniać innych. Zrób coś dobrego, nie oczekując nic w zamian.
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Abraham usłyszał: „Wyjdź z ziemi twojej” i wyruszył w drogę wiary. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg uczynił z Abrahama naród wielki. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Abraham zaufał, nie wiedząc, dokąd idzie. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg obiecał błogosławić wszystkim ludom ziemi. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Abraham stał się ojcem wiary. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg zamienił lęk Abrahama w zaufanie. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wiara stała się początkiem błogosławieństwa. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Abraham zostawił wszystko, by pójść za głosem Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus dla którego Bóg wzywa każdego z nas, byśmy zaufali Jego Słowu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Abraham stał się błogosławieństwem dla wszystkich narodów. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 5 (Cykl II - Dzień 5 z 175) - [22.12.2015] Życie prowadzi do życia
@@ -963,106 +655,47 @@ Wstęp modlitewny dnia 188. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Przymierze z Abrahamem (Księga Rodzaju 15, 1–17–18)
-Etap 1 - Część 2 - Tajemnica 2 - Przymierze z Abrahamem
-(Księga Rodzaju 15, 1–17–18)
-Po tych wydarzeniach Pan tak przemówił do Abrama w widzeniu:
-„Nie bój się, Abramie,
-Jam tarczą twoją, nagrodą twoją bardzo obfitą.”
-Abram rzekł: „Panie Boże, cóż mi dasz? Jam bezdzietny...”.
-Wtedy Pan wyprowadził go na zewnątrz i rzekł:
-„Spójrz na niebo i policz gwiazdy, jeśli zdołasz je policzyć...
-Tak liczne będzie potomstwo twoje.”
-Abram uwierzył Panu, i poczytano mu to za sprawiedliwość.
+(Księga Rodzaju 15, 1–17–18) Po tych wydarzeniach Pan tak przemówił do Abrama w widzeniu: „Nie bój się, Abramie, Jam tarczą twoją, nagrodą twoją bardzo obfitą.” Abram rzekł: „Panie Boże, cóż mi dasz? Jam bezdzietny.”. Wtedy Pan wyprowadził go na zewnątrz i rzekł: „Spójrz na niebo i policz gwiazdy, jeśli zdołasz je policzyć. Tak liczne będzie potomstwo twoje.” Abram uwierzył Panu, i poczytano mu to za sprawiedliwość. Gdy słońce zaszło i nastał mrok głęboki, oto dym jak z pieca i płomień ognia przeszedł między połowami zwierząt. Tego dnia Pan zawarł przymierze z Abramem, mówiąc: „Potomstwu twemu daję tę ziemię.”
 
-Gdy słońce zaszło i nastał mrok głęboki,
-oto dym jak z pieca i płomień ognia przeszedł między połowami zwierząt.
-Tego dnia Pan zawarł przymierze z Abramem, mówiąc:
-„Potomstwu twemu daję tę ziemię.”
-Bóg potwierdza swoje obietnice w sposób widzialny — przez znak
-przymierza.
-To nie człowiek składa przysięgę, lecz sam Bóg przechodzi pomiędzy
-ofiarami.
-Abraham ma tylko wierzyć.
-Jego zaufanie zostaje nazwane sprawiedliwością — nie dlatego, że zrobił
-coś wielkiego,
-lecz dlatego, że uwierzył w miłość Boga większą niż własne wątpliwości.
-Noc przymierza jest nocą światła.
-Pośród mroku pojawia się płomień Bożej obecności — symbol wierności,
-która nigdy nie gaśnie.
-Trzy Wezwania do Działania
-Uczyń modlitwę miejscem przymierza.
-Niech Twoja modlitwa będzie spotkaniem, a nie tylko prośbą. Bóg chce
-Twojej obecności, nie doskonałości.
-Uwierz, zanim zobaczysz.
-Abraham nie widział potomstwa, a mimo to uwierzył. Wybierz dziś wiarę
-mimo braku dowodów.
-Bądź światłem w mroku innych.
-Gdy inni tracą nadzieję, bądź dla nich płomieniem Bożej wierności.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w
-niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy,
-jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg powiedział: „Nie bój się, Abramie, Jam tarczą twoją.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
+Słowo Wyjaśnienia:
 
-dla którego Abraham wyszedł nocą, by spojrzeć w niebo pełne obietnic.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg dał słowo: „Tak liczne będzie potomstwo twoje.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Abraham uwierzył, i poczytano mu to za sprawiedliwość.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego płomień ognia przeszedł między połowami ofiary jako znak
-przymierza.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg sam przysiągł wierność swojemu słowu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego noc wiary stała się światłem przymierza.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Abraham nauczył się wierzyć sercem, nie oczami.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wiara została nazwana sprawiedliwością.
+Bóg potwierdza swoje obietnice w sposób widzialny — przez znak przymierza. To nie człowiek składa przysięgę, lecz sam Bóg przechodzi pomiędzy ofiarami. Abraham ma tylko wierzyć. Jego zaufanie zostaje nazwane sprawiedliwością — nie dlatego, że zrobił coś wielkiego, lecz dlatego, że uwierzył w miłość Boga większą niż własne wątpliwości. Noc przymierza jest nocą światła. Pośród mroku pojawia się płomień Bożej obecności — symbol wierności, która nigdy nie gaśnie.
 
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg zawarł przymierze wieczne z potomstwem Abrahama.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Trzy Wezwania do Działania:
+
+1. Uczyń modlitwę miejscem przymierza. Niech Twoja modlitwa będzie spotkaniem a nie tylko prośbą. Bóg chce Twojej obecności, nie doskonałości.
+
+2. Uwierz, zanim zobaczysz. Abraham nie widział potomstwa, a mimo to uwierzył. Wybierz dziś wiarę mimo braku dowodów.
+
+3. Bądź światłem w mroku innych. Gdy inni tracą nadzieję bądź dla nich płomieniem Bożej wierności.
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg powiedział: „Nie bój się, Abramie, Jam tarczą twoją.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus dla którego Abraham wyszedł nocą, by spojrzeć w niebo pełne obietnic. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg dał słowo: „Tak liczne będzie potomstwo twoje.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Abraham uwierzył, i poczytano mu to za sprawiedliwość. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego płomień ognia przeszedł między połowami ofiary jako znak przymierza. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg sam przysiągł wierność swojemu słowu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego noc wiary stała się światłem przymierza. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Abraham nauczył się wierzyć sercem, nie oczami. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wiara została nazwana sprawiedliwością. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg zawarł przymierze wieczne z potomstwem Abrahama. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 6 (Cykl II - Dzień 6 z 175) - [26.12.2015] Niech los Ci sprzyja?
@@ -1132,114 +765,47 @@ Wstęp modlitewny dnia 189. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Ofiara Izaaka (Księga Rodzaju 22, 1–13)
-Etap 1 - Część 2 - Tajemnica 3 - Ofiara Izaaka
-(Księga Rodzaju 22, 1–13)
-Po tych wydarzeniach Bóg wystawił Abrahama na próbę.
-Rzekł do niego: „Abrahamie!”
-A on odpowiedział: „Oto jestem.”
-Bóg powiedział: „Weź twego syna jedynego, którego miłujesz, Izaaka,
-i idź do kraju Moria, i złóż go tam w ofierze na jednym z pagórków,
-jakie ci wskażę.”
-Abraham wstał wczesnym rankiem, osiodłał osła,
-zabrał ze sobą dwóch sług i syna swego Izaaka.
+(Księga Rodzaju 22, 1–13) Po tych wydarzeniach Bóg wystawił Abrahama na próbę. Rzekł do niego: „Abrahamie!” A on odpowiedział: „Oto jestem.” Bóg powiedział: „Weź twego syna jedynego, którego miłujesz, Izaaka, i idź do kraju Moria, i złóż go tam w ofierze na jednym z pagórków, jakie ci wskażę.” Abraham wstał wczesnym rankiem, osiodłał osła, zabrał ze sobą dwóch sług i syna swego Izaaka. A gdy przyszli na miejsce, które Bóg wskazał, Abraham zbudował ołtarz i ułożył drwa. Potem związał swego syna Izaaka i położył go na ołtarzu, na drwach. I wyciągnął rękę, by zabić swego syna. Lecz Anioł Pański zawołał do niego z nieba: „Abrahamie!” On odpowiedział: „Oto jestem.” Anioł rzekł: „Nie podnoś ręki na chłopca i nie czyń mu nic złego! Teraz wiem, że boisz się Boga, bo nie odmówiłeś Mi nawet swego jedynego syna.” Abraham obejrzał się, a oto za nim baran uwikłany rogami w zaroślach. Pojmał więc barana i złożył go w ofierze całopalnej zamiast swego syna.
 
-A gdy przyszli na miejsce, które Bóg wskazał,
-Abraham zbudował ołtarz i ułożył drwa.
-Potem związał swego syna Izaaka i położył go na ołtarzu, na drwach.
-I wyciągnął rękę, by zabić swego syna.
-Lecz Anioł Pański zawołał do niego z nieba:
-„Abrahamie, Abrahamie!”
-On odpowiedział: „Oto jestem.”
+Słowo Wyjaśnienia:
 
-Anioł rzekł: „Nie podnoś ręki na chłopca i nie czyń mu nic złego!
-Teraz wiem, że boisz się Boga, bo nie odmówiłeś Mi nawet swego jedynego
-syna.”
+To jeden z najbardziej przejmujących momentów całym Piśmie. Bóg, który obiecał życie, prosi o ofiarę. To nie jest okrucieństwo, lecz objawienie — że wiara to oddanie wszystkiego, nawet tego, co najdroższe, z przekonaniem, że Bóg nie cofa swoich obietnic. Na szczycie góry Moria Abraham nie zabija syna — umiera jego lęk. Bóg objawia się nie jako Ten który żąda, lecz jako Ten, który daje. To zapowiedź innej góry Golgoty, gdzie Ojciec nie oszczędził własnego Syna, aby zbawić wszystkich.
 
-Abraham obejrzał się, a oto za nim baran uwikłany rogami w zaroślach.
-Pojmał więc barana i złożył go w ofierze całopalnej zamiast swego syna.
-To jeden z najbardziej przejmujących momentów w całym Piśmie.
-Bóg, który obiecał życie, prosi o ofiarę.
-To nie jest okrucieństwo, lecz objawienie — że wiara to oddanie
-wszystkiego, nawet tego, co najdroższe,
-z przekonaniem, że Bóg nie cofa swoich obietnic.
-Na szczycie góry Moria Abraham nie zabija syna — umiera jego lęk.
-Bóg objawia się nie jako Ten, który żąda, lecz jako Ten, który daje.
-To zapowiedź innej góry — Golgoty, gdzie Ojciec nie oszczędził własnego
-Syna, aby zbawić wszystkich.
-Trzy Wezwania do Działania
-Oddaj Bogu to, czego najbardziej się boisz utracić.
-Wypowiedz dziś po imieniu to, co trzymasz zbyt kurczowo — i powierz to
-Jemu.
-Zaufaj, że Bóg nie chce Twojej śmierci, lecz życia.
-Każda próba ma sens, jeśli prowadzi ku większej miłości.
-Zobacz w ofierze miejsce spotkania.
-Każde wyrzeczenie może stać się miejscem, gdzie Bóg objawia swoją
-dobroć.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w
-niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy,
-jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Abraham odpowiedział: „Oto jestem.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg wystawił Abrahama na próbę wiary.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
+Trzy Wezwania do Działania:
 
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Abraham wyruszył na górę Moria w milczeniu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Izaak niósł drwa na własne ofiarowanie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Abraham zbudował ołtarz wiary.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Abraham wyciągnął rękę, by złożyć syna, ale zatrzymał ją głos
-Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego baran stał się ofiarą zamiast Izaaka.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg objawił się jako Ten, który ratuje.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Abraham nazwał miejsce ofiary „Pan widzi”.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
+1. Oddaj Bogu to, czego najbardziej się boisz utracić. Wypowiedz dziś po imieniu to, co trzymasz zbyt kurczowo — i powierz to Jemu.
 
-dla którego ofiara Abrahama zapowiadała ofiarę Chrystusa.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+2. Zaufaj, że Bóg nie chce Twojej śmierci, lecz życia. Każda próba ma sens, jeśli prowadzi ku większej miłości.
+
+3. Zobacz w ofierze miejsce spotkania. Każde wyrzeczenie może stać się miejscem, gdzie Bóg objawia swoją dobroć.
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Abraham odpowiedział: „Oto jestem.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg wystawił Abrahama na próbę wiary. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Abraham wyruszył na górę Moria w milczeniu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Izaak niósł drwa na własne ofiarowanie. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Abraham zbudował ołtarz wiary. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Abraham wyciągnął rękę, by złożyć syna, ale zatrzymał ją głos Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego baran stał się ofiarą zamiast Izaaka. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg objawił się jako Ten, który ratuje. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Abraham nazwał miejsce ofiary „Pan widzi”. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus dla którego ofiara Abrahama zapowiadała ofiarę Chrystusa. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 7 (Cykl II - Dzień 7 z 175) - [04.01.2016] Złoto
@@ -1303,107 +869,45 @@ Wstęp modlitewny dnia 190. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Jakub i walka z Aniołem (Księga Rodzaju 32, 25–31)
-Etap 1 - Część 2 - Tajemnica 4 - Jakub i walka z Aniołem
-(Księga Rodzaju 32, 25–31)
-Jakub pozostał sam.
-Wtedy ktoś walczył z nim aż do wschodu jutrzenki.
-Widząc, że nie może go pokonać, dotknął jego stawu biodrowego,
-tak że zwichnął się staw Jakuba, gdy się z nim mocował.
-I rzekł: „Puść mnie, bo już wschodzi zorza.”
-Lecz Jakub odpowiedział: „Nie puszczę Cię, dopóki mi nie pobłogosławisz.”
+(Księga Rodzaju 32, 25–31) Jakub pozostał sam. Wtedy ktoś walczył z nim aż do wschodu jutrzenki. Widząc, że nie może go pokonać, dotknął jego stawu biodrowego, tak że zwichnął się staw Jakuba, gdy się z nim mocował. I rzekł: „Puść mnie, bo już wschodzi zorza.” Lecz Jakub odpowiedział: „Nie puszczę Cię dopóki mi nie pobłogosławisz.” Zapytał go więc: „Jakie masz imię?” On odpowiedział: „Jakub.” Rzekł: „Nie będziesz się już nazywał Jakub, lecz Izrael, bo walczyłeś z Bogiem i z ludźmi i zwyciężyłeś.” Jakub dał temu miejscu nazwę Peniel, mówiąc: „Oglądałem Boga twarzą w twarz, a jednak ocalało moje życie.”
 
-Zapytał go więc: „Jakie masz imię?”
-On odpowiedział: „Jakub.”
-Rzekł: „Nie będziesz się już nazywał Jakub, lecz Izrael,
-bo walczyłeś z Bogiem i z ludźmi i zwyciężyłeś.”
+Słowo Wyjaśnienia:
 
-Jakub dał temu miejscu nazwę Peniel, mówiąc:
-„Oglądałem Boga twarzą w twarz, a jednak ocalało moje życie.”
-Jakub całe życie uciekał — przed Ezawem, przed konsekwencjami swoich
-czynów, przed prawdą o sobie.
-Teraz Bóg zatrzymuje go w ciemności. Nie po to, by zniszczyć, lecz by go
-przemienić.
-Walka z Aniołem jest walką z własnym lękiem, pychą, winą i przeszłością.
-Dopiero gdy Jakub przestaje się bronić i wyznaje swoje imię — swoje „Ja
-jestem” — Bóg może go pobłogosławić.
-Tak rodzi się Izrael — człowiek, który poznał Boga nie przez ucieczkę, ale
-przez zmaganie.
-Każde prawdziwe spotkanie z Bogiem zostawia ślad, ranę, która staje się
-znakiem łaski.
-Trzy Wezwania do Działania
+Jakub całe życie uciekał — przed Ezawem, przed konsekwencjami swoich czynów przed prawdą o sobie. Teraz Bóg zatrzymuje go w ciemności. Nie po to, by zniszczyć, lecz by go przemienić. Walka z Aniołem jest walką z własnym lękiem, pychą, winą i przeszłością. Dopiero gdy Jakub przestaje się bronić i wyznaje swoje imię — swoje „Ja jestem” — Bóg może go pobłogosławić. Tak rodzi się Izrael człowiek, który poznał Boga nie przez ucieczkę, ale przez zmaganie. Każde prawdziwe spotkanie z Bogiem zostawia ślad ranę, która staje się znakiem łaski. Trzy Wezwania do Działania
 
-Nie uciekaj od swojej nocy.
-Czasami to właśnie w ciemności Bóg przychodzi najbliżej. Nie bój się być
-sam przed Nim.
-Nazwij swoje imię.
-Stań dziś w prawdzie przed Bogiem — bez masek, bez tłumaczeń. Powiedz
-Mu, kim naprawdę jesteś.
-Zamień ranę w błogosławieństwo.
-Ból, który oddasz Bogu, stanie się miejscem Jego łaski.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w
-niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy,
-jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Jakub pozostał sam w nocy swojej duszy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg zbliżył się w tajemniczym zmaganiu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego walka stała się miejscem błogosławieństwa.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Jakub wyznał swoje imię i przestał się ukrywać.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg nadał mu nowe imię: Izrael.
+1. Nie uciekaj od swojej nocy. Czasami to właśnie w ciemności Bóg przychodzi najbliżej. Nie bój się być sam przed Nim.
 
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego rana Jakuba stała się znakiem łaski.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wschód jutrzenki przyniósł pojednanie z Bogiem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Jakub nazwał miejsce walki Peniel – „Twarz Boga”.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego człowiek może oglądać Boga i ocaleć.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg przemienia każdego z nas przez spotkanie, które rani i
-uzdrawia zarazem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+2. Nazwij swoje imię. Stań dziś w prawdzie przed Bogiem — bez masek, bez tłumaczeń. Powiedz Mu, kim naprawdę jesteś.
+
+3. Zamień ranę w błogosławieństwo. Ból, który oddasz Bogu, stanie się miejscem Jego łaski.
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Jakub pozostał sam w nocy swojej duszy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg zbliżył się w tajemniczym zmaganiu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego walka stała się miejscem błogosławieństwa. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Jakub wyznał swoje imię i przestał się ukrywać. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg nadał mu nowe imię: Izrael. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego rana Jakuba stała się znakiem łaski. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wschód jutrzenki przyniósł pojednanie z Bogiem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Jakub nazwał miejsce walki Peniel – „Twarz Boga”. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego człowiek może oglądać Boga i ocaleć. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg przemienia każdego z nas przez spotkanie, które rani i uzdrawia zarazem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 8 (Cykl II - Dzień 8 z 175)- [30.01.2016] Na początku było Słowo
@@ -1607,115 +1111,47 @@ Wstęp modlitewny dnia 191. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Józef i pojednanie z braćmi (Księga Rodzaju 45, 1–8)
-Etap 1 - Część 2 - Tajemnica 5 - Józef i pojednanie z braćmi
-(Księga Rodzaju 45, 1–8)
-Józef nie mógł się już opanować wobec wszystkich, którzy przy nim stali,
-i zawołał: „Wyjdźcie wszyscy ode mnie!”
-Tak że nikt nie był przy nim, gdy Józef dał się poznać swoim braciom.
+(Księga Rodzaju 45, 1–8) Józef nie mógł się już opanować wobec wszystkich, którzy przy nim stali, i zawołał: „Wyjdźcie wszyscy ode mnie!” Tak że nikt nie był przy nim, gdy Józef dał się poznać swoim braciom. Wybuchnął głośnym płaczem, tak że usłyszeli to Egipcjanie i dwór faraona. Józef powiedział do swoich braci: „Ja jestem Józef! Czy mój ojciec jeszcze żyje?” Lecz bracia nie mogli mu odpowiedzieć, tak byli przerażeni jego obecnością. Józef rzekł do nich: „Zbliżcie się do mnie!” A gdy się zbliżyli, rzekł „Ja jestem Józef, brat wasz, którego sprzedaliście do Egiptu. Ale teraz nie smućcie się ani nie miejcie żalu do siebie, żeście mnie tu sprzedali, bo Bóg posłał mnie przed wami, aby zachować wam życie. Nie wyście mnie tu posłali, lecz Bóg, który uczynił mnie jakby ojcem faraona i panem nad całym jego domem.”
 
-Wybuchnął głośnym płaczem,
-tak że usłyszeli to Egipcjanie i dwór faraona.
+Słowo Wyjaśnienia:
 
-Józef powiedział do swoich braci:
-„Ja jestem Józef! Czy mój ojciec jeszcze żyje?”
-Lecz bracia nie mogli mu odpowiedzieć,
-tak byli przerażeni jego obecnością.
+Józef, zdradzony przez braci, porzucony w studni, sprzedany i zapomniany, nie pozwala, by nienawiść miała ostatnie słowo. Po latach rozłąki nie mści się, lecz płacze. To łzy przebaczenia, które otwierają drzwi do pojednania. W jego słowach słychać coś więcej niż ludzką mądrość — to echo Bożej Opatrzności: „Nie wyście mnie tu posłali, lecz Bóg.” Bóg potrafi pisać prosto po liniach naszego cierpienia. To, co inni chcieli obrócić w zło, On zamienia w błogosławieństwo. Józef staje się figurą Chrystusa – Tego, który został odrzucony przez swoich, a mimo to ratuje ich od głodu i śmierci.
 
-Józef rzekł do nich:
-„Zbliżcie się do mnie!”
-A gdy się zbliżyli, rzekł:
-„Ja jestem Józef, brat wasz, którego sprzedaliście do Egiptu.
-Ale teraz nie smućcie się ani nie miejcie żalu do siebie,
-żeście mnie tu sprzedali,
-bo Bóg posłał mnie przed wami, aby zachować wam życie.
+Trzy Wezwania do Działania:
 
-Nie wyście mnie tu posłali, lecz Bóg,
-który uczynił mnie jakby ojcem faraona
-i panem nad całym jego domem.”
-Józef, zdradzony przez braci, porzucony w studni, sprzedany i zapomniany,
-nie pozwala, by nienawiść miała ostatnie słowo.
-Po latach rozłąki nie mści się, lecz płacze.
-To łzy przebaczenia, które otwierają drzwi do pojednania.
-W jego słowach słychać coś więcej niż ludzką mądrość —
-to echo Bożej Opatrzności:
-„Nie wyście mnie tu posłali, lecz Bóg.”
-Bóg potrafi pisać prosto po liniach naszego cierpienia.
-To, co inni chcieli obrócić w zło, On zamienia w błogosławieństwo.
-Józef staje się figurą Chrystusa – Tego, który został odrzucony przez
-swoich,
-a mimo to ratuje ich od głodu i śmierci.
-Trzy Wezwania do Działania
-Przebacz w głębi serca.
-Nie dlatego, że ktoś na to zasługuje, ale dlatego, że Bóg przebaczył Tobie.
-Zobacz sens w swojej historii.
-Może właśnie tam, gdzie był ból, Bóg przygotował największe dobro.
-Stań się znakiem pojednania.
+1. Przebacz w głębi serca. Nie dlatego, że ktoś na to zasługuje, ale dlatego, że Bóg przebaczył Tobie.
 
-Zrób dziś pierwszy krok ku komuś, z kim jesteś w niezgodzie.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w
-niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy,
-jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Józef został sprzedany przez braci, ale nie utracił wiary.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego więzienie stało się drogą do wolności.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Józef rozpoznał w cierpieniu Boży plan.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego łzy Józefa stały się znakiem przebaczenia.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego bracia odnaleźli w Egipcie brata, a nie sędziego.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Józef powiedział: „Nie wyście mnie tu posłali, lecz Bóg.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
+2. Zobacz sens w swojej historii. Może właśnie tam, gdzie był ból, Bóg przygotował największe dobro.
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg przemienił zdradę w ocalenie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Józef stał się ojcem dla głodnych i cierpiących.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego przebaczenie przywróciło jedność rodziny.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Józef stał się obrazem Chrystusa, który zbawia przez
-miłosierdzie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+3. Stań się znakiem pojednania. Zrób dziś pierwszy krok ku komuś, z kim jesteś w niezgodzie.
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Józef został sprzedany przez braci, ale nie utracił wiary. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego więzienie stało się drogą do wolności. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Józef rozpoznał w cierpieniu Boży plan. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego łzy Józefa stały się znakiem przebaczenia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego bracia odnaleźli w Egipcie brata, a nie sędziego. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Józef powiedział: „Nie wyście mnie tu posłali lecz Bóg.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg przemienił zdradę w ocalenie. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Józef stał się ojcem dla głodnych i cierpiących. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego przebaczenie przywróciło jedność rodziny. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Józef stał się obrazem Chrystusa, który zbawia przez miłosierdzie. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 9 (Cykl II - Dzień 9 z 175) - [20.03.2016] Miłość, prawda i wierność
@@ -1783,137 +1219,47 @@ Wstęp modlitewny dnia 192. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Powołanie Mojżesza przy gorejącym krzewie
-Etap 1 - Część 3 - Tajemnica 1 - Powołanie Mojżesza przy gorejącym
-krzewie
-(Księga Wyjścia 3, 1–15)
-Gdy Mojżesz pasł owce swego teścia Jetry, kapłana Madianitów,
-zaprowadził je poza pustynię i przyszedł do góry Bożej, Horeb.
+(Księga Wyjścia 3, 1–15) Gdy Mojżesz pasł owce swego teścia Jetry, kapłana Madianitów, zaprowadził je poza pustynię i przyszedł do góry Bożej, Horeb. Tam ukazał mu się Anioł Pański w płomieniu ognia ze środka krzewu. Mojżesz widział, że krzew płonął ogniem, a nie spłonął. Wtedy rzekł: „Podejdę, aby zobaczyć to wielkie zjawisko.” Gdy Pan widział, że Mojżesz podchodzi, aby zobaczyć, zawołał do niego Bóg ze środka krzewu: „Mojżeszu!” On odpowiedział: „Oto jestem.” Bóg rzekł: „Nie zbliżaj się tu! Zdejm sandały z nóg, gdyż miejsce na którym stoisz, jest ziemią świętą.” I dodał: „Jam jest Bóg ojca twego, Bóg Abrahama, Izaaka i Jakuba.” Mojżesz zakrył twarz, bał się bowiem zwrócić oczy na Boga. I rzekł Pan: „Widziałem udrękę ludu mego w Egipcie, i zstąpiłem aby go wyrwać z mocy faraona. Idź więc, oto posyłam cię do faraona, abyś wyprowadził mój lud.” Mojżesz powiedział: „Kimże ja jestem, abym miał iść do faraona?” A Bóg odpowiedział: „Ja będę z tobą.” I rzekł dalej Bóg do Mojżesza: „Powiesz synom Izraela: JESTEM KTÓRY JESTEM posłał mnie do was.”
 
-Tam ukazał mu się Anioł Pański w płomieniu ognia ze środka krzewu.
-Mojżesz widział, że krzew płonął ogniem, a nie spłonął.
+Słowo Wyjaśnienia:
 
-Wtedy rzekł: „Podejdę, aby zobaczyć to wielkie zjawisko.”
+To spotkanie jest początkiem Objawienia. Nie na górze królewskiej, lecz na pustyni wśród codzienności. Bóg objawia się w ogniu, który nie niszczy w ogniu obecności, nie zniszczenia. Mojżesz słyszy swoje imię z ust Boga. To moment, gdy człowiek odkrywa, że nie jest anonimowy. Bóg widzi jego życie, jego lęk, jego błędy — i wzywa po imieniu. „Zdejm sandały” — to znaczy: uczyń się pokornym wobec świętości. „Ja będę z tobą” — to znaczy: nie musisz już być sam. To, co Bóg objawił Mojżeszowi, objawia dziś każdemu z nas: On jest, który jest — zawsze obecny, nawet w naszych pustyniach.
 
-Gdy Pan widział, że Mojżesz podchodzi, aby zobaczyć,
-zawołał do niego Bóg ze środka krzewu:
-„Mojżeszu, Mojżeszu!”
+Trzy Wezwania do Działania:
 
-On odpowiedział: „Oto jestem.”
+1. Rozpoznaj święty krzew w swoim życiu. Może coś „płonie”, ale się nie spala — to znak, że Bóg jest w tym ogniu.
 
-Bóg rzekł:
-„Nie zbliżaj się tu! Zdejm sandały z nóg,
-gdyż miejsce, na którym stoisz, jest ziemią świętą.”
+2. Zdejm sandały. Z pokorą podejdź do tego, co święte modlitwy, człowieka, cierpienia, prawdy.
 
-I dodał:
-„Jam jest Bóg ojca twego, Bóg Abrahama, Izaaka i Jakuba.”
+3. Usłysz, że Bóg mówi twoje imię. Nie jesteś przypadkiem. Jesteś posłany.
 
-Mojżesz zakrył twarz, bał się bowiem zwrócić oczy na Boga.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-I rzekł Pan:
-„Widziałem udrękę ludu mego w Egipcie,
-i zstąpiłem, aby go wyrwać z mocy faraona.
-Idź więc, oto posyłam cię do faraona, abyś wyprowadził mój lud.”
+dopowiedzeniami)
 
-Mojżesz powiedział: „Kimże ja jestem, abym miał iść do faraona?”
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Mojżesz ujrzał krzew płonący, lecz niespalony. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-A Bóg odpowiedział: „Ja będę z tobą.”
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg zawołał po imieniu: „Mojżeszu!” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-I rzekł dalej Bóg do Mojżesza:
-„Powiesz synom Izraela: JESTEM, KTÓRY JESTEM posłał mnie do was.”
-To spotkanie jest początkiem Objawienia.
-Nie na górze królewskiej, lecz na pustyni, wśród codzienności.
-Bóg objawia się w ogniu, który nie niszczy — w ogniu obecności, nie
-zniszczenia.
-Mojżesz słyszy swoje imię z ust Boga.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Mojżesz zdjął sandały, uznając ziemię za świętą. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-To moment, gdy człowiek odkrywa, że nie jest anonimowy.
-Bóg widzi jego życie, jego lęk, jego błędy — i wzywa po imieniu.
-„Zdejm sandały” — to znaczy: uczyń się pokornym wobec świętości.
-„Ja będę z tobą” — to znaczy: nie musisz już być sam.
-To, co Bóg objawił Mojżeszowi, objawia dziś każdemu z nas:
-On jest, który jest — zawsze obecny, nawet w naszych pustyniach.
-Trzy Wezwania do Działania
-Rozpoznaj święty krzew w swoim życiu.
-Może coś „płonie”, ale się nie spala — to znak, że Bóg jest w tym ogniu.
-Zdejm sandały.
-Z pokorą podejdź do tego, co święte — modlitwy, człowieka, cierpienia,
-prawdy.
-Usłysz, że Bóg mówi twoje imię.
-Nie jesteś przypadkiem. Jesteś posłany.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Mojżesz ujrzał krzew płonący, lecz niespalony.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg zawołał po imieniu: „Mojżeszu, Mojżeszu!”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Mojżesz zdjął sandały, uznając ziemię za świętą.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg objawił swe Imię: „Jestem, który jestem.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg objawił swe Imię: „Jestem, który jestem.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg usłyszał wołanie ludu w Egipcie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan posłał Mojżesza, aby wyprowadził lud z niewoli.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Mojżesz z drżeniem odpowiedział: „Oto jestem.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg obiecał: „Ja będę z tobą.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg posyła człowieka słabego, aby objawić swoją moc.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg usłyszał wołanie ludu w Egipcie. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego płomień Objawienia zapłonął, by prowadzić lud przez pustynię.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan posłał Mojżesza, aby wyprowadził lud z niewoli. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Mojżesz z drżeniem odpowiedział: „Oto jestem.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg obiecał: „Ja będę z tobą.” Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg posyła człowieka słabego, aby objawić swoją moc. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego płomień Objawienia zapłonął, by prowadzić lud przez pustynię. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 10 (Cykl II - Dzień 10 z 175) - [26.03.2016] Wielka Sobota – serce ważniejsze niż rytuał
@@ -2057,126 +1403,47 @@ Wstęp modlitewny dnia 193. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Dziesięć plag egipskich i wyjście z Egiptu (Księga Wyjścia 7–12)
-Etap 1 - Część 3 - Tajemnica 2 - Dziesięć plag egipskich i wyjście z Egiptu
-(Księga Wyjścia 7–12)
-I rzekł Pan do Mojżesza:
-„Patrz, uczyniłem cię jakby bogiem dla faraona,
-a Aaron, brat twój, będzie twoim prorokiem.
+(Księga Wyjścia 7–12) I rzekł Pan do Mojżesza: „Patrz, uczyniłem cię jakby bogiem dla faraona, a Aaron, brat twój, będzie twoim prorokiem. Powiesz wszystko, co ci rozkażę, a Aaron powie faraonowi, aby wypuścił synów Izraela z ziemi jego.” Lecz faraon zatwardzi swoje serce, abym mógł pomnożyć znaki moje i cuda moje w ziemi egipskiej. I wyciągnął Mojżesz rękę nad Egiptem, a wody Nilu zamieniły się w krew. Potem przyszły żaby, komary, muchy, grad, ciemność i śmierć pierworodnych. A tej nocy rzekł Pan do Mojżesza: „Każdemu z domów izraelskich wziąć baranka bez skazy. Krew jego niech będzie znakiem na waszych domach. Gdy ujrzę krew, przejdę obok was i nie dotknie was zagłada.”
 
-Powiesz wszystko, co ci rozkażę,
-a Aaron powie faraonowi, aby wypuścił synów Izraela z ziemi jego.”
+Słowo Wyjaśnienia:
 
-Lecz faraon zatwardzi swoje serce,
-abym mógł pomnożyć znaki moje i cuda moje w ziemi egipskiej.
+Tej nocy Pan przeszedł przez ziemię egipską, i wyprowadził swój lud z niewoli. To noc Paschy — noc przejścia, wolności i pamięci. Bóg uderza w potęgę faraona nie po to, by zniszczyć Egipt, lecz by ukazać, że żaden król nie jest bogiem, a prawdziwa moc należy do Tego, który słyszy wołanie uciśnionych. Krew baranka staje się znakiem ocalenia — zapowiedzią Krwi Chrystusa, Baranka, który gładzi grzech świata. Wyjście z Egiptu to nie tylko historia przeszła. To obraz duszy, która wychodzi z własnej niewoli grzechu, lęku, fałszywych bożków. A gdy morze się rozstępuje Bóg pokazuje, że żadne wody, choćby najgłębsze, nie są przeszkodą dla Jego zbawienia.
 
-I wyciągnął Mojżesz rękę nad Egiptem,
+Trzy Wezwania do Działania:
 
-a wody Nilu zamieniły się w krew.
+1. Nazwij swoje Egipty. Co Cię zniewala? Co trzyma Cię w ciemności? Bóg chce Cię stamtąd wyprowadzić.
 
-Potem przyszły żaby, komary, muchy, grad, ciemność i śmierć
-pierworodnych.
+2. Zaufaj sile Baranka, nie miecza. Zbawienie przychodzi przez ofiarę, nie przez przemoc.
 
-A tej nocy rzekł Pan do Mojżesza:
-„Każ każdemu z domów izraelskich wziąć baranka bez skazy.
-Krew jego niech będzie znakiem na waszych domach.
-Gdy ujrzę krew, przejdę obok was,
-i nie dotknie was zagłada.”
+3. Nie zapomnij nocy wyjścia. Każda Eucharystia jest Paschą – pamiętaj, że jesteś wyzwolony.
 
-Tej nocy Pan przeszedł przez ziemię egipską,
-i wyprowadził swój lud z niewoli.
-To noc Paschy — noc przejścia, wolności i pamięci.
-Bóg uderza w potęgę faraona nie po to, by zniszczyć Egipt,
-lecz by ukazać, że żaden król nie jest bogiem,
-a prawdziwa moc należy do Tego, który słyszy wołanie uciśnionych.
-Krew baranka staje się znakiem ocalenia —
-zapowiedzią Krwi Chrystusa, Baranka, który gładzi grzech świata.
-Wyjście z Egiptu to nie tylko historia przeszła.
-To obraz duszy, która wychodzi z własnej niewoli: grzechu, lęku, fałszywych
-bożków.
-A gdy morze się rozstępuje, Bóg pokazuje,
-że żadne wody, choćby najgłębsze, nie są przeszkodą dla Jego zbawienia.
-Trzy Wezwania do Działania
-Nazwij swoje Egipty.
-Co Cię zniewala? Co trzyma Cię w ciemności? Bóg chce Cię stamtąd
-wyprowadzić.
-Zaufaj sile Baranka, nie miecza.
-Zbawienie przychodzi przez ofiarę, nie przez przemoc.
-Nie zapomnij nocy wyjścia.
-Każda Eucharystia jest Paschą – pamiętaj, że jesteś wyzwolony.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Mojżesz i Aaron stanęli przed faraonem w imię Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wody Nilu stały się krwią na znak sądu i miłosierdzia.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego żaby, komary i ciemność dotknęły Egipt, lecz nie lud Boży.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego serce faraona zatwardziało, lecz Bóg pozostał cierpliwy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego baranek paschalny stał się znakiem ocalenia Izraela.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego krew baranka ochroniła domy wierzących.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
+dopowiedzeniami)
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan przeszedł tej nocy, by wybawić swój lud.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego faraon wreszcie ustąpił przed potęgą Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Izrael wyruszył z Egiptu w wolności dzieci Bożych.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pascha Izraela stała się zapowiedzią zbawienia w Chrystusie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Mojżesz i Aaron stanęli przed faraonem w imię Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wody Nilu stały się krwią na znak sądu i miłosierdzia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego żaby, komary i ciemność dotknęły Egipt, lecz nie lud Boży. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego serce faraona zatwardziało, lecz Bóg pozostał cierpliwy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego baranek paschalny stał się znakiem ocalenia Izraela. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego krew baranka ochroniła domy wierzących. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan przeszedł tej nocy, by wybawić swój lud. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego faraon wreszcie ustąpił przed potęgą Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Izrael wyruszył z Egiptu w wolności dzieci Bożych. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pascha Izraela stała się zapowiedzią zbawienia w Chrystusie. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 11 (Cykl II - Dzień 11 z 175) - [29.03.2016] Ciało podporządkowane duchowi
@@ -2278,135 +1545,47 @@ Wstęp modlitewny dnia 194. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Przejście przez Morze Czerwone (Księga Wyjścia 14, 5–31)
-Etap 1 - Część 3 - Tajemnica 3 - Przejście przez Morze Czerwone
-(Księga Wyjścia 14, 5–31)
-Gdy doniesiono królowi Egiptu, że lud uciekł,
-serce faraona i jego sług odwróciło się przeciw ludowi.
+(Księga Wyjścia 14, 5–31) Gdy doniesiono królowi Egiptu, że lud uciekł, serce faraona i jego sług odwróciło się przeciw ludowi. Faraon rzekł: „Cóżeśmy uczynili, że wypuściliśmy Izraela z naszej służby?” I zaprzęgli rydwany, i ruszyli w pościg. Izraelici, podniósłszy oczy, ujrzeli Egipcjan idących za nimi i zlękli się bardzo. Wtedy rzekł Mojżesz do ludu: „Nie bójcie się! Trwajcie mocno, a zobaczycie zbawienie Pana, które dziś wam okaże.” Pan rzekł do Mojżesza: „Podnieś laskę i wyciągnij rękę nad morze i rozdziel je, a synowie Izraela przejdą środkiem po suchej ziemi.” I powiał Pan silnym wiatrem wschodnim przez całą noc, i uczynił morze suchą ziemią. Wody się rozdzieliły, a Izrael szedł środkiem morza po suchym gruncie. Egipcjanie ścigali ich lecz gdy wszyscy weszli między wody, Pan rzekł do Mojżesza „Wyciągnij rękę nad morze, aby wody wróciły.” I wróciły wody, i przykryły rydwany, i jeźdźców faraona. Izraelici zaś przeszli po suchym dnie morza. A lud ujrzał wielkie dzieła Pana i uwierzył w Niego, i w Mojżesza sługę Jego.
 
-Faraon rzekł: „Cóżeśmy uczynili, że wypuściliśmy Izraela z naszej służby?”
+Słowo Wyjaśnienia:
 
-I zaprzęgli rydwany, i ruszyli w pościg.
+Morze Czerwone to granica między niewolą a wolnością, między śmiercią a życiem, między lękiem a wiarą. Bóg nie usuwa przeszkody – On rozdziela ją, tworząc drogę tam, gdzie jej nie było. Każdy krok przez morze to akt zaufania: z lewej i prawej ściany wody, a przed sobą pustynia wolności. Lud przechodzi, bo idzie za Słowem, nie za mapą. Ten cud powtarza się w każdym, kto pozwala, by Bóg rozdzielił morze jego własnego strachu. Tam, gdzie wszystko się kończy, zaczyna się przestrzeń wiary.
 
-Izraelici, podniósłszy oczy, ujrzeli Egipcjan idących za nimi
-i zlękli się bardzo.
+Trzy Wezwania do Działania:
 
-Wtedy rzekł Mojżesz do ludu:
-„Nie bójcie się! Trwajcie mocno,
-a zobaczycie zbawienie Pana, które dziś wam okaże.”
+1. Nie patrz na fale, patrz na Boga. On potrafi przeprowadzić Cię przez to, co wydaje się niemożliwe.
 
-Pan rzekł do Mojżesza:
-„Podnieś laskę i wyciągnij rękę nad morze,
-i rozdziel je, a synowie Izraela przejdą środkiem po suchej ziemi.”
+2. Zrób pierwszy krok. Morze nie rozstępuje się, dopóki nie wejdziesz w wody ufności.
 
-I powiał Pan silnym wiatrem wschodnim przez całą noc,
-i uczynił morze suchą ziemią.
-Wody się rozdzieliły,
-a Izrael szedł środkiem morza po suchym gruncie.
+3. Nie wracaj do Egiptu. Wolność jest trudna, ale zawsze lepsza niż niewola bezpieczeństwa.
 
-Egipcjanie ścigali ich,
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-lecz gdy wszyscy weszli między wody,
-Pan rzekł do Mojżesza:
-„Wyciągnij rękę nad morze, aby wody wróciły.”
+dopowiedzeniami)
 
-I wróciły wody,
-i przykryły rydwany, i jeźdźców faraona.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus dla którego lud stanął między morzem a armią faraona. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Izraelici zaś przeszli po suchym dnie morza.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Mojżesz podniósł laskę wiary nad morzem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-A lud ujrzał wielkie dzieła Pana i uwierzył w Niego,
-i w Mojżesza, sługę Jego.
-Morze Czerwone to granica między niewolą a wolnością,
-między śmiercią a życiem, między lękiem a wiarą.
-Bóg nie usuwa przeszkody – On rozdziela ją,
-tworząc drogę tam, gdzie jej nie było.
-Każdy krok przez morze to akt zaufania:
-z lewej i prawej ściany wody, a przed sobą pustynia wolności.
-Lud przechodzi, bo idzie za Słowem, nie za mapą.
-Ten cud powtarza się w każdym, kto pozwala, by Bóg rozdzielił morze jego
-własnego strachu.
-Tam, gdzie wszystko się kończy, zaczyna się przestrzeń wiary.
-Trzy Wezwania do Działania
-Nie patrz na fale, patrz na Boga.
-On potrafi przeprowadzić Cię przez to, co wydaje się niemożliwe.
-Zrób pierwszy krok.
-Morze nie rozstępuje się, dopóki nie wejdziesz w wody ufności.
-Nie wracaj do Egiptu.
-Wolność jest trudna, ale zawsze lepsza niż niewola bezpieczeństwa.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan posłał wiatr wschodni, by otworzył drogę przez głębiny. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-dla którego lud stanął między morzem a armią faraona.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Mojżesz podniósł laskę wiary nad morzem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan posłał wiatr wschodni, by otworzył drogę przez głębiny.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Izrael przeszedł po suchym dnie morza.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Egipcjanie ścigali lud, lecz zostali pochłonięci przez wody.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan walczył za swój lud bez miecza, lecz z mocą wiatru.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego morze stało się znakiem chrztu i przejścia do nowego życia.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Izrael przeszedł po suchym dnie morza. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego lud śpiewał: „Pan jest mocą moją i pieśnią moją”.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg przemienił drogę śmierci w ścieżkę życia.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wiara stała się mostem nad głębiną.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Egipcjanie ścigali lud, lecz zostali pochłonięci przez wody. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan walczył za swój lud bez miecza, lecz z mocą wiatru. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego morze stało się znakiem chrztu i przejścia do nowego życia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego lud śpiewał: „Pan jest mocą moją i pieśnią moją”. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg przemienił drogę śmierci w ścieżkę życia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wiara stała się mostem nad głębiną. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 12 (Cykl II - Dzień 12 z 175) - [11.04.2016] Symbol, który prowadzi ku centrum
@@ -2630,126 +1809,47 @@ Wstęp modlitewny dnia 195. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Manna na pustyni (Księga Wyjścia 16, 2–36)
-Etap 1 - Część 3 - Tajemnica 4 - Manna na pustyni
-(Księga Wyjścia 16, 2–36)
-I szemrała cała społeczność synów Izraela przeciw Mojżeszowi i Aaronowi
-na pustyni.
+(Księga Wyjścia 16, 2–36) I szemrała cała społeczność synów Izraela przeciw Mojżeszowi i Aaronowi na pustyni. Mówili: „Obyśmy pomarli z ręki Pana w ziemi egipskiej, gdyśmy siadali przy garnkach mięsa i jadali do syta! Wyprowadziliście nas na tę pustynię, aby cały ten lud wygłodzić.” Rzekł Pan do Mojżesza: „Oto Ja spuszczę wam chleb z nieba, a lud niech wychodzi i zbiera każdego dnia, ile mu potrzeba.” I rzekł Mojżesz do nich: „Wieczorem poznacie, że Pan wyprowadził was z ziemi egipskiej, a rano ujrzycie chwałę Pana.” A gdy rosa się podniosła, oto na powierzchni pustyni leżało coś drobnego, ziarnistego, jak szron. Synowie Izraela rzekli jeden do drugiego: „Man hu?” – co znaczy „Co to jest?” A Mojżesz im odpowiedział: „To jest chleb, który Pan dał wam na pokarm.” I jadł Izrael mannę czterdzieści lat, aż dotarli do granic ziemi obiecanej.
 
-Mówili: „Obyśmy pomarli z ręki Pana w ziemi egipskiej,
-gdyśmy siadali przy garnkach mięsa i jadali do syta!
-Wyprowadziliście nas na tę pustynię, aby cały ten lud wygłodzić.”
+Słowo Wyjaśnienia:
 
-Rzekł Pan do Mojżesza:
-„Oto Ja spuszczę wam chleb z nieba,
-a lud niech wychodzi i zbiera każdego dnia, ile mu potrzeba.”
+Manna nie była luksusem – była wystarczająca. Codzienny cud, który karmił nie tylko ciało, ale i zaufanie. Bóg nie daje zapasów na rok. Daje tyle, ile potrzeba na dziś. To szkoła wiary: ufać, że jutro znów spadnie. Manna to chleb pokory – dar który można przyjąć tylko otwartymi dłońmi. Chrystus później powie: „Ja jestem chlebem życia.” Manna była zapowiedzią Eucharystii – pokarmu, który nie przemija. Na pustyni głód człowieka spotyka się z wiernością Boga.
 
-I rzekł Mojżesz do nich:
-„Wieczorem poznacie, że Pan wyprowadził was z ziemi egipskiej,
-a rano ujrzycie chwałę Pana.”
+Trzy Wezwania do Działania:
 
-A gdy rosa się podniosła,
-oto na powierzchni pustyni leżało coś drobnego, ziarnistego, jak szron.
+1.  Zaufaj, że Bóg zatroszczy się o jutro. Manna spada każdego dnia – wystarczy wierzyć i wstać, by ją zebrać.
 
-Synowie Izraela rzekli jeden do drugiego: „Man hu?” – co znaczy: „Co to
-jest?”
+2. Nie gromadź nadmiaru. Kiedy próbujemy zachować więcej, niż potrzeba, marnuje się. Ucz się wdzięczności, nie chciwości.
 
-A Mojżesz im odpowiedział:
-„To jest chleb, który Pan dał wam na pokarm.”
+3. Rozpoznaj swoją mannę. Może przychodzi w prostych rzeczach – w słowie, w spotkaniu, w Eucharystii.
 
-I jadł Izrael mannę czterdzieści lat,
-aż dotarli do granic ziemi obiecanej.
-Manna nie była luksusem – była wystarczająca.
-Codzienny cud, który karmił nie tylko ciało, ale i zaufanie.
-Bóg nie daje zapasów na rok. Daje tyle, ile potrzeba na dziś.
-To szkoła wiary: ufać, że jutro znów spadnie.
-Manna to chleb pokory – dar, który można przyjąć tylko otwartymi dłońmi.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-Chrystus później powie: „Ja jestem chlebem życia.”
-Manna była zapowiedzią Eucharystii – pokarmu, który nie przemija.
-Na pustyni głód człowieka spotyka się z wiernością Boga.
-Trzy Wezwania do Działania
-Zaufaj, że Bóg zatroszczy się o jutro.
-Manna spada każdego dnia – wystarczy wierzyć i wstać, by ją zebrać.
-Nie gromadź nadmiaru.
-Kiedy próbujemy zachować więcej, niż potrzeba, marnuje się. Ucz się
-wdzięczności, nie chciwości.
-Rozpoznaj swoją mannę.
-Może przychodzi w prostych rzeczach – w słowie, w spotkaniu, w
-Eucharystii.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego lud szemrał z głodu na pustyni.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg zesłał chleb z nieba dla swego ludu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego rosa ustąpiła, a na piasku pojawiła się manna.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
+dopowiedzeniami)
 
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego lud zebrał tyle, ile potrzebował, nie więcej.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego manna stała się znakiem Bożej opieki.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego codzienny chleb był szkołą zaufania.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego chleb z nieba wskazywał na Eucharystię.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego każdy dzień miał swój cud.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg nie zapomniał o ludzie na pustyni.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego lud szemrał z głodu na pustyni. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego manna zapowiadała chleb życia wiecznego.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg zesłał chleb z nieba dla swego ludu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego rosa ustąpiła na piasku pojawiła się manna. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego lud zebrał tyle, ile potrzebował, nie więcej. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego manna stała się znakiem Bożej opieki. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego codzienny chleb był szkołą zaufania. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego chleb z nieba wskazywał na Eucharystię. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego każdy dzień miał swój cud. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg nie zapomniał o ludzie na pustyni. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego manna zapowiadała chleb życia wiecznego. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 13 (Cykl II - Dzień 13 z 175) - [25.12.2017] Boże Narodzenie – Bóg obecny w rodzinie
@@ -2861,132 +1961,47 @@ Wstęp modlitewny dnia 196. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Przymierze na Górze Synaj (Księga Wyjścia 19–20; 24, 3–8)
-Etap 1 - Część 3 - Tajemnica 5 - Przymierze na Górze Synaj
-(Księga Wyjścia 19–20; 24, 3–8)
-W trzecim miesiącu po wyjściu synów Izraela z ziemi egipskiej
-przybyli na pustynię Synaj.
+(Księga Wyjścia 19–20; 24, 3–8) W trzecim miesiącu po wyjściu synów Izraela z ziemi egipskiej przybyli na pustynię Synaj. Mojżesz wstąpił na górę do Boga, a Pan zawołał do niego z góry mówiąc „Tak powiesz domowi Jakuba i oznajmisz synom Izraela Widzieliście, co uczyniłem Egipcjanom, jak niosłem was na skrzydłach orlich i przywiodłem was do siebie. Teraz więc, jeśli pilnie słuchać będziecie głosu mojego i strzec mojego przymierza, będziecie moją szczególną własnością pośród wszystkich narodów, bo do mnie należy cała ziemia. A wy będziecie mi królestwem kapłanów i narodem świętym.” A gdy Mojżesz wstąpił na górę, zstąpił Pan w ogniu. Góra Synaj cała dymiła, bo Pan zstąpił na nią w ogniu. I przemówił Bóg wszystkie te słowa, mówiąc „Jam jest Pan, Bóg twój, który cię wywiódł z ziemi egipskiej, z domu niewoli. Nie będziesz miał bogów cudzych przede mną.” I wziął Mojżesz krew ofiary, pokropił nią lud, mówiąc: „Oto krew przymierza, które Pan zawarł z wami.”
 
-Mojżesz wstąpił na górę do Boga,
-a Pan zawołał do niego z góry, mówiąc:
+Słowo Wyjaśnienia:
 
-„Tak powiesz domowi Jakuba i oznajmisz synom Izraela:
+Synaj to szczyt wolności. Nie jest miejscem zakazu, ale objawienia — gdzie Bóg mówi „Słuchaj, Izraelu.” Prawo nie jest więzieniem. To mapa serca, które chce kochać dobrze. Dziesięć Słów Boga to dziesięć oddechów życia — słowa wolności, nie kontroli. Ogień Synaju nie parzy, ale oczyszcza. Wśród dymu, burzy i głosu trąby rodzi się nowa więź nie między władcą a niewolnikiem, lecz między Oblubieńcem a oblubienicą. Na Synaju Bóg nie tylko daje prawo — On daje siebie.
 
-Widzieliście, co uczyniłem Egipcjanom,
-jak niosłem was na skrzydłach orlich i przywiodłem was do siebie.
+Trzy Wezwania do Działania:
 
-Teraz więc, jeśli pilnie słuchać będziecie głosu mojego
-i strzec mojego przymierza,
-będziecie moją szczególną własnością pośród wszystkich narodów,
-bo do mnie należy cała ziemia.
+1. Zatrzymaj się, by słuchać głosu Boga. On przemawia nie tylko z góry, ale w głębi serca.
 
-A wy będziecie mi królestwem kapłanów i narodem świętym.”
+2. Zachowuj przykazania nie z lęku, lecz z miłości. Bo każde „nie” Dekalogu chroni „tak” wobec życia.
 
-A gdy Mojżesz wstąpił na górę,
-zstąpił Pan w ogniu.
-Góra Synaj cała dymiła,
-bo Pan zstąpił na nią w ogniu.
+3. Odnów swoje przymierze. Jak Mojżesz i lud, powiedz dziś: „Uczynimy wszystko, co Pan nakazał.”
 
-I przemówił Bóg wszystkie te słowa, mówiąc:
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-„Jam jest Pan, Bóg twój,
-który cię wywiódł z ziemi egipskiej, z domu niewoli.
-Nie będziesz miał bogów cudzych przede mną.”
+dopowiedzeniami)
 
-I wziął Mojżesz krew ofiary,
-pokropił nią lud, mówiąc:
-„Oto krew przymierza, które Pan zawarł z wami.”
-Synaj to szczyt wolności.
-Nie jest miejscem zakazu, ale objawienia — gdzie Bóg mówi:
-„Słuchaj, Izraelu.”
-Prawo nie jest więzieniem.
-To mapa serca, które chce kochać dobrze.
-Dziesięć Słów Boga to dziesięć oddechów życia —
-słowa wolności, nie kontroli.
-Ogień Synaju nie parzy, ale oczyszcza.
-Wśród dymu, burzy i głosu trąby rodzi się nowa więź —
-nie między władcą a niewolnikiem, lecz między Oblubieńcem a oblubienicą.
-Na Synaju Bóg nie tylko daje prawo — On daje siebie.
-Trzy Wezwania do Działania
-Zatrzymaj się, by słuchać głosu Boga.
-On przemawia nie tylko z góry, ale w głębi serca.
-Zachowuj przykazania nie z lęku, lecz z miłości.
-Bo każde „nie” Dekalogu chroni „tak” wobec życia.
-Odnów swoje przymierze.
-Jak Mojżesz i lud, powiedz dziś: „Uczynimy wszystko, co Pan nakazał.”
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg wezwał Mojżesza na górę Synaj. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg wezwał Mojżesza na górę Synaj.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan przemówił z ognia i obłoku.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego lud usłyszał Dziesięć Słów życia.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg zawarł przymierze z Izraelem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Mojżesz pokropił lud krwią ofiary przymierza.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Dekalog stał się znakiem Bożej miłości.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan przemówił z ognia i obłoku. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego ogień Synaju oświecał drogę wiary.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego lud odpowiedział: „Uczynimy wszystko, co Pan nakazał.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Synaj zapowiedział Nowe Przymierze w Krwi Chrystusa.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Boże Prawo wypisane zostało w sercach ludzi.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego lud usłyszał Dziesięć Słów życia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg zawarł przymierze z Izraelem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Mojżesz pokropił lud krwią ofiary przymierza. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Dekalog stał się znakiem Bożej miłości. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego ogień Synaju oświecał drogę wiary. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego lud odpowiedział: „Uczynimy wszystko, co Pan nakazał.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Synaj zapowiedział Nowe Przymierze w Krwi Chrystusa. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Boże Prawo wypisane zostało w sercach ludzi. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 14 (Cykl II - Dzień 14 z 175) - [07.04.2017] Umarł Bóg?
@@ -3082,129 +2097,47 @@ Wstęp modlitewny dnia 197. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Bunt ludu i miedziany wąż (Księga Liczb 21, 4–9)
-Etap 1 - Część 4 - Tajemnica 1 - Bunt ludu i miedziany wąż
-(Księga Liczb 21, 4–9)
-Wyruszyli z góry Hor drogą ku Morzu Czerwonemu,
-aby obejść ziemię Edomu.
+(Księga Liczb 21, 4–9) Wyruszyli z góry Hor drogą ku Morzu Czerwonemu, aby obejść ziemię Edomu. Lecz lud stracił cierpliwość w drodze i mówił przeciw Bogu i przeciw Mojżeszowi: „Czemu wyprowadziliście nas z Egiptu abyśmy tu pomarli? Nie ma chleba ani wody, a ten pokarm mizerny już nam obrzydł!” Wtedy zesłał Pan na lud węże o jadzie palącym, które kąsały ludzi i wielu z Izraela pomarło. Lud przyszedł do Mojżesza, mówiąc: „Zgrzeszyliśmy, bo mówiliśmy przeciw Panu i przeciw tobie. Módl się do Pana, aby oddalił od nas te węże.” I modlił się Mojżesz za lud. Wtedy rzekł Pan do Mojżesza: „Sporządź węża i umieść go na palu; każdy ukąszony, który na niego spojrzy, pozostanie przy życiu.” I uczynił Mojżesz węża miedzianego, i umieścił go na palu, a gdy wąż ukąsił człowieka, a on spojrzał na węża miedzianego zostawał przy życiu.
 
-Lecz lud stracił cierpliwość w drodze
-i mówił przeciw Bogu i przeciw Mojżeszowi:
-„Czemu wyprowadziliście nas z Egiptu, abyśmy tu pomarli?
-Nie ma chleba ani wody,
-a ten pokarm mizerny już nam obrzydł!”
+Słowo Wyjaśnienia:
 
-Wtedy zesłał Pan na lud węże o jadzie palącym,
-które kąsały ludzi,
-i wielu z Izraela pomarło.
+To opowieść o spojrzeniu, które leczy. Wąż na palu nie jest amuletem – jest znakiem, że Bóg daje uzdrowienie tym, którzy uznają swój grzech i zwracają oczy ku Niemu. Miedziany wąż zapowiada krzyż Chrystusa. Tam, gdzie człowiek zgrzeszył, tam Bóg podnosi znak zbawienia. Trucizna grzechu zostaje pokonana spojrzeniem wiary. Nie trzeba uciekać przed bólem — trzeba spojrzeć na Tego, który został wywyższony abyśmy mieli życie. Na pustyni Bóg nie usuwa wszystkich węży. On daje coś większego — uzdrawiający wzrok, który widzi Jego miłosierdzie.
 
-Lud przyszedł do Mojżesza, mówiąc:
-„Zgrzeszyliśmy, bo mówiliśmy przeciw Panu i przeciw tobie.
-Módl się do Pana, aby oddalił od nas te węże.”
+Trzy Wezwania do Działania:
 
-I modlił się Mojżesz za lud.
+1. Nie uciekaj od pustyni. To właśnie tam Bóg pokazuje, jak bardzo potrzebujemy Jego łaski.
 
-Wtedy rzekł Pan do Mojżesza:
-„Sporządź węża i umieść go na palu;
-każdy ukąszony, który na niego spojrzy, pozostanie przy życiu.”
+2. Przestań patrzeć tylko na rany. Podnieś wzrok – tam jest krzyż, który leczy.
 
-I uczynił Mojżesz węża miedzianego,
-i umieścił go na palu,
-a gdy wąż ukąsił człowieka,
-a on spojrzał na węża miedzianego,
-zostawał przy życiu.
-To opowieść o spojrzeniu, które leczy.
-Wąż na palu nie jest amuletem – jest znakiem, że Bóg daje uzdrowienie
+3. Wierz w uzdrawiające spojrzenie Boga. Nie musisz udawać doskonałego, wystarczy, że spojrzysz z wiarą.
 
-tym, którzy uznają swój grzech i zwracają oczy ku Niemu.
-Miedziany wąż zapowiada krzyż Chrystusa.
-Tam, gdzie człowiek zgrzeszył, tam Bóg podnosi znak zbawienia.
-Trucizna grzechu zostaje pokonana spojrzeniem wiary.
-Nie trzeba uciekać przed bólem — trzeba spojrzeć na Tego, który został
-wywyższony, abyśmy mieli życie.
-Na pustyni Bóg nie usuwa wszystkich węży.
-On daje coś większego — uzdrawiający wzrok, który widzi Jego
-miłosierdzie.
-Trzy Wezwania do Działania
-Nie uciekaj od pustyni.
-To właśnie tam Bóg pokazuje, jak bardzo potrzebujemy Jego łaski.
-Przestań patrzeć tylko na rany.
-Podnieś wzrok – tam jest krzyż, który leczy.
-Wierz w uzdrawiające spojrzenie Boga.
-Nie musisz udawać doskonałego, wystarczy, że spojrzysz z wiarą.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego lud szemrał znużony wędrówką po pustyni.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg zesłał węże o jadzie palącym.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-dla którego lud uznał swój grzech i błagał o przebaczenie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Mojżesz modlił się za grzeszny lud.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg nakazał sporządzić węża miedzianego.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego każdy, kto spojrzał na węża, został uzdrowiony.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wąż na palu zapowiedział krzyż Zbawiciela.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego każdy, kto wierzy, nie zginie, ale będzie miał życie wieczne.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego spojrzenie wiary stało się źródłem uzdrowienia.
+dopowiedzeniami)
 
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego krzyż jest nowym drzewem życia na pustyni świata.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego lud szemrał znużony wędrówką po pustyni. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg zesłał węże o jadzie palącym. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus dla którego lud uznał swój grzech i błagał o przebaczenie. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Mojżesz modlił się za grzeszny lud. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg nakazał sporządzić węża miedzianego. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego każdy, kto spojrzał na węża, został uzdrowiony. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wąż na palu zapowiedział krzyż Zbawiciela. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego każdy, kto wierzy, nie zginie, ale będzie miał życie wieczne. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego spojrzenie wiary stało się źródłem uzdrowienia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego krzyż jest nowym drzewem życia na pustyni świata. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 15 (Cykl II - Dzień 15 z 175) - [15.04.2017] Wielka Sobota – wiara, modlitwa i cześć oddawana Bogu
@@ -3328,124 +2261,47 @@ Wstęp modlitewny dnia 198. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Przemowa Mojżesza przed śmiercią i błogosławieństwo Izraela
-Etap 1 - Część 4 - Tajemnica 2 - Przemowa Mojżesza przed śmiercią i
-błogosławieństwo Izraela
-(Księga Powtórzonego Prawa 30, 11–20; 32, 48–52; 34, 1–12)
-Mojżesz przemówił do całego Izraela tymi słowami:
-„To przykazanie, które Ja ci dziś daję, nie jest dla ciebie zbyt trudne ani zbyt
-dalekie.
+(Księga Powtórzonego Prawa 30 11–20; 32, 48–52; 34, 1–12) Mojżesz przemówił do całego Izraela tymi słowami: „To przykazanie, które Ja ci dziś daję, nie jest dla ciebie zbyt trudne ani zbyt dalekie. Nie jest w niebie, byś musiał mówić: 'Któż dla nas wstąpi do nieba aby je przynieść?' I nie jest za morzem, byś musiał powiedzieć: 'Któż tam przepłynie dla nas, aby je sprowadzić?' Lecz bardzo blisko ciebie jest to słowo – w twoich ustach i w twoim sercu, byś je mógł wypełniać. Patrz, kładę dziś przed tobą życie i szczęście, śmierć i nieszczęście. Wybierz więc życie, abyś żył – ty i twoje potomstwo miłując Pana, Boga swego, słuchając Jego głosu i lgnąc do Niego.” I rzekł Pan do Mojżesza na górze Nebo: „Oto ziemia, którą przysiągłem dać Abrahamowi, Izaakowi i Jakubowi. Dałem ci ją zobaczyć własnymi oczami, ale tam nie wejdziesz.” Mojżesz, sługa Pana, umarł tam w ziemi Moabu, według słowa Pana. I nie powstał więcej prorok w Izraelu taki jak Mojżesz, który poznał Pana twarzą w twarz.
 
-Nie jest w niebie, byś musiał mówić: 'Któż dla nas wstąpi do nieba, aby je
-przynieść?'
+Słowo Wyjaśnienia:
 
-I nie jest za morzem, byś musiał powiedzieć: 'Któż tam przepłynie dla nas,
-aby je sprowadzić?'
+To jedno z najbardziej wzruszających miejsc Pisma. Mojżesz – przyjaciel Boga – widzi obietnicę, lecz nie wchodzi do niej. Nie dlatego, że został odrzucony, ale dlatego, że jego misja się dopełniła. Na górze Nebo Bóg daje mu więcej niż ziemię: daje mu spojrzenie na spełnienie obietnicy i pokój serca wiernego sługi. Słowa Mojżesza brzmią jak testament wiary: „Wybierz życie.” Nie życie wygodne, lecz to, które trwa, bo jest zakorzenione w Bogu. Czasem najgłębsze błogosławieństwo to nie wejść do celu, ale zobaczyć, że inni pójdą dalej drogą, którą przygotowałeś.
 
-Lecz bardzo blisko ciebie jest to słowo – w twoich ustach i w twoim sercu,
-byś je mógł wypełniać.
+Trzy Wezwania do Działania:
 
-Patrz, kładę dziś przed tobą życie i szczęście, śmierć i nieszczęście.
-Wybierz więc życie, abyś żył – ty i twoje potomstwo,
-miłując Pana, Boga swego, słuchając Jego głosu i lgnąc do Niego.”
+1. Nie bój się kończyć etapu. Czasem Bóg powołuje nas tylko do siewu, nie do zbioru.
 
-I rzekł Pan do Mojżesza na górze Nebo:
-„Oto ziemia, którą przysiągłem dać Abrahamowi, Izaakowi i Jakubowi.
-Dałem ci ją zobaczyć własnymi oczami, ale tam nie wejdziesz.”
+2. Wybieraj życie każdego dnia. Nie w teoriach, ale w drobnych decyzjach miłości, cierpliwości i wierności.
 
-Mojżesz, sługa Pana, umarł tam w ziemi Moabu, według słowa Pana.
-I nie powstał więcej prorok w Izraelu taki jak Mojżesz,
-który poznał Pana twarzą w twarz.
-To jedno z najbardziej wzruszających miejsc Pisma.
-Mojżesz – przyjaciel Boga – widzi obietnicę, lecz nie wchodzi do niej.
-Nie dlatego, że został odrzucony, ale dlatego, że jego misja się dopełniła.
-Na górze Nebo Bóg daje mu więcej niż ziemię:
-daje mu spojrzenie na spełnienie obietnicy i pokój serca wiernego sługi.
-Słowa Mojżesza brzmią jak testament wiary:
-„Wybierz życie.”
-Nie życie wygodne, lecz to, które trwa, bo jest zakorzenione w Bogu.
-Czasem najgłębsze błogosławieństwo to nie wejść do celu,
-ale zobaczyć, że inni pójdą dalej drogą, którą przygotowałeś.
-Trzy Wezwania do Działania
-Nie bój się kończyć etapu.
-Czasem Bóg powołuje nas tylko do siewu, nie do zbioru.
-Wybieraj życie każdego dnia.
-Nie w teoriach, ale w drobnych decyzjach miłości, cierpliwości i wierności.
-Zostaw po sobie błogosławieństwo.
-Jak Mojżesz – nie żal, lecz pokój i modlitwę za tych, którzy idą dalej.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Mojżesz przemówił do Izraela słowami życia.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
+3. Zostaw po sobie błogosławieństwo. Jak Mojżesz – nie żal, lecz pokój i modlitwę za tych, którzy idą dalej.
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Prawo stało się słowem serca, a nie kamienia.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg położył przed człowiekiem życie i śmierć.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Mojżesz nauczał: „Wybierz życie, abyś żył.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg pokazał Mojżeszowi ziemię obiecaną.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Mojżesz odszedł w pokoju, oglądając spełnienie obietnicy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg sam pochował swojego sługę w ziemi Moabu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Izrael płakał po Mojżeszu trzydzieści dni.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Duch Mądrości spoczął na Jozuem, następcy Mojżesza.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Mojżesz poznał Pana twarzą w twarz.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Mojżesz przemówił do Izraela słowami życia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Prawo stało się słowem serca, a nie kamienia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg położył przed człowiekiem życie i śmierć. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Mojżesz nauczał: „Wybierz życie, abyś żył.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg pokazał Mojżeszowi ziemię obiecaną. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Mojżesz odszedł w pokoju, oglądając spełnienie obietnicy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg sam pochował swojego sługę w ziemi Moabu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Izrael płakał po Mojżeszu trzydzieści dni. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Duch Mądrości spoczął na Jozuem, następcy Mojżesza. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Mojżesz poznał Pana twarzą w twarz. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 16 (Cykl II - Dzień 16 z 175) - [28.04.2017] Początek wspólnej drogi
@@ -3499,130 +2355,47 @@ Wstęp modlitewny dnia 199. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Wprowadzenie do Ziemi Obiecanej przez Jozuego
-Etap 1 - Część 4 - Tajemnica 3 - Wprowadzenie do Ziemi Obiecanej przez
-Jozuego
-(Księga Jozuego 3, 1–17; 4, 1–9)
-Jozue wstał rano i wyruszyli z Szittim,
-a gdy przyszli do Jordanu, zatrzymali się tam przed jego przeprawą.
+(Księga Jozuego 3, 1–17; 4, 1–9) Jozue wstał rano i wyruszyli z Szittim, a gdy przyszli do Jordanu, zatrzymali się tam przed jego przeprawą. Potem rzekł Jozue do ludu: „Uświęćcie się, bo jutro Pan dokona wśród was cudów.” Gdy kapłani niosący Arkę Przymierza weszli do Jordanu, wody płynące z góry zatrzymały się i stanęły jak mur. Lud przeszedł po suchym dnie, a kapłani trzymali Arkę Przymierza Pana na środku Jordanu, aż cały Izrael przeszedł. I rzekł Pan do Jozuego: „Wybierz dwunastu mężów, po jednym z każdego pokolenia, niech wezmą dwanaście kamieni z miejsca gdzie stały nogi kapłanów, aby były znakiem na wieki dla synów Izraela.” I postawił Jozue te kamienie w Jordanie, na miejscu, gdzie stali kapłani niosący Arkę.
 
-Potem rzekł Jozue do ludu:
-„Uświęćcie się, bo jutro Pan dokona wśród was cudów.”
+Słowo Wyjaśnienia:
 
-Gdy kapłani niosący Arkę Przymierza weszli do Jordanu,
-wody płynące z góry zatrzymały się
-i stanęły jak mur.
+Jordan to granica spełnienia. Po czterdziestu latach wędrówki, Bóg otwiera nową drogę — nie przez pustynię, ale przez rzekę. Nie już Mojżesz, lecz Jozue prowadzi lud, ale to wciąż ten sam Bóg, który przeprowadza. Woda znów ustępuje, jak w Morzu Czerwonym. To znak, że przymierze trwa – że wierność Boga nie starzeje się z pokoleniem. Arka Przymierza stoi pośrodku nurtu — symbol obecności Boga w samym sercu przejścia. To Bóg zatrzymuje bieg rzeki, by człowiek mógł iść naprzód. Kamienie, które Jozue każe postawić, to pamięć i świadectwo: „Tu Pan uczynił cud.” Bo każde zwycięstwo wiary potrzebuje pamięci, aby nie zapomnieć kto naprawdę przeprowadza.
 
-Lud przeszedł po suchym dnie,
-a kapłani trzymali Arkę Przymierza Pana
-na środku Jordanu,
-aż cały Izrael przeszedł.
+Trzy Wezwania do Działania:
 
-I rzekł Pan do Jozuego:
-„Wybierz dwunastu mężów, po jednym z każdego pokolenia,
-niech wezmą dwanaście kamieni z miejsca,
-gdzie stały nogi kapłanów,
-aby były znakiem na wieki dla synów Izraela.”
+1. Nie bój się wejść do rzeki wiary. Cud zaczyna się wtedy, gdy kapłani wchodzą w wody – zanim one się rozstąpią.
 
-I postawił Jozue te kamienie w Jordanie,
-na miejscu, gdzie stali kapłani niosący Arkę.
-Jordan to granica spełnienia.
-Po czterdziestu latach wędrówki, Bóg otwiera nową drogę — nie przez
-pustynię, ale przez rzekę.
-Nie już Mojżesz, lecz Jozue prowadzi lud,
-ale to wciąż ten sam Bóg, który przeprowadza.
-Woda znów ustępuje, jak w Morzu Czerwonym.
-To znak, że przymierze trwa –
-że wierność Boga nie starzeje się z pokoleniem.
-Arka Przymierza stoi pośrodku nurtu — symbol obecności Boga w samym
-sercu przejścia.
-To Bóg zatrzymuje bieg rzeki, by człowiek mógł iść naprzód.
-Kamienie, które Jozue każe postawić,
-to pamięć i świadectwo: „Tu Pan uczynił cud.”
-Bo każde zwycięstwo wiary potrzebuje pamięci,
-aby nie zapomnieć, kto naprawdę przeprowadza.
-Trzy Wezwania do Działania
-Nie bój się wejść do rzeki wiary.
-Cud zaczyna się wtedy, gdy kapłani wchodzą w wody – zanim one się
-rozstąpią.
-Postaw swój kamień pamięci.
-Zapisz, opowiedz, zatrzymaj w sercu dzieła Boga, które przeprowadziły cię
-dalej.
-Pamiętaj, że Bóg jest zawsze w środku nurtu.
-Nie stoi po drugiej stronie – On jest w samym przejściu, z tobą.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Jozue przygotował lud do przejścia przez Jordan.
+2. Postaw swój kamień pamięci. Zapisz, opowiedz, zatrzymaj w sercu dzieła Boga, które przeprowadziły cię dalej.
 
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego kapłani weszli do rzeki z Arką Przymierza.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wody Jordanu zatrzymały się jak mur.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Izrael przeszedł po suchym dnie do Ziemi Obiecanej.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg potwierdził wierność swego przymierza z Izraelem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Arka Bożej Obecności zatrzymała nurt rzeki.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego dwunastu mężów postawiło kamienie pamięci.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
+3. Pamiętaj, że Bóg jest zawsze w środku nurtu. Nie stoi po drugiej stronie – On jest w samym przejściu, z tobą.
 
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Izrael wszedł do ziemi obietnicy w pokoju.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg uczynił z Jordanu znak przejścia i chrztu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego cud Jordanu potwierdził, że Pan jest wierny na wieki.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Jozue przygotował lud do przejścia przez Jordan. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego kapłani weszli do rzeki z Arką Przymierza. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wody Jordanu zatrzymały się jak mur. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Izrael przeszedł po suchym dnie do Ziemi Obiecanej. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg potwierdził wierność swego przymierza z Izraelem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Arka Bożej Obecności zatrzymała nurt rzeki. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego dwunastu mężów postawiło kamienie pamięci. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Izrael wszedł do ziemi obietnicy w pokoju. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg uczynił z Jordanu znak przejścia i chrztu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego cud Jordanu potwierdził, że Pan jest wierny na wieki. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 17 (Cykl II - Dzień 17 z 175) - [01.05.2017] Sen o trosce, odpowiedzialności i miłości
@@ -3768,126 +2541,47 @@ Wstęp modlitewny dnia 200. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Upadek Jerycha (Księga Jozuego 6, 1–20)
-Etap 1 - Część 4 - Tajemnica 4 - Upadek Jerycha
-(Księga Jozuego 6, 1–20)
-Jerycho było mocno obwarowane,
-zamknięte przed synami Izraela.
+(Księga Jozuego 6, 1–20) Jerycho było mocno obwarowane zamknięte przed synami Izraela. Rzekł Pan do Jozuego: „Oto wydaję w twoje ręce Jerycho, jego króla i wojowników. Obejdziesz miasto, wszyscy wojownicy wokół miasta raz każdego dnia. Uczynisz tak przez sześć dni. A siedmiu kapłanów niech niesie siedem trąb z rogów baranich przed Arką. Siódmego dnia obejdziecie miasto siedem razy, a kapłani niech trąbią w trąby. Gdy usłyszycie dźwięk rogu, cały lud wzniesie potężny okrzyk, a mur miasta rozpadnie się na miejscu, i lud wkroczy, każdy wprost przed siebie.” Tak uczynili. A gdy kapłani zadęli w trąby, a lud krzyknął potężnym głosem runęły mury Jerycha i Izrael wszedł do miasta.
 
-Rzekł Pan do Jozuego:
-„Oto wydaję w twoje ręce Jerycho, jego króla i wojowników.
-Obejdziesz miasto, wszyscy wojownicy wokół miasta raz każdego dnia.
-Uczynisz tak przez sześć dni.
+Słowo Wyjaśnienia:
 
-A siedmiu kapłanów niech niesie siedem trąb z rogów baranich przed Arką.
-Siódmego dnia obejdziecie miasto siedem razy,
-a kapłani niech trąbią w trąby.
+Jerycho to nie tylko miasto – to obraz przeszkody, która wydaje się nie do ruszenia. Mur z kamienia staje się znakiem wszystkich murów serca: strachu, pychy, niewiary. Bóg nie każe go burzyć siłą, ale wiarą i posłuszeństwem. To modlitwa, cisza i trąba kapłańska rytm liturgii, a nie bitwy. Upadek Jerycha pokazuje, że zwycięstwo nie rodzi się z ludzkiego wysiłku, lecz z wytrwałej wiary. Siedem dni krążenia wokół murów to siedem dni cierpliwości, nadziei i ufności, że Bóg dotrzyma słowa. Niektóre mury w naszym życiu nie runą od razu. Trzeba obejść je modlitwą, zanim zawalą się z Bożej mocy.
 
-Gdy usłyszycie dźwięk rogu,
-cały lud wzniesie potężny okrzyk,
-a mur miasta rozpadnie się na miejscu,
-i lud wkroczy, każdy wprost przed siebie.”
+Trzy Wezwania do Działania:
 
-Tak uczynili.
+1. Obchodź swoje Jerycho. Zamiast walczyć, módl się i trwaj – Boża obecność zburzy to czego sam nie potrafisz.
 
-A gdy kapłani zadęli w trąby, a lud krzyknął potężnym głosem,
-runęły mury Jerycha,
-i Izrael wszedł do miasta.
-Jerycho to nie tylko miasto – to obraz przeszkody, która wydaje się nie do
-ruszenia.
-Mur z kamienia staje się znakiem wszystkich murów serca: strachu, pychy,
-niewiary.
-Bóg nie każe go burzyć siłą, ale wiarą i posłuszeństwem.
-To modlitwa, cisza i trąba kapłańska – rytm liturgii, a nie bitwy.
-Upadek Jerycha pokazuje, że zwycięstwo nie rodzi się z ludzkiego wysiłku,
-lecz z wytrwałej wiary.
-Siedem dni krążenia wokół murów to siedem dni cierpliwości, nadziei i
-ufności,
-że Bóg dotrzyma słowa.
-Niektóre mury w naszym życiu nie runą od razu.
-Trzeba obejść je modlitwą, zanim zawalą się z Bożej mocy.
-Trzy Wezwania do Działania
-Obchodź swoje Jerycho.
-Zamiast walczyć, módl się i trwaj – Boża obecność zburzy to, czego sam
-nie potrafisz.
-Nie przerywaj modlitwy w szóstym dniu.
+2. Nie przerywaj modlitwy w szóstym dniu. Czasem cud dzieje się dopiero wtedy, gdy już nie masz sił.
 
-Czasem cud dzieje się dopiero wtedy, gdy już nie masz sił.
-Zaufaj, że Bóg ma swój rytm.
-Mur upadnie nie wtedy, gdy Ty krzykniesz, ale gdy On powie: „Teraz”.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Jerycho zamknęło się przed Izraelem ze strachu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg polecił obejść miasto w milczeniu przez sześć dni.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego kapłani nieśli Arkę Przymierza wokół murów Jerycha.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego siedem trąb zabrzmiało w dzień zwycięstwa.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego lud krzyknął potężnym głosem wiary.
+3. Zaufaj że Bóg ma swój rytm. Mur upadnie nie wtedy, gdy Ty krzykniesz ale gdy On powie: „Teraz”.
 
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego mury Jerycha runęły przed obliczem Pana.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego zwycięstwo dokonało się bez miecza, lecz w posłuszeństwie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Rahab, kobieta wiary, została ocalona wśród ruin.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wiara Izraela stała się świadectwem dla narodów.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg uczy, że mury świata runą mocą modlitwy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Jerycho zamknęło się przed Izraelem ze strachu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg polecił obejść miasto w milczeniu przez sześć dni. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego kapłani nieśli Arkę Przymierza wokół murów Jerycha. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego siedem trąb zabrzmiało w dzień zwycięstwa. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego lud krzyknął potężnym głosem wiary. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego mury Jerycha runęły przed obliczem Pana. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego zwycięstwo dokonało się bez miecza, lecz w posłuszeństwie. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Rahab, kobieta wiary, została ocalona wśród ruin. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wiara Izraela stała się świadectwem dla narodów. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg uczy, że mury świata runą mocą modlitwy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 18 (Cykl II - Dzień 18 z 175) - [07.05.2017] Odpowiedzialność za wspólny dom
@@ -4035,130 +2729,47 @@ Wstęp modlitewny dnia 201. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Ostatni rozdział podboju i odpoczynek w Ziemi Obiecanej
-Etap 1 - Część 4 - Tajemnica 5 - Ostatni rozdział podboju i odpoczynek w
-Ziemi Obiecanej
-(Księga Jozuego 21, 43–45; 23, 1–11; 24, 14–28)
-Tak więc Pan dał Izraelowi całą ziemię,
-którą przysiągł dać ich ojcom,
-i objęli ją w posiadanie, i zamieszkali w niej.
+(Księga Jozuego 21, 43–45; 23, 1–11; 24, 14–28) Tak więc Pan dał Izraelowi całą ziemię, którą przysiągł dać ich ojcom, i objęli ją w posiadanie, i zamieszkali w niej. I dał im Pan odpoczynek dokoła, tak jak przysiągł ich ojcom. Nie powstał żaden wróg, który by się im oparł, bo wszystkich ich wrogów Pan podał im w ręce. Żadne ze wszystkich dobrych słów, które Pan wypowiedział do domu Izraela, nie zawiodło. Wszystko się spełniło. A gdy Jozue się zestarzał, zwołał cały Izrael i rzekł: „Bójcie się Pana i służcie Mu w szczerości i w prawdzie. Usuńcie bogów którym służyli wasi ojcowie, i służcie Panu. A jeśli wam się nie podoba służyć Panu, wybierzcie dziś, komu chcecie służyć. Lecz ja i mój dom będziemy służyć Panu.” I lud odpowiedział: „Panu, Bogu naszemu, będziemy służyć i Jego głosu będziemy słuchać.”
 
-I dał im Pan odpoczynek dokoła,
-tak jak przysiągł ich ojcom.
+Słowo Wyjaśnienia:
 
-Nie powstał żaden wróg,
-który by się im oparł,
-bo wszystkich ich wrogów Pan podał im w ręce.
+Ziemia Obiecana to nie tylko przestrzeń geograficzna – to stan serca, które osiąga pokój po długiej wędrówce. To nie koniec historii, ale moment wytchnienia po drodze posłuszeństwa. Bóg wypełnił wszystkie swoje obietnice. Ani jedno Jego słowo nie upadło. Lud odpoczywa – nie w bezczynności, ale w pewności, że Pan jest wierny. Jozue, jak Mojżesz, żegna lud błogosławieństwem i wezwaniem „Wybierzcie dziś, komu chcecie służyć.” To wezwanie powtarza się przez wieki – również do nas. Bo każda zdobyta ziemia, każdy sukces i każdy spokój mają sens tylko wtedy, gdy serce trwa przy Bogu, który prowadził przez pustynię.
 
-Żadne ze wszystkich dobrych słów,
-które Pan wypowiedział do domu Izraela, nie zawiodło.
-Wszystko się spełniło.
+Trzy Wezwania do Działania:
 
-A gdy Jozue się zestarzał,
-zwołał cały Izrael i rzekł:
-„Bójcie się Pana i służcie Mu w szczerości i w prawdzie.
-Usuńcie bogów, którym służyli wasi ojcowie,
-i służcie Panu.
+1. Zatrzymaj się i uznaj, że Bóg wypełnił swoje obietnice. Czasem nie zauważamy cudu, bo szukamy następnego.
 
-A jeśli wam się nie podoba służyć Panu,
-wybierzcie dziś, komu chcecie służyć.
+2. Odnów swoje „tak” wobec Boga. Jak Jozue – powiedz na nowo: „Ja i mój dom będziemy służyć Panu.”
 
-Lecz ja i mój dom będziemy służyć Panu.”
+3. Wejdź w odpoczynek, który daje wiara. Nie chodzi o bezczynność, ale o zaufanie, że wszystko jest w Jego rękach.
 
-I lud odpowiedział:
-„Panu, Bogu naszemu, będziemy służyć
-i Jego głosu będziemy słuchać.”
-Ziemia Obiecana to nie tylko przestrzeń geograficzna – to stan serca, które
-osiąga pokój po długiej wędrówce.
-To nie koniec historii, ale moment wytchnienia po drodze posłuszeństwa.
-Bóg wypełnił wszystkie swoje obietnice. Ani jedno Jego słowo nie upadło.
-Lud odpoczywa – nie w bezczynności, ale w pewności, że Pan jest wierny.
-Jozue, jak Mojżesz, żegna lud błogosławieństwem i wezwaniem:
-„Wybierzcie dziś, komu chcecie służyć.”
-To wezwanie powtarza się przez wieki – również do nas.
-Bo każda zdobyta ziemia, każdy sukces i każdy spokój mają sens tylko
-wtedy,
-gdy serce trwa przy Bogu, który prowadził przez pustynię.
-Trzy Wezwania do Działania
-Zatrzymaj się i uznaj, że Bóg wypełnił swoje obietnice.
-Czasem nie zauważamy cudu, bo szukamy następnego.
-Odnów swoje „tak” wobec Boga.
-Jak Jozue – powiedz na nowo: „Ja i mój dom będziemy służyć Panu.”
-Wejdź w odpoczynek, który daje wiara.
-Nie chodzi o bezczynność, ale o zaufanie, że wszystko jest w Jego rękach.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan dał Izraelowi całą ziemię obietnicy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg dał ludowi odpoczynek po wszystkich walkach.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego żadne z Bożych słów nie zawiodło.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Jozue wezwał lud do odnowienia przymierza.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego lud powiedział: „Panu, Bogu naszemu, będziemy służyć.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
+dopowiedzeniami)
 
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg zawarł z ludem nowe przymierze w Sychem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Jozue wzniósł kamień świadectwa w obecności Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Izrael pozostał wierny, póki żyli starsi pamiętający dzieła Pana.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg wypełnił obietnicę daną Abrahamowi.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego lud Boży znalazł odpoczynek w wierności Pana.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan dał Izraelowi całą ziemię obietnicy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg dał ludowi odpoczynek po wszystkich walkach. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego żadne z Bożych słów nie zawiodło. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Jozue wezwał lud do odnowienia przymierza. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego lud powiedział: „Panu, Bogu naszemu będziemy służyć.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Bóg zawarł z ludem nowe przymierze w Sychem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Jozue wzniósł kamień świadectwa w obecności Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Izrael pozostał wierny, póki żyli starsi pamiętający dzieła Pana. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg wypełnił obietnicę daną Abrahamowi. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego lud Boży znalazł odpoczynek w wierności Pana. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 19 (Cykl II - Dzień 19 z 175) - [11.01.2019] Sen o ojcu i pięćdziesiąt „Zdrowaś Maryjo”
@@ -4252,125 +2863,47 @@ Wstęp modlitewny dnia 202. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Śmierć Mojżesza i przekazanie dziedzictwa wiary
-Etap 1 - Część 5 - Tajemnica 1 - Śmierć Mojżesza i przekazanie
-dziedzictwa wiary
-(Powt Praw 34, 1–12 / Joz 1, 1–9)
-Mojżesz wstąpił z równin Moabu na górę Nebo,
-naprzeciw Jerycha. A Pan pokazał mu całą ziemię:
-Gilead aż po Dan, cały Neftali, ziemię Efraima i Manassesa,
-całą ziemię Judy aż po morze zachodnie.
+(Powt Praw 34, 1–12 / Joz 1–9) Mojżesz wstąpił z równin Moabu na górę Nebo, naprzeciw Jerycha. A Pan pokazał mu całą ziemię: Gilead aż po Dan, cały Neftali, ziemię Efraima i Manassesa, całą ziemię Judy aż po morze zachodnie. I rzekł Pan do niego: „To jest ziemia, którą przysiągłem dać Abrahamowi, Izaakowi i Jakubowi. Dałem ci ją zobaczyć oczami, lecz tam nie wejdziesz.” Mojżesz, sługa Pana, umarł tam w ziemi Moabu według słowa Pana. Pochował go Pan w dolnie naprzeciw Bet-Peor, lecz nikt nie zna jego grobu aż do dzisiaj. A Jozue, syn Nuna, pełen Ducha Mądrości, bo Mojżesz położył na nim swoje ręce, stał się wodzem Izraela. I nie powstał więcej prorok w Izraelu taki jak Mojżesz, który poznał Pana twarzą w twarz. Po śmierci Mojżesza rzekł Pan do Jozuego: „Jak byłem z Mojżeszem, tak będę z tobą. Nie lękaj się i nie trwóż, bo Pan, Bóg twój, jest z tobą wszędzie, dokądkolwiek pójdziesz.”
 
-I rzekł Pan do niego: „To jest ziemia, którą przysiągłem dać Abrahamowi,
-Izaakowi i Jakubowi.
-Dałem ci ją zobaczyć oczami, lecz tam nie wejdziesz.”
+Słowo Wyjaśnienia:
 
-Mojżesz, sługa Pana, umarł tam w ziemi Moabu według słowa Pana.
-Pochował go Pan w dolnie naprzeciw Bet-Peor, lecz nikt nie zna jego grobu
-aż do dzisiaj.
+Mojżesz znika w ciszy. Nie ma grobu, nie ma pomnika – jest tylko słowo i obietnica. To prawdziwa pokora proroka: zrobił wszystko, co miał zrobić i odszedł, zostawiając miejsce dla następnych. Bóg sam go pochował – jak ojciec, który zamyka dziecku oczy ze wzruszeniem i czułością. Jozue przejmuje misję, lecz to wciąż ta sama wiara. To moment, w którym historia staje się dziedzictwem, a wiara – ciągłością pokoleń. Każde pokolenie ma swoją górę Nebo – moment, gdy trzeba coś oddać, aby inni mogli pójść dalej.
 
-A Jozue, syn Nuna, pełen Ducha Mądrości, bo Mojżesz położył na nim
-swoje ręce,
-stał się wodzem Izraela.
+Trzy Wezwania do Działania:
 
-I nie powstał więcej prorok w Izraelu taki jak Mojżesz, który poznał Pana
-twarzą w twarz.
+1. Uznaj czas odejścia. Są zadania, które trzeba oddać, aby Bóg mógł rozpocząć coś nowego.
 
-Po śmierci Mojżesza rzekł Pan do Jozuego:
-„Jak byłem z Mojżeszem, tak będę z tobą. Nie lękaj się i nie trwóż, bo Pan,
-Bóg twój, jest z tobą wszędzie, dokądkolwiek pójdziesz.”
-Mojżesz znika w ciszy. Nie ma grobu, nie ma pomnika – jest tylko słowo i
-obietnica.
-To prawdziwa pokora proroka: zrobił wszystko, co miał zrobić, i odszedł,
-zostawiając miejsce dla następnych.
-Bóg sam go pochował – jak ojciec, który zamyka dziecku oczy ze
-wzruszeniem i czułością.
+2. Bądź mentorem dla następnych. Połóż na kimś ręce swojej mądrości – przekaż światło wiary.
 
-Jozue przejmuje misję, lecz to wciąż ta sama wiara.
-To moment, w którym historia staje się dziedzictwem, a wiara – ciągłością
-pokoleń.
-Każde pokolenie ma swoją górę Nebo – moment, gdy trzeba coś oddać,
-aby inni mogli pójść dalej.
-Trzy Wezwania do Działania
-Uznaj czas odejścia.
-Są zadania, które trzeba oddać, aby Bóg mógł rozpocząć coś nowego.
-Bądź mentorem dla następnych.
-Połóż na kimś ręce swojej mądrości – przekaż światło wiary.
-Ufaj, że Bóg jest z tobą jak z Mojżeszem.
-To ta sama obecność – nigdy nie opuszcza tych, którzy idą Jego drogą.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Mojżesz spojrzał z Nebo na ziemię obietnicy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan pochował swego sługę w tajemnicy świętości.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Duch Mądrości spoczął na Jozuem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
+3. Ufaj, że Bóg jest z tobą jak z Mojżeszem. To ta sama obecność – nigdy nie opuszcza tych, którzy idą Jego drogą.
 
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Jozue usłyszał: „Nie lękaj się, bo Ja jestem z tobą.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan powiedział: „Jak byłem z Mojżeszem, tak będę z tobą.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wiara stała się dziedzictwem pokoleń.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan nigdy nie opuszcza tych, którzy Mu ufają.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego pamięć Mojżesza pozostała błogosławieństwem dla Izraela.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg prowadzi swoje dzieło z pokolenia na pokolenie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan sam jest dziedzictwem swojego ludu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Mojżesz spojrzał z Nebo na ziemię obietnicy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan pochował swego sługę w tajemnicy świętości. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Duch Mądrości spoczął na Jozuem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Jozue usłyszał: „Nie lękaj się, bo Ja jestem z tobą.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan powiedział: „Jak byłem z Mojżeszem, tak będę z tobą.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wiara stała się dziedzictwem pokoleń. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan nigdy nie opuszcza tych, którzy Mu ufają. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego pamięć Mojżesza pozostała błogosławieństwem dla Izraela. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg prowadzi swoje dzieło z pokolenia na pokolenie. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Pan sam jest dziedzictwem swojego ludu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 20 (Cykl II - Dzień 20 z 175) - [24.03.2019] Zdejmij sandały – droga do spotkania z Bogiem
@@ -4542,142 +3075,47 @@ Wstęp modlitewny dnia 203. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Przymierze odnowione w Sychem (Joz 24, 1–27)
-Etap 1 - Część 5 - Tajemnica 2 - Przymierze odnowione w Sychem
-(Joz 24, 1–27)
-Jozue zgromadził wszystkie pokolenia Izraela w Sychem.
-Zwołał starszych, przełożonych, sędziów i zwierzchników,
-i stanęli przed obliczem Boga.
+(Joz 24, 1–27) Jozue zgromadził wszystkie pokolenia Izraela w Sychem. Zwołał starszych, przełożonych, sędziów i zwierzchników, i stanęli przed obliczem Boga. I rzekł do ludu: „Tak mówi Pan, Bóg Izraela: Ojcowie wasi mieszkali po drugiej stronie rzeki, Terech, ojciec Abrahama i Nachora, i służyli bogom cudzym. Ja wziąłem Abrahama, waszego ojca, spoza rzeki i prowadziłem go przez całą ziemię Kanaan, pomnażając jego potomstwo. Wyprowadziłem waszych ojców z Egiptu, i przyszliście nad morze i Egipcjanie ścigali was rydwanami i jeźdźcami, ale Pan położył ciemność między wami a Egipcjanami, i morze ich okryło. Potem przyprowadziłem was do ziemi Amorytów i dałem wam ich ziemię. A teraz bójcie się Pana i służcie Mu w szczerości i prawdzie. Usuńcie bogów, którym służyli wasi ojcowie poza rzeką i w Egipcie, a służcie Panu. A jeśli wam się nie podoba służyć Panu, wybierzcie dziś, komu chcecie służyć: bogom, którym służyli wasi ojcowie, czy bogom Amorytów których ziemi mieszkacie. Lecz ja i mój dom będziemy służyć Panu.” Lud odpowiedział: „Panu, Bogu naszemu, będziemy służyć i Jego głosu będziemy słuchać.” Wtedy Jozue zawarł przymierze z ludem tego dnia i postawił wielki kamień pod dębem w Sychem, mówiąc: „Oto kamień ten będzie świadkiem przeciwko wam, bo on słyszał wszystkie słowa, które Pan wypowiedział do nas.”
 
-I rzekł do ludu:
-„Tak mówi Pan, Bóg Izraela:
-Ojcowie wasi mieszkali po drugiej stronie rzeki,
-Terech, ojciec Abrahama i Nachora,
-i służyli bogom cudzym.
+Słowo Wyjaśnienia:
 
-Ja wziąłem Abrahama, waszego ojca, spoza rzeki
-i prowadziłem go przez całą ziemię Kanaan,
-pomnażając jego potomstwo.
+Sychem to serce przymierza miejsce, gdzie historia Izraela zatacza krąg. Tam Abraham po raz pierwszy usłyszał obietnicę, tam Jozue ją potwierdza wobec nowego pokolenia. To moment, gdy pamięć staje się wyborem, a wiara przestaje być dziedzictwem i staje się decyzją. Kamień który Jozue stawia pod dębem, to świadectwo, że słowa Boga są wieczne, a człowiek, który je przyjmuje, wchodzi w ich moc. Każde serce ma swoje Sychem — miejsce, w którym trzeba zdecydować czy naprawdę chce się służyć Bogu całym sobą.
 
-Wyprowadziłem waszych ojców z Egiptu,
-i przyszliście nad morze,
-i Egipcjanie ścigali was rydwanami i jeźdźcami,
-ale Pan położył ciemność między wami a Egipcjanami,
-i morze ich okryło.
+Trzy Wezwania do Działania:
 
-Potem przyprowadziłem was do ziemi Amorytów
-i dałem wam ich ziemię.
+1. Odnów swoje „tak” dla Boga. Powiedz jak Jozue: „Ja i mój dom będziemy służyć Panu.”
 
-A teraz bójcie się Pana i służcie Mu w szczerości i prawdzie.
-Usuńcie bogów, którym służyli wasi ojcowie poza rzeką i w Egipcie,
-a służcie Panu.
+2. Zachowuj pamięć o dziełach Boga. Każdy kamień przymierza w twoim życiu to świadectwo które warto ocalić.
 
-A jeśli wam się nie podoba służyć Panu,
-wybierzcie dziś, komu chcecie służyć:
-bogom, którym służyli wasi ojcowie,
-czy bogom Amorytów, w których ziemi mieszkacie.
+3. Nie zostawiaj wiary w przeszłości. Przymierze żyje tylko wtedy, gdy każdego dnia wybierasz Boga na nowo.
 
-Lecz ja i mój dom będziemy służyć Panu.”
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-Lud odpowiedział:
-„Panu, Bogu naszemu, będziemy służyć
-i Jego głosu będziemy słuchać.”
+dopowiedzeniami)
 
-Wtedy Jozue zawarł przymierze z ludem tego dnia
-i postawił wielki kamień pod dębem w Sychem,
-mówiąc:
-„Oto kamień ten będzie świadkiem przeciwko wam,
-bo on słyszał wszystkie słowa, które Pan wypowiedział do nas.”
-Sychem to serce przymierza — miejsce, gdzie historia Izraela zatacza krąg.
-Tam Abraham po raz pierwszy usłyszał obietnicę,
-tam Jozue ją potwierdza wobec nowego pokolenia.
-To moment, gdy pamięć staje się wyborem,
-a wiara przestaje być dziedzictwem i staje się decyzją.
-Kamień, który Jozue stawia pod dębem,
-to świadectwo, że słowa Boga są wieczne,
-a człowiek, który je przyjmuje, wchodzi w ich moc.
-Każde serce ma swoje Sychem — miejsce, w którym trzeba zdecydować,
-czy naprawdę chce się służyć Bogu całym sobą.
-Trzy Wezwania do Działania
-Odnów swoje „tak” dla Boga.
-Powiedz jak Jozue: „Ja i mój dom będziemy służyć Panu.”
-Zachowuj pamięć o dziełach Boga.
-Każdy kamień przymierza w twoim życiu to świadectwo, które warto ocalić.
-Nie zostawiaj wiary w przeszłości.
-Przymierze żyje tylko wtedy, gdy każdego dnia wybierasz Boga na nowo.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Jozue zgromadził cały Izrael w Sychem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Jozue zgromadził cały Izrael w Sychem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan przypomniał ludowi wszystkie swoje dzieła.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Izrael odrzucił cudzych bogów i wybrał Pana.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Jozue rzekł: „Ja i mój dom będziemy służyć Panu.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego lud odpowiedział: „Panu, Bogu naszemu, będziemy służyć.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Jozue zawarł przymierze w obecności Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan przypomniał ludowi wszystkie swoje dzieła. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego kamień w Sychem stał się świadkiem Bożych słów.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg przypomina, że wierność jest wyborem każdego dnia.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego lud zapisał słowa przymierza w księdze pamięci.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg sam jest wiernym świadkiem przymierza z człowiekiem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Izrael odrzucił cudzych bogów i wybrał Pana. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Jozue rzekł: „Ja i mój dom będziemy służyć Panu.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego lud odpowiedział: „Panu, Bogu naszemu będziemy służyć.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Jozue zawarł przymierze w obecności Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego kamień w Sychem stał się świadkiem Bożych słów. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg przypomina, że wierność jest wyborem każdego dnia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego lud zapisał słowa przymierza w księdze pamięci. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg sam jest wiernym świadkiem przymierza z człowiekiem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 21 (Cykl II - Dzień 21 z 175) - [14.04.2019] Między miłością a nicością
@@ -4833,118 +3271,47 @@ Wstęp modlitewny dnia 204. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Śmierć Jozuego i pamięć przymierza wśród ludu
-Etap 1 - Część 5 - Tajemnica 3 - Śmierć Jozuego i pamięć przymierza
-wśród ludu
-(Joz 24, 29–33; Sdz 2, 6–10)
-A gdy po tych wydarzeniach zmarł Jozue, syn Nuna, sługa Pana, mając sto
-dziesięć lat,
-pochowano go w granicach jego dziedzictwa, w Timnat-Serach na górze
-Efraima.
+(Joz 24, 29–33; Sdz 2, 6–10) A gdy po tych wydarzeniach zmarł Jozue, syn Nuna, sługa Pana, mając sto dziesięć lat, pochowano go w granicach jego dziedzictwa, w Timnat-Serach na górze Efraima. Izrael służył Panu przez wszystkie dni Jozuego i przez wszystkie dni starszych, którzy żyli po Jozuem, i którzy znali wszystkie dzieła Pana, jakie uczynił dla Izraela. Gdy całe to pokolenie przeminęło, powstało inne pokolenie, które nie znało Pana ani dzieł, które uczynił dla Izraela.
 
-Izrael służył Panu przez wszystkie dni Jozuego
-i przez wszystkie dni starszych, którzy żyli po Jozuem,
-i którzy znali wszystkie dzieła Pana, jakie uczynił dla Izraela.
+Słowo Wyjaśnienia:
 
-Gdy całe to pokolenie przeminęło,
-powstało inne pokolenie, które nie znało Pana
+To jedno z najcichszych, a zarazem najważniejszych zakończeń w Biblii. Nie ma triumfu, nie ma wojny ani cudów. Jest pogrzeb i cisza. Ale to cisza pamięci takiej, która przechowuje światło. Jozue odchodzi po spełnionej misji. Nie był prorokiem jak Mojżesz ani królem jak Dawid. Był sługą – tym, który wypełnił obietnicę, prowadząc lud do miejsca pokoju. Pokolenie Jozuego znało dzieła Pana, bo je widziało. Ale następne już nie. Pamięć o cudach musi być przekazywana inaczej wiara zanika w ciągu jednego pokolenia. Każdy z nas ma swoje Timnat-Serach — miejsce, w którym trzeba złożyć w Bogu swoje życie i dzieło, ufając, że kolejne serca poniosą dalej pamięć o Jego miłosierdziu.
 
-ani dzieł, które uczynił dla Izraela.
-To jedno z najcichszych, a zarazem najważniejszych zakończeń w Biblii.
-Nie ma triumfu, nie ma wojny ani cudów.
-Jest pogrzeb i cisza.
-Ale to cisza pamięci — takiej, która przechowuje światło.
-Jozue odchodzi po spełnionej misji.
-Nie był prorokiem jak Mojżesz ani królem jak Dawid.
-Był sługą – tym, który wypełnił obietnicę, prowadząc lud do miejsca pokoju.
-Pokolenie Jozuego znało dzieła Pana, bo je widziało.
-Ale następne już nie.
-Pamięć o cudach musi być przekazywana – inaczej wiara zanika w ciągu
-jednego pokolenia.
-Każdy z nas ma swoje Timnat-Serach — miejsce, w którym trzeba złożyć w
-Bogu swoje życie i dzieło, ufając, że kolejne serca poniosą dalej pamięć o
-Jego miłosierdziu.
-Trzy Wezwania do Działania
-Zostaw ślad swojej wiary.
-Niech twoje życie będzie kamieniem pamięci, który ktoś znajdzie i rozpozna
-Boga.
-Nie pozwól, by pamięć o Bożych dziełach zgasła.
-Opowiadaj, pisz, ucz, przekazuj — bo wiara rodzi się ze słuchania.
-Służ do końca.
-Jak Jozue — bez rozgłosu, w pokoju, do ostatniego dnia wierności.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Jozue wypełnił swoją misję do końca.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
+Trzy Wezwania do Działania:
 
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan dał Izraelowi pokój po wszystkich trudach wędrówki.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Izrael służył Panu przez wszystkie dni Jozuego.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego starsi Izraela zachowali pamięć o dziełach Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan sam był dziedzictwem swojego ludu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Jozue spoczął w ziemi pokoju na górze Efraima.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego lud Izraela nosił w sercu pamięć przymierza.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
+1. Zostaw ślad swojej wiary. Niech twoje życie będzie kamieniem pamięci, który ktoś znajdzie i rozpozna Boga.
 
-dla którego każde pokolenie jest wezwane, by poznać Pana na nowo.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wiara przechodzi z ojców na synów przez świadectwo życia.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego pokój Pana trwa w sercach tych, którzy pamiętają Jego słowa.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+2. Nie pozwól, by pamięć o Bożych dziełach zgasła. Opowiadaj, pisz, ucz, przekazuj — bo wiara rodzi się ze słuchania.
+
+3. Służ do końca. Jak Jozue — bez rozgłosu, w pokoju, do ostatniego dnia wierności.
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Jozue wypełnił swoją misję do końca. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Pan dał Izraelowi pokój po wszystkich trudach wędrówki. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Izrael służył Panu przez wszystkie dni Jozuego. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego starsi Izraela zachowali pamięć o dziełach Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan sam był dziedzictwem swojego ludu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Jozue spoczął w ziemi pokoju na górze Efraima. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego lud Izraela nosił w sercu pamięć przymierza. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus dla którego każde pokolenie jest wezwane, by poznać Pana na nowo. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wiara przechodzi z ojców na synów przez świadectwo życia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego pokój Pana trwa w sercach tych, którzy pamiętają Jego słowa. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 22 (Cykl II - Dzień 22 z 175) - [11.11.2020] Osiem żywiołów świata
@@ -5086,130 +3453,47 @@ Wstęp modlitewny dnia 205. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Odpoczynek ziemi i trwanie przymierza w nowym pokoleniu
-Etap 1 - Część 5 - Tajemnica 4 - Odpoczynek ziemi i trwanie przymierza w
-nowym pokoleniu
-(Sdz 2, 6–23; 3, 1–11)
-Gdy Jozue odprawił lud,
+(Sdz 2, 6–23; 3, 1–11) Gdy Jozue odprawił lud synowie Izraela udali się każdy do swojego dziedzictwa, aby objąć w posiadanie ziemię. Lud służył Panu przez wszystkie dni Jozuego i przez wszystkie dni starszych, którzy znali wszystkie dzieła Pana, jakie uczynił dla Izraela. Ale gdy powstało inne pokolenie po nich, które nie znało Pana ani dzieł, które uczynił, synowie Izraela zaczęli czynić to, co złe w oczach Pana. Wtedy zapłonął gniew Pana na Izraela, i oddał ich w ręce ciemięzców, którzy ich uciskali. Lecz Pan wzbudzał sędziów, którzy wybawiali ich z rąk tych, co ich gnębili. A gdy Pan wzbudzał im sędziego, był z tym sędzią i wybawiał lud przez wszystkie dni jego życia, bo Pan litował się nad ich jękami z powodu tych, którzy ich uciskali. A gdy sędzia umierał, lud znowu się psuł i gorzej jeszcze czynił niż ich ojcowie.
 
-synowie Izraela udali się każdy do swojego dziedzictwa,
-aby objąć w posiadanie ziemię.
+Słowo Wyjaśnienia:
 
-Lud służył Panu przez wszystkie dni Jozuego
-i przez wszystkie dni starszych,
-którzy znali wszystkie dzieła Pana, jakie uczynił dla Izraela.
+To jedno z najbardziej ludzkich miejsc w całej Biblii. Ziemia odpoczywa, ale serce człowieka nigdy nie może zasnąć. Pokój bez pamięci szybko zamienia się w samozadowolenie, a dobrobyt bez wdzięczności – w zapomnienie Boga. Pan jednak nie przestaje się litować. Za każdym razem, gdy lud odchodzi, Bóg go szuka. Za każdym razem, gdy człowiek upada, Bóg wzbudza kogoś, kto go podniesie. Sędziowie Izraela to nie politycy, lecz prorocy miłosierdzia — znaki, że Bóg nigdy nie odwraca twarzy od swojego ludu. W każdym pokoleniu Bóg wzbudza nowych świadków, bo Jego wierność jest silniejsza niż nasze zapomnienie.
 
-Ale gdy powstało inne pokolenie po nich,
-które nie znało Pana ani dzieł, które uczynił,
-synowie Izraela zaczęli czynić to, co złe w oczach Pana.
+Trzy Wezwania do Działania:
 
-Wtedy zapłonął gniew Pana na Izraela,
-i oddał ich w ręce ciemięzców,
-którzy ich uciskali.
+1. Nie trać pamięci o Bogu, gdy jest dobrze. Wierność sprawdza się nie w trudnościach, ale w pokoju.
 
-Lecz Pan wzbudzał sędziów,
-którzy wybawiali ich z rąk tych, co ich gnębili.
+2. Stań się świadkiem dla swojego pokolenia. Może właśnie ciebie Bóg chce wzbudzić, by przypomnieć Jego miłość.
 
-A gdy Pan wzbudzał im sędziego,
-był z tym sędzią i wybawiał lud przez wszystkie dni jego życia,
-bo Pan litował się nad ich jękami
-z powodu tych, którzy ich uciskali.
+3. Zaufaj Bożej cierpliwości. On nigdy nie rezygnuje — nawet, gdy człowiek odchodzi po raz setny.
 
-A gdy sędzia umierał,
-lud znowu się psuł i gorzej jeszcze czynił niż ich ojcowie.
-To jedno z najbardziej ludzkich miejsc w całej Biblii.
-Ziemia odpoczywa, ale serce człowieka nigdy nie może zasnąć.
-Pokój bez pamięci szybko zamienia się w samozadowolenie,
-a dobrobyt bez wdzięczności – w zapomnienie Boga.
-Pan jednak nie przestaje się litować.
-Za każdym razem, gdy lud odchodzi, Bóg go szuka.
-Za każdym razem, gdy człowiek upada, Bóg wzbudza kogoś, kto go
-podniesie.
-Sędziowie Izraela to nie politycy, lecz prorocy miłosierdzia —
-znaki, że Bóg nigdy nie odwraca twarzy od swojego ludu.
-W każdym pokoleniu Bóg wzbudza nowych świadków,
-bo Jego wierność jest silniejsza niż nasze zapomnienie.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-Trzy Wezwania do Działania
-Nie trać pamięci o Bogu, gdy jest dobrze.
-Wierność sprawdza się nie w trudnościach, ale w pokoju.
-Stań się świadkiem dla swojego pokolenia.
-Może właśnie ciebie Bóg chce wzbudzić, by przypomnieć Jego miłość.
-Zaufaj Bożej cierpliwości.
-On nigdy nie rezygnuje — nawet, gdy człowiek odchodzi po raz setny.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego ziemia Izraela zaznała odpoczynku po wędrówkach.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego lud służył Panu przez wszystkie dni Jozuego.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego nowe pokolenie zapomniało dzieł Pana.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan oddał lud w ręce ciemięzców, by ich oczy się otworzyły.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
+dopowiedzeniami)
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg wzbudzał sędziów, by wybawiali Izraela.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan litował się nad jękami swojego ludu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg pozostaje wierny mimo ludzkiego upadku.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego każde nowe pokolenie jest wezwane do nawrócenia.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan cierpliwie szuka swoich dzieci.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Boże miłosierdzie jest większe niż ludzka niewierność.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego ziemia Izraela zaznała odpoczynku po wędrówkach. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego lud służył Panu przez wszystkie dni Jozuego. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego nowe pokolenie zapomniało dzieł Pana. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan oddał lud w ręce ciemięzców, by ich oczy się otworzyły. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg wzbudzał sędziów, by wybawiali Izraela. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan litował się nad jękami swojego ludu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg pozostaje wierny mimo ludzkiego upadku. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego każde nowe pokolenie jest wezwane do nawrócenia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan cierpliwie szuka swoich dzieci. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Boże miłosierdzie jest większe niż ludzka niewierność. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 23 (Cykl II - Dzień 23 z 175) - [08.01.2021] Gdy Bóg wyprowadza dobro ze zła
@@ -5369,115 +3653,47 @@ Wstęp modlitewny dnia 206. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Ostatnie słowa Tory: Wierność Boga i nadzieja Izraela
-Etap 1 - Część 5 - Tajemnica 5 - Ostatnie słowa Tory: Wierność Boga i
-nadzieja Izraela
-(Sdz 3, 11–31; Ps 105, 1–10)
-I miał kraj pokój przez czterdzieści lat, dopóki żył Otniel, syn Kenaza.
+(Sdz 3, 11–31; Ps 105, 1–10) I miał kraj pokój przez czterdzieści lat, dopóki żył Otniel, syn Kenaza. Potem synowie Izraela znowu czynili to, co złe w oczach Pana. Lecz Pan wzbudził im wybawców: Ehuda, syna Gery, i Samgara syna Anat, którzy wybawili Izraela z ręki jego wrogów. I śpiewali pieśń nową Panu, mówiąc „Wspominajcie cuda Jego, głoście wśród ludów Jego dzieła! On pamięta na wieki swoje przymierze, słowo, które dał tysiącom pokoleń, przymierze, które zawarł z Abrahamem, i przysięgę, którą złożył Izaakowi.”
 
-Potem synowie Izraela znowu czynili to, co złe w oczach Pana.
+Słowo Wyjaśnienia:
 
-Lecz Pan wzbudził im wybawców: Ehuda, syna Gery, i Samgara, syna Anat,
-którzy wybawili Izraela z ręki jego wrogów.
+Tora kończy się nie na śmierci Mojżesza, ale na pieśni. Bo tam, gdzie człowiek upada, Bóg śpiewa dalej. Wierność Boga nie zależy od doskonałości człowieka, lecz od Jego samego od miłości, która nie zna odwrotu. Każdy upadek Izraela staje się okazją, by Bóg objawił miłosierdzie. Każdy powrót człowieka staje się nowym początkiem przymierza. Psalm 105 jest echem Tory: przypomnieniem, że to, co Bóg obiecał Abrahamowi, trwa w każdym pokoleniu – aż do nas. Bo Bóg, który stworzył świat słowem, zakończył Torę obietnicą, że Jego słowo nie przeminie.
 
-I śpiewali pieśń nową Panu, mówiąc:
+Trzy Wezwania do Działania:
 
-„Wspominajcie cuda Jego,
-głoście wśród ludów Jego dzieła!
-On pamięta na wieki swoje przymierze,
-słowo, które dał tysiącom pokoleń,
-przymierze, które zawarł z Abrahamem,
-i przysięgę, którą złożył Izaakowi.”
-Tora kończy się nie na śmierci Mojżesza, ale na pieśni.
-Bo tam, gdzie człowiek upada, Bóg śpiewa dalej.
-Wierność Boga nie zależy od doskonałości człowieka,
-lecz od Jego samego — od miłości, która nie zna odwrotu.
-Każdy upadek Izraela staje się okazją, by Bóg objawił miłosierdzie.
-Każdy powrót człowieka staje się nowym początkiem przymierza.
-Psalm 105 jest echem Tory: przypomnieniem, że to, co Bóg obiecał
-Abrahamowi, trwa w każdym pokoleniu – aż do nas.
-Bo Bóg, który stworzył świat słowem, zakończył Torę obietnicą, że Jego
-słowo nie przeminie.
-Trzy Wezwania do Działania
-Wspominaj Boże cuda.
-Niech wdzięczność będzie twoją pieśnią – codziennym psalmem pamięci.
-Nie zniechęcaj się upadkami.
-Każdy powrót do Boga jest nowym początkiem historii zbawienia.
-Zaufaj, że Boża obietnica trwa.
-Wierność Boga jest mocniejsza niż ludzkie błędy i dłuższa niż czas.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+1. Wspominaj Boże cuda. Niech wdzięczność będzie twoją pieśnią – codziennym psalmem pamięci.
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan dał ziemi pokój przez czterdzieści lat.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg wzbudzał wybawców, by ratowali swój lud.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego lud śpiewał nową pieśń Panu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan pamięta na wieki swoje przymierze.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg dochowuje przysięgi złożonej Abrahamowi.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego każde pokolenie jest świadkiem wierności Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
+2. Nie zniechęcaj się upadkami. Każdy powrót do Boga jest nowym początkiem historii zbawienia.
 
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Boże słowo trwa przez tysiące pokoleń.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg nigdy nie odwraca się od swojego ludu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego miłosierdzie Pana trwa na wieki.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Boże przymierze nigdy nie przestaje działać.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+3. Zaufaj, że Boża obietnica trwa. Wierność Boga jest mocniejsza niż ludzkie błędy i dłuższa niż czas.
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan dał ziemi pokój przez czterdzieści lat. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg wzbudzał wybawców, by ratowali swój lud. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego lud śpiewał nową pieśń Panu. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan pamięta na wieki swoje przymierze. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg dochowuje przysięgi złożonej Abrahamowi. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego każde pokolenie jest świadkiem wierności Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Boże słowo trwa przez tysiące pokoleń. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg nigdy nie odwraca się od swojego ludu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego miłosierdzie Pana trwa na wieki. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Boże przymierze nigdy nie przestaje działać. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 24 (Cykl II - Dzień 24 z 175) - [03.03.2024] Trzy lata pustyni i drzewo życia
@@ -5701,129 +3917,45 @@ Wstęp modlitewny dnia 207. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Powołanie Samuela (1 Sm 3, 1–10)
-Etap 2 - Część 1 - Tajemnica 1 - Powołanie Samuela
-(1 Sm 3, 1–10)
-Chłopiec Samuel służył Panu pod okiem Helego.
+(1 Sm 3, 1–10) Chłopiec Samuel służył Panu pod okiem Helego. W owych dniach słowo Pana było rzadkie, widzenia nie były częste. Pewnej nocy Heli spał na swoim miejscu, a oczy jego zaczęły już słabnąć, tak że nie mógł widzieć. Lampa Boża jeszcze nie zgasła Samuel spał w przybytku Pańskim, gdzie znajdowała się Arka Boża. I zawołał Pan: „Samuelu!” A on odpowiedział: „Oto jestem!” I pobiegł do Helego, mówiąc: „Oto jestem, boś mnie wołał.” Ale Heli rzekł: „Nie wołałem, wróć i śpij.” I Pan zawołał po raz drugi, i po raz trzeci. Wtedy Heli zrozumiał, że to Pan woła chłopca. Rzekł więc Heli do Samuela: „Idź, połóż się; a gdy cię zawoła powiedz: Mów, Panie, bo sługa Twój słucha.” I przyszedł Pan, stanął i zawołał jak poprzednio: „Samuelu!” A Samuel odpowiedział: „Mów, Panie, bo sługa Twój słucha.”
 
-W owych dniach słowo Pana było rzadkie, widzenia nie były częste.
+Słowo Wyjaśnienia:
 
-Pewnej nocy Heli spał na swoim miejscu,
-a oczy jego zaczęły już słabnąć, tak że nie mógł widzieć.
-Lampa Boża jeszcze nie zgasła,
-a Samuel spał w przybytku Pańskim, gdzie znajdowała się Arka Boża.
+To opowieść o ciszy, która staje się modlitwą. Kiedy głosy świata ucichły, Bóg przemówił szeptem. I usłyszał Go chłopiec, nie prorok ani król. Bóg wybiera serca czyste i uważne, takie, które potrafią usłyszeć Jego imię wypowiedziane po cichu. Samuel nie rozumie od razu — potrzebuje pomocy Helego, starego kapłana. Tak samo każdy z nas potrzebuje przewodnika, który pomoże rozpoznać, że to Pan mówi. To nie wiek, lecz gotowość czyni człowieka prorokiem. Słuchanie Boga zaczyna się od prostych słów: „Oto jestem.” Trzy Wezwania do Działania
 
-I zawołał Pan: „Samuelu!”
-A on odpowiedział: „Oto jestem!”
-I pobiegł do Helego, mówiąc: „Oto jestem, boś mnie wołał.”
+1. Znajdź ciszę. Bóg nie krzyczy — przemawia w miejscach, gdzie lampa jeszcze się tli.
 
-Ale Heli rzekł: „Nie wołałem, wróć i śpij.”
+2. Powiedz: „Oto jestem”. To najprostsze i najodważniejsze słowo wiary.
 
-I Pan zawołał po raz drugi, i po raz trzeci.
-Wtedy Heli zrozumiał, że to Pan woła chłopca.
+3. Pomóż innym rozpoznać głos Boga. Jak Heli wobec Samuela — naucz innych słuchać, nie tylko mówić.
 
-Rzekł więc Heli do Samuela:
-„Idź, połóż się; a gdy cię zawoła, powiedz:
-Mów, Panie, bo sługa Twój słucha.”
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-I przyszedł Pan, stanął i zawołał jak poprzednio:
-„Samuelu, Samuelu!”
+dopowiedzeniami)
 
-A Samuel odpowiedział:
-„Mów, Panie, bo sługa Twój słucha.”
-To opowieść o ciszy, która staje się modlitwą.
-Kiedy głosy świata ucichły, Bóg przemówił szeptem.
-I usłyszał Go chłopiec, nie prorok ani król.
-Bóg wybiera serca czyste i uważne,
-takie, które potrafią usłyszeć Jego imię wypowiedziane po cichu.
-Samuel nie rozumie od razu — potrzebuje pomocy Helego, starego kapłana.
-Tak samo każdy z nas potrzebuje przewodnika,
-który pomoże rozpoznać, że to Pan mówi.
-To nie wiek, lecz gotowość czyni człowieka prorokiem.
-Słuchanie Boga zaczyna się od prostych słów:
-„Oto jestem.”
-Trzy Wezwania do Działania
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan przemówił w ciszy nocy do chłopca Samuela. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Znajdź ciszę.
-Bóg nie krzyczy — przemawia w miejscach, gdzie lampa jeszcze się tli.
-Powiedz: „Oto jestem”.
-To najprostsze i najodważniejsze słowo wiary.
-Pomóż innym rozpoznać głos Boga.
-Jak Heli wobec Samuela — naucz innych słuchać, nie tylko mówić.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan przemówił w ciszy nocy do chłopca Samuela.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego słowo Pana obudziło uśpione serca Izraela.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Heli nauczył Samuela mówić: „Mów, Panie, bo sługa Twój
-słucha.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego lampa Boża nie zgasła w przybytku Pana.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego słowo Pana obudziło uśpione serca Izraela. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg przemawia do serc pokornych.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Samuel rozpoznał w głosie Boga swoje powołanie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego słowo Pana rozbłysło jak światło w mroku.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg znalazł w dziecku serce gotowe słuchać.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego cisza stała się początkiem proroctwa.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Samuel odpowiedział: „Mów, Panie, bo sługa Twój słucha.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Heli nauczył Samuela mówić: „Mów, Panie bo sługa Twój słucha.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego lampa Boża nie zgasła w przybytku Pana. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg przemawia do serc pokornych. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Samuel rozpoznał w głosie Boga swoje powołanie. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego słowo Pana rozbłysło jak światło w mroku. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg znalazł w dziecku serce gotowe słuchać. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego cisza stała się początkiem proroctwa. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Samuel odpowiedział: „Mów, Panie, bo sługa Twój słucha.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 25 (Cykl II - Dzień 25 z 175) - [17.11.2024] Drzewo życia
@@ -5943,132 +4075,47 @@ Wstęp modlitewny dnia 208. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Upadek Helego i narodziny prorockiego słowa
-Etap 2 - Część 1 - Tajemnica 2 - Upadek Helego i narodziny prorockiego
-słowa
-(1 Sm 2, 12–36; 4, 10–22)
-Synowie Helego byli ludźmi niegodziwymi;
-nie znali Pana ani praw kapłańskich wobec ludu.
+(1 Sm 2, 12–36; 4, 10–22) Synowie Helego byli ludźmi niegodziwymi; nie znali Pana ani praw kapłańskich wobec ludu. Brali dla siebie z ofiar, które należały do Boga, gardząc tym, co święte. Wtedy wysłał Bóg do Helego człowieka Bożego i rzekł: „Dlaczego czcisz swoich synów bardziej niż Mnie, i tuczycie się z najlepszych części ofiar mojego ludu? Dlatego powiadam: Odbiorę kapłaństwo twojemu domowi i wzbudzę sobie kapłana wiernego, który będzie postępował według mojego serca i mojej woli.” I spełniło się to słowo: Izrael został pobity przez Filistynów, Arka Boża została zabrana, a dwaj synowie Helego zginęli w bitwie. Gdy wieść o tym doszła do Helego, padł z krzesła i umarł, bo był stary i ciężki. A synowa jego, żona Pinchasa, rodząc w bólu, rzekła: „Odeszła chwała od Izraela, bo zabrano Arkę Bożą.”
 
-Brali dla siebie z ofiar, które należały do Boga,
-gardząc tym, co święte.
+Słowo Wyjaśnienia:
 
-Wtedy wysłał Bóg do Helego człowieka Bożego i rzekł:
-„Dlaczego czcisz swoich synów bardziej niż Mnie,
-i tuczycie się z najlepszych części ofiar mojego ludu?
+To dramat, który staje się początkiem oczyszczenia. Nie dlatego, że Bóg karze, lecz dlatego, że nie pozwala, by świętość stała się pustym rytuałem. Hofni i Pinchas — synowie Helego — wykorzystują wiarę do własnych celów. Świątynia, zamiast być miejscem światła, staje się miejscem ciemności. A jednak Bóg nie milczy. Upadek starego kapłaństwa staje się przestrzenią dla nowego słowa. Samuel dorasta, słuchając w ciszy tego, co Heli przestał rozumieć. Kiedy lampa gasła, Bóg zapalił ją na nowo — w sercu dziecka. Bóg nigdy nie pozwala, by Jego obecność zginęła z ludzką słabością. Arka może być zabrana, ale chwała powraca w słowie, które trwa.
 
-Dlatego powiadam:
-Odbiorę kapłaństwo twojemu domowi,
-i wzbudzę sobie kapłana wiernego,
-który będzie postępował według mojego serca i mojej woli.”
+Trzy Wezwania do Działania:
 
-I spełniło się to słowo:
-Izrael został pobity przez Filistynów,
-Arka Boża została zabrana,
-a dwaj synowie Helego zginęli w bitwie.
+1. Nie czcij niczego bardziej niż Boga. Nawet święte rzeczy stają się bałwanami, jeśli zasłaniają Jego obecność.
 
-Gdy wieść o tym doszła do Helego,
-padł z krzesła i umarł,
-bo był stary i ciężki.
+2. Nie bój się, gdy upada stare. Czasem trzeba, by coś się skończyło, by mogło narodzić się prawdziwe światło.
 
-A synowa jego, żona Pinchasa, rodząc w bólu, rzekła:
-„Odeszła chwała od Izraela,
-bo zabrano Arkę Bożą.”
-To dramat, który staje się początkiem oczyszczenia.
-Nie dlatego, że Bóg karze, lecz dlatego, że nie pozwala, by świętość stała
-się pustym rytuałem.
-Hofni i Pinchas — synowie Helego — wykorzystują wiarę do własnych
-celów.
-Świątynia, zamiast być miejscem światła, staje się miejscem ciemności.
-A jednak Bóg nie milczy.
-Upadek starego kapłaństwa staje się przestrzenią dla nowego słowa.
-Samuel dorasta, słuchając w ciszy tego, co Heli przestał rozumieć.
-Kiedy lampa gasła, Bóg zapalił ją na nowo — w sercu dziecka.
-Bóg nigdy nie pozwala, by Jego obecność zginęła z ludzką słabością.
-Arka może być zabrana, ale chwała powraca w słowie, które trwa.
-Trzy Wezwania do Działania
+3. Stań się miejscem, gdzie Bóg może mówić. Niech twoje serce stanie się Arką Jego Słowa.
 
-Nie czcij niczego bardziej niż Boga.
-Nawet święte rzeczy stają się bałwanami, jeśli zasłaniają Jego obecność.
-Nie bój się, gdy upada stare.
-Czasem trzeba, by coś się skończyło, by mogło narodzić się prawdziwe
-światło.
-Stań się miejscem, gdzie Bóg może mówić.
-Niech twoje serce stanie się Arką Jego Słowa.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg odjął kapłaństwo od domu Helego.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego synowie Helego zginęli, bo znieważyli świętość.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Arka Boża została zabrana, a lud zrozumiał swój grzech.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg wzbudził wiernego kapłana według swego serca.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Samuel dorastał w obecności Pana, gdy inni milczeli.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Heli poznał w końcu prawdę o świętości Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg oczyścił Izraela przez ból i pokutę.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego chwała Pana odeszła, by narodziła się na nowo w słowie
-proroka.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego imię Samuela stało się znakiem nowego początku.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Boże Słowo zwycięża tam, gdzie upada człowiek.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
+dopowiedzeniami)
 
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg odjął kapłaństwo od domu Helego. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego synowie Helego zginęli, bo znieważyli świętość. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Arka Boża została zabrana, a lud zrozumiał swój grzech. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg wzbudził wiernego kapłana według swego serca. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Samuel dorastał w obecności Pana, gdy inni milczeli. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Heli poznał w końcu prawdę o świętości Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg oczyścił Izraela przez ból i pokutę. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego chwała Pana odeszła, by narodziła się na nowo w słowie proroka. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego imię Samuela stało się znakiem nowego początku. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Boże Słowo zwycięża tam, gdzie upada człowiek. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 26 (Cykl II - Dzień 26 z 175) - [18.01.2025] Obraz dziejów zbawienia
@@ -6300,147 +4347,47 @@ Wstęp modlitewny dnia 209. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Arka wśród Filistynów i powrót chwały Pana
-Etap 2 - Część 1 - Tajemnica 3 - Arka wśród Filistynów i powrót chwały
-Pana
-(1 Sm 5, 1–12; 6, 1–16; 7, 1–12)
-Filistyni zabrali Arkę Bożą i zanieśli ją z Eben-Haezer do Aszdodu.
-Wnieśli ją do świątyni Dagona i postawili obok jego posągu.
+(1 Sm 5, 1–12; 6, 1–16; 7, 1–12) Filistyni zabrali Arkę Bożą i zanieśli ją z Eben-Haezer do Aszdodu. Wnieśli ją do świątyni Dagona i postawili obok jego posągu. Nazajutrz, gdy mieszkańcy Aszdodu wstali rano, oto Dagon leżał twarzą do ziemi przed Arką Pana. I postawili Dagona z powrotem na swoim miejscu. Lecz następnego dnia znowu leżał Dagon twarzą ku ziemi przed Arką, a głowa jego i obie ręce były odcięte na progu. Wtedy mieszkańców Aszdodu ogarnął strach Boży. I rzekli: „Niech Arka Boga Izraela nie pozostaje u nas, bo Jego ręka ciężko naciska na nas i na naszego boga.” I wysłali ją do Gat, potem do Ekronu, ale w każdym mieście, dokąd przybyła Arka, Boża moc poruszała serca i sumienia. W końcu Filistyni zrozumieli: „Nie możemy zatrzymać Arki Boga Izraela.” Przygotowali więc nowy wóz i dwie krowy karmiące, które nigdy nie nosiły jarzma, i odesłali Arkę do Izraela. A gdy przybyła do Bet-Szemesz, lud Izraela wyszedł ją naprzeciw z radością. I Samuel rzekł: „Jeśli chcecie całym sercem nawrócić się do Pana usuńcie cudzych bogów i służcie tylko Jemu.” I zebrał Samuel cały Izrael w Mispa i modlił się za lud. Gdy Filistyni natarli, Pan zagrzmiał potężnym głosem i rozproszył ich. A Samuel wziął kamień i postawił go między Mispa a Sen, i nazwał go Eben-Haezer, mówiąc: „Aż dotąd wspomagał nas Pan.”
 
-Nazajutrz, gdy mieszkańcy Aszdodu wstali rano,
-oto Dagon leżał twarzą do ziemi przed Arką Pana.
+Słowo Wyjaśnienia:
 
-I postawili Dagona z powrotem na swoim miejscu.
+To historia, w której Bóg pokazuje, że Jego chwały nie da się zniewolić. Arka – znak Jego obecności – nie jest amuletem, który można przenieść jak trofeum. Kiedy zostaje zabrana, Bóg sam broni swojej świętości. W świątyni Dagona Bóg nie potrzebuje wojowników – wystarczy Jego obecność. Upadek posągu pokazuje, że żadne bóstwo ludzkie nie może stać obok Niego. Ale to nie triumf nad Filistynami jest najważniejszy, lecz powrót Arki do serca Izraela. Bo prawdziwa chwała Pana powraca tam, gdzie człowiek odrzuca bałwany i otwiera serce. Kamień Eben-Haezer staje się pomnikiem pamięci: „Aż dotąd wspomagał nas Pan.” To słowa, które warto powtarzać po każdym ocaleniu – małym czy wielkim.
 
-Lecz następnego dnia znowu leżał Dagon twarzą ku ziemi przed Arką,
-a głowa jego i obie ręce były odcięte na progu.
+Trzy Wezwania do Działania:
 
-Wtedy mieszkańców Aszdodu ogarnął strach Boży.
-I rzekli:
-„Niech Arka Boga Izraela nie pozostaje u nas,
-bo Jego ręka ciężko naciska na nas i na naszego boga.”
+1. Nie zatrzymuj Boga dla siebie. Jego obecność nie jest trofeum, ale dar, który przemienia serce.
 
-I wysłali ją do Gat, potem do Ekronu,
-ale w każdym mieście, dokąd przybyła Arka,
-Boża moc poruszała serca i sumienia.
+2. Zburz swoje bożki. Każdy Dagon w twoim życiu – to, co stawiasz obok Boga – musi upaść. Zbuduj swój Eben-Haezer.
 
-W końcu Filistyni zrozumieli:
-„Nie możemy zatrzymać Arki Boga Izraela.”
+3. Postaw w sercu kamień pamięci – znak, że Pan był i jest z tobą.
 
-Przygotowali więc nowy wóz i dwie krowy karmiące,
-które nigdy nie nosiły jarzma,
-i odesłali Arkę do Izraela.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-A gdy przybyła do Bet-Szemesz,
-lud Izraela wyszedł ją naprzeciw z radością.
+dopowiedzeniami)
 
-I Samuel rzekł:
-„Jeśli chcecie całym sercem nawrócić się do Pana,
-usuńcie cudzych bogów i służcie tylko Jemu.”
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Dagon padł twarzą przed Arką Pana. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-I zebrał Samuel cały Izrael w Mispa i modlił się za lud.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego chwała Boga objawiła się wśród cudzych bogów. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Gdy Filistyni natarli,
-Pan zagrzmiał potężnym głosem i rozproszył ich.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Filistyni poznali świętość Pana. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-A Samuel wziął kamień i postawił go między Mispa a Sen,
-i nazwał go Eben-Haezer, mówiąc:
-„Aż dotąd wspomagał nas Pan.”
-To historia, w której Bóg pokazuje, że Jego chwały nie da się zniewolić.
-Arka – znak Jego obecności – nie jest amuletem, który można przenieść
-jak trofeum.
-Kiedy zostaje zabrana, Bóg sam broni swojej świętości.
-W świątyni Dagona Bóg nie potrzebuje wojowników – wystarczy Jego
-obecność.
-Upadek posągu pokazuje, że żadne bóstwo ludzkie nie może stać obok
-Niego.
-Ale to nie triumf nad Filistynami jest najważniejszy,
-lecz powrót Arki do serca Izraela.
-Bo prawdziwa chwała Pana powraca tam, gdzie człowiek odrzuca bałwany i
-otwiera serce.
-Kamień Eben-Haezer staje się pomnikiem pamięci:
-„Aż dotąd wspomagał nas Pan.”
-To słowa, które warto powtarzać po każdym ocaleniu – małym czy wielkim.
-Trzy Wezwania do Działania
-Nie zatrzymuj Boga dla siebie.
-Jego obecność nie jest trofeum, ale dar, który przemienia serce.
-Zburz swoje bożki.
-Każdy Dagon w twoim życiu – to, co stawiasz obok Boga – musi upaść.
-Zbuduj swój Eben-Haezer.
-Postaw w sercu kamień pamięci – znak, że Pan był i jest z tobą.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Arka wróciła do Izraela na wozie pokory. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Dagon padł twarzą przed Arką Pana.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego chwała Boga objawiła się wśród cudzych bogów.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Filistyni poznali świętość Pana.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Arka wróciła do Izraela na wozie pokory.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego lud Bet-Szemesz wyszedł naprzeciw Panu z radością.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Samuel zawołał: „Służcie tylko Panu.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego lud Bet-Szemesz wyszedł naprzeciw Panu z radością. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan zagrzmiał nad Filistynami i wybawił swój lud.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Samuel postawił kamień Eben-Haezer.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego lud wyznał: „Aż dotąd wspomagał nas Pan.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Boża chwała wraca zawsze tam, gdzie jest czyste serce.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Samuel zawołał: „Służcie tylko Panu.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Pan zagrzmiał nad Filistynami i wybawił swój lud. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Samuel postawił kamień Eben-Haezer. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego lud wyznał: „Aż dotąd wspomagał nas Pan.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Boża chwała wraca zawsze tam, gdzie jest czyste serce. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 27 (Cykl II - Dzień 27 z 175) - [18.01.2025] Krew Chrystusa – znak Nowego Przymierza
@@ -6518,144 +4465,47 @@ Wstęp modlitewny dnia 210. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Samuel jako sędzia i modlitwa o króla (1 Sm 8, 1–22)
-Etap 2 - Część 1 - Tajemnica 4 - Samuel jako sędzia i modlitwa o króla
-(1 Sm 8, 1–22)
-Gdy Samuel się zestarzał, ustanowił swoich synów sędziami nad Izraelem.
+(1 Sm 8, 1–22) Gdy Samuel się zestarzał, ustanowił swoich synów sędziami nad Izraelem. Ale synowie jego nie chodzili jego drogami. Skłaniali się ku zyskowi, brali podarki i naginali prawo. Wtedy zebrali się wszyscy starsi Izraela i przyszli do Samuela do Ramy, i rzekli mu: „Oto ty się zestarzałeś, a twoi synowie nie postępują jak ty. Ustanów więc nad nami króla, aby nami rządził tak jak to mają wszystkie narody.” Nie spodobało się Samuelowi to słowo. I modlił się do Pana. A Pan rzekł do Samuela: „Wysłuchaj głosu ludu we wszystkim, co ci mówią, bo nie ciebie odrzucili, lecz Mnie odrzucili, abym nie królował nad nimi. Ty ich jednak poucz i ostrzeż, i pokaż im, jak będzie postępował król, który nad nimi będzie panował.” I mówił Samuel ludowi: „Synów waszych weźmie, aby służyli jego rydwanom, a córek waszych, aby mu gotowały i piekły. Najlepsze wasze pola i winnice weźmie, a dziesięcinę z waszych plonów oddacie jego sługom. Wtedy będziecie wołać z powodu króla, którego sami sobie wybierzecie, lecz Pan was nie wysłucha w owym dniu.” Ale lud nie chciał słuchać słów Samuela i rzekł: „Nie! Będzie król nad nami! I będziemy jak wszystkie narody.” I rzekł Pan do Samuela: „Wysłuchaj ich i ustanów im króla.”
 
-Ale synowie jego nie chodzili jego drogami.
-Skłaniali się ku zyskowi, brali podarki i naginali prawo.
+Słowo Wyjaśnienia:
 
-Wtedy zebrali się wszyscy starsi Izraela i przyszli do Samuela do Ramy,
-i rzekli mu:
-„Oto ty się zestarzałeś, a twoi synowie nie postępują jak ty.
-Ustanów więc nad nami króla, aby nami rządził,
+To historia o zawodzie i nadziei. Samuel czuje się odrzucony — po latach wierności lud wybiera coś, co wygląda silniej, ale w istocie jest słabsze. Ale Bóg tłumaczy prorokowi: „Nie ciebie odrzucili lecz Mnie.” W tych słowach kryje się głęboka pedagogika Boga. Pozwala człowiekowi doświadczyć skutków jego wyborów, by nauczył się tęsknić za prawdziwym Królem. Izrael chce „być jak inne narody” — a przecież jego powołaniem było być świętym narodem, innym niż wszystkie. Bóg jednak nie przekreśla swego ludu; przemienia nawet jego błędne pragnienia w część swojej historii. Z tej prośby o króla narodzi się w przyszłości Dawid — i przez Dawida, Mesjasz.
 
-tak jak to mają wszystkie narody.”
+Trzy Wezwania do Działania:
 
-Nie spodobało się Samuelowi to słowo.
-I modlił się do Pana.
+1. Nie bój się być inny. Świętość to nie izolacja, lecz odwaga, by nie kopiować świata.
 
-A Pan rzekł do Samuela:
-„Wysłuchaj głosu ludu we wszystkim, co ci mówią,
-bo nie ciebie odrzucili, lecz Mnie odrzucili,
-abym nie królował nad nimi.
+2. Słuchaj nawet wtedy, gdy boli. Samuel słuchał ludu, choć jego serce było zranione. Tak rodzi się dojrzałość proroka.
 
-Ty ich jednak poucz i ostrzeż,
-i pokaż im, jak będzie postępował król, który nad nimi będzie panował.”
+3. Ufaj, że Bóg potrafi pisać prosto po krzywych liniach. Nawet z ludzkich błędów może zrodzić się coświętego.
 
-I mówił Samuel ludowi:
-„Synów waszych weźmie, aby służyli jego rydwanom,
-a córek waszych, aby mu gotowały i piekły.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-Najlepsze wasze pola i winnice weźmie,
-a dziesięcinę z waszych plonów oddacie jego sługom.
+dopowiedzeniami)
 
-Wtedy będziecie wołać z powodu króla,
-którego sami sobie wybierzecie,
-lecz Pan was nie wysłucha w owym dniu.”
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Samuel słuchał głosu ludu, choć jego serce było zranione. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Ale lud nie chciał słuchać słów Samuela i rzekł:
-„Nie! Będzie król nad nami!
-I będziemy jak wszystkie narody.”
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg powiedział: „Nie ciebie odrzucili, lecz Mnie.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-I rzekł Pan do Samuela:
-„Wysłuchaj ich i ustanów im króla.”
-To historia o zawodzie i nadziei.
-Samuel czuje się odrzucony — po latach wierności lud wybiera coś, co
-wygląda silniej, ale w istocie jest słabsze.
-Ale Bóg tłumaczy prorokowi: „Nie ciebie odrzucili, lecz Mnie.”
-W tych słowach kryje się głęboka pedagogika Boga.
-Pozwala człowiekowi doświadczyć skutków jego wyborów,
-by nauczył się tęsknić za prawdziwym Królem.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego lud zapragnął króla jak wszystkie narody. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Izrael chce „być jak inne narody” — a przecież jego powołaniem było być
-świętym narodem, innym niż wszystkie.
-Bóg jednak nie przekreśla swego ludu; przemienia nawet jego błędne
-pragnienia w część swojej historii.
-Z tej prośby o króla narodzi się w przyszłości Dawid — i przez Dawida,
-Mesjasz.
-Trzy Wezwania do Działania
-Nie bój się być inny.
-Świętość to nie izolacja, lecz odwaga, by nie kopiować świata.
-Słuchaj nawet wtedy, gdy boli.
-Samuel słuchał ludu, choć jego serce było zranione. Tak rodzi się
-dojrzałość proroka.
-Ufaj, że Bóg potrafi pisać prosto po krzywych liniach.
-Nawet z ludzkich błędów może zrodzić się coś świętego.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Samuel słuchał głosu ludu, choć jego serce było zranione.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg powiedział: „Nie ciebie odrzucili, lecz Mnie.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego lud zapragnął króla jak wszystkie narody.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan pouczył lud o ciężarze ludzkiej władzy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan pouczył lud o ciężarze ludzkiej władzy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg pozwolił, by człowiek poznał granice swoich pragnień.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Samuel pozostał wierny, nawet gdy został odrzucony.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg z ludzkiej słabości uczynił początek królewskiego planu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wiara Samuela pozostała światłem pośród buntu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg nadal był Królem Izraela mimo ludzkich wyborów.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg pozwolił, by człowiek poznał granice swoich pragnień. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego nadzieja ludu spełni się dopiero w Królu-Mesjaszu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Samuel pozostał wierny, nawet gdy został odrzucony. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg z ludzkiej słabości uczynił początek królewskiego planu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wiara Samuela pozostała światłem pośród buntu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg nadal był Królem Izraela mimo ludzkich wyborów. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego nadzieja ludu spełni się dopiero w Królu-Mesjaszu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 28 (Cykl II - Dzień 28 z 175) - [14.04.2019] Równowaga dobra i zła
@@ -6747,136 +4597,47 @@ Wstęp modlitewny dnia 211. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Namaszczenie Saula na króla Izraela (1 Sm 9, 1–27; 10, 1–9)
-Etap 2 - Część 1 - Tajemnica 5 - Namaszczenie Saula na króla Izraela
-(1 Sm 9, 1–27; 10, 1–9)
-Był pewien mąż z pokolenia Beniamina, imieniem Kis, człowiek zamożny.
-Miał syna imieniem Saul, młodzieńca pięknego i rosłego;
-nie było wśród Izraelitów piękniejszego od niego.
+(1 Sm 9, 1–27; 10, 1–9) Był pewien mąż z pokolenia Beniamina imieniem Kis, człowiek zamożny. Miał syna imieniem Saul młodzieńca pięknego i rosłego; nie było wśród Izraelitów piękniejszego od niego. Pewnego dnia zgubiły się oślice Kisa, ojca Saula. Rzekł więc Kis do swego syna: „Weź jednego z chłopców i idź, szukaj oślic.” Szli więc przez góry Efraima, przez ziemię Szalisza, lecz oślic nie znaleźli. Wtedy sługa rzekł do Saula: „W tym mieście jest człowiek Boży bardzo poważany; wszystko, co mówi, sprawdza się. Chodźmy tam.” Saul poszedł więc do Samuela. A Pan objawił Samuelowi dzień wcześniej: „Jutro o tym czasie poślę do ciebie męża z ziemi Beniamina; tego namaścisz na wodza nad moim ludem Izraelem. On wybawi mój lud z ręki Filistynów.” Gdy Samuel ujrzał Saula, Pan rzekł do niego: „Oto mąż, o którym ci mówiłem. Ten będzie panował nad moim ludem.” Wziął więc Samuel flakonik z olejem, wylał na głowę Saula pocałował go i rzekł: „Czyż nie namaścił cię Pan na wodza swojego dziedzictwa? Wtedy Duch Pana ogarnął Saula i przemienił się w innego człowieka.”
 
-Pewnego dnia zgubiły się oślice Kisa, ojca Saula.
-Rzekł więc Kis do swego syna:
-„Weź jednego z chłopców i idź, szukaj oślic.”
+Słowo Wyjaśnienia:
 
-Szli więc przez góry Efraima, przez ziemię Szalisza,
-lecz oślic nie znaleźli.
+To historia powołania, które zaczyna się od zgubionych oślic — zwykłej, codziennej troski. Bóg wchodzi w prozę życia, by przygotować coś niezwykłego. Saul nie szukał władzy — szukał posłuszeństwa. I w tym poszukiwaniu spotyka proroka. Samuel rozpoznaje wybrańca nie po sile, ale po sercu które jeszcze potrafi słuchać. Namaszczenie nie czyni z Saula bohatera — czyni go sługą. Duch Pana przemienia go, ale nie zniewala: pozostawia wolność, by mógł wybrać dobro. To pierwsze namaszczenie królewskie w historii Izraela — cień przyszłego Mesjasza. Bo każdy król ma być zapowiedzią Tego który przyjdzie, by panować przez miłość.
 
-Wtedy sługa rzekł do Saula:
-„W tym mieście jest człowiek Boży, bardzo poważany;
-wszystko, co mówi, sprawdza się. Chodźmy tam.”
+Trzy Wezwania do Działania:
 
-Saul poszedł więc do Samuela.
+1. Zaufaj Bogu w małych sprawach. Zgubione oślice mogą być początkiem drogi, którą prowadzi Opatrzność.
 
-A Pan objawił Samuelowi dzień wcześniej:
-„Jutro o tym czasie poślę do ciebie męża z ziemi Beniamina;
-tego namaścisz na wodza nad moim ludem Izraelem.
-On wybawi mój lud z ręki Filistynów.”
+2. Szukaj proroków codzienności. Bóg często mówi przez ludzi skromnych, lecz napełnionych Jego duchem.
 
-Gdy Samuel ujrzał Saula, Pan rzekł do niego:
-„Oto mąż, o którym ci mówiłem.
-Ten będzie panował nad moim ludem.”
+3. Pozwól Duchowi cię przemienić. Namaszczenie to nie przywilej to wezwanie do służby.
 
-Wziął więc Samuel flakonik z olejem,
-wylał na głowę Saula,
-pocałował go i rzekł:
-„Czyż nie namaścił cię Pan na wodza swojego dziedzictwa?
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-Wtedy Duch Pana ogarnął Saula
-i przemienił się w innego człowieka.”
-To historia powołania, które zaczyna się od zgubionych oślic — zwykłej,
-codziennej troski.
-Bóg wchodzi w prozę życia, by przygotować coś niezwykłego.
-Saul nie szukał władzy — szukał posłuszeństwa. I w tym poszukiwaniu
-spotyka proroka.
-Samuel rozpoznaje wybrańca nie po sile, ale po sercu, które jeszcze potrafi
-słuchać.
-Namaszczenie nie czyni z Saula bohatera — czyni go sługą.
-Duch Pana przemienia go, ale nie zniewala: pozostawia wolność, by mógł
-wybrać dobro.
-To pierwsze namaszczenie królewskie w historii Izraela — cień przyszłego
-Mesjasza.
-Bo każdy król ma być zapowiedzią Tego, który przyjdzie, by panować przez
-miłość.
-Trzy Wezwania do Działania
-Zaufaj Bogu w małych sprawach.
-Zgubione oślice mogą być początkiem drogi, którą prowadzi Opatrzność.
-Szukaj proroków w codzienności.
-Bóg często mówi przez ludzi skromnych, lecz napełnionych Jego duchem.
+dopowiedzeniami)
 
-Pozwól Duchowi cię przemienić.
-Namaszczenie to nie przywilej — to wezwanie do służby.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg wybrał Saula, gdy szukał zgubionych oślic.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan objawił Samuelowi przyszłego króla.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Samuel namaścił Saula olejem świętym.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego pocałunek proroka stał się znakiem Bożego wyboru.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Duch Pana ogarnął Saula i przemienił jego serce.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg wybrał Saula, gdy szukał zgubionych oślic. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan uczynił króla z człowieka prostego i posłusznego.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Boże namaszczenie stało się znakiem przymierza z Izraelem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Saul został wezwany do służby, nie do panowania.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Duch Święty przemienia serce każdego, kto Mu ufa.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego każde powołanie zaczyna się od spotkania z Bogiem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan objawił Samuelowi przyszłego króla. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Samuel namaścił Saula olejem świętym. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego pocałunek proroka stał się znakiem Bożego wyboru. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Duch Pana ogarnął Saula i przemienił jego serce. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan uczynił króla z człowieka prostego i posłusznego. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Boże namaszczenie stało się znakiem przymierza z Izraelem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Saul został wezwany do służby, nie do panowania. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Duch Święty przemienia serce każdego, kto Mu ufa. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego każde powołanie zaczyna się od spotkania z Bogiem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 29 (Cykl II - Dzień 29 z 175) - [11.11.2020] Jutro odbędzie się pogrzeb mojego brata.
@@ -7018,133 +4779,47 @@ Wstęp modlitewny dnia 212. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Nieposłuszeństwo Saula (1 Sm 13, 5–14; 15, 1–23)
-Etap 2 - Część 2 - Tajemnica 1 - Nieposłuszeństwo Saula
-(1 Sm 13, 5–14; 15, 1–23)
-Filistyni zgromadzili się, by walczyć z Izraelem —
-trzydzieści tysięcy rydwanów, sześć tysięcy jeźdźców i lud tak liczny jak
-piasek na brzegu morza.
+(1 Sm 13, 5–14; 15, 1–23) Filistyni zgromadzili się, by walczyć z Izraelem — trzydzieści tysięcy rydwanów, sześć tysięcy jeźdźców i lud tak liczny jak piasek na brzegu morza. Saul był w Gilgal, a lud, który mu towarzyszył, drżał ze strachu. Samuel zaś nie przychodził w oznaczonym czasie. Wtedy Saul rzekł: „Przynieście mi całopalenie i ofiary pojednania.” I sam złożył ofiarę. Ledwie skończył, przyszedł Samuel i rzekł: „Coś uczynił?” A Saul odpowiedział: „Widząc, że lud rozprasza się ode mnie, i że ty nie przychodzisz, ośmieliłem się i złożyłem całopalenie.” Samuel rzekł: „Nierozsądnie postąpiłeś. Nie zachowałeś rozkazu Pana, Boga twego. Gdybyś był wierny, Pan utrwaliłby twoje królestwo na wieki. Lecz teraz królestwo twoje się nie ostoi. Pan wyszukał sobie człowieka według swego serca.” I odszedł Samuel od Saula.
 
-Saul był w Gilgal, a lud, który mu towarzyszył, drżał ze strachu.
-Samuel zaś nie przychodził w oznaczonym czasie.
+Słowo Wyjaśnienia:
 
-Wtedy Saul rzekł:
-„Przynieście mi całopalenie i ofiary pojednania.”
-I sam złożył ofiarę.
+To pierwszy moment, w którym Saul traci serce Boga. Nie dlatego, że przegrał bitwę, lecz dlatego, że przestał ufać. Nieposłuszeństwo zawsze rodzi się z lęku: „Pan się spóźnia, więc muszę sam”. Ale Bóg nigdy się nie spóźnia. Saul który wcześniej był pokorny, teraz działa po swojemu. Złożył ofiarę — gest religijny, ale bez ducha wiary. Tym samym uczynił z Boga narzędzie swojego planu. Kiedy człowiek zaczyna używać świętości, zamiast jej służyć, świątynia staje się teatrem, a modlitwa — formą samousprawiedliwienia. Samuel odchodzi, a z nim odchodzi bliskość Boga. Od tej chwili Saul staje się królem bez proroka a król bez słowa Bożego jest jak żołnierz bez miecza.
 
-Ledwie skończył, przyszedł Samuel i rzekł:
-„Coś uczynił?”
+Trzy Wezwania do Działania:
 
-A Saul odpowiedział:
-„Widząc, że lud rozprasza się ode mnie,
-i że ty nie przychodzisz,
-ośmieliłem się i złożyłem całopalenie.”
+1. Zaufaj Bożemu czasowi. Bóg nie spóźnia się — uczy cierpliwości i wiary, że Jego plan dojrzewa w ciszy.
 
-Samuel rzekł:
-„Nierozsądnie postąpiłeś.
-Nie zachowałeś rozkazu Pana, Boga twego.
+2. Nie usprawiedliwiaj nieposłuszeństwa pobożnością. Nawet ofiara bez posłuszeństwa jest pusta.
 
-Gdybyś był wierny, Pan utrwaliłby twoje królestwo na wieki.
+3. Proś o serce według Bożego serca. Bo tylko takie serce potrafi być królem i sługą jednocześnie.
 
-Lecz teraz królestwo twoje się nie ostoi.
-Pan wyszukał sobie człowieka według swego serca.”
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-I odszedł Samuel od Saula.
-To pierwszy moment, w którym Saul traci serce Boga.
-Nie dlatego, że przegrał bitwę, lecz dlatego, że przestał ufać.
-Nieposłuszeństwo zawsze rodzi się z lęku: „Pan się spóźnia, więc muszę
-sam”.
-Ale Bóg nigdy się nie spóźnia.
-Saul, który wcześniej był pokorny, teraz działa po swojemu.
-Złożył ofiarę — gest religijny, ale bez ducha wiary.
-Tym samym uczynił z Boga narzędzie swojego planu.
-Kiedy człowiek zaczyna używać świętości, zamiast jej służyć,
-świątynia staje się teatrem, a modlitwa — formą samousprawiedliwienia.
-Samuel odchodzi, a z nim odchodzi bliskość Boga.
-Od tej chwili Saul staje się królem bez proroka,
+dopowiedzeniami)
 
-a król bez słowa Bożego jest jak żołnierz bez miecza.
-Trzy Wezwania do Działania
-Zaufaj Bożemu czasowi.
-Bóg nie spóźnia się — uczy cierpliwości i wiary, że Jego plan dojrzewa w
-ciszy.
-Nie usprawiedliwiaj nieposłuszeństwa pobożnością.
-Nawet ofiara bez posłuszeństwa jest pusta.
-Proś o serce według Bożego serca.
-Bo tylko takie serce potrafi być królem i sługą jednocześnie.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Saul złożył ofiarę z niecierpliwości.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Samuel rzekł: „Nierozsądnie postąpiłeś.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg szuka człowieka według swego serca.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego posłuszeństwo ważniejsze jest niż ofiara.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Saul złożył ofiarę z niecierpliwości. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan nie przyjmuje pobożności bez pokory.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego król utracił łaskę przez brak zaufania.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Duch Pański odstąpił od Saula.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan nie pragnie ofiary, lecz posłuszeństwa serca.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego król bez słowa Bożego staje się pustym tronem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg uczy nas, że prawdziwa moc rodzi się z pokory.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Samuel rzekł: „Nierozsądnie postąpiłeś.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg szuka człowieka według swego serca. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego posłuszeństwo ważniejsze jest niż ofiara. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan nie przyjmuje pobożności bez pokory. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego król utraciłaskę przez brak zaufania. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Duch Pański odstąpił od Saula. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan nie pragnie ofiary, lecz posłuszeństwa serca. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego król bez słowa Bożego staje się pustym tronem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg uczy nas, że prawdziwa moc rodzi się z pokory. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 30 (Cykl II - Dzień 30 z 175) - [08.01.2021] Anioł, posłanie i tajemnica dobra rodzącego się pośród
@@ -7302,146 +4977,47 @@ Wstęp modlitewny dnia 213. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Namaszczenie Dawida w Betlejem (1 Sm 16, 1–13)
-Etap 2 - Część 2 - Tajemnica 2 - Namaszczenie Dawida w Betlejem
-(1 Sm 16, 1–13)
-Rzekł Pan do Samuela:
-„Jak długo będziesz się smucił z powodu Saula,
-skoro Ja go odrzuciłem, by nie był królem nad Izraelem?
+(1 Sm 16, 1–13) Rzekł Pan do Samuela: „Jak długo będziesz się smucił z powodu Saula, skoro Ja go odrzuciłem, by nie był królem nad Izraelem? Napełnij swój róg oliwą i idź. Posyłam cię do Jessego Betlejemity bo między jego synami upatrzyłem sobie króla.” Samuel uczynił, jak rozkazał Pan, i udał się do Betlejem. Gdy przybył, starsi miasta wyszli mu naprzeciw z drżeniem i pytali „Czy z pokojem przychodzisz?” Odpowiedział: „Z pokojem.” I wezwał Jessego i jego synów na ofiarę. A gdy przyszli, ujrzał Eliaba i pomyślał: „Z pewnością ten jest przed Panem, Jego pomazańcem.” Lecz Pan rzekł do Samuela: „Nie patrz na jego wygląd ani na wzrost jego postawy, bo nie wybrałem go. Nie tak bowiem widzi człowiek, jak widzi Bóg: człowiek patrzy na to, co widoczne dla oczu, a Pan patrzy na serce.” I przeszli przed nim kolejno siedmiu synów Jessego, ale Pan nie wybrał żadnego z nich. Wtedy Samuel zapytał Jessego: „Czy to już wszyscy twoi synowie?” Odpowiedział: „Został jeszcze najmłodszy, ale pasie owce.” Rzekł Samuel: „Poślij po niego, bo nie zasiądziemy do stołu, aż przyjdzie.” I przyszedł Dawid — rudawy, o pięknych oczach i miłej powierzchowności. Pan rzekł: „Wstań i namaść go, to ten.” Wziął więc Samuel róg z oliwą i namaścił go pośród jego braci. A Duch Pana opanował Dawida od owego dnia i na zawsze.
 
-Napełnij swój róg oliwą i idź.
-Posyłam cię do Jessego Betlejemity,
-bo między jego synami upatrzyłem sobie króla.”
+Słowo Wyjaśnienia:
 
-Samuel uczynił, jak rozkazał Pan, i udał się do Betlejem.
+Bóg wchodzi do Betlejem nie przez potęgę, ale przez prostotę. Samuel widzi potężnych wojowników, a Bóg wskazuje na chłopca z pasterską laską. To moment, w którym historia zbawienia zmienia ton: od pychy do pokory, od tronu do pastwiska. Słowa Boga do Samuela są jak zwierciadło duchowego życia: „Człowiek patrzy na to, co widoczne dla oczu, a Pan patrzy na serce.” To nie siła czyni królem, lecz zdolność kochania. Dawid nie był bez grzechu, ale był człowiekiem serca. I dlatego Bóg zamieszkał w jego wnętrzu tak, że z jego rodu narodzi się Mesjasz.
 
-Gdy przybył, starsi miasta wyszli mu naprzeciw z drżeniem i pytali:
-„Czy z pokojem przychodzisz?”
+Trzy Wezwania do Działania:
 
-Odpowiedział: „Z pokojem.”
+1. Pozwól Bogu spojrzeć w swoje serce. Nie zasłaniaj się pozorami — Bóg nie potrzebuje masek, tylko prawdy.
 
-I wezwał Jessego i jego synów na ofiarę.
+2. Nie lekceważ małych rzeczy. Wielkie powołania zaczynają się w codzienności — przy owcach, w ciszy Betlejem.
 
-A gdy przyszli, ujrzał Eliaba i pomyślał:
-„Z pewnością ten jest przed Panem, Jego pomazańcem.”
+3. Przyjmij namaszczenie pokory. Prawdziwe królowanie to służba i współczucie.
 
-Lecz Pan rzekł do Samuela:
-„Nie patrz na jego wygląd ani na wzrost jego postawy,
-bo nie wybrałem go.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-Nie tak bowiem widzi człowiek, jak widzi Bóg:
-człowiek patrzy na to, co widoczne dla oczu,
-a Pan patrzy na serce.”
+dopowiedzeniami)
 
-I przeszli przed nim kolejno siedmiu synów Jessego,
-ale Pan nie wybrał żadnego z nich.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg posłał Samuela do Betlejem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Wtedy Samuel zapytał Jessego:
-„Czy to już wszyscy twoi synowie?”
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Pan rzekł: „Nie patrz na postawę, ale na serce.” Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Odpowiedział: „Został jeszcze najmłodszy, ale pasie owce.”
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Dawid został wezwany spośród owiec, by stać się królem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Rzekł Samuel: „Poślij po niego, bo nie zasiądziemy do stołu, aż przyjdzie.”
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Samuel namaścił Dawida olejem świętym. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-I przyszedł Dawid — rudawy, o pięknych oczach i miłej powierzchowności.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Duch Pana spoczął na Dawidzie na zawsze. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Pan rzekł: „Wstań i namaść go, to ten.”
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg wybrał najmłodszego, by zawstydzić potężnych. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Wziął więc Samuel róg z oliwą i namaścił go pośród jego braci.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Betlejem stało się miejscem Bożego wyboru. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-A Duch Pana opanował Dawida od owego dnia i na zawsze.
-Bóg wchodzi do Betlejem nie przez potęgę, ale przez prostotę.
-Samuel widzi potężnych wojowników, a Bóg wskazuje na chłopca z
-pasterską laską.
-To moment, w którym historia zbawienia zmienia ton: od pychy do pokory,
-od tronu do pastwiska.
-Słowa Boga do Samuela są jak zwierciadło duchowego życia:
-„Człowiek patrzy na to, co widoczne dla oczu, a Pan patrzy na serce.”
-To nie siła czyni królem, lecz zdolność kochania.
-Dawid nie był bez grzechu, ale był człowiekiem serca.
-I dlatego Bóg zamieszkał w jego wnętrzu — tak, że z jego rodu narodzi się
-Mesjasz.
-Trzy Wezwania do Działania
-Pozwól Bogu spojrzeć w swoje serce.
-Nie zasłaniaj się pozorami — Bóg nie potrzebuje masek, tylko prawdy.
-Nie lekceważ małych rzeczy.
-Wielkie powołania zaczynają się w codzienności — przy owcach, w ciszy
-Betlejem.
-Przyjmij namaszczenie pokory.
-Prawdziwe królowanie to służba i współczucie.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg posłał Samuela do Betlejem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Pan wzbudził króla według swego serca. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan rzekł: „Nie patrz na postawę, ale na serce.”
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Dawid został wezwany spośród owiec, by stać się królem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Samuel namaścił Dawida olejem świętym.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Duch Pana spoczął na Dawidzie na zawsze.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg wybrał najmłodszego, by zawstydzić potężnych.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Betlejem stało się miejscem Bożego wyboru.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Boże spojrzenie przemienia to, co małe, w święte. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan wzbudził króla według swego serca.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Boże spojrzenie przemienia to, co małe, w święte.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego w sercu Dawida zapłonęło światło Mesjasza.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego w sercu Dawida zapłonęło światło Mesjasza. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 31 (Cykl II - Dzień 31 z 175) - [03.03.2024 / uzupełnienie: 17.11.2024] - Bóg jest światłością - Powrót
@@ -7619,146 +5195,47 @@ Wstęp modlitewny dnia 214. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Dawid i Goliat (1 Sm 17, 1–50)
-Etap 2 - Część 2 - Tajemnica 3 - Dawid i Goliat
-(1 Sm 17, 1–50)
-Filistyni zebrali swe wojska na wojnę, a Izraelici stanęli naprzeciw nich.
-Między wojskami była dolina Elah.
+(1 Sm 17, 1–50) Filistyni zebrali swe wojska na wojnę, a Izraelici stanęli naprzeciw nich. Między wojskami była dolina Elah. Wtedy z obozu Filistynów wyszedł mąż imieniem Goliat z Gat wysoki na sześć łokci i jedną piędź. Jego pancerz ważył pięć tysięcy syklów brązu, włócznia miała grot z żelaza o wadze sześciuset syklów. Goliat stanął i zawołał: „Wybierzcie sobie męża i niech ze mną walczy! Jeśli mnie zwycięży, będziemy waszymi sługami; jeśli ja go pokonam, wy będziecie nam służyć.” A wszyscy Izraelici bali się i drżeli. Dawid zaś przyszedł z Betlejem, aby zanieść braciom chleb, i usłyszał wyzwanie Filistyna. Rzekł więc do Saula: „Niech nie upada serce żadnego z powodu tego człowieka! Twój sługa pójdzie i będzie walczył z tym Filistynem.” Saul odrzekł: „Nie możesz iść przeciw niemu, boś jeszcze młodzieńcem.” Ale Dawid powiedział: „Pan, który mnie wybawił z łapy lwa i z łapy niedźwiedzia, wybawi mnie także z ręki tego Filistyna.” I wziął Dawid swoją procę, pięć gładkich kamieni z potoku, i wyszedł naprzeciw Goliata. Goliat szydził z niego, ale Dawid odpowiedział: „Ty idziesz przeciw mnie z mieczem, włócznią i dzidą, a ja idę przeciw tobie w imię Pana Zastępów, Boga wojsk Izraela.” Wtedy Dawid pobiegł ku Filistynowi, włożył kamień w procę i ugodził go w czoło. Goliat upadł twarzą na ziemię.
 
-Wtedy z obozu Filistynów wyszedł mąż imieniem Goliat z Gat,
-wysoki na sześć łokci i jedną piędź.
+Słowo Wyjaśnienia:
 
-Jego pancerz ważył pięć tysięcy syklów brązu,
-włócznia miała grot z żelaza o wadze sześciuset syklów.
+Tak Dawid zwyciężył Filistyna procą i kamieniem. Nie zwyciężyła siła ani strategia. Zwyciężyła wiara, która pamięta, że to Bóg walczy za człowieka. Dawid nie kalkuluje — ufa. Nie ubiera się w zbroję Saula, bo wie, że nie można walczyć w cudzych szatach. Każdy z nas ma swojego Goliata — lęk, grzech, zwątpienie samotność. Ale każdy z nas ma też procę: wiarę, słowo Boże i ufność. Z nimi można pokonać każdego olbrzyma. Goliat jest obrazem wszystkiego, co wydaje się nie do przezwyciężenia. Dawid jest obrazem człowieka, który wie, że to nie on jest bohaterem, lecz Bóg, który działa w słabych.
 
-Goliat stanął i zawołał:
-„Wybierzcie sobie męża i niech ze mną walczy!
-Jeśli mnie zwycięży, będziemy waszymi sługami;
-jeśli ja go pokonam, wy będziecie nam służyć.”
+Trzy Wezwania do Działania:
 
-A wszyscy Izraelici bali się i drżeli.
+1. Nie bój się swoich Goliatów. Im większy przeciwnik, tym większa okazja, by objawiła się moc Boga.
 
-Dawid zaś przyszedł z Betlejem, aby zanieść braciom chleb,
-i usłyszał wyzwanie Filistyna.
+2. Nie walcz cudzą bronią. Zaufaj temu, co masz — Twoja „proca” wystarczy, jeśli jest w Bożych rękach.
 
-Rzekł więc do Saula:
-„Niech nie upada serce żadnego z powodu tego człowieka!
-Twój sługa pójdzie i będzie walczył z tym Filistynem.”
+3. Idź w imię Pana. Każda walka ducha wygrywana jest przez wiarę nie przez przewagę.
 
-Saul odrzekł:
-„Nie możesz iść przeciw niemu, boś jeszcze młodzieńcem.”
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-Ale Dawid powiedział:
-„Pan, który mnie wybawił z łapy lwa i z łapy niedźwiedzia,
-wybawi mnie także z ręki tego Filistyna.”
+dopowiedzeniami)
 
-I wziął Dawid swoją procę, pięć gładkich kamieni z potoku,
-i wyszedł naprzeciw Goliata.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Dawid wyszedł naprzeciw Goliatowi w imię Pana. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Goliat szydził z niego, ale Dawid odpowiedział:
-„Ty idziesz przeciw mnie z mieczem, włócznią i dzidą,
-a ja idę przeciw tobie w imię Pana Zastępów, Boga wojsk Izraela.”
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan włożył zwycięstwo w rękę pasterza. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Wtedy Dawid pobiegł ku Filistynowi,
-włożył kamień w procę i ugodził go w czoło.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego kamień z procy powalił olbrzyma. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Goliat upadł twarzą na ziemię.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg uczynił moc ze słabości. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Tak Dawid zwyciężył Filistyna procą i kamieniem.
-Nie zwyciężyła siła ani strategia.
-Zwyciężyła wiara, która pamięta, że to Bóg walczy za człowieka.
-Dawid nie kalkuluje — ufa.
-Nie ubiera się w zbroję Saula, bo wie, że nie można walczyć w cudzych
-szatach.
-Każdy z nas ma swojego Goliata — lęk, grzech, zwątpienie, samotność.
-Ale każdy z nas ma też procę: wiarę, słowo Boże i ufność.
-Z nimi można pokonać każdego olbrzyma.
-Goliat jest obrazem wszystkiego, co wydaje się nie do przezwyciężenia.
-Dawid jest obrazem człowieka, który wie, że to nie on jest bohaterem,
-lecz Bóg, który działa w słabych.
-Trzy Wezwania do Działania
-Nie bój się swoich Goliatów.
-Im większy przeciwnik, tym większa okazja, by objawiła się moc Boga.
-Nie walcz cudzą bronią.
-Zaufaj temu, co masz — Twoja „proca” wystarczy, jeśli jest w Bożych
-rękach.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wiara młodzieńca zawstydziła pychę wojownika. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Idź w imię Pana.
-Każda walka ducha wygrywana jest przez wiarę, nie przez przewagę.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Dawid wyszedł naprzeciw Goliatowi w imię Pana.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan włożył zwycięstwo w rękę pasterza.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego kamień z procy powalił olbrzyma.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg uczynił moc ze słabości.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wiara młodzieńca zawstydziła pychę wojownika.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pan zwyciężył bez miecza i włóczni. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pan zwyciężył bez miecza i włóczni.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego strach ustąpił przed imieniem Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego dolina Elah stała się miejscem wiary, nie wojny.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego pokora pasterza stała się zwycięstwem nad pychą świata.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego zwycięstwo Dawida zapowiadało tryumf Mesjasza nad
-śmiercią.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego strach ustąpił przed imieniem Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego dolina Elah stała się miejscem wiary, nie wojny. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego pokora pasterza stała się zwycięstwem nad pychą świata. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego zwycięstwo Dawida zapowiadało tryumf Mesjasza nad śmiercią. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 32 (Cykl II - Dzień 32 z 175) - [17.11.2024] Drzewo życia i wybór miłości

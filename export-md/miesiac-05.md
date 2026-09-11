@@ -7,116 +7,43 @@ Wstęp modlitewny dnia 123. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Uniwersytety i narodziny rozumu w wierze: Wiara i rozum – dwa skrzydła prowadzące do Boga
-Etap 5 - Część 5 - Tajemnica 3 - Uniwersytety i narodziny rozumu w wierze:
-Wiara i rozum – dwa skrzydła prowadzące do Boga
-„Wiara i rozum są jak dwa skrzydła,
-na których duch ludzki unosi się ku kontemplacji prawdy.”
-(św. Jan Paweł II, Fides et ratio, inspirowane św. Tomaszem)
-„Cokolwiek jest prawdą, pochodzi od Ducha Świętego,
-niezależnie od tego, kto ją wypowiedział.”
-(św. Tomasz z Akwinu)
-To tajemnica Kościoła, który uczy się myśleć w świetle Boga.
-Światło katedr rodzi światło umysłów — w Paryżu, Bolonii, Oksfordzie i
-Krakowie
-powstają pierwsze uniwersytety.
-Wśród ksiąg i pergaminów rodzi się dialog między wiarą a rozumem,
-między Ewangelią a filozofią, między niebem a ziemią.
-Święty Tomasz z Akwinu — cichy, skromny dominikanin —
-pisze swoje dzieło życia: Summa Theologiae.
-Nie szuka sławy, lecz chce, by wiara była zrozumiała
-dla serca i dla rozumu,
-dla prostego mnicha i uczonego filozofa.
-Uczy, że Bóg nie jest przeciw rozumowi —
-On jest jego źródłem.
-Że rozum może dojść do progu tajemnicy,
-a wiara go przekracza.
-Gdy wszystko wydawało się zrozumiałe,
-Tomasz na końcu życia zobaczył Boga w modlitwie
-i powiedział:
-„Wszystko, co napisałem, to słoma wobec tego, co ujrzałem.”
-Bo wiedza ma sens tylko wtedy, gdy prowadzi do miłości.
-Trzy Wezwania do Działania
+Wiara i rozum – dwa skrzydła prowadzące do Boga „Wiara i rozum są jak dwa skrzydła, na których duch ludzki unosi się ku kontemplacji prawdy.” (św. Jan Paweł II, Fides et ratio inspirowane św. Tomaszem) „Cokolwiek jest prawdą, pochodzi od Ducha Świętego, niezależnie od tego, kto ją wypowiedział.” (św. Tomasz z Akwinu) To tajemnica Kościoła, który uczy się myśleć w świetle Boga. Światło katedr rodzi światło umysłów — w Paryżu Bolonii, Oksfordzie i Krakowie powstają pierwsze uniwersytety. Wśród ksiąg i pergaminów rodzi się dialog między wiarą a rozumem, między Ewangelią a filozofią, między niebem a ziemią. Święty Tomasz z Akwinu — cichy, skromny dominikanin — pisze swoje dzieło życia: Summa Theologiae. Nie szuka sławy, lecz chce, by wiara była zrozumiała dla serca i dla rozumu, dla prostego mnicha i uczonego filozofa. Uczy, że Bóg nie jest przeciw rozumowi — On jest jego źródłem. Że rozum może dojść do progu tajemnicy, a wiara go przekracza. Gdy wszystko wydawało się zrozumiałe, Tomasz na końcu życia zobaczył Boga w modlitwie i powiedział: „Wszystko, co napisałem, to słoma wobec tego, co ujrzałem.” Bo wiedza ma sens tylko wtedy, gdy prowadzi do miłości.
 
-Szukaj prawdy bez lęku.
-Pytania nie są wrogiem wiary — są jej drogą dojrzewania.
-Pozwól, by rozum i wiara szły razem.
-Bo kiedy myślisz z Bogiem, każde pytanie staje się modlitwą.
-Ucz się dla dobra, nie dla pychy.
-Prawdziwa mądrość rodzi pokój, nie wyniosłość.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Tomasz ukazał harmonię wiary i rozumu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego prawda była światłem w mrokach niewiedzy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego rozum stał się sługą wiary, nie jej panem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego uniwersytety stały się ogniskami światła i mądrości.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
+Trzy Wezwania do Działania:
 
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego poznanie prowadziło do pokory i modlitwy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego światło mądrości rozjaśniło drogi wiary.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego nauka stała się modlitwą rozumu i serca.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego prawda zawsze prowadzi do dobra.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego mądrość była służbą, nie zaszczytem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego poznanie stało się drogą do kontemplacji Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
+1. Szukaj prawdy bez lęku. Pytania nie są wrogiem wiary — są jej drogą dojrzewania.
 
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+2. Pozwól, by rozum i wiara szły razem. Bo kiedy myślisz z Bogiem, każde pytanie staje się modlitwą.
+
+3. Ucz się dla dobra, nie dla pychy. Prawdziwa mądrość rodzi pokój, nie wyniosłość.
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Tomasz ukazał harmonię wiary i rozumu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego prawda była światłem w mrokach niewiedzy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego rozum stał się sługą wiary, nie jej panem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego uniwersytety stały się ogniskami światła i mądrości. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego poznanie prowadziło do pokory i modlitwy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego światło mądrości rozjaśniło drogi wiary. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego nauka stała się modlitwą rozumu i serca. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego prawda zawsze prowadzi do dobra. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego mądrość była służbą, nie zaszczytem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego poznanie stało się drogą do kontemplacji Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 123 (Cykl I - Dzień 123 z 175) - [27.10.2014] Fundamenty są niezmienne, ale język Kościoła powinien
@@ -234,110 +161,43 @@ Wstęp modlitewny dnia 124. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Święty Franciszek i odrodzenie ducha ubóstwa: Pieśń stworzenia
-Etap 5 - Część 5 - Tajemnica 4 - Święty Franciszek i odrodzenie ducha
-ubóstwa: Pieśń stworzenia
-„Pochwalony bądź, Panie mój, przez wszystkie stworzenia Twoje.”
-(Św. Franciszek z Asyżu, Pieśń słoneczna)
-„Człowiek jest tym, czym jest przed Bogiem – niczym więcej.”
-(Św. Franciszek)
-To tajemnica Kościoła, który uczy się na nowo kochać Ewangelię.
-Świat stał się wielki – bogaty w słowa, mądrość i potęgę.
-Ale Bóg posłał małego brata, by przypomniał,
-że nie trzeba wiele, by być szczęśliwym – tylko kochać.
+„Pochwalony bądź, Panie mój, przez wszystkie stworzenia Twoje.” (Św. Franciszek z Asyżu, Pieśń słoneczna) „Człowiek jest tym, czym jest przed Bogiem – niczym więcej.” (Św. Franciszek) To tajemnica Kościoła, który uczy się na nowo kochać Ewangelię. Świat stał się wielki – bogaty w słowa mądrość i potęgę. Ale Bóg posłał małego brata, by przypomniał że nie trzeba wiele, być szczęśliwym – tylko kochać. Franciszek z Asyżu zrzuca bogate szaty, przywdziewa ubogą tunikę i idzie pieszo głosić pokój. Nie ma nic – a ma wszystko. Śpiewa, dziękuje, błogosławi. Nie walczy z Kościołem, lecz go odradza miłością. Zatrzymuje się przy trędowatych, rozmawia z wilkiem, patrzy na słońce i widzi w nim uśmiech Boga. Uczy, że Ewangelia to nie doktryna, lecz radość życia prostotą. Jego pieśń płynie przez wieki: „Bądź pochwalony, Panie, przez brata słońce i siostrę wodę, przez wiatr, ogień i ziemię, co nas żywi.” Bo kto kocha całe stworzenie, ten naprawdę spotkał Stwórcę.
 
-Franciszek z Asyżu zrzuca bogate szaty,
-przywdziewa ubogą tunikę i idzie pieszo głosić pokój.
-Nie ma nic – a ma wszystko.
-Śpiewa, dziękuje, błogosławi.
-Nie walczy z Kościołem, lecz go odradza miłością.
-Zatrzymuje się przy trędowatych, rozmawia z wilkiem,
-patrzy na słońce i widzi w nim uśmiech Boga.
-Uczy, że Ewangelia to nie doktryna, lecz radość życia prostotą.
-Jego pieśń płynie przez wieki:
-„Bądź pochwalony, Panie, przez brata słońce i siostrę wodę,
-przez wiatr, ogień i ziemię, co nas żywi.”
-Bo kto kocha całe stworzenie, ten naprawdę spotkał Stwórcę.
-Trzy Wezwania do Działania
-Odnajdź radość w prostocie.
-Prawdziwe bogactwo to wdzięczność.
-Zobacz Boga w stworzeniu.
-Świat nie jest rzeczą – jest pieśnią.
-Bądź narzędziem pokoju.
-Niech twoje słowo, gest i obecność przynoszą ciszę i dobro.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Franciszek ukochał prostotę i ubóstwo.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego każde stworzenie stało się pieśnią chwały.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
+Trzy Wezwania do Działania:
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego ubóstwo stało się bramą wolności.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Franciszek uczył miłości do Boga w naturze.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego pokój serca stał się świadectwem Ewangelii.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wdzięczność otwiera serce na miłość.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Franciszek pokochał każdego człowieka jak brata.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego miłość stała się pieśnią pokoju.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
+1. Odnajdź radość w prostocie. Prawdziwe bogactwo to wdzięczność.
 
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego prostota Ewangelii przemieniła serca możnych i ubogich.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Franciszek przypomniał światu, że Bóg jest Miłością.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+2. Zobacz Boga w stworzeniu. Świat nie jest rzeczą – jest pieśnią.
+
+3. Bądź narzędziem pokoju. Niech twoje słowo, gest i obecność przynoszą ciszę i dobro.
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Franciszek ukochał prostotę i ubóstwo. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego każde stworzenie stało się pieśnią chwały. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego ubóstwo stało się bramą wolności. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Franciszek uczył miłości do Boga w naturze. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego pokój serca stał się świadectwem Ewangelii. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wdzięczność otwiera serce na miłość. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Franciszek pokochał każdego człowieka jak brata. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego miłość stała się pieśnią pokoju. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego prostota Ewangelii przemieniła serca możnych i ubogich. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Franciszek przypomniał światu, że Bóg jest Miłością. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 124 (Cykl I - Dzień 124 z 175) - [03.11.2014] Bóg jest obecny zarówno w ubóstwie, jak i w dostatku
@@ -513,114 +373,43 @@ Wstęp modlitewny dnia 125. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Narodziny gotyckiej Europy ducha: Wiara, która jednoczy kontynent
-Etap 5 - Część 5 - Tajemnica 5 - Narodziny gotyckiej Europy ducha: Wiara,
-która jednoczy kontynent
-„Wszystko, co oddycha, niech chwali Pana.”
-(Ps 150,6)
-„Światło rozumne, światło duchowe, światło Boże –
-oto trzy płomienie, które złączyły Europę w jedną pieśń.”
-(anonimowy mnich z Reims, XIII w.)
-To tajemnica Kościoła, który staje się duszą cywilizacji.
-Nie ma jeszcze granic narodów – są pielgrzymki, wspólne języki modlitwy,
-śpiew łacińskich hymnów i psalmów, które łączą kontynent jak serce i
-tchnienie.
-Z Rzymu, z Santiago, z Canterbury, z Krakowa i Kolonii
-płyną strumienie tej samej wiary:
-Credo in unum Deum – Wierzę w jednego Boga.
-Katedry są jak płomienie w ciemności,
-uniwersytety – jak światła mądrości,
-klasztory – jak ogrody pokoju,
-a Ewangelia – jak wspólna pieśń, której nikt nie potrafi uciszyć.
-To czas, gdy wiara nie tylko formuje sumienia,
-ale tworzy kulturę, muzykę, sztukę i sens życia.
-Człowiek nie ucieka od świata – on go uświęca.
-Każda praca, każdy śpiew, każdy kamień staje się modlitwą.
-Europa modli się architekturą, śpiewem, ciszą i słowem.
-I z tej modlitwy rodzi się jej największe dziedzictwo — duch jedności w
-różnorodności.
-Trzy Wezwania do Działania
-Szukaj jedności, nie uniformizacji.
-Różnorodność serc może bić jednym rytmem wiary i dobra.
+„Wszystko, co oddycha, niech chwali Pana.” (Ps 150,6) „Światło rozumne, światło duchowe, światło Boże – oto trzy płomienie, które złączyły Europę w jedną pieśń.” (anonimowy mnich z Reims, XIII w.) To tajemnica Kościoła, który staje się duszą cywilizacji. Nie ma jeszcze granic narodów – są pielgrzymki, wspólne języki modlitwy, śpiew łacińskich hymnów i psalmów, które łączą kontynent jak serce i tchnienie. Z Rzymu, z Santiago, z Canterbury, z Krakowa i Kolonii płyną strumienie tej samej wiary: Credo in unum Deum – Wierzę w jednego Boga. Katedry są jak płomienie w ciemności, uniwersytety – jak światła mądrości, klasztory – jak ogrody pokoju, a Ewangelia – jak wspólna pieśń, której nikt nie potrafi uciszyć. To czas, gdy wiara nie tylko formuje sumienia, ale tworzy kulturę, muzykę, sztukę i sens życia. Człowiek nie ucieka od świata – on go uświęca. Każda praca, każdy śpiew, każdy kamień staje się modlitwą. Europa modli się architekturą, śpiewem, ciszą i słowem. I z tej modlitwy rodzi się jej największe dziedzictwo — duch jedności w różnorodności.
 
-Uświęcaj codzienność.
-To, co robisz z miłością, staje się modlitwą.
-Buduj mosty, nie mury.
-Bo Kościół zawsze był domem otwartym – dla uczonych i prostych, dla
-Wschodu i Zachodu.
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wiara połączyła ludy i języki w jednej pieśni.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego katedry i klasztory stały się ogrodami ducha.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego muzyka i sztuka modliły się razem z Kościołem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego pielgrzymi z całej Europy spotykali się w wierze.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
+Trzy Wezwania do Działania:
 
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego duch jedności rozświetlał różnorodność narodów.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święci i uczeni współtworzyli harmonię wiary.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego pokój ducha stał się wspólnym językiem narodów.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego miłość i mądrość stworzyły duchową Europę.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wiara przeniknęła sztukę, prawo i codzienność.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Europa stała się świątynią Ducha i mądrości.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
+1. Szukaj jedności, nie uniformizacji. Różnorodność serc może bić jednym rytmem wiary i dobra.
 
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+2. Uświęcaj codzienność. To, co robisz z miłością, staje się modlitwą.
+
+3. Buduj mosty, nie mury. Bo Kościół zawsze był domem otwartym – dla uczonych i prostych, dla Wschodu i Zachodu.
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wiara połączyła ludy i języki w jednej pieśni. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego katedry i klasztory stały się ogrodami ducha. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego muzyka i sztuka modliły się razem z Kościołem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego pielgrzymi z całej Europy spotykali się w wierze. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego duch jedności rozświetlał różnorodność narodów. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święci i uczeni współtworzyli harmonię wiary. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego pokój ducha stał się wspólnym językiem narodów. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego miłość i mądrość stworzyły duchową Europę. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wiara przeniknęła sztukę, prawo i codzienność. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Europa stała się świątynią Ducha i mądrości. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 125 (Cykl I - Dzień 125 z 175) - [04.11.2014] Uśmiech mimo wszystko
@@ -770,118 +559,35 @@ Wstęp modlitewny dnia 126. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Narodziny nowego świata: św. Augustyn i upadek Rzymu
-Etap 6 - Część 1 - Tajemnica 1 - Narodziny nowego świata: św. Augustyn i
-upadek Rzymu
-(ok. 410 r. – „Civitas Dei”, De civitate Dei)
-„Niespokojne jest serce nasze, dopóki nie spocznie w Tobie, Boże.”
-— św. Augustyn, Wyznania I,1
-„Rzym upadł, lecz Królestwo Boże trwa.”
-— św. Augustyn, O Państwie Bożym
-  Rozważanie
-Rok 4
-Wieść o zdobyciu Rzymu przez Wizygotów wstrząsnęła światem.
-Miasto, które przez osiem stuleci wydawało się niezniszczalne, płonęło.
-Ludzie pytali z trwogą:
-„Czy to koniec świata?”
-W tej samej epoce w północnej Afryce żyje Augustyn z Hippony.
-Biskup, filozof, grzesznik, który poznał łaskę.
-Gdy wszyscy rozpaczają nad upadkiem Rzymu, on pisze jedno z
-największych dzieł w historii:
-„O Państwie Bożym” – De civitate Dei.
-Pokazuje, że istnieją dwa królestwa:
-– jedno – ludzkie, które buduje się na pysze, sile i potędze,
-– drugie – Boże, które rośnie cicho w sercu człowieka.
-„Civitas terrena kocha siebie aż do pogardy Boga;
-Civitas Dei kocha Boga aż do pogardy siebie.”
+(ok. 410 r. – „Civitas Dei”, De civitate Dei) „Niespokojne jest serce nasze, dopóki nie spocznie w Tobie Boże.” — św. Augustyn, Wyznania I,1 „Rzym upadł, lecz Królestwo Boże trwa.” — św. Augustyn, O Państwie Bożym Rozważanie Rok 4 Wieść o zdobyciu Rzymu przez Wizygotów wstrząsnęła światem. Miasto, które przez osiem stuleci wydawało się niezniszczalne, płonęło. Ludzie pytali z trwogą: „Czy to koniec świata?” W tej samej epoce w północnej Afryce żyje Augustyn z Hippony. Biskup, filozof, grzesznik, który poznałaskę. Gdy wszyscy rozpaczają nad upadkiem Rzymu, on pisze jedno z największych dzieł w historii: „O Państwie Bożym” – De civitate Dei. Pokazuje, że istnieją dwa królestwa: – jedno – ludzkie, które buduje się na pysze, sile i potędze, – drugie – Boże, które rośnie cicho w sercu człowieka. „Civitas terrena kocha siebie aż do pogardy Boga; Civitas Dei kocha Boga aż do pogardy siebie.” Augustyn nie zaprzecza bólowi historii. On go przemienia ukazuje sens, że każde imperium musi kiedyś upaść, by człowiek odkrył, że jego prawdziwe obywatelstwo jest w Niebie. To pierwszy kamień nowego świata. Z ruin imperium rodzi się cywilizacja ducha – chrześcijańska Europa. Trzy wezwania do działania Nie bój się, gdy coś upada. Bóg buduje nowe królestwo tam, gdzie ludzie widzą tylko ruiny. Dbaj o swoje wnętrze bardziej niż o świat zewnętrzny. Miasto Boże rośnie w sercu człowieka, nie w murach imperiów. Ucz się patrzeć na historię oczami Boga. Tam, gdzie kończy się potęga, zaczyna się łaska. Modlitwy
 
-Augustyn nie zaprzecza bólowi historii.
-On go przemienia – ukazuje sens, że każde imperium musi kiedyś upaść,
-by człowiek odkrył, że jego prawdziwe obywatelstwo jest w Niebie.
-To pierwszy kamień nowego świata.
-Z ruin imperium rodzi się cywilizacja ducha – chrześcijańska Europa.
-  Trzy wezwania do działania
-Nie bój się, gdy coś upada.
-Bóg buduje nowe królestwo tam, gdzie ludzie widzą tylko ruiny.
-Dbaj o swoje wnętrze bardziej niż o świat zewnętrzny.
-Miasto Boże rośnie w sercu człowieka, nie w murach imperiów.
-Ucz się patrzeć na historię oczami Boga.
-Tam, gdzie kończy się potęga, zaczyna się łaska.
-  Modlitwy
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje; przyjdź królestwo Twoje;
-bądź wola Twoja, jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Augustyn rozpoznał w ruinach Rzymu narodziny
-Państwa Bożego.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego serce niespokojne odnalazło pokój w Tobie, Panie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego pycha ludzi stała się miejscem objawienia pokory Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja, jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół przetrwał burzę historii, stając się domem nadziei.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego w ruinach świata zakiełkowała nowa cywilizacja wiary.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego mądrość Ducha przewyższyła mądrość filozofów.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego łzy skruchy stały się perłami nowego życia.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Augustyn nauczył świat, że wiara rozumie przez miłość.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego serca pokorne stały się nowym Rzymem ducha.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
+dopowiedzeniami)
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między
-niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg rozpoczął budowę Królestwa, które nie zna końca.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę
-śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia
-piekielnego,
-zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy
-najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Augustyn rozpoznał w ruinach Rzymu narodziny Państwa Bożego. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego serce niespokojne odnalazło pokój w Tobie Panie. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego pycha ludzi stała się miejscem objawienia pokory Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół przetrwał burzę historii, stając się domem nadziei. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego w ruinach świata zakiełkowała nowa cywilizacja wiary. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego mądrość Ducha przewyższyła mądrość filozofów. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego łzy skruchy stały się perłami nowego życia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Augustyn nauczył świat, że wiara rozumie przez miłość. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego serca pokorne stały się nowym Rzymem ducha. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg rozpoczął budowę Królestwa, które nie zna końca. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, którzy najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 126 (Cykl I - Dzień 126 z 175) - [06.11.2014] Boga nie trzeba udowadniać
@@ -933,121 +639,41 @@ Wstęp modlitewny dnia 127. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Modlitwa, która ocaliła cywilizację: święty Benedykt i duch klasztorów
-Etap 6 - Część 1 - Tajemnica 2 - Modlitwa, która ocaliła cywilizację: święty
-Benedykt i duch klasztorów
-(ok. 480–547 r.; Monte Cassino, „Ora et labora”)
+(ok. 480–547 r.; Monte Cassino, „Ora et labora”) „Módl się i pracuj, a wszystko, co czynisz, niech będzie na chwałę Bożą.” — Święty Benedykt z Nursji „Modlitwa jest oddechem duszy, a praca jej rytmem.” — Z Reguły świętego Benedykta Rozważanie Po upadku Rzymu świat pogrążył się w chaosie. Drogi zarosły trawą, biblioteki spłonęły, miasta opustoszały. Ale w górach Italii, w miejscu zwanym Monte Cassino, młody mnich z Nursji rozpoczął dzieło, które ocali cywilizację. Święty Benedykt nie miał armii, ani uczonych, ani polityków. Miał tylko modlitwę ciszę i wspólnotę braci. Ułożył dla nich prostą zasadę życia: „Ora et labora” – módl się i pracuj. Ta reguła stała się sercem nowej Europy. Mnisi Benedyktyni modlili się psalmami, przepisywali księgi, uprawiali ziemię, lecz także pielęgnowali ducha i rozum. Kiedy zewnętrzny świat pogrążał się w ciemności, w klasztorach płonęło światło – światło kultury, nauki i wiary. To oni przechowali Ewangelię, alfabet i wspólnotę. Święty Benedykt nie szukał wielkości. Chciał tylko, by w każdej godzinie dnia Bóg był obecny w pracy i w ciszy. Jego klasztory stały się zalążkami nowej Europy modlitwy, pokoju i harmonii. Trzy wezwania do działania:
 
-„Módl się i pracuj, a wszystko, co czynisz, niech będzie na chwałę Bożą.”
-— Święty Benedykt z Nursji
-„Modlitwa jest oddechem duszy, a praca jej rytmem.”
-— Z Reguły świętego Benedykta
-  Rozważanie
-Po upadku Rzymu świat pogrążył się w chaosie.
-Drogi zarosły trawą, biblioteki spłonęły, miasta opustoszały.
-Ale w górach Italii, w miejscu zwanym Monte Cassino,
-młody mnich z Nursji rozpoczął dzieło, które ocali cywilizację.
-Święty Benedykt nie miał armii, ani uczonych, ani polityków.
-Miał tylko modlitwę, ciszę i wspólnotę braci.
-Ułożył dla nich prostą zasadę życia:
-„Ora et labora” – módl się i pracuj.
-Ta reguła stała się sercem nowej Europy.
-Mnisi Benedyktyni modlili się psalmami, przepisywali księgi,
-uprawiali ziemię, lecz także pielęgnowali ducha i rozum.
-Kiedy zewnętrzny świat pogrążał się w ciemności,
-w klasztorach płonęło światło – światło kultury, nauki i wiary.
-To oni przechowali Ewangelię, alfabet i wspólnotę.
-Święty Benedykt nie szukał wielkości.
-Chciał tylko, by w każdej godzinie dnia Bóg był obecny w pracy i w ciszy.
-Jego klasztory stały się zalążkami nowej Europy – Europy modlitwy, pokoju
-i harmonii.
-  Trzy wezwania do działania
-Zaplanuj swój dzień tak, by był modlitwą.
-Niech każda czynność – praca, posiłek, odpoczynek – stanie się rozmową z
-Bogiem.
-Zachowaj rytm duszy.
-Cisza i działanie są jak wdech i wydech – jedno bez drugiego umiera.
-Twórz wokół siebie mały klasztor pokoju.
-Nie musisz mieć murów – wystarczy, że uczynisz z domu miejsce, gdzie
-króluje łagodność.
-  Modlitwy
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
+1. Zaplanuj swój dzień tak, był modlitwą. Niech każda czynność praca, posiłek, odpoczynek stanie się rozmową z Bogiem.
 
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Benedykt uczynił pracę modlitwą, a modlitwę życiem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego modlitwa stała się światłem w mrokach upadku Rzymu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego cisza klasztorów stała się pieśnią Kościoła.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego benedyktyni zachowali słowo Boże pośród zgliszcz świata.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego praca stała się modlitwą i świadectwem miłości.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
+2. Zachowaj rytm duszy. Cisza i działanie są jak wdech i wydech jedno bez drugiego umiera.
 
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg zamieszkał w prostych czynnościach dnia codziennego.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego klasztory stały się ogrodami pokoju wśród burz świata.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego praca rąk i modlitwa serca zjednoczyły niebo z ziemią.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg zamieszkał w rytmie codzienności.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Reguła Benedykta stała się sercem chrześcijańskiej Europy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+3. Twórz wokół siebie mały klasztor pokoju. Nie musisz mieć murów – wystarczy, że uczynisz z domu miejsce, gdzie króluje łagodność.
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Benedykt uczynił pracę modlitwą, a modlitwę życiem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego modlitwa stała się światłem w mrokach upadku Rzymu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego cisza klasztorów stała się pieśnią Kościoła. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego benedyktyni zachowali słowo Boże pośród zgliszcz świata. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego praca stała się modlitwą i świadectwem miłości. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Bóg zamieszkał w prostych czynnościach dnia codziennego. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego klasztory stały się ogrodami pokoju wśród burz świata. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego praca rąk i modlitwa serca zjednoczyły niebo z ziemią. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg zamieszkał w rytmie codzienności. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Reguła Benedykta stała się sercem chrześcijańskiej Europy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 127 (Cykl I - Dzień 127 z 175) - [10.11.2014] Piosenka jako obraz Księgi Życia
@@ -1179,126 +805,41 @@ Wstęp modlitewny dnia 128. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Ewangelia wśród ludów północy: misje irlandzkie i anglosaskie
-Etap 6 - Część 1 - Tajemnica 3 - Ewangelia wśród ludów północy: misje
-irlandzkie i anglosaskie
-(VI–VIII wiek; św. Patryk, św. Kolumba, św. Augustyn z Canterbury)
-„Idźcie więc i nauczajcie wszystkie narody, udzielając im chrztu w imię Ojca
-i Syna, i Ducha Świętego.”
-(Mt 28,19)
-„Chrystus zaświecił w moim sercu jaśniej niż słońce nad Erin.”
-— św. Patryk, Wyznania
-„Nie szukałem korony, lecz dusz, które miały stać się światłem.”
-— św. Kolumba z Iony
-  Rozważanie
-Z ruin Rzymu wyrasta nowy świat, ale dziki, nieokiełznany, pełen plemion i
-walk.
-Tam, gdzie nie sięgała potęga cesarzy, dotarła potęga wiary.
-Na krańcach Europy, w zielonej Irlandii, młody niewolnik imieniem Patryk
-słyszy we śnie głos:
-„Wróć do nas, Patryku, i przynieś nam Ewangelię.”
-I wraca.
-Nie z armią, lecz z krzyżem.
-Nie z rozkazem, lecz z pieśnią o Bogu, który przebacza.
-Wkrótce cała Irlandia płonie innym ogniem – ogniem Ducha Świętego.
-Jego uczniowie – Kolumba, Kolumban, Aidan – wyruszają przez morza.
-Zakładają klasztory na wyspach Iona, Lindisfarne, Whitby.
-W ich skryptoriach powstają Ewangelie zdobione złotem, jak Księga z Kells,
-a ich modlitwy stają się śpiewem, który na nowo cywilizuje północ.
-W Anglii pojawia się św. Augustyn z Canterbury, wysłany przez papieża
-Grzegorza Wielkiego.
-Nie wchodzi z mieczem, lecz z Ewangelią w ręku.
-Chrzci królów, zakłada wspólnoty, modli się w ciszy –
-i świat, który nie znał Chrystusa, zaczyna żyć Jego imieniem.
+(VI–VIII wiek; św. Patryk, św. Kolumba św. Augustyn z Canterbury) „Idźcie więc i nauczajcie wszystkie narody, udzielając im chrztu w imię Ojca i Syna, i Ducha Świętego.” (Mt 28,19) „Chrystus zaświecił w moim sercu jaśniej niż słońce nad Erin.” — św. Patryk, Wyznania „Nie szukałem korony, lecz dusz, które miały stać się światłem.” — św. Kolumba z Iony Rozważanie Z ruin Rzymu wyrasta nowy świat, ale dziki nieokiełznany, pełen plemion i walk. Tam, gdzie nie sięgała potęga cesarzy, dotarła potęga wiary. Na krańcach Europy, w zielonej Irlandii, młody niewolnik imieniem Patryk słyszy we śnie głos „Wróć do nas, Patryku, i przynieś nam Ewangelię.” I wraca. Nie z armią, lecz z krzyżem. Nie z rozkazem, lecz z pieśnią o Bogu, który przebacza. Wkrótce cała Irlandia płonie innym ogniem – ogniem Ducha Świętego. Jego uczniowie – Kolumba, Kolumban, Aidan wyruszają przez morza. Zakładają klasztory na wyspach Iona Lindisfarne, Whitby. W ich skryptoriach powstają Ewangelie zdobione złotem, jak Księga z Kells, a ich modlitwy stają się śpiewem, który na nowo cywilizuje północ. W Anglii pojawia się św. Augustyn z Canterbury, wysłany przez papieża Grzegorza Wielkiego. Nie wchodzi z mieczem, lecz z Ewangelią w ręku. Chrzci królów, zakłada wspólnoty, modli się w ciszy – i świat który nie znał Chrystusa, zaczyna żyć Jego imieniem. To nie byli zwycięzcy, lecz pielgrzymi wiary. Ich łodzie pływały po morzach, jakby niosły ogień nieba w dłoniach. To oni nauczyli Europę wiary z serca, prostoty i pieśni. Trzy wezwania do działania:
 
-To nie byli zwycięzcy, lecz pielgrzymi wiary.
-Ich łodzie pływały po morzach, jakby niosły ogień nieba w dłoniach.
-To oni nauczyli Europę wiary z serca, prostoty i pieśni.
-  Trzy wezwania do działania
-Nie bój się iść w nieznane, jeśli niesiesz światło dobra.
-Tam, gdzie inni widzą koniec, Bóg posyła początek.
-Głoś Ewangelię nie tylko słowem, ale obecnością.
-Twoje życie może być pierwszym kazaniem, które ktoś usłyszy.
-Zanieś pokój w miejsca, gdzie wciąż trwa walka.
-Czasem wystarczy milczenie pełne miłości, by Duch Święty przemówił sam.
-  Modlitwy
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Patryk przyniósł światło Ewangelii do Irlandii.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Kolumba rozpalił ogień wiary wśród ludów północy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego mnisi z Iony i Lindisfarne uczynili z modlitwy pieśń pokoju.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
+1. Nie bój się iść w nieznane, jeśli niesiesz światło dobra. Tam, gdzie inni widzą koniec, Bóg posyła początek.
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Augustyn z Canterbury przemienił serca królów.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego pieśń Ewangelii pokonała głos miecza.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego mnisi uczynili z wysp i lasów świątynie Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego słowo Chrystusa rozbrzmiało w językach ludów północy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Ewangelia stała się światłem pośród mgieł świata.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego odwaga wiary pokonała lęk przed nieznanym.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
+2. Głoś Ewangelię nie tylko słowem, ale obecnością. Twoje życie może być pierwszym kazaniem, które ktoś usłyszy.
 
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego północ stała się ogrodem Ducha Świętego.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+3. Zanieś pokój w miejsca, gdzie wciąż trwa walka. Czasem wystarczy milczenie pełne miłości, by Duch Święty przemówił sam. Modlitwy
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Patryk przyniósł światło Ewangelii do Irlandii. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Kolumba rozpalił ogień wiary wśród ludów północy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego mnisi z Iony i Lindisfarne uczynili z modlitwy pieśń pokoju. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Augustyn z Canterbury przemienił serca królów. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego pieśń Ewangelii pokonała głos miecza. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego mnisi uczynili z wysp i lasów świątynie Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego słowo Chrystusa rozbrzmiało w językach ludów północy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Ewangelia stała się światłem pośród mgieł świata. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego odwaga wiary pokonała lęk przed nieznanym. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego północ stała się ogrodem Ducha Świętego. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 128 (Cykl I - Dzień 128 z 175) - [18.11.2014] Teologia Paschy – Ewangelia Życia
@@ -1534,129 +1075,41 @@ Wstęp modlitewny dnia 129. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Korona i krzyż: chrzest Europy i Karol Wielki
-Etap 6 - Część 1 - Tajemnica 4 - Korona i krzyż: chrzest Europy i Karol
-Wielki
-(VIII–IX wiek; Chrzest Franków, św. Bonifacy, Karol Wielki, koronacja 800 r.)
-„Nie ma już Greka ani Żyda, nie ma niewolnika ani wolnego, nie ma
-mężczyzny ani kobiety, bo wszyscy jedno jesteście w Chrystusie Jezusie.”
-(Ga 3,28)
-„Chrzest to początek królestwa ducha w człowieku i w narodzie.”
-— św. Bonifacy, listy misyjne
-„Niech król będzie sługą Boga, a jego berło niech będzie krzyżem.”
-— Koronacja Karola Wielkiego, Boże Narodzenie, 800 r.
-  Rozważanie
-W VIII wieku świat Europy wciąż był niespokojny.
-Stare imperium już dawno upadło, nowe narody rosły w siłę, ale wciąż
-brakowało im duszy.
-I wtedy Bóg posłał ludzi, którzy połączyli wiarę i mądrość, krzyż i koronę,
-modlitwę i prawo.
-Święty Bonifacy, mnich z Anglii, wyruszył do Germanii,
-by głosić Ewangelię wśród ludów czczących dąb boga Thora.
-Nie bał się. Ściął święte drzewo mieczem wiary — i w jego miejscu wzniosła
-się świątynia Chrystusa.
-Nie zniszczył ludzi, ale oczyścił ich serca.
-W tym samym czasie na Zachodzie rosło Królestwo Franków.
+Wielki (VIII–IX wiek; Chrzest Franków, św. Bonifacy, Karol Wielki koronacja 800 r.) „Nie ma już Greka ani Żyda, nie ma niewolnika ani wolnego, nie ma mężczyzny ani kobiety, bo wszyscy jedno jesteście w Chrystusie Jezusie.” (Ga 3,28) „Chrzest to początek królestwa ducha w człowieku i w narodzie.” — św. Bonifacy, listy misyjne „Niech król będzie sługą Boga, a jego berło niech będzie krzyżem.” — Koronacja Karola Wielkiego, Boże Narodzenie, 800 r. Rozważanie W VIII wieku świat Europy wciąż był niespokojny. Stare imperium już dawno upadło, nowe narody rosły w siłę, ale wciąż brakowało im duszy. I wtedy Bóg posłał ludzi, którzy połączyli wiarę i mądrość, krzyż i koronę, modlitwę i prawo. Święty Bonifacy, mnich z Anglii, wyruszył do Germanii, by głosić Ewangelię wśród ludów czczących dąb boga Thora. Nie bał się. Ściął święte drzewo mieczem wiary — i w jego miejscu wzniosła się świątynia Chrystusa. Nie zniszczył ludzi, ale oczyścił ich serca. W tym samym czasie na Zachodzie rosło Królestwo Franków. Król Karol Wielki zrozumiał, że prawdziwe panowanie to służba Bogu. Budował szkoły, klasztory, przywracał naukę, wspierał sztukę i wiarę. W Boże Narodzenie roku 800 papież Leon III koronował go w Rzymie na cesarza. Korona znów zaświeciła nad Europą — ale tym razem nie złotem imperium, lecz światłem Ewangelii. Karol Wielki i jego mnisi ukształtowali nowy świat, w którym słowo „Christianitas” — świat chrześcijański — oznaczało wspólnotę ducha, a nie tylko granice państw. Chrzest Europy stał się narodzinami jej duszy. Nie był końcem wojen, ale początkiem nadziei: że prawo miłości może rządzić światem skuteczniej niż miecz. Trzy wezwania do działania:
 
-Król Karol Wielki zrozumiał, że prawdziwe panowanie to służba Bogu.
-Budował szkoły, klasztory, przywracał naukę, wspierał sztukę i wiarę.
-W Boże Narodzenie roku 800 papież Leon III koronował go w Rzymie na
-cesarza.
-Korona znów zaświeciła nad Europą — ale tym razem nie złotem imperium,
-lecz światłem Ewangelii.
-Karol Wielki i jego mnisi ukształtowali nowy świat, w którym
-słowo „Christianitas” — świat chrześcijański —
-oznaczało wspólnotę ducha, a nie tylko granice państw.
-Chrzest Europy stał się narodzinami jej duszy.
-Nie był końcem wojen, ale początkiem nadziei:
-że prawo miłości może rządzić światem skuteczniej niż miecz.
-  Trzy wezwania do działania
-Nie bój się łączyć wiary z codziennością.
-Bóg chce być obecny nie tylko w świątyni, ale i w twojej pracy, rodzinie,
-decyzjach.
-Władza bez służby staje się pychą.
-Naucz się panować nad sobą — to pierwszy tron, na którym króluje
-Chrystus.
-Buduj pokój, który ma fundament w Krzyżu.
-Nie chodzi o potęgę, lecz o mądrość serca i wierność prawdzie.
-  Modlitwy
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Bonifacy obalił dąb pogaństwa i zasadził drzewo krzyża.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
+1. Nie bój się łączyć wiary z codziennością. Bóg chce być obecny nie tylko w świątyni, ale i w twojej pracy, rodzinie, decyzjach.
 
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Karol Wielki zjednoczył narody pod znakiem Chrystusa.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego korona stała się służbą, a berło znakiem krzyża.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego chrzest narodów otworzył Europę na Ewangelię.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wiara zbudowała wspólnotę ludów ponad granicami.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego pokój oparty na Bogu przyniósł nowy ład świata.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego cesarze klękali przed ołtarzem, uznając Boga za Pana.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
+2. Władza bez służby staje się pychą. Naucz się panować nad sobą — to pierwszy tron, na którym króluje Chrystus.
 
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół stał się nauczycielem narodów.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Duch Święty połączył języki ludów w jednym Credo.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego krzyż stał się koroną Europy i znakiem jej nadziei.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+3. Buduj pokój, który ma fundament w Krzyżu. Nie chodzi o potęgę, lecz o mądrość serca i wierność prawdzie. Modlitwy
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Bonifacy obalił dąb pogaństwa i zasadził drzewo krzyża. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Karol Wielki zjednoczył narody pod znakiem Chrystusa. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego korona stała się służbą, a berło znakiem krzyża. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego chrzest narodów otworzył Europę na Ewangelię. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wiara zbudowała wspólnotę ludów ponad granicami. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego pokój oparty na Bogu przyniósł nowy ład świata. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego cesarze klękali przed ołtarzem, uznając Boga za Pana. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Kościół stał się nauczycielem narodów. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Duch Święty połączył języki ludów jednym Credo. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego krzyż stał się koroną Europy i znakiem jej nadziei. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 129 (Cykl I - Dzień 129 z 175) - [21.11.2014] Otwieranie pieczęci
@@ -1816,130 +1269,41 @@ Wstęp modlitewny dnia 130. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Maryja, Matka nowej cywilizacji:
-Etap 6 - Część 1 - Tajemnica 5 - Maryja, Matka nowej cywilizacji:
+(IX–XI wiek; rozwój kultu maryjnego, modlitwa „Zdrowaś Maryjo”, początki pielgrzymek i sanktuariów) „Oto Matka twoja.” (J 19,27) „Do Ciebie się uciekamy, święta Boża Rodzicielko, nie odrzucaj naszych modlitw w potrzebach naszych.” — Sub tuum praesidium, najstarsza modlitwa do Maryi (III w.) „Przez Nią przyszło Zbawienie, przez Nią przychodzi pociecha.” — św. Anzelm z Canterbury Rozważanie Gdy Europa uczy się modlić, uczy się także kochać. I w centrum tej nowej miłości stoi Maryja – nie jako daleka królowa, lecz jako Matka, obecna w życiu każdego człowieka. W ciemnych klasztorach, wśród pergaminów i śpiewów psalmów mnisi zaczynają szeptać słowa: Ave Maria, gratia plena, Dominus tecum. To proste słowa z Ewangelii, ale niosą one nową czułość Bóg nie jest już tylko Panem, jest Ojcem; a Maryja nie jest tylko świadkiem, jest Matką. W tym czasie powstają pierwsze sanktuaria – w Efezie, w Chartres, w Monte Sant’Angelo, a później w całej Europie: miejsca, gdzie ludzie szukają pociechy uzdrowienia, gdzie prosty lud, rycerze i królowie klękają ramię w ramię. To właśnie w IX–XI wieku pobożność maryjna kształtuje duszę Europy: - uczy pokory władców, - delikatności w sercach mężczyzn, - odwagi w sercach kobiet, - i miłosierdzia w obliczu wojny. Maryja staje się sercem nowej cywilizacji – tej, która potrafi płakać, przebaczać i wierzyć, nawet gdy świat wokół jeszcze walczy o granice. Trzy wezwania do działania:
 
-pobożność wczesnego średniowiecza
-(IX–XI wiek; rozwój kultu maryjnego, modlitwa „Zdrowaś Maryjo”, początki
-pielgrzymek i sanktuariów)
-„Oto Matka twoja.”
-(J 19,27)
-„Do Ciebie się uciekamy, święta Boża Rodzicielko, nie odrzucaj naszych
-modlitw w potrzebach naszych.”
-— Sub tuum praesidium, najstarsza modlitwa do Maryi (III w.)
-„Przez Nią przyszło Zbawienie, przez Nią przychodzi pociecha.”
-— św. Anzelm z Canterbury
-   Rozważanie
-Gdy Europa uczy się modlić, uczy się także kochać.
-I w centrum tej nowej miłości stoi Maryja – nie jako daleka królowa,
-lecz jako Matka, obecna w życiu każdego człowieka.
-W ciemnych klasztorach, wśród pergaminów i śpiewów psalmów,
-mnisi zaczynają szeptać słowa:
-Ave Maria, gratia plena, Dominus tecum.
-To proste słowa z Ewangelii, ale niosą one nową czułość:
-Bóg nie jest już tylko Panem, jest Ojcem; a Maryja nie jest tylko świadkiem,
-jest Matką.
-W tym czasie powstają pierwsze sanktuaria – w Efezie, w Chartres, w
-Monte Sant’Angelo,
-a później w całej Europie: miejsca, gdzie ludzie szukają pociechy,
-uzdrowienia,
-gdzie prosty lud, rycerze i królowie klękają ramię w ramię.
-To właśnie w IX–XI wieku pobożność maryjna kształtuje duszę Europy:
-- uczy pokory władców,
-- delikatności w sercach mężczyzn,
-- odwagi w sercach kobiet,
-- i miłosierdzia w obliczu wojny.
-Maryja staje się sercem nowej cywilizacji – tej, która potrafi płakać,
-przebaczać i wierzyć,
-nawet gdy świat wokół jeszcze walczy o granice.
-   Trzy wezwania do działania
-Uczyń Maryję obecną w swoim dniu.
-Niech Jej imię będzie dla ciebie jak oddech – spokojne, pewne, czułe.
+1. Uczyń Maryję obecną w swoim dniu. Niech Jej imię będzie dla ciebie jak oddech – spokojne, pewne, czułe.
 
-Zawierz Jej swoje prace i troski.
-Tak jak mnisi ofiarowywali dzień śpiewem, ty możesz ofiarować swoje
-serce z prostotą.
-Nie bój się łagodności.
-W świecie, który ceni siłę, Maryja przypomina, że największą mocą jest
-miłość.
-  Modlitwy
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Maryja stała się Matką nowej Europy wiary.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego modlitwa „Zdrowaś Maryjo” stała się pieśnią kontynentu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego serca ludzi nauczyły się miłosierdzia przez Jej łzy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego świątynie Maryi stały się domami pokoju i wiary.
+2. Zawierz Jej swoje prace i troski. Tak jak mnisi ofiarowywali dzień śpiewem, ty możesz ofiarować swoje serce z prostotą.
 
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego ludzie odnajdywali Boga w macierzyńskiej dobroci Jej serca.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego każda łza staje się modlitwą pod Jej płaszczem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego rycerze klękali przed Nią, składając miecze w ofierze.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Maryja stała się Bramą Niebios w sercach ludów.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego w Jej imieniu powstawały pieśni, modlitwy i sanktuaria.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Maryja stała się Matką cywilizacji miłości.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
+3. Nie bój się łagodności. W świecie, który ceni siłę, Maryja przypomina, że największą mocą jest miłość. Modlitwy
 
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Maryja stała się Matką nowej Europy wiary. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego modlitwa „Zdrowaś Maryjo” stała się pieśnią kontynentu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego serca ludzi nauczyły się miłosierdzia przez Jej łzy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego świątynie Maryi stały się domami pokoju i wiary. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego ludzie odnajdywali Boga w macierzyńskiej dobroci Jej serca. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego każda łza staje się modlitwą pod Jej płaszczem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego rycerze klękali przed Nią, składając miecze w ofierze. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Maryja stała się Bramą Niebios w sercach ludów. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego w Jej imieniu powstawały pieśni, modlitwy i sanktuaria. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Maryja stała się Matką cywilizacji miłości. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 130 (Cykl I - Dzień 130 z 175) - [25.11.2014] Szukajcie, wybierajcie i trwajcie
@@ -2143,124 +1507,35 @@ Wstęp modlitewny dnia 131. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Światło mądrości: uniwersytety i święty Tomasz z Akwinu
-Etap 6 - Część 2 - Tajemnica 1 - Światło mądrości: uniwersytety i święty
-Tomasz z Akwinu
-(XIII wiek; narodziny uniwersytetów, scholastyka, harmonia wiary i rozumu)
-„Wiara i rozum są jak dwa skrzydła, na których duch ludzki unosi się ku
-kontemplacji prawdy.”
-— św. Jan Paweł II, Fides et Ratio (nawiązanie do Tomasza)
-„Człowiek pragnie poznać Boga tak, jak pragnie oddychać.”
-— św. Tomasz z Akwinu, Summa Theologica
-„Kto śpiewa, ten się modli dwa razy.”
-— św. Augustyn, cytowany przez scholastyków
-  Rozważanie
-Europa rozkwita.
-W miastach powstają szkoły i uczelnie: Paryż, Bolonia, Oksford, Kraków.
-To nie tylko miejsca nauki – to świątynie myśli, gdzie rozum klęka przed
-wiarą, a wiara unosi rozum ku światłu.
-Święty Tomasz z Akwinu, cichy dominikanin, pisał tysiące stron w świetle
-świecy.
+(XIII wiek; narodziny uniwersytetów scholastyka, harmonia wiary i rozumu) „Wiara i rozum są jak dwa skrzydła, na których duch ludzki unosi się ku kontemplacji prawdy.” — św. Jan Paweł II, Fides et Ratio (nawiązanie do Tomasza) „Człowiek pragnie poznać Boga tak, jak pragnie oddychać.” — św. Tomasz z Akwinu, Summa Theologica „Kto śpiewa, ten się modli dwa razy.” — św. Augustyn, cytowany przez scholastyków Rozważanie Europa rozkwita. W miastach powstają szkoły i uczelnie: Paryż, Bolonia, Oksford, Kraków. To nie tylko miejsca nauki – to świątynie myśli, gdzie rozum klęka przed wiarą, a wiara unosi rozum ku światłu. Święty Tomasz z Akwinu, cichy dominikanin, pisał tysiące stron w świetle świecy. Nie szukał sławy – szukał Prawdy. W swoich księgach pokazał, że wiara i rozum nie są wrogami, lecz braćmi. Rozum bez wiary jest ślepy, a wiara bez rozumu – słaba. W jego czasach Kościół był potężny, ale świat stawiał pytania: Czy Bóg jest logiczny? Czy świat ma sens? Czy można poznać niewidzialne? A Tomasz odpowiadał spokojnie: „Każda prawda pochodzi od Boga, dlatego nie może być sprzeczna z wiarą.” Kiedy umierał, po latach nauki i pisania, położył pióro i powiedział: „Wszystko, co napisałem, to jak słoma wobec tego, co zobaczyłem.” U kresu rozumu znalazł kontemplację. A jego nauka stała się filarem chrześcijańskiej mądrości — mostem między niebem a ziemią. Trzy wezwania do działania Nie bój się pytać Boga. Pytanie nie jest brakiem wiary to droga do jej pogłębienia. Szukaj harmonii, nie walki. Rozum i serce mają współbrzmieć jak dwa dzwony, które razem wzywają do prawdy. Ucz się dla dobra. Każda wiedza, jeśli prowadzi do miłości, jest święta. Modlitwy
 
-Nie szukał sławy – szukał Prawdy.
-W swoich księgach pokazał, że wiara i rozum nie są wrogami, lecz braćmi.
-Rozum bez wiary jest ślepy, a wiara bez rozumu – słaba.
-W jego czasach Kościół był potężny, ale świat stawiał pytania:
-Czy Bóg jest logiczny? Czy świat ma sens? Czy można poznać
-niewidzialne?
-A Tomasz odpowiadał spokojnie:
-„Każda prawda pochodzi od Boga, dlatego nie może być sprzeczna z wiarą.”
-Kiedy umierał, po latach nauki i pisania, położył pióro i powiedział:
-„Wszystko, co napisałem, to jak słoma wobec tego, co zobaczyłem.”
-U kresu rozumu znalazł kontemplację.
-A jego nauka stała się filarem chrześcijańskiej mądrości — mostem między
-niebem a ziemią.
-  Trzy wezwania do działania
-Nie bój się pytać Boga.
-Pytanie nie jest brakiem wiary – to droga do jej pogłębienia.
-Szukaj harmonii, nie walki.
-Rozum i serce mają współbrzmieć jak dwa dzwony, które razem wzywają
-do prawdy.
-Ucz się dla dobra.
-Każda wiedza, jeśli prowadzi do miłości, jest święta.
-  Modlitwy
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Tomasz szukał Prawdy w świetle rozumu i wiary.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego uczelnie Europy stały się świątyniami mądrości.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego rozum odnalazł w wierze swoje źródło i kres.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego pióro uczonego stało się narzędziem modlitwy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wiedza prowadziła do pokory wobec tajemnicy Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego scholastycy złączyli rozum z modlitwą jak dwa skrzydła duszy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg objawił się jako Mądrość i Miłość jednocześnie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
+dopowiedzeniami)
 
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego nauka stała się służbą prawdzie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego mądrość rodziła pokój, nie pychę.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Tomasz uczynił rozum narzędziem kontemplacji Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Tomasz szukał Prawdy w świetle rozumu i wiary. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego uczelnie Europy stały się świątyniami mądrości. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego rozum odnalazł w wierze swoje źródło i kres. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego pióro uczonego stało się narzędziem modlitwy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wiedza prowadziła do pokory wobec tajemnicy Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego scholastycy złączyli rozum z modlitwą jak dwa skrzydła duszy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg objawił się jako Mądrość i Miłość jednocześnie. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego nauka stała się służbą prawdzie. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego mądrość rodziła pokój, nie pychę. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Tomasz uczynił rozum narzędziem kontemplacji Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 131 (Cykl I - Dzień 131 z 175) - [26.11.2014] Byliśmy niczym
@@ -2310,128 +1585,41 @@ Wstęp modlitewny dnia 132. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Potęga i pokora: święty Franciszek i duch ubóstwa
-Etap 6 - Część 2 - Tajemnica 2 - Potęga i pokora: święty Franciszek i duch
-ubóstwa
-(XIII wiek; św. Franciszek z Asyżu, św. Klara, franciszkańska odnowa serca)
-„Bóg jest tak wielki, że wystarczy Mu tylko serce człowieka.”
-— św. Franciszek z Asyżu
-„Pan mój i Bóg mój! Cóż mogę uczynić dla Ciebie?”
-— św. Klara z Asyżu
-„Zacznij od tego, co konieczne, potem rób to, co możliwe — a nagle
-zobaczysz, że czynisz niemożliwe.”
-— św. Franciszek
-  Rozważanie
-XIII wiek — złoty wiek chrześcijaństwa.
-Katedry wznoszą się ku niebu, papieże rządzą królami, zakony uczonych
-rozświetlają Europę.
-A jednak Bóg szuka czegoś więcej niż marmuru i władzy.
-Szuka serca, które kocha bez granic.
-W małym miasteczku Asyżu rodzi się Franciszek Bernardone, syn bogatego
-kupca.
-Marzy o rycerskiej chwale, o zwycięstwach, o uznaniu.
-Ale gdy jego plany upadają, słyszy głos Ukrzyżowanego z zrujnowanego
-kościoła San Damiano:
-„Franciszku, odbuduj mój Kościół, który popada w ruinę.”
-Najpierw bierze to dosłownie — naprawia mury z kamienia.
-Potem rozumie, że chodzi o coś więcej: o Kościół ludzkich serc.
-Zrzuca bogate szaty, przyjmuje ubóstwo, żyje w radości i prostocie.
-Śpiewa o słońcu, o bracie ogniu, o siostrze wodzie.
-Widzi Boga w każdym stworzeniu, w biedaku i w ptaku.
-Za nim idą inni. Rodzi się wspólnota, Zakon Braci Mniejszych,
-która odradza wiarę nie przez teologię, ale przez miłość czynu.
-Święta Klara, jego duchowa siostra, czyni to samo –
-żyje w ciszy i ubóstwie, a jej modlitwa chroni miasta i serca.
-Franciszek nie napisał traktatów, nie zdobył tytułów.
+(XIII wiek; św. Franciszek z Asyżu, św. Klara franciszkańska odnowa serca) „Bóg jest tak wielki, że wystarczy Mu tylko serce człowieka.” — św. Franciszek z Asyżu „Pan mój i Bóg mój! Cóż mogę uczynić dla Ciebie?” — św. Klara z Asyżu „Zacznij od tego, co konieczne, potem rób to, co możliwe — a nagle zobaczysz, że czynisz niemożliwe.” — św. Franciszek Rozważanie XIII wiek — złoty wiek chrześcijaństwa. Katedry wznoszą się ku niebu, papieże rządzą królami, zakony uczonych rozświetlają Europę. A jednak Bóg szuka czegoś więcej niż marmuru i władzy. Szuka serca, które kocha bez granic. W małym miasteczku Asyżu rodzi się Franciszek Bernardone, syn bogatego kupca. Marzy o rycerskiej chwale, o zwycięstwach, o uznaniu. Ale gdy jego plany upadają, słyszy głos Ukrzyżowanego z zrujnowanego kościoła San Damiano: „Franciszku, odbuduj mój Kościół, który popada w ruinę.” Najpierw bierze to dosłownie naprawia mury z kamienia. Potem rozumie, że chodzi o coś więcej: o Kościół ludzkich serc. Zrzuca bogate szaty, przyjmuje ubóstwo, żyje w radości i prostocie. Śpiewa o słońcu, o bracie ogniu, o siostrze wodzie. Widzi Boga w każdym stworzeniu, w biedaku i w ptaku. Za nim idą inni. Rodzi się wspólnota, Zakon Braci Mniejszych, która odradza wiarę nie przez teologię, ale przez miłość czynu. Święta Klara, jego duchowa siostra, czyni to samo żyje w ciszy i ubóstwie, a jej modlitwa chroni miasta i serca. Franciszek nie napisał traktatów, nie zdobył tytułów. Ale jego pieśń – „Pochwała stworzenia” – stała się hymnem nowego człowieczeństwa, w którym Bóg i świat znów są sobie bliscy. Trzy wezwania do działania:
 
-Ale jego pieśń – „Pochwała stworzenia” –
-stała się hymnem nowego człowieczeństwa,
-w którym Bóg i świat znów są sobie bliscy.
-  Trzy wezwania do działania
-Zrezygnuj z nadmiaru, aby odzyskać radość.
-Nie potrzebujesz wiele, by kochać.
-Dostrzeż Boga w stworzeniu.
-Każdy dzień, każda istota, każdy oddech to modlitwa.
-Napraw swój mały fragment świata.
-Zacznij tam, gdzie jesteś — i zobacz, jak świat się rozjaśnia.
-  Modlitwy
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Franciszek pokochał ubóstwo bardziej niż bogactwo.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święta Klara rozświetlała noc ciszą modlitwy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego ptaki i ludzie śpiewali razem o chwale Stwórcy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
+1.  Zrezygnuj z nadmiaru, aby odzyskać radość. Nie potrzebujesz wiele, by kochać.
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego krzyż stał się źródłem radości, nie cierpienia.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego prostota stała się drogą świętości.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego ubodzy stali się nauczycielami Ewangelii.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego franciszkanie przypomnieli światu, że Bóg jest Miłością.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Franciszek przemienił cierpienie w pieśń wdzięczności.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego pokora zwyciężyła pychę świata.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
+2. Dostrzeż Boga w stworzeniu. Każdy dzień, każda istota, każdy oddech to modlitwa.
 
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Franciszek odnalazł w Bogu brata wszystkich stworzeń.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+3. Napraw swój mały fragment świata. Zacznij tam, gdzie jesteś — i zobacz, jak świat się rozjaśnia. Modlitwy
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Franciszek pokochał ubóstwo bardziej niż bogactwo. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święta Klara rozświetlała noc ciszą modlitwy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego ptaki i ludzie śpiewali razem o chwale Stwórcy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego krzyż stał się źródłem radości, nie cierpienia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego prostota stała się drogą świętości. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego ubodzy stali się nauczycielami Ewangelii. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego franciszkanie przypomnieli światu, że Bóg jest Miłością. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Franciszek przemienił cierpienie w pieśń wdzięczności. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego pokora zwyciężyła pychę świata. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego święty Franciszek odnalazł w Bogu brata wszystkich stworzeń. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 132 (Cykl I - Dzień 132 z 175) - [27.11.2014] Życie jest celem
@@ -2545,131 +1733,41 @@ Wstęp modlitewny dnia 133. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Cień władzy: rozłam, pycha i początek kryzysu Kościoła
-Etap 6 - Część 2 - Tajemnica 3 - Cień władzy: rozłam, pycha i początek
-kryzysu Kościoła
-(XIV wiek; niewola awiniońska, schizma zachodnia, utrata jedności i
-zaufania)
-„Nie każdy, kto mówi Mi: Panie, Panie, wejdzie do królestwa niebieskiego,
+(XIV wiek; niewola awiniońska, schizma zachodnia, utrata jedności i zaufania) „Nie każdy, kto mówi Mi Panie, wejdzie do królestwa niebieskiego, lecz ten, kto spełnia wolę Ojca mojego.” (Mt 7,21) „Kościół jest święty, choć jego członkowie są grzeszni.” — św. Katarzyna ze Sieny „Władza bez miłości staje się pychą, a duch bez pokory pustynią.” — Tradycja monastyczna XIV w. Rozważanie Minęły czasy św. Franciszka i Tomasza. Kościół urósł w potęgę posiada ziemie, wpływy, koronuje królów i decyduje o losach narodów. Ale im wyżej sięga drzewo, tym bardziej narażone jest na burzę. W XIV wieku jego korzenie zaczynają drżeć. Papieże opuszczają Rzym i przenoszą się do Awinionu — do świata dworów, przepychu i intryg. Głosy wiernych cichną, a między biskupami i królami rodzi się rywalizacja o tron Piotra. Gdy jeden papież wraca do Rzymu, drugi ogłasza się prawowitym w Awinionie. Zaczyna się Wielka Schizma Zachodnia. Dwa papieskie dwory, dwa Kościoły, dwa języki władzy — a wierni pytają z bólem „Gdzie jest jedność, o której modlił się Chrystus?” Ale właśnie wtedy, wśród zamętu, Bóg wzbudza proroków serca: św. Katarzynę ze Sieny, prostą kobietę, która listami i modlitwą błaga papieża, by wrócił do Rzymu; św. Brygidę Szwedzką, która płacze za grzechy duchownych; i św. Wincentego Ferreriusza, który wzywa świat do nawrócenia. Nie jest to koniec Kościoła, ale oczyszczenie. Pycha musi ustąpić pokorze, a tron musi znów stać się krzyżem. Z tej burzy Kościół wyjdzie zraniony, ale silniejszy bo nauczy się, że świętość nie zależy od władzy, lecz od pokuty. Trzy wezwania do działania:
 
-lecz ten, kto spełnia wolę Ojca mojego.”
-(Mt 7,21)
-„Kościół jest święty, choć jego członkowie są grzeszni.”
-— św. Katarzyna ze Sieny
-„Władza bez miłości staje się pychą, a duch bez pokory – pustynią.”
-— Tradycja monastyczna XIV w.
-  Rozważanie
-Minęły czasy św. Franciszka i Tomasza.
-Kościół urósł w potęgę – posiada ziemie, wpływy, koronuje królów i
-decyduje o losach narodów.
-Ale im wyżej sięga drzewo, tym bardziej narażone jest na burzę.
-W XIV wieku jego korzenie zaczynają drżeć.
-Papieże opuszczają Rzym i przenoszą się do Awinionu —
-do świata dworów, przepychu i intryg.
-Głosy wiernych cichną, a między biskupami i królami rodzi się rywalizacja o
-tron Piotra.
-Gdy jeden papież wraca do Rzymu, drugi ogłasza się prawowitym w
-Awinionie.
-Zaczyna się Wielka Schizma Zachodnia.
-Dwa papieskie dwory, dwa Kościoły, dwa języki władzy —
-a wierni pytają z bólem: „Gdzie jest jedność, o której modlił się Chrystus?”
-Ale właśnie wtedy, wśród zamętu,
-Bóg wzbudza proroków serca: św. Katarzynę ze Sieny,
-prostą kobietę, która listami i modlitwą błaga papieża, by wrócił do Rzymu;
-św. Brygidę Szwedzką, która płacze za grzechy duchownych;
-i św. Wincentego Ferreriusza, który wzywa świat do nawrócenia.
-Nie jest to koniec Kościoła, ale oczyszczenie.
-Pycha musi ustąpić pokorze,
-a tron musi znów stać się krzyżem.
-Z tej burzy Kościół wyjdzie zraniony,
-ale silniejszy — bo nauczy się, że świętość nie zależy od władzy, lecz od
-pokuty.
-  Trzy wezwania do działania
-Nie osądzaj Kościoła, ale módl się za jego serce.
-Tak jak Katarzyna ze Sieny, która kochała mimo bólu.
-Szukaj jedności w prawdzie, nie w kompromisie.
-Jedność rodzi się z nawrócenia, nie z polityki.
+1. Nie osądzaj Kościoła, ale módl się za jego serce. Tak jak Katarzyna ze Sieny, która kochała mimo bólu.
 
-Zacznij reformę od siebie.
-Prawdziwe odnowienie Kościoła zaczyna się w twoim sercu.
-  Modlitwy
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święta Katarzyna błagała o jedność Kościoła.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego papieże wrócili do Rzymu, by służyć, a nie rządzić.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Brygida Szwedzka wzywała świat do pokuty.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego prawda stała się mocniejsza niż złoto i korony.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
+2. Szukaj jedności w prawdzie, nie w kompromisie. Jedność rodzi się z nawrócenia, nie z polityki.
 
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół przetrwał próbę, zachowując wiarę w Boga, nie w ludzi.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego grzech nie zwyciężył łaski, a światłość nie zgasła w Kościele.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Duch Święty prowadził Kościół przez noc rozłamu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego pokora zwyciężyła pychę hierarchii.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego modlitwa wiernych ocaliła wiarę w czasach zamętu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół oczyszczony z pychy odnalazł świętość w pokucie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
+3. Zacznij reformę od siebie. Prawdziwe odnowienie Kościoła zaczyna się w twoim sercu. Modlitwy
 
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święta Katarzyna błagała o jedność Kościoła. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego papieże wrócili do Rzymu, by służyć, a nie rządzić. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Brygida Szwedzka wzywała świat do pokuty. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego prawda stała się mocniejsza niż złoto i korony. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Kościół przetrwał próbę, zachowując wiarę w Boga, nie w ludzi. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego grzech nie zwyciężyłaski, a światłość nie zgasła w Kościele. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Duch Święty prowadził Kościół przez noc rozłamu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego pokora zwyciężyła pychę hierarchii. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego modlitwa wiernych ocaliła wiarę w czasach zamętu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół oczyszczony z pychy odnalazł świętość w pokucie. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 133 (Cykl I - Dzień 133 z 175) - [29.11.2014] Wąska droga pośród szerokiej drogi
@@ -2755,123 +1853,41 @@ Wstęp modlitewny dnia 134. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Głos pustyni: mistycy i prorocy nocy Kościoła
-Etap 6 - Część 2 - Tajemnica 4 - Głos pustyni: mistycy i prorocy nocy
-Kościoła
-(XIV–XV wiek; mistycy północy i południa, modlitwa serca, kontemplacja w
-ciemności)
-„Bóg jest bliżej ciebie, niż ty sam siebie.”
-— Mistrz Eckhart
-„W ciszy Bóg przemawia najgłośniej.”
-— św. Jan od Krzyża
-„Trzeba milczeć, aby słowo Boga mogło zabrzmieć.”
-— św. Teresa z Ávili
-  Rozważanie
+(XIV–XV wiek; mistycy północy i południa, modlitwa serca, kontemplacja w ciemności) „Bóg jest bliżej ciebie, niż ty sam siebie.” — Mistrz Eckhart „W ciszy Bóg przemawia najgłośniej.” — św. Jan od Krzyża „Trzeba milczeć, aby słowo Boga mogło zabrzmieć.” — św. Teresa z Ávili Rozważanie Po burzach, po rozłamach, po wielkich katedrach i teologicznych sporach — nadchodzi noc. Nie noc zwątpienia, lecz noc oczyszczenia. Bóg ucisza hałas świata, by człowiek usłyszał Jego szept. Nie przemawia już przez papieży i królów, lecz przez dusze ciche i ukryte. W Niemczech głosi Mistrz Eckhart, że Bóg mieszka w głębi duszy, w miejscu, gdzie człowiek staje się „niczym” — bo tylko wtedy może być wypełniony Bogiem. Na północy, w Niderlandach, Ruysbroeck pisze o „nadświetlnej ciemności”, w której dusza tonie w Bogu jak kropla w oceanie. W tym samym czasie, w klasztorach i miastach, kobiety – św. Brygida Katarzyna, Julian z Norwich – słyszą głos Pana nie w objawieniach potęgi, lecz w słowach miłosierdzia: „Wszystko będzie dobrze, i wszelka rzecz będzie dobrze.” To czas modlitwy nie triumfu. Czas, gdy mistycy uczą, że wiara dojrzewa nie w blasku, lecz w nocy. Że Bóg nie odszedł – tylko czeka, aż człowiek nauczy się Go kochać w ciszy. Trzy wezwania do działania:
 
-Po burzach, po rozłamach, po wielkich katedrach i teologicznych sporach —
-nadchodzi noc.
-Nie noc zwątpienia, lecz noc oczyszczenia.
-Bóg ucisza hałas świata, by człowiek usłyszał Jego szept.
-Nie przemawia już przez papieży i królów, lecz przez dusze ciche i ukryte.
-W Niemczech głosi Mistrz Eckhart, że Bóg mieszka w głębi duszy,
-w miejscu, gdzie człowiek staje się „niczym” —
-bo tylko wtedy może być wypełniony Bogiem.
-Na północy, w Niderlandach, Ruysbroeck pisze o „nadświetlnej ciemności”,
-w której dusza tonie w Bogu jak kropla w oceanie.
-W tym samym czasie, w klasztorach i miastach,
-kobiety – św. Brygida, Katarzyna, Julian z Norwich –
-słyszą głos Pana nie w objawieniach potęgi,
-lecz w słowach miłosierdzia:
-„Wszystko będzie dobrze, i wszelka rzecz będzie dobrze.”
-To czas modlitwy, nie triumfu.
-Czas, gdy mistycy uczą, że wiara dojrzewa nie w blasku, lecz w nocy.
-Że Bóg nie odszedł – tylko czeka, aż człowiek nauczy się Go kochać w
-ciszy.
-  Trzy wezwania do działania
-Znajdź chwilę ciszy każdego dnia.
-Milczenie jest modlitwą, która rodzi światło.
-Nie uciekaj od duchowej nocy.
-Czas pustki to nie kara – to oczyszczenie serca.
-Słuchaj Boga w prostych rzeczach.
-Czasem objawia się w spojrzeniu, w oddechu, w kropli deszczu.
-  Modlitwy
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
+1. Znajdź chwilę ciszy każdego dnia. Milczenie jest modlitwą, która rodzi światło.
 
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Mistrz Eckhart odkrył Boga w głębi duszy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego mistycy modlili się w ciszy zamiast w słowach.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Brygida i Julian słyszały głos Bożego miłosierdzia.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego noc stała się światłem wiary.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego cisza stała się językiem modlitwy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego serce człowieka stało się świątynią Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
+2. Nie uciekaj od duchowej nocy. Czas pustki to nie kara to oczyszczenie serca.
 
-dla którego kontemplacja otworzyła oczy na niewidzialne.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego noc duszy stała się bramą światła.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg przemawiał bez słów do serc zranionych.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego dusze ciche i wierne ocaliły wiarę świata.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+3. Słuchaj Boga w prostych rzeczach. Czasem objawia się w spojrzeniu, w oddechu, w kropli deszczu.
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Mistrz Eckhart odkrył Boga w głębi duszy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego mistycy modlili się w ciszy zamiast w słowach. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Brygida i Julian słyszały głos Bożego miłosierdzia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego noc stała się światłem wiary. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego cisza stała się językiem modlitwy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego serce człowieka stało się świątynią Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego kontemplacja otworzyła oczy na niewidzialne. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego noc duszy stała się bramą światła. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg przemawiał bez słów do serc zranionych. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego dusze ciche i wierne ocaliły wiarę świata. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 134 (Cykl I - Dzień 134 z 175) - [02.12.2014] Sen o idei, która prowadzi do Prawdy
@@ -3043,127 +2059,41 @@ Wstęp modlitewny dnia 135. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Nowe światło: odrodzenie modlitwy i sztuki w późnym średniowieczu
-Etap 6 - Część 2 - Tajemnica 5 - Nowe światło: odrodzenie modlitwy i
-sztuki w późnym średniowieczu
-(XV wiek; modlitwa serca, sztuka sakralna, odrodzenie ducha i piękna)
-„Piękno jest odbiciem wiecznej Miłości.”
-— św. Bonawentura
-„Nie sztuka prowadzi do Boga, ale Bóg czyni z niej drogę.”
-— anonim średniowieczny, szkoła franciszkańska
-„Gdzie kończą się słowa, tam zaczyna się muzyka.”
-— św. Hildegarda z Bingen
-Koniec średniowiecza to nie zmierzch wiary,
-lecz początek innego rodzaju światła – delikatnego, ludzkiego, ciepłego.
-Wielkie katedry już stoją, ale teraz Bóg przemawia przez twarze i barwy:
-w freskach Giotta i Fra Angelico, w ikonach Bizancjum,
-w muzyce chorałów i pierwszych polifonii.
-To czas, gdy sztuka przestaje być tylko ozdobą,
-a staje się modlitwą widzialną.
+sztuki w późnym średniowieczu Rozważanie Tajemnicy (XV wiek; modlitwa serca, sztuka sakralna, odrodzenie ducha i piękna) „Piękno jest odbiciem wiecznej Miłości.” — św. Bonawentura „Nie sztuka prowadzi do Boga, ale Bóg czyni z niej drogę.” — anonim średniowieczny szkoła franciszkańska „Gdzie kończą się słowa, tam zaczyna się muzyka.” — św. Hildegarda z Bingen Koniec średniowiecza to nie zmierzch wiary, lecz początek innego rodzaju światła delikatnego, ludzkiego, ciepłego. Wielkie katedry już stoją, ale teraz Bóg przemawia przez twarze i barwy: w freskach Giotta i Fra Angelico, w ikonach Bizancjum, w muzyce chorałów i pierwszych polifonii. To czas, gdy sztuka przestaje być tylko ozdobą, a staje się modlitwą widzialną. Każdy gest pędzla, każdy dźwięk organów, każda rzeźba w kamieniu jest modlitwą — bo człowiek znów zaczyna szukać Boga poprzez piękno. Nie jest to jednak próżna estetyka. Wszystko, co powstaje, rodzi się z kontemplacji: mnisi przepisywali księgi nie po to, by tworzyć sztukę, lecz by uwielbiać Boga pismem obrazem i kolorem. Fra Angelico malował na kolanach. Każdy jego anioł jest modlitwą. A w jego obrazach światło nie pochodzi z lampy – pochodzi z wnętrza postaci. Wtedy też zaczyna się nowy duch – humanizm chrześcijański – w którym Bóg i człowiek nie są wrogami, lecz przyjaciółmi. Z tego światła narodzi się przyszłość, która poprowadzi wprost ku epoce odnowy. Trzy wezwania do działania:
 
-Każdy gest pędzla, każdy dźwięk organów,
-każda rzeźba w kamieniu jest modlitwą —
-bo człowiek znów zaczyna szukać Boga poprzez piękno.
-Nie jest to jednak próżna estetyka.
-Wszystko, co powstaje, rodzi się z kontemplacji:
-mnisi przepisywali księgi nie po to, by tworzyć sztukę,
-lecz by uwielbiać Boga pismem, obrazem i kolorem.
-Fra Angelico malował na kolanach.
-Każdy jego anioł jest modlitwą.
-A w jego obrazach światło nie pochodzi z lampy –
-pochodzi z wnętrza postaci.
-Wtedy też zaczyna się nowy duch – humanizm chrześcijański –
-w którym Bóg i człowiek nie są wrogami,
-lecz przyjaciółmi.
-Z tego światła narodzi się przyszłość,
-która poprowadzi wprost ku epoce odnowy.
-  Trzy wezwania do działania
-Odkrywaj piękno jako drogę do Boga.
-Każda forma dobra i harmonii jest odbiciem Jego obecności.
-Módl się twórczo.
-Rysuj, pisz, śpiewaj, pomagaj – niech twoje życie stanie się dziełem
-modlitwy.
-Zachowaj wrażliwość serca.
-Wrażliwość to brama, przez którą Bóg wchodzi w świat.
-  Modlitwy
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego artyści i mnisi oddawali Bogu chwałę poprzez piękno.
+1. Odkrywaj piękno jako drogę do Boga. Każda forma dobra i harmonii jest odbiciem Jego obecności.
 
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Giotto i Fra Angelico malowali światłem modlitwy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego muzyka stała się echem modlitwy serca.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego światło sztuki objawiło blask wiary.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego modlitwa stała się obrazem i śpiewem duszy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego piękno było ścieżką do świętości.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego każde dzieło stworzenia stało się hymnem chwały.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
+2. Módl się twórczo. Rysuj, pisz, śpiewaj, pomagaj – niech twoje życie stanie się dziełem modlitwy.
 
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego człowiek odkrył, że tworzyć to współpracować z Bogiem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego piękno i dobro są jednym imieniem Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego modlitwa sztuki przygotowała drogę przyszłym pokoleniom
-wiary.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+3. Zachowaj wrażliwość serca. Wrażliwość to brama, przez którą Bóg wchodzi w świat. Modlitwy
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego artyści i mnisi oddawali Bogu chwałę poprzez piękno. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Giotto i Fra Angelico malowali światłem modlitwy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego muzyka stała się echem modlitwy serca. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego światło sztuki objawiło blask wiary. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego modlitwa stała się obrazem i śpiewem duszy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego piękno było ścieżką do świętości. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego każde dzieło stworzenia stało się hymnem chwały. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego człowiek odkrył, że tworzyć to współpracować z Bogiem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego piękno i dobro są jednym imieniem Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego modlitwa sztuki przygotowała drogę przyszłym pokoleniom wiary. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 135 (Cykl I - Dzień 135 z 175) - [02.12.2014] Uczta na górze i medalik zwycięstwa
@@ -3307,126 +2237,41 @@ Wstęp modlitewny dnia 136. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Podziały i wierność: Kościół w ogniu Reformacji
-Etap 6 - Część 3 - Tajemnica 1 - Podziały i wierność: Kościół w ogniu
-Reformacji
-(XVI wiek; Marcin Luter, reformacja, kontrreformacja, wezwanie do
-nawrócenia i wierności Ewangelii)
-„Prawda was wyzwoli.”
-(J 8,32)
-„Kościół potrzebuje nie reformatorów, lecz świętych.”
-— św. Franciszek Salezy
-„Nie wszystko, co płonie, jest ogniem z nieba.”
-— anonimowy kaznodzieja z czasów Soboru Trydenckiego
-  Rozważanie
-XVI wiek – Europa tętni zmianą.
-Druk, nowe odkrycia, renesans, pytania o wiarę i władzę.
-W samym sercu tej epoki rodzi się Reformacja – wezwanie do powrotu do
-Ewangelii, ale też rana w ciele Kościoła.
-Marcin Luter, mnich i teolog, z bólem patrzy na nadużycia i grzechy w
-Kościele.
-Gdy przybija swoje tezy na drzwiach w Wittenberdze, chce rozbudzić
-sumienie –
-nie przewiduje, że rozpali ogień, który podzieli chrześcijaństwo.
-Europa staje w płomieniach sporów:
-księża opuszczają klasztory, monarchowie wybierają religię swoich krajów,
-a wierni nie wiedzą, kto ma rację.
-Brat przeciw bratu, kaznodzieja przeciw kaznodziei.
-Ale Duch Święty nie opuszcza Kościoła.
-Z wnętrza bólu rodzi się odnowa:
-święci jak Ignacy Loyola, Teresa z Ávili, Jan od Krzyża
-rozpoczynają wewnętrzną reformę,
+(XVI wiek; Marcin Luter, reformacja, kontrreformacja wezwanie do nawrócenia i wierności Ewangelii) „Prawda was wyzwoli.” (J 8,32) „Kościół potrzebuje nie reformatorów, lecz świętych.” — św. Franciszek Salezy „Nie wszystko, co płonie, jest ogniem z nieba.” — anonimowy kaznodzieja z czasów Soboru Trydenckiego Rozważanie XVI wiek – Europa tętni zmianą. Druk nowe odkrycia, renesans, pytania o wiarę i władzę. W samym sercu tej epoki rodzi się Reformacja – wezwanie do powrotu do Ewangelii, ale też rana w ciele Kościoła. Marcin Luter, mnich i teolog, z bólem patrzy na nadużycia i grzechy w Kościele. Gdy przybija swoje tezy na drzwiach w Wittenberdze, chce rozbudzić sumienie – nie przewiduje, że rozpali ogień, który podzieli chrześcijaństwo. Europa staje w płomieniach sporów: księża opuszczają klasztory, monarchowie wybierają religię swoich krajów, a wierni nie wiedzą, kto ma rację. Brat przeciw bratu kaznodzieja przeciw kaznodziei. Ale Duch Święty nie opuszcza Kościoła. Z wnętrza bólu rodzi się odnowa: święci jak Ignacy Loyola, Teresa z Ávili, Jan od Krzyża rozpoczynają wewnętrzną reformę, a Sobór Trydencki przywraca czystość nauki i liturgii. To nie jest zwycięstwo jednej strony nad drugą, ale oczyszczenie całego ciała Chrystusa. Bóg pozwala, by ogień przeszedł przez Kościół nie po to, by go spalić, lecz by go przetopić w miłości. Trzy wezwania do działania:
 
-a Sobór Trydencki przywraca czystość nauki i liturgii.
-To nie jest zwycięstwo jednej strony nad drugą,
-ale oczyszczenie całego ciała Chrystusa.
-Bóg pozwala, by ogień przeszedł przez Kościół —
-nie po to, by go spalić, lecz by go przetopić w miłości.
-  Trzy wezwania do działania
-Nie bój się prawdy, nawet trudnej.
-Prawda nigdy nie niszczy wiary – ona ją oczyszcza.
-Módl się za jedność chrześcijan.
-Podział boli Boga bardziej niż nas.
-Reformuj Kościół, zaczynając od własnego serca.
-Świętość jest najgłębszą reformą.
-  Modlitwy
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Marcin Luter pragnął powrotu do prawdy Ewangelii.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Ignacy Loyola odnowił ducha posłuszeństwa i misji.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Sobór Trydencki przywrócił wiarę w sakramenty i łaskę.
+1. Nie bój się prawdy, nawet trudnej. Prawda nigdy nie niszczy wiary – ona ją oczyszcza.
 
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święta Teresa z Ávili modliła się o odnowę serc.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Jan od Krzyża odnalazł Boga w ciemności wiary.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Duch Święty przemienił kryzys w źródło świętości.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół odnalazł pokorę w pokucie i nauce wiary.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego podziały stały się początkiem modlitwy o jedność.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wierność Kościoła zwyciężyła zwątpienie i bunt.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
+2. Módl się za jedność chrześcijan. Podział boli Boga bardziej niż nas.
 
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Chrystus pozostał obecny w Kościele mimo podziałów.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+3. Reformuj Kościół zaczynając od własnego serca. Świętość jest najgłębszą reformą. Modlitwy
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Marcin Luter pragnął powrotu do prawdy Ewangelii. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Ignacy Loyola odnowił ducha posłuszeństwa i misji. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Sobór Trydencki przywrócił wiarę w sakramenty i łaskę. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święta Teresa z Ávili modliła się o odnowę serc. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Jan od Krzyża odnalazł Boga w ciemności wiary. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Duch Święty przemienił kryzys w źródło świętości. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół odnalazł pokorę w pokucie i nauce wiary. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego podziały stały się początkiem modlitwy o jedność. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wierność Kościoła zwyciężyła zwątpienie i bunt. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Chrystus pozostał obecny w Kościele mimo podziałów. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 136 (Cykl I - Dzień 136 z 175) - [06.12.2014] Nie samym chlebem...
@@ -3514,126 +2359,41 @@ Wstęp modlitewny dnia 137. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Miłość, która przekracza oceany: misje nowego świata i świadkowie wiary
-Etap 6 - Część 3 - Tajemnica 2 - Miłość, która przekracza oceany: misje
-nowego świata i świadkowie wiary
-(XVI–XVII wiek; odkrycia geograficzne, ewangelizacja Azji, Afryki i Ameryk)
-„Idźcie na cały świat i głoście Ewangelię wszelkiemu stworzeniu.”
-(Mk 16,15)
-„Jeśli nie mogę być w niebie, pójdę w ogień miłości, by płonąć dla dusz.”
-— św. Franciszek Ksawery
-„Nie wszyscy mogą głosić, ale każdy może kochać.”
-— św. Piotr Klawer
-  Rozważanie
-Nowy świat się otworzył.
-Ocean, który dzielił kontynenty, stał się drogą dla Ewangelii.
-Z portów Lizbony i Sewilli wyruszają statki – jedne z handlarzami, inne z
-misjonarzami.
-Jedni niosą towary, inni Słowo, które daje życie.
-Święty Franciszek Ksawery, uczeń Ignacego Loyoli, wyrusza do Indii,
-Japonii i na wyspy Dalekiego Wschodu.
-Nie zna języka, nie ma pieniędzy, nie boi się burz.
-Uczy się modlitw w językach, których nigdy wcześniej nie słyszał.
-Chrzci tysiące, lecz jeszcze więcej ludzi dotyka sercem.
-W Afryce św. Piotr Klawer, jezuita z Hiszpanii, schodzi do ładowni statków,
-gdzie leżą zniewoleni ludzie.
-Nie głosi kazań, nie buduje katedr – myje rany, poi wodą, błogosławi.
-Mówi o Bogu miłości nie słowami, ale dotykiem.
-Na drzwiach swojej celi pisze:
-„Piotr Klawer – sługa niewolników na zawsze.”
+(XVI–XVII wiek; odkrycia geograficzne, ewangelizacja Azji, Afryki i Ameryk) „Idźcie na cały świat i głoście Ewangelię wszelkiemu stworzeniu.” (Mk 16,15) „Jeśli nie mogę być w niebie, pójdę w ogień miłości, by płonąć dla dusz.” — św. Franciszek Ksawery „Nie wszyscy mogą głosić, ale każdy może kochać.” — św. Piotr Klawer Rozważanie Nowy świat się otworzył. Ocean, który dzielił kontynenty, stał się drogą dla Ewangelii. Z portów Lizbony i Sewilli wyruszają statki – jedne z handlarzami, inne z misjonarzami. Jedni niosą towary, inni Słowo które daje życie. Święty Franciszek Ksawery, uczeń Ignacego Loyoli, wyrusza do Indii, Japonii i na wyspy Dalekiego Wschodu. Nie zna języka, nie ma pieniędzy, nie boi się burz. Uczy się modlitw w językach, których nigdy wcześniej nie słyszał. Chrzci tysiące, lecz jeszcze więcej ludzi dotyka sercem. W Afryce św. Piotr Klawer, jezuita z Hiszpanii, schodzi do ładowni statków gdzie leżą zniewoleni ludzie. Nie głosi kazań, nie buduje katedr myje rany, poi wodą, błogosławi. Mówi o Bogu miłości nie słowami, ale dotykiem. Na drzwiach swojej celi pisze: „Piotr Klawer – sługa niewolników na zawsze.” W Amerykach, Azji i Afryce rodzą się nowe wspólnoty, nowe języki modlitwy, nowe oblicze Kościoła – powszechnego, różnorodnego żywego. Nie wszystko było czyste – z misjami splatały się błędy kolonizacja i grzech. A jednak pośród tego wszystkiego jaśniała prawda: że miłość Chrystusa nie zna granic ani ras, ani języków. Trzy wezwania do działania:
 
-W Amerykach, Azji i Afryce rodzą się nowe wspólnoty, nowe języki
-modlitwy,
-nowe oblicze Kościoła – powszechnego, różnorodnego, żywego.
-Nie wszystko było czyste – z misjami splatały się błędy, kolonizacja i
-grzech.
-A jednak pośród tego wszystkiego jaśniała prawda:
-że miłość Chrystusa nie zna granic ani ras, ani języków.
-  Trzy wezwania do działania
-Nie lękaj się przekroczyć swojego „oceanu”.
-Każdy ma miejsce, gdzie Bóg posyła go, by kochać bardziej.
-Bądź misjonarzem serca.
-Nie trzeba podróżować – wystarczy zobaczyć potrzebującego obok siebie.
-Mów Ewangelią czynów.
-Dla świata najpiękniejsze kazanie to jedno dobre serce.
-  Modlitwy
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Franciszek Ksawery przekroczył oceany, niosąc wiarę.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Piotr Klawer służył zniewolonym jako brat i kapłan.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
+1. Nie lękaj się przekroczyć swojego „oceanu”. Każdy ma miejsce, gdzie Bóg posyła go, by kochać bardziej.
 
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Ewangelia zabrzmiała w językach całej ziemi.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg połączył kontynenty wiarą i miłosierdziem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół odkrył nowe serce wśród ludów świata.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego miłość przekroczyła ocean nienawiści i podziału.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego tysiące misjonarzy oddało życie, by głosić Chrystusa.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Ewangelia dotarła tam, gdzie nigdy nie brzmiało Imię Boże.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
+2. Bądź misjonarzem serca. Nie trzeba podróżować wystarczy zobaczyć potrzebującego obok siebie.
 
-dla którego serca ludów świata zostały otwarte przez miłość.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół odnalazł powszechność i nowe oblicze nadziei.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+3. Mów Ewangelią czynów. Dla świata najpiękniejsze kazanie to jedno dobre serce. Modlitwy
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Franciszek Ksawery przekroczył oceany, niosąc wiarę. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Piotr Klawer służył zniewolonym jako brat i kapłan. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Ewangelia zabrzmiała w językach całej ziemi. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg połączył kontynenty wiarą i miłosierdziem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół odkrył nowe serce wśród ludów świata. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego miłość przekroczyła ocean nienawiści i podziału. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego tysiące misjonarzy oddało życie, by głosić Chrystusa. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Ewangelia dotarła tam, gdzie nigdy nie brzmiało Imię Boże. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego serca ludów świata zostały otwarte przez miłość. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół odnalazł powszechność i nowe oblicze nadziei. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 137 (Cykl I - Dzień 137 z 175) - [08.12.2014] Miłość jest wyborem.
@@ -3879,125 +2639,41 @@ Wstęp modlitewny dnia 138. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Ogień kontemplacji: św. Teresa z Ávili i św. Jan od Krzyża
-Etap 6 - Część 3 - Tajemnica 3 - Ogień kontemplacji: św. Teresa z Ávili i św.
-Jan od Krzyża
-(XVI wiek; mistyka karmelitańska, wewnętrzna odnowa Kościoła i duchowa
-wolność)
-„Nie trwóż się, nie drżyj. Wszystko mija. Bóg się nie zmienia. Cierpliwością
-osiągniesz wszystko.”
-— św. Teresa z Ávili
-„W ciszy nocy, w świetle wiary, znalazłem Tego, którego miłuje dusza moja.”
-— św. Jan od Krzyża
-„Kto znajdzie Boga, niczego więcej nie potrzebuje.”
-— św. Teresa z Ávili
-  Rozważanie
-Pośród zamętu i sporów, w małych klasztorach Hiszpanii, Bóg rozpala nowy
-ogień.
-Nie jest to ogień sporów ani triumfów — to ogień miłości ukrytej,
-która przemienia duszę jak złoto w piecu oczyszczenia.
-Święta Teresa z Ávili, kobieta o silnym charakterze i łagodnym sercu,
-prowadzi karmelitanki do odnowy modlitwy i prostoty.
-Pisze „Twierdzę wewnętrzną”, gdzie opisuje duszę jako pałac z tysiącem
-komnat,
-a w najgłębszej z nich mieszka sam Bóg.
-Nie trzeba wędrować daleko, by Go znaleźć – wystarczy wejść w siebie.
-Obok niej święty Jan od Krzyża uczy, że Bóg działa najgłębiej wtedy,
-gdy człowiek przechodzi przez noc wiary – ciemność, w której nic nie
-widać,
-a jednak płonie czysta miłość.
-W jego poezji słowa stają się płomieniami, a cisza śpiewem.
+(XVI wiek; mistyka karmelitańska, wewnętrzna odnowa Kościoła i duchowa wolność) „Nie trwóż się, nie drżyj. Wszystko mija. Bóg się nie zmienia. Cierpliwością osiągniesz wszystko.” — św. Teresa z Ávili „W ciszy nocy, w świetle wiary znalazłem Tego, którego miłuje dusza moja.” — św. Jan od Krzyża „Kto znajdzie Boga, niczego więcej nie potrzebuje.” — św. Teresa z Ávili Rozważanie Pośród zamętu i sporów małych klasztorach Hiszpanii, Bóg rozpala nowy ogień. Nie jest to ogień sporów ani triumfów — to ogień miłości ukrytej, która przemienia duszę jak złoto w piecu oczyszczenia. Święta Teresa z Ávili kobieta o silnym charakterze i łagodnym sercu, prowadzi karmelitanki do odnowy modlitwy i prostoty. Pisze „Twierdzę wewnętrzną”, gdzie opisuje duszę jako pałac z tysiącem komnat a w najgłębszej z nich mieszka sam Bóg. Nie trzeba wędrować daleko, by Go znaleźć – wystarczy wejść w siebie. Obok niej święty Jan od Krzyża uczy, że Bóg działa najgłębiej wtedy, gdy człowiek przechodzi przez noc wiary – ciemność, w której nic nie widać, a jednak płonie czysta miłość. W jego poezji słowa stają się płomieniami, a cisza śpiewem. Ona i on pokazali, że Kościół odnawia się, gdy człowiek pozwala się przemienić od środka. Nie reformą zewnętrzną, lecz modlitwą ciszą, kontemplacją i całkowitym oddaniem Bogu. Trzy wezwania do działania:
 
-Ona i on pokazali, że Kościół odnawia się, gdy człowiek pozwala się
-przemienić od środka.
-Nie reformą zewnętrzną, lecz modlitwą, ciszą, kontemplacją i całkowitym
-oddaniem Bogu.
-  Trzy wezwania do działania
-Znajdź swoją „twierdzę wewnętrzną”.
-Codziennie zatrzymaj się choć na chwilę w ciszy – tam Bóg na ciebie
-czeka.
-Nie bój się ciemności duchowej.
-Czasem Bóg milczy, abyś nauczył się kochać Go bez pociech.
-Módl się sercem, nie tylko słowami.
-Każde tchnienie może być modlitwą, jeśli płynie z miłości.
-  Modlitwy
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święta Teresa z Ávili odnalazła Boga w głębi serca.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Jan od Krzyża ukazał piękno ciemnej nocy wiary.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego modlitwa stała się drogą przemiany świata od wnętrza.
+1. Znajdź swoją „twierdzę wewnętrzną”. Codziennie zatrzymaj się choć na chwilę w ciszy – tam Bóg na ciebie czeka.
 
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego cisza stała się świątynią Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Duch Święty rozpalił ogień kontemplacji w duszach.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego pokora stała się bramą do poznania Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego cierpienie oczyszczone miłością staje się światłem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Bóg przemawia w ciszy serca.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego modlitwa przemieniała ciemność w światło.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
+2. Nie bój się ciemności duchowej. Czasem Bóg milczy, abyś nauczył się kochać Go bez pociech.
 
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego dusze kontemplacyjne stały się sercem Kościoła.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+3. Módl się sercem, nie tylko słowami. Każde tchnienie może być modlitwą, jeśli płynie z miłości. Modlitwy
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święta Teresa z Ávili odnalazła Boga w głębi serca. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Jan od Krzyża ukazał piękno ciemnej nocy wiary. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego modlitwa stała się drogą przemiany świata od wnętrza. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego cisza stała się świątynią Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Duch Święty rozpalił ogień kontemplacji w duszach. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego pokora stała się bramą do poznania Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego cierpienie oczyszczone miłością staje się światłem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Bóg przemawia w ciszy serca. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego modlitwa przemieniała ciemność w światło. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego dusze kontemplacyjne stały się sercem Kościoła. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 138 (Cykl I - Dzień 138 z 175) - [10.12.2014] Każdy niesie swój krzyż
@@ -4231,137 +2907,41 @@ Wstęp modlitewny dnia 139. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Jedność ducha: Sobór Trydencki i odnowa Kościoła
-Etap 6 - Część 3 - Tajemnica 4 - Jedność ducha: Sobór Trydencki i odnowa
-Kościoła
-(1545–1563; odnowa sakramentów, katechezy, liturgii i duchowości)
-„Trwajcie mocno w wierze, bądźcie mężni, bądźcie mocni.”
-(1 Kor 16,13)
-„Kościół odnawia się, gdy wraca do swojej własnej głębi: do Eucharystii, do
-Słowa, do modlitwy.”
-— tradycja potrydencka
-„Tam, gdzie mnożą się błędy, Duch Święty powiększa światło prawdy.”
-— anonimowe świadectwo ojców soborowych
-  Rozważanie
-Europa jest rozdarta.
-Podziały Reformacji stały się raną, która przecina całe narody, rodziny i
-sumienia.
+(1545–1563; odnowa sakramentów, katechezy, liturgii i duchowości) „Trwajcie mocno w wierze, bądźcie mężni, bądźcie mocni.” (1 Kor 16,13) „Kościół odnawia się, gdy wraca do swojej własnej głębi: do Eucharystii, do Słowa, do modlitwy.” — tradycja potrydencka „Tam, gdzie mnożą się błędy, Duch Święty powiększa światło prawdy.” — anonimowe świadectwo ojców soborowych Rozważanie Europa jest rozdarta. Podziały Reformacji stały się raną, która przecina całe narody, rodziny i sumienia. Jedni oskarżają Kościół o zdradę Ewangelii, inni bronią tradycji z lękiem; wszyscy czują, że potrzebna jest odnowa, nie tylko strukturalna, ale duchowa. W 1545 roku w Trydencie papież biskupi i teologowie gromadzą się, by modlić się, słuchać rozeznawać. To nie jest parlament ani polityka — to duchowa walka o serce Kościoła. Sobór Trydencki przynosi trzy wielkie światła: Oczyszczenie wiary Wyjaśnia, że Bóg działa w sakramentach, że łaska jest darem, nie towarem, że człowiek współpracuje z Bogiem przez miłość i nawrócenie. Odradzenie liturgii i modlitwy Msza Święta staje się znów sercem życia Kościoła – prosta, czysta, pełna ciszy i adoracji. Kapłani stają się sługami ołtarza, nie panami. Formacja wiernych Powstaje Katechizm Rzymski, który przez wieki będzie przewodnikiem zwykłych rodzin. Duchowni otrzymują nakaz formacji, modlitwy i celibat podjęty z miłości. To nie była kontr- rewolucja. To była kontemplacja, która pozwoliła zobaczyć Chrystusa na nowo. To był powrót do źródeł: do Eucharystii, do Biblii, do modlitwy, do ciszy, do świętości. Sobór Trydencki nie zranił Kościoła uzdrowił go tam, gdzie był najbardziej chory: w sercu człowieka. A Duch Święty tchnął nową nadzieję, która miała trwać aż po dzień dzisiejszy. Trzy wezwania do działania:
 
-Jedni oskarżają Kościół o zdradę Ewangelii, inni bronią tradycji z lękiem;
-wszyscy czują, że potrzebna jest odnowa, nie tylko strukturalna, ale
-duchowa.
-W 1545 roku w Trydencie papież, biskupi i teologowie gromadzą się, by
-modlić się, słuchać, rozeznawać.
-To nie jest parlament ani polityka — to duchowa walka o serce Kościoła.
-Sobór Trydencki przynosi trzy wielkie światła:
-Oczyszczenie wiary
-Wyjaśnia, że Bóg działa w sakramentach,
-że łaska jest darem, nie towarem,
-że człowiek współpracuje z Bogiem przez miłość i nawrócenie.
-Odradzenie liturgii i modlitwy
-Msza Święta staje się znów sercem życia Kościoła –
-prosta, czysta, pełna ciszy i adoracji.
-Kapłani stają się sługami ołtarza, nie panami.
-Formacja wiernych
-Powstaje Katechizm Rzymski,
-który przez wieki będzie przewodnikiem zwykłych rodzin.
-Duchowni otrzymują nakaz formacji, modlitwy i celibat podjęty z miłości.
-To nie była kontr-rewolucja.
-To była kontemplacja, która pozwoliła zobaczyć Chrystusa na nowo.
-To był powrót do źródeł:
-do Eucharystii, do Biblii, do modlitwy, do ciszy, do świętości.
-Sobór Trydencki nie zranił Kościoła —
-uzdrowił go tam, gdzie był najbardziej chory:
-w sercu człowieka.
-A Duch Święty tchnął nową nadzieję,
-która miała trwać aż po dzień dzisiejszy.
-  Trzy wezwania do działania
-Wróć do źródeł wiary.
-Czytaj Ewangelię, uczestnicz w Eucharystii, módl się z serca.
-Dbaj o formację swojego sumienia.
-Wiedza o wierze jest światłem dla drogi życia.
-Proś o jedność chrześcijan.
-  Modlitwy
-Ojcze nasz
+1. Wróć do źródeł wiary. Czytaj Ewangelię, uczestnicz w Eucharystii, módl się z serca.
 
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Dziesięć Zdrowaś Maryjo
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Duch Święty zgromadził Kościół w Trydencie, by go odnowić.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wiara została oczyszczona z błędów i zamętu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Eucharystia została ukazana jako źródło życia Kościoła.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego kapłani zostali wezwani do świętości i prostoty serca.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wierni otrzymali katechizm, aby umacniać wiarę w domach.
+2. Dbaj o formację swojego sumienia. Wiedza o wierze jest światłem dla drogi życia.
 
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Duch Święty odnowił modlitwę i liturgię Kościoła.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Sobór Trydencki przyniósł światło jedności pośród podziałów.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół odnalazł swoją tożsamość w Słowie i Eucharystii.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego odnowa stała się drogą pokory i prawdy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Sobór Trydencki położył fundament pod przyszłe wieki wiary.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
+3. Proś o jedność chrześcijan.
 
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Duch Święty zgromadził Kościół w Trydencie by go odnowić. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wiara została oczyszczona z błędów i zamętu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Eucharystia została ukazana jako źródło życia Kościoła. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego kapłani zostali wezwani do świętości i prostoty serca. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wierni otrzymali katechizm, aby umacniać wiarę w domach. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Duch Święty odnowił modlitwę i liturgię Kościoła. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Sobór Trydencki przyniósł światło jedności pośród podziałów. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół odnalazł swoją tożsamość w Słowie i Eucharystii. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego odnowa stała się drogą pokory i prawdy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Sobór Trydencki położył fundament pod przyszłe wieki wiary. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 139 (Cykl I - Dzień 139 z 175) - [13.12.2014] Sen o przeciekającym mleku i o tym, że warto robić swoje
@@ -4491,135 +3071,41 @@ Wstęp modlitewny dnia 140. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Nowe serce Kościoła: święci po Trydencie i duch odrodzenia
-Etap 6 - Część 3 - Tajemnica 5 - Nowe serce Kościoła: święci po Trydencie i
-duch odrodzenia
-(XVI–XVII wiek; św. Filip Neri, św. Karol Boromeusz, św. Wincenty a Paulo,
-św. Franciszka Rzymianka)
-„Nie smućcie się: radość jest nam darem Ducha.”
-— św. Filip Neri
-„Kapłan odnawia świat, gdy najpierw odnawia siebie.”
-— św. Karol Boromeusz
-„Miłość jest twórcza aż do nieskończoności.”
-— św. Wincenty a Paulo
-„Bóg jest bardziej szczegółem niż teorią.”
-— duchowość świętych odrodzenia
-  Rozważanie
-Sobór Trydencki oczyścił doktrynę i liturgię,
-ale prawdziwe odrodzenie przyszło dopiero wtedy,
+(XVI–XVII wiek; św. Filip Neri, św. Karol Boromeusz, św. Wincenty a Paulo, św. Franciszka Rzymianka) „Nie smućcie się: radość jest nam darem Ducha.” — św. Filip Neri „Kapłan odnawia świat, gdy najpierw odnawia siebie.” — św. Karol Boromeusz „Miłość jest twórcza aż do nieskończoności.” — św. Wincenty a Paulo „Bóg jest bardziej szczegółem niż teorią.” duchowość świętych odrodzenia Rozważanie Sobór Trydencki oczyścił doktrynę i liturgię, ale prawdziwe odrodzenie przyszło dopiero wtedy gdy zaczęli żyć nim ludzie — zwyczajni, pokorni, zakochani w Bogu. Święty Filip Neri, „Boży żartowniś”, odnowił Kościół nie przez surowość, ale przez radość, prostotę i świętość serca. Jego Oratorium tchnęło ciepło w Rzym pełen lęku i sporów. Pokazał, że Ewangelia jest uśmiechem Boga. Święty Karol Boromeusz, biskup Mediolanu, wprowadzał w życie reformy z Trydentu nie jako administrator, lecz jako ojciec i pasterz. Nawracał przez przykład pielgrzymki, modlitwy, post, troskę o chorych. Za jego duszpasterstwem stoi całe odnowienie kapłaństwa. Święty Wincenty a Paulo rozświetlił Europę jednym zdaniem: „Miłość jest twórcza aż do nieskończoności.” Założył zgromadzenia, które troszczyły się o ubogich, więźniów, chorych, porzucone dzieci. To on uczynił miłosierdzie sercem Kościoła potrydenckiego. Święta Franciszka Rzymianka pokazała, że świętość jest możliwa w rodzinie i w świecie. Była mistyczką i matką, opiekowała się ubogimi i domem; jej życie mówiło, że każdy dom może stać się małym klasztorem. To pokolenie świętych nauczyło Europę jednego: że struktury można zmienić decyzją, ale serce zmienia się tylko miłością. Trzy wezwania do działania:
 
-gdy zaczęli żyć nim ludzie — zwyczajni, pokorni, zakochani w Bogu.
-Święty Filip Neri, „Boży żartowniś”,
-odnowił Kościół nie przez surowość,
-ale przez radość, prostotę i świętość serca.
-Jego Oratorium tchnęło ciepło w Rzym pełen lęku i sporów.
-Pokazał, że Ewangelia jest uśmiechem Boga.
-Święty Karol Boromeusz, biskup Mediolanu,
-wprowadzał w życie reformy z Trydentu nie jako administrator,
-lecz jako ojciec i pasterz.
-Nawracał przez przykład:
-pielgrzymki, modlitwy, post, troskę o chorych.
-Za jego duszpasterstwem stoi całe odnowienie kapłaństwa.
-Święty Wincenty a Paulo
-rozświetlił Europę jednym zdaniem:
-„Miłość jest twórcza aż do nieskończoności.”
-Założył zgromadzenia, które troszczyły się o ubogich, więźniów, chorych,
-porzucone dzieci.
-To on uczynił miłosierdzie sercem Kościoła potrydenckiego.
-Święta Franciszka Rzymianka
-pokazała, że świętość jest możliwa w rodzinie i w świecie.
-Była mistyczką i matką, opiekowała się ubogimi i domem;
-jej życie mówiło, że każdy dom może stać się małym klasztorem.
-To pokolenie świętych nauczyło Europę jednego:
-że struktury można zmienić decyzją,
-ale serce zmienia się tylko miłością.
-  Trzy wezwania do działania
-Bądź radosny w wierze.
-Radość jest świadectwem, którego świat nie może podważyć.
-Nawracaj się codziennie od środka.
-Jak Karol Boromeusz — reformuj najpierw siebie.
-Rób dobro twórczo.
-Miłość zawsze znajdzie sposób, nawet jeśli świat widzi przeszkody.
-  Modlitwy
-Ojcze nasz
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
+1. Bądź radosny w wierze. Radość jest świadectwem, którego świat nie może podważyć.
 
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Dziesięć Zdrowaś Maryjo
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Filip Neri odnowił Kościół radością serca.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Karol Boromeusz uczył kapłanów świętości i pokory.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Wincenty a Paulo uczynił miłosierdzie duszą Kościoła.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Franciszka Rzymianka pokazała drogę świętości w świecie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Duch Święty ożywił Kościół przez świętych odrodzenia.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
+2. Nawracaj się codziennie od środka. Jak Karol Boromeusz — reformuj najpierw siebie.
 
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego modlitwa stała się światłem dla odnowy serc.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego miłość czynna stała się Ewangelią w działaniu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego rodziny odkryły możliwość świętości w codzienności.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół nauczył się kochać ubogich jak Chrystus.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święci odrodzenia uczynili świat miejscem nadziei.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+3. Rób dobro twórczo. Miłość zawsze znajdzie sposób, nawet jeśli świat widzi przeszkody. Modlitwy
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje przyjdź królestwo Twoje, bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Filip Neri odnowił Kościół radością serca. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Karol Boromeusz uczył kapłanów świętości i pokory. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Wincenty a Paulo uczynił miłosierdzie duszą Kościoła. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Franciszka Rzymianka pokazała drogę świętości w świecie. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Duch Święty ożywił Kościół przez świętych odrodzenia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego modlitwa stała się światłem dla odnowy serc. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego miłość czynna stała się Ewangelią w działaniu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego rodziny odkryły możliwość świętości w codzienności. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół nauczył się kochać ubogich jak Chrystus. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święci odrodzenia uczynili świat miejscem nadziei. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 140 (Cykl I - Dzień 140 z 175) - [15.12.2014] Gorliwość czy fanatyzm?
@@ -4805,102 +3291,41 @@ Wstęp modlitewny dnia 141. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Cień oświecenia i światło wiary (XVIII wiek; rodzący się racjonalizm, odrzucenie tradycji, pierwsze reakcje
-Etap 6 - Część 4 - Tajemnica 1 - Cień oświecenia i światło wiary
-(XVIII wiek; rodzący się racjonalizm, odrzucenie tradycji, pierwsze reakcje
-Kościoła, ciche świadectwo świętych)
-„Głupiec rzekł w sercu swoim: nie ma Boga.”
-(Ps 14,1)
-„Rozum bez Boga ślepy, wiara bez rozumu słaba.”
-— duchowa maksyma epoki
-„Miłość pojmuje więcej niż rozum.”
-— św. Ludwik Grignion de Montfort
-   Rozważanie
-XVIII wiek — czas pięknych słów i zimnych serc.
-Filozofowie oświecenia mówią o wolności, równości, postępie.
-Wzywają do tolerancji, a jednocześnie pogardzają wiarą prostych ludzi.
-Głoszą triumf rozumu, ale odrzucają Mądrość, która stworzyła świat.
-Zaczyna się epoka, która przypomina biblijny obraz:
-świat, w którym człowiek ufa swoim myślom bardziej niż swojemu Stwórcy.
+(XVIII wiek; rodzący się racjonalizm, odrzucenie tradycji, pierwsze reakcje Kościoła, ciche świadectwo świętych) „Głupiec rzekł w sercu swoim: nie ma Boga.” (Ps 14,1) „Rozum bez Boga ślepy wiara bez rozumu słaba.” — duchowa maksyma epoki „Miłość pojmuje więcej niż rozum.” — św. Ludwik Grignion de Montfort Rozważanie XVIII wiek — czas pięknych słów i zimnych serc. Filozofowie oświecenia mówią o wolności, równości, postępie. Wzywają do tolerancji, a jednocześnie pogardzają wiarą prostych ludzi. Głoszą triumf rozumu, ale odrzucają Mądrość, która stworzyła świat. Zaczyna się epoka, która przypomina biblijny obraz: świat, w którym człowiek ufa swoim myślom bardziej niż swojemu Stwórcy. Ale Bóg nie milczy. W tym samym czasie powstaje niezwykłe pokolenie świętych, które pokazuje, że wiara nie boi się rozumu ale że rozum potrzebuje wiary jak oczy światła. Święty Ludwik Grignion de Montfort głosi całkowite oddanie Maryi, nie jako ucieczkę od myślenia, ale jako najgłębszą filozofię miłości. Święty Alfons Maria Liguori zakłada redemptorystów i uczy, że sumienie jest świątynią Boga, a moralność — drogą, nie ciężarem. Święta Joanna Franciszka de Chantal pokazuje, że łagodność zwycięża chłód epoki, a miłość nie potrzebuje uzasadnień. Święty Klemens Hofbauer idzie przez Europę jak „apostoł opuszczonych”, głosząc że Bóg jest bliżej grzeszników niż filozofów. Świat pogrąża się w racjonalizmie, a Bóg odpowiada świętością, która jest cicha jak światło świecy i mocna jak prawda krzyża. Bo wiara nie jest sprzeczna z rozumem. Wiara jest światłem, bez którego rozum widzi tylko siebie. Trzy wezwania do działania:
 
-Ale Bóg nie milczy.
-W tym samym czasie powstaje niezwykłe pokolenie świętych,
-które pokazuje, że wiara nie boi się rozumu,
-ale że rozum potrzebuje wiary jak oczy światła.
-Święty Ludwik Grignion de Montfort
-głosi całkowite oddanie Maryi,
-nie jako ucieczkę od myślenia,
-ale jako najgłębszą filozofię miłości.
-Święty Alfons Maria Liguori
-zakłada redemptorystów i uczy,
-że sumienie jest świątynią Boga,
-a moralność — drogą, nie ciężarem.
-Święta Joanna Franciszka de Chantal
-pokazuje, że łagodność zwycięża chłód epoki,
-a miłość nie potrzebuje uzasadnień.
-Święty Klemens Hofbauer
-idzie przez Europę jak „apostoł opuszczonych”,
-głosząc, że Bóg jest bliżej grzeszników niż filozofów.
-Świat pogrąża się w racjonalizmie,
-a Bóg odpowiada świętością, która jest cicha jak światło świecy
-i mocna jak prawda krzyża.
-Bo wiara nie jest sprzeczna z rozumem.
-Wiara jest światłem, bez którego rozum widzi tylko siebie.
-  Trzy wezwania do działania
-Nie bój się pytać — pytaj stojąc przed Bogiem.
-Autentyczne pytania prowadzą do prawdy.
-Stój mocno przy Ewangelii, nawet gdy świat się śmieje.
-Wiara nie potrzebuje aplauzu, tylko wierności.
-Bądź światłem wśród chłodu rozumu oderwanego od serca.
-Twoja miłość może ocalić czyjąś noc.
-  Modlitwy
-Ojcze nasz
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
+1. Nie bój się pytać pytaj stojąc przed Bogiem. Autentyczne pytania prowadzą do prawdy.
 
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Dziesięć Zdrowaś Maryjo
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego światło wiary nie zgasło w epoce oświecenia.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo...
-dla którego święty Ludwik de Montfort uczył oddania całego serca Bogu
-przez Maryję.
-Zdrowaś Maryjo...
-dla którego Alfons Liguori ocalił sumienia przed oziębłością racjonalizmu.
-Zdrowaś Maryjo...
-dla którego święci epoki byli światłem nadziei wśród zamętu idei.
-Zdrowaś Maryjo...
-dla którego prawdziwa mądrość zwyciężyła pychę samowystarczalnego
-rozumu.
-Zdrowaś Maryjo...
-dla którego Duch Święty bronił sakramentów i tradycji w świecie, który w nie
-zwątpił.
-Zdrowaś Maryjo...
-dla którego miłość świętych była mocniejsza niż chłód epoki.
-Zdrowaś Maryjo...
-dla którego modlitwa ocalała wiarę, gdy filozofia ją kwestionowała.
-Zdrowaś Maryjo...
-dla którego Kościół pozostał wierny, choć świat wybierał pychę rozumu.
-Zdrowaś Maryjo...
-dla którego światło Ewangelii świeciło nawet w mrokach oświeceniowej
-nocy.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
+2. Stój mocno przy Ewangelii, nawet gdy świat się śmieje. Wiara nie potrzebuje aplauzu, tylko wierności.
 
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+3. Bądź światłem wśród chłodu rozumu oderwanego od serca. Twoja miłość może ocalić czyjąś noc.
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego światło wiary nie zgasło w epoce oświecenia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego święty Ludwik de Montfort uczył oddania całego serca Bogu przez Maryję. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus dla którego Alfons Liguori ocalił sumienia przed oziębłością racjonalizmu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego święci epoki byli światłem nadziei wśród zamętu idei. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus dla którego prawdziwa mądrość zwyciężyła pychę samowystarczalnego rozumu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Duch Święty bronił sakramentów i tradycji w świecie, który w nie zwątpił. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego miłość świętych była mocniejsza niż chłód epoki. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego modlitwa ocalała wiarę, gdy filozofia ją kwestionowała. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus dla którego Kościół pozostał wierny, choć świat wybierał pychę rozumu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego światło Ewangelii świeciło nawet w mrokach oświeceniowej nocy.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 141 (Cykl I - Dzień 141 z 175) - [17.12.2014] Bóg po prostu Jest
@@ -5002,103 +3427,41 @@ Wstęp modlitewny dnia 142. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Wiara w ogniu rewolucji: męczennicy i świadkowie nadziei
-Etap 6 - Część 4 - Tajemnica 2 - Wiara w ogniu rewolucji: męczennicy i
-świadkowie nadziei
-(koniec XVIII wieku; Rewolucja Francuska, prześladowania, męczennicy z
-Compiègne i Lyonu, kapłani ukryci, wiara silniejsza niż terror)
-„Gdzie jednak wzmógł się grzech, tam jeszcze obficiej rozlała się łaska.”
-(Rz 5,20)
-„Odbieracie nam życie, ale nie odbierzecie nam wiary.”
-— męczennice z Compiègne przed gilotyną
-„Wolność bez Boga staje się nowym zniewoleniem.”
-— świadectwa księży ukrytych w czasie rewolucji
-  Rozważanie
-Rewolucja, która obiecywała wolność i braterstwo,
-szybko zamieniła się w terror.
-W imię rozumu i postępu zamknięto kościoły,
-zakazano kultu, spalono relikwie, zniszczono krzyże.
-Kapłanów zmuszano do przysięgi przeciw wierze,
-a tych, którzy odmówili, nazywano „wrogami narodu”.
-Powstawały „ołtarze rozumu”,
-gdzie człowiek czcił sam siebie,
-zapominając, że bez Boga rozum staje się mieczem.
-A jednak właśnie w tej nocy Bóg rozpalał swoje najjaśniejsze gwiazdy.
-Męczennice z Compiègne
-szesnaście karmelitanek, które odmówiły porzucenia modlitwy.
-Stanęły pod gilotyną śpiewając „Veni Creator Spiritus” —
-wołając Ducha Świętego w samo serce terroru.
-Ich śmierć była jak wiatyk dla Francji;
-po ich męczeństwie rewolucyjny terror zaczął gasnąć.
-Męczennicy z Lyonu i Wandei
-kapłani, siostry, ojcowie rodzin, dzieci —
-zabijani tylko dlatego, że kochali Chrystusa.
-Z ich krwi powstała ziemia, na której Kościół francuski odrodzi się w
-świętości.
-Księża ukryci
+(koniec XVIII wieku; Rewolucja Francuska prześladowania, męczennicy z Compiègne i Lyonu, kapłani ukryci wiara silniejsza niż terror) „Gdzie jednak wzmógł się grzech, tam jeszcze obficiej rozlała się łaska.” (Rz 5,20) „Odbieracie nam życie, ale nie odbierzecie nam wiary.” — męczennice z Compiègne przed gilotyną „Wolność bez Boga staje się nowym zniewoleniem.” — świadectwa księży ukrytych w czasie rewolucji Rozważanie Rewolucja, która obiecywała wolność i braterstwo szybko zamieniła się w terror. W imię rozumu i postępu zamknięto kościoły, zakazano kultu, spalono relikwie, zniszczono krzyże. Kapłanów zmuszano do przysięgi przeciw wierze, a tych którzy odmówili, nazywano „wrogami narodu”. Powstawały „ołtarze rozumu”, gdzie człowiek czcił sam siebie, zapominając że bez Boga rozum staje się mieczem. A jednak właśnie w tej nocy Bóg rozpalał swoje najjaśniejsze gwiazdy. Męczennice z Compiègne szesnaście karmelitanek, które odmówiły porzucenia modlitwy. Stanęły pod gilotyną śpiewając „Veni Creator Spiritus” wołając Ducha Świętego w samo serce terroru. Ich śmierć była jak wiatyk dla Francji; po ich męczeństwie rewolucyjny terror zaczął gasnąć. Męczennicy z Lyonu i Wandei kapłani, siostry ojcowie rodzin, dzieci — zabijani tylko dlatego, że kochali Chrystusa. Z ich krwi powstała ziemia, na której Kościół francuski odrodzi się w świętości. Księża ukryci odprawiający Mszę po piwnicach, lasach i strychach, noszący Komunię Świętą w kieszeniach, gotowi umrzeć za jedną Hostię. Zwykli wierni którzy ryzykowali życie, by ukryć Najświętszy Sakrament, by ocalić księdza, by ocalić wiarę. Rewolucja chciała zniszczyć Kościół. A Bóg odpowiedział świętością, która nie zna strachu. Ta tajemnica przypomina: świat może odebrać wszystko oprócz miłości, która jest z Boga. Trzy wezwania do działania:
 
-odprawiający Mszę po piwnicach, lasach i strychach,
-noszący Komunię Świętą w kieszeniach,
-gotowi umrzeć za jedną Hostię.
-Zwykli wierni
-którzy ryzykowali życie, by ukryć Najświętszy Sakrament,
-by ocalić księdza, by ocalić wiarę.
-Rewolucja chciała zniszczyć Kościół.
-A Bóg odpowiedział świętością, która nie zna strachu.
-Ta tajemnica przypomina:
-świat może odebrać wszystko —
-oprócz miłości, która jest z Boga.
-  Trzy wezwania do działania
-Bądź wierny Bogu także wtedy, gdy wiara jest niewygodna.
-Prawda kosztuje — ale jest wolnością.
-Nie gódź się na świat bez Boga.
-Historia pokazała, że rozum odcięty od Stwórcy zamienia się w przemoc.
-Módl się za tych, którzy dziś cierpią za wiarę.
-Męczennicy nie należą do przeszłości — żyją i dziś.
-  Modlitwy
-Ojcze nasz
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Dziesięć Zdrowaś Maryjo
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego męczennice z Compiègne oddały życie śpiewając do Ducha
-Świętego.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
+1. Bądź wierny Bogu także wtedy, gdy wiara jest niewygodna. Prawda kosztuje — ale jest wolnością.
 
-Zdrowaś Maryjo...
-dla którego wierni w Wandei bronili wiary aż po przelaną krew.
-Zdrowaś Maryjo...
-dla którego księża ukryci sprawowali Eucharystię z narażeniem życia.
-Zdrowaś Maryjo...
-dla którego dzieci i rodziny świadczyły o wierze wbrew terrorowi.
-Zdrowaś Maryjo...
-dla którego światło modlitwy nie zgasło nawet w więzieniach.
-Zdrowaś Maryjo...
-dla którego krew męczenników stała się zasiewem nowej nadziei.
-Zdrowaś Maryjo...
-dla którego Kościół odnalazł siłę w pokorze cierpienia.
-Zdrowaś Maryjo...
-dla którego łaska była mocniejsza niż strach przed śmiercią.
-Zdrowaś Maryjo...
-dla którego miłość zwyciężyła przemoc rewolucji.
-Zdrowaś Maryjo...
-dla którego świętość prześladowanych jaśniała jak gwiazda w ciemności.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+2. Nie gódź się na świat bez Boga. Historia pokazała, że rozum odcięty od Stwórcy zamienia się w przemoc.
+
+3. Módl się za tych, którzy dziś cierpią za wiarę. Męczennicy nie należą do przeszłości — żyją i dziś. Modlitwy
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego męczennice z Compiègne oddały życie śpiewając do Ducha Świętego. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego wierni w Wandei bronili wiary ażpo przelaną krew. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego księża ukryci sprawowali Eucharystię z narażeniem życia Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego dzieci i rodziny świadczyły o wierze Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego światło modlitwy nie zgasło nawet w więzieniach. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego krew męczenników stała się zasiewem nowej nadzieji. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Kościół odnalazł siłę w pokorze cierpienia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus,dla którego łaska była mocniejsza niż strach przed śmiercią. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus,dla którego miłość zwyciężyła przemoc rewolucji. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego świętość prześladowanych jaśniała jak gwiazda w ciemności. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 142 (Cykl I - Dzień 142 z 175) - [20.12.2014]
@@ -5290,104 +3653,41 @@ Wstęp modlitewny dnia 143. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Serce w ogniu miłości: proboszcz z Ars i święci kapłani odnowy
-Etap 6 - Część 4 - Tajemnica 3 - Serce w ogniu miłości: proboszcz z Ars i
-święci kapłani odnowy
-(XIX wiek; św. Jan Maria Vianney, św. Józef Cafasso, św. Paweł od Krzyża,
-odrodzenie kapłaństwa po rewolucjach)
-„Kapłaństwo jest miłością Serca Jezusowego.”
-— św. Jan Maria Vianney
-„Świętość kapłana jest najskuteczniejszym kazaniem.”
-— św. Józef Cafasso
-„Miłość uczyniła mnie kapłanem; miłość chce, abym był święty.”
-— tradycja misjonarzy XIX w.
-  Rozważanie
-Po rewolucjach europejskich Kościół był jak człowiek zraniony:
-księża zabici, zakony rozwiązane, parafie zniszczone, rodziny pozbawione
-przewodników duchowych.
-Nadszedł czas odbudowy — ale nie poprzez władzę ani strategię.
-Bóg zaczął od jednego kapłana.
-Święty Jan Maria Vianney, proboszcz z Ars
-zwykły, skromny, niezdolny do nauki,
+(XIX wiek; św. Jan Maria Vianney, św. Józef Cafasso, św. Paweł od Krzyża, odrodzenie kapłaństwa po rewolucjach) „Kapłaństwo jest miłością Serca Jezusowego.” św. Jan Maria Vianney „Świętość kapłana jest najskuteczniejszym kazaniem.” — św. Józef Cafasso „Miłość uczyniła mnie kapłanem miłość chce, abym był święty.” — tradycja misjonarzy XIX w. Rozważanie Po rewolucjach europejskich Kościół był jak człowiek zraniony: księża zabici, zakony rozwiązane, parafie zniszczone rodziny pozbawione przewodników duchowych. Nadszedł czas odbudowy — ale nie poprzez władzę ani strategię. Bóg zaczął od jednego kapłana. Święty Jan Maria Vianney, proboszcz z Ars zwykły, skromny, niezdolny do nauki wysłany na „najgorszą proboszczówkę” we Francji — do wioski gdzie nikt nie chodził do kościoła. Ale miał jedno: serce pełne miłości do Jezusa. Modlił się godzinami. Pościł za grzeszników. Płakał przed tabernakulum i całował ołtarz. Słuchał spowiedzi po kilkanaście godzin dziennie. Do Ars zaczęły ciągnąć pielgrzymki z całego świata. Nie przez cuda, ale przez miłość, która rozświetlała mrok epoki. Święty Józef Cafasso mentor św. Jana Bosko, głos sumienia dla Rzymu, uczył kapłanów pokory, troski o więźniów i ubogich. Z jego serca narodziła się całkowita odnowa duchowieństwa. Święty Paweł od Krzyża pokazał, że kapłan żyje Ewangelią Krzyża, że miłość Jezusa jest mocniejsza niż rozum epoki. Z tych serc — często biednych, prostych, ukrytych — Bóg stworzył nowy fundament świata, jakby chciał powiedzieć: „Przez kapłana kocham świat”. że Kościół nie wznosi się na strukturach ale na świętości serc, które płoną w ciszy. Trzy wezwania do działania:
 
-wysłany na „najgorszą proboszczówkę” we Francji —
-do wioski, gdzie nikt nie chodził do kościoła.
-Ale miał jedno: serce pełne miłości do Jezusa.
-Modlił się godzinami.
-Pościł za grzeszników.
-Płakał przed tabernakulum i całował ołtarz.
-Słuchał spowiedzi po kilkanaście godzin dziennie.
-Do Ars zaczęły ciągnąć pielgrzymki z całego świata.
-Nie przez cuda,
-ale przez miłość, która rozświetlała mrok epoki.
-Święty Józef Cafasso
-mentor św. Jana Bosko,
-głos sumienia dla Rzymu,
-uczył kapłanów pokory, troski o więźniów i ubogich.
-Z jego serca narodziła się całkowita odnowa duchowieństwa.
-Święty Paweł od Krzyża
-pokazał, że kapłan żyje Ewangelią Krzyża,
-że miłość Jezusa jest mocniejsza niż rozum epoki.
-Z tych serc — często biednych, prostych, ukrytych —
-Bóg stworzył nowy fundament świata,
-jakby chciał powiedzieć:
-„Przez kapłana kocham świat”.
-że Kościół nie wznosi się na strukturach,
-ale na świętości serc,
-które płoną w ciszy.
-  Trzy wezwania do działania
-Módl się za kapłanów — bo oni dźwigają ciężar wielu serc.
-Twoja modlitwa może ich ocalić.
-Proś Boga o serce pokorne i gorące jak u proboszcza z Ars.
-Prosta miłość jest najgłębszą świętością.
-Szukaj Boga w sakramentach — tam płonie ogień, który przemienia świat.
-  Modlitwy
-Ojcze nasz
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
+1. Módl się za kapłanów — bo oni dźwigają ciężar wielu serc. Twoja modlitwa może ich ocalić.
 
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Dziesięć Zdrowaś Maryjo
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Jan Maria Vianney rozpalił na nowo ogień kapłańskiej
-miłości.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo...
-dla którego Józef Cafasso odnowił serca kapłanów w pokorze i
-miłosierdziu.
-Zdrowaś Maryjo...
-dla którego proboszcz z Ars stał się światłem dla grzeszników całego
-świata.
-Zdrowaś Maryjo...
-dla którego kapłani uczyli się modlitwy przed tabernakulum.
-Zdrowaś Maryjo...
-dla którego Bóg wybrał prostotę, by przynieść światu świętość.
-Zdrowaś Maryjo...
-dla którego sakramenty stały się ogniem przemieniającym epokę.
-Zdrowaś Maryjo...
-dla którego kapłani stali się ojcami dla ubogich i zagubionych.
-Zdrowaś Maryjo...
-dla którego modlitwa zmieniała całe parafie i narody.
-Zdrowaś Maryjo...
-dla którego miłość pasterska zwyciężyła chłód świata.
-Zdrowaś Maryjo...
-dla którego serca kapłanów stały się płomieniami miłości Jezusa.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
+2. Proś Boga o serce pokorne i gorące jak u proboszcza z Ars. Prosta miłość jest najgłębszą świętością.
 
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+3. Szukaj Boga w sakramentach — tam płonie ogień który przemienia świat. Modlitwy
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje przyjdź królestwo Twoje, bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Jan Maria Vianney rozpalił na nowo ogień kapłańskiej miłości. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjołaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus,dla którego Józef Cafasso odnowił serca kapłanów pokorze i miłosierdziu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego proboszcz z Ars stał się światłem dla grzeszników całego świata. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego kapłani uczyli się modlitwy przed tabernakulum. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego Bóg wybrał prostotę, by przynieść światu świętość. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego sakramenty stały się ogniem przemieniającym epokę. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego kapłani stali się ojcami dla ubogich i zagubionych. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego modlitwa zmieniała całe parafie i narody. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego miłość pasterska zwyciężyła chłód świata. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego serca kapłanów stały się płomieniami miłości Jezusa. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 143 (Cykl I - Dzień 143 z 175) - [21.12.2014] Głód, który prowadzi do uczty
@@ -5517,150 +3817,41 @@ Wstęp modlitewny dnia 144. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Nadzieja w epoce rewolucji przemysłowej: święci miłosierdzia i obrońcy godności człowieka
-Etap 6 - Część 4 - Tajemnica 4 - Nadzieja w epoce rewolucji przemysłowej:
-święci miłosierdzia i obrońcy godności człowieka
-(XIX wiek; ubóstwo robotników, nowe misje miejskie, święci miłosierdzia,
-obrońcy dzieci, rodzin i chorych)
-„Człowiek nie jest maszyną. Ma serce, które pragnie Boga.”
-— św. Jan Bosco
-„Miłosierdzie jest jedyną odpowiedzią, która przemienia świat od
-wewnątrz.”
-— św. Józef Benedyk Labre
-„W każdym potrzebującym widzę Chrystusa.”
-— św. Kamila de Lellis – duch jego uczniów
-  Rozważanie
-XIX wiek przynosi kolejny wstrząs — nie miecz, lecz maszynę.
-Fabryki wyrastają jak twierdze, miasta puchną, robotnicy żyją gorzej niż
+(XIX wiek ubóstwo robotników, nowe misje miejskie, święci miłosierdzia obrońcy dzieci, rodzin i chorych) „Człowiek nie jest maszyną. Ma serce, które pragnie Boga.” — św. Jan Bosco „Miłosierdzie jest jedyną odpowiedzią, która przemienia świat od wewnątrz.” — św. Józef Benedyk Labre „W każdym potrzebującym widzę Chrystusa.” — św. Kamila de Lellis – duch jego uczniów Rozważanie XIX wiek przynosi kolejny wstrząs — nie miecz, lecz maszynę. Fabryki wyrastają jak twierdze, miasta puchną robotnicy żyją gorzej niż chłopi, dzieci pracują po 14 godzin, rodziny rozpadają się pod ciężarem nędzy. Europa wierzy, że postęp techniczny uratuje świat, ale maszyny nie znają współczucia. Kościół zostaje niemal sam wobec gigantycznego kryzysu ubóstwa i niesprawiedliwości. Państwa nie mają jeszcze praw socjalnych. Filozofowie proponują ideologie, nie miłość. A Bóg — jak zawsze — odpowiada świętymi Święty Jan Bosco przygarnia chłopców ulicy, uczy ich modlitwy i rzemiosła, mówi im: „Wystarczy, że mnie kochacie — a ja będę was kochał.” Tworzy salezjanów i szkoły, które ocaliły tysiące istnień. Święta Maria Mazzarello współtworzy z nim zgromadzenie Córek Maryi Wspomożycielki, ucząc dziewczęta godności i wartości. Święta Kamila (i duch kamiliański) pielęgnuje chorych w czasach, gdy nie było szpitali takich jak dziś, pochylając się nad ciałami porzuconych i konających. Święty Józef Benedyk Labre ubogi pielgrzym, który nikomu niczego nie narzucał — jego jedynym kazaniem było miłosierdzie czynione w ciszy. Ci święci zrozumieli, że w epoce maszyn najbardziej brakuje serca, a człowiek — każdy, także robotnik jest nieskończenie cenną osobą. Ich miłość stała się pierwszą formą katolickiej nauki społecznej, pierwszym wołaniem o godność pracy, pierwszym płomieniem nadziei w epoce pary. Trzy wezwania do działania:
 
-chłopi, dzieci pracują po 14 godzin, rodziny rozpadają się pod ciężarem
-nędzy.
-Europa wierzy, że postęp techniczny uratuje świat,
-ale maszyny nie znają współczucia.
-Kościół zostaje niemal sam wobec gigantycznego kryzysu ubóstwa i
-niesprawiedliwości.
-Państwa nie mają jeszcze praw socjalnych.
-Filozofowie proponują ideologie, nie miłość.
-A Bóg — jak zawsze — odpowiada świętymi:
-Święty Jan Bosco
-przygarnia chłopców ulicy,
-uczy ich modlitwy i rzemiosła,
-mówi im: „Wystarczy, że mnie kochacie — a ja będę was kochał.”
-Tworzy salezjanów i szkoły, które ocaliły tysiące istnień.
-Święta Maria Mazzarello
-współtworzy z nim zgromadzenie Córek Maryi Wspomożycielki,
-ucząc dziewczęta godności i wartości.
-Święta Kamila (i duch kamiliański)
-pielęgnuje chorych w czasach, gdy nie było szpitali takich jak dziś,
-pochylając się nad ciałami porzuconych i konających.
-Święty Józef Benedyk Labre
-ubogi pielgrzym, który nikomu niczego nie narzucał —
-jego jedynym kazaniem było miłosierdzie czynione w ciszy.
-Ci święci zrozumieli, że w epoce maszyn
-najbardziej brakuje serca,
-a człowiek — każdy, także robotnik –
-jest nieskończenie cenną osobą.
-Ich miłość stała się pierwszą formą katolickiej nauki społecznej,
-pierwszym wołaniem o godność pracy,
-pierwszym płomieniem nadziei w epoce pary.
-  Trzy wezwania do działania
-Zobacz w drugim człowieku osobę, nie funkcję.
-Nikt nie jest trybem w maszynie świata.
-Czyń miłosierdzie w czynach, nie tylko w słowach.
-Jedna pomocna dłoń waży więcej niż tysiąc idei.
-Chroń godność słabszych.
+1. Zobacz w drugim człowieku osobę, nie funkcję. Nikt nie jest trybem w maszynie świata.
 
-Broniąc ich, stajesz się narzędziem Boga w epoce bezduszności.
-  Modlitwy
-Ojcze nasz
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Dziesięć Zdrowaś Maryjo – pełna modlitwa, każda z unikatową wstawką
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Jan Bosco przygarniał dzieci ulicy i chronił ich
-niewinność przed bezdusznym światem maszyn.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święta Maria Mazzarello uczyła dziewczęta godności i
-czystości serca pośród epoki przemysłu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Józef Benedyk Labre świadczył miłosierdzie w ciszy,
-będąc bratem najuboższych w wielkich miastach.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego duch kamiliański pochylał się nad chorymi porzuconymi przez
+2. Czyń miłosierdzie w czynach, nie tylko w słowach. Jedna pomocna dłoń waży więcej niż tysiąc idei.
 
-społeczeństwo uprzemysłowionych miast.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego miłość stała się lekarstwem dla robotników żyjących w nędzy i
-samotności.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego szkoły i warsztaty świętego Jana Bosco stały się domami
-nadziei dla opuszczonych chłopców.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego przestrzeń pracy została uświęcona godnością człowieka, a nie
-wydajnością maszyn.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół stał się ojcem sierot i matek pracujących ponad siły w
-fabrykach.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego miłość do słabszych stała się pierwszym promieniem
-katolickiej nauki społecznej.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
+3. Chroń godność słabszych. Broniąc ich, stajesz się narzędziem Boga w epoce bezduszności.
 
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego serca świętych miłosierdzia rozpaliły światło nadziei pośród
-smogu i samotności epoki przemysłu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje; przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Jan Bosco przygarniał dzieci ulicy i chronił ich niewinność przed bezdusznym światem maszyn. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święta Maria Mazzarello uczyła dziewczęta godności i czystości serca pośród epoki przemysłu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Józef Benedyk Labre świadczył miłosierdzie w ciszy, będąc bratem najuboższych w wielkich miastach. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego duch kamiliański pochylał się nad chorymi porzuconymi przez społeczeństwo uprzemysłowionych miast. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego miłość stała się lekarstwem dla robotników żyjących w nędzy i samotności. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego szkoły i warsztaty świętego Jana Bosco stały się domami nadziei dla opuszczonych chłopców. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego przestrzeń pracy została uświęcona godnością człowieka, a nie wydajnością maszyn. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół stał się ojcem sierot i matek pracujących ponad siły w fabrykach. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego miłość do słabszych stała się pierwszym promieniem katolickiej nauki społecznej. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego serca świętych miłosierdzia rozpaliły światło nadziei pośród smogu i samotności epoki przemysłu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 144 (Cykl I - Dzień 144 z 175) - [22.12.2014] Co z nami będzie?
@@ -5890,141 +4081,41 @@ Wstęp modlitewny dnia 145. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Triumf Serca Maryi w czasach zamętu: objawienia i odnowa duchowa XIX wieku
-Etap 6 - Część 4 - Tajemnica 5 - Triumf Serca Maryi w czasach zamętu:
-objawienia i odnowa duchowa XIX wieku
-(XIX wiek; Rue du Bac, La Salette, Lourdes, Maryja jako Matka odnowy serc)
-„Na koniec Moje Niepokalane Serce zatriumfuje.”
-— zapowiedź duchowej misji Maryi w Kościele
-„Nie lękaj się — jestem z tobą.”
-— Maryja do św. Katarzyny Labouré, Rue du Bac (1830)
-„Jestem Niepokalane Poczęcie.”
-— Maryja w Lourdes (1858)
-   Rozważanie
-XIX wiek to czas, gdy świat wierzył w maszyny, w rozum, w postęp —
-i jednocześnie tonął w duchowej pustce.
-Ludzie odchodzili od Kościoła, kapłaństwo było deptane,
-a Europa po rewolucjach pozostała zraniona bardziej, niż ktokolwiek
-przyznawał.
-Właśnie wtedy Maryja sama wkracza w historię.
-Rue du Bac – Cudowny Medalik (1830)
-Maryja ukazuje się Katarzynie Labouré w sercu Paryża,
-mówiąc: „Łaski spływają na tych, którzy proszą.”
-Pokazuje swoje Serce — jaśniejące, kochające, przebite, ale zwycięskie.
-Cudowny Medalik stanie się najbardziej rozpowszechnionym znakiem wiary
-w historii świata.
-La Salette (1846)
-Maryja płacze.
-Nie jako groźba — jako Matka, której dzieci odchodzą.
-Wzywa do nawrócenia, do modlitwy, do wierności Bogu.
-Lourdes (1858)
-Maryja przychodzi jako Niepokalane Poczęcie do prostej, ubogiej
-Bernadetty.
+(XIX wiek; Rue du Bac La Salette, Lourdes, Maryja jako Matka odnowy serc) „Na koniec Moje Niepokalane Serce zatriumfuje.” — zapowiedź duchowej misji Maryi w Kościele „Nie lękaj się — jestem z tobą.” — Maryja do św. Katarzyny Labouré, Rue du Bac (1830) „Jestem Niepokalane Poczęcie.” — Maryja w Lourdes (1858) Rozważanie XIX wiek to czas, gdy świat wierzył w maszyny, w rozum, w postęp i jednocześnie tonął w duchowej pustce. Ludzie odchodzili od Kościoła, kapłaństwo było deptane, a Europa po rewolucjach pozostała zraniona bardziej, niż ktokolwiek przyznawał. Właśnie wtedy Maryja sama wkracza w historię. Rue du Bac – Cudowny Medalik (1830) Maryja ukazuje się Katarzynie Labouré w sercu Paryża, mówiąc: „Łaski spływają na tych, którzy proszą.” Pokazuje swoje Serce — jaśniejące, kochające, przebite, ale zwycięskie. Cudowny Medalik stanie się najbardziej rozpowszechnionym znakiem wiary w historii świata. La Salette (1846) Maryja płacze. Nie jako groźba — jako Matka, której dzieci odchodzą. Wzywa do nawrócenia, do modlitwy, do wierności Bogu. Lourdes (1858) Maryja przychodzi jako Niepokalane Poczęcie do prostej, ubogiej Bernadetty. Źródło, które wytryska z ziemi, jest znakiem, że łaska zawsze może na nowo wypłynąć w sercu człowieka. W świecie, który utracił Boga, Maryja przynosi światło wiary, uzdrowienie chorych nadzieję dla ubogich i przypomnienie, że Bóg nie opuszcza swoich dzieci — nigdy. To jest triumf, który nie krzyczy, ale rozlewa się miłością jak światło świcie. Trzy wezwania do działania:
 
-Źródło, które wytryska z ziemi,
-jest znakiem, że łaska zawsze może na nowo wypłynąć w sercu człowieka.
-W świecie, który utracił Boga,
-Maryja przynosi światło wiary, uzdrowienie chorych,
-nadzieję dla ubogich i przypomnienie,
-że Bóg nie opuszcza swoich dzieci — nigdy.
-To jest triumf, który nie krzyczy,
-ale rozlewa się miłością jak światło o świcie.
-  Trzy wezwania do działania
-Noś Maryję w sercu tak jak Cudowny Medalik na piersi.
-To znak, że jesteś dzieckiem Matki.
-Wracaj do Boga jak pielgrzym do Lourdes — z prostotą i ufnością.
-Oddaj swoje życie Jej Niepokalanemu Sercu.
-Pod opieką Matki nie zabłądzisz.
-  Modlitwy
-Ojcze nasz
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Dziesięć Zdrowaś Maryjo – pełna modlitwa, pełne brzmienie, 10
-unikatowych wstawek
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Maryja objawiła światu Cudowny Medalik w Rue du Bac jako
-znak łaski na czasy zamętu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Maryja płakała w La Salette nad grzechami świata, wzywając
+1. Noś Maryję w sercu tak jak Cudowny Medalik na piersi. To znak, że jesteś dzieckiem Matki.
 
-do pokuty i nadziei.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Maryja objawiła swoje Niepokalane Poczęcie Bernadetcie w
-Lourdes.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego źródło w Lourdes stało się miejscem uzdrowień ciała i duszy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Maryja dała światu znak, że Jej Serce zatriumfuje pośród burz
-historii.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego objawienia Maryjne stały się źródłem nawróceń w epoce
-rozumu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Maryja przygarniała biednych i chorych jako Matka ludzkości w
-Lourdes.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
+2. Wracaj do Boga jak pielgrzym do Lourdes — z prostotą i ufnością.
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego świat otrzymał przypomnienie, że łaska jest silniejsza niż pycha
-rozumu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Maryja ukazała się jako Matka czystego światła pośród
-ciemności epoki przemysłu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Niepokalane Serce Maryi stało się drogą nadziei dla całego XIX
-wieku.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+3. Oddaj swoje życie Jej Niepokalanemu Sercu. Pod opieką Matki nie zabłądzisz.
+
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Maryja objawiła światu Cudowny Medalik w Rue du Bac jako znak łaski na czasy zamętu. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Maryja płakała w La Salette nad grzechami świata, wzywając do pokuty i nadziei. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Maryja objawiła swoje Niepokalane Poczęcie Bernadetcie w Lourdes. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego źródło w Lourdes stało się miejscem uzdrowień ciała i duszy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Maryja dała światu znak, że Jej Serce zatriumfuje pośród burz historii. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego objawienia Maryjne stały się źródłem nawróceń w epoce rozumu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Maryja przygarniała biednych i chorych jako Matka ludzkości w Lourdes. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego świat otrzymał przypomnienie, że łaska jest silniejsza niż pycha rozumu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Maryja ukazała się jako Matka czystego światła pośród ciemności epoki przemysłu. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Niepokalane Serce Maryi stało się drogą nadziei dla całego XIX wieku. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 145 (Cykl I - Dzień 145 z 175)
@@ -6074,143 +4165,41 @@ Wstęp modlitewny dnia 146. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Świat budzący się do nowoczesności:
-Etap 6 - Część 5 - Tajemnica 1 - Świat budzący się do nowoczesności:
+(koniec XIX wieku; narodziny nowoczesnych państw, nowe ideologie, pierwsze prawa społeczne, Kościół szukający drogi w nowej rzeczywistości) „Chrystus ten sam: wczoraj, dziś i na wieki.” (Hbr 13,8) „Świat się zmienia — Bóg pozostaje.” — duch Kościoła XIX wieku „Nie lękajcie się świata, lecz napełniajcie go Ewangelią.” — przesłanie katolickiej odnowy duchowej Rozważanie Koniec XIX wieku to czas, gdy świat zmienia się szybciej niż kiedykolwiek wcześniej. Powstają nowe państwa, nowe filozofie, nowe wizje społeczeństwa. Rozwój kolei, elektryczności i przemysłu przyspiesza życie. Pojawiają się ruchy robotnicze, ideologie antyreligijne, sekularyzacja państw. Człowiek zaczyna wierzyć nie tylko w siebie — zaczyna wierzyć wyłącznie w siebie. Kościół staje wobec pytań, których wcześniej nie znał: Jak ocenić kapitalizm? Jak bronić godności robotników? Jak reagować na sekularyzację państw? Jak mówić o wierze w świecie, który coraz mniej słucha? A jednak Duch Święty nie opuścił Kościoła. Właśnie w tej epoce rodzą się pierwsze katolickie ruchy społeczne, szkoły zakonne misje miejskie, nowe zgromadzenia zakonne, odrodzenie liturgiczne i głębokie życie sakramentalne. Zakon salezjanów rozwija się błyskawicznie, szczęście ubogich i robotników staje się nową formą ewangelizacji, a z seminarium w Perugii wychodzi młody biskup — Giovanni Pecci — który już niedługo przyjmie imię Leon XIII. Ta tajemnica to czas pytania, ciszy i rodzącej się odpowiedzi. Czas, w którym Kościół przygotowuje się do epoki encyklik społecznych, do odważnego dialogu ze światem, do wejścia w nowoczesność bez utraty duszy. To czas fundamentu pod przyszłość. Trzy wezwania do działania:
 
-Kościół w obliczu zmian epoki
-(koniec XIX wieku; narodziny nowoczesnych państw, nowe ideologie,
-pierwsze prawa społeczne, Kościół szukający drogi w nowej
-rzeczywistości)
-„Chrystus ten sam: wczoraj, dziś i na wieki.”
-(Hbr 13,8)
-„Świat się zmienia — Bóg pozostaje.”
-— duch Kościoła XIX wieku
-„Nie lękajcie się świata, lecz napełniajcie go Ewangelią.”
-— przesłanie katolickiej odnowy duchowej
-  Rozważanie
-Koniec XIX wieku to czas, gdy świat zmienia się szybciej niż kiedykolwiek
-wcześniej.
-Powstają nowe państwa, nowe filozofie, nowe wizje społeczeństwa.
-Rozwój kolei, elektryczności i przemysłu przyspiesza życie.
-Pojawiają się ruchy robotnicze, ideologie antyreligijne, sekularyzacja
-państw.
-Człowiek zaczyna wierzyć nie tylko w siebie — zaczyna wierzyć wyłącznie w
-siebie.
-Kościół staje wobec pytań, których wcześniej nie znał:
-Jak ocenić kapitalizm?
-Jak bronić godności robotników?
-Jak reagować na sekularyzację państw?
-Jak mówić o wierze w świecie, który coraz mniej słucha?
-A jednak Duch Święty nie opuścił Kościoła.
-Właśnie w tej epoce rodzą się pierwsze katolickie ruchy społeczne,
-szkoły zakonne, misje miejskie, nowe zgromadzenia zakonne,
-odrodzenie liturgiczne i głębokie życie sakramentalne.
-Zakon salezjanów rozwija się błyskawicznie,
-szczęście ubogich i robotników staje się nową formą ewangelizacji,
-a z seminarium w Perugii wychodzi młody biskup —
-Giovanni Pecci — który już niedługo przyjmie imię Leon XIII.
-Ta tajemnica to czas pytania, ciszy i rodzącej się odpowiedzi.
-Czas, w którym Kościół przygotowuje się do epoki encyklik społecznych,
-do odważnego dialogu ze światem,
-do wejścia w nowoczesność bez utraty duszy.
-To czas fundamentu pod przyszłość.
+1. Zaufaj Bogu bardziej niż zmianom świata. Technologia zmienia życie, ale nie sens życia.
 
-  Trzy wezwania do działania
-Zaufaj Bogu bardziej niż zmianom świata.
-Technologia zmienia życie, ale nie sens życia.
-Bądź człowiekiem Ewangelii w środowisku, które o niej zapomina.
-Twoje świadectwo może być jedyną Biblią, jaką ktoś przeczyta.
-Nie bój się nowych czasów — w każdym Bóg ma swoją misję.
-  Modlitwy
-Ojcze nasz
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Dziesięć Zdrowaś Maryjo — pełne modlitwy z unikatowymi wstawkami
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół odnalazł odwagę, by wejść w nowoczesność z wiarą
-silniejszą niż lęk przed zmianą.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego powstawały nowe zgromadzenia zakonne służące robotnikom i
-rodzinom.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół szukał dróg obrony godności pracy i sprawiedliwości
-społecznej.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
+2. Bądź człowiekiem Ewangelii w środowisku, które o niej zapomina. Twoje świadectwo może być jedyną Biblią, jaką ktoś przeczyta.
 
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego światło Ewangelii rozbrzmiewało wśród nowoczesnych miast
-pełnych niepokoju.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wierni odkrywali nowe sposoby życia duchowego w szybko
-zmieniającym się świecie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego rozwój nauki i techniki nie zgasił pragnienia Boga w ludzkich
-sercach.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego papież Leon XIII przygotowywał drogę nowej epoki nauczania
-społecznego.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół bronił rodziny i dzieci przed bezdusznymi ideologiami
-czasów.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
+3. Nie bój się nowych czasów — w każdym Bóg ma swoją misję.
 
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego nowe ruchy apostolskie stały się mostem między wiarą a
-kulturą epoki.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół odnalazł nadzieję pośród zamętu i przygotował się na
-nadejście nowej ery.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół odnalazł odwagę, by wejść w nowoczesność z wiarą silniejszą niż lęk przed zmianą. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego powstawały nowe zgromadzenia zakonne służące robotnikom i rodzinom. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół szukał dróg obrony godności pracy i sprawiedliwości społecznej. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego światło Ewangelii rozbrzmiewało wśród nowoczesnych miast pełnych niepokoju. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wierni odkrywali nowe sposoby życia duchowego w szybko zmieniającym się świecie. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego rozwój nauki i techniki nie zgasił pragnienia Boga w ludzkich sercach. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego papież Leon XIII przygotowywał drogę nowej epoki nauczania społecznego. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół bronił rodziny i dzieci przed bezdusznymi ideologiami czasów. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego, Jezus, dla którego nowe ruchy apostolskie stały się mostem między wiarą a kulturą epoki. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół odnalazł nadzieję pośród zamętu i przygotował się na nadejście nowej ery. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 146 (Cykl I - Dzień 146 z 175) - [24.12.2014] Język Ducha
@@ -6340,148 +4329,35 @@ Wstęp modlitewny dnia 147. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Odkrywanie godności pracy: narodziny katolickiej nauki społecznej
-Etap 6 - Część 5 - Tajemnica 2 - Odkrywanie godności pracy: narodziny
-katolickiej nauki społecznej
-(koniec XIX wieku; robotnicy, prawa socjalne, pierwsze inicjatywy Kościoła,
-godność ludzkiej pracy)
-„Robotnik wart jest swojej zapłaty.”
-(Łk 10,7)
-„Praca nie może być towarem. Człowiek nigdy nie może być środkiem do
-celu.”
-— duch nauczania społecznego Kościoła
+(koniec XIX wieku; robotnicy, prawa socjalne, pierwsze inicjatywy Kościoła, godność ludzkiej pracy) „Robotnik wart jest swojej zapłaty.” (Łk 10,7) „Praca nie może być towarem. Człowiek nigdy nie może być środkiem do celu.” — duch nauczania społecznego Kościoła „Miłość społeczna jest obowiązkiem sumienia.” — prekursorzy katolickiej nauki społecznej Rozważanie W drugiej połowie XIX wieku staje się jasne, że świat przyspieszył, a tempo to zaczyna miażdżyć słabszych. Wielkie fabryki, rozwój przemysłu, kapitalizm bez kontroli, dzieci pracujące w kopalniach, robotnicy żyjący w nędzy, rodziny pozbawione ochrony państwa — to wszystko tworzy nowe ubóstwo, którego Kościół wcześniej nie znał. I wtedy zaczyna rodzić się coś niezwykłego — katolicka nauka społeczna czyli Ewangelia wprowadzona w warunki epoki przemysłowej. To czas, w którym święci i myśliciele mówią jednym głosem Człowiek jest osobą — nie narzędziem produkcji, nie zasobem, nie kosztem. Praca ma godność — bo człowiek pracujący współtworzy świat razem z Bogiem. Rodzina wymaga ochrony bo jest fundamentem społeczeństwa. Wyprzedzając encyklikę „Rerum Novarum”, Kościół traktuje robotników jak najbardziej zranione dzieci epoki: — powstają pierwsze związki katolickie, pierwsze szkoły społeczne, — pierwsze domy robotnicze, pierwsze inicjatywy broniące kobiet i dzieci. To czas, w którym zaczyna się rewolucja miłosierdzia społecznego, a sumienie świata zaczyna dojrzewać do tego, że sprawiedliwość społeczna jest moralnym obowiązkiem. Właśnie z tego żaru urodzi się później potężne nauczanie Leon XIII. Trzy wezwania do działania Okaż szacunek każdej pracy — swojej i cudzej. Każdy trud jest modlitwą, jeśli jest darowany Bogu. Broń godności ludzi wyzyskiwanych. Gdy stajesz po stronie pokrzywdzonych, stoisz po stronie Ewangelii. Patrz na człowieka nie na stanowisko. Każdy człowiek jest ważniejszy niż jego rola w społeczeństwie. Modlitwy
 
-„Miłość społeczna jest obowiązkiem sumienia.”
-— prekursorzy katolickiej nauki społecznej
-  Rozważanie
-W drugiej połowie XIX wieku staje się jasne,
-że świat przyspieszył,
-a tempo to zaczyna miażdżyć słabszych.
-Wielkie fabryki, rozwój przemysłu, kapitalizm bez kontroli,
-dzieci pracujące w kopalniach, robotnicy żyjący w nędzy,
-rodziny pozbawione ochrony państwa —
-to wszystko tworzy nowe ubóstwo, którego Kościół wcześniej nie znał.
-I wtedy zaczyna rodzić się coś niezwykłego —
-katolicka nauka społeczna,
-czyli Ewangelia wprowadzona w warunki epoki przemysłowej.
-To czas, w którym święci i myśliciele mówią jednym głosem:
-Człowiek jest osobą —
-nie narzędziem produkcji,
-nie zasobem,
-nie kosztem.
-Praca ma godność —
-bo człowiek pracujący współtworzy świat razem z Bogiem.
-Rodzina wymaga ochrony —
-bo jest fundamentem społeczeństwa.
-Wyprzedzając encyklikę „Rerum Novarum”,
-Kościół traktuje robotników jak najbardziej zranione dzieci epoki:
-— powstają pierwsze związki katolickie,
-— pierwsze szkoły społeczne,
-— pierwsze domy robotnicze,
-— pierwsze inicjatywy broniące kobiet i dzieci.
-To czas, w którym zaczyna się rewolucja miłosierdzia społecznego,
-a sumienie świata zaczyna dojrzewać do tego,
-że sprawiedliwość społeczna jest moralnym obowiązkiem.
-Właśnie z tego żaru
-urodzi się później potężne nauczanie Leon XIII.
-  Trzy wezwania do działania
-Okaż szacunek każdej pracy — swojej i cudzej.
-Każdy trud jest modlitwą, jeśli jest darowany Bogu.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-Broń godności ludzi wyzyskiwanych.
-Gdy stajesz po stronie pokrzywdzonych,
-stoisz po stronie Ewangelii.
-Patrz na człowieka, nie na stanowisko.
-Każdy człowiek jest ważniejszy niż jego rola w społeczeństwie.
-  Modlitwy
-Ojcze nasz
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Dziesięć Zdrowaś Maryjo — pełne, w całości, z unikalnymi wstawkami
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół zaczął głosić godność każdej pracy w świecie
-pogardzającym robotnikiem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego obrona ubogich stała się moralnym obowiązkiem wspólnoty
-wierzących.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego praca została nazwana współpracą człowieka z dziełem
-Stwórcy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
+dopowiedzeniami)
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół zaczął bronić rodzin robotniczych przed nędzą i
-wyzyskiem.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego powstały pierwsze dzieła miłosierdzia społecznego ratujące
-dzieci pracujące w fabrykach.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego kapłani i zakony zaczęli troszczyć się o robotników niczym o
-własne rodziny.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego nauczanie społeczne zaczęło rodzić się w sercach świętych,
-długo zanim powstały encykliki.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego idea sprawiedliwej płacy stała się sumieniem narodów.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół zaczął głosić godność każdej pracy w świecie pogardzającym robotnikiem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-dla którego praca została uznana za powołanie, a nie wyłącznie za ciężar
-ekonomii.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego narodziło się przekonanie, że społeczeństwo bez
-sprawiedliwości nie może być społeczeństwem Bożym.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego obrona ubogich stała się moralnym obowiązkiem wspólnoty wierzących. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego praca została nazwana współpracą człowieka z dziełem Stwórcy. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół zaczął bronić rodzin robotniczych przed nędzą i wyzyskiem. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego powstały pierwsze dzieła miłosierdzia społecznego ratujące dzieci pracujące w fabrykach. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego kapłani i zakony zaczęli troszczyć się o robotników niczym o własne rodziny. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego nauczanie społeczne zaczęło rodzić się w sercach świętych, długo zanim powstały encykliki. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego idea sprawiedliwej płacy stała się sumieniem narodów. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego praca została uznana za powołanie, a nie wyłącznie za ciężar ekonomii. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego narodziło się przekonanie, że społeczeństwo bez sprawiedliwości nie może być społeczeństwem Bożym. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 147 (Cykl I - Dzień 147 z 175) - [25.12.2014] Dzisiaj narodził się mój Brat
@@ -6563,155 +4439,41 @@ Wstęp modlitewny dnia 148. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Duch odnowy zakonnej i misyjnej w nowoczesnym świecie
-Etap 6 - Część 5 - Tajemnica 3 - Duch odnowy zakonnej i misyjnej w
-nowoczesnym świecie
-(XIX wiek; narodziny nowych zgromadzeń, misje, odwaga w głoszeniu
-Ewangelii, powrót do ducha pierwotnego Kościoła)
-„Idźcie i nauczajcie wszystkie narody.”
-(Mt 28,19)
-„Dopóki istnieje choć jedna dusza, która nie zna Chrystusa, misja Kościoła
-się nie kończy.”
-— duch zgromadzeń misyjnych XIX wieku
-„Miłość jest zawsze w ruchu — nigdy nie stoi w miejscu.”
-— św. Arnold Janssen
-  Rozważanie
+(XIX wiek; narodziny nowych zgromadzeń misje, odwaga w głoszeniu Ewangelii, powrót do ducha pierwotnego Kościoła) „Idźcie i nauczajcie wszystkie narody.” (Mt 28,19) „Dopóki istnieje choć jedna dusza, która nie zna Chrystusa misja Kościoła się nie kończy.” — duch zgromadzeń misyjnych XIX wieku „Miłość jest zawsze w ruchu — nigdy nie stoi w miejscu.” — św. Arnold Janssen. XIX wiek to nie tylko rewolucje, bieda i rozwój przemysłu. To także wielki renesans zakonów, większy niż w wielu wcześniejszych epokach. Właśnie wtedy Bóg rozpala ogromny płomień misyjny który dotrze do całego świata. Powstają zgromadzenia, które dziś znamy jako filary Kościoła: Zgromadzenie Ducha Świętego odnawia misje afrykańskie, niesie wiarę tam, gdzie poprzednie wyprawy upadły, zakłada szkoły, sierocińce, szpitale i parafie. Misjonarze Werbiści – św. Arnold Janssen głosi, że najważniejszym językiem misji jest miłość, a największą bronią chrześcijan jest pokorna obecność. Misjonarki Miłości przed Matką Teresą? Tak, bo zanim ona przyszła, kobiece zgromadzenia już były płomieniem współczucia w Indiach, Afryce i Ameryce. Zgromadzenia edukacyjne i szpitalne rosną jak drzewo zasadzone nad strumieniem: salezjanki, józefitki, felicjanki boromeuszki, szarytki, elżbietanki… Każda z tych wspólnot staje się cudem obecności Boga w świecie, który woli mierzyć wartość człowieka produktywnością. Misje w Azji, Afryce, Oceanii, Arktyce Głos Ewangelii dociera tam, gdzie wcześniej nie było Kościoła: Korea, — Cejlon, — Japonia, — Indonezja, — Chiny, — Amazonia, wyspy Pacyfiku. Wszystko to zapowiada globalny Kościół XX wieku. Bo miłość Boga nigdy nie stoi w miejscu. Ona wyrusza tam, gdzie biegnie człowiek. A misjonarze XIX wieku pokazują, że świat nowoczesny nie może być ewangelizowany z dystansu trzeba być blisko ludzi, ich ran, ich serc. Trzy wezwania do działania:
 
-XIX wiek to nie tylko rewolucje, bieda i rozwój przemysłu.
-To także wielki renesans zakonów, większy niż w wielu wcześniejszych
-epokach.
-Właśnie wtedy Bóg rozpala ogromny płomień misyjny, który dotrze do
-całego świata.
-Powstają zgromadzenia, które dziś znamy jako filary Kościoła:
-Zgromadzenie Ducha Świętego
-odnawia misje afrykańskie,
-niesie wiarę tam, gdzie poprzednie wyprawy upadły,
-zakłada szkoły, sierocińce, szpitale i parafie.
-Misjonarze Werbiści – św. Arnold Janssen
-głosi, że najważniejszym językiem misji jest miłość,
-a największą bronią chrześcijan jest pokorna obecność.
-Misjonarki Miłości przed Matką Teresą?
-Tak, bo zanim ona przyszła,
-kobiece zgromadzenia już były płomieniem współczucia w Indiach, Afryce i
-Ameryce.
-Zgromadzenia edukacyjne i szpitalne
-rosną jak drzewo zasadzone nad strumieniem:
-salezjanki, józefitki, felicjanki, boromeuszki, szarytki, elżbietanki…
-Każda z tych wspólnot staje się cudem obecności Boga w świecie,
-który woli mierzyć wartość człowieka produktywnością.
-Misje w Azji, Afryce, Oceanii, Arktyce
-Głos Ewangelii dociera tam, gdzie wcześniej nie było Kościoła:
-— Korea,
-— Cejlon,
-— Japonia,
-— Indonezja,
-— Chiny,
-— Amazonia,
-— wyspy Pacyfiku.
-Wszystko to zapowiada globalny Kościół XX wieku.
-Bo miłość Boga nigdy nie stoi w miejscu.
-Ona wyrusza tam, gdzie biegnie człowiek.
-A misjonarze XIX wieku pokazują,
-że świat nowoczesny nie może być ewangelizowany z dystansu —
-trzeba być blisko ludzi, ich ran, ich serc.
+1. Bądź misjonarzem tam, gdzie jesteś. Dom, praca, codzienność — to twoje pole misji.
 
-  Trzy wezwania do działania
-Bądź misjonarzem tam, gdzie jesteś.
-Dom, praca, codzienność — to twoje pole misji.
-Wspieraj tych, którzy głoszą Ewangelię w miejscach trudnych.
-Twoja modlitwa może ocalić misjonarza.
-Nie lękaj się mówić o Bogu w świecie, który wstydzi się modlitwy.
-Najcichsze słowo o Chrystusie może zmienić czyjeś życie.
-  Modlitwy
-Ojcze nasz
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Dziesięć Zdrowaś Maryjo — pełne modlitwy, 10 unikalnych wstawek
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego misjonarze XIX wieku zanieśli Ewangelię na krańce świata z
-odwagą i miłością większą niż strach.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego zgromadzenia zakonne odnowiły ducha modlitwy i posługi w
-nowoczesnych miastach.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego misjonarze Werbiści zanieśli światło Chrystusa do narodów Azji
-i Oceanii.
+2. Wspieraj tych którzy głoszą Ewangelię w miejscach trudnych. Twoja modlitwa może ocalić misjonarza.
 
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego siostry zakonne stały się matkami opuszczonych, chorych i
-ubogich na wszystkich kontynentach.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego odnowa zakonna przywróciła światu świadectwo życia
-oddanego całkowicie Bogu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego misjonarze stali się głosem miłości Chrystusa w ludach, które
-nigdy o Nim nie słyszały.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego zgromadzenia edukacyjne ocaliły wiarę dzieci żyjących w
-świecie bez Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego misje afrykańskie stały się miejscem cudów miłosierdzia i
-przebaczenia.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
+3. Nie lękaj się mówić o Bogu, w świecie który wstydzi się modlitwy. Najcichsze słowo o Chrystusie może zmienić czyjeś życie.
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego powstały nowe zgromadzenia adoracji i modlitwy, wspierające
-misjonarzy całego świata.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Duch Święty rozpalił globalną misję Kościoła na progu epoki
-Leona XIII.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego misjonarze XIX wieku zanieśli Ewangelię na krańce świata z odwagą i miłością większą niż strach. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego zgromadzenia zakonne odnowiły ducha modlitwy i posługi w nowoczesnych miastach. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego misjonarze Werbiści zanieśli światło Chrystusa do narodów Azji i Oceanii. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego siostry zakonne stały się matkami opuszczonych, chorych i ubogich na wszystkich kontynentach. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego odnowa zakonna przywróciła światu świadectwo życia oddanego całkowicie Bogu. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego misjonarze stali się głosem miłości Chrystusa w ludach, które nigdy o Nim nie słyszały. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego zgromadzenia edukacyjne ocaliły wiarę dzieci żyjących w świecie bez Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego misje afrykańskie stały się miejscem cudów miłosierdzia i przebaczenia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego powstały nowe zgromadzenia adoracji i modlitwy, wspierające misjonarzy całego świata. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Duch Święty rozpalił globalną misję Kościoła na progu epoki Leona XIII. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 148 (Cykl I - Dzień 148 z 175) [28.12.2014] Rodzina jest początkiem. Królestwo Boże jest celem.
@@ -6875,151 +4637,41 @@ Wstęp modlitewny dnia 149. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Obrona wiary i rodziny w epoce ideologii i sekularyzacji
-Etap 6 - Część 5 - Tajemnica 4 - Obrona wiary i rodziny w epoce ideologii i
-sekularyzacji
-(XIX wiek; laicyzacja państw, walka o szkołę katolicką, ataki na rodzinę,
-narastanie ideologii)
-„Nie dajcie się zdobyć złu, ale zło dobrem zwyciężajcie.”
-(Rz 12,21)
-„Rodzina jest sanktuarium życia.”
-— nauczanie Kościoła XIX wieku
-„Gdy świat odrzuca Boga, chrześcijanin ma stać się światłem, nie
-mieczem.”
-— duch świętych tej epoki
-  Rozważanie
-Pod koniec XIX wieku Europa staje wobec nowych wyzwań:
-nie są to już wojska rewolucji, ale idee,
-które zaczynają kształtować prawa, szkolnictwo, kulturę i życie społeczne.
-Laicyzacja państw
-W wielu krajach zaczyna dominować przekonanie,
-że społeczeństwo powinno być „neutralne światopoglądowo”,
-co w praktyce często oznacza wypychanie Boga poza sferę publiczną.
-Sekularyzacja szkół
-Religia zostaje wycofywana z nauczania.
-Rodziny walczą o wolność wychowania,
-a Kościół zakłada własne szkoły, internaty, uniwersytety.
+(XIX wiek; laicyzacja państw, walka o szkołę katolicką, ataki na rodzinę, narastanie ideologii) „Nie dajcie się zdobyć złu, ale zło dobrem zwyciężajcie.” (Rz 12,21) „Rodzina jest sanktuarium życia.” — nauczanie Kościoła XIX wieku „Gdy świat odrzuca Boga, chrześcijanin ma stać się światłem, nie mieczem.” duch świętych tej epoki Rozważanie Pod koniec XIX wieku Europa staje wobec nowych wyzwań: nie są to już wojska rewolucji, ale idee, które zaczynają kształtować prawa szkolnictwo, kulturę i życie społeczne. Laicyzacja państw W wielu krajach zaczyna dominować przekonanie, że społeczeństwo powinno być „neutralne światopoglądowo”, co w praktyce często oznacza wypychanie Boga poza sferę publiczną. Sekularyzacja szkół Religia zostaje wycofywana z nauczania. Rodziny walczą o wolność wychowania, a Kościół zakłada własne szkoły, internaty uniwersytety. Ideologie rodzą się w laboratoriach myśli — pozytywizm, materializm, — agnostycyzm, — nacjonalizmy, — liberalizm bez Boga, — socjalizm bez człowieka. Wszystkie odrzucają duchowy fundament życia. A Kościół odpowiada: nie przemocą, nie strachem, ale światłem Ewangelii żywej w rodzinach. Rodzina staje się — miejscem modlitwy, — szkołą miłości, — przestrzenią wiary przekazywanej dzieciom, — domowym Kościołem. Powstają ruchy katolickie broniące moralności i wychowania: świeccy zaczynają odkrywać, że są powołani do misji w świecie, który próbuje żyć bez Boga. To czas wielkiej próby, ale też czas dojrzewania — bo wiara broniona z miłością rośnie mocniej niż wiara broniona siłą. Trzy wezwania do działania:
 
-Ideologie rodzą się w laboratoriach myśli
-— pozytywizm,
-— materializm,
-— agnostycyzm,
-— nacjonalizmy,
-— liberalizm bez Boga,
-— socjalizm bez człowieka.
-Wszystkie odrzucają duchowy fundament życia.
-A Kościół odpowiada:
-nie przemocą,
-nie strachem,
-ale światłem Ewangelii żywej w rodzinach.
-Rodzina staje się
-— miejscem modlitwy,
-— szkołą miłości,
-— przestrzenią wiary przekazywanej dzieciom,
-— domowym Kościołem.
-Powstają ruchy katolickie broniące moralności i wychowania:
-świeccy zaczynają odkrywać, że są powołani do misji
-w świecie, który próbuje żyć bez Boga.
-To czas wielkiej próby,
-ale też czas dojrzewania —
-bo wiara broniona z miłością rośnie mocniej
-niż wiara broniona siłą.
-  Trzy wezwania do działania
-Chroń rodzinę modlitwą i obecnością.
-Dom jest pierwszym Kościołem.
-Módl się za świat, który próbuje żyć bez Boga.
-Nie oceniaj — kochaj.
-Bądź świadkiem w codzienności — w pracy, szkole, rozmowie.
-Twoje życie może być Ewangelią dla kogoś zagubionego.
-  Modlitwy
-Ojcze nasz
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
+1. Chroń rodzinę modlitwą i obecnością. Dom jest pierwszym Kościołem.
 
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Dziesięć Zdrowaś Maryjo — pełne, w całości, z unikatowymi wstawkami
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół bronił rodziny jako świętego miejsca miłości i prawdy w
-świecie odchodzącym od Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego rodzice walczyli o prawo wychowania swoich dzieci w wierze.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego świeccy odkryli, że ich misją jest głoszenie Ewangelii w
-codzienności.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół zakładał szkoły i uniwersytety, by bronić młodych przed
-ideologiami.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego modlitwa domowa stała się twierdzą wiary w czasach
-sekularyzacji.
+2. Módl się za świat, który próbuje żyć bez Boga. Nie oceniaj — kochaj.
 
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego małżeństwo zostało ukazane jako przymierze, nie kontrakt
-społeczny.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół ostrzegał przed ideologiami odrywającymi człowieka
-od Boga.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święci tej epoki uczyli, że jedyną prawdziwą wolnością jest
-wolność dzieci Bożych.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół ukazywał rodzinę jako obraz Trójcy Świętej w świecie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wiara pozostała światłem w czasach, gdy światowi wydawało
-się, że Boga może zastąpić rozum.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
+3. Bądź świadkiem w codzienności — w pracy, szkole, rozmowie. Twoje życie może być Ewangelią dla kogoś zagubionego.
 
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół bronił rodziny jako świętego miejsca miłości i prawdy w świecie odchodzącym od Boga. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego rodzice walczyli o prawo wychowania swoich dzieci w wierze. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego świeccy odkryli, że ich misją jest głoszenie Ewangelii w codzienności. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół zakładał szkoły i uniwersytety, by bronić młodych przed ideologiami. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego modlitwa domowa stała się twierdzą wiary w czasach sekularyzacji. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego małżeństwo zostało ukazane jako przymierze, nie kontrakt społeczny. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół ostrzegał przed ideologiami odrywającymi człowieka od Boga. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święci tej epoki uczyli, że jedyną prawdziwą wolnością jest wolność dzieci Bożych. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół ukazywał rodzinę jako obraz Trójcy Świętej w świecie. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wiara pozostała światłem w czasach, gdy światowi wydawało się, że Boga może zastąpić rozum. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 149 (Cykl I - Dzień 149 z 175)
@@ -7065,152 +4717,41 @@ Wstęp modlitewny dnia 150. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Zwiastun nowej epoki: droga do pontyfikatu Leona XIII
-Etap 6 - Część 5 - Tajemnica 5 - Zwiastun nowej epoki: droga do
-pontyfikatu Leona XIII
-(koniec XIX wieku; dojrzewanie Kościoła, nowa wizja społeczna,
-przygotowanie do nowoczesności)
-„Oto czynię wszystko nowe.”
-(Ap 21,5)
-„Kościół nie boi się świata, bo niesie światu Chrystusa.”
-— duch końca XIX wieku
-„Prawda jest silniejsza niż czas.”
-— przyszłe nauczanie Leona XIII
-Pod koniec XIX wieku Kościół staje na rozdrożu historii.
-Za nim burzliwe wieki rozłamu, rewolucji, oświecenia, industrializacji.
-Przed nim — nieznana jeszcze przyszłość,
-pełna nowych możliwości i nowych niebezpieczeństw.
-To czas przejścia, czas mostu, czas zwiastowania.
-Europa jest rozdarta między wiarą a sekularyzmem,
-między nauką a duchowością,
-między ideologiami a prawem naturalnym.
-Robotnicy wołają o sprawiedliwość.
-Rodziny zmagają się z ubóstwem i kulturą bez Boga.
-Państwa próbują marginalizować Kościół.
-A jednak — właśnie wtedy — w Rzymie rośnie człowiek,
-który stanie się ojcem nowoczesnej doktryny społecznej,
-przyjacielem ubogich, obrońcą robotników,
-a jednocześnie strażnikiem tradycji i modlitwy.
-To Giovanni Battista Pecci, przyszły Leon XIII.
-Jego wcześniejsze życie jest prorocze:
-— jako młody biskup broni sprawiedliwości,
-— jako dyplomata uczy się dialogu ze światem,
+(koniec XIX wieku; dojrzewanie Kościoła nowa wizja społeczna, przygotowanie do nowoczesności) „Oto czynię wszystko nowe.” (Ap 21,5) „Kościół nie boi się świata, bo niesie światu Chrystusa.” — duch końca XIX wieku „Prawda jest silniejsza niż czas.” — przyszłe nauczanie Leona XIII Pod koniec XIX wieku Kościół staje na rozdrożu historii. Za nim burzliwe wieki rozłamu, rewolucji, oświecenia, industrializacji. Przed nim nieznana jeszcze przyszłość, pełna nowych możliwości i nowych niebezpieczeństw. To czas przejścia, czas mostu, czas zwiastowania. Europa jest rozdarta między wiarą a sekularyzmem, między nauką a duchowością, między ideologiami a prawem naturalnym. Robotnicy wołają o sprawiedliwość. Rodziny zmagają się z ubóstwem i kulturą bez Boga. Państwa próbują marginalizować Kościół. A jednak — właśnie wtedy — w Rzymie rośnie człowiek, który stanie się ojcem nowoczesnej doktryny społecznej, przyjacielem ubogich, obrońcą robotników, a jednocześnie strażnikiem tradycji i modlitwy. To Giovanni Battista Pecci, przyszły Leon XIII. Jego wcześniejsze życie jest prorocze jako młody biskup broni sprawiedliwości, — jako dyplomata uczy się dialogu ze światem, jako kapłan żyje modlitwą i nauką, — jako mąż Kościoła rozpoznaje znaki czasu. To on dostrzeże świat potrzebuje moralności w ekonomii, godności w pracy, prawdy w nauce Ewangelii w kulturze, mądrości w polityce. To on otworzy drzwi do epoki encyklik społecznych, do dialogu Kościoła z nauką, do nowej roli świeckich w Kościele. To on przygotuje fundament pod przyszłość: pod Piusa X, Piusa XI, Jana XXIII, Pawła VI, Jana Pawła II. Dlatego ta tajemnica jest zwiastowaniem — zapowiedzią nowego świtu Kościoła. Trzy wezwania do działania:
 
-— jako kapłan żyje modlitwą i nauką,
-— jako mąż Kościoła rozpoznaje znaki czasu.
-To on dostrzeże, że świat potrzebuje
-moralności w ekonomii,
-godności w pracy,
-prawdy w nauce,
-Ewangelii w kulturze,
-mądrości w polityce.
-To on otworzy drzwi do epoki encyklik społecznych,
-do dialogu Kościoła z nauką,
-do nowej roli świeckich w Kościele.
-To on przygotuje fundament pod przyszłość:
-pod Piusa X,
-Piusa XI,
-Jana XXIII,
-Pawła VI,
-Jana Pawła II.
-Dlatego ta tajemnica jest zwiastowaniem —
-zapowiedzią nowego świtu Kościoła.
-  Trzy wezwania do działania
-Ucz się czytać znaki czasu w świetle Ewangelii.
-Bóg mówi także przez wydarzenia historii.
-Nigdy nie lękaj się nowych epok — Bóg zawsze jest pierwszy.
-Zawierz Kościół i świat Bogu, który czyni wszystko nowe.
-  Modlitwy
-Ojcze nasz
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Dziesięć Zdrowaś Maryjo — pełne modlitwy, pełna treść, 10 unikatowych
-wstawek
+1. Ucz się czytać znaki czasu w świetle Ewangelii. Bóg mówi także przez wydarzenia historii.
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół został przygotowany duchowo i intelektualnie na
-pontyfikat Leona XIII.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Duch Święty wzbudził w sercach wiernych pragnienie
-sprawiedliwości społecznej.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego świat zaczął wołać o moralny fundament postępu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego rodziła się świadomość, że nauka i wiara nie są wrogami, lecz
-braćmi szukającymi prawdy.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego rodziny i robotnicy zaczęli być postrzegani jako serce
-nowoczesnego społeczeństwa.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
+2. Nigdy nie lękaj się nowych epok — Bóg zawsze jest pierwszy.
 
-dla którego nowe zgromadzenia zakonne przygotowały Kościół na globalną
-misję.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego świeccy odkryli swoje powołanie do odpowiedzialności
-społecznej i moralnej.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół uczył się dialogu ze światem bez utraty prawdy
-Ewangelii.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego idea sprawiedliwości, solidarności i pokoju dojrzała do formy,
-jaką przyjmie w przyszłych encyklikach.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego świat został przygotowany na początek nowej epoki Kościoła w
-pontyfikacie Leona XIII.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
+3. Zawierz Kościół i świat Bogu, który czyni wszystko nowe.
 
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół został przygotowany duchowo i intelektualnie na pontyfikat Leona XIII. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Duch Święty wzbudził w sercach wiernych pragnienie sprawiedliwości społecznej. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego świat zaczął wołać o moralny fundament postępu. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego rodziła się świadomość, że nauka i wiara nie są wrogami, lecz braćmi szukającymi prawdy. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego rodziny i robotnicy zaczęli być postrzegani jako serce nowoczesnego społeczeństwa. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego nowe zgromadzenia zakonne przygotowały Kościół na globalną misję. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego świeccy odkryli swoje powołanie do odpowiedzialności społecznej i moralnej. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół uczył się dialogu ze światem bez utraty prawdy Ewangelii. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego idea sprawiedliwości, solidarności i pokoju dojrzała do formy, jaką przyjmie w przyszłych encyklikach. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego świat został przygotowany na początek nowej epoki Kościoła w pontyfikacie Leona XIII. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 150 (Cykl I - Dzień 150 z 175) - [01.01.2015] Tylko to, co jest
@@ -7382,140 +4923,41 @@ Wstęp modlitewny dnia 151. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Leon XIII: papież, który otworzył Kościół na nowy świat
-Etap 7 - Część 1 - Tajemnica 1 - Leon XIII: papież, który otworzył Kościół na
-nowy świat
-(1878–1903; „Rerum Novarum”, nauka społeczna Kościoła, odnowa
-modlitwy, otwarcie na współczesność)
-„Kościół musi być obecny tam, gdzie bije serce świata.”
-— Leon XIII
-„Prawda jest nieśmiertelna.”
-— Leon XIII
-„Nie lękajcie się: Bóg rządzi historią.”
-— duch jego pontyfikatu
-  Rozważanie
-Pontyfikat Leona XIII jest jak brama otwierająca Kościół na nowy świat.
-Świat zmienił się całkowicie — przemysł, ideologie, ruchy narodowe,
-sekularyzacja, nowe nauki, nowe pytania o moralność i godność człowieka.
+(1878–1903; „Rerum Novarum”, nauka społeczna Kościoła, odnowa modlitwy, otwarcie na współczesność) „Kościół musi być obecny tam, gdzie bije serce świata.” — Leon XIII „Prawda jest nieśmiertelna.” — Leon XIII „Nie lękajcie się: Bóg rządzi historią.” — duch jego pontyfikatu Rozważanie Pontyfikat Leona XIII jest jak brama otwierająca Kościół na nowy świat. Świat zmienił się całkowicie — przemysł, ideologie, ruchy narodowe, sekularyzacja, nowe nauki, nowe pytania o moralność i godność człowieka. A Leon XIII nie zamknął się w murach Watykanu. On je otworzył. To papież, który: — rozpoczął erę nowoczesnej nauki społecznej Kościoła, — napisał Rerum Novarum, dokument który zmienił historię, — bronił godności pracy, rodziny, sprawiedliwości i prawa robotników, — otworzył dialog z nauką, — umocnił rolę Maryi w Kościele, — zachęcał do modlitwy różańcowej w każdym domu, wprowadził Kościół w XX wiek. Jego pontyfikat jest jak światło poranka po długiej nocy. Nie wszystko było łatwe — świat go atakował, ideologie kpiły, a politycy ignorowali. Ale jego słowa okazały się prorocze: to, co zbudował, trwa do dziś. Dzięki niemu Kościół nauczył się, że trzeba patrzeć na świat odważnie, czytać znaki czasu, słuchać ludzi, i mówić prawdę z miłością. To pierwszy papież epoki globalnej. Papież światła. Papież przyszłości. Trzy wezwania do działania:
 
-A Leon XIII nie zamknął się w murach Watykanu.
-On je otworzył.
-To papież, który:
-— rozpoczął erę nowoczesnej nauki społecznej Kościoła,
-— napisał Rerum Novarum, dokument który zmienił historię,
-— bronił godności pracy, rodziny, sprawiedliwości i prawa robotników,
-— otworzył dialog z nauką,
-— umocnił rolę Maryi w Kościele,
-— zachęcał do modlitwy różańcowej w każdym domu,
-— wprowadził Kościół w XX wiek.
-Jego pontyfikat jest jak światło poranka po długiej nocy.
-Nie wszystko było łatwe — świat go atakował, ideologie kpiły,
-a politycy ignorowali.
-Ale jego słowa okazały się prorocze:
-to, co zbudował, trwa do dziś.
-Dzięki niemu Kościół nauczył się,
-że trzeba patrzeć na świat odważnie,
-czytać znaki czasu,
-słuchać ludzi,
-i mówić prawdę z miłością.
-To pierwszy papież epoki globalnej.
-Papież światła.
-Papież przyszłości.
-  Trzy wezwania do działania
-Módl się za świat i Kościół tak, jak prosił Leon XIII — przez Maryję.
-Szukaj prawdy odważnie, bo prawda nie boi się żadnej epoki.
-Bądź światłem w nowoczesności — jak Leon XIII był światłem dla swojego
-czasu.
-  Modlitwy
-Ojcze nasz
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
+1. Módl się za świat i Kościół tak, jak prosił Leon XIII — przez Maryję.
 
-ale nas zbaw ode złego. Amen.
-Dziesięć Zdrowaś Maryjo – pełne modlitwy, 10 unikalnych wstawek po
-słowie „Jezus”
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Leon XIII otworzył Kościół na dialog ze światem współczesnym
-bez utraty Ewangelii.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego encyklika „Rerum Novarum” rozpoczęła epokę nauki społecznej
-Kościoła.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Leon XIII wzywał do modlitwy różańcowej jako obrony świata.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół zaczął bronić godności pracy i sprawiedliwości
-społecznej.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Leon XIII umocnił miejsce Maryi w życiu Kościoła jako Matki i
-Królowej świata.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
+2. Szukaj prawdy odważnie, bo prawda nie boi się żadnej epoki.
 
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego papież ten wzywał świat do pokoju w epoce rodzących się
-konfliktów.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Leon XIII odnowił życie teologiczne Kościoła i otworzył drogę
-przyszłym pokoleniom świętych.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego papież ten bronił chrześcijańskiej rodziny i moralności przeciw
-nowym ideologiom.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół został przygotowany do wielkich wyzwań XX wieku.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego pontyfikat Leona XIII stał się światłem przejścia do nowej epoki
-Kościoła.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
+3. Bądź światłem w nowoczesności — jak Leon XIII był światłem dla swojego czasu.
 
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Leon XIII otworzył Kościół na dialog ze światem współczesnym bez utraty Ewangelii. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego encyklika „Rerum Novarum” rozpoczęła epokę nauki społecznej Kościoła. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Leon XIII wzywał do modlitwy różańcowej jako obrony świata. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół zaczął bronić godności pracy i sprawiedliwości społecznej. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Leon XIII umocnił miejsce Maryi w życiu Kościoła jako Matki i Królowej świata. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego papież ten wzywał świat do pokoju w epoce rodzących się konfliktów. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Leon XIII odnowił życie teologiczne Kościoła i otworzył drogę przyszłym pokoleniom świętych. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego papież ten bronił chrześcijańskiej rodziny i moralności przeciw nowym ideologiom. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół został przygotowany do wielkich wyzwań XX wieku. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego pontyfikat Leona XIII stał się światłem przejścia do nowej epoki Kościoła. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 151 (Cykl I - Dzień 151 z 175) - [01.01.2015] Usprawiedliwienie
@@ -7683,144 +5125,41 @@ Wstęp modlitewny dnia 152. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Pius X: Eucharystia jako serce odnowy Kościoła
-Etap 7 - Część 1 - Tajemnica 2 - Pius X: Eucharystia jako serce odnowy
-Kościoła
-(1903–1914; Komunia Święta dzieci, odnowa liturgii, walka o świętość
-kapłaństwa, „Przystępujcie często do stołu Pańskiego”)
-„Eucharystia jest najkrótszą i najbezpieczniejszą drogą do nieba.”
-— św. Pius X
-„Chcę widzieć dzieci przy Komunii — bo one są najbliżej Boga.”
-— św. Pius X
-„Odnów wszystko w Chrystusie.”
-— Motto jego pontyfikatu: „Instaurare omnia in Christo”
-Pontyfikat św. Piusa X był jak otwarcie okien w kościele,
-aby całe wnętrze wypełniło się światłem Eucharystii.
-Tam, gdzie Leon XIII odnowił nauczanie społeczne,
-Pius X odnowił serce Kościoła —
-adorację, Komunię, liturgię, modlitwę.
-Najważniejsze dzieła Piusa X:
+(1903–1914; Komunia Święta dzieci, odnowa liturgii walka o świętość kapłaństwa, „Przystępujcie często do stołu Pańskiego”) „Eucharystia jest najkrótszą i najbezpieczniejszą drogą do nieba.” — św. Pius X „Chcę widzieć dzieci przy Komunii, bo one są najbliżej Boga.” — św. Pius X „Odnów wszystko w Chrystusie.” — Motto jego pontyfikatu: „Instaurare omnia in Christo” Pontyfikat św. Piusa X był jak otwarcie okien w kościele aby całe wnętrze wypełniło się światłem Eucharystii. Tam, gdzie Leon XIII odnowił nauczanie społeczne, Pius X odnowił serce Kościoła — adorację, Komunię, liturgię, modlitwę. Najważniejsze dzieła Piusa X. Powszechna Komunia Święta Pius X pragnął, aby ludzie nie tylko patrzyli, ale przyjmowali Jezusa. Uczył, że Eucharystia nie jest nagrodą dla doskonałych, ale pokarmem dla słabych. Dzięki niemu wierni zaczęli częściej przyjmować Komunię. Komunia dzieci Nikt wcześniej tego nie odważył się zrobić. Pius X zrozumiał, że dzieci mają serca czystsze niż wielu dorosłych. Dlatego powiedział: „Pozwólcie dzieciom przychodzić do Mnie.” To jedna z największych rewolucji duchowych XX wieku. Odnowa liturgii i muzyki kościelnej To on przywrócił znaczenie chorału gregoriańskiego i uporządkował Msze Święte, zwracając liturgię ku sacrum. Świętość kapłanów czasach chaosu moralnego Pius X przypominał, że kapłan musi być ikoną Chrystusa. Walka o czystość wiary Bez gniewu, ale z odwagą bronił prawdy przed błędem. To papież, który odnowił nie struktury, lecz duszę Kościoła. Uczył, że odrodzenie świata zaczyna się przy ołtarzu tam, gdzie Chrystus daje się człowiekowi w Komunii. Trzy wezwania do działania:
 
-Powszechna Komunia Święta
-Pius X pragnął, aby ludzie nie tylko patrzyli,
-ale przyjmowali Jezusa.
-Uczył, że Eucharystia nie jest nagrodą dla doskonałych,
-ale pokarmem dla słabych.
-Dzięki niemu wierni zaczęli częściej przyjmować Komunię.
-Komunia dzieci
-Nikt wcześniej tego nie odważył się zrobić.
-Pius X zrozumiał, że dzieci mają serca czystsze niż wielu dorosłych.
-Dlatego powiedział:
-„Pozwólcie dzieciom przychodzić do Mnie.”
-To jedna z największych rewolucji duchowych XX wieku.
-Odnowa liturgii i muzyki kościelnej
-To on przywrócił znaczenie chorału gregoriańskiego
-i uporządkował Msze Święte,
-zwracając liturgię ku sacrum.
-Świętość kapłanów
-W czasach chaosu moralnego Pius X przypominał,
-że kapłan musi być ikoną Chrystusa.
-Walka o czystość wiary
-Bez gniewu, ale z odwagą bronił prawdy przed błędem.
-To papież, który odnowił nie struktury, lecz duszę Kościoła.
-Uczył, że odrodzenie świata zaczyna się
-przy ołtarzu — tam, gdzie Chrystus daje się człowiekowi w Komunii.
-  Trzy wezwania do działania
-Przystępuj często do Eucharystii — to najpiękniejsza droga do świętości.
-Uwielbiaj Jezusa w adoracji — On przemienia serce.
-Chroń dzieci i prowadź je do Boga — Pius X wierzył w świętość
-najmłodszych.
-  Modlitwy
-Ojcze nasz
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
+1. Przystępuj często do Eucharystii — to najpiękniejsza droga do świętości.
 
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Dziesięć Zdrowaś Maryjo — pełne modlitwy, 10 wstawek, każda
-niepowtarzalna
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego święty Pius X odnowił miłość Kościoła do Najświętszej
-Eucharystii.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego dzieci zostały zaproszone do wczesnej Komunii Świętej jako
-najbliższe Jego Sercu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wierni odzyskali częstą Komunię jako źródło siły ducha.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego liturgia została oczyszczona i przywrócona do piękna chorału
-gregoriańskiego.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego kapłani otrzymali wezwanie do życia w świętości i czystości
-serca.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
+2. Uwielbiaj Jezusa w adoracji On przemienia serce.
 
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół został umocniony w walce o czystość wiary w epoce
-zamętu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego wierni odkryli adorację Najświętszego Sakramentu jako źródło
-pokoju.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego papież ten wskazał na Eucharystię jako centrum odnowy
-duchowej całego Kościoła.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Eucharystia została ukazana jako najpewniejsza droga do
-świętości zwyczajnych ludzi.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pius X dał Kościołowi wizję odnowy zaczynającej się przy
-ołtarzu Pańskim.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
+3. Chroń dzieci i prowadź je do Boga — Pius X wierzył w świętość najmłodszych.
 
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje przyjdź królestwo Twoje; bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
+
+dopowiedzeniami)
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego święty Pius X odnowił miłość Kościoła do Najświętszej Eucharystii. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego dzieci zostały zaproszone do wczesnej Komunii Świętej jako najbliższe Jego Sercu. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wierni odzyskali częstą Komunię jako źródło siły ducha. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego liturgia została oczyszczona i przywrócona do piękna chorału gregoriańskiego. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego kapłani otrzymali wezwanie do życia w świętości i czystości serca. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół został umocniony w walce o czystość wiary w epoce zamętu. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego wierni odkryli adorację Najświętszego Sakramentu jako źródło pokoju. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego papież ten wskazał na Eucharystię jako centrum odnowy duchowej całego Kościoła. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Eucharystia została ukazana jako najpewniejsza droga do świętości zwyczajnych ludzi. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pius X dał Kościołowi wizję odnowy zaczynającej się przy ołtarzu Pańskim. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku, teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 152 (Cykl I - Dzień 152 z 175) - [04.01.2015] Chrzest – wiara powinna być wyborem
@@ -7928,150 +5267,35 @@ Wstęp modlitewny dnia 153. Korona 12 Gwiazd Niewiasty z Apokalipsy (Ap 12,1) w 
 
 ## RHZ365
 ### Pius XI: Kościół wobec totalitaryzmów (1922–1939; potępienie nazizmu, faszyzmu i komunizmu; encykliki: „Mit
-Etap 7 - Część 1 - Tajemnica 3 - Pius XI: Kościół wobec totalitaryzmów
-(1922–1939; potępienie nazizmu, faszyzmu i komunizmu; encykliki: „Mit
-Brennender Sorge”, „Quadragesimo Anno”, „Divini Redemptoris”)
+(1922–1939; potępienie nazizmu, faszyzmu i komunizmu encykliki: „Mit Brennender Sorge”, „Quadragesimo Anno”, „Divini Redemptoris”) „Chrystus jest Królem, którego żadne imperium nie może obalić.” Pius XI „Kościół nie może milczeć, gdy deptana jest godność człowieka.” — Pius XI „Jedyną nadzieją świata jest Chrystus.” duch jego pontyfikatu Rozważanie Pontyfikat Piusa XI przypada na czas, kiedy świat znalazł się na krawędzi otchłani. Totalitaryzmy: trzy ciemności XX wieku — komunizm sowiecki, nazizm niemiecki, — faszyzm włoski. Każdy z nich próbował stworzyć nowego człowieka bez Boga, zastępując Ewangelię ideologią, a miłość — przemocą. Pius XI nie ugiął się przed żadnym z nich. „Mit Brennender Sorge” — przeciw nazizmowi Encyklika napisana po niemiecku (pierwszy raz w historii) przemycona potajemnie do Niemiec, czytana z ambon w jednym dniu, zanim Gestapo zdążyło reagować. Pius XI nazwał nazizm wprost pogaństwem politycznym. „Quadragesimo Anno” przeciw niesprawiedliwości społecznej Dokument rozwijający Rerum Novarum, broniący biednych, robotników, rodziny i prawa naturalnego. „Divini Redemptoris” — przeciw komunizmowi Najmocniejsze potępienie totalitaryzmu ateistycznego w historii. Pius XI napisał, że komunizm niszczy: — osobę, — rodzinę, moralność, — sumienie, — wiarę. Obrona Żydów Gdy wielu milczało, on mówił, że „chrześcijanie i Żydzi mają jednego Ojca w niebie” i nie wolno gardzić żadnym narodem. Duch męstwa Pius XI ostrzegał świat, że jeśli człowiek usunie Boga, człowiek zniszczy człowieka. Niestety miał rację. Tuż po jego śmierci wybuchła II wojna światowa. To papież prorok, papież odważnego sumienia, który w najciemniejszej godzinie XX wieku zapalając światło prawdy, powiedział światu, że żadna ideologia nie ma prawa zastąpić Boga. Trzy wezwania do działania Broń godności ludzkiej zawsze — także wtedy, gdy jest to trudne. Nie milcz wobec zła — milczenie karmi tyranię. Módl się za narody i za tych którzy żyją pod jarzmem ideologii. Modlitwy
 
-„Chrystus jest Królem, którego żadne imperium nie może obalić.”
-— Pius XI
-„Kościół nie może milczeć, gdy deptana jest godność człowieka.”
-— Pius XI
-„Jedyną nadzieją świata jest Chrystus.”
-— duch jego pontyfikatu
-  Rozważanie
-Pontyfikat Piusa XI przypada na czas,
-kiedy świat znalazł się na krawędzi otchłani.
-Totalitaryzmy: trzy ciemności XX wieku
-— komunizm sowiecki,
-— nazizm niemiecki,
-— faszyzm włoski.
-Każdy z nich próbował stworzyć nowego człowieka bez Boga,
-zastępując Ewangelię ideologią, a miłość — przemocą.
-Pius XI nie ugiął się przed żadnym z nich.
-„Mit Brennender Sorge” — przeciw nazizmowi
+Ojcze nasz, któryś jest w niebie, święć się imię Twoje przyjdź królestwo Twoje, bądź wola Twoja jako w niebie, tak i na ziemi. Chleba naszego powszedniego daj nam dzisiaj; i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom; i nie wódź nas na pokuszenie, ale nas zbaw ode złego. Amen.
 
-Encyklika napisana po niemiecku (pierwszy raz w historii),
-przemycona potajemnie do Niemiec,
-czytana z ambon w jednym dniu, zanim Gestapo zdążyło reagować.
-Pius XI nazwał nazizm wprost pogaństwem politycznym.
-„Quadragesimo Anno” — przeciw niesprawiedliwości społecznej
-Dokument rozwijający Rerum Novarum,
-broniący biednych, robotników, rodziny i prawa naturalnego.
-„Divini Redemptoris” — przeciw komunizmowi
-Najmocniejsze potępienie totalitaryzmu ateistycznego w historii.
-Pius XI napisał, że komunizm niszczy:
-— osobę,
-— rodzinę,
-— moralność,
-— sumienie,
-— wiarę.
-Obrona Żydów
-Gdy wielu milczało, on mówił, że
-„chrześcijanie i Żydzi mają jednego Ojca w niebie”
-i nie wolno gardzić żadnym narodem.
-Duch męstwa
-Pius XI ostrzegał świat, że
-jeśli człowiek usunie Boga, człowiek zniszczy człowieka.
-Niestety miał rację.
-Tuż po jego śmierci wybuchła II wojna światowa.
-To papież prorok, papież odważnego sumienia,
-który w najciemniejszej godzinie XX wieku
-zapalając światło prawdy, powiedział światu,
-że żadna ideologia nie ma prawa zastąpić Boga.
-  Trzy wezwania do działania
-Broń godności ludzkiej zawsze — także wtedy, gdy jest to trudne.
-Nie milcz wobec zła — milczenie karmi tyranię.
-Módl się za narody i za tych, którzy żyją pod jarzmem ideologii.
-  Modlitwy
-Ojcze nasz
-Ojcze nasz, któryś jest w niebie,
-święć się imię Twoje;
-przyjdź królestwo Twoje;
+dopowiedzeniami)
 
-bądź wola Twoja jako w niebie, tak i na ziemi.
-Chleba naszego powszedniego daj nam dzisiaj;
-i odpuść nam nasze winy, jako i my odpuszczamy naszym winowajcom;
-i nie wódź nas na pokuszenie,
-ale nas zbaw ode złego. Amen.
-Dziesięć Zdrowaś Maryjo — pełne brzmienie, pełne teksty, 10 unikalnych
-wstawek
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pius XI potępił nazizm jako pogańskie ubóstwienie państwa.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół dzięki encyklice „Mit Brennender Sorge” obronił prawdę
-o godności człowieka.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pius XI odważnie wystąpił przeciw komunizmowi
-ateistycznemu w „Divini Redemptoris”.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego papież ten bronił rodziny jako bastionu wolności duchowej w
-totalitarnym świecie.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pius XI potępił nazizm jako pogańskie ubóstwienie państwa. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-dla którego Pius XI upomniał się o prawa prześladowanych Żydów.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół pod jego przewodnictwem odważył się nazwać
-ideologię złem moralnym.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego chrześcijanie otrzymali od Piusa XI przykład męstwa sumienia.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Kościół nauczył się od Piusa XI sprzeciwu wobec każdej formy
-totalitaryzmu.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego sumienie zostało uznane za święty głos Boga ponad wszelkimi
-ideologiami.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
-Zdrowaś Maryjo, łaski pełna, Pan z Tobą,
-błogosławionaś Ty między niewiastami
-i błogosławiony owoc żywota Twojego, Jezus,
-dla którego Pius XI stał się prorokiem, ostrzegając świat przed katastrofą II
-wojny światowej.
-Święta Maryjo, Matko Boża, módl się za nami grzesznymi
-teraz i w godzinę śmierci naszej. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół dzięki encyklice „Mit Brennender Sorge” obronił prawdę o godności człowieka. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
 
-Chwała Ojcu i Synowi, i Duchowi Świętemu,
-jak była na początku, teraz i zawsze,
-i na wieki wieków. Amen.
-O mój Jezu, przebacz nam nasze grzechy,
-zachowaj nas od ognia piekielnego,
-zaprowadź wszystkie dusze do nieba
-i dopomóż szczególnie tym,
-które najbardziej potrzebują Twojego miłosierdzia. Amen.
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pius XI odważnie wystąpił przeciw komunizmowi ateistycznemu w „Divini Redemptoris”. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego papież ten bronił rodziny jako bastionu wolności duchowej w totalitarnym świecie. Święta Maryjo Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pius XI upomniał się o prawa prześladowanych Żydów. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół pod jego przewodnictwem odważył się nazwać ideologię złem moralnym. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego chrześcijanie otrzymali od Piusa XI przykład męstwa sumienia. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Kościół nauczył się od Piusa XI sprzeciwu, wobec każdej formy totalitaryzmu. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego sumienie zostało uznane za święty głos Boga ponad wszelkimi ideologiami. Święta Maryjo, Matko Boża, módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Zdrowaś Maryjo, łaski pełna, Pan z Tobą, błogosławionaś Ty między niewiastami i błogosławiony owoc żywota Twojego Jezus, dla którego Pius XI stał się prorokiem, ostrzegając świat przed katastrofą II wojny światowej. Święta Maryjo, Matko Boża módl się za nami grzesznymi teraz i w godzinę śmierci naszej. Amen.
+
+Chwała Ojcu i Synowi, i Duchowi Świętemu, jak była na początku teraz i zawsze, i na wieki wieków. Amen.
+
+O mój Jezu, przebacz nam nasze grzechy, zachowaj nas od ognia piekielnego, zaprowadź wszystkie dusze do nieba i dopomóż szczególnie tym, które najbardziej potrzebują Twojego miłosierdzia. Amen.
 
 ## WnR365
 ### WnR365 — Widoki na Raj - Dzień 153 (Cykl I - Dzień 153 z 175) - [04.01.2015] Sen o wzajemnym pokłonie i godności dziecka Bożego
