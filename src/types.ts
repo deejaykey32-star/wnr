@@ -37,3 +37,15 @@ export interface PrayerStep {
   beadNumber?: number; // 1 to 10 for Hail Marys
   text?: string;
 }
+
+export interface UrlLinkItem {
+  id: string;
+  title: string;
+  url: string;
+  shortUrl: string;
+  qrCaption?: string; // Tytuł/podpis wyświetlany pod kodem QR
+  qrCodeDataUrl?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+

@@ -36,13 +36,21 @@ filesToCopy.forEach((filename) => {
   }
 });
 
-// 4. Copy export-md directory to dist if present
+// 4. Copy export-md and data directories to dist if present
 const exportMdPublic = path.join(publicDir, 'export-md');
 const exportMdDist = path.join(distDir, 'export-md');
 if (fs.existsSync(exportMdPublic)) {
   fs.cpSync(exportMdPublic, exportMdDist, { recursive: true });
   console.log('[Postbuild] Copied public/export-md → dist/export-md');
 }
+
+const dataPublic = path.join(publicDir, 'data');
+const dataDist = path.join(distDir, 'data');
+if (fs.existsSync(dataPublic)) {
+  fs.cpSync(dataPublic, dataDist, { recursive: true });
+  console.log('[Postbuild] Copied public/data → dist/data (including url_links.json)');
+}
+
 
 // 5. Invalidate Service Worker cache on every build
 const distSw = path.join(distDir, 'sw.js');

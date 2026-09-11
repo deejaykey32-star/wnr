@@ -4,9 +4,11 @@ import {
   Quote, List, Image, QrCode, Eye, Check, X,
   AlignLeft, AlignCenter, AlignRight, AlignJustify,
   Sun, Moon, Type, Palette, Highlighter,
-  Code, FileCode, Terminal, Sparkles, FolderOpen
+  Code, FileCode, Terminal, Sparkles, FolderOpen, Link as LinkIcon
 } from 'lucide-react';
 import { RichTextRenderer, normalizeImagePath } from '../utils/richTextHelper';
+import { UrlQrModal } from './UrlQrModal';
+
 
 interface WysiwygToolbarProps {
   text: string;
@@ -116,6 +118,7 @@ export const WysiwygToolbar: React.FC<WysiwygToolbarProps> = ({
   // Popover States
   const [showImagePopover, setShowImagePopover] = useState<boolean>(false);
   const [showQrPopover, setShowQrPopover] = useState<boolean>(false);
+  const [showUrlQrModal, setShowUrlQrModal] = useState<boolean>(false);
   const [showHtmlPopover, setShowHtmlPopover] = useState<boolean>(false);
   const [showFontDropdown, setShowFontDropdown] = useState<boolean>(false);
   const [showTextColorDropdown, setShowTextColorDropdown] = useState<boolean>(false);
@@ -874,6 +877,20 @@ export const WysiwygToolbar: React.FC<WysiwygToolbarProps> = ({
             )}
           </div>
 
+          {/* Moduł Bazy Linków, Skróconych URL & QR Kodów */}
+          <button
+            type="button"
+            onClick={() => {
+              closeAllPopovers();
+              setShowUrlQrModal(true);
+            }}
+            className="px-2.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-gradient-to-r from-amber-500/20 via-indigo-500/20 to-emerald-500/20 hover:from-amber-500/40 hover:via-indigo-500/40 hover:to-emerald-500/40 text-amber-300 border border-amber-500/40 shadow-sm"
+            title="Otwórz Moduł URL, Skrócony URL & Baza Kodów QR (Repozytorium GitHub & Cloudflare Pages)"
+          >
+            <QrCode className="w-4 h-4 text-amber-400" />
+            <span className="hidden sm:inline">Baza URL & QR</span>
+          </button>
+
         </div>
 
         {/* Right side: 3-Way Mode Switcher & Theme Switcher */}
@@ -993,6 +1010,14 @@ export const WysiwygToolbar: React.FC<WysiwygToolbarProps> = ({
           <span>Długość: <b>{text.length}</b> znaków</span>
         </span>
       </div>
+
+      {/* Modal Bazy URL & Kodów QR */}
+      <UrlQrModal
+        isOpen={showUrlQrModal}
+        onClose={() => setShowUrlQrModal(false)}
+        onInsertToWysiwyg={(snippet) => handleFormat(snippet)}
+        theme={theme}
+      />
     </div>
   );
 };

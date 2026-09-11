@@ -1,0 +1,42 @@
+[
+  {
+    "id": "wnr365-main",
+    "title": "Widoki Na Raj 365 - Strona Główna",
+    "url": "https://widokinaraj.pl/#/wnr365-day-1",
+    "shortUrl": "https://widokinaraj.pl/s/wnr365",
+    "qrCaption": "Zeskanuj QR, aby otworzyć Widoki Na Raj 365",
+    "qrCodeDataUrl": "",
+    "createdAt": "2026-09-11T12:00:00.000Z",
+    "updatedAt": "2026-09-11T12:00:00.000Z"
+  },
+  {
+    "id": "rhz365-day1",
+    "title": "Różaniec Święty RHZ365 - Dzień 1",
+    "url": "https://widokinaraj.pl/#/rhz365-day-1",
+    "shortUrl": "https://widokinaraj.pl/s/rhz1",
+    "qrCaption": "RHZ365 - Różaniec Święty Dzień 1",
+    "qrCodeDataUrl": "",
+    "createdAt": "2026-09-11T12:00:00.000Z",
+    "updatedAt": "2026-09-11T12:00:00.000Z"
+  },
+  {
+    "id": "biblia365-main",
+    "title": "Pismo Święte Biblia 365 Czytań",
+    "url": "https://widokinaraj.pl/#/bible365",
+    "shortUrl": "https://widokinaraj.pl/s/biblia365",
+    "qrCaption": "Biblia 365 - Czytanie na dziś",
+    "qrCodeDataUrl": "",
+    "createdAt": "2026-09-11T12:00:00.000Z",
+    "updatedAt": "2026-09-11T12:00:00.000Z"
+  },
+  {
+    "id": "ebook-pdf",
+    "title": "Księga A5 WnR365 E-Book PDF",
+    "url": "https://widokinaraj.pl/WnR365.pdf",
+    "shortUrl": "https://widokinaraj.pl/s/ebook-pdf",
+    "qrCaption": "Pobierz E-Book WnR365 w formacie PDF",
+    "qrCodeDataUrl": "",
+    "createdAt": "2026-09-11T12:00:00.000Z",
+    "updatedAt": "2026-09-11T12:00:00.000Z"
+  }
+]
