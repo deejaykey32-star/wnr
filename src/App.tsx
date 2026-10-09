@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useMemo, lazy, Suspense } from 'react';
+import { useEffect, useState, useRef, useMemo, useCallback, lazy, Suspense } from 'react';
 import { auth, db, loginWithGoogle, logout, onAuthStateChanged, handleRedirectLogin, User } from './firebase';
 import { collection, getDocs, doc, setDoc, onSnapshot } from 'firebase/firestore';
 import { 
@@ -470,11 +470,18 @@ export default function App() {
     setClientVideoUrl(null);
 
     try {
-      // Przygotuj kroki z tekstem modlitwy
-      const stepsWithText = steps.map((step) => ({
-        ...step,
-        text: step.text || prayers[step.prayerType]?.text || ''
-      })).filter(s => (s.text?.trim().length ?? 0) > 2);
+      // Przygotuj kroki z DOKŁADNIE tym samym tekstem, który aplikacja wyświetla i czyta lektor
+      // (wcześniej brało się tylko prayers[prayerType] — gubiło to „O mój Jezu", rozważanie tajemnicy
+      // i dzienne wersje Zdrowaś Maryjo, przez co lektor i tekst w wideo się rozjeżdżały).
+      const stepsWithText = steps.map((step) => {
+        const header = resolveStepHeader(step);
+        let body = resolveStepText(step) || '';
+        // Tytuł tajemnicy trafia do nagłówka — nie powtarzamy go na początku treści
+        if (header && body.startsWith(header)) {
+          body = body.slice(header.length).replace(/^[\s.:–—-]+/, '');
+        }
+        return { ...step, header, text: body };
+      }).filter(s => (s.text?.trim().length ?? 0) > 2);
 
       const fullText = stepsWithText.map(s => s.text).join('\n\n');
 
@@ -1327,7 +1334,9 @@ export default function App() {
   }, [activeStepIndex, soundEnabled, activeStep.id]);
 
   // Calculate text of the prayer to read
-  const textToRead = useMemo(() => {
+  // Resolves the exact text spoken for a given step. Shared by live TTS and the MP4 generator,
+  // so the video narrator reads exactly the same text the app displays (incl. Chwała Ojcu + O mój Jezu).
+  const resolveStepText = useCallback((activeStep: (typeof steps)[number]): string => {
     if (!activeStep) return "";
 
     const stepOverrideKey = `custom_step_${activeStep.id}`;
@@ -1401,7 +1410,19 @@ export default function App() {
       const currentPrayer = prayers[activeStep.prayerType] || DEFAULT_PRAYERS[activeStep.prayerType];
       return `${currentPrayer?.text || ''}.`;
     }
-  }, [activeStep, prayers, cycleInfo.cycleType, cycleInfo.dayOfCycle]);
+  }, [prayers, cycleInfo.cycleType, cycleInfo.dayOfCycle]);
+
+  const textToRead = useMemo(() => resolveStepText(activeStep), [resolveStepText, activeStep]);
+
+  // Header (information about the content) for a step in the MP4 video — kept apart from the prayer body.
+  const resolveStepHeader = useCallback((step: (typeof steps)[number]): string => {
+    if (!step) return '';
+    if (step.prayerType === 'mystery' && !prayers[`custom_step_${step.id}`]) {
+      const mysteryData = getActiveDecadeMystery(cycleInfo.cycleType, cycleInfo.dayOfCycle, step.decadeIndex || 1, prayers);
+      return mysteryData.rgba.title || step.label;
+    }
+    return step.label;
+  }, [prayers, cycleInfo.cycleType, cycleInfo.dayOfCycle]);
 
   // AI TTS Narration when playing, step changes or content is edited
   useEffect(() => {

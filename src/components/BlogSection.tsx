@@ -444,7 +444,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         undefined, // stepsData
         undefined, // rgbaBeads
         undefined, // cmykBeads
-        "Widoki na Raj" // titleFallback
+        activeEntry.title || "Widoki na Raj" // nagłówek wideo (tytuł wpisu)
       );
 
       setClientVideoUrl(videoUrl);
