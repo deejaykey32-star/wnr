@@ -233,8 +233,8 @@ def run_pipeline_worker(text: str, auto_upload_yt: bool = False, playlist_id: st
         env["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY", "")
         env["EDGE_VOICE"] = "elevenlabs"
         env["TTS_RATE"] = tts_rate or "-18%"
-        env["ELEVENLABS_API_KEY"] = os.getenv("ELEVENLABS_API_KEY", "sk_1776a5dc766a64259eeb7dfe960e0d303217939568f6462c")
-        env["ELEVENLABS_VOICE_ID"] = os.getenv("ELEVENLABS_VOICE_ID", "yu6bC9aJwpEUndYOjPEg")
+        env["ELEVENLABS_API_KEY"] = os.getenv("ELEVENLABS_API_KEY", "")
+        env["ELEVENLABS_VOICE_ID"] = os.getenv("ELEVENLABS_VOICE_ID", "")
 
         process = subprocess.Popen(
             cmd,
